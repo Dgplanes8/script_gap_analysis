@@ -1,0 +1,127 @@
+{
+  "research_objective": "Capture authentic audience voice and social insights for Jones Road Beauty",
+  "brand_context": {
+    "brand_name": "Jones Road Beauty",
+    "industry": "Clean Beauty & Cosmetics",
+    "competitors": [
+      "Glossier",
+      "Fenty Beauty",
+      "Rare Beauty",
+      "Ilia Beauty",
+      "Tower 28",
+      "Kosas"
+    ],
+    "target_pain_points": [
+      "Complex beauty routines",
+      "Heavy makeup",
+      "Skin sensitivity",
+      "Time constraints",
+      "Finding clean products that work"
+    ],
+    "target_interests": [
+      "Clean beauty",
+      "Wellness",
+      "Effortless style",
+      "Self-improvement",
+      "Quality skincare"
+    ]
+  },
+  "subreddits": {
+    "primary": [
+      "marketing",
+      "advertising",
+      "entrepreneur",
+      "smallbusiness",
+      "reviews",
+      "askreddit",
+      "personalfinance",
+      "buyitforlife",
+      "productivity",
+      "getmotivated",
+      "advice",
+      "needadvice"
+    ],
+    "industry_specific": [
+      "beauty",
+      "skincare",
+      "makeup",
+      "hair",
+      "skincareaddiction"
+    ],
+    "interest_based": [],
+    "total_targets": 17
+  },
+  "search_terms": [
+    "Jones Road Beauty",
+    "alternatives to Jones Road Beauty",
+    "Jones Road Beauty review",
+    "Jones Road Beauty vs",
+    "best Clean Beauty & Cosmetics solution",
+    "Clean Beauty & Cosmetics recommendations",
+    "help with Clean Beauty & Cosmetics",
+    "Clean Beauty & Cosmetics frustrations",
+    "Clean Beauty & Cosmetics complaints",
+    "Glossier",
+    "Glossier review",
+    "Jones Road Beauty vs Glossier",
+    "alternatives to Glossier",
+    "Fenty Beauty",
+    "Fenty Beauty review",
+    "Jones Road Beauty vs Fenty Beauty",
+    "alternatives to Fenty Beauty",
+    "Rare Beauty",
+    "Rare Beauty review",
+    "Jones Road Beauty vs Rare Beauty",
+    "alternatives to Rare Beauty",
+    "Ilia Beauty",
+    "Ilia Beauty review",
+    "Jones Road Beauty vs Ilia Beauty",
+    "alternatives to Ilia Beauty",
+    "Tower 28",
+    "Tower 28 review",
+    "Jones Road Beauty vs Tower 28",
+    "alternatives to Tower 28",
+    "Kosas",
+    "Kosas review",
+    "Jones Road Beauty vs Kosas",
+    "alternatives to Kosas",
+    "struggling with Complex beauty routines",
+    "help with Complex beauty routines",
+    "Complex beauty routines solutions",
+    "struggling with Heavy makeup",
+    "help with Heavy makeup",
+    "Heavy makeup solutions",
+    "struggling with Skin sensitivity",
+    "help with Skin sensitivity",
+    "Skin sensitivity solutions",
+    "struggling with Time constraints",
+    "help with Time constraints",
+    "Time constraints solutions",
+    "struggling with Finding clean products that work",
+    "help with Finding clean products that work",
+    "Finding clean products that work solutions"
+  ],
+  "research_parameters": {
+    "time_period": "past_year",
+    "minimum_upvotes": 5,
+    "minimum_comments": 3,
+    "sort_by": [
+      "relevance",
+      "top",
+      "new"
+    ],
+    "include_comments": true,
+    "max_posts_per_term": 50,
+    "max_comments_per_post": 20
+  },
+  "analysis_focus": [
+    "authentic_language_patterns",
+    "emotional_expressions",
+    "pain_point_discussions",
+    "solution_experiences",
+    "community_sentiment",
+    "objection_patterns",
+    "success_stories",
+    "failure_stories"
+  ]
+}

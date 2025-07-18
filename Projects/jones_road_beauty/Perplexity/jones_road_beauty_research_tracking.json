@@ -1,0 +1,12 @@
+{
+  "brand_name": "Jones Road Beauty",
+  "research_created": "2025-07-18 18:01:19",
+  "prompts_created": [
+    "competitor_analysis",
+    "pain_points_research",
+    "solution_landscape",
+    "main_research"
+  ],
+  "status": "prompts_ready",
+  "next_action": "Execute Perplexity MCP research using the generated prompts"
+}

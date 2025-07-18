@@ -1,0 +1,31 @@
+{
+  "brand_name": "Jones Road Beauty",
+  "input_sources": {
+    "apify_videos": "/Users/nataliebasque/Ad Workflow/Projects/jones_road_beauty/Apify/videos/",
+    "manual_uploads": "/Users/nataliebasque/Ad Workflow/Projects/jones_road_beauty/Whisper/input_videos/",
+    "supported_formats": [
+      ".mp4",
+      ".mov",
+      ".avi",
+      ".mkv",
+      ".webm"
+    ]
+  },
+  "transcription_settings": {
+    "language": "en",
+    "include_timestamps": true,
+    "include_confidence_scores": true,
+    "speaker_identification": false,
+    "output_format": "json"
+  },
+  "analysis_focus": [
+    "opening_hooks",
+    "problem_identification",
+    "solution_presentation",
+    "emotional_triggers",
+    "call_to_action_phrases",
+    "social_proof_elements",
+    "urgency_language",
+    "benefits_communication"
+  ]
+}

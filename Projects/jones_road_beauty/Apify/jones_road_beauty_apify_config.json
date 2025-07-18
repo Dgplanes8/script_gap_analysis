@@ -1,0 +1,98 @@
+{
+  "scraping_objective": "Comprehensive Facebook Ads Library analysis for Jones Road Beauty and competitors",
+  "brand_context": {
+    "brand_name": "Jones Road Beauty",
+    "industry": "Clean Beauty & Cosmetics",
+    "competitors": [
+      "Glossier",
+      "Fenty Beauty",
+      "Rare Beauty",
+      "Ilia Beauty",
+      "Tower 28",
+      "Kosas"
+    ],
+    "products_services": [
+      "Everyday Sunscreen",
+      "What The Foundation",
+      "Miracle Balm",
+      "The Best Pencil",
+      "Face Oil"
+    ]
+  },
+  "search_configuration": {
+    "search_terms": [
+      "Jones Road Beauty",
+      "Glossier",
+      "Fenty Beauty",
+      "Rare Beauty",
+      "Ilia Beauty",
+      "Tower 28",
+      "Kosas",
+      "beauty",
+      "skincare",
+      "makeup",
+      "cosmetics",
+      "anti-aging",
+      "hair care",
+      "Everyday Sunscreen",
+      "What The Foundation",
+      "Miracle Balm",
+      "The Best Pencil",
+      "Face Oil"
+    ],
+    "countries": [
+      "US",
+      "CA",
+      "GB",
+      "AU"
+    ],
+    "ad_type": "all",
+    "ad_active_status": "all",
+    "search_time_frame": "past_year",
+    "max_ads_per_search": 100
+  },
+  "data_extraction_targets": {
+    "ad_metadata": [
+      "ad_id",
+      "advertiser_name",
+      "ad_creation_date",
+      "ad_start_date",
+      "ad_status",
+      "platforms",
+      "countries_shown",
+      "impressions_range"
+    ],
+    "creative_elements": [
+      "ad_text",
+      "headline",
+      "description",
+      "call_to_action",
+      "images",
+      "videos",
+      "carousel_cards"
+    ],
+    "targeting_insights": [
+      "age_targeting",
+      "gender_targeting",
+      "location_targeting",
+      "interest_targeting",
+      "behavior_targeting"
+    ],
+    "performance_indicators": [
+      "impressions_range",
+      "spend_range",
+      "ad_duration",
+      "platform_distribution"
+    ]
+  },
+  "analysis_priorities": [
+    "messaging_patterns",
+    "creative_formats",
+    "emotional_hooks",
+    "call_to_action_variations",
+    "visual_style_analysis",
+    "video_content_analysis",
+    "seasonal_patterns",
+    "targeting_strategies"
+  ]
+}

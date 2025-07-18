@@ -1,0 +1,16 @@
+{
+  "brand_name": "Jones Road Beauty",
+  "competitors": [
+    "Glossier",
+    "Fenty Beauty",
+    "Rare Beauty",
+    "Ilia Beauty"
+  ],
+  "steps_completed": [
+    1
+  ],
+  "created_at": "20250718_175932",
+  "last_updated": "20250718_175932",
+  "current_step": 2,
+  "next_action": "Execute Perplexity research using MCP"
+}

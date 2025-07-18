@@ -1,0 +1,13 @@
+{
+  "brand_name": "Jones Road Beauty",
+  "config_created": "2025-07-18 18:01:36",
+  "subreddits_to_research": 17,
+  "search_terms_count": 48,
+  "analysis_prompts": [
+    "main_analysis",
+    "competitive_sentiment",
+    "messaging_validation"
+  ],
+  "status": "config_ready",
+  "next_action": "Execute Reddit API research using the configuration"
+}
