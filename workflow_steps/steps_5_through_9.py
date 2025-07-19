@@ -29,9 +29,9 @@ def load_brand_profile(brand_name: str, base_path: str = None) -> Dict:
     with open(brand_file, "r") as f:
         return json.load(f)
 
-def execute_whisper_transcription(brand_name: str, base_path: str = None):
-    """Step 5: Execute Whisper transcription setup"""
-    print(f"🎙️ Step 5: Setting up Whisper transcription for {brand_name}...")
+def execute_assemblyai_transcription(brand_name: str, base_path: str = None):
+    """Step 5: Execute AssemblyAI transcription setup"""
+    print(f"🎙️ Step 5: Setting up AssemblyAI transcription for {brand_name}...")
     
     if base_path is None:
         base_path = Path("/Users/nataliebasque/Ad Workflow")
@@ -40,25 +40,36 @@ def execute_whisper_transcription(brand_name: str, base_path: str = None):
     
     clean_brand_name = brand_name.replace(" ", "_").lower()
     brand_folder = base_path / "Projects" / clean_brand_name
-    whisper_folder = brand_folder / "Whisper"
+    transcription_folder = brand_folder / "AssemblyAI"
+    
+    # Create AssemblyAI folder
+    transcription_folder.mkdir(exist_ok=True)
     
     # Load brand profile
     brand_profile = load_brand_profile(brand_name, base_path)
     
-    # Create Whisper configuration
-    whisper_config = {
+    # Create AssemblyAI configuration
+    assemblyai_config = {
         "brand_name": brand_name,
+        "api_settings": {
+            "api_key": "your_assemblyai_api_key_here",
+            "api_url": "https://api.assemblyai.com/v2/transcript"
+        },
         "input_sources": {
             "apify_videos": f"{brand_folder}/Apify/videos/",
-            "manual_uploads": f"{whisper_folder}/input_videos/",
-            "supported_formats": [".mp4", ".mov", ".avi", ".mkv", ".webm"]
+            "manual_uploads": f"{transcription_folder}/input_videos/",
+            "supported_formats": [".mp4", ".mov", ".avi", ".mkv", ".webm", ".mp3", ".wav", ".m4a"]
         },
         "transcription_settings": {
-            "language": "en",
-            "include_timestamps": True,
-            "include_confidence_scores": True,
-            "speaker_identification": False,
-            "output_format": "json"
+            "language_code": "en_us",
+            "punctuate": True,
+            "format_text": True,
+            "speaker_labels": True,
+            "sentiment_analysis": True,
+            "entity_detection": True,
+            "iab_categories": True,
+            "content_safety": True,
+            "auto_highlights": True
         },
         "analysis_focus": [
             "opening_hooks",
@@ -68,39 +79,42 @@ def execute_whisper_transcription(brand_name: str, base_path: str = None):
             "call_to_action_phrases",
             "social_proof_elements",
             "urgency_language",
-            "benefits_communication"
+            "benefits_communication",
+            "sentiment_patterns",
+            "topic_detection"
         ]
     }
     
-    config_file = whisper_folder / f"{clean_brand_name}_whisper_config.json"
+    config_file = transcription_folder / f"{clean_brand_name}_assemblyai_config.json"
     with open(config_file, "w") as f:
-        json.dump(whisper_config, f, indent=2)
+        json.dump(assemblyai_config, f, indent=2)
     
     # Create input folder
-    input_folder = whisper_folder / "input_videos"
+    input_folder = transcription_folder / "input_videos"
     input_folder.mkdir(exist_ok=True)
     
-    # Create transcription analysis prompt
-    transcription_prompt = f"""# Video Transcription Analysis: {brand_name}
+    # Create AssemblyAI transcription analysis prompt
+    transcription_prompt = f"""# AssemblyAI Video Transcription Analysis: {brand_name}
 
 ## Objective
-Analyze transcribed video ad scripts to identify high-performing patterns, messaging strategies, and creative frameworks.
+Analyze transcribed video ad scripts using AssemblyAI's advanced features to identify high-performing patterns, messaging strategies, and creative frameworks with sentiment analysis and entity detection.
 
 ## Analysis Framework
 
 ### 1. Script Structure Analysis
 **Opening Hooks (First 3-5 seconds):**
-- Question-based hooks
-- Statement-based hooks
-- Problem identification hooks
-- Curiosity gap creation
-- Pattern interrupts
+- Question-based hooks with sentiment scores
+- Statement-based hooks with confidence levels
+- Problem identification hooks with emotional intensity
+- Curiosity gap creation with engagement prediction
+- Pattern interrupts with attention-grabbing metrics
 
 **Problem Development:**
-- Pain point articulation
-- Emotional amplification
-- Consequence highlighting
-- Frustration expression
+- Pain point articulation with sentiment analysis
+- Emotional amplification patterns with intensity scoring
+- Entity detection for product/brand mentions
+- Consequence highlighting with emotional impact
+- Frustration expression patterns
 
 **Solution Introduction:**
 - Transition techniques
@@ -160,15 +174,16 @@ Compile effective phrases for:
 Focus on actionable insights for script creation and optimization.
 """
     
-    prompt_file = whisper_folder / f"{clean_brand_name}_transcription_analysis.md"
+    prompt_file = transcription_folder / f"{clean_brand_name}_assemblyai_analysis.md"
     with open(prompt_file, "w") as f:
         f.write(transcription_prompt)
     
     print(f"✅ Step 5 Setup Complete!")
-    print(f"📝 Whisper config: {config_file}")
+    print(f"📝 AssemblyAI config: {config_file}")
     print(f"📁 Input folder: {input_folder}")
     print(f"📋 Analysis prompt: {prompt_file}")
-    print("🚨 MANUAL ACTION: Run Whisper API on video files, then analyze transcripts")
+    print("🚨 MANUAL ACTION: Run AssemblyAI API on video/audio files, then analyze transcripts")
+    print("🎯 Enhanced Features: Sentiment analysis, entity detection, auto-highlights")
     
     return True
 
@@ -943,7 +958,7 @@ def execute_remaining_steps(brand_name: str, step_range: str = "5-9", base_path:
     print(f"\n🚀 Setting up Steps {step_range} for: {brand_name}")
     
     steps = {
-        5: execute_whisper_transcription,
+        5: execute_assemblyai_transcription,
         6: execute_script_guide_creation, 
         7: execute_gap_analysis,
         8: execute_script_generation,
@@ -981,7 +996,7 @@ if __name__ == "__main__":
     
     if args.step:
         steps = {
-            5: execute_whisper_transcription,
+            5: execute_assemblyai_transcription,
             6: execute_script_guide_creation,
             7: execute_gap_analysis, 
             8: execute_script_generation,

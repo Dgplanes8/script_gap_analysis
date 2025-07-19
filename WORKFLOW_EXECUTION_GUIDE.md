@@ -9,7 +9,7 @@ This guide provides complete instructions for executing the 9-step ad analysis a
   - Perplexity MCP
   - Reddit API
   - Apify MCP (Facebook Ads Library)
-  - Whisper API
+  - AssemblyAI API
   - Claude Code
 
 ## Quick Start
@@ -151,8 +151,8 @@ python workflow_steps/step_4_apify_scraping.py --brand "Your Brand Name"
 - `Projects/{brand_name}/Apify/{brand_name}_apify_creative_format_analysis.md`
 - `Projects/{brand_name}/Apify/{brand_name}_apify_execution_guide.md`
 
-### Step 5: Whisper Video Transcription
-**Purpose:** Transcribe and analyze video ad scripts for high-performance patterns
+### Step 5: AssemblyAI Video/Audio Transcription
+**Purpose:** Transcribe and analyze video/audio ad content with advanced AI features
 
 **Execution:**
 ```bash
@@ -160,25 +160,37 @@ python workflow_steps/steps_5_through_9.py --brand "Your Brand Name" --step 5
 ```
 
 **What happens:**
-- Whisper transcription configuration created
-- Video input folder structure established
-- Transcription analysis prompt generated for script pattern identification
+- AssemblyAI transcription configuration created with advanced features
+- Video/audio input folder structure established
+- Enhanced transcription analysis prompt generated with sentiment analysis
 
 **Manual actions required:**
-1. Collect video ads from Apify results or manual sources
-2. Use Whisper API to transcribe video content
-3. Apply analysis framework to identify high-performance script patterns
+1. Update AssemblyAI API key in configuration file
+2. Execute transcription: `python workflow_steps/assemblyai_integration.py --brand "Brand Name" --action transcribe`
+3. Analyze results: `python workflow_steps/assemblyai_integration.py --brand "Brand Name" --action analyze`
+
+**Advanced features:**
+- **Sentiment analysis** - Emotional tone detection throughout content
+- **Entity detection** - Brand, product, and competitor mentions
+- **Auto-highlights** - Key phrases and important moments
+- **Speaker labels** - Multiple speaker identification
+- **IAB categories** - Content topic classification
+- **Content safety** - Inappropriate content detection
 
 **Analysis focus:**
-- Opening hooks and attention-grabbing techniques
-- Problem identification and emotional progression
-- Solution presentation and benefit communication
-- Call-to-action optimization and urgency creation
+- Opening hooks with sentiment scoring
+- Problem identification with emotional intensity
+- Solution presentation with confidence levels
+- Call-to-action patterns with engagement prediction
+- Entity mentions and brand positioning
+- Sentiment progression throughout scripts
 
 **Output files:**
-- `Projects/{brand_name}/Whisper/{brand_name}_whisper_config.json`
-- `Projects/{brand_name}/Whisper/{brand_name}_transcription_analysis.md`
-- `Projects/{brand_name}/Whisper/input_videos/` (folder for video uploads)
+- `Projects/{brand_name}/AssemblyAI/{brand_name}_assemblyai_config.json`
+- `Projects/{brand_name}/AssemblyAI/{brand_name}_assemblyai_analysis.md`
+- `Projects/{brand_name}/AssemblyAI/input_videos/` (folder for uploads)
+- `Projects/{brand_name}/AssemblyAI/{brand_name}_transcription_summary.json`
+- `Projects/{brand_name}/AssemblyAI/{brand_name}_transcript_analysis.json`
 
 ### Step 6: Script Analysis and Best Practices Guide
 **Purpose:** Synthesize all research into actionable script writing guidelines
@@ -326,7 +338,7 @@ Ad Workflow/
 │   ├── Perplexity/                     # Market research results
 │   ├── Reddit/                         # Social listening insights
 │   ├── Apify/                          # Competitive ad analysis
-│   ├── Whisper/                        # Video transcription results
+│   ├── AssemblyAI/                     # Video/audio transcription with AI analysis
 │   ├── Guide/                          # Script writing guidelines
 │   ├── Gap_Analysis/                   # Strategic opportunities
 │   ├── Script/                         # Generated script variations

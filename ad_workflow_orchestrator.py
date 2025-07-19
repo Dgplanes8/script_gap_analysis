@@ -161,25 +161,48 @@ Focus your research on:
         
         return True
     
-    def execute_whisper_transcription(self):
-        """Step 5: Execute Whisper transcription for video ads"""
-        print("🔍 Step 5: Starting Whisper transcription...")
+    def execute_assemblyai_transcription(self):
+        """Step 5: Execute AssemblyAI transcription for video/audio ads"""
+        print("🔍 Step 5: Starting AssemblyAI transcription...")
         
         transcription_config = {
-            "input_videos_folder": f"{self.brand_folder}/Apify/videos/",
-            "output_folder": f"{self.brand_folder}/Whisper/",
-            "naming_convention": f"{self.brand_name}_whisper_{{video_id}}.txt",
-            "include_timestamps": True,
-            "language": "en"
+            "api_settings": {
+                "api_key": "your_assemblyai_api_key_here",
+                "api_url": "https://api.assemblyai.com/v2/transcript"
+            },
+            "input_sources": {
+                "apify_videos": f"{self.brand_folder}/Apify/videos/",
+                "manual_uploads": f"{self.brand_folder}/AssemblyAI/input_videos/",
+                "supported_formats": [".mp4", ".mov", ".avi", ".mkv", ".webm", ".mp3", ".wav", ".m4a"]
+            },
+            "transcription_settings": {
+                "language_code": "en_us",
+                "punctuate": True,
+                "format_text": True,
+                "speaker_labels": True,
+                "sentiment_analysis": True,
+                "entity_detection": True,
+                "iab_categories": True,
+                "content_safety": True,
+                "auto_highlights": True
+            }
         }
         
-        config_file = self.brand_folder / "Whisper" / f"{self.brand_name}_whisper_config.json"
+        # Create AssemblyAI folder
+        assemblyai_folder = self.brand_folder / "AssemblyAI"
+        assemblyai_folder.mkdir(exist_ok=True)
+        
+        config_file = assemblyai_folder / f"{self.brand_name}_assemblyai_config.json"
         with open(config_file, "w") as f:
             json.dump(transcription_config, f, indent=2)
             
-        print(f"📝 Whisper transcription config saved to: {config_file}")
-        print("🚨 MANUAL ACTION REQUIRED: Execute Whisper API transcription")
-        print("💾 Save transcripts to: {}/Whisper/".format(self.brand_folder))
+        print(f"📝 AssemblyAI transcription config saved to: {config_file}")
+        print("🚨 MANUAL ACTION REQUIRED:")
+        print("1. Update API key in config file")
+        print("2. Execute AssemblyAI transcription using: python workflow_steps/assemblyai_integration.py --brand '{}' --action transcribe".format(self.brand_name))
+        print("3. Analyze results using: python workflow_steps/assemblyai_integration.py --brand '{}' --action analyze".format(self.brand_name))
+        print("💾 Results will be saved to: {}/AssemblyAI/".format(self.brand_folder))
+        print("🎯 Enhanced features: Sentiment analysis, entity detection, auto-highlights")
         
         return True
     
@@ -461,7 +484,7 @@ Compile a comprehensive strategic analysis using all research and insights:
             2: self.execute_perplexity_research,
             3: self.execute_reddit_research,
             4: self.execute_apify_scraping,
-            5: self.execute_whisper_transcription,
+            5: self.execute_assemblyai_transcription,
             6: self.analyze_scripts_and_create_guide,
             7: self.execute_gap_analysis,
             8: self.generate_scripts,
