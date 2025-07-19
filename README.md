@@ -1,132 +1,143 @@
 # Ad Analysis and Script Writer Workflow
 
-## 🚀 Complete 9-Step Ad Campaign Development System
+## 🚀 Complete Phased Ad Campaign Development System
 
-A comprehensive workflow for systematic ad analysis, competitive research, and high-converting script generation. Demonstrated with a complete Jones Road Beauty case study identifying a $47M market opportunity.
+A comprehensive workflow for systematic ad analysis, competitive research, and high-converting script generation. Build data-driven campaigns with validated concepts, scored copy, and professional script frameworks.
 
 ## 📊 What's Included
 
 ### **Complete Workflow System**
-- **9-step systematic process** from brand analysis to final strategy
+- **14-step phased process** across 4 strategic phases
 - **Python orchestrator scripts** for automated workflow execution
-- **Reusable prompt templates** for research and analysis
-- **Cross-platform script generation** (TikTok, Instagram, Facebook)
+- **Professional script frameworks** with 10 proven structures
+- **Performance scoring system** for copy validation
+- **Production-ready creative briefs** for team handoff
 
-### **Jones Road Beauty Case Study**
-- **Complete strategic analysis** for everyday sunscreen positioning
-- **Market research** across Perplexity, Reddit, and competitive platforms
-- **Gap analysis** identifying professional women (28-45) opportunity
-- **15 ready-to-use ad scripts** with platform optimization
-- **Implementation roadmap** with KPIs and success metrics
+### **Key Features**
+- **Phased execution** - Foundation → Analysis → Creative Development → Finalization
+- **Multi-source research** - Perplexity MCP, Reddit API, Apify MCP, AssemblyAI
+- **Validated concepts** - 3 concepts × 3-5 formats = 15 total ads
+- **Scored copy development** - 25-point performance prediction system
+- **Framework-based scripts** - Professional structures for all awareness levels
 
-## 🎯 Key Findings
+## 🎯 Workflow Capabilities
 
-### Strategic Opportunities Identified
-- **$47M addressable market** in underserved professional women segment
-- **3.2x higher conversion potential** vs current industry targeting
-- **Professional expertise authority** as sustainable competitive advantage
-- **Honest innovation messaging** addressing mineral sunscreen frustrations
+### Research & Analysis
+- **Multi-source intelligence** - Perplexity, Reddit, competitive ads, video transcription
+- **Gap analysis framework** - Systematic opportunity identification
+- **Competitive positioning** - Strategic advantage mapping
+- **Audience insights** - Authentic voice capture and pain point analysis
 
-### Market Insights
-- **Oversaturated messaging** in "clean girl aesthetic" positioning
-- **Age gap opportunity** - competitors focus 18-34, opportunity in 28-45
-- **Trust deficit** from misleading "invisible mineral sunscreen" claims
-- **Expert credibility hunger** - audience seeks professional guidance
+### Creative Development
+- **Concept validation** - Strategic alignment scoring and framework
+- **Copy performance scoring** - 25-point prediction system across 5 dimensions
+- **Professional script frameworks** - 10 proven structures for all awareness levels
+- **Platform optimization** - Native content guidelines for TikTok, Instagram, Facebook
 
 ## 📁 Repository Structure
 
 ```
-script_gap_analysis/
-├── ad_workflow_orchestrator.py          # Main workflow orchestrator
-├── WORKFLOW_EXECUTION_GUIDE.md          # Complete execution instructions
-├── workflow_steps/                      # Individual step scripts
-│   ├── step_1_brand_setup.py           # Brand profiling and setup
-│   ├── step_2_perplexity_research.py   # Market intelligence gathering
-│   ├── step_3_reddit_research.py       # Social listening analysis
-│   ├── step_4_apify_scraping.py        # Competitive ad analysis
-│   └── steps_5_through_9.py            # Remaining workflow steps
-├── Projects/jones_road_beauty/          # Complete case study
-│   ├── Brand/                          # Brand profile and positioning
-│   ├── Perplexity/                     # Market research results
-│   ├── Reddit/                         # Authentic audience insights
-│   ├── Apify/                          # Competitive advertising analysis
-│   ├── Whisper/                        # Video transcription setup
-│   ├── Guide/                          # Script writing best practices
-│   ├── Gap_Analysis/                   # Strategic opportunity mapping
-│   ├── Script/                         # Generated ad script variations
-│   └── Completed_Analysis/             # Final strategic analysis
-├── Prompt_Database/                    # Reusable analysis templates
-├── Overview/                           # PRD and workflow documentation
-└── Brand_Guidelines/                   # Brand template framework
+Ad Workflow/
+├── phased_workflow_orchestrator.py     # New phased orchestrator (recommended)
+├── ad_workflow_orchestrator.py         # Legacy numbered orchestrator  
+├── PHASED_WORKFLOW_GUIDE.md            # Complete phased execution guide
+├── WORKFLOW_EXECUTION_GUIDE.md         # Legacy numbered execution guide
+├── workflow_steps/                     # Individual step scripts
+│   ├── step_1_brand_setup.py          # Brand profiling and setup
+│   ├── step_2_perplexity_research.py  # Market intelligence gathering
+│   ├── step_3_reddit_research.py      # Social listening analysis
+│   ├── step_4_apify_scraping.py       # Competitive ad analysis
+│   ├── steps_5_through_9.py           # Analysis and creative steps
+│   └── assemblyai_integration.py      # Video transcription with AI
+├── Projects/{brand_name}/              # Brand-specific project folder
+│   ├── Brand/                         # Brand profile and guidelines
+│   ├── Perplexity/                    # Market research results
+│   ├── Reddit/                        # Social listening insights
+│   ├── Apify/                         # Competitive ad analysis
+│   ├── AssemblyAI/                    # Video/audio transcription
+│   ├── Guide/                         # Script writing guidelines
+│   ├── Gap_Analysis/                  # Strategic and competitive analysis
+│   ├── Concepts/                      # Strategic concept generation
+│   ├── Copy/                          # Hook/headline development
+│   ├── Script/                        # Complete script variations
+│   └── Completed_Analysis/            # Final analysis and creative brief
+├── Prompt_Database/                   # Reusable analysis templates
+├── Overview/                          # PRD and workflow documentation
+└── Brand_Guidelines/                  # Brand template framework
 ```
 
 ## 🔧 Quick Start
 
-### Execute Complete Workflow
+### Execute Complete Workflow (Recommended)
 ```bash
-python ad_workflow_orchestrator.py --brand "Your Brand" --competitors "Comp1,Comp2,Comp3" --full
+python phased_workflow_orchestrator.py --brand "Your Brand" --competitors "Comp1,Comp2,Comp3" --full
+```
+
+### Execute by Phase
+```bash
+python phased_workflow_orchestrator.py --brand "Your Brand" --phase 1  # Foundation
+python phased_workflow_orchestrator.py --brand "Your Brand" --phase 2  # Analysis
+python phased_workflow_orchestrator.py --brand "Your Brand" --phase 3  # Creative Development
+python phased_workflow_orchestrator.py --brand "Your Brand" --phase 4  # Finalization
 ```
 
 ### Execute Individual Steps
 ```bash
-python ad_workflow_orchestrator.py --brand "Your Brand" --step 1
-python ad_workflow_orchestrator.py --brand "Your Brand" --step 2
-# ... continue through step 9
+python phased_workflow_orchestrator.py --brand "Your Brand" --step Brand_Setup
+python phased_workflow_orchestrator.py --brand "Your Brand" --step Copy_Development
+python phased_workflow_orchestrator.py --brand "Your Brand" --step Creative_Brief
 ```
 
-### Use Individual Step Scripts
+### Check Progress
 ```bash
-cd workflow_steps/
-python step_1_brand_setup.py --brand "Your Brand" --competitors "Comp1,Comp2"
-python step_2_perplexity_research.py --brand "Your Brand"
-# ... continue with remaining steps
+python phased_workflow_orchestrator.py --brand "Your Brand" --status
 ```
 
-## 📈 Workflow Steps
+## 📈 Phased Workflow Structure
 
-1. **Brand Setup** - Comprehensive brand profiling and folder structure
-2. **Perplexity Research** - Market intelligence and audience insights
-3. **Reddit Research** - Authentic voice and social listening
-4. **Apify Scraping** - Competitive Facebook/Instagram ad analysis
-5. **Whisper Transcription** - Video ad script analysis
-6. **Script Guide Creation** - Best practices synthesis
-7. **Gap Analysis** - Strategic opportunity identification
-8. **Script Generation** - Multi-platform creative development
-9. **Final Analysis** - Complete strategic framework
+### **Phase 1: Foundation** (4 steps)
+1. **Brand_Setup** - Brand profiling and folder structure
+2. **Research_Perplexity** - Market intelligence using Perplexity MCP
+3. **Research_Reddit** - Social listening and authentic voice capture
+4. **Research_Apify** - Competitive Facebook/Instagram ad analysis
 
-## 🎯 Jones Road Beauty Results
+### **Phase 2: Analysis** (4 steps)
+5. **Transcription_Analysis** - Video/audio analysis with AssemblyAI
+6. **Script_Analysis** - Best practices guide creation
+7. **Competitive_Analysis** - Deep competitor strategy analysis
+8. **Gap_Analysis** - Strategic opportunity identification
 
-### Strategic Positioning
-**"Professional makeup artist solutions for everyday confidence"**
-- Target: Professional women 28-45 (underserved segment)
-- Differentiation: Authentic expertise vs peer recommendations
-- Advantage: Only brand with genuine makeup artist heritage
+### **Phase 3: Creative Development** (4 steps)
+9. **Concept_Generation** - Strategic concept ideation (3 concepts × 3-5 formats)
+10. **Copy_Development** - Hook/headline creation with 25-point scoring
+11. **Script_Generation** - Professional framework-based script creation
+12. **Creative_Validation** - Final asset validation and prioritization
 
-### Campaign Framework
-- **Expert Education Content (40%)** - Professional tips and techniques
-- **Professional Integration (35%)** - Workplace confidence messaging
-- **Honest Innovation (25%)** - Transparent product communication
+### **Phase 4: Finalization** (2 steps)
+13. **Creative_Brief** - Production-ready brief for team handoff
+14. **Final_Analysis** - Complete strategic analysis and roadmap
 
-### Script Collection
-**15 Complete Scripts Generated:**
-- 3 strategic concepts × 5 platform formats
-- Concept 1: Professional expertise authority
-- Concept 2: Honest problem-solution innovation
-- Concept 3: Professional women lifestyle integration
+## 🎯 Workflow Outputs
 
-## 📊 Expected Results
+### Strategic Deliverables
+- **Complete brand positioning** with target audience and differentiation strategy
+- **Market opportunity analysis** with competitive gaps and strategic advantages
+- **Validated concept framework** with 3 concepts × 3-5 formats = 15 total ads
+- **Scored copy bank** with performance predictions across 5 dimensions
+- **Professional script library** using proven frameworks for all awareness levels
 
-### Performance Targets
-- **ROAS:** 4.5x (vs industry 3.2x)
-- **Conversion Rate:** 3.5% (vs industry 2.1%)
-- **Brand Awareness:** 25% increase in target demographic
-- **Customer LTV:** $180 (vs industry $120)
+### Production Assets
+- **15 Complete Scripts** with framework rationale and platform optimization
+- **Creative Brief** with production requirements and visual direction
+- **Performance Predictions** with expected conversion and engagement metrics
+- **Implementation Roadmap** with phases, timelines, and success criteria
 
-### Market Impact
-- **20% market share** capture in professional women segment
-- **Expert authority positioning** as category leader
-- **Community-driven growth** through professional networks
-- **Sustainable competitive advantage** through authentic expertise
+### Framework Benefits
+- **Systematic approach** reduces guesswork and improves consistency
+- **Data-driven insights** from multi-source research and competitive analysis
+- **Validated concepts** minimize creative risk through strategic alignment
+- **Professional frameworks** ensure script quality and platform optimization
+- **Performance scoring** predicts success before production investment
 
 ## 🛠 Requirements
 
@@ -135,19 +146,26 @@ python step_2_perplexity_research.py --brand "Your Brand"
   - Perplexity MCP
   - Reddit API
   - Apify MCP (Facebook Ads Library)
-  - Whisper API
+  - AssemblyAI API
   - Claude Code
 
 ## 📚 Documentation
 
-- **[Workflow Execution Guide](WORKFLOW_EXECUTION_GUIDE.md)** - Complete step-by-step instructions
+- **[Phased Workflow Guide](PHASED_WORKFLOW_GUIDE.md)** - Complete phased execution guide (recommended)
+- **[Legacy Workflow Guide](WORKFLOW_EXECUTION_GUIDE.md)** - Original numbered step instructions
 - **[PRD](Overview/Ad%20Analysis%20and%20Script%20Writer%20PRD.md)** - Product requirements and framework
-- **[Jones Road Case Study](Projects/jones_road_beauty/)** - Complete analysis example
 
 ## 🤖 Generated with Claude Code
 
-This workflow was developed and demonstrated using Claude Code, showcasing systematic approach to ad campaign development through comprehensive research, competitive analysis, and strategic positioning.
+This comprehensive workflow system was developed using Claude Code, demonstrating a systematic approach to ad campaign development through data-driven research, competitive analysis, and strategic creative development.
+
+### Key Innovations
+- **Phased workflow structure** for logical step progression
+- **Copy performance scoring** with 25-point prediction framework
+- **Professional script frameworks** integrated from proven advertising models
+- **Multi-source research integration** for comprehensive market intelligence
+- **Production-ready outputs** with creative briefs and implementation roadmaps
 
 ---
 
-**Result:** Complete, actionable campaign strategy with identified $47M market opportunity, ready-to-use creative assets, and detailed implementation roadmap.
+**Result:** Complete, systematic workflow for developing high-converting ad campaigns with validated concepts, scored copy, and professional scripts ready for production.

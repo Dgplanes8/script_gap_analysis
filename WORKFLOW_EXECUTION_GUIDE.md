@@ -1,7 +1,7 @@
 # Ad Analysis and Script Writer - Workflow Execution Guide
 
 ## Overview
-This guide provides complete instructions for executing the 9-step ad analysis and script writing workflow using Claude Code and the provided Python scripts.
+This guide provides complete instructions for executing the enhanced ad analysis and script writing workflow (9 steps + Step 7.5) using Claude Code and the provided Python scripts.
 
 ## Prerequisites
 - Python 3.7+ installed
@@ -23,7 +23,10 @@ python ad_workflow_orchestrator.py --brand "Your Brand Name" --competitors "Comp
 ```bash
 python ad_workflow_orchestrator.py --brand "Your Brand Name" --step 1
 python ad_workflow_orchestrator.py --brand "Your Brand Name" --step 2
-# ... continue through step 9
+# ... continue through step 7
+python ad_workflow_orchestrator.py --brand "Your Brand Name" --step 7.5
+python ad_workflow_orchestrator.py --brand "Your Brand Name" --step 8
+python ad_workflow_orchestrator.py --brand "Your Brand Name" --step 9
 ```
 
 ### Option 3: Use Individual Step Scripts
@@ -250,8 +253,45 @@ python workflow_steps/steps_5_through_9.py --brand "Your Brand Name" --step 7
 - `Projects/{brand_name}/Gap_Analysis/{brand_name}_gap_analysis_prompt.md`
 - (Manual creation) `Projects/{brand_name}/Gap_Analysis/{brand_name}_gap_analysis.md`
 
+### Step 7.5: Strategic Concept Generation
+**Purpose:** Generate 3 strategic ad concepts using comprehensive ideation frameworks
+
+**Execution:**
+```bash
+python workflow_steps/steps_5_through_9.py --brand "Your Brand Name" --step 7.5
+```
+
+**What happens:**
+- Strategic concept generation framework created with comprehensive prompt
+- Concept validation framework developed with scoring matrices
+- Integration of concept_ideation.md framework for systematic approach
+- Template structure for 3 concepts × 3-5 formats = 15 total ads
+
+**Manual actions required:**
+1. Execute concept generation using the comprehensive framework prompt
+2. Develop 3 strategic concepts based on gap analysis insights
+3. Validate concepts using the provided scoring framework
+4. Select optimal formats for each concept (3-5 formats per concept)
+
+**Concept development focus:**
+- **Strategic Foundation:** Gap analysis insights and competitive positioning
+- **Audience Alignment:** Research-backed pain points and emotional drivers
+- **Creative Innovation:** Differentiated approaches and format experimentation
+- **Validation Criteria:** Market fit, production feasibility, and strategic alignment
+
+**Framework components:**
+- Concept ideation methodology with 8 strategic approaches
+- Validation matrices for market fit, audience appeal, and strategic alignment
+- Format optimization for platform-specific performance
+- Implementation priority and resource allocation guidance
+
+**Output files:**
+- `Projects/{brand_name}/Concepts/{brand_name}_concept_generation_prompt.md`
+- `Projects/{brand_name}/Concepts/{brand_name}_concept_validation_framework.md`
+- (Manual creation) `Projects/{brand_name}/Concepts/{brand_name}_validated_concepts.md`
+
 ### Step 8: Script Generation
-**Purpose:** Generate multiple script variations for different platforms and concepts
+**Purpose:** Generate multiple script variations using validated concepts from Step 7.5
 
 **Execution:**
 ```bash
@@ -259,14 +299,16 @@ python workflow_steps/steps_5_through_9.py --brand "Your Brand Name" --step 8
 ```
 
 **What happens:**
-- Script generation framework created based on all research insights
-- Template structure for 15 script variations (3 concepts × 5 platforms)
-- Integration strategy for brand voice, audience insights, and competitive gaps
+- Script generation framework created based on validated concepts from Step 7.5
+- Template structure for 15 script variations using the 3 validated concepts
+- Integration strategy for concept messaging, brand voice, and audience insights
+- Direct reference to concept validation framework and strategic positioning
 
 **Manual actions required:**
-1. Generate 3 core concepts based on gap analysis priorities
-2. Adapt each concept for 5 platform formats
-3. Ensure scripts incorporate all research insights and best practices
+1. Review validated concepts from Step 7.5 before script generation
+2. Implement the 3 validated concepts across recommended platform formats
+3. Follow concept-specific messaging frameworks and strategic positioning
+4. Ensure scripts align with concept validation criteria and priority recommendations
 
 **Script formats:**
 - TikTok (15-30 seconds)
@@ -341,6 +383,7 @@ Ad Workflow/
 │   ├── AssemblyAI/                     # Video/audio transcription with AI analysis
 │   ├── Guide/                          # Script writing guidelines
 │   ├── Gap_Analysis/                   # Strategic opportunities
+│   ├── Concepts/                       # Strategic concept generation and validation
 │   ├── Script/                         # Generated script variations
 │   └── Completed_Analysis/             # Final strategic analysis
 └── Prompt_Database/                    # Reusable prompt templates
@@ -390,8 +433,9 @@ Ad Workflow/
 - **Step 1:** 30-60 minutes (interactive brand profile collection)
 - **Steps 2-4:** 2-4 hours each (research execution and analysis)
 - **Steps 5-7:** 1-3 hours each (analysis and synthesis)
+- **Step 7.5:** 2-3 hours (strategic concept generation and validation)
 - **Steps 8-9:** 2-4 hours each (creative generation and strategic compilation)
 
-**Total estimated time:** 15-25 hours of focused work over 1-2 weeks
+**Total estimated time:** 17-28 hours of focused work over 1-2 weeks
 
 This comprehensive workflow provides a systematic approach to developing high-converting ad campaigns based on thorough market research, competitive intelligence, and audience insights.
