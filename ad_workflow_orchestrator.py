@@ -33,6 +33,11 @@ class AdWorkflowOrchestrator:
             "created_at": self.timestamp,
             "last_updated": self.timestamp
         }
+        
+        # Import steps_5_through_9 module for concept generation
+        import sys
+        sys.path.append(str(self.base_path / "workflow_steps"))
+        from steps_5_through_9 import execute_concept_generation
     
     def setup_folder_structure(self):
         """Step 1: Create organized folder structure for the brand"""
@@ -41,9 +46,10 @@ class AdWorkflowOrchestrator:
             "Perplexity", 
             "Reddit",
             "Apify",
-            "Whisper", 
+            "AssemblyAI", 
             "Guide",
             "Gap_Analysis",
+            "Concepts",
             "Script",
             "Completed_Analysis"
         ]
@@ -305,6 +311,25 @@ Using data from Perplexity, Reddit, Apify, and Whisper analysis, conduct a compr
         
         return True
     
+    def execute_concept_generation(self):
+        """Step 7.5: Generate strategic concepts using ideation frameworks"""
+        print("💡 Step 7.5: Generating strategic concepts...")
+        
+        # Import the function from steps_5_through_9
+        from steps_5_through_9 import execute_concept_generation
+        
+        # Execute concept generation
+        success = execute_concept_generation(self.brand_name.replace("_", " "), str(self.base_path))
+        
+        if success:
+            print("✅ Step 7.5 Complete: Strategic concepts generated")
+            print(f"📁 Concepts saved to: {self.brand_folder}/Concepts/")
+            print("🎯 Framework: 3 concepts × 3-5 formats = 15 total ads")
+        else:
+            print("❌ Step 7.5 Failed: Concept generation error")
+            
+        return success
+    
     def generate_scripts(self):
         """Step 8: Generate multiple script variations"""
         print("✍️ Step 8: Generating scripts...")
@@ -326,18 +351,24 @@ Using insights from:
 - Reddit research ({self.brand_folder}/Reddit/)
 - Script guide ({self.brand_folder}/Guide/)
 - Gap analysis ({self.brand_folder}/Gap_Analysis/)
+- **Validated concepts ({self.brand_folder}/Concepts/)**
+
+IMPORTANT: Before generating scripts, review the validated concepts from Step 7.5:
+- {self.brand_folder}/Concepts/{self.brand_name}_concept_generation_prompt.md
+- {self.brand_folder}/Concepts/{self.brand_name}_concept_validation_framework.md
 
 {concept_prompt}
 
 {copy_prompt}
 
-Generate 15 script variations (3 concepts × 5 formats each):
+Generate 15 script variations using the 3 validated concepts from Step 7.5:
 
-Concept 1: [Based on primary gap opportunity]
-Concept 2: [Based on emotional driver insight] 
-Concept 3: [Based on audience language pattern]
+**Reference the specific concepts identified in Step 7.5 concept generation**
+- Use the validated concept titles, messaging frameworks, and strategic positioning
+- Implement the recommended formats (3-5 per concept as outlined in validation)
+- Follow the priority recommendations from the concept validation framework
 
-For each concept, create scripts for:
+For each validated concept, create scripts for the recommended platforms:
 1. TikTok (15-30 seconds)
 2. Instagram Reels (15-30 seconds)
 3. Instagram Feed (30-60 seconds)
@@ -345,12 +376,14 @@ For each concept, create scripts for:
 5. Facebook Stories (15 seconds)
 
 Each script should include:
-- Hook (first 3 seconds)
-- Problem/tension identification
-- Solution presentation
-- Social proof element
-- Clear call-to-action
+- Hook (first 3 seconds) - aligned with concept strategy
+- Problem/tension identification - from concept framework
+- Solution presentation - using concept messaging
+- Social proof element - tailored to concept audience
+- Clear call-to-action - matching concept objectives
 - Platform-specific optimizations
+
+**Ensure scripts directly implement the validated concepts rather than creating new ones.**
 """
         
         script_file = self.brand_folder / "Script" / f"{self.brand_name}_script_generation_prompt.md"
@@ -477,7 +510,7 @@ Compile a comprehensive strategic analysis using all research and insights:
         
         return True
     
-    def execute_step(self, step_number: int):
+    def execute_step(self, step_number):
         """Execute a specific step in the workflow"""
         steps = {
             1: self.setup_folder_structure,
@@ -487,12 +520,13 @@ Compile a comprehensive strategic analysis using all research and insights:
             5: self.execute_assemblyai_transcription,
             6: self.analyze_scripts_and_create_guide,
             7: self.execute_gap_analysis,
+            7.5: self.execute_concept_generation,
             8: self.generate_scripts,
             9: self.compile_final_analysis
         }
         
         if step_number not in steps:
-            print(f"❌ Invalid step number: {step_number}. Must be 1-9.")
+            print(f"❌ Invalid step number: {step_number}. Must be 1-9 or 7.5.")
             return False
             
         print(f"\n🚀 Executing Step {step_number}...")
@@ -506,11 +540,23 @@ Compile a comprehensive strategic analysis using all research and insights:
         return success
     
     def execute_full_workflow(self):
-        """Execute the complete 9-step workflow"""
+        """Execute the complete workflow including step 7.5"""
         print(f"\n🎯 Starting complete workflow for: {self.brand_name}")
         print(f"📁 Working directory: {self.brand_folder}")
         
-        for step in range(1, 10):
+        # Execute steps 1-7
+        for step in range(1, 8):
+            if not self.execute_step(step):
+                print(f"❌ Workflow stopped at step {step}")
+                return False
+        
+        # Execute step 7.5 (concept generation)
+        if not self.execute_step(7.5):
+            print("❌ Workflow stopped at step 7.5")
+            return False
+            
+        # Execute steps 8-9
+        for step in range(8, 10):
             if not self.execute_step(step):
                 print(f"❌ Workflow stopped at step {step}")
                 return False
@@ -529,7 +575,7 @@ def main():
     parser = argparse.ArgumentParser(description="Ad Analysis and Script Writer Workflow")
     parser.add_argument("--brand", required=True, help="Brand name to analyze")
     parser.add_argument("--competitors", help="Comma-separated list of competitors")
-    parser.add_argument("--step", type=int, help="Execute specific step (1-9)")
+    parser.add_argument("--step", type=float, help="Execute specific step (1-9 or 7.5)")
     parser.add_argument("--full", action="store_true", help="Execute complete workflow")
     
     args = parser.parse_args()

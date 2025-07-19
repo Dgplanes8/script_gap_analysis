@@ -15,6 +15,182 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List
 
+def create_concept_validation_framework(brand_profile: Dict) -> str:
+    """Create validation framework for concept scoring and selection"""
+    brand_name = brand_profile["brand_overview"]["brand_name"]
+    
+    framework = f"""# Concept Validation Framework: {brand_name}
+
+## Strategic Validation Criteria
+
+### 1. Strategic Alignment Score (1-10)
+**Evaluation Criteria:**
+- Does the concept directly address identified market gaps?
+- How well does it leverage unique brand strengths?
+- Does it target priority audience segments?
+- Is it aligned with brand positioning and values?
+
+**Scoring:**
+- 9-10: Perfect strategic alignment, addresses multiple gap opportunities
+- 7-8: Strong alignment, addresses primary gap with clear brand fit
+- 5-6: Moderate alignment, some strategic value but not optimal
+- 3-4: Weak alignment, limited strategic value
+- 1-2: Poor alignment, conflicts with strategy or brand
+
+### 2. Audience Resonance Prediction (1-10)
+**Evaluation Criteria:**
+- Does it use authentic audience language and cultural references?
+- Does it address real pain points identified in research?
+- Will it trigger desired emotional responses?
+- Does it match audience media consumption patterns?
+
+**Scoring:**
+- 9-10: Highly resonant, uses authentic voice and addresses core needs
+- 7-8: Strong resonance, good audience fit with clear appeal
+- 5-6: Moderate resonance, some audience appeal but not compelling
+- 3-4: Weak resonance, limited audience connection
+- 1-2: Poor resonance, likely to be ignored or rejected
+
+### 3. Competitive Differentiation Level (1-10)
+**Evaluation Criteria:**
+- How unique is this approach vs competitor messaging?
+- Does it exploit identified competitive weaknesses?
+- Can competitors easily copy or counter this approach?
+- Does it create sustainable competitive advantage?
+
+**Scoring:**
+- 9-10: Highly differentiated, unique positioning difficult to replicate
+- 7-8: Well differentiated, clear advantage over competitors
+- 5-6: Moderately differentiated, some unique elements
+- 3-4: Weakly differentiated, similar to competitor approaches
+- 1-2: Not differentiated, easily replicated by competitors
+
+### 4. Execution Feasibility (1-10)
+**Evaluation Criteria:**
+- What production complexity and resources are required?
+- Can it be executed within budget and timeline constraints?
+- Are required talent, locations, or assets available?
+- How many iterations needed to achieve desired quality?
+
+**Scoring:**
+- 9-10: Highly feasible, straightforward execution with available resources
+- 7-8: Feasible, manageable complexity within constraints
+- 5-6: Moderately feasible, some challenges but achievable
+- 3-4: Difficult to execute, significant resource or complexity challenges
+- 1-2: Not feasible with current resources or constraints
+
+### 5. Performance Potential (1-10)
+**Evaluation Criteria:**
+- Expected conversion rates based on similar approaches
+- Engagement potential across target platforms
+- Scalability for budget increases and audience expansion
+- Measurability and optimization potential
+
+**Scoring:**
+- 9-10: Exceptional performance potential, high conversion probability
+- 7-8: Strong performance potential, good conversion expectations
+- 5-6: Moderate performance potential, average expectations
+- 3-4: Weak performance potential, below-average expectations
+- 1-2: Poor performance potential, high risk of failure
+
+## Concept Scoring Matrix
+
+| Concept | Strategic Alignment | Audience Resonance | Competitive Diff | Execution Feasibility | Performance Potential | Total Score | Priority |
+|---------|--------------------|--------------------|------------------|----------------------|----------------------|-------------|----------|
+| Concept 1 | /10 | /10 | /10 | /10 | /10 | /50 | High/Med/Low |
+| Concept 2 | /10 | /10 | /10 | /10 | /10 | /50 | High/Med/Low |
+| Concept 3 | /10 | /10 | /10 | /10 | /10 | /50 | High/Med/Low |
+
+## Implementation Priority Framework
+
+### High Priority (Score 40-50)
+- **Immediate Implementation:** Develop all 3-5 formats
+- **Budget Allocation:** Primary budget focus
+- **Resource Assignment:** Best creative and production resources
+- **Timeline:** Fast-track development and testing
+
+### Medium Priority (Score 30-39)
+- **Secondary Implementation:** Develop 2-3 strongest formats
+- **Budget Allocation:** Secondary budget allocation
+- **Resource Assignment:** Standard creative resources
+- **Timeline:** Standard development timeline
+
+### Low Priority (Score 20-29)
+- **Future Consideration:** Hold for later development or major revision
+- **Budget Allocation:** Minimal or no budget allocation
+- **Resource Assignment:** Junior or external resources if pursued
+- **Timeline:** Extended timeline or postponed
+
+## Format Selection Within Concepts
+
+For concepts scoring 30+, evaluate individual formats:
+
+### Format Evaluation Criteria
+- **Platform Fit:** How well suited for target platforms
+- **Production Complexity:** Resource requirements vs others
+- **Unique Value:** What this format adds vs alternatives
+- **Performance Prediction:** Expected success metrics
+
+### Format Priority Matrix
+| Format | Platform Fit | Production Ease | Unique Value | Performance Potential | Develop First? |
+|--------|--------------|-----------------|--------------|----------------------|----------------|
+| Format 1 | High/Med/Low | High/Med/Low | High/Med/Low | High/Med/Low | Yes/No |
+| Format 2 | High/Med/Low | High/Med/Low | High/Med/Low | High/Med/Low | Yes/No |
+
+## Success Metrics by Concept Type
+
+### Gap-Based Concepts (Concept 1)
+- **Primary KPI:** Market share capture in target segment
+- **Secondary KPIs:** Brand awareness lift, consideration increase
+- **Conversion Metrics:** Cost per acquisition, lifetime value
+- **Engagement Metrics:** Share rate, comment sentiment
+
+### Emotional Connection Concepts (Concept 2)  
+- **Primary KPI:** Emotional engagement and brand affinity
+- **Secondary KPIs:** Video completion rates, save rates
+- **Conversion Metrics:** Email signups, community joining
+- **Engagement Metrics:** Time spent with content, return visits
+
+### Competitive Differentiation Concepts (Concept 3)
+- **Primary KPI:** Conversion rates and direct response
+- **Secondary KPIs:** Competitive brand switching
+- **Conversion Metrics:** Purchase intent, trial rates
+- **Engagement Metrics:** Click-through rates, landing page performance
+
+## Validation Process
+
+### Step 1: Individual Scoring
+- Score each concept independently across all criteria
+- Document rationale for each score
+- Identify strengths and improvement opportunities
+
+### Step 2: Comparative Analysis
+- Compare concepts against each other
+- Identify complementary vs competing approaches
+- Consider portfolio balance and strategic coverage
+
+### Step 3: Resource Allocation
+- Determine development priority based on scores
+- Allocate budget and resources accordingly
+- Plan development timeline and dependencies
+
+### Step 4: Success Planning
+- Define success metrics for each concept
+- Create measurement and optimization plans
+- Establish performance benchmarks and review cycles
+
+## Final Recommendation Framework
+
+Based on validation scores, provide:
+- **Primary Concept:** Highest scoring for immediate development
+- **Secondary Concept:** Strong alternative for concurrent or follow-up development
+- **Experimental Concept:** Innovative approach for testing and learning
+- **Resource Allocation:** Budget and timeline recommendations
+- **Success Metrics:** Key performance indicators and measurement approach
+"""
+    
+    return framework
+
 def load_brand_profile(brand_name: str, base_path: str = None) -> Dict:
     """Load brand profile from Step 1"""
     if base_path is None:
@@ -474,6 +650,203 @@ For each priority opportunity:
     print(f"✅ Step 7 Setup Complete!")
     print(f"📋 Gap analysis prompt: {gap_prompt_file}")
     print("🚨 MANUAL ACTION: Conduct comprehensive gap analysis using all research data")
+    
+    return True
+
+def execute_concept_generation(brand_name: str, base_path: str = None):
+    """Step 7.5: Generate strategic concepts using ideation frameworks"""
+    print(f"💡 Step 7.5: Creating strategic concepts for {brand_name}...")
+    
+    if base_path is None:
+        base_path = Path("/Users/nataliebasque/Ad Workflow")
+    else:
+        base_path = Path(base_path)
+    
+    clean_brand_name = brand_name.replace(" ", "_").lower()
+    brand_folder = base_path / "Projects" / clean_brand_name
+    concepts_folder = brand_folder / "Concepts"
+    
+    # Create Concepts folder
+    concepts_folder.mkdir(exist_ok=True)
+    
+    # Load brand profile and previous analysis
+    brand_profile = load_brand_profile(brand_name, base_path)
+    
+    # Read concept ideation framework
+    prompt_db_path = base_path / "Prompt_Database"
+    concept_prompt_file = prompt_db_path / "concept_ideation.md"
+    
+    with open(concept_prompt_file, "r") as f:
+        concept_framework = f.read()
+    
+    # Create comprehensive concept generation prompt
+    concept_generation_prompt = f"""# Strategic Concept Generation: {brand_name}
+
+## Objective
+Generate 3 strategic advertising concepts using proven ideation frameworks, with each concept producing 3-5 different format variations for a total of 15 ads.
+
+## Research Foundation
+Integrate insights from all previous analysis:
+1. **Brand Profile:** {brand_folder}/Brand/ - Voice, positioning, target audience
+2. **Audience Research:** {brand_folder}/Perplexity/ and {brand_folder}/Reddit/ - Pain points, language, motivations
+3. **Competitive Analysis:** {brand_folder}/Apify/ - Market gaps and creative opportunities
+4. **Gap Analysis:** {brand_folder}/Gap_Analysis/ - Strategic differentiation opportunities
+
+## Concept Ideation Framework
+{concept_framework}
+
+## Strategic Concept Requirements
+
+### Output Structure: 3 Concepts × 3-5 Formats Each = 15 Total Ads
+
+**Concept Development Guidelines:**
+- Each concept must target a different strategic opportunity from gap analysis
+- Each concept should have 3-5 format variations (not just platform adaptations)
+- Total output: 15 distinct ad concepts ready for script development
+
+### Concept 1: Primary Gap Opportunity
+**Strategic Foundation:** Address the highest-priority market gap identified in analysis
+**Target Audience:** Primary demographic with specific psychographic focus
+**Emotional Driver:** Primary emotional trigger from LIFE FORCE 8
+**Awareness Level:** Target specific awareness stage with appropriate lead type
+**Differentiation:** Unique positioning vs competitors
+
+**Format Variations (3-5):**
+- Format 1: [Specific creative approach]
+- Format 2: [Alternative angle/execution]
+- Format 3: [Different emotional entry point]
+- Format 4: [Optional - alternative proof point]
+- Format 5: [Optional - different storytelling method]
+
+### Concept 2: Emotional Connection Focus
+**Strategic Foundation:** Target primary emotional driver from audience research
+**Target Audience:** Emotional segment with specific pain points
+**Emotional Driver:** Secondary emotional trigger for broader appeal
+**Awareness Level:** Different awareness stage than Concept 1
+**Differentiation:** Emotional positioning vs rational competitor approaches
+
+**Format Variations (3-5):**
+- Format 1: [Primary emotional approach]
+- Format 2: [Aspirational angle]
+- Format 3: [Problem-focused entry]
+- Format 4: [Optional - social proof angle]
+- Format 5: [Optional - transformation story]
+
+### Concept 3: Competitive Differentiation
+**Strategic Foundation:** Leverage unique brand advantage vs competitors
+**Target Audience:** Underserved segment or frustrated competitor users
+**Emotional Driver:** Authority/expertise positioning (LIFE FORCE 8: To be superior)
+**Awareness Level:** Product-aware or most-aware for conversion focus
+**Differentiation:** Direct or indirect competitive positioning
+
+**Format Variations (3-5):**
+- Format 1: [Authority/expertise positioning]
+- Format 2: [Comparative advantage]
+- Format 3: [Problem-solution superiority]
+- Format 4: [Optional - insider knowledge angle]
+- Format 5: [Optional - results-focused proof]
+
+## Detailed Concept Development
+
+For each concept, provide:
+
+### Strategic Rationale
+- Why this concept addresses identified market gaps
+- How it leverages brand strengths and audience insights
+- Expected performance based on research findings
+
+### Target Persona Definition
+- Specific demographic and psychographic profile
+- Key pain points and motivations
+- Language patterns and cultural context
+- Media consumption and platform preferences
+
+### Emotional Journey Mapping
+- Entry emotional state (where audience starts)
+- Emotional progression through content
+- Desired end emotional state and action
+- Key emotional triggers and transition points
+
+### Message Architecture
+- Core value proposition for this concept
+- Supporting benefit hierarchy
+- Proof points and credibility elements
+- Call-to-action strategy and urgency creation
+
+### Format Execution Strategy
+For each of the 3-5 formats within the concept:
+- **Creative Approach:** How the format differs from others
+- **Execution Style:** Visual/audio/narrative approach
+- **Platform Optimization:** Best platforms for this format
+- **Success Metrics:** How to measure format performance
+
+## Platform Considerations
+
+### Cross-Platform Adaptation Strategy
+Each concept and format should consider:
+- **TikTok Optimization:** Fast-paced, trend-aware, authentic feel
+- **Instagram Optimization:** Aesthetic focus, discovery-minded, lifestyle integration
+- **Facebook Optimization:** Educational depth, community sharing, detailed explanations
+
+### Creative Format Innovation
+Beyond standard platform formats, consider:
+- **UGC-style executions**
+- **Behind-the-scenes approaches**
+- **Tutorial/educational formats**
+- **Testimonial/case study approaches**
+- **Challenge/interactive formats**
+
+## Concept Validation Framework
+
+For each concept, provide:
+- **Strategic Alignment Score:** How well it addresses gap analysis findings
+- **Audience Resonance Prediction:** Expected response based on research
+- **Competitive Differentiation Level:** Uniqueness vs market approaches
+- **Execution Feasibility:** Production complexity and resource requirements
+- **Performance Potential:** Expected conversion and engagement metrics
+
+## Success Metrics by Concept
+- **Concept 1:** Gap exploitation effectiveness, market share capture
+- **Concept 2:** Emotional engagement, brand affinity building
+- **Concept 3:** Competitive advantage demonstration, conversion rates
+
+## Deliverable Format
+
+### Concept Summary Document
+Create a strategic overview with:
+- Executive summary of 3 concepts
+- Strategic rationale for each approach
+- Expected performance and success metrics
+- Implementation priority and resource requirements
+
+### Detailed Concept Specifications
+For each concept:
+- Complete strategic foundation
+- Target persona definition
+- 3-5 detailed format descriptions
+- Platform optimization strategy
+- Success measurement framework
+
+**Total Output:** 3 strategic concepts with 15 total ad format variations ready for script development in Step 8.
+"""
+    
+    # Save concept generation prompt
+    concept_prompt_file = concepts_folder / f"{clean_brand_name}_concept_generation_prompt.md"
+    with open(concept_prompt_file, "w") as f:
+        f.write(concept_generation_prompt)
+    
+    # Create concept validation framework
+    validation_framework = create_concept_validation_framework(brand_profile)
+    validation_file = concepts_folder / f"{clean_brand_name}_concept_validation_framework.md"
+    with open(validation_file, "w") as f:
+        f.write(validation_framework)
+    
+    print(f"✅ Step 7.5 Setup Complete!")
+    print(f"📋 Concept generation prompt: {concept_prompt_file}")
+    print(f"📊 Validation framework: {validation_file}")
+    print("🚨 MANUAL ACTION: Generate 3 strategic concepts using comprehensive framework")
+    print("💡 Output: 3 concepts × 3-5 formats each = 15 total ad concepts")
+    print("💾 Save results as: {}/Concepts/{}_concepts.md".format(concepts_folder, clean_brand_name))
     
     return True
 
