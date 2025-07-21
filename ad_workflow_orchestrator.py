@@ -76,24 +76,64 @@ class AdWorkflowOrchestrator:
         """Step 2: Execute Perplexity research using MCP"""
         print("🔍 Step 2: Starting Perplexity research...")
         
+        # Load brand profile for context if available
+        try:
+            brand_file = self.brand_folder / "Brand" / f"{self.brand_name}_brand_profile.json"
+            with open(brand_file, "r") as f:
+                brand_profile = json.load(f)
+            
+            # Extract key information
+            target_audience = brand_profile.get("target_audience", {}).get("primary_audience", {})
+            demographics = target_audience.get("demographics", {})
+            psychographics = target_audience.get("psychographics", {})
+            
+            target_avatar = f"{demographics.get('age_range', '25-45')} {demographics.get('gender', 'adults')}"
+            pain_points = ", ".join(psychographics.get("pain_points", ["market challenges"]))
+            industry = brand_profile.get("brand_overview", {}).get("industry", "consumer products")
+            
+        except (FileNotFoundError, json.JSONDecodeError):
+            # Fallback if brand profile doesn't exist
+            target_avatar = "target customers"
+            pain_points = "market challenges"
+            industry = "industry"
+        
         # Read the audience research prompt
         prompt_file = self.base_path / "Prompt_Database" / "audience_perplexity_prompt.md"
         with open(prompt_file, "r") as f:
             base_prompt = f.read()
         
-        # Customize prompt for this brand
-        research_prompt = f"""
-Brand: {self.brand_name}
-Competitors: {', '.join(self.competitors)}
+        # Replace placeholder variables in the prompt
+        customized_prompt = base_prompt.replace("[target avatar]", target_avatar)
+        customized_prompt = customized_prompt.replace("[pain]", pain_points)
+        
+        # Create comprehensive research prompt
+        research_prompt = f"""# Perplexity Research Brief: {self.brand_name}
 
-{base_prompt}
+## Brand Context
+- **Brand:** {self.brand_name}
+- **Industry:** {industry}
+- **Target Avatar:** {target_avatar}
+- **Key Pain Points:** {pain_points}
+- **Competitors:** {', '.join(self.competitors)}
 
-Focus your research on:
-1. Target audience for {self.brand_name} and similar brands
-2. Pain points and emotional drivers specific to this market
-3. Language patterns and cultural tensions
-4. Existing solutions and market perception
-5. Competitive landscape insights
+## Research Framework
+
+{customized_prompt}
+
+## Brand-Specific Research Focus
+
+### Target Audience Deep Dive
+Focus your research on {target_avatar} who are experiencing challenges with {pain_points}.
+
+### Competitive Intelligence
+Research the following competitors for messaging patterns, audience engagement, and market positioning:
+{chr(10).join(f"- {comp}" for comp in self.competitors)}
+
+### Output Requirements
+Format your output into bullet points, grouped by insight theme. Use exact quotes when possible. Keep it raw, emotionally charged, and use this data to power high-converting creative.
+
+**Output Format:** Detailed report with quotes, sources, and actionable insights
+**Priority:** High - This research forms the foundation for all subsequent analysis
 """
         
         # Save prompt for execution
@@ -398,8 +438,13 @@ Each script should include:
         return True
     
     def compile_final_analysis(self):
-        """Step 9: Compile comprehensive final analysis"""
+        """Step 9: Compile comprehensive final analysis with competitive matrix"""
         print("📋 Step 9: Compiling final analysis...")
+        
+        # Read competitive matrix prompt
+        competitive_matrix_file = self.base_path / "Prompt_Database" / "competitive_matrix_prompt.md"
+        with open(competitive_matrix_file, "r") as f:
+            competitive_matrix_framework = f.read()
         
         final_analysis_prompt = f"""
 Brand: {self.brand_name}
@@ -446,6 +491,20 @@ Compile a comprehensive strategic analysis using all research and insights:
 - Competitive pressures
 - Market challenges
 - Platform changes
+
+### Competitive Advantage Matrix
+Use the validated concepts from Step 7.5 to complete this analysis:
+
+{competitive_matrix_framework}
+
+**Analysis Framework:**
+For each validated concept from {self.brand_folder}/Concepts/, analyze:
+1. **Category Conventions** - Standard messaging patterns all competitors use
+2. **Competitive Gap Analysis** - Benefits and territories competitors avoid
+3. **Brand Ownership Opportunities** - Unique angles only {self.brand_name} can own
+4. **Cultural Tension Resolution** - How concepts resolve audience contradictions
+
+**Output:** Identify unique messaging territories for each concept that competitors have left open.
 
 ### Gap Analysis Summary
 - Primary differentiation opportunities

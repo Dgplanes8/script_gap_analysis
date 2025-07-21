@@ -1,0 +1,164 @@
+{
+  "analysis_date": "2025-07-20",
+  "apps_analyzed": 4,
+  "competitive_landscape": {
+    "moonbundle": {
+      "name": "MoonBundle",
+      "url": "https://apps.shopify.com/moonbundle",
+      "value_proposition": "Maximize your sales with Bundles, Quantity Breaks, Free Gifts & Post Purchase Upsell",
+      "tagline": "Increase AOV (Average Order Value) to the moon",
+      "pricing": {
+        "model": "revenue_based",
+        "tiers": [
+          {
+            "name": "Free Plan",
+            "price": "$0/month",
+            "revenue_limit": "$500",
+            "features": ["Unlimited offers", "Bundles + Gifts", "Customization options", "Chat support"]
+          },
+          {
+            "name": "Essential",
+            "price": "$14.99/month", 
+            "revenue_limit": "$2,000",
+            "trial": "7 days",
+            "features": ["All Free features", "One-click post-purchase", "Thank you page"]
+          },
+          {
+            "name": "Pro",
+            "price": "$29.99/month",
+            "revenue_limit": "$10,000", 
+            "trial": "7 days",
+            "features": ["All Essential features"]
+          },
+          {
+            "name": "Premium",
+            "price": "$59.99/month",
+            "revenue_limit": "Unlimited",
+            "trial": "7 days", 
+            "features": ["All Pro features"]
+          }
+        ]
+      },
+      "key_features": [
+        "Product bundles",
+        "BOGO deals",
+        "Quantity breaks", 
+        "Volume discounts",
+        "Post-purchase upsells",
+        "Free gifts",
+        "Customizable design"
+      ]
+    },
+    "reconvert": {
+      "name": "ReConvert",
+      "url": "https://apps.shopify.com/reconvert",
+      "value_proposition": "The ultimate upsell & cross-sell app built for Shopify. Easily boost AOV with personalized Product upsells",
+      "pricing": {
+        "model": "revenue_based_or_order_count",
+        "tiers": [
+          {
+            "name": "Development Stores",
+            "price": "Free",
+            "limits": "No revenue limit for development",
+            "features": ["Full upselling funnel", "AI Upsells", "Advanced analytics", "A/B testing"]
+          },
+          {
+            "name": "Upsell Basic", 
+            "price": "$4.99/month",
+            "limits": "49 orders OR $49 upsell revenue",
+            "trial": "14 days"
+          },
+          {
+            "name": "Upsell Premium",
+            "price": "$7.99/month", 
+            "limits": "99 orders OR $99 upsell revenue",
+            "trial": "14 days"
+          },
+          {
+            "name": "Upsell Premium Pro",
+            "price": "$14.99/month",
+            "limits": "199 orders OR $199 upsell revenue", 
+            "trial": "14 days"
+          }
+        ]
+      },
+      "key_features": [
+        "AI Product Recommendations",
+        "Full upselling funnel (Product, Cart, Checkout, Post-purchase)",
+        "A/B testing",
+        "Advanced analytics & Segmentation", 
+        "5-minute setup",
+        "24/7 Live Chat Support"
+      ]
+    },
+    "zipify_pages": {
+      "name": "Zipify Pages",
+      "url": "https://apps.shopify.com/zipifypages", 
+      "value_proposition": "Build your next winning campaign faster with Zipify Pages",
+      "focus": "High-converting landing pages without designers or developers",
+      "rating": "4.7/5 (372 reviews)",
+      "pricing": {
+        "model": "fixed_monthly",
+        "tiers": [
+          {
+            "name": "Development Stores",
+            "price": "Free"
+          },
+          {
+            "name": "Starter",
+            "price": "$19/month",
+            "annual": "$205.20/year"
+          },
+          {
+            "name": "Basic", 
+            "price": "$39/month",
+            "annual": "$421.20/year"
+          },
+          {
+            "name": "Advanced",
+            "price": "$99/month",
+            "annual": "$1,069.20/year"
+          }
+        ]
+      },
+      "key_features": [
+        "AI-powered page design",
+        "Drag-and-drop interface", 
+        "Direct-response templates",
+        "Mobile optimization",
+        "A/B split testing",
+        "Universal product pages",
+        "Global design synchronization",
+        "Built-in AI text generator"
+      ]
+    },
+    "bold_bundles": {
+      "name": "BOLD Bundles",
+      "url": "https://apps.shopify.com/product-bundles",
+      "value_proposition": "Easily offer bundled products, volume discounts and quality breaks on Shopify stores",
+      "rating": "3.9/5 (240 reviews)",
+      "pricing": {
+        "model": "fixed_monthly",
+        "tiers": [
+          {
+            "name": "Basic Plan",
+            "price": "$19.99/month",
+            "features": ["One-Click Bundle Add to Cart", "Create Bundles by Product/Collection", "Bundle Performance Stats"]
+          },
+          {
+            "name": "Premium Plan", 
+            "price": "$29.99/month",
+            "features": ["All Basic features", "Create BOGO Offers", "Use Same Product in up to 10 Bundles", "Quantity Badges for Quantity Bundles"]
+          }
+        ]
+      },
+      "key_features": [
+        "5 Bundle Types (Fixed, Multipacks, Mix-and-Match)",
+        "Percentage/Fixed Price Discounts",
+        "Volume Discount Options", 
+        "Automatic Bundle Discount Promotion",
+        "Inventory Management Integration"
+      ]
+    }
+  }
+}

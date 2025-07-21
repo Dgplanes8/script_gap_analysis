@@ -1,0 +1,22 @@
+{
+  "brand_name": "MoonBundle",
+  "app_id": "moonbundle",
+  "workflow_type": "shopify_app",
+  "competitors": [
+    "reconvert",
+    "zipify-pages",
+    "bold-bundles"
+  ],
+  "created_at": "20250720_173556",
+  "folder_structure": [
+    "Brand",
+    "Perplexity_Research",
+    "Community_Research",
+    "Playwright_Analysis",
+    "Concepts",
+    "Copy",
+    "Script",
+    "Completed_Analysis"
+  ],
+  "shopify_app_url": "https://apps.shopify.com/moonbundle"
+}
