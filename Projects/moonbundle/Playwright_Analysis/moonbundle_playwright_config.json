@@ -1,0 +1,34 @@
+{
+  "objective": "Comprehensive Shopify App Store analysis for MoonBundle competitive intelligence",
+  "target_apps": [
+    "moonbundle",
+    "reconvert",
+    "zipify-pages",
+    "bold-bundles"
+  ],
+  "analysis_framework": {
+    "app_listings": {
+      "description_analysis": "Extract value propositions, feature highlights, and messaging",
+      "review_analysis": "Analyze customer feedback, pain points, and feature requests",
+      "pricing_analysis": "Compare pricing tiers, free trials, and value positioning",
+      "visual_analysis": "Screenshots, demo videos, and presentation style"
+    },
+    "competitive_intelligence": {
+      "feature_comparison": "Map feature sets across competing apps",
+      "positioning_analysis": "How each app differentiates and positions itself",
+      "customer_satisfaction": "Review scores, complaint patterns, praise points",
+      "market_gaps": "Underserved features or customer segments"
+    }
+  },
+  "data_extraction": {
+    "app_descriptions": "Full app store descriptions and feature lists",
+    "customer_reviews": "Recent reviews with ratings and feedback details",
+    "pricing_tiers": "All pricing options and included features",
+    "screenshots": "App interface and user experience examples",
+    "developer_info": "Company background and credibility indicators"
+  },
+  "output_format": {
+    "structured_data": "/Users/nataliebasque/Ad Workflow/Projects/moonbundle/Playwright_Analysis/moonbundle_app_data.json",
+    "analysis_report": "/Users/nataliebasque/Ad Workflow/Projects/moonbundle/Playwright_Analysis/moonbundle_competitive_analysis.md"
+  }
+}

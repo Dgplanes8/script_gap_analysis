@@ -1,0 +1,19 @@
+{
+  "brand_name": "MoonBundle",
+  "app_id": "moonbundle",
+  "workflow_type": "shopify_app",
+  "competitors": [
+    "reconvert",
+    "zipify-pages",
+    "bold-bundles"
+  ],
+  "phases_completed": [
+    2
+  ],
+  "steps_completed": [
+    "Playwright_Analysis"
+  ],
+  "current_phase": 3,
+  "created_at": "20250720_175136",
+  "last_updated": "20250720_175136"
+}

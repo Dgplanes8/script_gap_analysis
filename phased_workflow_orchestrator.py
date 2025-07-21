@@ -113,24 +113,92 @@ class PhasedWorkflowOrchestrator:
         """Phase 1, Step 2: Execute Perplexity research using MCP"""
         print("🔍 Foundation Phase - Perplexity Research...")
         
+        # Load brand profile for context
+        try:
+            brand_file = self.brand_folder / "Brand" / f"{self.brand_name}_brand_profile.json"
+            with open(brand_file, "r") as f:
+                brand_profile = json.load(f)
+            
+            # Extract key information
+            target_audience = brand_profile.get("target_audience", {}).get("primary_audience", {})
+            demographics = target_audience.get("demographics", {})
+            psychographics = target_audience.get("psychographics", {})
+            
+            target_avatar = f"{demographics.get('age_range', '25-45')} {demographics.get('gender', 'adults')}"
+            pain_points = ", ".join(psychographics.get("pain_points", ["unspecified challenges"]))
+            industry = brand_profile.get("brand_overview", {}).get("industry", "consumer products")
+            
+        except (FileNotFoundError, json.JSONDecodeError):
+            # Fallback if brand profile doesn't exist
+            target_avatar = "target customers"
+            pain_points = "market challenges"
+            industry = "industry"
+        
         # Read the audience research prompt
         prompt_file = self.base_path / "Prompt_Database" / "audience_perplexity_prompt.md"
         with open(prompt_file, "r") as f:
             base_prompt = f.read()
         
-        # Customize prompt for this brand
-        research_prompt = f"""
-Brand: {self.original_brand_name}
-Competitors: {', '.join(self.competitors)}
+        # Replace placeholder variables in the prompt
+        customized_prompt = base_prompt.replace("[target avatar]", target_avatar)
+        customized_prompt = customized_prompt.replace("[pain]", pain_points)
+        
+        # Create comprehensive research prompt
+        research_prompt = f"""# Perplexity Research Brief: {self.original_brand_name}
 
-{base_prompt}
+## Brand Context
+- **Brand:** {self.original_brand_name}
+- **Industry:** {industry}
+- **Target Avatar:** {target_avatar}
+- **Key Pain Points:** {pain_points}
+- **Competitors:** {', '.join(self.competitors)}
 
-Focus your research on:
-1. Target audience for {self.original_brand_name} and similar brands
-2. Pain points and emotional drivers specific to this market
-3. Language patterns and cultural tensions
-4. Existing solutions and market perception
-5. Competitive landscape insights
+## Research Framework
+
+{customized_prompt}
+
+## Brand-Specific Research Focus
+
+### Target Audience Deep Dive
+Focus your research on {target_avatar} who are experiencing challenges with {pain_points}.
+
+### Competitive Intelligence
+Research the following competitors for messaging patterns, audience engagement, and market positioning:
+{chr(10).join(f"- {comp}" for comp in self.competitors)}
+
+### Platform-Specific Research
+Focus on platforms where {target_avatar} are most active:
+- Reddit communities related to {industry}
+- Amazon reviews for {industry} products/services
+- TikTok content about {pain_points}
+- YouTube testimonials and review videos
+- Quora questions about {industry} problems
+- Facebook groups discussing {industry} topics
+
+### Success Metrics for This Research
+- 50+ authentic quotes from real users
+- 10+ emotional triggers identified
+- 5+ cultural tensions uncovered
+- 3+ forgotten/alternative solutions discovered
+- Complete competitive messaging map
+- Platform-specific language patterns documented
+
+## Output Requirements
+Format your output into bullet points, grouped by insight theme. Use exact quotes when possible. Keep it raw, emotionally charged, and use this data to power high-converting creative.
+
+### Required Sections:
+1. **Demographic Insights** - Who they really are beyond basic demographics
+2. **Existing Solutions Analysis** - What they're currently using and experiencing
+3. **Cultural Tensions** - Invisible emotional contradictions they feel
+4. **Comment Heatmap** - Actual quotes for tone and objection handling
+5. **Emotional Drivers** - Primary LIFE FORCE 8 motivations
+6. **Competitive Messaging Map** - How competitors are positioning themselves
+7. **Platform Language Patterns** - Authentic voice from each platform
+
+---
+
+**Output Format:** Detailed report with quotes, sources, and actionable insights  
+**Priority:** High - This research forms the foundation for all subsequent analysis
 """
         
         # Save prompt for execution
@@ -1026,8 +1094,13 @@ The final creative brief should be formatted as:
         return True
     
     def compile_final_analysis(self):
-        """Phase 4: Compile comprehensive final analysis"""
+        """Phase 4, Step 2: Compile comprehensive final analysis with competitive matrix"""
         print("📋 Finalization Phase - Final Analysis...")
+        
+        # Read competitive matrix prompt
+        competitive_matrix_file = self.base_path / "Prompt_Database" / "competitive_matrix_prompt.md"
+        with open(competitive_matrix_file, "r") as f:
+            competitive_matrix_framework = f.read()
         
         final_analysis_prompt = f"""
 # Comprehensive Strategic Analysis: {self.original_brand_name}
@@ -1105,6 +1178,49 @@ Review analysis from:
 - Competitive pressures
 - Market challenges
 - Platform and industry changes
+
+### Competitive Advantage Matrix
+
+{competitive_matrix_framework}
+
+## Competitive Matrix Analysis
+
+### For Each Validated Concept (from Creative Development Phase):
+
+#### Concept 1: [Name from concept validation]
+**1. Category Conventions Analysis:**
+- Standard messaging patterns in {self.original_brand_name}'s category
+- Visual/copy conventions that competitors follow
+- Claims that have become expected and ignored by audience
+
+**2. Competitive Gap Analysis:**
+- Benefits that competitors underemphasize or ignore
+- Customer pain points left unaddressed by current market players
+- Emotional territories that remain unclaimed in the category
+
+**3. Brand Ownership Opportunities:**
+- Unique angles that only {self.original_brand_name} can credibly claim
+- Distinctive mechanisms/processes/approaches available to the brand
+- Emotional territories that align with brand values and positioning
+
+**4. Cultural Tension Resolution:**
+- Contradictory desires and pressures faced by target audience
+- Societal tensions creating friction for customers
+- How {self.original_brand_name} can uniquely resolve these tensions
+
+**Unique Positioning Opportunity:** [Identify specific messaging territory left open by competitors]
+
+#### Concept 2: [Name from concept validation]
+[Repeat same structure as Concept 1]
+
+#### Concept 3: [Name from concept validation]
+[Repeat same structure as Concept 1]
+
+### Strategic Matrix Summary
+- **Primary Differentiation Opportunity:** [Most significant competitive gap identified]
+- **Unique Brand Territory:** [Messaging space only this brand can own]
+- **Cultural Tension Resolution:** [How brand resolves audience contradictions]
+- **Competitive Advantage:** [Sustainable advantage over market players]
 
 ## Phase 3: Creative Strategy
 
