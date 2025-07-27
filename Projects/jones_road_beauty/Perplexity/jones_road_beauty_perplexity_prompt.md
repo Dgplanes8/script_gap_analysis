@@ -2,14 +2,14 @@
 
 ## Brand Context
 - **Brand:** Jones Road Beauty
-- **Industry:** Clean Beauty & Cosmetics
-- **Target Avatar:** 28-45 Women
-- **Key Pain Points:** Complex beauty routines, Heavy makeup, Skin sensitivity, Time constraints, Finding clean products that work
-- **Competitors:** 
+- **Industry:** Clean Beauty - Natural Makeup
+- **Target Avatar:** Women 25-45 who value natural, effortless beauty (Busy Professional Women & Clean Beauty Enthusiasts)
+- **Key Pain Points:** Time constraints for elaborate makeup routines, finding natural-looking products, overwhelming product choices, sacrificing performance for clean ingredients
+- **Competitors:** Glossier, Rare Beauty, Fenty Beauty, Ilia Beauty, Tower 28 
 
 ## Research Framework
 
-You are an expert psychographic researcher and emotional insight extractor. Your job is to find the raw, real language and belief systems of 28-45 Women who are experiencing Complex beauty routines, Heavy makeup, Skin sensitivity, Time constraints, Finding clean products that work. Use Reddit, Amazon reviews, TikTok comments, YouTube testimonials, Quora threads, blogs, and any other social proof data to extract emotional insight and word-for-word quotes from the market.
+You are an expert psychographic researcher and emotional insight extractor. Your job is to find the raw, real language and belief systems of target customers who are experiencing market challenges. Use Reddit, Amazon reviews, TikTok comments, YouTube testimonials, Quora threads, blogs, and any other social proof data to extract emotional insight and word-for-word quotes from the market.
 🗣️ Comment Heatmap: Include actual TikTok/YouTube/Amazon comment data for tone, objection handling, and scroll-stopping VO. Use real quotes to inform overlays, copy, and scripts.
 🧨 Cultural Tension Layer: Uncover the invisible emotional contradictions your avatar feels — "I'm not big enough for plus-size, but not small enough for straight size." Build angles that explode these tensions.
 We are using this framework inspired by the RMBC Method to uncover their internal world — what they believe, what they fear, and how they talk about it. Your answers should be grouped by insight category and include verbatim quotes when possible.
@@ -51,20 +51,20 @@ There may be some overlap here between this and perplexity_research_prompt_1.md 
 ## Brand-Specific Research Focus
 
 ### Target Audience Deep Dive
-Focus your research on 28-45 Women who are experiencing challenges with Complex beauty routines, Heavy makeup, Skin sensitivity, Time constraints, Finding clean products that work.
+Focus your research on target customers who are experiencing challenges with market challenges.
 
 ### Competitive Intelligence
 Research the following competitors for messaging patterns, audience engagement, and market positioning:
 
 
 ### Platform-Specific Research
-Focus on platforms where 28-45 Women are most active:
-- Reddit communities related to Clean Beauty & Cosmetics
-- Amazon reviews for Clean Beauty & Cosmetics products/services
-- TikTok content about Complex beauty routines, Heavy makeup, Skin sensitivity, Time constraints, Finding clean products that work
+Focus on platforms where target customers are most active:
+- Reddit communities related to industry
+- Amazon reviews for industry products/services
+- TikTok content about market challenges
 - YouTube testimonials and review videos
-- Quora questions about Clean Beauty & Cosmetics problems
-- Facebook groups discussing Clean Beauty & Cosmetics topics
+- Quora questions about industry problems
+- Facebook groups discussing industry topics
 
 ### Success Metrics for This Research
 - 50+ authentic quotes from real users

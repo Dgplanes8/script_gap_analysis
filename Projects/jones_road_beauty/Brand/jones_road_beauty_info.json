@@ -1,0 +1,24 @@
+{
+  "brand_name": "jones_road_beauty",
+  "original_name": "Jones Road Beauty",
+  "competitors": [
+    "Glossier",
+    "Rare Beauty",
+    "Fenty Beauty"
+  ],
+  "created_at": "20250727_164123",
+  "folder_structure": [
+    "Brand",
+    "Perplexity",
+    "Reddit",
+    "Apify",
+    "AssemblyAI",
+    "Guide",
+    "Gap_Analysis",
+    "Concepts",
+    "Copy",
+    "Script",
+    "Completed_Analysis"
+  ],
+  "workflow_type": "phased"
+}
