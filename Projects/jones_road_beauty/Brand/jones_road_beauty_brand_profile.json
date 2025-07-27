@@ -1,110 +1,57 @@
 {
   "brand_overview": {
     "brand_name": "Jones Road Beauty",
-    "company_name": "Jones Road Beauty",
-    "industry": "Clean Beauty & Cosmetics",
-    "founding_year": "2020",
-    "headquarters": "Los Angeles, CA",
-    "website": "https://jonesroadbeauty.com",
-    "description": "Clean, easy beauty brand founded by makeup artist Bobbi Brown, focused on enhancing natural beauty with effortless, everyday products including their signature everyday sunscreen."
+    "industry": "Clean Beauty - Natural Makeup",
+    "business_model": "D2C Beauty Brand - Premium clean makeup products",
+    "target_audience": "Women 25-45 who value natural, effortless beauty",
+    "value_proposition": "Effortless, skin-loving makeup that enhances your natural beauty",
+    "company_positioning": "The clean, effortless makeup brand founded by Bobbi Brown",
+    "key_differentiators": [
+      "Bobbi Brown's expertise and reputation",
+      "Focus on enhancing natural features",
+      "Multipurpose, user-friendly products",
+      "Clean, skin-loving formulations",
+      "Buildable, mistake-proof application"
+    ]
   },
-  "brand_positioning": {
-    "mission_statement": "To make women feel confident in their own skin with clean, easy beauty products",
-    "vision_statement": "To redefine beauty standards by celebrating natural, effortless beauty",
-    "core_values": ["Clean ingredients", "Effortless beauty", "Authenticity", "Inclusivity", "Simplicity"],
-    "unique_value_proposition": "Clean, easy makeup and skincare that enhances your natural beauty without the fuss",
-    "brand_promise": "Beautiful, healthy skin that looks like you, but better",
-    "positioning_statement": "Jones Road Beauty is the clean beauty brand for women who want to look naturally beautiful without complicated routines or heavy makeup"
-  },
-  "target_audience": {
-    "primary_audience": {
-      "demographics": {
-        "age_range": "28-45",
-        "gender": "Women",
-        "income_level": "$50,000-$150,000",
-        "education": "College-educated",
-        "location": "Urban and suburban areas, primarily US",
-        "occupation": "Working professionals, mothers, entrepreneurs"
-      },
-      "psychographics": {
-        "values": ["Authenticity", "Natural beauty", "Self-care", "Quality over quantity", "Sustainability"],
-        "interests": ["Clean beauty", "Wellness", "Effortless style", "Self-improvement", "Quality skincare"],
-        "lifestyle": "Busy, health-conscious women who value quality and simplicity",
-        "personality_traits": ["Confident", "Practical", "Quality-focused", "Authentic", "Busy"],
-        "pain_points": ["Complex beauty routines", "Heavy makeup", "Skin sensitivity", "Time constraints", "Finding clean products that work"],
-        "motivations": ["Looking naturally beautiful", "Healthy skin", "Simplified routines", "Authentic self-expression", "Quality ingredients"]
-      }
-    },
-    "secondary_audiences": [
+  "audience_profile": {
+    "primary_segments": [
       {
-        "segment": "Gen Z Clean Beauty Enthusiasts",
-        "age_range": "18-27",
-        "characteristics": "Social media savvy, sustainability-focused, experimental with beauty"
+        "segment": "Busy Professional Women",
+        "demographics": "Women 25-40, middle to upper-middle class, working professionals",
+        "psychographics": "Time-conscious, quality-focused, values authenticity and efficiency",
+        "pain_points": ["Time constraints for elaborate makeup routines", "Finding natural-looking products", "Overwhelming product choices"],
+        "motivations": ["Looking polished quickly", "Enhancing natural features", "Using clean ingredients", "Simplifying beauty routine"]
+      },
+      {
+        "segment": "Clean Beauty Enthusiasts",
+        "demographics": "Women 30-45, health-conscious, mothers and wellness-focused individuals",
+        "psychographics": "Ingredient-conscious, sustainability-minded, authentic beauty advocates",
+        "pain_points": ["Finding effective clean products", "Sacrificing performance for clean ingredients", "Complex application techniques"],
+        "motivations": ["Clean ingredient formulations", "Effortless application", "Supporting founder's expertise", "Natural-looking results"]
       }
     ]
   },
-  "brand_voice_tone": {
-    "brand_personality": ["Authentic", "Effortless", "Confident", "Approachable", "Expert"],
-    "tone_attributes": ["Conversational", "Encouraging", "Expert", "Relatable", "Positive"],
-    "communication_style": "Friendly expert who understands real women's needs and busy lifestyles",
-    "language_preferences": {
-      "formal_vs_casual": "Casual but knowledgeable",
-      "technical_vs_simple": "Simple with expert backing",
-      "emotional_vs_rational": "Emotionally supportive with rational benefits"
-    },
-    "avoid_language": ["Overly technical jargon", "Perfectionist language", "Complicated instructions", "Judgmental tone"]
-  },
   "competitive_landscape": {
-    "direct_competitors": ["Glossier", "Fenty Beauty", "Rare Beauty", "Ilia Beauty", "Tower 28", "Kosas"],
-    "indirect_competitors": ["Drunk Elephant", "The Ordinary", "CeraVe", "La Roche Posay", "EltaMD"],
-    "competitive_advantages": ["Bobbi Brown's expertise", "Clean formulations", "Effortless application", "Multi-use products", "Natural finish"],
-    "market_position": "Premium clean beauty with professional makeup artist credibility",
-    "price_positioning": "Mid-to-premium pricing ($22-$38 for everyday sunscreen)"
+    "main_competitors": [
+      "Glossier - Minimalist, dewy natural look",
+      "Rare Beauty - Inclusive, mental health focus",
+      "Fenty Beauty - Inclusive shade range, bold looks",
+      "Ilia Beauty - Clean, skin-first approach",
+      "Tower 28 - Sensitive skin, clean formulations"
+    ],
+    "competitive_advantages": [
+      "Bobbi Brown's legendary makeup artist expertise",
+      "Multipurpose products that work together seamlessly",
+      "Foolproof application for natural results",
+      "Clean formulations without compromising performance",
+      "Focus on enhancing rather than covering natural beauty"
+    ]
   },
-  "product_service_info": {
-    "primary_products_services": ["Everyday Sunscreen", "What The Foundation", "Miracle Balm", "The Best Pencil", "Face Oil"],
-    "key_features": ["Clean ingredients", "Multi-functional", "Easy application", "Natural finish", "Skin-enhancing"],
-    "benefits": ["Effortless beauty", "Healthy skin", "Time-saving", "Natural look", "Clean formulation"],
-    "pricing_model": "Premium clean beauty pricing",
-    "distribution_channels": ["Direct-to-consumer website", "Sephora", "Nordstrom", "Social media"]
-  },
-  "brand_guidelines": {
-    "visual_identity": {
-      "logo_usage": "Clean, minimalist typography",
-      "color_palette": ["Warm neutrals", "Soft pastels", "Natural tones"],
-      "typography": "Modern, clean sans-serif",
-      "imagery_style": "Natural lighting, diverse real women, minimal makeup"
-    },
-    "messaging_guidelines": {
-      "key_messages": ["Easy beauty", "Clean ingredients", "Natural enhancement", "Effortless confidence"],
-      "taglines": ["Easy Beauty", "Make it easy"],
-      "elevator_pitch": "Clean beauty products that make you look like you, but better - without the fuss",
-      "proof_points": ["Founded by Bobbi Brown", "Clean ingredients", "Multi-use formulas", "Professional results"]
-    }
-  },
-  "marketing_context": {
-    "current_marketing_channels": ["Instagram", "TikTok", "Influencer partnerships", "Email marketing", "Sephora"],
-    "marketing_objectives": ["Increase everyday sunscreen awareness", "Drive DTC sales", "Build brand recognition", "Expand target audience"],
-    "budget_range": "Mid-tier beauty brand budget",
-    "success_metrics": ["Sales growth", "Brand awareness", "Social engagement", "Customer retention"],
-    "campaign_timeline": "Ongoing with seasonal pushes"
-  },
-  "workflow_metadata": {
-    "clean_brand_name": "jones_road_beauty",
-    "created_at": "20250718_120000",
-    "folder_structure": ["Brand", "Perplexity", "Reddit", "Apify", "Whisper", "Guide", "Gap_Analysis", "Script", "Completed_Analysis"],
-    "folder_paths": {
-      "brand": "/Users/nataliebasque/Ad Workflow/Projects/jones_road_beauty/Brand",
-      "perplexity": "/Users/nataliebasque/Ad Workflow/Projects/jones_road_beauty/Perplexity",
-      "reddit": "/Users/nataliebasque/Ad Workflow/Projects/jones_road_beauty/Reddit",
-      "apify": "/Users/nataliebasque/Ad Workflow/Projects/jones_road_beauty/Apify",
-      "whisper": "/Users/nataliebasque/Ad Workflow/Projects/jones_road_beauty/Whisper",
-      "guide": "/Users/nataliebasque/Ad Workflow/Projects/jones_road_beauty/Guide",
-      "gap_analysis": "/Users/nataliebasque/Ad Workflow/Projects/jones_road_beauty/Gap_Analysis",
-      "script": "/Users/nataliebasque/Ad Workflow/Projects/jones_road_beauty/Script",
-      "completed_analysis": "/Users/nataliebasque/Ad Workflow/Projects/jones_road_beauty/Completed_Analysis"
-    },
-    "workflow_version": "1.0",
-    "status": "initialized"
+  "brand_voice": {
+    "tone": "Approachable, confident, encouraging, expert",
+    "personality": "Trusted makeup artist friend who makes beauty simple and accessible",
+    "language_style": "Clear, encouraging, expert advice without intimidation",
+    "emotional_positioning": "Confidence through effortless natural beauty"
   }
 }

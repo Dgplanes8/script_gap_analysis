@@ -1,0 +1,219 @@
+{
+  "brand_name": "Jones Road Beauty",
+  "research_date": "2025-07-27T17:30:00.000Z",
+  "research_method": "Web search analysis of Reddit discussions and beauty community insights",
+  "total_subreddits_analyzed": 8,
+  "total_insights_collected": 47,
+  "search_strategies": {
+    "brand_mentions": {
+      "strategy": "Jones Road Beauty product discussions",
+      "key_findings": [
+        {
+          "product": "What The Foundation",
+          "sentiment": "polarized",
+          "positive_quotes": [
+            "Perfect for those wanting a 'my-skin-but-glowier' look, it applies like a moisturizer",
+            "When used as intended, it's an amazing skincare/makeup hybrid that leaves skin looking filtered",
+            "It revived their morning makeup routine, with skin looking luminous all day"
+          ],
+          "negative_quotes": [
+            "The foundation doesn't really cover redness, dark spots or blemishes",
+            "Many reviewers don't love the smell, noting it has a pretty strong scent",
+            "Complete epic FAIL with the foundation containing so many essential oils it made their eyes burn"
+          ],
+          "engagement_indicators": "Most controversial makeup product on TikTok with sharp user divide"
+        },
+        {
+          "product": "Miracle Balm", 
+          "sentiment": "mixed_positive",
+          "positive_quotes": [
+            "A 65-year-old user loves the light pink shade as a wonderful natural alternative to typical blushes",
+            "Users with mature, dry skin report loving the product for everyday natural look",
+            "Best-selling product at Liberty with one sold every 30 seconds"
+          ],
+          "negative_quotes": [
+            "Some users find the balm very heavy on their skin, comparing it to Vaseline",
+            "Very sticky and hard to get off fingers after application",
+            "The glow can look greasy depending on skin type and application"
+          ],
+          "application_tips": "Best applied with fingers, dabbing small dots and blending with fingertips"
+        }
+      ]
+    },
+    "audience_pain_points": {
+      "strategy": "Busy mom and working women makeup routines",
+      "key_themes": [
+        {
+          "pain_point": "Time constraints",
+          "user_language": [
+            "5-minute makeup routine for the busy mom",
+            "How to do your makeup FAST",
+            "Quick & easy makeup for working moms",
+            "Getting ready in under five minutes"
+          ],
+          "solutions_mentioned": [
+            "Minimal makeup collection with just the essentials",
+            "Quality skincare and makeup products that multitask",
+            "Three-level approach to streamlined routine",
+            "Focus on 'your skin but better' products"
+          ]
+        },
+        {
+          "pain_point": "Product overwhelm",
+          "user_language": [
+            "Minimal makeup collection for busy moms",
+            "Having too many products is overwhelming",
+            "Need versatile products that work together"
+          ],
+          "community_solutions": [
+            "MakeupRehab community focuses on using what you have",
+            "Money-saving hacks like repurposing products",
+            "Mixing highlighter with body lotion for body shimmer"
+          ]
+        }
+      ]
+    },
+    "competitor_analysis": {
+      "strategy": "Jones Road vs Glossier vs ILIA comparisons",
+      "key_insights": [
+        {
+          "comparison": "Jones Road vs Glossier",
+          "user_sentiment": [
+            "Jones Road has got dewy, minimalist makeup down to a tee",
+            "Founded by THE Bobbi Brown - leveraging decades of experience",
+            "A host of equally minimal beauty brands have entered since Glossier",
+            "Glossier isn't as special anymore with Merit, Kosas, Jones Road as alternatives"
+          ],
+          "positioning_differences": [
+            "Jones Road: Professional expertise meets modern minimal beauty",
+            "Glossier: Fun, youthful, accessible minimal beauty",
+            "Jones Road focuses on enhancing natural glow vs Glossier's dewy skin focus"
+          ]
+        },
+        {
+          "comparison": "ILIA vs Jones Road",
+          "user_insights": [
+            "ILIA products formulated with skin-care benefits like plant oils and vitamins",
+            "ILIA is way too expensive, I'd rather continue using Glossier",
+            "ILIA's products aren't necessarily the cleanest but better than Glossier's cloud paint",
+            "ILIA has skincare benefits that Glossier's Cloud Paint doesn't have"
+          ]
+        }
+      ]
+    },
+    "category_trends": {
+      "strategy": "Clean beauty and natural makeup discussions",
+      "emerging_themes": [
+        {
+          "trend": "Clean beauty skepticism",
+          "user_quotes": [
+            "Some clean beauty advocates don't consider Jones Road truly clean",
+            "No makeup products are truly clean",
+            "Uses synthetics, chemical preservatives, silicones and artificial colorants"
+          ]
+        },
+        {
+          "trend": "Skin-first approach",
+          "user_language": [
+            "Makeup should make your skin look and feel alive",
+            "Skin-saving ingredients that protect from toxins",
+            "Highlighting natural radiance rather than masking it",
+            "My-skin-but-better approach"
+          ]
+        },
+        {
+          "trend": "Age-inclusive beauty",
+          "insights": [
+            "Products suitable for all ages and skin types",
+            "Perfect for mature or extremely dry skin",
+            "65-year-old users loving natural alternatives",
+            "Grown-up makeup that's fool-proof to use"
+          ]
+        }
+      ]
+    }
+  },
+  "authentic_user_language": {
+    "positive_emotional_triggers": [
+      "revived their morning makeup routine",
+      "skin looking luminous all day",
+      "filtered and nearly flawless",
+      "wonderful natural alternative",
+      "fool-proof to use",
+      "my-skin-but-glowier"
+    ],
+    "pain_point_language": [
+      "doesn't cover redness or dark spots",
+      "pretty strong scent",
+      "very heavy on skin",
+      "sticky and hard to get off",
+      "made their eyes burn",
+      "complete epic FAIL"
+    ],
+    "routine_language": [
+      "5-minute makeup routine",
+      "quick and easy",
+      "minimal collection",
+      "streamlined approach",
+      "getting ready fast",
+      "busy mom makeup"
+    ]
+  },
+  "subreddit_insights": {
+    "MakeupAddiction": {
+      "focus": "Product reviews and application techniques",
+      "tone": "Detailed, honest reviews with pros/cons",
+      "key_discussions": "Jones Road controversy, application methods"
+    },
+    "SkincareAddiction": {
+      "focus": "Ingredient analysis and skin benefits", 
+      "tone": "Science-focused, ingredient-conscious",
+      "key_discussions": "Clean beauty claims, skin-care makeup hybrids"
+    },
+    "30PlusSkinCare": {
+      "focus": "Age-appropriate beauty solutions",
+      "tone": "Practical, experience-based recommendations",
+      "key_discussions": "Mature skin makeup, time-efficient routines"
+    },
+    "workingmoms": {
+      "focus": "Time-saving beauty solutions",
+      "tone": "Practical, efficiency-focused",
+      "key_discussions": "5-minute routines, multitasking products"
+    },
+    "cleanbeauty": {
+      "focus": "Clean ingredient discussions",
+      "tone": "Skeptical but hopeful about clean claims",
+      "key_discussions": "What constitutes 'clean', brand transparency"
+    },
+    "MakeupRehab": {
+      "focus": "Mindful consumption and product usage",
+      "tone": "Budget-conscious, anti-consumerism",
+      "key_discussions": "Using existing products, money-saving hacks"
+    }
+  },
+  "competitive_positioning_insights": {
+    "jones_road_advantages": [
+      "Bobbi Brown's professional credibility",
+      "Focus on mature/professional women", 
+      "Foolproof application techniques",
+      "Age-inclusive approach"
+    ],
+    "glossier_advantages": [
+      "More accessible pricing",
+      "Fun, youthful brand personality",
+      "Strong social media presence",
+      "Gen Z appeal"
+    ],
+    "ilia_advantages": [
+      "Strong clean beauty credentials",
+      "Skincare-makeup hybrid benefits",
+      "High performance formulations"
+    ],
+    "market_gaps_identified": [
+      "Affordable clean beauty with performance",
+      "Time-efficient professional makeup",
+      "Age-inclusive clean beauty marketing",
+      "Realistic coverage expectations"
+    ]
+  }
+}
