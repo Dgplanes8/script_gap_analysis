@@ -46,9 +46,11 @@ export function Hero({
                 />
               </div>
             ) : (
-              <Link href="#contact" className="btn-primary text-lg px-8 py-4">
-                {ctaText}
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4 items-center">
+                <Link href="/pilot" className="btn-primary text-lg px-8 py-4">
+                  {ctaText}
+                </Link>
+              </div>
             )}
             
             {secondaryCtaText && secondaryCtaLink && (
@@ -64,16 +66,16 @@ export function Hero({
           {/* Social Proof */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-gray-300">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-white mr-2">2,847+</span>
-              <span>Businesses Transformed</span>
+              <span className="text-2xl font-bold text-white mr-2">500+</span>
+              <span>Scripts Delivered</span>
             </div>
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-white mr-2">$127M+</span>
-              <span>Revenue Generated</span>
+              <span className="text-2xl font-bold text-white mr-2">72hr</span>
+              <span>Delivery Guarantee</span>
             </div>
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-white mr-2">312%</span>
-              <span>Average ROI</span>
+              <span className="text-2xl font-bold text-white mr-2">$0</span>
+              <span>If We Miss Deadline</span>
             </div>
           </div>
         </div>
