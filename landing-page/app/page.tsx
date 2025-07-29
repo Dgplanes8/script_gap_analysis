@@ -4,6 +4,11 @@ import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { Hero } from '@/components/layout/hero';
 import { Features } from '@/components/layout/features';
 import { CTASection } from '@/components/layout/cta-section';
+import { MetricsSection } from '@/components/layout/metrics-section';
+import { CaseStudiesSection } from '@/components/layout/case-studies-section';
+import { StickyCTA } from '@/components/ui/sticky-cta';
+import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
+import { InlineCTA } from '@/components/ui/inline-cta';
 
 export default function HomePage() {
   return (
@@ -16,6 +21,9 @@ export default function HomePage() {
         secondaryCtaText="Start Free Pilot"
         secondaryCtaLink="/pilot"
       />
+
+      {/* Metrics Section */}
+      <MetricsSection />
 
       {/* Features Section */}
       <Features
@@ -42,6 +50,18 @@ export default function HomePage() {
           },
         ]}
       />
+
+      {/* Inline CTA after Features */}
+      <section className="py-8 bg-white">
+        <div className="container mx-auto px-4 text-center">
+          <InlineCTA 
+            text="Get Your Scripts Now" 
+            href="/990" 
+            variant="primary"
+            size="lg"
+          />
+        </div>
+      </section>
 
       {/* Programs Section */}
       <section className="py-24 bg-gray-50">
@@ -147,13 +167,26 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Case Studies Section */}
+      <CaseStudiesSection />
+
       {/* CTA Section */}
       <CTASection
         title="Ready to Turn Customer Language Into Winning Ads?"
-        subtitle="Join the Monday Morning Ideas newsletter for weekly hooks, creative breakdowns, and testing frameworks."
+        subtitle="Join 1,247+ marketers getting Monday Morning Ideas for weekly hooks, creative breakdowns, and testing frameworks."
         ctaText="Subscribe to Monday Morning Ideas"
         showEmailCapture={true}
       />
+
+      {/* Sticky CTA */}
+      <StickyCTA 
+        text="Start Free 7-Day Scripts Pilot" 
+        href="/pilot" 
+        variant="pilot"
+      />
+
+      {/* Exit Intent Popup */}
+      <ExitIntentPopup />
     </main>
   );
 }

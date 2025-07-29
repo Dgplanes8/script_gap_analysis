@@ -26,7 +26,7 @@
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.0",
     "lucide-react": "^0.344.0",
-    "next": "14.2.18",
+    "next": "14.2.30",
     "postcss": "^8",
     "react": "^18",
     "react-calendly": "^4.3.0",

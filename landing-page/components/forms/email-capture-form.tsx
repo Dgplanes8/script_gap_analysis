@@ -156,7 +156,7 @@ export function EmailCaptureForm({
       </div>
       
       <p className="text-sm text-gray-500 text-center">
-        Join Monday Morning Ideas. Get your Hook Bank 10 PDF instantly. Unsubscribe anytime.
+        Join 1,247+ marketers getting Monday Morning Ideas. Get your Hook Bank 10 PDF instantly. Unsubscribe anytime.
       </p>
     </form>
   );
