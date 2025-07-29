@@ -9,6 +9,8 @@ import { CaseStudiesSection } from '@/components/layout/case-studies-section';
 import { StickyCTA } from '@/components/ui/sticky-cta';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { InlineCTA } from '@/components/ui/inline-cta';
+import { ABTest } from '@/components/testing/ab-test';
+import { ConversionDashboard } from '@/components/analytics/conversion-dashboard';
 
 export default function HomePage() {
   return (
@@ -51,14 +53,17 @@ export default function HomePage() {
         ]}
       />
 
-      {/* Inline CTA after Features */}
+      {/* A/B Test Inline CTA after Features */}
       <section className="py-8 bg-white">
         <div className="container mx-auto px-4 text-center">
-          <InlineCTA 
-            text="Get Your Scripts Now" 
-            href="/990" 
-            variant="primary"
-            size="lg"
+          <ABTest
+            testName="post_features_cta"
+            variants={{
+              control: <InlineCTA text="Get Your Scripts Now" href="/990" variant="primary" size="lg" />,
+              variant_a: <InlineCTA text="Start Free Pilot Program" href="/pilot" variant="secondary" size="lg" />,
+              variant_b: <InlineCTA text="Join 1,247+ Marketers" href="#email-signup" variant="primary" size="lg" />
+            }}
+            weights={{ control: 0.4, variant_a: 0.3, variant_b: 0.3 }}
           />
         </div>
       </section>
@@ -187,6 +192,9 @@ export default function HomePage() {
 
       {/* Exit Intent Popup */}
       <ExitIntentPopup />
+
+      {/* Conversion Dashboard (dev/admin only) */}
+      <ConversionDashboard />
     </main>
   );
 }
