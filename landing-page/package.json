@@ -1,0 +1,52 @@
+{
+  "name": "monday-morning-marketer-landing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "14.2.18",
+    "react": "^18",
+    "react-dom": "^18",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5",
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "clsx": "^2.1.0",
+    "react-hook-form": "^7.49.0",
+    "@hookform/resolvers": "^3.3.0",
+    "zod": "^3.22.0",
+    "lucide-react": "^0.344.0",
+    "framer-motion": "^11.0.0",
+    "@stripe/stripe-js": "^2.4.0",
+    "stripe": "^14.17.0",
+    "resend": "^3.2.0",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-toast": "^1.1.5",
+    "react-calendly": "^4.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.18",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.0",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0"
+  },
+  "description": "Monday Morning Marketer landing pages built with Next.js 14",
+  "keywords": ["nextjs", "typescript", "tailwindcss", "landing-page", "marketing"],
+  "author": "Monday Morning Marketer"
+}
