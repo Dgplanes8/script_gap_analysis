@@ -26,38 +26,39 @@ export async function POST(request: NextRequest) {
     await resend.emails.send({
       from: process.env.NEXT_PUBLIC_FROM_EMAIL || 'hello@mondaymorningmarketer.com',
       to: email,
-      subject: 'Welcome to Monday Morning Marketer!',
+      subject: 'Welcome to Monday Morning Ideas — your first hooks arrive Monday 8am ET',
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h1 style="color: #0ea5e9; text-align: center;">Welcome to Monday Morning Marketer!</h1>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+          <h1 style="color: #1f2937; margin-bottom: 20px;">Welcome to Monday Morning Ideas</h1>
           
-          <p>Hi${firstName ? ` ${firstName}` : ''},</p>
+          <p>Hi${firstName ? ` ${firstName}` : ''} — thanks for subscribing.</p>
           
-          <p>Thank you for joining our community of growth-focused marketers! You're now part of 2,847+ businesses that have transformed their marketing results.</p>
+          <p>Every Monday you'll get <strong>3 hooks worth testing</strong>, <strong>1 creative teardown</strong>, and <strong>1 mini test idea</strong> for subscription apps.</p>
           
-          <h2>What happens next?</h2>
-          <ul>
-            <li><strong>Monday Morning:</strong> You'll receive your first strategic marketing insight</li>
-            <li><strong>Throughout the week:</strong> Access to exclusive frameworks and case studies</li>
-            <li><strong>Community access:</strong> Join our private group for networking and Q&A</li>
-          </ul>
+          <p>Here's a small gift to get started: a 1-page <strong>Hook Bank 10</strong> PDF built from real reviews/Reddit pains.</p>
           
-          <p>In the meantime, here are some resources to get you started:</p>
-          
-          <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="margin-top: 0;">🎯 Free Marketing Audit Checklist</h3>
-            <p>Identify the gaps in your current marketing strategy with our comprehensive 47-point audit.</p>
-            <a href="${process.env.NEXT_PUBLIC_APP_URL}/resources/audit-checklist" style="background: #0ea5e9; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Download Now</a>
+          <div style="background: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0; text-align: center;">
+            <h3 style="margin-top: 0; color: #1f2937;">🎁 Your Hook Bank 10 PDF</h3>
+            <p style="margin-bottom: 15px;">10 proven hooks from real customer language that you can adapt for your fitness/sports app.</p>
+            <a href="${process.env.NEXT_PUBLIC_APP_URL}/resources/hook-bank-10.pdf" style="background: #1f2937; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block; font-weight: bold;">Download Now</a>
           </div>
           
-          <p>Ready to take your marketing to the next level? <a href="${process.env.NEXT_PUBLIC_APP_URL}/pilot">Book a strategy call</a> to discuss your specific goals.</p>
+          <p><strong>What to expect:</strong></p>
+          <ul style="line-height: 1.8;">
+            <li>Your first Monday Morning Ideas arrives next Monday at 8am ET</li>
+            <li>3 hooks you can test immediately</li>
+            <li>1 teardown of a winning ad with breakdown</li>
+            <li>1 mini test idea (30-second implementation)</li>
+          </ul>
           
-          <p>To your success,<br>The Monday Morning Marketer Team</p>
+          <p>Want to fast-track your results? Check out our <a href="${process.env.NEXT_PUBLIC_APP_URL}/pilot" style="color: #1f2937; font-weight: bold;">free 7-day scripts pilot</a> or go straight to the <a href="${process.env.NEXT_PUBLIC_APP_URL}/990" style="color: #1f2937; font-weight: bold;">$990 / 72-hour system</a>.</p>
+          
+          <p>— MMM</p>
           
           <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
           <p style="font-size: 12px; color: #6b7280; text-align: center;">
             Monday Morning Marketer<br>
-            You're receiving this because you subscribed to our marketing insights.<br>
+            Contact: <a href="mailto:mondaymorningmarketer@gmail.com">mondaymorningmarketer@gmail.com</a><br>
             <a href="#">Unsubscribe</a> | <a href="#">Update preferences</a>
           </p>
         </div>

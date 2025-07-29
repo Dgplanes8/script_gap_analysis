@@ -2,15 +2,16 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Analytics } from '@/components/analytics';
+import { StructuredData } from '@/components/structured-data';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Monday Morning Marketer - Transform Your Marketing Strategy',
+  title: 'Monday Morning Marketer - 12 Shoot-Ready Ad Scripts in 72 Hours',
   description:
-    'Join the Monday Morning Marketer community and transform your marketing strategy with expert insights, proven frameworks, and actionable tactics.',
+    'Get 12 shoot-ready ad scripts in 72 hours for $990. Customer-language hooks from reviews and Reddit for fitness/sports apps. Free 7-day pilot available.',
   keywords:
-    'marketing strategy, digital marketing, marketing framework, business growth, marketing insights',
+    'ad scripts, fitness app marketing, sports app ads, customer language hooks, CTR optimization, TSR improvement, Reddit marketing, review-based hooks',
   authors: [{ name: 'Monday Morning Marketer' }],
   creator: 'Monday Morning Marketer',
   publisher: 'Monday Morning Marketer',
@@ -21,9 +22,9 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Monday Morning Marketer - Transform Your Marketing Strategy',
+    title: 'Monday Morning Marketer - 12 Shoot-Ready Ad Scripts in 72 Hours',
     description:
-      'Join the Monday Morning Marketer community and transform your marketing strategy with expert insights, proven frameworks, and actionable tactics.',
+      'Get 12 shoot-ready ad scripts in 72 hours for $990. Customer-language hooks from reviews and Reddit for fitness/sports apps.',
     url: '/',
     siteName: 'Monday Morning Marketer',
     images: [
@@ -39,9 +40,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Monday Morning Marketer - Transform Your Marketing Strategy',
+    title: 'Monday Morning Marketer - 12 Shoot-Ready Ad Scripts in 72 Hours',
     description:
-      'Join the Monday Morning Marketer community and transform your marketing strategy with expert insights, proven frameworks, and actionable tactics.',
+      'Get 12 shoot-ready ad scripts in 72 hours for $990. Customer-language hooks from reviews and Reddit for fitness/sports apps.',
     images: ['/images/og-image.jpg'],
     creator: '@mondaymorningmarketer',
   },
@@ -68,6 +69,7 @@ export default function RootLayout({
       <body className={inter.className}>
         {children}
         <Analytics />
+        <StructuredData />
       </body>
     </html>
   );

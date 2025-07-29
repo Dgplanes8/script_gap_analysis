@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Mail, ArrowRight } from 'lucide-react';
+import { trackEmailSignup, trackFormAbandonment } from '@/components/analytics';
 
 const emailSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
@@ -18,6 +19,7 @@ interface EmailCaptureFormProps {
   buttonText?: string;
   variant?: 'hero' | 'cta' | 'inline';
   showFirstName?: boolean;
+  source?: string; // Track where the signup came from
   onSubmit?: (data: EmailFormData) => Promise<void>;
 }
 
@@ -26,6 +28,7 @@ export function EmailCaptureForm({
   buttonText = 'Get Started',
   variant = 'inline',
   showFirstName = false,
+  source = 'unknown',
   onSubmit,
 }: EmailCaptureFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -58,10 +61,14 @@ export function EmailCaptureForm({
         }
       }
       
+      // Track successful signup
+      trackEmailSignup(source);
+      
       setIsSubmitted(true);
       reset();
     } catch (error) {
       console.error('Error submitting form:', error);
+      trackFormAbandonment('email_signup', 'submission_error');
       // Handle error (show toast, etc.)
     } finally {
       setIsSubmitting(false);
@@ -78,7 +85,7 @@ export function EmailCaptureForm({
           Thank you for subscribing!
         </h3>
         <p className="text-green-700">
-          Check your email for your first marketing insight and exclusive resources.
+          Check your email for your Hook Bank 10 PDF and first Monday Morning Ideas newsletter.
         </p>
       </div>
     );
@@ -149,7 +156,7 @@ export function EmailCaptureForm({
       </div>
       
       <p className="text-sm text-gray-500 text-center">
-        Join 2,847+ marketers getting weekly insights. Unsubscribe anytime.
+        Join Monday Morning Ideas. Get your Hook Bank 10 PDF instantly. Unsubscribe anytime.
       </p>
     </form>
   );
