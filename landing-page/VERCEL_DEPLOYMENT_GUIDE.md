@@ -37,6 +37,20 @@ Move the landing page to its own repository for cleaner deployment.
 
 ### Step 3: Set Environment Variables
 In Vercel dashboard → Settings → Environment Variables:
+**Option 1: With Kit (ConvertKit) - Recommended**
+```bash
+NEXT_PUBLIC_APP_URL=https://your-vercel-url.vercel.app
+KIT_API_KEY=your_kit_api_key_here
+KIT_FORM_ID=your_kit_form_id
+NEXT_PUBLIC_FROM_EMAIL=hello@mondaymorningmarketer.com
+AIRTABLE_API_KEY=patxxxxxxxxxx
+AIRTABLE_BASE_ID=appxxxxxxxxxx
+AIRTABLE_TABLE_NAME=Get Featured Submissions
+NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-username
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+**Option 2: With Resend (Legacy)**
 ```bash
 NEXT_PUBLIC_APP_URL=https://your-vercel-url.vercel.app
 RESEND_API_KEY=re_xxxxxxxxxx
@@ -86,7 +100,43 @@ git push origin main
 
 ## 🔧 Service Setup Guide
 
-### 1. Resend Email Service
+### 1. Kit (ConvertKit) Email Service - **Recommended**
+
+**Why Switch to Kit:**
+- ✅ **Better newsletter capabilities** with automation
+- ✅ **Lead magnet delivery** built-in
+- ✅ **Customer journey automation** for pilot → customer conversion
+- ✅ **Landing page builder** included
+- ✅ **Better pricing** - $25/month vs $20/month Resend + separate newsletter tool
+
+**Create Account & Get API Key:**
+1. Sign up at [kit.com](https://kit.com) (formerly ConvertKit)
+2. Go to Settings → Account → API Keys
+3. Copy the API Key and API Secret
+4. Create a form for "Monday Morning Ideas" newsletter
+5. Copy the Form ID from the form settings
+
+**Domain Setup:**
+1. Go to Settings → Sending
+2. Add your domain: `mondaymorningmarketer.com`
+3. Add these DNS records to your domain registrar:
+   ```
+   Type: CNAME
+   Name: kit
+   Value: custom.kit.com
+   
+   Type: TXT
+   Name: @
+   Value: [Provided by Kit for verification]
+   ```
+4. Wait for verification (up to 24 hours)
+
+**Set Up Automation:**
+1. Create welcome sequence for new subscribers
+2. Set up pilot program nurture sequence
+3. Build customer onboarding automation
+
+### 1b. Resend Email Service (Legacy Option)
 
 **Create Account & Get API Key:**
 1. Sign up at [resend.com](https://resend.com)
@@ -181,7 +231,12 @@ npm run dev
 ### Environment Variables Test
 Create `.env.local` with all required variables and test:
 ```bash
-# Test email subscription
+# Test Kit email subscription (recommended)
+curl -X POST http://localhost:3000/api/kit-subscribe \
+  -H "Content-Type: application/json" \
+  -d '{"email":"test@example.com","firstName":"Test"}'
+
+# Test Resend email subscription (legacy)
 curl -X POST http://localhost:3000/api/subscribe \
   -H "Content-Type: application/json" \
   -d '{"email":"test@example.com","firstName":"Test"}'
@@ -312,7 +367,45 @@ npm run type-check
 
 - [Vercel Documentation](https://vercel.com/docs)
 - [Next.js Documentation](https://nextjs.org/docs)
-- [Resend Documentation](https://resend.com/docs)
+- [Kit (ConvertKit) API Documentation](https://developers.kit.com/)
+- [Resend Documentation](https://resend.com/docs) (legacy)
 - [Airtable API Documentation](https://airtable.com/developers/web/api)
+
+---
+
+## 🚀 Migration Guide: Resend → Kit
+
+**If you're currently using Resend and want to switch to Kit:**
+
+### Step 1: Set up Kit account (parallel to existing setup)
+1. Create Kit account and configure domain
+2. Create forms and automation sequences
+3. Test with new environment variables
+
+### Step 2: Update API endpoints
+1. Create new API route: `/api/kit-subscribe`
+2. Update email capture forms to use new endpoint
+3. Test thoroughly in development
+
+### Step 3: Migrate email list
+1. Export subscribers from current system
+2. Import to Kit with proper tagging
+3. Set up automation sequences
+
+### Step 4: Deploy and monitor
+1. Update environment variables in Vercel
+2. Deploy new version
+3. Monitor email delivery and automation triggers
+
+### Step 5: Sunset Resend (after confirming Kit works)
+1. Remove Resend environment variables
+2. Delete old API routes
+3. Cancel Resend subscription
+
+**Benefits of the switch:**
+- ✅ **Save money:** $25/month for everything vs $20+ for multiple tools
+- ✅ **Better automation:** Welcome sequences, pilot nurturing, customer onboarding
+- ✅ **Improved conversions:** Better lead magnet delivery and follow-up
+- ✅ **Single platform:** Email + forms + landing pages + automation
 
 Need help? Check the troubleshooting section or contact support for the respective services.
