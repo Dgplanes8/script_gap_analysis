@@ -53,7 +53,7 @@ const testimonials: Testimonial[] = [
     title: 'CEO',
     company: 'SleepBetter',
     avatar: '/api/placeholder/64/64',
-    content: 'We tried 6 different agencies and freelancers before finding MMM. Finally, scripts that actually understand our customers real pain points about sleep anxiety.',
+    content: 'We tried 6 different agencies and freelancers before finding MMM. Finally, scripts that actually understand our customers\' real pain points about sleep anxiety.',
     metrics: {
       before: '2.1% CTR',
       after: '4.2% CTR',

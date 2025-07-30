@@ -12,7 +12,6 @@ import { InlineCTA } from '@/components/ui/inline-cta';
 import { ABTest } from '@/components/testing/ab-test';
 import { EnhancedABTest, ABTestConfigs } from '@/components/testing/enhanced-ab-test';
 import { ConversionDashboard } from '@/components/analytics/conversion-dashboard';
-import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { TestimonialCarousel } from '@/components/ui/testimonial-carousel';
 
 export default function HomePage() {
