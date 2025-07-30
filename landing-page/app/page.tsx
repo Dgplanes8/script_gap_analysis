@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Mail, Users, TrendingUp } from 'lucide-react';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
@@ -13,18 +16,44 @@ import { ABTest } from '@/components/testing/ab-test';
 import { EnhancedABTest, ABTestConfigs } from '@/components/testing/enhanced-ab-test';
 import { ConversionDashboard } from '@/components/analytics/conversion-dashboard';
 import { TestimonialCarousel } from '@/components/ui/testimonial-carousel';
+import { Header } from '@/components/layout/header';
+import { HooksOfferSection } from '@/components/ui/hooks-offer-section';
+import { AboutSection } from '@/components/layout/about-section';
+import { ApplicationForm } from '@/components/forms/application-form';
+import { FloatingActionButton } from '@/components/ui/floating-action-button';
+import { EnhancedCTAButton } from '@/components/ui/enhanced-cta-button';
 
 export default function HomePage() {
+  const [isApplicationFormOpen, setIsApplicationFormOpen] = useState(false);
+  const [applicationVariant, setApplicationVariant] = useState<'pilot' | 'full'>('full');
+
+  const handleOpenApplication = (variant: 'pilot' | 'full') => {
+    setApplicationVariant(variant);
+    setIsApplicationFormOpen(true);
+  };
+
   return (
-    <main className="min-h-screen">
+    <>
+      {/* Header Navigation */}
+      <Header onOpenApplication={handleOpenApplication} />
+      
+      <main className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
       <Hero
         title="Stop Wasting Ad Budget on Hooks That Don't Convert"
-        subtitle="Get 12 customer-language scripts in 72 hours that beat your median CTR by 34%—or full refund. Used by 1,247+ performance marketers."
+        subtitle="Get 12 customer-language scripts in 48 hours that beat your median CTR by 34%—or full refund. Used by 1,200+ performance marketers."
         ctaText="Get Your Scripts Now - $990"
         secondaryCtaText="Start Free 7-Day Pilot"
-        secondaryCtaLink="/pilot"
+        showEmailCapture={false}
+        onPrimaryClick={() => handleOpenApplication('full')}
+        onSecondaryClick={() => handleOpenApplication('pilot')}
       />
+
+      {/* Hooks Offer Section */}
+      <HooksOfferSection />
+
+      {/* About Section */}
+      <AboutSection onOpenApplication={handleOpenApplication} />
 
       {/* Metrics Section */}
       <MetricsSection />
@@ -42,9 +71,9 @@ export default function HomePage() {
           },
           {
             icon: Users,
-            title: '72-Hour Delivery',
+            title: '48-Hour Delivery',
             description:
-              'Get 12 shoot-ready scripts with thumbnails and test plans delivered in 72 business hours, or full refund.',
+              'Get 12 shoot-ready scripts with thumbnails and test plans delivered in 48 business hours, or full refund.'
           },
           {
             icon: Mail,
@@ -66,25 +95,25 @@ export default function HomePage() {
                 id: 'control',
                 name: 'Direct Action',
                 weight: 0.3,
-                component: <InlineCTA text="Get Your Scripts Now" href="/990" variant="primary" size="lg" />
+                component: <InlineCTA text="Get Your Scripts Now" onClick={() => handleOpenApplication('full')} variant="primary" size="lg" />
               },
               {
                 id: 'value_focused',
                 name: 'Value Focused',
                 weight: 0.25,
-                component: <InlineCTA text="Get Scripts That Actually Convert" href="/990" variant="primary" size="lg" />
+                component: <InlineCTA text="Get Scripts That Actually Convert" onClick={() => handleOpenApplication('full')} variant="primary" size="lg" />
               },
               {
                 id: 'urgency',
                 name: 'Urgency + Scarcity',
                 weight: 0.25,
-                component: <InlineCTA text="Secure Your Scripts (8 Spots Left)" href="/990" variant="primary" size="lg" />
+                component: <InlineCTA text="Secure Your Scripts (8 Spots Left)" onClick={() => handleOpenApplication('full')} variant="primary" size="lg" />
               },
               {
                 id: 'free_pilot',
                 name: 'Free Pilot',
                 weight: 0.2,
-                component: <InlineCTA text="Start Free 7-Day Pilot" href="/pilot" variant="secondary" size="lg" />
+                component: <InlineCTA text="Start Free 7-Day Pilot" onClick={() => handleOpenApplication('pilot')} variant="secondary" size="lg" />
               }
             ]}
           />
@@ -99,11 +128,11 @@ export default function HomePage() {
               Trusted by Performance Marketing Teams At
             </p>
             <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-              <div className="bg-gray-200 px-6 py-3 rounded text-gray-600 font-semibold">FitTracker Pro</div>
-              <div className="bg-gray-200 px-6 py-3 rounded text-gray-600 font-semibold">GolfMetrics</div>
-              <div className="bg-gray-200 px-6 py-3 rounded text-gray-600 font-semibold">SleepBetter</div>
-              <div className="bg-gray-200 px-6 py-3 rounded text-gray-600 font-semibold">RunCoach</div>
-              <div className="bg-gray-200 px-6 py-3 rounded text-gray-600 font-semibold">YogaFlow</div>
+              <div className="bg-gray-200 px-6 py-3 rounded text-gray-600 font-semibold">SubscriptionBox Co</div>
+              <div className="bg-gray-200 px-6 py-3 rounded text-gray-600 font-semibold">MealPlan Pro</div>
+              <div className="bg-gray-200 px-6 py-3 rounded text-gray-600 font-semibold">StreamingPlus</div>
+              <div className="bg-gray-200 px-6 py-3 rounded text-gray-600 font-semibold">SoftwareCloud</div>
+              <div className="bg-gray-200 px-6 py-3 rounded text-gray-600 font-semibold">ContentHub</div>
             </div>
           </div>
         </div>
@@ -114,7 +143,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <p className="text-red-700 font-medium">
-              🔥 <strong>January Special:</strong> Only 12 script packages available this month. 8 spots remaining.
+              🔥 <strong>August Special:</strong> Only 12 script packages available this month. 8 spots remaining.
             </p>
           </div>
         </div>
@@ -175,12 +204,12 @@ export default function HomePage() {
                 </li>
               </ul>
 
-              <Link
-                href="/pilot"
-                className="w-full btn-primary text-center block"
-              >
-                Apply for Free Pilot
-              </Link>
+              <EnhancedCTAButton
+                variant="pilot"
+                onClick={() => handleOpenApplication('pilot')}
+                className="w-full"
+                size="lg"
+              />
             </div>
 
             {/* $990 Program */}
@@ -198,13 +227,13 @@ export default function HomePage() {
                 </h3>
                 <div className="text-4xl font-bold mb-2">
                   $990
-                  <span className="text-lg font-normal opacity-80"> / 72 hours</span>
+                  <span className="text-lg font-normal opacity-80"> / 48 hours</span>
                 </div>
                 <div className="text-sm opacity-80 mb-2">
                   <span className="line-through">$2,500</span> agency price
                 </div>
                 <p className="opacity-90">
-                  12 shoot-ready scripts that beat your current CTR by 34% on average—guaranteed delivery in 72 hours.
+                  12 shoot-ready scripts that beat your current CTR by 34% on average—guaranteed delivery in 48 hours.
                 </p>
               </div>
 
@@ -223,26 +252,26 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start">
                   <ArrowRight className="h-5 w-5 text-brand-200 mt-0.5 mr-3 flex-shrink-0" />
-                  <span>72-hour delivery guarantee</span>
+                  <span>48-hour delivery guarantee</span>
                 </li>
               </ul>
 
-              <Link
-                href="/990"
-                className="w-full bg-white text-brand-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-center block"
-              >
-                Order $990 Script System
-              </Link>
+              <EnhancedCTAButton
+                variant="full"
+                onClick={() => handleOpenApplication('full')}
+                className="w-full bg-white text-blue-600 hover:bg-gray-50"
+                size="lg"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Case Studies Section */}
-      <CaseStudiesSection />
+      {/* Case Studies Section - Commented out fake testimonials */}
+      {/* <CaseStudiesSection /> */}
       
-      {/* Testimonial Carousel */}
-      <TestimonialCarousel />
+      {/* Testimonial Carousel - Commented out fake testimonials */}
+      {/* <TestimonialCarousel /> */}
 
       {/* Risk Reversal Section */}
       <section className="py-16 bg-green-50">
@@ -254,9 +283,9 @@ export default function HomePage() {
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <div className="text-4xl mb-4">🛡️</div>
-                <h3 className="text-xl font-semibold mb-3">72-Hour Guarantee</h3>
+                <h3 className="text-xl font-semibold mb-3">48-Hour Guarantee</h3>
                 <p className="text-gray-600">
-                  If we don't deliver your complete script package within 72 business hours, get a full refund. No questions asked.
+                  If we don't deliver your complete script package within 48 business hours, get a full refund. No questions asked.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg">
@@ -286,13 +315,13 @@ export default function HomePage() {
               Ready to Stop Wasting Ad Budget on Bad Hooks?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Join 1,247+ performance marketers who get customer-language scripts that actually convert.
+              Join 1,200+ performance marketers who get customer-language scripts that actually convert.
             </p>
             
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
               <div className="grid md:grid-cols-3 gap-6 text-center mb-8">
                 <div>
-                  <div className="text-3xl font-bold">🚀 72hrs</div>
+                  <div className="text-3xl font-bold">🚀 48hrs</div>
                   <div className="text-sm opacity-80">Delivery Time</div>
                 </div>
                 <div>
@@ -306,12 +335,18 @@ export default function HomePage() {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="/990" className="bg-white text-brand-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                <button
+                  onClick={() => handleOpenApplication('full')}
+                  className="bg-white text-brand-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                >
                   Get Scripts Now - $990
-                </a>
-                <a href="/pilot" className="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white/10 transition-colors duration-200">
+                </button>
+                <button
+                  onClick={() => handleOpenApplication('pilot')}
+                  className="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white/10 transition-colors duration-200"
+                >
                   Start Free Pilot
-                </a>
+                </button>
               </div>
             </div>
             
@@ -335,18 +370,45 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Sticky CTA */}
-      <StickyCTA 
-        text="Start Free 7-Day Scripts Pilot" 
-        href="/pilot" 
-        variant="pilot"
-      />
+      {/* Inline CTAs after major sections */}
+      <section className="py-8 bg-gray-50">
+        <div className="container mx-auto px-4 text-center">
+          <div className="max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Ready to Transform Your Ad Performance?
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Join 1,200+ subscription companies getting customer-language scripts that actually convert.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <EnhancedCTAButton
+                variant="full"
+                onClick={() => handleOpenApplication('full')}
+                size="lg"
+              />
+              <EnhancedCTAButton
+                variant="pilot"
+                onClick={() => handleOpenApplication('pilot')}
+                size="lg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-      {/* Exit Intent Popup */}
-      <ExitIntentPopup />
+      {/* Floating Action Button */}
+      <FloatingActionButton onOpenApplication={handleOpenApplication} />
+
+      {/* Application Form Modal */}
+      <ApplicationForm
+        isOpen={isApplicationFormOpen}
+        onClose={() => setIsApplicationFormOpen(false)}
+        variant={applicationVariant}
+      />
 
       {/* Conversion Dashboard (dev/admin only) */}
       <ConversionDashboard />
     </main>
+    </>
   );
 }

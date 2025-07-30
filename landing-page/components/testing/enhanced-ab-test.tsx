@@ -172,7 +172,7 @@ export const ABTestConfigs = {
         weight: 0.34,
         component: (
           <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            Stop guessing hooks. Get 12 scripts in 72 hours for $990.
+            Stop guessing hooks. Get 12 scripts in 48 hours for $990.
           </h1>
         )
       },
@@ -238,7 +238,7 @@ export const ABTestConfigs = {
         weight: 0.25,
         component: (
           <button className="btn-primary">
-            Join 1,247+ Marketers Getting Results
+            Join 1,200+ Marketers Getting Results
           </button>
         )
       }
@@ -254,7 +254,7 @@ export const ABTestConfigs = {
         weight: 0.5,
         component: (
           <div className="text-center mb-8">
-            <p className="text-sm text-gray-600 mb-2">Trusted by 1,247+ performance marketers</p>
+            <p className="text-sm text-gray-600 mb-2">Trusted by 1,200+ performance marketers</p>
             <div className="flex justify-center items-center space-x-6">
               <div className="text-2xl font-bold text-brand-600">34%</div>
               <div className="text-sm">Avg CTR Improvement</div>
@@ -269,7 +269,7 @@ export const ABTestConfigs = {
         component: (
           <div className="text-center py-8 bg-blue-50 rounded-lg">
             <p className="text-lg font-medium text-gray-900 mb-4">
-              Join 1,247+ marketers getting 34% better CTR
+              Join 1,200+ marketers getting 34% better CTR
             </p>
             <div className="grid grid-cols-3 gap-4 max-w-md mx-auto">
               <div>

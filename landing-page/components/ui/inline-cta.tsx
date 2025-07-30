@@ -5,7 +5,8 @@ import Link from 'next/link';
 
 interface InlineCTAProps {
   text: string;
-  href: string;
+  href?: string;
+  onClick?: () => void;
   variant?: 'primary' | 'secondary' | 'subtle';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
@@ -14,6 +15,7 @@ interface InlineCTAProps {
 export function InlineCTA({ 
   text, 
   href, 
+  onClick,
   variant = 'primary', 
   size = 'md',
   className = '' 
@@ -44,13 +46,31 @@ export function InlineCTA({
     ? 'inline-flex items-center font-semibold transition-colors duration-200'
     : 'inline-flex items-center font-semibold rounded-lg transition-colors duration-200';
 
-  return (
-    <Link
-      href={href}
-      className={`${baseStyles} ${getVariantStyles()} ${getSizeStyles()} ${className}`}
-    >
+  const commonStyles = `${baseStyles} ${getVariantStyles()} ${getSizeStyles()} ${className}`;
+  const content = (
+    <>
       {text}
       <ArrowRight className="ml-2 h-4 w-4" />
+    </>
+  );
+
+  if (onClick) {
+    return (
+      <button
+        onClick={onClick}
+        className={commonStyles}
+      >
+        {content}
+      </button>
+    );
+  }
+
+  return (
+    <Link
+      href={href || '#'}
+      className={commonStyles}
+    >
+      {content}
     </Link>
   );
 }

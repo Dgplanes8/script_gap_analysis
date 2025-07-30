@@ -395,7 +395,7 @@ export default function PilotPage() {
               🔥 Only 8 Pilot Spots Remaining This Month
             </h2>
             <p className="text-lg text-red-700 mb-6">
-              We limit pilots to 12 per month to ensure quality delivery. January spots are filling fast.
+              We limit pilots to 12 per month to ensure quality delivery. August spots are filling fast.
             </p>
             <div className="bg-white rounded-lg p-6 shadow-lg">
               <div className="grid grid-cols-4 gap-4 mb-4">

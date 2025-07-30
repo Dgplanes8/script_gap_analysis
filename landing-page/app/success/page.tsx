@@ -28,7 +28,7 @@ export default function SuccessPage() {
         case 'order':
           return {
             title: "Order received. We'll review your intake within 4 business hours.",
-            subtitle: "Your 72‑hour clock starts after intake completion. Watch for two emails: payment receipt and intake form confirmation. You can reply to either with questions."
+            subtitle: "Your 48‑hour clock starts after intake completion. Watch for two emails: payment receipt and intake form confirmation. You can reply to either with questions."
           };
         case 'newsletter':
           return {
@@ -94,7 +94,7 @@ export default function SuccessPage() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3">If You Ordered</h3>
                 <p className="text-gray-600">
-                  Watch for payment receipt and intake form. Your 72-hour delivery clock starts after intake completion.
+                  Watch for payment receipt and intake form. Your 48-hour delivery clock starts after intake completion.
                 </p>
               </div>
               
@@ -175,7 +175,7 @@ export default function SuccessPage() {
                     $990 Script System
                   </h3>
                   <p className="text-brand-100">
-                    12 shoot-ready scripts in 72 hours with full test plan.
+                    12 shoot-ready scripts in 48 hours with full test plan.
                   </p>
                 </div>
                 
@@ -194,7 +194,7 @@ export default function SuccessPage() {
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-brand-200 mt-1 mr-3 flex-shrink-0" />
-                    <span>72-hour delivery guarantee</span>
+                    <span>48-hour delivery guarantee</span>
                   </li>
                 </ul>
                 

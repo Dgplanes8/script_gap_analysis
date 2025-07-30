@@ -8,9 +8,9 @@ import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: '$990 / 72-Hour Narrative + Script System - Monday Morning Marketer',
+  title: '$990 / 48-Hour Narrative + Script System - Monday Morning Marketer',
   description:
-    '12 shoot-ready ad scripts in 72 hours for $990. 3 angles × 4 variants, thumbnails, and a 1-week test plan—engineered from your real customer language.',
+    '12 shoot-ready ad scripts in 48 hours for $990. 3 angles × 4 variants, thumbnails, and a 1-week test plan—engineered from your real customer language.',
 };
 
 export default function DoneForYouPage() {
@@ -19,7 +19,7 @@ export default function DoneForYouPage() {
       {/* Hero Section */}
       <Hero
         title="Stop Burning $5,000+ Per Month on Ads That Don't Convert"
-        subtitle="Get 12 customer-language scripts in 72 hours that beat your median CTR by 34% on average—or we'll refund every penny. Last 8 spots available this month."
+        subtitle="Get 12 customer-language scripts in 48 hours that beat your median CTR by 34% on average—or we'll refund every penny. Last 8 spots available this month."
         ctaText="Secure Your Scripts - $990"
         secondaryCtaText="See Proof & Case Studies"
         secondaryCtaLink="#case-studies"
@@ -73,7 +73,7 @@ export default function DoneForYouPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-3">•</span>
-                    <span><strong>72-hour delivery</strong> vs months of internal creation</span>
+                    <span><strong>48-hour delivery</strong> vs months of internal creation</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-3">•</span>
@@ -191,7 +191,7 @@ export default function DoneForYouPage() {
                 </div>
                 <h3 className="text-lg font-semibold mb-3">MMM System</h3>
                 <div className="text-3xl font-bold mb-2">$990</div>
-                <div className="text-sm opacity-80 mb-4">one-time, 72-hour delivery</div>
+                <div className="text-sm opacity-80 mb-4">one-time, 48-hour delivery</div>
                 <ul className="text-sm space-y-1">
                   <li>• Customer-language research</li>
                   <li>• Proven 34% CTR improvement</li>
@@ -236,7 +236,7 @@ export default function DoneForYouPage() {
                 <div className="p-6 border-t font-medium text-gray-900">Turnaround</div>
                 <div className="p-6 border-t text-center text-red-600">Slow turnarounds</div>
                 <div className="p-6 border-t text-center text-yellow-600">Unpredictable</div>
-                <div className="p-6 border-t text-center text-green-600 font-bold">72 hours</div>
+                <div className="p-6 border-t text-center text-green-600 font-bold">48 hours</div>
                 
                 {/* Quality */}
                 <div className="p-6 border-t font-medium text-gray-900">Quality</div>
@@ -258,7 +258,7 @@ export default function DoneForYouPage() {
                 <div className="grid md:grid-cols-3 gap-4 text-sm">
                   <div>
                     <div className="font-semibold text-green-700">Delivery Guarantee</div>
-                    <div className="text-green-600">Full refund if not delivered in 72 hours</div>
+                    <div className="text-green-600">Full refund if not delivered in 48 hours</div>
                   </div>
                   <div>
                     <div className="font-semibold text-green-700">Quality Guarantee</div>
@@ -342,7 +342,7 @@ export default function DoneForYouPage() {
                   <ul className="text-gray-600 space-y-1 text-sm">
                     <li>• Scripts + thumbnails + Mini Angle Map + test plan</li>
                     <li>• No video production included</li>
-                    <li>• 72-hour delivery from intake completion</li>
+                    <li>• 48-hour delivery from intake completion</li>
                   </ul>
                 </div>
               </div>
@@ -524,14 +524,14 @@ export default function DoneForYouPage() {
               🔥 Only 8 Script Packages Available This Month
             </h2>
             <p className="text-lg text-red-700 mb-6">
-              We limit monthly capacity to 12 packages to ensure quality delivery. January is filling fast.
+              We limit monthly capacity to 12 packages to ensure quality delivery. August is filling fast.
             </p>
             <div className="bg-white rounded-lg p-6 shadow-lg">
               <div className="text-2xl font-bold text-red-600 mb-2">67% Sold Out</div>
               <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
                 <div className="bg-red-500 h-4 rounded-full" style={{width: '67%'}}></div>
               </div>
-              <div className="text-sm text-gray-600">8 packages remaining for January delivery</div>
+              <div className="text-sm text-gray-600">8 packages remaining for August delivery</div>
             </div>
           </div>
         </div>
@@ -545,7 +545,7 @@ export default function DoneForYouPage() {
               Stop Wasting Money on Ads That Don't Convert
             </h2>
             <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-              Get customer-language scripts that beat your current CTR by 34% on average. 72-hour delivery. Full refund guarantee.
+              Get customer-language scripts that beat your current CTR by 34% on average. 48-hour delivery. Full refund guarantee.
             </p>
             
             <div className="bg-white rounded-xl p-8 shadow-lg mb-8 relative">
@@ -555,7 +555,7 @@ export default function DoneForYouPage() {
               
               <div className="text-center mb-6">
                 <div className="text-5xl font-bold text-brand-600 mb-2">$990</div>
-                <div className="text-lg text-gray-600 mb-2">One-time payment • 72-hour delivery</div>
+                <div className="text-lg text-gray-600 mb-2">One-time payment • 48-hour delivery</div>
                 <div className="text-sm text-green-600 font-medium">Avg ROI: 400% in first month</div>
               </div>
               

@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 
@@ -9,6 +11,8 @@ interface HeroProps {
   secondaryCtaLink?: string;
   background?: 'gradient' | 'default';
   showEmailCapture?: boolean;
+  onPrimaryClick?: () => void;
+  onSecondaryClick?: () => void;
 }
 
 export function Hero({
@@ -19,6 +23,8 @@ export function Hero({
   secondaryCtaLink,
   background = 'default',
   showEmailCapture = true,
+  onPrimaryClick,
+  onSecondaryClick,
 }: HeroProps) {
   const bgClasses =
     background === 'gradient'
@@ -47,19 +53,37 @@ export function Hero({
               </div>
             ) : (
               <div className="flex flex-col sm:flex-row gap-4 items-center">
-                <Link href="/pilot" className="btn-primary text-lg px-8 py-4">
-                  {ctaText}
-                </Link>
+                {onPrimaryClick ? (
+                  <button 
+                    onClick={onPrimaryClick}
+                    className="btn-primary text-lg px-8 py-4"
+                  >
+                    {ctaText}
+                  </button>
+                ) : (
+                  <Link href="/pilot" className="btn-primary text-lg px-8 py-4">
+                    {ctaText}
+                  </Link>
+                )}
               </div>
             )}
             
-            {secondaryCtaText && secondaryCtaLink && (
-              <Link
-                href={secondaryCtaLink}
-                className="text-gray-200 hover:text-white underline transition-colors"
-              >
-                {secondaryCtaText}
-              </Link>
+            {secondaryCtaText && (
+              onSecondaryClick ? (
+                <button
+                  onClick={onSecondaryClick}
+                  className="text-gray-200 hover:text-white underline transition-colors"
+                >
+                  {secondaryCtaText}
+                </button>
+              ) : secondaryCtaLink ? (
+                <Link
+                  href={secondaryCtaLink}
+                  className="text-gray-200 hover:text-white underline transition-colors"
+                >
+                  {secondaryCtaText}
+                </Link>
+              ) : null
             )}
           </div>
 
@@ -70,7 +94,7 @@ export function Hero({
               <span>Scripts Delivered</span>
             </div>
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-white mr-2">72hr</span>
+              <span className="text-2xl font-bold text-white mr-2">48hr</span>
               <span>Delivery Guarantee</span>
             </div>
             <div className="flex items-center">

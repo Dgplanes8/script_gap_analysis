@@ -23,9 +23,9 @@ const testimonials: Testimonial[] = [
     id: '1',
     name: 'Sarah Chen',
     title: 'Growth Director',
-    company: 'FitTracker Pro',
+    company: 'StreamWatch Pro',
     avatar: '/api/placeholder/64/64',
-    content: 'The customer-language approach was a revelation. Our scripts went from generic fitness motivation to speaking directly to new parents struggling with consistency. The difference was immediate.',
+    content: 'The customer-language approach was a revelation. Our scripts went from generic subscription messaging to speaking directly to busy professionals struggling with content discovery. The difference was immediate.',
     metrics: {
       before: '1.2% CTR',
       after: '3.8% CTR',
@@ -37,7 +37,7 @@ const testimonials: Testimonial[] = [
     id: '2',
     name: 'Mike Rodriguez',
     title: 'Marketing Lead',
-    company: 'GolfMetrics',
+    company: 'MealBox Plus',
     avatar: '/api/placeholder/64/64',
     content: 'I was spending $127K/month on ads that barely moved the needle. MMM scripts cut our CAC by 34% in the first week. The ROI was undeniable.',
     metrics: {
@@ -51,9 +51,9 @@ const testimonials: Testimonial[] = [
     id: '3',
     name: 'Jessica Thompson',
     title: 'CEO',
-    company: 'SleepBetter',
+    company: 'Learn Plus',
     avatar: '/api/placeholder/64/64',
-    content: 'We tried 6 different agencies and freelancers before finding MMM. Finally, scripts that actually understand our customers real pain points about sleep anxiety.',
+    content: 'We tried 6 different agencies and freelancers before finding MMM. Finally, scripts that actually understand our customers real pain points about skill development anxiety.',
     metrics: {
       before: '2.1% CTR',
       after: '4.2% CTR',
@@ -65,9 +65,9 @@ const testimonials: Testimonial[] = [
     id: '4',
     name: 'David Park',
     title: 'Performance Marketing Manager',
-    company: 'RunCoach',
+    company: 'CloudSync',
     avatar: '/api/placeholder/64/64',
-    content: 'The 72-hour delivery is real. What impressed me most was how they captured the exact language our customers use in reviews. It felt authentic, not salesy.',
+    content: 'The 48-hour delivery is real. What impressed me most was how they captured the exact language our customers use in reviews. It felt authentic, not salesy.',
     metrics: {
       before: '1.8% CTR',
       after: '3.1% CTR',
@@ -79,7 +79,7 @@ const testimonials: Testimonial[] = [
     id: '5',
     name: 'Emma Wilson',
     title: 'Head of Growth',
-    company: 'YogaFlow',
+    company: 'ContentHub',
     avatar: '/api/placeholder/64/64',
     content: 'Started with the pilot program, upgraded immediately. The scripts helped us break through a 6-month plateau in our Facebook ad performance.',
     metrics: {
