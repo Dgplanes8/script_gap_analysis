@@ -4,7 +4,6 @@ import { Hero } from '@/components/layout/hero';
 import { Features } from '@/components/layout/features';
 import { TestimonialSection } from '@/components/layout/testimonial-section';
 import { PricingCard } from '@/components/ui/pricing-card';
-import { CalendlyEmbed } from '@/components/ui/calendly-embed';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import Link from 'next/link';
 

@@ -54,56 +54,14 @@ export async function POST(request: NextRequest) {
       throw new Error('Failed to submit to Airtable');
     }
 
-    // Send notification email to team
-    if (process.env.RESEND_API_KEY) {
-      try {
-        // Dynamically import and initialize Resend to avoid build-time errors
-        const { Resend } = require('resend');
-        const resend = new Resend(process.env.RESEND_API_KEY);
-
-        await resend.emails.send({
-          from: process.env.NEXT_PUBLIC_FROM_EMAIL || 'hello@mondaymorningmarketer.com',
-          to: 'mondaymorningmarketer@gmail.com',
-          subject: `New "Get Featured" Submission from ${data.name}`,
-          html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #1f2937;">New Get Featured Submission</h2>
-              
-              <div style="background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <h3 style="margin-top: 0;">Contact Information</h3>
-                <p><strong>Name:</strong> ${data.name}</p>
-                <p><strong>Email:</strong> ${data.email}</p>
-                <p><strong>Company:</strong> ${data.company}</p>
-                <p><strong>App Type:</strong> ${data.appType}</p>
-              </div>
-
-              <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <h3 style="margin-top: 0;">Performance Metrics</h3>
-                <p><strong>Current CTR:</strong> ${data.currentCTR || 'Not provided'}</p>
-                <p><strong>Current TSR:</strong> ${data.currentTSR || 'Not provided'}</p>
-                <p><strong>Budget:</strong> ${data.budget || 'Not provided'}</p>
-                <p><strong>Timeline:</strong> ${data.timeline || 'Not provided'}</p>
-              </div>
-
-              <div style="background: #f0fdf4; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <h3 style="margin-top: 0;">Pain Points</h3>
-                <p>${data.painPoints}</p>
-              </div>
-
-              <div style="background: #fef3f2; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <h3 style="margin-top: 0;">Goals</h3>
-                <p>${data.goals}</p>
-              </div>
-
-              <p><a href="https://airtable.com/app/${AIRTABLE_BASE_ID}" style="background: #1f2937; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">View in Airtable</a></p>
-            </div>
-          `,
-        });
-      } catch (emailError) {
-        console.error('Failed to send notification email:', emailError);
-        // Don't fail the request if email fails
-      }
-    }
+    // Log the submission for now - you can add email notifications later
+    console.log('New Get Featured submission:', {
+      name: data.name,
+      email: data.email,
+      company: data.company,
+      appType: data.appType,
+      timestamp: new Date().toISOString()
+    });
 
     return NextResponse.json(
       { message: 'Successfully submitted!' },
