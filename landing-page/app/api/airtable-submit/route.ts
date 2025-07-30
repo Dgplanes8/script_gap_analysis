@@ -57,6 +57,7 @@ export async function POST(request: NextRequest) {
     // Send notification email to team
     if (process.env.RESEND_API_KEY) {
       try {
+        // Dynamically import and initialize Resend to avoid build-time errors
         const { Resend } = require('resend');
         const resend = new Resend(process.env.RESEND_API_KEY);
 
