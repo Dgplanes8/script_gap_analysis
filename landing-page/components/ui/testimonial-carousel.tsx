@@ -23,7 +23,7 @@ const testimonials: Testimonial[] = [
     id: '1',
     name: 'Sarah Chen',
     title: 'Growth Director',
-    company: 'StreamWatch Pro',
+    company: 'Streaming Platform',
     avatar: '/api/placeholder/64/64',
     content: 'The customer-language approach was a revelation. Our scripts went from generic subscription messaging to speaking directly to busy professionals struggling with content discovery. The difference was immediate.',
     metrics: {
@@ -37,7 +37,7 @@ const testimonials: Testimonial[] = [
     id: '2',
     name: 'Mike Rodriguez',
     title: 'Marketing Lead',
-    company: 'MealBox Plus',
+    company: 'Meal Delivery Service',
     avatar: '/api/placeholder/64/64',
     content: 'I was spending $127K/month on ads that barely moved the needle. MMM scripts cut our CAC by 34% in the first week. The ROI was undeniable.',
     metrics: {
@@ -51,7 +51,7 @@ const testimonials: Testimonial[] = [
     id: '3',
     name: 'Jessica Thompson',
     title: 'CEO',
-    company: 'Learn Plus',
+    company: 'E-Learning Platform',
     avatar: '/api/placeholder/64/64',
     content: 'We tried 6 different agencies and freelancers before finding MMM. Finally, scripts that actually understand our customers real pain points about skill development anxiety.',
     metrics: {
@@ -65,7 +65,7 @@ const testimonials: Testimonial[] = [
     id: '4',
     name: 'David Park',
     title: 'Performance Marketing Manager',
-    company: 'CloudSync',
+    company: 'Cloud Storage Service',
     avatar: '/api/placeholder/64/64',
     content: 'The 48-hour delivery is real. What impressed me most was how they captured the exact language our customers use in reviews. It felt authentic, not salesy.',
     metrics: {
@@ -79,7 +79,7 @@ const testimonials: Testimonial[] = [
     id: '5',
     name: 'Emma Wilson',
     title: 'Head of Growth',
-    company: 'ContentHub',
+    company: 'Content Management Platform',
     avatar: '/api/placeholder/64/64',
     content: 'Started with the pilot program, upgraded immediately. The scripts helped us break through a 6-month plateau in our Facebook ad performance.',
     metrics: {
