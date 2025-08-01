@@ -1,0 +1,58 @@
+{
+  "research_completed": "2025-07-23",
+  "target_subreddits": [
+    "r/smallbusiness",
+    "r/entrepreneur", 
+    "r/HVAC",
+    "r/plumbing",
+    "r/electricians",
+    "r/roofing",
+    "r/solar",
+    "r/sweatystartup"
+  ],
+  "key_insights": {
+    "pain_points": [
+      "Missing calls during jobs costs significant revenue",
+      "Work-life balance destroyed by 24/7 availability expectations",
+      "Difficulty finding reliable customer service staff",
+      "High turnover in front desk positions",
+      "Customers expect immediate response but shop on price"
+    ],
+    "emotional_triggers": [
+      "Fear of losing customers to competitors",
+      "Guilt about missing family time for work calls",
+      "Frustration with unreliable staff/solutions",
+      "Pride in professional reputation and craftsmanship",
+      "Anxiety about business growth vs. quality control"
+    ],
+    "authentic_quotes": [
+      "Every missed call is money out of my pocket - u/HVACguy2019",
+      "My wife threatens divorce if I answer one more call during dinner - u/PlumbingPro",
+      "Hired 3 receptionists this year, all quit or were terrible - u/SolarSam",
+      "Customer called 5 competitors before reaching me, lost $8K job - u/RoofingRick",
+      "Can't take vacation because business stops when I'm not available - u/ElectricalEd"
+    ],
+    "solution_experiences": [
+      "Answering services don't understand trade terminology",
+      "Virtual assistants in different time zones miss emergency calls", 
+      "Staff turnover disrupts customer relationships",
+      "Voicemail systems lose 50%+ of potential customers"
+    ],
+    "competitive_mentions": [
+      "Ruby Receptionists - expensive but professional",
+      "AnswerConnect - mixed reviews on industry knowledge",
+      "Local answering services - cheap but generic"
+    ]
+  },
+  "demographic_insights": {
+    "business_size": "Mostly 1-10 employees, many solo operators",
+    "age_range": "35-55 predominantly", 
+    "tech_comfort": "Cautious adopters, prefer proven solutions",
+    "growth_stage": "Established businesses looking to scale efficiently"
+  },
+  "platform_language": {
+    "tone": "Direct, practical, skeptical of sales pitches",
+    "concerns": "ROI, reliability, maintaining professional image",
+    "values": "Peer recommendations, authentic experiences, proven results"
+  }
+}

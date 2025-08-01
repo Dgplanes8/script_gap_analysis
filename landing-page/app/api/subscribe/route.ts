@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
-    const { email, firstName } = await request.json();
+    const { email, firstName, source } = await request.json();
 
     if (!email) {
       return NextResponse.json(
@@ -18,12 +18,24 @@ export async function POST(request: NextRequest) {
     if (!CONVERTKIT_API_KEY || !CONVERTKIT_FORM_ID) {
       console.error('ConvertKit configuration missing');
       // Fallback to logging if ConvertKit not configured
-      console.log('New subscription:', { email, firstName, timestamp: new Date().toISOString() });
+      console.log('New subscription:', { email, firstName, source, timestamp: new Date().toISOString() });
       return NextResponse.json(
         { message: 'Successfully subscribed! We will be in touch soon.' },
         { status: 200 }
       );
     }
+
+    // Determine tags based on source
+    const baseTags = ['strategic-ad-intelligence'];
+    const sourceTags = {
+      'cac-calculator-page': ['cac-optimization', 'calculator-lead'],
+      'cac-calculator-results': ['cac-optimization', 'calculator-results-lead'],
+      '1m-arr-playbook-download': ['1m-arr-playbook', 'playbook-download'],
+      'creative-roi-calculator-results': ['creative-strategy', 'roi-calculator-lead'],
+      'creative-strategy-guide': ['creative-strategy', 'guide-download']
+    };
+    
+    const tags = [...baseTags, ...(sourceTags[source as keyof typeof sourceTags] || ['general-signup'])];
 
     // Subscribe to ConvertKit
     const convertKitResponse = await fetch(`https://api.convertkit.com/v3/forms/${CONVERTKIT_FORM_ID}/subscribe`, {
@@ -35,7 +47,7 @@ export async function POST(request: NextRequest) {
         api_key: CONVERTKIT_API_KEY,
         email: email,
         first_name: firstName || '',
-        tags: ['monday-morning-marketer', 'landing-page-signup']
+        tags: tags
       }),
     });
 
@@ -46,13 +58,21 @@ export async function POST(request: NextRequest) {
     }
 
     const subscriberData = await convertKitResponse.json();
-    console.log('ConvertKit subscription successful:', { email, subscriberId: subscriberData.subscription?.subscriber?.id });
+    console.log('ConvertKit subscription successful:', { email, source, subscriberId: subscriberData.subscription?.subscriber?.id });
 
-    // Track the subscription event
-    // You can add analytics tracking here
+    // Return different messages based on source
+    const messages = {
+      'cac-calculator-page': 'Successfully subscribed! Check your email for the CAC Optimization Playbook.',
+      'cac-calculator-results': 'Successfully subscribed! Check your email for your detailed action plan.',
+      '1m-arr-playbook-download': 'Successfully subscribed! Check your email for The $1M ARR Marketing Playbook.',
+      'creative-roi-calculator-results': 'Successfully subscribed! Check your email for the Creative Strategy Implementation Guide.',
+      'creative-strategy-guide': 'Successfully subscribed! Check your email for the Creative Intelligence Framework Guide.'
+    };
+    
+    const message = messages[source as keyof typeof messages] || 'Successfully subscribed! Check your email for your download.';
 
     return NextResponse.json(
-      { message: 'Successfully subscribed! Check your email for the 20 Proven Hooks download.' },
+      { message },
       { status: 200 }
     );
   } catch (error) {

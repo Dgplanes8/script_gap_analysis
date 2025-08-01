@@ -1,0 +1,23 @@
+{
+  "brands_to_scrape": [
+    "MoonBundle",
+    "Bundle Deals",
+    "Pumper",
+    "ProfitKoala",
+    "WideBundle",
+    "Rapi"
+  ],
+  "search_terms": [
+    "MoonBundle",
+    "Bundle Deals",
+    "Pumper",
+    "ProfitKoala",
+    "WideBundle",
+    "Rapi"
+  ],
+  "output_format": "json",
+  "include_images": true,
+  "include_videos": true,
+  "max_ads_per_brand": 50,
+  "output_file": "/Users/nataliebasque/Ad Workflow/Projects/moonbundle/Apify/moonbundle_apify_results.json"
+}

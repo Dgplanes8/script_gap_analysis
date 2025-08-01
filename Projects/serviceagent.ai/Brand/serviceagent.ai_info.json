@@ -1,0 +1,20 @@
+{
+  "brand_name": "serviceagent.ai",
+  "original_name": "ServiceAgent.ai",
+  "competitors": [],
+  "created_at": "20250722_220823",
+  "folder_structure": [
+    "Brand",
+    "Perplexity",
+    "Reddit",
+    "Apify",
+    "AssemblyAI",
+    "Guide",
+    "Gap_Analysis",
+    "Concepts",
+    "Copy",
+    "Script",
+    "Completed_Analysis"
+  ],
+  "workflow_type": "phased"
+}

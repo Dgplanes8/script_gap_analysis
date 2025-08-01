@@ -4,12 +4,26 @@ Step 3: Reddit API Research Integration
 
 This script creates comprehensive Reddit research configurations and prompts
 for authentic audience voice capture and social listening.
+Now includes actual Reddit API calls using PRAW.
 """
 
 import json
-from datetime import datetime
+import time
+import re
+from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Optional
+import requests
+import logging
+
+# Optional PRAW import for Reddit API (install with: pip install praw)
+try:
+    import praw
+    PRAW_AVAILABLE = True
+except ImportError:
+    PRAW_AVAILABLE = False
+    print("⚠️  PRAW not installed. Install with: pip install praw")
+    print("   Using Reddit JSON API as fallback")
 
 def load_brand_profile(brand_name: str, base_path: str = None) -> Dict:
     """Load brand profile from Step 1"""
