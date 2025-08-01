@@ -1,6 +1,6 @@
 'use client';
 
-import { TrendingUp, Users, Award, Target, DollarSign, Building2 } from 'lucide-react';
+import { TrendingUp, Users, Award, Target, DollarSign, Building2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 interface AboutSectionProps {
@@ -14,12 +14,17 @@ export function AboutSection({ onOpenApplication }: AboutSectionProps) {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
+            <div className="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-semibold mb-6">
+              <Building2 className="h-4 w-4 mr-2" />
+              Strategic Ad Intelligence System
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Proven Track Record with Fortune 100 Brands
+              Fortune 100 Systematic Methodology
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Over 10+ years managing $100M+ in ad spend for household brand names and Fortune 100 companies, 
-              plus successfully launching and scaling two subscription products with consistent year-over-year growth.
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              The same systematic 11-phase methodology used to manage $100M+ in ad spend for Fortune 100 companies, 
+              now available as a strategic partnership for subscription businesses ready to scale systematically. 
+              Unlike agencies that focus on execution, we provide strategic transformation.
             </p>
           </div>
 
@@ -133,49 +138,54 @@ export function AboutSection({ onOpenApplication }: AboutSectionProps) {
             </div>
           </div>
 
-          {/* Why This Matters */}
-          <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Why This Experience Matters for Your Subscription Business
-            </h3>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-              I've seen what works at Fortune 100 scale and what works for scrappy startups. Most importantly, 
-              I understand the unique challenges of subscription businesses because I've built them myself. 
-              You're getting strategies that have been proven at every level.
-            </p>
+          {/* Strategic Advantage */}
+          <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Why Fortune 100 Methodology Works for Subscription Businesses
+              </h3>
+              <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                Unlike agencies that jump straight to creative execution, our systematic approach ensures every 
+                decision is strategic, data-driven, and aligned with your specific business goals. You get the 
+                same strategic rigor used by Fortune 100 companies, adapted for subscription business models.
+              </p>
+            </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {onOpenApplication ? (
-                <>
-                  <button
-                    onClick={() => onOpenApplication('full')}
-                    className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"
-                  >
-                    Get Your Scripts Now - $990
-                  </button>
-                  <button
-                    onClick={() => onOpenApplication('pilot')}
-                    className="border-2 border-gray-300 text-gray-700 font-semibold py-4 px-8 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-200"
-                  >
-                    Start Free Pilot First
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link
-                    href="/990"
-                    className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"
-                  >
-                    Get Your Scripts Now - $990
-                  </Link>
-                  <Link
-                    href="/pilot"
-                    className="border-2 border-gray-300 text-gray-700 font-semibold py-4 px-8 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-200"
-                  >
-                    Start Free Pilot First
-                  </Link>
-                </>
-              )}
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="text-center bg-white rounded-xl p-6">
+                <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Target className="h-6 w-6 text-indigo-600" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Systematic Process</h4>
+                <p className="text-sm text-gray-600">11-phase methodology ensures nothing is left to chance</p>
+              </div>
+              <div className="text-center bg-white rounded-xl p-6">
+                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="h-6 w-6 text-green-600" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Strategic Focus</h4>
+                <p className="text-sm text-gray-600">Focus on business transformation, not just creative output</p>
+              </div>
+              <div className="text-center bg-white rounded-xl p-6">
+                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Award className="h-6 w-6 text-purple-600" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">Proven Results</h4>
+                <p className="text-sm text-gray-600">Validated across $100M+ in managed ad spend</p>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <button
+                onClick={() => onOpenApplication && onOpenApplication('full')}
+                className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 inline-flex items-center"
+              >
+                Book Strategic Consultation
+                <ArrowRight className="h-5 w-5 ml-2" />
+              </button>
+              <p className="text-sm text-gray-500 mt-3">
+                Free consultation • Custom strategic assessment • No obligation
+              </p>
             </div>
           </div>
         </div>

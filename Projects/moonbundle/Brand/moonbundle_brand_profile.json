@@ -1,0 +1,57 @@
+{
+  "brand_overview": {
+    "brand_name": "MoonBundle",
+    "industry": "E-commerce SaaS - Shopify App Development",
+    "business_model": "B2B SaaS - Revenue-based pricing for Shopify merchants",
+    "target_audience": "Shopify store owners, E-commerce managers, Online retailers",
+    "value_proposition": "Maximize your sales with Bundles, Quantity Breaks, Free Gifts & Post Purchase Upsell",
+    "company_positioning": "All-in-one bundle solution with unique gift features",
+    "key_differentiators": [
+      "Bundle + Gift + Upsell all-in-one solution",
+      "Quantity breaks and bulk discounts",
+      "Free gifts and BOGO deals",
+      "Post-purchase upsells",
+      "Easy setup and customization",
+      "Revenue-based pricing model"
+    ]
+  },
+  "audience_profile": {
+    "primary_segments": [
+      {
+        "segment": "Time-Pressed Store Owners",
+        "demographics": "Small-medium Shopify merchants ($50K-$500K annually)",
+        "psychographics": "Achievement-oriented, efficiency-focused, data-driven",
+        "pain_points": ["Manual bundling complexity", "Low AOV", "Time constraints", "Technical integration challenges"],
+        "motivations": ["Revenue optimization", "Ease of use", "Quick implementation", "Measurable ROI"]
+      },
+      {
+        "segment": "Growth-Focused E-commerce Managers", 
+        "demographics": "E-commerce managers at growing brands (1-10 employees)",
+        "psychographics": "Results-driven, community-oriented, overwhelmed but optimistic",
+        "pain_points": ["Poor upselling conversion", "Complex app setups", "Pricing sensitivity"],
+        "motivations": ["AOV increase", "Automation", "Competitive advantage", "Customer experience improvement"]
+      }
+    ]
+  },
+  "competitive_landscape": {
+    "main_competitors": [
+      "Kaching Bundles (Bundle Deals) - Market leader, analytics focused",
+      "Pumper Bundles - Volume discount specialist", 
+      "ProfitKoala (Koala Bundles) - Quick results positioning",
+      "WideBundle - Customization focused",
+      "Rapi - Speed and automation"
+    ],
+    "competitive_advantages": [
+      "Unique gift feature integration (only app offering this)",
+      "Revenue-based pricing vs fixed monthly costs",
+      "All-in-one solution (bundles + gifts + upsells)",
+      "Easy setup without coding requirements"
+    ]
+  },
+  "brand_voice": {
+    "tone": "Friendly, results-focused, supportive",
+    "personality": "Helpful, innovative, growth-oriented, accessible",
+    "language_style": "Clear, benefit-driven, encouraging, authentic",
+    "emotional_positioning": "Empowerment through simplified growth tools"
+  }
+}

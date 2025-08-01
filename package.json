@@ -1,0 +1,23 @@
+{
+  "name": "ad-workflow",
+  "version": "1.0.0",
+  "description": "## 🚀 Complete Phased Ad Campaign Development System",
+  "main": "playwright_shopify_scraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dgplanes8/script_gap_analysis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dgplanes8/script_gap_analysis/issues"
+  },
+  "homepage": "https://github.com/Dgplanes8/script_gap_analysis#readme",
+  "dependencies": {
+    "playwright": "^1.54.1"
+  }
+}

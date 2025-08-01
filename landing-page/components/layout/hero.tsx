@@ -87,19 +87,19 @@ export function Hero({
             )}
           </div>
 
-          {/* Social Proof */}
+          {/* Strategic Credibility */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-gray-300">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-white mr-2">500+</span>
-              <span>Scripts Delivered</span>
+              <span className="text-2xl font-bold text-white mr-2">$100M+</span>
+              <span>Ad Spend Managed</span>
             </div>
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-white mr-2">48hr</span>
-              <span>Delivery Guarantee</span>
+              <span className="text-2xl font-bold text-white mr-2">11-Phase</span>
+              <span>Systematic Process</span>
             </div>
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-white mr-2">$0</span>
-              <span>If We Miss Deadline</span>
+              <span className="text-2xl font-bold text-white mr-2">Fortune 100</span>
+              <span>Proven Methods</span>
             </div>
           </div>
         </div>

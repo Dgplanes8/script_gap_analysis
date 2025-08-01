@@ -1,0 +1,16 @@
+{
+  "brand_name": "Ramp",
+  "competitors": [],
+  "phases_completed": [
+    1
+  ],
+  "steps_completed": [
+    "Brand_Setup",
+    "Research_Perplexity",
+    "Research_Reddit",
+    "Research_Apify"
+  ],
+  "current_phase": 2,
+  "created_at": "20250721_200000",
+  "last_updated": "20250721_200000"
+}

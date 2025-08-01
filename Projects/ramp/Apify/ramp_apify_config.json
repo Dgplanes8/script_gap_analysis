@@ -1,0 +1,24 @@
+{
+  "brands_to_scrape": [
+    "Ramp"
+  ],
+  "search_terms": [
+    "Ramp corporate card"
+  ],
+  "output_format": "json",
+  "include_images": true,
+  "include_videos": true,
+  "max_ads_per_brand": 25,
+  "total_ad_limit": 25,
+  "ramp_page_id": "103437121012366",
+  "ramp_ads_library_url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&is_targeted_country=false&media_type=all&search_type=page&view_all_page_id=103437121012366",
+  "output_file": "/Users/nataliebasque/Ad Workflow/Projects/ramp/Apify/ramp_apify_results.json",
+  "scraping_focus": [
+    "Ad creative formats (image/video)",
+    "Primary headlines and copy",
+    "Value propositions and messaging",
+    "Target audience indicators",
+    "Call-to-action patterns",
+    "Visual design themes"
+  ]
+}

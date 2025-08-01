@@ -16,6 +16,42 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Handle different submission types
+    let fields: Record<string, any> = {
+      'Name': data.name,
+      'Email': data.email,
+      'Company': data.company || '',
+      'Submitted': new Date().toISOString(),
+      'Status': 'New',
+      'Source': data.source || 'unknown',
+      'Type': data.type || 'general'
+    };
+
+    // Add type-specific fields
+    if (data.type === 'consultation_booking') {
+      fields = {
+        ...fields,
+        'App Type': data.appType || '',
+        'Current CTR': data.currentCTR || '',
+        'Current TSR': data.currentTSR || '',
+        'Pain Points': data.painPoints || '',
+        'Goals': data.goals || '',
+        'Budget': data.budget || '',
+        'Timeline': data.timeline || ''
+      };
+    } else if (data.type === 'strategy_assessment') {
+      fields = {
+        ...fields,
+        'Current ARR': data.currentARR || '',
+        'Target ARR': data.targetARR || '',
+        'Current CAC': data.currentCAC || '',
+        'Primary Challenge': data.primaryChallenge || '',
+        'Current Channels': data.currentChannels?.join(', ') || '',
+        'Timeline': data.timeline || '',
+        'Budget': data.budget || ''
+      };
+    }
+
     // Submit to Airtable
     const airtableResponse = await fetch(
       `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`,
@@ -28,20 +64,7 @@ export async function POST(request: NextRequest) {
         body: JSON.stringify({
           records: [
             {
-              fields: {
-                'Name': data.name,
-                'Email': data.email,
-                'Company': data.company,
-                'App Type': data.appType,
-                'Current CTR': data.currentCTR || '',
-                'Current TSR': data.currentTSR || '',
-                'Pain Points': data.painPoints,
-                'Goals': data.goals,
-                'Budget': data.budget || '',
-                'Timeline': data.timeline || '',
-                'Submitted': new Date().toISOString(),
-                'Status': 'New',
-              },
+              fields: fields,
             },
           ],
         }),
@@ -54,12 +77,13 @@ export async function POST(request: NextRequest) {
       throw new Error('Failed to submit to Airtable');
     }
 
-    // Log the submission for now - you can add email notifications later
-    console.log('New Get Featured submission:', {
+    // Log the submission
+    console.log('New submission:', {
       name: data.name,
       email: data.email,
       company: data.company,
-      appType: data.appType,
+      type: data.type,
+      source: data.source,
       timestamp: new Date().toISOString()
     });
 

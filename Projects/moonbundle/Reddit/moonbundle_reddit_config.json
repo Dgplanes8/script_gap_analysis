@@ -1,0 +1,33 @@
+{
+  "brand": "MoonBundle",
+  "competitors": [
+    "Bundle Deals",
+    "Pumper",
+    "ProfitKoala",
+    "WideBundle",
+    "Rapi"
+  ],
+  "subreddits_to_search": [
+    "shopify",
+    "ecommerce",
+    "entrepreneur",
+    "smallbusiness",
+    "dropship",
+    "ecommercetips",
+    "shopifyentrepreneurs",
+    "onlinebusiness"
+  ],
+  "search_terms": [
+    "shopify bundle apps",
+    "increase average order value",
+    "AOV optimization",
+    "product bundles shopify",
+    "quantity breaks",
+    "upsell apps",
+    "moonbundle",
+    "kaching bundles",
+    "pumper bundles",
+    "bundle app recommendations"
+  ],
+  "output_file": "/Users/nataliebasque/Ad Workflow/Projects/moonbundle/Reddit/moonbundle_reddit_results.json"
+}

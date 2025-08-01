@@ -1,0 +1,25 @@
+{
+  "brand_name": "ramp",
+  "original_name": "Ramp",
+  "industry": "Financial Technology (FinTech) - Corporate Finance/Expense Management",
+  "business_model": "B2B SaaS - Corporate cards and spend management platform",
+  "target_audience": "Finance teams, CFOs, SMBs, Enterprise customers",
+  "value_proposition": "All-in-one finance platform that helps companies spend less and save time",
+  "key_pain_points": ["Manual expense processes", "Lack of spending visibility", "Time-consuming financial operations", "Disconnected financial tools"],
+  "competitors": ["Brex", "Divvy", "Airbase", "Teampay", "American Express", "Expensify", "Bill.com"],
+  "created_at": "20250721_200000",
+  "folder_structure": [
+    "Brand",
+    "Perplexity",
+    "Reddit",
+    "Apify",
+    "AssemblyAI",
+    "Guide",
+    "Gap_Analysis",
+    "Concepts",
+    "Copy",
+    "Script",
+    "Completed_Analysis"
+  ],
+  "workflow_type": "phased"
+}

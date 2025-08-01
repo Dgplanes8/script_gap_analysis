@@ -1,0 +1,43 @@
+{
+  "brand_overview": {
+    "brand_name": "ServiceAgent.ai",
+    "industry": "AI-powered call answering services for home service businesses",
+    "target_audience": {
+      "primary": "Home service business owners (HVAC, plumbing, electrical, solar, roofing, garage door, cleaning)",
+      "demographics": "35-55 years old, predominantly male, 1-50 employees, $75K-$500K annual revenue",
+      "psychographics": "Growth-minded contractors who value professionalism and efficiency, cautious technology adopters, ROI-focused"
+    }
+  },
+  "value_proposition": "AI call agent that handles inbound calls 24/7, books appointments, and captures every lead for home service businesses",
+  "key_pain_points": [
+    "Missed revenue from unanswered calls",
+    "High staff costs for customer service",
+    "Work-life balance destroyed by 24/7 availability expectations",
+    "Inconsistent customer experience",
+    "Limited after-hours support"
+  ],
+  "unique_selling_points": [
+    "Industry-specific AI training for home services",
+    "24/7 availability with human-like interaction quality", 
+    "Cost-effective alternative to hiring staff",
+    "Never misses calls or takes sick days",
+    "Multilingual voice options"
+  ],
+  "brand_voice": {
+    "tone": "Professional, reliable, practical",
+    "personality": "Trustworthy business partner, understands contractor challenges",
+    "communication_style": "Direct, results-focused, industry-knowledgeable"
+  },
+  "competitive_differentiation": [
+    "Only AI specifically trained for home service industries",
+    "Superior to human services in consistency and availability",
+    "Premium quality at fraction of staff hiring costs",
+    "Emergency-trained AI understands service urgency"
+  ],
+  "target_customer_journey": {
+    "awareness": "Contractor realizes missed calls are costing revenue",
+    "consideration": "Researching call handling solutions vs. hiring staff",
+    "decision": "Choosing between ServiceAgent.ai and traditional answering services",
+    "retention": "Scaling business with reliable call management"
+  }
+}

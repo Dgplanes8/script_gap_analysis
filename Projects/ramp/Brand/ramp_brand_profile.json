@@ -1,0 +1,57 @@
+{
+  "brand_overview": {
+    "brand_name": "Ramp",
+    "industry": "Financial Technology (FinTech) - Corporate Finance/Expense Management",
+    "business_model": "B2B SaaS - Corporate cards and spend management platform",
+    "target_audience": "Finance teams, CFOs, SMBs, Enterprise customers",
+    "value_proposition": "All-in-one finance platform that helps companies spend less and save time",
+    "company_size": "40,000+ teams using the platform",
+    "key_differentiators": [
+      "Real-time expense tracking and automated controls",
+      "AI-powered insights for spending optimization", 
+      "Seamless integration with accounting systems",
+      "No-fee corporate cards with automated categorization",
+      "Advanced approval workflows and budget management"
+    ]
+  },
+  "audience_profile": {
+    "primary_segments": [
+      {
+        "segment": "Finance Teams",
+        "demographics": "Finance professionals, controllers, accounting managers",
+        "psychographics": "Detail-oriented, efficiency-focused, compliance-aware",
+        "pain_points": ["Manual expense reconciliation", "Lack of real-time visibility", "Time-consuming approval processes"],
+        "motivations": ["Process automation", "Accuracy", "Time savings", "Financial control"]
+      },
+      {
+        "segment": "CFOs/Finance Leaders", 
+        "demographics": "C-level executives, VP Finance, Finance Directors",
+        "psychographics": "Strategic thinkers, ROI-focused, risk-averse",
+        "pain_points": ["Budget overruns", "Lack of spending insights", "Manual reporting", "Compliance risks"],
+        "motivations": ["Cost savings", "Strategic insights", "Risk management", "Team efficiency"]
+      },
+      {
+        "segment": "SMB Owners/Entrepreneurs",
+        "demographics": "Business owners, startup founders, growing companies",
+        "psychographics": "Growth-minded, resource-conscious, time-pressed",
+        "pain_points": ["Limited financial resources", "Manual processes", "Scaling challenges"],
+        "motivations": ["Growth enablement", "Cost control", "Operational efficiency", "Professional tools"]
+      }
+    ]
+  },
+  "competitive_landscape": {
+    "main_competitors": ["Brex", "Divvy", "Airbase", "Teampay", "American Express", "Expensify", "Bill.com"],
+    "competitive_advantages": [
+      "No-fee structure vs traditional corporate cards",
+      "Advanced automation vs manual expense tools",
+      "Real-time controls vs after-the-fact reporting",
+      "All-in-one platform vs point solutions"
+    ]
+  },
+  "brand_voice": {
+    "tone": "Professional yet approachable, confident, solution-focused",
+    "personality": "Efficient, intelligent, trustworthy, innovative",
+    "language_style": "Clear, direct, jargon-free, results-oriented",
+    "emotional_positioning": "Empowerment through automation, control, and efficiency"
+  }
+}
