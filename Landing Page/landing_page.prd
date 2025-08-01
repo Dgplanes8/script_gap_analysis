@@ -1,0 +1,196 @@
+# Monday Morning Marketer Landing Page PRD
+## Email Capture & Conversion Optimization Focus
+
+## 1. Project Overview
+
+### Vision Statement
+Create a high-converting landing page system for Monday Morning Marketer that maximizes email captures and conversions through strategic content placement, psychological triggers, and friction reduction across three optimized pages (/pilot, /990, /success).
+
+### Success Metrics
+- **Primary**: Email conversion rate > 30% (newsletter signup)
+- **Secondary**: Calendly booking rate > 15% (pilot page)
+- **Tertiary**: $990 package conversion rate > 8%
+- **Engagement**: Average time on page > 90 seconds
+
+## 2. Email Capture Strategy & Target Audience
+
+### Target Audience Profile
+- **Fitness/Sports App Founders** seeking better ad performance
+- **Marketing Directors** frustrated with low CTR/TSR
+- **Growth-focused professionals** wanting predictable creative systems
+- **Mobile-dominant users** (80% mobile traffic expected)
+
+### Page-Specific Conversion Strategy
+**Page A (/pilot)**: Free value → newsletter signup → nurture sequence
+**Page B (/990)**: High-intent users → immediate purchase + newsletter backup
+**Page C (/success)**: Confirmation → engagement → social follows
+
+### Conversion Psychology Framework
+1. **Pain Identification** - "Stop guessing hooks" addresses core frustration
+2. **Specific Solution** - "12 scripts in 72 hours" creates concrete expectation
+3. **Risk Reversal** - Free pilot + full refund removes decision friction
+4. **Social Proof** - Hook samples with "why it works" explanations
+5. **Urgency/Scarcity** - 72-hour delivery creates time pressure
+6. **Multiple Conversion Paths** - Newsletter, pilot, $990 package
+
+## 3. Core Features & Page Structure
+
+### Page A (/pilot) - Primary Email Capture
+- **Hero**: "3 high-intent ad concepts for your fitness/sports app — free 7-day scripts pilot"
+- **Value Props**: 12 scripts, 6 thumbnails, test matrix, mid-week iteration
+- **How It Works**: 3-step process with clear timeline
+- **Social Proof**: Hook samples with explanations
+- **Multiple CTAs**: Calendly (primary), $990 page (secondary), Newsletter (tertiary)
+- **FAQ Section**: Builds trust and removes objections
+
+### Page B (/990) - Revenue Conversion
+- **Hero**: "12 shoot-ready ad scripts in 72 hours for $990"
+- **Deliverables**: Clear list of what's included
+- **Comparison Table**: MMM vs Agencies vs Freelancers
+- **Samples**: Before/after examples with blurred branding
+- **CTAs**: Stripe checkout (primary), Calendly (secondary), Newsletter (backup)
+- **Guarantee**: Full refund if deliverables not provided in 72 hours
+
+### Page C (/success) - Confirmation & Engagement
+- **Dynamic Headlines**: Based on conversion source (call booked, order placed, newsletter)
+- **Next Steps**: Clear expectations and follow-up actions
+- **Cross-selling**: Links between pilot, $990, and newsletter
+- **Social CTAs**: Twitter/LinkedIn follows for ongoing engagement
+
+## 4. Technical Requirements
+
+### Tech Stack
+- **Framework**: Next.js 14 with App Router
+- **Styling**: Tailwind CSS + TailwindPlus designs
+- **Language**: TypeScript for type safety
+- **Deployment**: Vercel with custom domain
+- **Analytics**: Vercel Analytics + custom event tracking
+- **Forms**: Native forms + Airtable integration
+
+### Performance Targets
+- **Page Load Speed**: < 2 seconds
+- **Core Web Vitals**: 
+  - LCP < 2.5s
+  - FID < 100ms
+  - CLS < 0.1
+- **Mobile Score**: > 90 (Google PageSpeed)
+
+### Browser Support
+- Chrome (latest 2 versions)
+- Safari (latest 2 versions)
+- Firefox (latest 2 versions)
+- Edge (latest 2 versions)
+
+## 5. Design Requirements
+
+### Brand Guidelines
+- Follow existing brand colors and typography
+- Maintain consistency with other marketing materials
+- Ensure accessibility (WCAG 2.1 AA compliance)
+
+### Responsive Design
+- Mobile-first approach
+- Breakpoints: 375px, 768px, 1024px, 1440px
+- Touch-friendly interactive elements (min 44px)
+
+### Visual Hierarchy
+- Clear F-pattern layout for scanning
+- Progressive disclosure of information
+- Strategic use of whitespace
+- Consistent component sizing
+
+## 6. Content Strategy
+
+### Key Messages & Content
+**Primary Headlines**:
+- "12 shoot-ready ad scripts in 72 hours for $990"
+- "3 high-intent ad concepts for your fitness/sports app"
+
+**Micro-Headlines**:
+- "Stop guessing hooks. Get 12 scripts in 72 hours for $990"
+- "Your next winning ad starts in your reviews"
+- "Beat your median CTR/TSR with buyer-language hooks—this week"
+
+**Trust Elements**:
+- Specific guarantees (72-hour delivery with full refund)
+- Hook samples with performance explanations
+- Clear scope and deliverables list
+- Direct contact: mondaymorningmarketer@gmail.com
+
+### SEO Requirements
+- Optimized meta tags and descriptions
+- Structured data markup
+- Alt text for all images
+- Semantic HTML structure
+
+## 7. Integration Requirements
+
+### Third-Party Services
+- **Vercel Analytics**: Page views, conversion tracking, funnel analysis
+- **Calendly**: Embedded booking widget for pilot consultations
+- **Stripe**: Secure checkout for $990 package with confirmation emails
+- **Email Service Provider**: Newsletter signup with automated "Hook Bank 10" PDF delivery
+- **Social Platforms**: Twitter/LinkedIn integration for ongoing engagement
+
+### Security Considerations
+- HTTPS enforcement
+- Form validation and sanitization
+- Privacy policy compliance
+- Cookie consent (if required)
+
+## 8. Success Criteria
+
+### Launch Requirements
+- All core features functional
+- Performance targets met
+- Cross-browser compatibility verified
+- Mobile responsiveness confirmed
+- Analytics tracking operational
+
+### Post-Launch Metrics
+- Monitor conversion rates weekly
+- A/B test different CTAs and copy
+- Track user engagement patterns
+- Iterate based on user feedback
+
+## 9. Timeline & Milestones
+
+### Phase 1 (Days 1-2): Foundation
+- Project setup and configuration
+- Design system integration
+- Basic layout implementation
+
+### Phase 2 (Days 3-4): Core Development
+- Component implementation
+- Content integration
+- Form functionality
+
+### Phase 3 (Days 5-6): Polish & Launch
+- Performance optimization
+- Testing and bug fixes
+- Deployment and monitoring setup
+
+## 10. Risk Assessment
+
+### Technical Risks
+- **Performance**: Complex animations affecting load time
+- **Compatibility**: TailwindPlus integration challenges
+- **Forms**: Airtable API rate limiting
+
+### Mitigation Strategies
+- Progressive enhancement approach
+- Fallback designs for unsupported features
+- Error handling and user feedback mechanisms
+
+## 11. Future Enhancements
+
+### Phase 2 Features
+- A/B testing framework
+- Advanced analytics dashboard
+- Multi-language support
+- Advanced form automation
+
+### Scalability Considerations
+- Component library for future pages
+- CMS integration potential
+- API-ready architecture for dynamic content

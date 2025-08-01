@@ -29,6 +29,18 @@ export function Header({ onOpenApplication }: HeaderProps) {
     }
   };
 
+  const handleNavigation = (target: string) => {
+    setIsOpen(false);
+    
+    if (target === 'about') {
+      // Always navigate to dedicated About page
+      window.location.href = '/about';
+    } else if (target === 'hooks-offer') {
+      // Always navigate to dedicated Free Hooks page
+      window.location.href = '/free-hooks';
+    }
+  };
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
@@ -50,13 +62,13 @@ export function Header({ onOpenApplication }: HeaderProps) {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             <button
-              onClick={() => scrollToSection('about')}
+              onClick={() => handleNavigation('about')}
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
             >
               About
             </button>
             <button
-              onClick={() => scrollToSection('hooks-offer')}
+              onClick={() => handleNavigation('hooks-offer')}
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
             >
               Free Hooks
@@ -121,13 +133,13 @@ export function Header({ onOpenApplication }: HeaderProps) {
           <div className="lg:hidden border-t border-gray-100 py-4 bg-white/95 backdrop-blur-md">
             <nav className="space-y-4">
               <button
-                onClick={() => scrollToSection('about')}
+                onClick={() => handleNavigation('about')}
                 className="block w-full text-left text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
               >
                 About
               </button>
               <button
-                onClick={() => scrollToSection('hooks-offer')}
+                onClick={() => handleNavigation('hooks-offer')}
                 className="block w-full text-left text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
               >
                 Free Hooks

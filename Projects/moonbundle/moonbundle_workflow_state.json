@@ -1,0 +1,22 @@
+{
+  "brand_name": "MoonBundle",
+  "competitors": [
+    "Bundle Deals",
+    "Pumper",
+    "ProfitKoala",
+    "WideBundle",
+    "Rapi"
+  ],
+  "phases_completed": [
+    1
+  ],
+  "steps_completed": [
+    "Brand_Setup",
+    "Research_Perplexity",
+    "Research_Reddit",
+    "Research_Apify"
+  ],
+  "current_phase": 2,
+  "created_at": "20250722_204808",
+  "last_updated": "20250722_204808"
+}

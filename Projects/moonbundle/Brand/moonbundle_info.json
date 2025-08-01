@@ -1,22 +1,38 @@
 {
-  "brand_name": "MoonBundle",
-  "app_id": "moonbundle",
-  "workflow_type": "shopify_app",
-  "competitors": [
-    "reconvert",
-    "zipify-pages",
-    "bold-bundles"
+  "brand_name": "moonbundle",
+  "original_name": "MoonBundle",
+  "industry": "E-commerce SaaS - Shopify App Development",
+  "business_model": "B2B SaaS - Revenue-based pricing for Shopify merchants",
+  "target_audience": "Shopify store owners, E-commerce managers, Online retailers",
+  "value_proposition": "Maximize your sales with Bundles, Quantity Breaks, Free Gifts & Post Purchase Upsell",
+  "key_differentiators": [
+    "Bundle + Gift + Upsell all-in-one solution",
+    "Quantity breaks and bulk discounts",
+    "Free gifts and BOGO deals",
+    "Post-purchase upsells",
+    "Volume discounts with tiered pricing",
+    "Easy bundle creation and customization"
   ],
-  "created_at": "20250720_173556",
+  "competitors": [
+    "Kaching Bundles (Bundle Deals)",
+    "Pumper Bundles", 
+    "ProfitKoala (Koala Bundles)",
+    "WideBundle",
+    "Rapi"
+  ],
+  "created_at": "20250722_204808",
   "folder_structure": [
     "Brand",
-    "Perplexity_Research",
-    "Community_Research",
-    "Playwright_Analysis",
+    "Perplexity",
+    "Reddit", 
+    "Apify",
+    "AssemblyAI",
+    "Guide",
+    "Gap_Analysis",
     "Concepts",
     "Copy",
     "Script",
     "Completed_Analysis"
   ],
-  "shopify_app_url": "https://apps.shopify.com/moonbundle"
+  "workflow_type": "phased"
 }
