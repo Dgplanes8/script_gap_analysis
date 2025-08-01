@@ -7,11 +7,11 @@ import { StructuredData } from '@/components/structured-data';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Monday Morning Marketer - 12 Shoot-Ready Ad Scripts in 72 Hours',
+  title: 'Monday Morning Marketer - 12 Shoot-Ready Ad Scripts in 48 Hours',
   description:
-    'Get 12 shoot-ready ad scripts in 72 hours for $990. Customer-language hooks from reviews and Reddit for fitness/sports apps. Free 7-day pilot available.',
+    'Get 12 shoot-ready ad scripts in 48 hours for $990. Customer-language hooks from reviews and Reddit for subscription companies. Free 7-day pilot available.',
   keywords:
-    'ad scripts, fitness app marketing, sports app ads, customer language hooks, CTR optimization, TSR improvement, Reddit marketing, review-based hooks',
+    'ad scripts, subscription company marketing, customer language hooks, CTR optimization, TSR improvement, Reddit marketing, review-based hooks',
   authors: [{ name: 'Monday Morning Marketer' }],
   creator: 'Monday Morning Marketer',
   publisher: 'Monday Morning Marketer',
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Monday Morning Marketer - 12 Shoot-Ready Ad Scripts in 72 Hours',
+    title: 'Monday Morning Marketer - 12 Shoot-Ready Ad Scripts in 48 Hours',
     description:
-      'Get 12 shoot-ready ad scripts in 72 hours for $990. Customer-language hooks from reviews and Reddit for fitness/sports apps.',
+      'Get 12 shoot-ready ad scripts in 48 hours for $990. Customer-language hooks from reviews and Reddit for subscription companies.',
     url: '/',
     siteName: 'Monday Morning Marketer',
     images: [
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Monday Morning Marketer - 12 Shoot-Ready Ad Scripts in 72 Hours',
+    title: 'Monday Morning Marketer - 12 Shoot-Ready Ad Scripts in 48 Hours',
     description:
-      'Get 12 shoot-ready ad scripts in 72 hours for $990. Customer-language hooks from reviews and Reddit for fitness/sports apps.',
+      'Get 12 shoot-ready ad scripts in 48 hours for $990. Customer-language hooks from reviews and Reddit for subscription companies.',
     images: ['/images/og-image.jpg'],
     creator: '@mondaymorningmarketer',
   },

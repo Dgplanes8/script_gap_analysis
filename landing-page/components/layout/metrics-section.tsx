@@ -56,10 +56,10 @@ export function MetricsSection({ className = '', variant = 'light' }: MetricsSec
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Proven Results for Fitness & Sports Apps
+            Proven Results for Subscription Companies
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            We've helped apps like yours turn customer language into winning ads that convert.
+            We've helped subscription businesses like yours turn customer language into winning ads that convert.
           </p>
         </div>
         

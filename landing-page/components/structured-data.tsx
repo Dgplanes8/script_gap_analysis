@@ -12,7 +12,7 @@ export function StructuredData() {
         name: 'Monday Morning Marketer',
         url: process.env.NEXT_PUBLIC_APP_URL,
         email: 'mondaymorningmarketer@gmail.com',
-        description: 'Customer-language ad scripts for fitness and sports apps. 12 shoot-ready scripts in 72 hours.',
+        description: 'Customer-language ad scripts for subscription companies. 12 shoot-ready scripts in 48 hours.',
         sameAs: [
           'https://twitter.com/mondaymorningmarketer',
           'https://linkedin.com/company/monday-morning-marketer',
@@ -23,7 +23,7 @@ export function StructuredData() {
         '@id': `${process.env.NEXT_PUBLIC_APP_URL}#website`,
         url: process.env.NEXT_PUBLIC_APP_URL,
         name: 'Monday Morning Marketer',
-        description: 'Get 12 shoot-ready ad scripts in 72 hours for $990. Customer-language hooks from reviews and Reddit for fitness/sports apps.',
+        description: 'Get 12 shoot-ready ad scripts in 48 hours for $990. Customer-language hooks from reviews and Reddit for subscription companies.',
         publisher: {
           '@id': `${process.env.NEXT_PUBLIC_APP_URL}#organization`,
         },
@@ -32,8 +32,8 @@ export function StructuredData() {
       {
         '@type': 'Service',
         '@id': `${process.env.NEXT_PUBLIC_APP_URL}#service`,
-        name: '72-Hour Ad Script System',
-        description: '12 shoot-ready ad scripts with thumbnails and test plan, delivered in 72 hours',
+        name: '48-Hour Ad Script System',
+        description: '12 shoot-ready ad scripts with thumbnails and test plan, delivered in 48 hours',
         provider: {
           '@id': `${process.env.NEXT_PUBLIC_APP_URL}#organization`,
         },
@@ -47,7 +47,7 @@ export function StructuredData() {
         },
         audience: {
           '@type': 'Audience',
-          audienceType: 'Fitness and Sports App Developers',
+          audienceType: 'Subscription Company Marketers',
         },
         serviceType: 'Digital Marketing Services',
         category: 'Advertising Scripts',
@@ -56,7 +56,7 @@ export function StructuredData() {
         '@type': 'Product',
         '@id': `${process.env.NEXT_PUBLIC_APP_URL}/pilot#product`,
         name: 'Free 7-Day Scripts Pilot',
-        description: '3 high-intent ad concepts for your fitness/sports app with free 7-day scripts pilot',
+        description: '3 high-intent ad concepts for your subscription business with free 7-day scripts pilot',
         brand: {
           '@id': `${process.env.NEXT_PUBLIC_APP_URL}#organization`,
         },
@@ -85,7 +85,7 @@ export function StructuredData() {
             name: 'What is your refund policy?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Full refund if scoped deliverables aren\'t provided within 72 business hours of intake completion.',
+              text: 'Full refund if scoped deliverables aren\'t provided within 48 business hours of intake completion.',
             },
           },
           {
@@ -101,7 +101,7 @@ export function StructuredData() {
             name: 'How long does it take?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: '48-72 business hours from brief completion for pilot, 72 hours for $990 package.',
+              text: '24-48 business hours from brief completion for pilot, 48 hours for $990 package.',
             },
           },
         ],

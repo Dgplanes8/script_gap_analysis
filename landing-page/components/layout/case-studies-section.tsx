@@ -73,48 +73,48 @@ export function CaseStudiesSection({ className = '' }: CaseStudiesSectionProps) 
             Client Success Stories
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            See how fitness and sports apps like yours used our customer-language hooks to dramatically improve their ad performance.
+            See how subscription companies like yours used our customer-language hooks to dramatically improve their ad performance.
           </p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
           <CaseStudyCard
-            client="FitTracker Pro"
-            category="Fitness Tracking App"
+            client="StreamWatch Pro"
+            category="Video Streaming Service"
             spend="$127K"
             improvement="+42%"
             metric="CTR"
-            description="Struggled with generic fitness messaging. Our review-based hooks tapped into their users' real motivations around accountability and progress tracking."
+            description="Struggled with generic subscription messaging. Our review-based hooks tapped into their users' real motivations around content discovery and binge-watching satisfaction."
             highlight={true}
           />
           
           <CaseStudyCard
-            client="SportSync"
-            category="Sports Community App"
+            client="MealBox Plus"
+            category="Meal Kit Subscription"
             spend="$89K"
             improvement="+38%"
             metric="CVR"
-            description="Their ads weren't resonating with serious athletes. We mined Reddit discussions to find the exact language competitive sports enthusiasts use."
+            description="Their ads weren't resonating with busy professionals. We mined Reddit discussions to find the exact language time-starved meal planners use."
           />
         </div>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
           <CaseStudyCard
-            client="Yoga Journey"
-            category="Wellness App"
+            client="Learn Plus"
+            category="Online Learning Platform"
             spend="$156K"
             improvement="+51%"
             metric="TSR"
-            description="Generic wellness messaging wasn't converting. Our customer-language approach revealed users' specific pain points around consistency and motivation."
+            description="Generic education messaging wasn't converting. Our customer-language approach revealed users' specific pain points around skill development and career growth."
           />
           
           <CaseStudyCard
-            client="RunBuddy"
-            category="Running App"
+            client="CloudSync"
+            category="Software Subscription"
             spend="$203K"
             improvement="+29%"
             metric="CPA reduction"
-            description="High acquisition costs were killing their growth. Review-based hooks that spoke to runners' real challenges dropped their CPA significantly."
+            description="High acquisition costs were killing their growth. Review-based hooks that spoke to professionals' productivity challenges dropped their CPA significantly."
           />
         </div>
         

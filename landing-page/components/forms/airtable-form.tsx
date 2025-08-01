@@ -29,7 +29,7 @@ interface AirtableFormProps {
 
 export function AirtableForm({
   title = 'Get Featured - Share Your Success Story',
-  description = 'Tell us about your fitness/sports app and how Monday Morning Marketer helped improve your ad performance.',
+  description = 'Tell us about your subscription business and how Monday Morning Marketer helped improve your ad performance.',
   onSubmit,
 }: AirtableFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -151,8 +151,11 @@ export function AirtableForm({
             </label>
             <select className="form-input" {...register('appType')}>
               <option value="">Select app type</option>
-              <option value="fitness">Fitness</option>
-              <option value="sports">Sports</option>
+              <option value="streaming">Streaming</option>
+              <option value="software">Software</option>
+              <option value="ecommerce">E-commerce</option>
+              <option value="education">Education</option>
+              <option value="subscription_box">Subscription Box</option>
               <option value="wellness">Wellness</option>
               <option value="nutrition">Nutrition</option>
               <option value="other">Other</option>

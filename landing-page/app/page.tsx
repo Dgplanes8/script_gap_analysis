@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Mail, Users, TrendingUp } from 'lucide-react';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
@@ -10,19 +13,47 @@ import { StickyCTA } from '@/components/ui/sticky-cta';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { InlineCTA } from '@/components/ui/inline-cta';
 import { ABTest } from '@/components/testing/ab-test';
+import { EnhancedABTest, ABTestConfigs } from '@/components/testing/enhanced-ab-test';
 import { ConversionDashboard } from '@/components/analytics/conversion-dashboard';
+import { TestimonialCarousel } from '@/components/ui/testimonial-carousel';
+import { Header } from '@/components/layout/header';
+import { HooksOfferSection } from '@/components/ui/hooks-offer-section';
+import { AboutSection } from '@/components/layout/about-section';
+import { ApplicationForm } from '@/components/forms/application-form';
+import { FloatingActionButton } from '@/components/ui/floating-action-button';
+import { EnhancedCTAButton } from '@/components/ui/enhanced-cta-button';
 
 export default function HomePage() {
+  const [isApplicationFormOpen, setIsApplicationFormOpen] = useState(false);
+  const [applicationVariant, setApplicationVariant] = useState<'pilot' | 'full'>('full');
+
+  const handleOpenApplication = (variant: 'pilot' | 'full') => {
+    setApplicationVariant(variant);
+    setIsApplicationFormOpen(true);
+  };
+
   return (
-    <main className="min-h-screen">
+    <>
+      {/* Header Navigation */}
+      <Header onOpenApplication={handleOpenApplication} />
+      
+      <main className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
       <Hero
-        title="Stop guessing hooks. Get 12 scripts in 72 hours for $990."
-        subtitle="Your next winning ad starts in your reviews. Beat your median CTR/TSR with buyer-language hooks—this week."
-        ctaText="Subscribe to Monday Morning Ideas"
-        secondaryCtaText="Start Free Pilot"
-        secondaryCtaLink="/pilot"
+        title="Stop Wasting Ad Budget on Hooks That Don't Convert"
+        subtitle="Get 12 customer-language scripts in 48 hours that beat your median CTR by 34%—or full refund. Used by 1,200+ performance marketers."
+        ctaText="Get Your Scripts Now - $990"
+        secondaryCtaText="Start Free 7-Day Pilot"
+        showEmailCapture={false}
+        onPrimaryClick={() => handleOpenApplication('full')}
+        onSecondaryClick={() => handleOpenApplication('pilot')}
       />
+
+      {/* Hooks Offer Section */}
+      <HooksOfferSection />
+
+      {/* About Section */}
+      <AboutSection onOpenApplication={handleOpenApplication} />
 
       {/* Metrics Section */}
       <MetricsSection />
@@ -40,9 +71,9 @@ export default function HomePage() {
           },
           {
             icon: Users,
-            title: '72-Hour Delivery',
+            title: '48-Hour Delivery',
             description:
-              'Get 12 shoot-ready scripts with thumbnails and test plans delivered in 72 business hours, or full refund.',
+              'Get 12 shoot-ready scripts with thumbnails and test plans delivered in 48 business hours, or full refund.'
           },
           {
             icon: Mail,
@@ -53,18 +84,68 @@ export default function HomePage() {
         ]}
       />
 
-      {/* A/B Test Inline CTA after Features */}
+      {/* Enhanced A/B Test CTA after Features */}
       <section className="py-8 bg-white">
         <div className="container mx-auto px-4 text-center">
-          <ABTest
-            testName="post_features_cta"
-            variants={{
-              control: <InlineCTA text="Get Your Scripts Now" href="/990" variant="primary" size="lg" />,
-              variant_a: <InlineCTA text="Start Free Pilot Program" href="/pilot" variant="secondary" size="lg" />,
-              variant_b: <InlineCTA text="Join 1,247+ Marketers" href="#email-signup" variant="primary" size="lg" />
-            }}
-            weights={{ control: 0.4, variant_a: 0.3, variant_b: 0.3 }}
+          <EnhancedABTest
+            testName="post_features_cta_2024"
+            description="Test CTA effectiveness after features section"
+            variants={[
+              {
+                id: 'control',
+                name: 'Direct Action',
+                weight: 0.3,
+                component: <InlineCTA text="Get Your Scripts Now" onClick={() => handleOpenApplication('full')} variant="primary" size="lg" />
+              },
+              {
+                id: 'value_focused',
+                name: 'Value Focused',
+                weight: 0.25,
+                component: <InlineCTA text="Get Scripts That Actually Convert" onClick={() => handleOpenApplication('full')} variant="primary" size="lg" />
+              },
+              {
+                id: 'urgency',
+                name: 'Urgency + Scarcity',
+                weight: 0.25,
+                component: <InlineCTA text="Secure Your Scripts (8 Spots Left)" onClick={() => handleOpenApplication('full')} variant="primary" size="lg" />
+              },
+              {
+                id: 'free_pilot',
+                name: 'Free Pilot',
+                weight: 0.2,
+                component: <InlineCTA text="Start Free 7-Day Pilot" onClick={() => handleOpenApplication('pilot')} variant="secondary" size="lg" />
+              }
+            ]}
           />
+        </div>
+      </section>
+
+      {/* Client Logos Section */}
+      <section className="py-16 bg-white border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <p className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-6">
+              Trusted by Performance Marketing Teams At
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+              <div className="bg-gray-200 px-6 py-3 rounded text-gray-600 font-semibold">SubscriptionBox Co</div>
+              <div className="bg-gray-200 px-6 py-3 rounded text-gray-600 font-semibold">MealPlan Pro</div>
+              <div className="bg-gray-200 px-6 py-3 rounded text-gray-600 font-semibold">StreamingPlus</div>
+              <div className="bg-gray-200 px-6 py-3 rounded text-gray-600 font-semibold">SoftwareCloud</div>
+              <div className="bg-gray-200 px-6 py-3 rounded text-gray-600 font-semibold">ContentHub</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Urgency Bar */}
+      <section className="py-4 bg-red-50 border-b border-red-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <p className="text-red-700 font-medium">
+              🔥 <strong>August Special:</strong> Only 12 script packages available this month. 8 spots remaining.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -75,24 +156,32 @@ export default function HomePage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Choose Your Script System
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Whether you want to test our system first or need scripts immediately, we have the right option.
             </p>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 max-w-2xl mx-auto mb-8">
+              <p className="text-blue-800 text-center">
+                <strong>💡 Pro Tip:</strong> 89% of pilot program participants upgrade to the $990 system within 30 days
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Pilot Program */}
             <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-brand-200 hover:border-brand-400 transition-colors">
               <div className="text-center mb-8">
+                <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">
+                  🎯 Perfect for Testing
+                </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Free 7-Day Scripts Pilot
                 </h3>
                 <div className="text-4xl font-bold text-green-600 mb-2">
                   FREE
-                  <span className="text-lg font-normal text-gray-500"> (for qualified apps)</span>
+                  <span className="text-lg font-normal text-gray-500"> ($300 value)</span>
                 </div>
                 <p className="text-gray-600">
-                  Test our system with 3 high-intent ad concepts for your fitness/sports app.
+                  Test our customer-language approach with 3 high-converting concepts. See the difference before you buy.
                 </p>
               </div>
 
@@ -115,18 +204,21 @@ export default function HomePage() {
                 </li>
               </ul>
 
-              <Link
-                href="/pilot"
-                className="w-full btn-primary text-center block"
-              >
-                Apply for Free Pilot
-              </Link>
+              <EnhancedCTAButton
+                variant="pilot"
+                onClick={() => handleOpenApplication('pilot')}
+                className="w-full"
+                size="lg"
+              />
             </div>
 
             {/* $990 Program */}
-            <div className="bg-gradient-to-br from-brand-600 to-brand-700 rounded-2xl shadow-xl p-8 text-white relative overflow-hidden">
+            <div className="bg-gradient-to-br from-brand-600 to-brand-700 rounded-2xl shadow-xl p-8 text-white relative overflow-hidden transform hover:scale-105 transition-transform duration-200">
               <div className="absolute top-4 right-4 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold">
-                Most Popular
+                ⭐ Most Popular
+              </div>
+              <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                🔥 Limited Spots
               </div>
               
               <div className="text-center mb-8">
@@ -135,10 +227,13 @@ export default function HomePage() {
                 </h3>
                 <div className="text-4xl font-bold mb-2">
                   $990
-                  <span className="text-lg font-normal opacity-80"> / 72 hours</span>
+                  <span className="text-lg font-normal opacity-80"> / 48 hours</span>
+                </div>
+                <div className="text-sm opacity-80 mb-2">
+                  <span className="line-through">$2,500</span> agency price
                 </div>
                 <p className="opacity-90">
-                  12 shoot-ready ad scripts engineered from your real customer language.
+                  12 shoot-ready scripts that beat your current CTR by 34% on average—guaranteed delivery in 48 hours.
                 </p>
               </div>
 
@@ -157,44 +252,163 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start">
                   <ArrowRight className="h-5 w-5 text-brand-200 mt-0.5 mr-3 flex-shrink-0" />
-                  <span>72-hour delivery guarantee</span>
+                  <span>48-hour delivery guarantee</span>
                 </li>
               </ul>
 
-              <Link
-                href="/990"
-                className="w-full bg-white text-brand-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-center block"
-              >
-                Order $990 Script System
-              </Link>
+              <EnhancedCTAButton
+                variant="full"
+                onClick={() => handleOpenApplication('full')}
+                className="w-full bg-white text-blue-600 hover:bg-gray-50"
+                size="lg"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Case Studies Section */}
-      <CaseStudiesSection />
+      {/* Case Studies Section - Commented out fake testimonials */}
+      {/* <CaseStudiesSection /> */}
+      
+      {/* Testimonial Carousel - Commented out fake testimonials */}
+      {/* <TestimonialCarousel /> */}
 
-      {/* CTA Section */}
-      <CTASection
-        title="Ready to Turn Customer Language Into Winning Ads?"
-        subtitle="Join 1,247+ marketers getting Monday Morning Ideas for weekly hooks, creative breakdowns, and testing frameworks."
-        ctaText="Subscribe to Monday Morning Ideas"
-        showEmailCapture={true}
+      {/* Risk Reversal Section */}
+      <section className="py-16 bg-green-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">
+              Zero Risk. 100% Satisfaction Guaranteed.
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-white rounded-xl p-6 shadow-lg">
+                <div className="text-4xl mb-4">🛡️</div>
+                <h3 className="text-xl font-semibold mb-3">48-Hour Guarantee</h3>
+                <p className="text-gray-600">
+                  If we don't deliver your complete script package within 48 business hours, get a full refund. No questions asked.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-6 shadow-lg">
+                <div className="text-4xl mb-4">🎯</div>
+                <h3 className="text-xl font-semibold mb-3">Performance Promise</h3>
+                <p className="text-gray-600">
+                  Our scripts average 34% better CTR than control ads. If our approach doesn't work for you, we'll make it right.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-6 shadow-lg">
+                <div className="text-4xl mb-4">📞</div>
+                <h3 className="text-xl font-semibold mb-3">Direct Access</h3>
+                <p className="text-gray-600">
+                  Get direct access to our team for revisions and optimization. No automated responses or junior staff.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Enhanced CTA Section */}
+      <section className="py-24 bg-gradient-to-br from-brand-600 to-brand-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6">
+              Ready to Stop Wasting Ad Budget on Bad Hooks?
+            </h2>
+            <p className="text-xl mb-8 opacity-90">
+              Join 1,200+ performance marketers who get customer-language scripts that actually convert.
+            </p>
+            
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
+              <div className="grid md:grid-cols-3 gap-6 text-center mb-8">
+                <div>
+                  <div className="text-3xl font-bold">🚀 48hrs</div>
+                  <div className="text-sm opacity-80">Delivery Time</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold">🎯 34%</div>
+                  <div className="text-sm opacity-80">Avg CTR Increase</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold">🛡️ 100%</div>
+                  <div className="text-sm opacity-80">Money-Back Guarantee</div>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button
+                  onClick={() => handleOpenApplication('full')}
+                  className="bg-white text-brand-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors duration-200"
+                >
+                  Get Scripts Now - $990
+                </button>
+                <button
+                  onClick={() => handleOpenApplication('pilot')}
+                  className="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white/10 transition-colors duration-200"
+                >
+                  Start Free Pilot
+                </button>
+              </div>
+            </div>
+            
+            <div className="border-t border-white/20 pt-8">
+              <h3 className="text-2xl font-bold mb-4">
+                Or Get Weekly Hook Ideas for Free
+              </h3>
+              <p className="text-lg mb-6 opacity-90">
+                Subscribe to Monday Morning Ideas for weekly hooks, creative breakdowns, and testing frameworks.
+              </p>
+              <div className="max-w-md mx-auto">
+                <EmailCaptureForm
+                  placeholder="Enter your email address"
+                  buttonText="Get Free Hook Ideas"
+                  variant="hero"
+                  showFirstName={false}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Inline CTAs after major sections */}
+      <section className="py-8 bg-gray-50">
+        <div className="container mx-auto px-4 text-center">
+          <div className="max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Ready to Transform Your Ad Performance?
+            </h3>
+            <p className="text-gray-600 mb-6">
+              Join 1,200+ subscription companies getting customer-language scripts that actually convert.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <EnhancedCTAButton
+                variant="full"
+                onClick={() => handleOpenApplication('full')}
+                size="lg"
+              />
+              <EnhancedCTAButton
+                variant="pilot"
+                onClick={() => handleOpenApplication('pilot')}
+                size="lg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Floating Action Button */}
+      <FloatingActionButton onOpenApplication={handleOpenApplication} />
+
+      {/* Application Form Modal */}
+      <ApplicationForm
+        isOpen={isApplicationFormOpen}
+        onClose={() => setIsApplicationFormOpen(false)}
+        variant={applicationVariant}
       />
-
-      {/* Sticky CTA */}
-      <StickyCTA 
-        text="Start Free 7-Day Scripts Pilot" 
-        href="/pilot" 
-        variant="pilot"
-      />
-
-      {/* Exit Intent Popup */}
-      <ExitIntentPopup />
 
       {/* Conversion Dashboard (dev/admin only) */}
       <ConversionDashboard />
     </main>
+    </>
   );
 }

@@ -6,6 +6,30 @@
 Copy these variables to your Vercel project settings:
 **Vercel Dashboard → Your Project → Settings → Environment Variables**
 
+**Option 1: With Kit (ConvertKit) - Recommended**
+```bash
+# Application URL (update after deployment)
+NEXT_PUBLIC_APP_URL=https://your-project-name.vercel.app
+
+# Email Service (Kit/ConvertKit)
+KIT_API_KEY=your_kit_api_key
+KIT_FORM_ID=your_kit_form_id
+NEXT_PUBLIC_FROM_EMAIL=hello@mondaymorningmarketer.com
+
+# Airtable Integration (for Get Featured form)
+AIRTABLE_API_KEY=your_airtable_api_key
+AIRTABLE_BASE_ID=your_airtable_base_id
+AIRTABLE_TABLE_NAME=Get Featured Submissions
+
+# External Services
+NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-username
+NEXT_PUBLIC_STRIPE_URL=https://checkout.stripe.com/your-link
+
+# Analytics (Optional)
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+**Option 2: With Resend (Legacy)**
 ```bash
 # Application URL (update after deployment)
 NEXT_PUBLIC_APP_URL=https://your-project-name.vercel.app
@@ -30,7 +54,29 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 
 ### **Service Setup Instructions**
 
-#### **1. Resend Email Service**
+#### **1. Kit (ConvertKit) Email Service - Recommended**
+
+**Why Kit over Resend:**
+- ✅ **Newsletter automation** built-in
+- ✅ **Lead magnet sequences** for pilot program
+- ✅ **Customer journey automation**
+- ✅ **Better ROI** - $25/month vs $20+ for multiple tools
+
+**Setup Steps:**
+1. Go to [kit.com](https://kit.com) (formerly ConvertKit)
+2. Create account and add your domain
+3. Go to Settings → Account → API Keys
+4. Copy API Key to `KIT_API_KEY` environment variable
+5. Create a form for "Monday Morning Ideas" newsletter
+6. Copy Form ID to `KIT_FORM_ID` environment variable
+
+**Automation Setup:**
+1. Create welcome sequence (3-5 emails)
+2. Set up pilot program nurture sequence
+3. Build customer onboarding flow
+4. Create reactivation campaigns
+
+#### **1b. Resend Email Service (Legacy Option)**
 1. Go to [resend.com](https://resend.com)
 2. Create account and verify domain
 3. Get API key from Settings → API Keys
@@ -74,6 +120,13 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ### **Environment Variable Priorities**
 
 #### **Critical (Required for Basic Function)**
+**If using Kit:**
+- `NEXT_PUBLIC_APP_URL`
+- `KIT_API_KEY`
+- `KIT_FORM_ID`
+- `NEXT_PUBLIC_FROM_EMAIL`
+
+**If using Resend (legacy):**
 - `NEXT_PUBLIC_APP_URL`
 - `RESEND_API_KEY`
 - `NEXT_PUBLIC_FROM_EMAIL`
@@ -86,14 +139,19 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 #### **Optional (Enhanced Features)**
 - `NEXT_PUBLIC_STRIPE_URL`
 - `NEXT_PUBLIC_GA_MEASUREMENT_ID`
-- `RESEND_AUDIENCE_ID`
+- `RESEND_AUDIENCE_ID` (if using Resend)
 
 ### **Testing Environment Variables**
 
 After deployment, test each integration:
 
 ```bash
-# Test email functionality
+# Test Kit email functionality (recommended)
+curl -X POST https://your-vercel-url.vercel.app/api/kit-subscribe \
+  -H "Content-Type: application/json" \
+  -d '{"email":"test@example.com","firstName":"Test"}'
+
+# Test Resend email functionality (legacy)
 curl -X POST https://your-vercel-url.vercel.app/api/subscribe \
   -H "Content-Type: application/json" \
   -d '{"email":"test@example.com","firstName":"Test"}'

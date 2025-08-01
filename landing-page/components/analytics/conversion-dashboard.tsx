@@ -47,7 +47,7 @@ export function ConversionDashboard({ className = '' }: ConversionDashboardProps
       },
       {
         name: 'Page Views',
-        value: 1247,
+        value: 1200,
         change: +15.3,
         icon: <Users className="h-5 w-5" />
       },
