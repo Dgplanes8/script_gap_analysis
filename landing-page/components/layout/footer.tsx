@@ -38,6 +38,24 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link 
+                  href="/subscription-marketing-strategy-guide" 
+                  className="flex items-center text-gray-400 hover:text-white transition-colors"
+                >
+                  <Building2 className="h-4 w-4 mr-2" />
+                  Subscription Marketing Strategy
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/fortune-100-case-studies" 
+                  className="flex items-center text-gray-400 hover:text-white transition-colors"
+                >
+                  <TrendingUp className="h-4 w-4 mr-2" />
+                  Fortune 100 Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link 
                   href="/cac-reduction-guide" 
                   className="flex items-center text-gray-400 hover:text-white transition-colors"
                 >
@@ -47,10 +65,19 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/revenue-growth-benchmarking" 
+                  href="/saas-growth-marketing-guide" 
                   className="flex items-center text-gray-400 hover:text-white transition-colors"
                 >
                   <TrendingUp className="h-4 w-4 mr-2" />
+                  SaaS Growth Marketing Guide
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/revenue-growth-benchmarking" 
+                  className="flex items-center text-gray-400 hover:text-white transition-colors"
+                >
+                  <BarChart3 className="h-4 w-4 mr-2" />
                   Revenue Growth Benchmarking
                 </Link>
               </li>
@@ -61,15 +88,6 @@ export function Footer() {
                 >
                   <BarChart3 className="h-4 w-4 mr-2" />
                   Attribution Framework
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/1m-arr-marketing-playbook" 
-                  className="flex items-center text-gray-400 hover:text-white transition-colors"
-                >
-                  <Building2 className="h-4 w-4 mr-2" />
-                  $1M ARR Marketing Playbook
                 </Link>
               </li>
             </ul>
@@ -113,6 +131,24 @@ export function Footer() {
                 >
                   <Target className="h-4 w-4 mr-2" />
                   Attribution Modeling Tool
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/saas-growth-marketing-guide" 
+                  className="flex items-center text-gray-400 hover:text-white transition-colors"
+                >
+                  <TrendingUp className="h-4 w-4 mr-2" />
+                  Channel Assessment Tool
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/1m-arr-marketing-playbook" 
+                  className="flex items-center text-gray-400 hover:text-white transition-colors"
+                >
+                  <Building2 className="h-4 w-4 mr-2" />
+                  $1M ARR Marketing Playbook
                 </Link>
               </li>
             </ul>
