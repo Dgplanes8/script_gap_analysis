@@ -100,3 +100,46 @@ export const trackFormAbandonment = (form_type: string, step: string) => {
     source_page: window.location.pathname,
   });
 };
+
+// New tracking functions for content pieces
+export const trackCalculatorUse = (calculator_type: string, results?: any) => {
+  trackEvent('calculator_use', {
+    category: 'engagement',
+    label: calculator_type,
+    value: results?.potentialSavings || results?.roiImprovement || 0,
+    source_page: window.location.pathname,
+  });
+};
+
+export const trackDownloadIntent = (content_type: string) => {
+  trackEvent('download_intent', {
+    category: 'lead_generation',
+    label: content_type,
+    source_page: window.location.pathname,
+  });
+};
+
+export const trackConsultationBooking = (source: string) => {
+  trackEvent('consultation_booking', {
+    category: 'conversion',
+    label: source,
+    value: 1,
+    source_page: window.location.pathname,
+  });
+};
+
+export const trackScenarioSelection = (scenario_name: string, calculator_type: string) => {
+  trackEvent('scenario_selection', {
+    category: 'engagement',
+    label: `${calculator_type}_${scenario_name}`,
+    source_page: window.location.pathname,
+  });
+};
+
+export const trackContentNavigation = (from_page: string, to_page: string) => {
+  trackEvent('content_navigation', {
+    category: 'engagement',
+    label: `${from_page}_to_${to_page}`,
+    source_page: window.location.pathname,
+  });
+};

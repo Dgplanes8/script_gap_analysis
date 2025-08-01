@@ -62,20 +62,41 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl;
+    @apply bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl;
   }
   
   .btn-secondary {
-    @apply bg-white hover:bg-gray-50 text-brand-600 font-semibold py-3 px-6 rounded-lg border border-brand-200 transition-colors duration-200;
+    @apply bg-white hover:bg-gray-50 text-indigo-600 font-semibold py-3 px-6 rounded-lg border border-indigo-200 transition-colors duration-200;
   }
   
   .form-input {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors duration-200;
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors duration-200;
   }
   
   .bg-grid-pattern {
     background-image: radial-gradient(circle, #e5e7eb 1px, transparent 1px);
     background-size: 20px 20px;
+  }
+  
+  /* Calculator and form styling */
+  .calculator-card {
+    @apply bg-white rounded-2xl shadow-xl overflow-hidden;
+  }
+  
+  .metric-card {
+    @apply bg-gray-50 p-6 rounded-lg;
+  }
+  
+  .result-highlight {
+    @apply text-3xl font-bold mb-2;
+  }
+  
+  .improvement-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .cta-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50;
   }
 }
 
@@ -86,6 +107,10 @@
   
   .animate-slide-up {
     animation: slideUp 0.8s ease-out 0.2s both;
+  }
+  
+  .animate-pulse-subtle {
+    animation: pulseSubtle 2s infinite;
   }
   
   @keyframes fadeIn {
@@ -108,5 +133,36 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+  
+  @keyframes pulseSubtle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+  
+  /* Gradient text utilities */
+  .text-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-emerald {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-purple {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

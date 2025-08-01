@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, ReactNode } from 'react';
+import { useState, useEffect, useCallback, ReactNode } from 'react';
 
 interface ABTestVariant {
   id: string;
@@ -54,32 +54,7 @@ export function EnhancedABTest({
     }
   }, [testName, variants]);
 
-  useEffect(() => {
-    if (selectedVariant && !hasViewed) {
-      // Track variant view
-      trackEvent('ab_test_view', {
-        testName,
-        variantId: selectedVariant.id,
-        variantName: selectedVariant.name,
-        timestamp: Date.now()
-      });
-      setHasViewed(true);
-    }
-  }, [selectedVariant, hasViewed, testName]);
-
-  const handleConversion = (conversionType: string = conversionGoal) => {
-    if (selectedVariant) {
-      trackEvent('ab_test_conversion', {
-        testName,
-        variantId: selectedVariant.id,
-        variantName: selectedVariant.name,
-        conversionType,
-        timestamp: Date.now()
-      });
-    }
-  };
-
-  const trackEvent = (eventType: string, data: any) => {
+  const trackEvent = useCallback((eventType: string, data: any) => {
     // Store in localStorage for analytics
     const events = JSON.parse(localStorage.getItem('ab_test_events') || '[]');
     events.push({ eventType, ...data });
@@ -100,6 +75,31 @@ export function EnhancedABTest({
         test: testName,
         variant: data.variantId,
         conversion: data.conversionType || 'view'
+      });
+    }
+  }, [testName]);
+
+  useEffect(() => {
+    if (selectedVariant && !hasViewed) {
+      // Track variant view
+      trackEvent('ab_test_view', {
+        testName,
+        variantId: selectedVariant.id,
+        variantName: selectedVariant.name,
+        timestamp: Date.now()
+      });
+      setHasViewed(true);
+    }
+  }, [selectedVariant, hasViewed, testName, trackEvent]);
+
+  const handleConversion = (conversionType: string = conversionGoal) => {
+    if (selectedVariant) {
+      trackEvent('ab_test_conversion', {
+        testName,
+        variantId: selectedVariant.id,
+        variantName: selectedVariant.name,
+        conversionType,
+        timestamp: Date.now()
       });
     }
   };
