@@ -13,14 +13,12 @@ export function StrategyROICalculator({ onOpenConsultation }: StrategyROICalcula
     currentCAC: 200,
     currentLTV: 1000,
     monthlyAdSpend: 25000,
-    currentCTR: 1.2,
     targetGrowth: 50
   });
 
   const [results, setResults] = useState({
     currentLTVCAC: 0,
     projectedCACReduction: 0,
-    projectedCTRImprovement: 0,
     projectedARRIncrease: 0,
     monthlyROI: 0,
     annualROI: 0,
@@ -28,20 +26,16 @@ export function StrategyROICalculator({ onOpenConsultation }: StrategyROICalcula
     recommendedTier: 'Foundation'
   });
 
-  const calculateROI = (inputData: {currentARR: number; currentCAC: number; currentLTV: number; monthlyAdSpend: number; currentCTR: number; targetGrowth: number}) => {
+  const calculateROI = (inputData: {currentARR: number; currentCAC: number; currentLTV: number; monthlyAdSpend: number; targetGrowth: number}) => {
     // Current metrics
     const currentLTVCAC = inputData.currentLTV / inputData.currentCAC;
     
-    // Strategic improvements based on Fortune 100 methodology
-    const ctuImprovementFactor = 2.2; // Average 120% CTR improvement
-    const cacReductionFactor = 0.65; // Average 35% CAC reduction
-    const conversionImprovementFactor = 1.4; // Average 40% conversion improvement
+    // Conservative strategic improvements
+    const cacReductionFactor = 0.8; // Conservative 20% CAC reduction
     
     // Projected improvements
-    const projectedCTR = inputData.currentCTR * ctuImprovementFactor;
     const projectedCAC = inputData.currentCAC * cacReductionFactor;
     const projectedCACReduction = ((inputData.currentCAC - projectedCAC) / inputData.currentCAC) * 100;
-    const projectedCTRImprovement = ((projectedCTR - inputData.currentCTR) / inputData.currentCTR) * 100;
     
     // Revenue impact calculations
     const currentMonthlyCustomers = inputData.monthlyAdSpend / inputData.currentCAC;
@@ -73,7 +67,6 @@ export function StrategyROICalculator({ onOpenConsultation }: StrategyROICalcula
     return {
       currentLTVCAC,
       projectedCACReduction,
-      projectedCTRImprovement,
       projectedARRIncrease,
       monthlyROI,
       annualROI,
@@ -185,19 +178,6 @@ export function StrategyROICalculator({ onOpenConsultation }: StrategyROICalcula
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Current Average CTR (%)
-                  </label>
-                  <input
-                    type="number"
-                    step="0.1"
-                    value={inputs.currentCTR}
-                    onChange={(e) => handleInputChange('currentCTR', parseFloat(e.target.value) || 0)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                    placeholder="1.2"
-                  />
-                </div>
               </div>
             </div>
 
@@ -210,20 +190,11 @@ export function StrategyROICalculator({ onOpenConsultation }: StrategyROICalcula
 
               <div className="space-y-6">
                 {/* Key Metrics */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-blue-50 rounded-lg p-4">
-                    <div className="text-2xl font-bold text-blue-600">
-                      {formatPercentage(results.projectedCTRImprovement)}
-                    </div>
-                    <div className="text-sm text-blue-800">CTR Improvement</div>
+                <div className="bg-green-50 rounded-lg p-4 text-center mb-6">
+                  <div className="text-3xl font-bold text-green-600">
+                    {formatPercentage(results.projectedCACReduction)}
                   </div>
-                  
-                  <div className="bg-green-50 rounded-lg p-4">
-                    <div className="text-2xl font-bold text-green-600">
-                      {formatPercentage(results.projectedCACReduction)}
-                    </div>
-                    <div className="text-sm text-green-800">CAC Reduction</div>
-                  </div>
+                  <div className="text-sm text-green-800">Conservative CAC Reduction</div>
                 </div>
 
                 {/* Revenue Impact */}

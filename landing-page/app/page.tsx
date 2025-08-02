@@ -27,7 +27,7 @@ export default function HomePage() {
   return (
     <>
       {/* Header Navigation */}
-      <Header onOpenApplication={handleOpenConsultation} />
+      <Header onOpenConsultation={handleOpenConsultation} />
       
       <main className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
@@ -129,6 +129,10 @@ export default function HomePage() {
       <section className="py-24 bg-gradient-to-br from-indigo-600 to-purple-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
+            <div className="bg-red-600/20 backdrop-blur rounded-lg p-4 mb-6 border border-red-400/30">
+              <div className="text-red-200 font-semibold mb-1">⚡ Limited Availability</div>
+              <div className="text-lg font-bold">Only 4 spots left for August partnerships</div>
+            </div>
             <h2 className="text-4xl font-bold mb-6">
               Ready to Transform Your Marketing Strategy?
             </h2>

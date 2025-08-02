@@ -24,7 +24,7 @@ export function HooksOfferSection() {
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Get 20 Proven Hooks That Convert
+              Get 10 Proven Hooks That Convert
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> Instantly</span>
             </h2>
             
@@ -79,7 +79,7 @@ export function HooksOfferSection() {
                 <li className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
-                    <strong>20 High-Converting Hooks</strong> - Ready-to-use headlines with performance data
+                    <strong>10 High-Converting Hooks</strong> - Ready-to-use headlines with performance data
                   </span>
                 </li>
                 <li className="flex items-start">
@@ -122,7 +122,7 @@ export function HooksOfferSection() {
           {/* CTA Section */}
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white text-center">
             <h3 className="text-3xl font-bold mb-4">
-              Download Your 20 Proven Hooks Now
+              Download Your 10 Proven Hooks Now
             </h3>
             <p className="text-xl opacity-90 mb-8">
               Join 1,200+ subscription company founders getting hooks that actually convert
@@ -131,7 +131,7 @@ export function HooksOfferSection() {
             <div className="max-w-md mx-auto bg-white rounded-xl p-6">
               <EmailCaptureForm
                 placeholder="Enter your email address"
-                buttonText="Send Me The 20 Hooks"
+                buttonText="Send Me The 10 Hooks"
                 variant="inline"
                 showFirstName={true}
               />

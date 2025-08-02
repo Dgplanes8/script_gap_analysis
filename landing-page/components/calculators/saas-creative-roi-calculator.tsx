@@ -51,23 +51,23 @@ interface ROIResults {
 const roiScenarios: ROIScenario[] = [
   {
     name: 'Conservative Optimization',
-    ctrImprovement: 35,
-    cvrImprovement: 25,
+    ctrImprovement: 15,
+    cvrImprovement: 10,
     description: 'Customer language hooks + basic creative testing',
     timeframe: '30-60 days'
   },
   {
     name: 'Strategic Overhaul',
-    ctrImprovement: 85,
-    cvrImprovement: 60,
+    ctrImprovement: 25,
+    cvrImprovement: 20,
     description: 'Complete creative strategy + audience intelligence',
     timeframe: '60-90 days'
   },
   {
     name: 'Advanced Optimization',
-    ctrImprovement: 150,
-    cvrImprovement: 120,
-    description: 'AI-driven personalization + dynamic creative optimization',
+    ctrImprovement: 40,
+    cvrImprovement: 30,
+    description: 'Systematic optimization + continuous testing',
     timeframe: '90-120 days'
   }
 ];
@@ -81,7 +81,11 @@ const industryBenchmarks: Record<string, { avgCTR: number; avgCVR: number; topQu
   'other': { avgCTR: 2.5, avgCVR: 3.5, topQuartileCTR: 4.5, topQuartileCVR: 6.0 }
 };
 
-export function SaaSCreativeROICalculator() {
+interface SaaSCreativeROICalculatorProps {
+  onOpenConsultation?: () => void;
+}
+
+export function SaaSCreativeROICalculator({ onOpenConsultation }: SaaSCreativeROICalculatorProps) {
   const [formData, setFormData] = useState<CreativeData>({
     monthlyAdSpend: 0,
     currentCTR: 0,
@@ -463,18 +467,26 @@ export function SaaSCreativeROICalculator() {
 
             {showLeadCapture && (
               <div className="bg-emerald-600 p-8 rounded-lg text-white text-center">
-                <h4 className="text-xl font-bold mb-4">Get Your Implementation Roadmap</h4>
+                <h4 className="text-xl font-bold mb-4">Ready to Achieve These Results?</h4>
                 <p className="text-emerald-100 mb-6">
-                  Download our Creative Strategy Optimization Guide with step-by-step 
-                  implementation instructions and case study examples.
+                  Book a free strategic consultation to get a personalized implementation roadmap 
+                  and validate these projections for your specific business.
                 </p>
-                <div className="max-w-md mx-auto">
-                  <EmailCaptureForm
-                    placeholder="Enter your work email"
-                    buttonText="Get Implementation Guide"
-                    variant="cta"
-                    source="creative-roi-calculator-results"
-                  />
+                <div className="flex justify-center space-x-4">
+                  <button
+                    onClick={() => onOpenConsultation && onOpenConsultation()}
+                    className="bg-white text-emerald-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    Book Strategic Consultation
+                  </button>
+                  <div className="max-w-xs">
+                    <EmailCaptureForm
+                      placeholder="Get 10 free hooks"
+                      buttonText="Get Newsletter"
+                      variant="cta"
+                      source="creative-roi-calculator-results"
+                    />
+                  </div>
                 </div>
               </div>
             )}
