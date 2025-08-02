@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 interface HeaderProps {
-  onOpenApplication: (variant: 'pilot' | 'full') => void;
+  onOpenApplication?: (variant: 'pilot' | 'full') => void;
 }
 
 export function Header({ onOpenApplication }: HeaderProps) {
@@ -81,16 +81,16 @@ export function Header({ onOpenApplication }: HeaderProps) {
               <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="py-2">
                   <button
-                    onClick={() => onOpenApplication('pilot')}
+                    onClick={() => scrollToSection('service-tiers')}
                     className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
                   >
-                    Free 7-Day Pilot
+                    Strategic Partnerships
                   </button>
                   <button
-                    onClick={() => onOpenApplication('full')}
+                    onClick={() => scrollToSection('strategic-process')}
                     className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
                   >
-                    $990 Script System
+                    Our Process
                   </button>
                 </div>
               </div>
@@ -106,16 +106,16 @@ export function Header({ onOpenApplication }: HeaderProps) {
           {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
             <button
-              onClick={() => onOpenApplication('pilot')}
+              onClick={() => scrollToSection('strategic-resources')}
               className="px-4 py-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors"
             >
-              Free Pilot
+              Free Resources
             </button>
             <button
-              onClick={() => onOpenApplication('full')}
+              onClick={() => scrollToSection('consultation')}
               className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
-              Get Scripts - $990
+              Book Consultation
             </button>
           </div>
 
@@ -145,16 +145,16 @@ export function Header({ onOpenApplication }: HeaderProps) {
                 Free Hooks
               </button>
               <button
-                onClick={() => onOpenApplication('pilot')}
+                onClick={() => scrollToSection('service-tiers')}
                 className="block w-full text-left text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
               >
-                Free 7-Day Pilot
+                Strategic Partnerships
               </button>
               <button
-                onClick={() => onOpenApplication('full')}
+                onClick={() => scrollToSection('strategic-process')}
                 className="block w-full text-left text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
               >
-                $990 Script System
+                Our Process
               </button>
               <Link
                 href="mailto:hello@mondaymorningmarketer.com"
@@ -168,21 +168,21 @@ export function Header({ onOpenApplication }: HeaderProps) {
               <div className="pt-4 space-y-3 border-t border-gray-100">
                 <button
                   onClick={() => {
-                    onOpenApplication('pilot');
+                    scrollToSection('strategic-resources');
                     setIsOpen(false);
                   }}
                   className="w-full px-4 py-3 text-blue-600 border border-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
                 >
-                  Start Free Pilot
+                  Free Resources
                 </button>
                 <button
                   onClick={() => {
-                    onOpenApplication('full');
+                    scrollToSection('consultation');
                     setIsOpen(false);
                   }}
                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"
                 >
-                  Get Scripts - $990
+                  Book Consultation
                 </button>
               </div>
             </nav>
