@@ -33,7 +33,7 @@ export default function SuccessPage() {
         case 'newsletter':
           return {
             title: "Welcome to Monday Morning Ideas — your first issue arrives next Monday at 8am ET.",
-            subtitle: "Check your inbox for a welcome email and your 'Hook Bank 10' PDF. Every Monday you'll get 3 hooks worth testing, 1 creative teardown, and 1 mini test idea."
+            subtitle: "Check your inbox for a welcome email and your '10 Hook Bank' PDF. Every Monday you'll get 3 hooks worth testing, 1 creative teardown, and 1 mini test idea."
           };
         default:
           return {
@@ -104,7 +104,7 @@ export default function SuccessPage() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3">If You Subscribed</h3>
                 <p className="text-gray-600">
-                  Check your inbox for a welcome email and your Hook Bank 10 PDF. First issue Monday at 8am ET.
+                  Check your inbox for a welcome email and your 10 Hook Bank PDF. First issue Monday at 8am ET.
                 </p>
               </div>
             </div>
@@ -270,7 +270,7 @@ export default function SuccessPage() {
               />
               
               <p className="text-sm text-gray-500 mt-4">
-                Plus get your free Hook Bank 10 PDF with proven customer-language hooks.
+                Plus get your free 10 Hook Bank PDF with proven customer-language hooks.
               </p>
             </div>
           </div>

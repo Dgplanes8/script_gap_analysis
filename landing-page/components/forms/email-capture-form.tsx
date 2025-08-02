@@ -85,7 +85,7 @@ export function EmailCaptureForm({
           Thank you for subscribing!
         </h3>
         <p className="text-green-700">
-          Check your email for your Hook Bank 10 PDF and first Monday Morning Ideas newsletter.
+          Check your email for your 10 Hook Bank PDF and first Monday Morning Ideas newsletter.
         </p>
       </div>
     );
@@ -156,7 +156,7 @@ export function EmailCaptureForm({
       </div>
       
       <p className="text-sm text-gray-500 text-center">
-        Join 1,200+ marketers getting Monday Morning Ideas. Get your Hook Bank 10 PDF instantly. Unsubscribe anytime.
+        Join 1,200+ marketers getting Monday Morning Ideas. Get your 10 Hook Bank PDF instantly. Unsubscribe anytime.
       </p>
     </form>
   );

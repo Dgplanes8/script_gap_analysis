@@ -207,18 +207,17 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
               <TrendingUp className="h-5 w-5 mr-2 text-green-600" />
-              Business Metrics
+              Business Metrics <span className="text-sm font-normal text-gray-500">(Optional)</span>
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Current ARR *
+                  Current ARR
                 </label>
                 <select
                   name="currentARR"
                   value={formData.currentARR}
                   onChange={handleInputChange}
-                  required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                 >
                   <option value="">Select current ARR</option>
@@ -231,13 +230,12 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Target ARR Goal *
+                  Target ARR Goal
                 </label>
                 <select
                   name="targetARR"
                   value={formData.targetARR}
                   onChange={handleInputChange}
-                  required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                 >
                   <option value="">Select target ARR</option>
@@ -286,18 +284,17 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
           <div>
             <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
               <Target className="h-5 w-5 mr-2 text-purple-600" />
-              Strategic Assessment
+              Strategic Assessment <span className="text-sm font-normal text-gray-500">(Optional)</span>
             </h3>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Primary Growth Challenge *
+                  Primary Growth Challenge
                 </label>
                 <select
                   name="primaryChallenge"
                   value={formData.primaryChallenge}
                   onChange={handleInputChange}
-                  required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                 >
                   <option value="">Select primary challenge</option>
@@ -313,13 +310,12 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Timeline for Implementation *
+                  Timeline for Implementation
                 </label>
                 <select
                   name="timeline"
                   value={formData.timeline}
                   onChange={handleInputChange}
-                  required
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                 >
                   <option value="">Select timeline</option>
@@ -345,13 +341,12 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Specific Goals for This Partnership *
+                  Specific Goals for This Partnership
                 </label>
                 <textarea
                   name="specificGoals"
                   value={formData.specificGoals}
                   onChange={handleInputChange}
-                  required
                   rows={3}
                   placeholder="What specific outcomes are you looking to achieve? e.g., reduce CAC by 30%, scale to $2M ARR, improve creative performance..."
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"

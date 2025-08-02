@@ -11,7 +11,7 @@ interface ExitIntentPopupProps {
 
 export function ExitIntentPopup({ 
   title = "Wait! Get Your Free Hook Bank Before You Go",
-  subtitle = "Join 1,200+ marketers getting winning hooks every Monday + instant access to our Hook Bank 10 PDF."
+  subtitle = "Join 1,200+ marketers getting winning hooks every Monday + instant access to our 10 Hook Bank PDF."
 }: ExitIntentPopupProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);

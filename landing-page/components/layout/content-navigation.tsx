@@ -65,9 +65,16 @@ export function ContentNavigation({
   variant = 'grid',
   showTitle = true 
 }: ContentNavigationProps) {
-  const filteredContent = currentPath 
-    ? contentPieces.filter(piece => piece.href !== currentPath)
-    : contentPieces;
+  // Filter out non-existent pages and current path
+  const filteredContent = contentPieces
+    .filter(piece => {
+      // Hide non-existent pages
+      if (piece.href === '/1m-arr-marketing-playbook' || piece.href === '/fortune-100-case-studies') {
+        return false;
+      }
+      // Hide current path if specified
+      return currentPath ? piece.href !== currentPath : true;
+    });
 
   const colorClasses = {
     indigo: {
