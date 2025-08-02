@@ -7,11 +7,11 @@ import { StructuredData } from '@/components/structured-data';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Monday Morning Marketer - 12 Shoot-Ready Ad Scripts in 48 Hours',
+  title: 'Strategic Ad Intelligence System - Fortune 100 Methodology for Subscription Businesses',
   description:
-    'Get 12 shoot-ready ad scripts in 48 hours for $990. Customer-language hooks from reviews and Reddit for subscription companies. Free 7-day pilot available.',
+    'Transform your subscription business with Fortune 100 systematic methodology. Strategic partnerships for $500K-$2M ARR companies ready to scale systematically. 11-phase proven process.',
   keywords:
-    'ad scripts, subscription company marketing, customer language hooks, CTR optimization, TSR improvement, Reddit marketing, review-based hooks',
+    'strategic ad intelligence, Fortune 100 methodology, subscription business marketing, systematic marketing process, CAC optimization, strategic consulting, subscription growth',
   authors: [{ name: 'Monday Morning Marketer' }],
   creator: 'Monday Morning Marketer',
   publisher: 'Monday Morning Marketer',
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Monday Morning Marketer - 12 Shoot-Ready Ad Scripts in 48 Hours',
+    title: 'Strategic Ad Intelligence System - Fortune 100 Methodology',
     description:
-      'Get 12 shoot-ready ad scripts in 48 hours for $990. Customer-language hooks from reviews and Reddit for subscription companies.',
+      'Transform your subscription business with Fortune 100 systematic methodology. Strategic partnerships for $500K-$2M ARR companies ready to scale systematically.',
     url: '/',
     siteName: 'Monday Morning Marketer',
     images: [
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Monday Morning Marketer - 12 Shoot-Ready Ad Scripts in 48 Hours',
+    title: 'Strategic Ad Intelligence System - Fortune 100 Methodology',
     description:
-      'Get 12 shoot-ready ad scripts in 48 hours for $990. Customer-language hooks from reviews and Reddit for subscription companies.',
+      'Transform your subscription business with Fortune 100 systematic methodology. Strategic partnerships for $500K-$2M ARR companies ready to scale systematically.',
     images: ['/images/og-image.jpg'],
     creator: '@mondaymorningmarketer',
   },
