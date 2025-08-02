@@ -1,9 +1,33 @@
 'use client';
 
 import Link from 'next/link';
-import { Calculator, BookOpen, PieChart, FileText, TrendingUp, Target, ArrowRight } from 'lucide-react';
+import { Calculator, BookOpen, PieChart, FileText, TrendingUp, Target, ArrowRight, Play, Facebook, TrendingDown } from 'lucide-react';
 
 const contentPieces = [
+  {
+    title: '25 TikTok Hooks for Subscriptions',
+    href: '/tiktok-hooks-subscription-business-marketing',
+    icon: Play,
+    description: 'Proven TikTok hooks that convert for subscription businesses with psychology breakdowns',
+    cta: 'Get Hooks',
+    color: 'purple'
+  },
+  {
+    title: 'Facebook Ad Hooks for D2C',
+    href: '/facebook-ad-hooks-d2c-subscription-marketing',
+    icon: Facebook,
+    description: '15 winning Facebook ad hook formulas with A/B testing frameworks',
+    cta: 'Master Hooks',
+    color: 'blue'
+  },
+  {
+    title: 'Reduce CAC by 20% Strategy',
+    href: '/reduce-customer-acquisition-cost-subscription-business',
+    icon: TrendingDown,
+    description: 'Fortune 100 methodology to reduce customer acquisition cost without increasing ad spend',
+    cta: 'Reduce CAC',
+    color: 'green'
+  },
   {
     title: 'CAC Optimization Calculator',
     href: '/cac-optimization-calculator',
