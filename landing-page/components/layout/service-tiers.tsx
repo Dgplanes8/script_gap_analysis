@@ -152,7 +152,7 @@ export function ServiceTiers({ onOpenConsultation }: ServiceTiersProps) {
             return (
               <div
                 key={tier.id}
-                className={`relative bg-white rounded-2xl shadow-xl p-8 transition-all duration-300 hover:shadow-2xl ${
+                className={`relative bg-white rounded-2xl shadow-xl p-8 transition-all duration-300 hover:shadow-2xl flex flex-col h-full ${
                   tier.popular ? 'ring-2 ring-green-500 transform scale-105' : ''
                 } ${tier.borderColor} border-2`}
                 onMouseEnter={() => setSelectedTier(tier.id as any)}
@@ -203,7 +203,8 @@ export function ServiceTiers({ onOpenConsultation }: ServiceTiersProps) {
                   <div className="text-sm text-gray-600">{tier.ideal}</div>
                 </div>
 
-                <button
+                <div className="mt-auto">
+                  <button
                   onClick={onOpenConsultation}
                   className={`w-full py-4 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center ${tier.ctaColor}`}
                 >
@@ -212,9 +213,10 @@ export function ServiceTiers({ onOpenConsultation }: ServiceTiersProps) {
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </button>
 
-                <p className="text-xs text-gray-500 mt-4 text-center">
-                  Free consultation • No obligation • Custom proposal provided
-                </p>
+                  <p className="text-xs text-gray-500 mt-4 text-center">
+                    Free consultation • No obligation • Custom proposal provided
+                  </p>
+                </div>
               </div>
             );
           })}

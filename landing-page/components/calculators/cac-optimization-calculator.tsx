@@ -35,7 +35,11 @@ const industryBenchmarks: Record<string, { averageCAC: number; topQuartileCAC: n
   'other': { averageCAC: 315, topQuartileCAC: 165 }
 };
 
-export function CACOptimizationCalculator() {
+interface CACOptimizationCalculatorProps {
+  onOpenConsultation?: () => void;
+}
+
+export function CACOptimizationCalculator({ onOpenConsultation }: CACOptimizationCalculatorProps) {
   const [formData, setFormData] = useState<CACData>({
     monthlyRevenue: 0,
     currentCAC: 0,
@@ -313,16 +317,24 @@ export function CACOptimizationCalculator() {
 
               {showLeadCapture && (
                 <div className="bg-indigo-600 p-6 rounded-lg text-white">
-                  <h4 className="text-lg font-semibold mb-3">Get Your Detailed Action Plan</h4>
+                  <h4 className="text-lg font-semibold mb-3">Ready to Implement These Optimizations?</h4>
                   <p className="text-indigo-100 mb-4 text-sm">
-                    Download our complete CAC Optimization Playbook with step-by-step implementation guides.
+                    Book a free strategic consultation to get a personalized CAC reduction plan for your business.
                   </p>
-                  <EmailCaptureForm
-                    placeholder="Enter your work email"
-                    buttonText="Get Free Playbook"
-                    variant="cta"
-                    source="cac-calculator-results"
-                  />
+                  <div className="flex flex-col space-y-3">
+                    <button
+                      onClick={() => onOpenConsultation && onOpenConsultation()}
+                      className="bg-white text-indigo-600 font-semibold py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors text-sm"
+                    >
+                      Book Strategic Consultation
+                    </button>
+                    <EmailCaptureForm
+                      placeholder="Get 10 free hooks"
+                      buttonText="Get Newsletter"
+                      variant="cta"
+                      source="cac-calculator-results"
+                    />
+                  </div>
                 </div>
               )}
             </>
