@@ -51,7 +51,7 @@ export default function MarketingAttributionFrameworkPage() {
       
       <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100">
         {/* Header */}
-        <Header onOpenConsultation={() => {}} />
+        <Header />
 
         {/* Hero Section */}
         <section className="pt-24 py-16 px-4 sm:px-6 lg:px-8">

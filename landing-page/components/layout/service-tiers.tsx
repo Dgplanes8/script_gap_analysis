@@ -3,12 +3,10 @@
 import { useState } from 'react';
 import { Check, ArrowRight, Zap, Target, Crown, Building2, TrendingUp, Calendar } from 'lucide-react';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
+import { useConsultation } from '@/components/contexts/consultation-context';
 
-interface ServiceTiersProps {
-  onOpenConsultation: () => void;
-}
-
-export function ServiceTiers({ onOpenConsultation }: ServiceTiersProps) {
+export function ServiceTiers() {
+  const { openModal: openConsultation } = useConsultation();
   const [selectedTier, setSelectedTier] = useState<'assessment' | 'foundation' | 'growth' | 'enterprise' | null>(null);
 
   const tiers = [
@@ -205,7 +203,7 @@ export function ServiceTiers({ onOpenConsultation }: ServiceTiersProps) {
 
                 <div className="mt-auto">
                   <button
-                  onClick={onOpenConsultation}
+                  onClick={openConsultation}
                   className={`w-full py-4 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center ${tier.ctaColor}`}
                 >
                   <Calendar className="h-5 w-5 mr-2" />

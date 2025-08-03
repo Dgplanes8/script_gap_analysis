@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/footer';
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { StrategicConsultationForm } from '@/components/forms/strategic-consultation-form';
 import { useState } from 'react';
+import { useConsultation } from '@/components/contexts/consultation-context';
 import { Clock, Users, TrendingUp, Target, Facebook, Eye, MousePointer, BarChart3, ArrowRight } from 'lucide-react';
 
 const hookFormulas = [
@@ -162,13 +163,11 @@ const testingFramework = [
 export function FacebookAdHooksClient() {
   const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
 
-  const handleOpenConsultation = () => {
-    setIsConsultationFormOpen(true);
-  };
+  const { openModal: handleOpenConsultation } = useConsultation();
 
   return (
     <React.Fragment>
-      <Header onOpenConsultation={handleOpenConsultation} />
+      <Header />
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}

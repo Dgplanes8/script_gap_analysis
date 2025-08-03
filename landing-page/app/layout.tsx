@@ -4,6 +4,8 @@ import './globals.css';
 import { Analytics } from '@/components/analytics';
 import { StructuredData } from '@/components/structured-data';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { ConsultationProvider } from '@/components/contexts/consultation-context';
+import { ConsultationModal } from '@/components/modals/consultation-modal';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -68,10 +70,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
-        {children}
-        <Analytics />
-        <StructuredData />
-        <SpeedInsights />
+        <ConsultationProvider>
+          {children}
+          <ConsultationModal />
+          <Analytics />
+          <StructuredData />
+          <SpeedInsights />
+        </ConsultationProvider>
       </body>
     </html>
   );

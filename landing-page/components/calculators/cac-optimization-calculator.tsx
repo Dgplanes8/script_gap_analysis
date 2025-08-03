@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Calculator, TrendingDown, Target, Users, DollarSign } from 'lucide-react';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
+import { useConsultation } from '@/components/contexts/consultation-context';
 
 interface CACData {
   monthlyRevenue: number;
@@ -35,11 +36,8 @@ const industryBenchmarks: Record<string, { averageCAC: number; topQuartileCAC: n
   'other': { averageCAC: 315, topQuartileCAC: 165 }
 };
 
-interface CACOptimizationCalculatorProps {
-  onOpenConsultation?: () => void;
-}
-
-export function CACOptimizationCalculator({ onOpenConsultation }: CACOptimizationCalculatorProps) {
+export function CACOptimizationCalculator() {
+  const { openModal: openConsultation } = useConsultation();
   const [formData, setFormData] = useState<CACData>({
     monthlyRevenue: 0,
     currentCAC: 0,
@@ -323,7 +321,7 @@ export function CACOptimizationCalculator({ onOpenConsultation }: CACOptimizatio
                   </p>
                   <div className="flex flex-col space-y-3">
                     <button
-                      onClick={() => onOpenConsultation && onOpenConsultation()}
+                      onClick={openConsultation}
                       className="bg-white text-indigo-600 font-semibold py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors text-sm"
                     >
                       Book Strategic Consultation

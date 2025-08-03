@@ -15,12 +15,10 @@ import {
   CheckCircle,
   ArrowRight
 } from 'lucide-react';
+import { useConsultation } from '@/components/contexts/consultation-context';
 
-interface StrategyProcessProps {
-  onOpenConsultation: () => void;
-}
-
-export function StrategyProcess({ onOpenConsultation }: StrategyProcessProps) {
+export function StrategyProcess() {
+  const { openModal: openConsultation } = useConsultation();
   const [activePhase, setActivePhase] = useState<number | null>(null);
 
   const phases = [
@@ -276,7 +274,7 @@ export function StrategyProcess({ onOpenConsultation }: StrategyProcessProps) {
               can transform your subscription business performance.
             </p>
             <button
-              onClick={onOpenConsultation}
+              onClick={openConsultation}
               className="bg-indigo-600 text-white font-semibold py-4 px-8 rounded-lg hover:bg-indigo-700 transition-colors duration-200 inline-flex items-center"
             >
               Book Strategic Consultation

@@ -17,18 +17,16 @@ import { Header } from '@/components/layout/header';
 import { ConversionDashboard } from '@/components/analytics/conversion-dashboard';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { Footer } from '@/components/layout/footer';
+import { useConsultation } from '@/components/contexts/consultation-context';
 
 export default function HomePage() {
+  const { openModal: handleOpenConsultation } = useConsultation();
   const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
-
-  const handleOpenConsultation = () => {
-    setIsConsultationFormOpen(true);
-  };
 
   return (
     <>
       {/* Header Navigation */}
-      <Header onOpenConsultation={handleOpenConsultation} />
+      <Header />
       
       <main className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
@@ -46,7 +44,7 @@ export default function HomePage() {
       <AboutSection onOpenApplication={handleOpenConsultation} />
 
       {/* Strategic Process Overview */}
-      <StrategyProcess onOpenConsultation={handleOpenConsultation} />
+      <StrategyProcess />
 
       {/* Strategic Differentiators */}
       <Features
@@ -75,10 +73,10 @@ export default function HomePage() {
       />
 
       {/* Strategic ROI Calculator */}
-      <StrategyROICalculator onOpenConsultation={handleOpenConsultation} />
+      <StrategyROICalculator />
 
       {/* Service Tiers Section */}
-      <ServiceTiers onOpenConsultation={handleOpenConsultation} />
+      <ServiceTiers />
 
       {/* Strategic Resources Section */}
       <section id="strategic-resources" className="bg-gray-50">

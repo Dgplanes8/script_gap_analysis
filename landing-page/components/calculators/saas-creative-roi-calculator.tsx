@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Calculator, TrendingUp, Target, PieChart, BarChart3, Zap } from 'lucide-react';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
+import { useConsultation } from '@/components/contexts/consultation-context';
 
 interface CreativeData {
   monthlyAdSpend: number;
@@ -81,11 +82,8 @@ const industryBenchmarks: Record<string, { avgCTR: number; avgCVR: number; topQu
   'other': { avgCTR: 2.5, avgCVR: 3.5, topQuartileCTR: 4.5, topQuartileCVR: 6.0 }
 };
 
-interface SaaSCreativeROICalculatorProps {
-  onOpenConsultation?: () => void;
-}
-
-export function SaaSCreativeROICalculator({ onOpenConsultation }: SaaSCreativeROICalculatorProps) {
+export function SaaSCreativeROICalculator() {
+  const { openModal: openConsultation } = useConsultation();
   const [formData, setFormData] = useState<CreativeData>({
     monthlyAdSpend: 0,
     currentCTR: 0,
@@ -474,7 +472,7 @@ export function SaaSCreativeROICalculator({ onOpenConsultation }: SaaSCreativeRO
                 </p>
                 <div className="flex justify-center space-x-4">
                   <button
-                    onClick={() => onOpenConsultation && onOpenConsultation()}
+                    onClick={openConsultation}
                     className="bg-white text-emerald-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-50 transition-colors"
                   >
                     Book Strategic Consultation

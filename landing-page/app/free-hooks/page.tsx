@@ -6,23 +6,21 @@ import { Footer } from '@/components/layout/footer';
 import { HooksOfferSection } from '@/components/ui/hooks-offer-section';
 import { StrategicConsultationForm } from '@/components/forms/strategic-consultation-form';
 import { trackPageView } from '@/components/analytics';
+import { useConsultation } from '@/components/contexts/consultation-context';
 import { Download, BookOpen, Zap, Users } from 'lucide-react';
 
 export default function FreeHooksPage() {
+  const { openModal: handleOpenConsultation } = useConsultation();
   const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
 
   useEffect(() => {
     trackPageView('free-hooks');
   }, []);
 
-  const handleOpenConsultation = () => {
-    setIsConsultationFormOpen(true);
-  };
-
   return (
     <>
       {/* Header Navigation */}
-      <Header onOpenApplication={handleOpenConsultation} />
+      <Header />
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section for Free Hooks */}
