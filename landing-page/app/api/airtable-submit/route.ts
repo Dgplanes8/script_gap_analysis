@@ -50,6 +50,24 @@ export async function POST(request: NextRequest) {
         'Timeline': data.timeline || '',
         'Budget': data.budget || ''
       };
+    } else if (data.type === 'strategic_consultation') {
+      fields = {
+        ...fields,
+        'Name': `${data.firstName} ${data.lastName}`,
+        'First Name': data.firstName || '',
+        'Last Name': data.lastName || '',
+        'Job Title': data.title || '',
+        'Current ARR': data.currentARR || '',
+        'Target ARR': data.targetARR || '',
+        'Current CAC': data.currentCAC || '',
+        'Monthly Ad Spend': data.monthlyAdSpend || '',
+        'Primary Challenge': data.primaryChallenge || '',
+        'Timeline': data.timeline || '',
+        'Previous Experience': data.previousExperience || '',
+        'Specific Goals': data.specificGoals || '',
+        'Consultation Preference': data.consultationPreference || '',
+        'Submission Date': data.submissionDate || new Date().toISOString()
+      };
     }
 
     // Submit to Airtable
@@ -79,7 +97,7 @@ export async function POST(request: NextRequest) {
 
     // Log the submission
     console.log('New submission:', {
-      name: data.name,
+      name: data.name || `${data.firstName} ${data.lastName}`,
       email: data.email,
       company: data.company,
       type: data.type,

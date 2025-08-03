@@ -38,15 +38,6 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link 
-                  href="/subscription-marketing-strategy-guide" 
-                  className="flex items-center text-gray-400 hover:text-white transition-colors"
-                >
-                  <Building2 className="h-4 w-4 mr-2" />
-                  Subscription Marketing Strategy
-                </Link>
-              </li>
-              <li>
-                <Link 
                   href="/fortune-100-case-studies" 
                   className="flex items-center text-gray-400 hover:text-white transition-colors"
                 >

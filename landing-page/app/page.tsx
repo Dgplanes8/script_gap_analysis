@@ -15,6 +15,7 @@ import { StrategicConsultationForm } from '@/components/forms/strategic-consulta
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { Header } from '@/components/layout/header';
 import { ConversionDashboard } from '@/components/analytics/conversion-dashboard';
+import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { Footer } from '@/components/layout/footer';
 
 export default function HomePage() {
@@ -198,6 +199,12 @@ export default function HomePage() {
       <StrategicConsultationForm
         isOpen={isConsultationFormOpen}
         onClose={() => setIsConsultationFormOpen(false)}
+      />
+
+      {/* Exit Intent Popup */}
+      <ExitIntentPopup 
+        title="Wait! Get Your Free Strategic Hooks Before You Go"
+        subtitle="Join 1,200+ marketers getting winning strategic hooks every Monday + instant access to our Strategic Hook Bank PDF."
       />
 
       {/* Conversion Dashboard (dev/admin only) */}
