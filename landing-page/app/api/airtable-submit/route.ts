@@ -2,7 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const AIRTABLE_API_KEY = process.env.AIRTABLE_API_KEY;
 const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
-const AIRTABLE_TABLE_NAME = process.env.AIRTABLE_TABLE_NAME || 'Get Featured Submissions';
+// Use table ID if available, otherwise fall back to table name
+const AIRTABLE_TABLE_ID = process.env.AIRTABLE_TABLE_ID || 'tblmHGwp3SBo8KSLF';
+const AIRTABLE_TABLE_NAME = process.env.AIRTABLE_TABLE_NAME || 'Lead Management';
 
 export async function POST(request: NextRequest) {
   try {
@@ -74,11 +76,14 @@ export async function POST(request: NextRequest) {
     }
 
     console.log('Submitting to Airtable with fields:', fields);
-    console.log('Airtable URL:', `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`);
+    
+    // Use table ID directly (more reliable than table name)
+    const tableIdentifier = AIRTABLE_TABLE_ID;
+    console.log('Airtable URL:', `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${tableIdentifier}`);
 
     // Submit to Airtable
     const airtableResponse = await fetch(
-      `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`,
+      `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${tableIdentifier}`,
       {
         method: 'POST',
         headers: {
