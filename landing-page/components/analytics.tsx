@@ -1,7 +1,7 @@
 'use client';
 
 import Script from 'next/script';
-import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
+import { Analytics as VercelAnalytics } from '@vercel/analytics/next';
 
 declare global {
   interface Window {
