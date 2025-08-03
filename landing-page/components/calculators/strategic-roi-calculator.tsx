@@ -2,12 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { Calculator, DollarSign, TrendingUp, Target, ArrowRight, Info } from 'lucide-react';
+import { useConsultation } from '@/components/contexts/consultation-context';
 
-interface StrategyROICalculatorProps {
-  onOpenConsultation: () => void;
-}
-
-export function StrategyROICalculator({ onOpenConsultation }: StrategyROICalculatorProps) {
+export function StrategyROICalculator() {
+  const { openModal: openConsultation } = useConsultation();
   const [inputs, setInputs] = useState({
     currentARR: 500000,
     currentCAC: 200,
@@ -268,7 +266,7 @@ export function StrategyROICalculator({ onOpenConsultation }: StrategyROICalcula
                 and validate these projections for your specific business.
               </p>
               <button
-                onClick={onOpenConsultation}
+                onClick={openConsultation}
                 className="bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors duration-200 inline-flex items-center"
               >
                 <DollarSign className="h-5 w-5 mr-2" />

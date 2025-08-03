@@ -1,28 +1,25 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { AboutSection } from '@/components/layout/about-section';
 import { StrategicConsultationForm } from '@/components/forms/strategic-consultation-form';
 import { trackPageView } from '@/components/analytics';
-import { useEffect } from 'react';
+import { useConsultation } from '@/components/contexts/consultation-context';
 
 export default function AboutPage() {
+  const { openModal: handleOpenConsultation } = useConsultation();
   const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
 
   useEffect(() => {
     trackPageView('about');
   }, []);
 
-  const handleOpenConsultation = () => {
-    setIsConsultationFormOpen(true);
-  };
-
   return (
     <>
       {/* Header Navigation */}
-      <Header onOpenApplication={handleOpenConsultation} />
+      <Header />
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section for About Page */}

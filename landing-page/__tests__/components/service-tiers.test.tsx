@@ -2,6 +2,15 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ServiceTiers } from '@/components/layout/service-tiers';
 
+// Mock the consultation context
+jest.mock('@/components/contexts/consultation-context', () => ({
+  useConsultation: () => ({
+    openModal: jest.fn(),
+    closeModal: jest.fn(),
+    isModalOpen: false,
+  }),
+}));
+
 // Mock the consultation booking CTA component
 jest.mock('@/components/ui/consultation-booking-cta', () => ({
   ConsultationBookingCTA: ({ variant, text }: { variant?: string; text?: string }) => (
@@ -12,11 +21,8 @@ jest.mock('@/components/ui/consultation-booking-cta', () => ({
 }));
 
 describe('ServiceTiers Component', () => {
-  const mockOnOpenConsultation = jest.fn();
-
   beforeEach(() => {
-    mockOnOpenConsultation.mockClear();
-    render(<ServiceTiers onOpenConsultation={mockOnOpenConsultation} />);
+    render(<ServiceTiers />);
   });
 
   it('renders the service tiers section correctly', () => {

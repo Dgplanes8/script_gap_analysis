@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/footer';
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { StrategicConsultationForm } from '@/components/forms/strategic-consultation-form';
 import { useState } from 'react';
+import { useConsultation } from '@/components/contexts/consultation-context';
 import { Clock, Users, TrendingUp, Target, Play, Eye, MousePointer, BarChart3, ArrowRight, Calendar } from 'lucide-react';
 
 const tiktokHooks = [
@@ -232,13 +233,11 @@ const testingFramework = [
 export function TikTokHooksClient() {
   const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
 
-  const handleOpenConsultation = () => {
-    setIsConsultationFormOpen(true);
-  };
+  const { openModal: handleOpenConsultation } = useConsultation();
 
   return (
     <div>
-      <Header onOpenConsultation={handleOpenConsultation} />
+      <Header />
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}

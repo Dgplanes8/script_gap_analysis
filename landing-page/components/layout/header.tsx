@@ -3,13 +3,14 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { useConsultation } from '@/components/contexts/consultation-context';
 
 interface HeaderProps {
   onOpenApplication?: (variant: 'pilot' | 'full') => void;
-  onOpenConsultation?: () => void;
 }
 
-export function Header({ onOpenApplication, onOpenConsultation }: HeaderProps) {
+export function Header({ onOpenApplication }: HeaderProps) {
+  const { openModal: openConsultation } = useConsultation();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -113,7 +114,7 @@ export function Header({ onOpenApplication, onOpenConsultation }: HeaderProps) {
               Free Resources
             </button>
             <button
-              onClick={() => onOpenConsultation && onOpenConsultation()}
+              onClick={openConsultation}
               className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               Book Consultation
@@ -178,7 +179,7 @@ export function Header({ onOpenApplication, onOpenConsultation }: HeaderProps) {
                 </button>
                 <button
                   onClick={() => {
-                    onOpenConsultation && onOpenConsultation();
+                    openConsultation();
                     setIsOpen(false);
                   }}
                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"

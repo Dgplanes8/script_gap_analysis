@@ -8,6 +8,7 @@ import { StrategicConsultationForm } from '@/components/forms/strategic-consulta
 import { StrategyROICalculator } from '@/components/calculators/strategic-roi-calculator';
 import { CACOptimizationCalculator } from '@/components/calculators/cac-optimization-calculator';
 import { useState } from 'react';
+import { useConsultation } from '@/components/contexts/consultation-context';
 import { Clock, Users, TrendingDown, Target, DollarSign, Zap, CheckCircle, AlertTriangle, ArrowRight, Calendar } from 'lucide-react';
 
 const optimizationLevers = [
@@ -190,13 +191,11 @@ const measurementFramework = [
 export function CACReductionClient() {
   const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
 
-  const handleOpenConsultation = () => {
-    setIsConsultationFormOpen(true);
-  };
+  const { openModal: handleOpenConsultation } = useConsultation();
 
   return (
     <div>
-      <Header onOpenConsultation={handleOpenConsultation} />
+      <Header />
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
@@ -538,8 +537,8 @@ export function CACReductionClient() {
               </h2>
               
               <div className="space-y-12">
-                <StrategyROICalculator onOpenConsultation={handleOpenConsultation} />
-                <CACOptimizationCalculator onOpenConsultation={handleOpenConsultation} />
+                <StrategyROICalculator />
+                <CACOptimizationCalculator />
               </div>
             </div>
           </div>
