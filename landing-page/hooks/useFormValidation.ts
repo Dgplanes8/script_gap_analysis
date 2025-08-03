@@ -40,7 +40,11 @@ export function useFormValidation(options: UseFormValidationOptions) {
   }, [options.schema]);
 
   const markFieldTouched = useCallback((fieldName: string) => {
-    setTouchedFields(prev => new Set([...prev, fieldName]));
+    setTouchedFields(prev => {
+      const newSet = new Set(prev);
+      newSet.add(fieldName);
+      return newSet;
+    });
   }, []);
 
   const clearErrors = useCallback(() => {
