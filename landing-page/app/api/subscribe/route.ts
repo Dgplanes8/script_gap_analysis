@@ -17,6 +17,8 @@ export async function POST(request: NextRequest) {
 
     if (!CONVERTKIT_API_KEY || !CONVERTKIT_FORM_ID) {
       console.error('ConvertKit configuration missing');
+      console.error('CONVERTKIT_API_KEY present:', !!CONVERTKIT_API_KEY);
+      console.error('CONVERTKIT_FORM_ID present:', !!CONVERTKIT_FORM_ID);
       // Fallback to logging if ConvertKit not configured
       console.log('New subscription:', { email, firstName, source, timestamp: new Date().toISOString() });
       return NextResponse.json(
@@ -36,6 +38,8 @@ export async function POST(request: NextRequest) {
     };
     
     const tags = [...baseTags, ...(sourceTags[source as keyof typeof sourceTags] || ['general-signup'])];
+
+    console.log('Submitting to ConvertKit:', { email, firstName, source, tags });
 
     // Subscribe to ConvertKit
     const convertKitResponse = await fetch(`https://api.convertkit.com/v3/forms/${CONVERTKIT_FORM_ID}/subscribe`, {
