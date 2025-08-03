@@ -29,12 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/subscription-marketing-strategy-guide`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
       url: `${baseUrl}/fortune-100-case-studies`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
@@ -63,12 +57,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/subscription-marketing-strategy-guide`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
     },
     {
       url: `${baseUrl}/fortune-100-case-studies`,

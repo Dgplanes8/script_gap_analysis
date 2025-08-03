@@ -53,14 +53,6 @@ const contentPieces = [
     color: 'emerald'
   },
   {
-    title: 'Subscription Marketing Strategy Guide',
-    href: '/subscription-marketing-strategy-guide',
-    icon: Target,
-    description: '8,000-word comprehensive guide with frameworks and 7-part email course',
-    cta: 'Get Guide',
-    color: 'blue'
-  },
-  {
     title: 'Fortune 100 Case Studies',
     href: '/fortune-100-case-studies',
     icon: FileText,
@@ -93,7 +85,7 @@ export function ContentNavigation({
   const filteredContent = contentPieces
     .filter(piece => {
       // Hide non-existent pages
-      if (piece.href === '/1m-arr-marketing-playbook' || piece.href === '/fortune-100-case-studies') {
+      if (piece.href === '/1m-arr-marketing-playbook') {
         return false;
       }
       // Hide current path if specified
