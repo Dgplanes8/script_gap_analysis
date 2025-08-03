@@ -7,9 +7,12 @@ const AIRTABLE_TABLE_NAME = process.env.AIRTABLE_TABLE_NAME || 'Get Featured Sub
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
+    console.log('Received form submission:', data);
 
     if (!AIRTABLE_API_KEY || !AIRTABLE_BASE_ID) {
       console.error('Missing Airtable configuration');
+      console.error('AIRTABLE_API_KEY present:', !!AIRTABLE_API_KEY);
+      console.error('AIRTABLE_BASE_ID present:', !!AIRTABLE_BASE_ID);
       return NextResponse.json(
         { error: 'Server configuration error' },
         { status: 500 }
@@ -70,6 +73,9 @@ export async function POST(request: NextRequest) {
       };
     }
 
+    console.log('Submitting to Airtable with fields:', fields);
+    console.log('Airtable URL:', `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`);
+
     // Submit to Airtable
     const airtableResponse = await fetch(
       `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}`,
@@ -89,11 +95,16 @@ export async function POST(request: NextRequest) {
       }
     );
 
+    console.log('Airtable response status:', airtableResponse.status);
+
     if (!airtableResponse.ok) {
       const errorData = await airtableResponse.json();
       console.error('Airtable API Error:', errorData);
-      throw new Error('Failed to submit to Airtable');
+      throw new Error(`Failed to submit to Airtable: ${JSON.stringify(errorData)}`);
     }
+
+    const airtableData = await airtableResponse.json();
+    console.log('Airtable submission successful:', airtableData);
 
     // Log the submission
     console.log('New submission:', {

@@ -53,7 +53,10 @@ export function EmailCaptureForm({
         const response = await fetch('/api/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
+          body: JSON.stringify({
+            ...data,
+            source: source,
+          }),
         });
         
         if (!response.ok) {
