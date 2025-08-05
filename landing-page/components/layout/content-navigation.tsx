@@ -189,7 +189,7 @@ export function ContentNavigation({
             const colors = colorClasses[piece.color as keyof typeof colorClasses];
             
             return (
-              <div key={piece.href} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <div key={piece.href} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col h-full">
                 <div className={`${colors.bg} p-6`}>
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4">
                     <IconComponent className={`h-6 w-6 ${colors.icon}`} />
@@ -199,12 +199,12 @@ export function ContentNavigation({
                   </h3>
                 </div>
                 
-                <div className="p-6">
-                  <p className="text-gray-700 mb-6">
+                <div className="p-6 flex-1 flex flex-col">
+                  <p className="text-gray-700 mb-6 flex-1">
                     {piece.description}
                   </p>
                   
-                  <Link href={piece.href}>
+                  <Link href={piece.href} className="mt-auto">
                     <button className={`${colors.button} w-full py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center`}>
                       {piece.cta}
                       <ArrowRight className="h-4 w-4 ml-2" />
