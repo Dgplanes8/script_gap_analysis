@@ -3,6 +3,7 @@ import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { RevenueGrowthBenchmarkTool } from '@/components/calculators/revenue-growth-benchmark-tool';
+import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
   title: 'Subscription Revenue Growth: Creative Strategy Benchmarking Tool | Strategic Ad Intelligence',
@@ -48,18 +49,10 @@ export default function RevenueGrowthBenchmarkingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100">
-        {/* Header */}
-        <header className="bg-white shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <nav className="flex justify-between items-center">
-              <div className="flex items-center">
-                <span className="text-2xl font-bold text-indigo-600">Strategic Ad Intelligence</span>
-              </div>
-              <ConsultationBookingCTA variant="header" />
-            </nav>
-          </div>
-        </header>
+      {/* Header Navigation */}
+      <Header />
+      
+      <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 pt-16 lg:pt-20">
 
         {/* Hero Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
