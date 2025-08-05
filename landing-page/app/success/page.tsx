@@ -57,9 +57,9 @@ export default function SuccessPage() {
       <Hero
         title={title}
         subtitle={subtitle}
-        ctaText="View Pilot Program"
-        secondaryCtaText="See $990 Pack"
-        secondaryCtaLink="/990"
+        ctaText="View Service Tiers"
+        secondaryCtaText="Book Consultation"
+        secondaryCtaLink="/#service-tiers"
         background="gradient"
         showEmailCapture={false}
       />
@@ -157,7 +157,7 @@ export default function SuccessPage() {
                 </ul>
                 
                 <Link
-                  href="/pilot"
+                  href="/#service-tiers"
                   className="w-full btn-primary text-center block"
                 >
                   Learn About Pilot
@@ -199,7 +199,7 @@ export default function SuccessPage() {
                 </ul>
                 
                 <Link
-                  href="/990"
+                  href="/#service-tiers"
                   className="w-full bg-white text-brand-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-50 transition-colors text-center block"
                 >
                   View $990 Pack
