@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { BarChart, Settings, TrendingUp, Calculator } from 'lucide-react';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 
-interface AttributionInputs {
+interface ConsumerAttributionInputs {
   attributionModel: string;
   touchpointWeights: {
     firstTouch: number;
@@ -12,15 +12,15 @@ interface AttributionInputs {
     lastTouch: number;
   };
   channelData: {
-    googleAds: { spend: number; clicks: number; assists: number; conversions: number };
-    linkedin: { spend: number; clicks: number; assists: number; conversions: number };
-    content: { spend: number; clicks: number; assists: number; conversions: number };
+    socialMedia: { spend: number; clicks: number; assists: number; conversions: number };
+    influencer: { spend: number; clicks: number; assists: number; conversions: number };
     email: { spend: number; clicks: number; assists: number; conversions: number };
+    referral: { spend: number; clicks: number; assists: number; conversions: number };
   };
 }
 
-export function AttributionModelingTool() {
-  const [inputs, setInputs] = useState<AttributionInputs>({
+export function ConsumerAttributionModelingTool() {
+  const [inputs, setInputs] = useState<ConsumerAttributionInputs>({
     attributionModel: 'position-based',
     touchpointWeights: {
       firstTouch: 40,
@@ -28,10 +28,10 @@ export function AttributionModelingTool() {
       lastTouch: 40
     },
     channelData: {
-      googleAds: { spend: 15000, clicks: 2500, assists: 800, conversions: 45 },
-      linkedin: { spend: 8000, clicks: 1200, assists: 600, conversions: 25 },
-      content: { spend: 5000, clicks: 3000, assists: 1200, conversions: 15 },
-      email: { spend: 2000, clicks: 1500, assists: 400, conversions: 35 }
+      socialMedia: { spend: 25000, clicks: 5000, assists: 1500, conversions: 85 },
+      influencer: { spend: 15000, clicks: 2000, assists: 800, conversions: 45 },
+      email: { spend: 3000, clicks: 2500, assists: 600, conversions: 65 },
+      referral: { spend: 1000, clicks: 800, assists: 300, conversions: 25 }
     }
   });
 
@@ -48,10 +48,10 @@ export function AttributionModelingTool() {
   } | null>(null);
 
   const channelNames = {
-    googleAds: 'Google Ads',
-    linkedin: 'LinkedIn Ads',
-    content: 'Content Marketing',
-    email: 'Email Marketing'
+    socialMedia: 'Social Media Ads',
+    influencer: 'Influencer Marketing',
+    email: 'Email Marketing',
+    referral: 'Referral Program'
   };
 
   const calculateAttribution = () => {
@@ -86,17 +86,17 @@ export function AttributionModelingTool() {
         
         attributedConversions[channel] = firstTouchCredit + middleTouchCredit + lastTouchCredit;
       } else if (inputs.attributionModel === 'time-decay') {
-        // Time-decay: More weight to recent touchpoints
-        const decayFactor = 0.7; // 70% weight to last touch, decreasing for earlier
-        attributedConversions[channel] = (data.conversions * 0.6) + (data.assists * 0.4 * decayFactor);
+        // Time-decay: More weight to recent touchpoints (good for impulse purchases)
+        const decayFactor = 0.8; // 80% weight to last touch for consumer behavior
+        attributedConversions[channel] = (data.conversions * 0.7) + (data.assists * 0.3 * decayFactor);
       } else if (inputs.attributionModel === 'linear') {
         // Linear: Equal weight to all touchpoints
         attributedConversions[channel] = (data.conversions + data.assists) / 2;
       } else {
-        // Data-driven (simplified approximation)
+        // Data-driven (simplified for consumer behavior)
         const totalInteractions = data.clicks + data.assists + data.conversions;
         const conversionRate = totalInteractions > 0 ? data.conversions / totalInteractions : 0;
-        attributedConversions[channel] = data.conversions + (data.assists * conversionRate);
+        attributedConversions[channel] = data.conversions + (data.assists * conversionRate * 0.6);
       }
       
       totalAttributedConversions += attributedConversions[channel];
@@ -154,7 +154,7 @@ export function AttributionModelingTool() {
     }, 0);
     
     const efficiencyGain = (optimizedEfficiency - currentEfficiency) / currentEfficiency;
-    const reallocationSavings = totalSpend * Math.max(0, Math.min(0.4, efficiencyGain)); // Cap at 40% max savings
+    const reallocationSavings = totalSpend * Math.max(0, Math.min(0.35, efficiencyGain)); // Cap at 35% max savings for D2C
 
     setResults({
       lastClickCAC,
@@ -185,15 +185,15 @@ export function AttributionModelingTool() {
   return (
     <div className="bg-white rounded-2xl shadow-xl p-8">
       <div className="text-center mb-8">
-        <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold mb-4">
+        <div className="inline-flex items-center px-4 py-2 bg-pink-100 text-pink-800 rounded-full text-sm font-semibold mb-4">
           <Calculator className="h-4 w-4 mr-2" />
-          Attribution Model Calculator
+          D2C Attribution Calculator
         </div>
         <h3 className="text-2xl font-bold text-gray-900 mb-2">
-          Compare Attribution Models & Calculate Impact
+          Compare D2C Attribution Models & Calculate Impact
         </h3>
         <p className="text-gray-600">
-          See how different attribution models affect CAC calculation and budget allocation
+          See how different attribution models affect CAC calculation for consumer subscription channels
         </p>
       </div>
 
@@ -217,11 +217,11 @@ export function AttributionModelingTool() {
           </div>
 
           {inputs.attributionModel === 'position-based' && (
-            <div className="bg-purple-50 p-4 rounded-lg">
+            <div className="bg-pink-50 p-4 rounded-lg">
               <h4 className="font-semibold mb-3">Position Weights (%)</h4>
               <div className="grid grid-cols-3 gap-3">
                 <div>
-                  <label className="text-xs text-gray-600">First Touch</label>
+                  <label className="text-xs text-gray-600">Discovery</label>
                   <input
                     type="number"
                     value={inputs.touchpointWeights.firstTouch}
@@ -233,7 +233,7 @@ export function AttributionModelingTool() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600">Middle</label>
+                  <label className="text-xs text-gray-600">Consideration</label>
                   <input
                     type="number"
                     value={inputs.touchpointWeights.middleTouch}
@@ -245,7 +245,7 @@ export function AttributionModelingTool() {
                   />
                 </div>
                 <div>
-                  <label className="text-xs text-gray-600">Last Touch</label>
+                  <label className="text-xs text-gray-600">Conversion</label>
                   <input
                     type="number"
                     value={inputs.touchpointWeights.lastTouch}
@@ -261,7 +261,7 @@ export function AttributionModelingTool() {
           )}
 
           <div>
-            <h4 className="font-semibold mb-4">Channel Performance Data</h4>
+            <h4 className="font-semibold mb-4">D2C Channel Performance Data</h4>
             <div className="space-y-4">
               {Object.entries(inputs.channelData).map(([channel, data]) => (
                 <div key={channel} className="bg-gray-50 p-4 rounded-lg">
@@ -295,7 +295,7 @@ export function AttributionModelingTool() {
                       />
                     </div>
                     <div>
-                      <label className="text-xs text-gray-600">Conversions</label>
+                      <label className="text-xs text-gray-600">Subscriptions</label>
                       <input
                         type="number"
                         value={data.conversions}
@@ -314,7 +314,7 @@ export function AttributionModelingTool() {
             className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 transition-colors flex items-center justify-center"
           >
             <BarChart className="h-5 w-5 mr-2" />
-            Calculate Attribution Impact
+            Calculate D2C Attribution Impact
           </button>
         </div>
 
@@ -408,14 +408,14 @@ export function AttributionModelingTool() {
               </div>
 
               {/* Implementation CTA */}
-              <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg p-6 text-center">
+              <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg p-6 text-center">
                 <h4 className="font-semibold mb-2 text-white">Ready to Improve Your Attribution?</h4>
                 <p className="text-purple-100 text-sm mb-4">
-                  Get expert guidance on implementing advanced attribution for your business
+                  Get expert guidance on implementing D2C attribution for your subscription business
                 </p>
                 <ConsultationBookingCTA 
                   variant="secondary"
-                  text="Book Attribution Strategy Session"
+                  text="Book D2C Attribution Strategy Session"
                 />
               </div>
             </>
@@ -423,7 +423,7 @@ export function AttributionModelingTool() {
             <div className="flex items-center justify-center h-full min-h-[400px]">
               <div className="text-center text-gray-500">
                 <Settings className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                <p>Configure your channel data and click calculate to see attribution impact</p>
+                <p>Configure your D2C channel data and click calculate to see attribution impact</p>
               </div>
             </div>
           )}
@@ -433,8 +433,8 @@ export function AttributionModelingTool() {
       {/* Methodology Note */}
       <div className="mt-8 pt-6 border-t border-gray-200">
         <p className="text-sm text-gray-600 text-center">
-          <strong>Note:</strong> This calculator provides directional insights based on standard attribution models. 
-          Actual implementation requires detailed customer journey mapping and may vary based on business specifics.
+          <strong>Note:</strong> This calculator provides directional insights for D2C subscription attribution. 
+          Actual implementation requires detailed consumer journey mapping and may vary based on brand specifics.
         </p>
       </div>
     </div>

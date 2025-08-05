@@ -2,28 +2,28 @@ import type { Metadata } from 'next';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { ContentNavigation } from '@/components/layout/content-navigation';
-import { AttributionModelingTool } from '@/components/calculators/attribution-modeling-tool';
+import { ConsumerAttributionModelingTool } from '@/components/calculators/consumer-attribution-modeling-tool';
 import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
-  title: 'Advanced Marketing Attribution Framework for SaaS Companies | Strategic Ad Intelligence',
-  description: 'Master multi-touch attribution modeling for SaaS companies. Implement advanced CAC measurement, optimize marketing spend, and drive revenue growth with Fortune 100 attribution methodologies.',
-  keywords: 'SaaS marketing attribution, multi-touch attribution framework, B2B attribution modeling, CAC optimization, marketing attribution software, revenue attribution tracking, SaaS marketing analytics',
+  title: 'Consumer Subscription Attribution Framework | D2C Marketing Attribution Guide',
+  description: 'Master D2C attribution modeling for consumer subscription brands. Implement multi-touch attribution, optimize marketing spend, and drive subscriber growth with consumer-focused frameworks.',
+  keywords: 'D2C attribution modeling, consumer subscription marketing, multi-touch attribution D2C, D2C marketing analytics, consumer brand attribution, subscription marketing attribution, D2C CAC optimization',
   openGraph: {
-    title: 'Advanced Marketing Attribution Framework for SaaS Companies',
-    description: 'Complete guide to multi-touch attribution modeling for subscription businesses. Accurate CAC measurement and revenue attribution.',
+    title: 'Consumer Subscription Attribution Framework | D2C Marketing Attribution',
+    description: 'Complete guide to multi-touch attribution modeling for consumer subscription businesses. Accurate CAC measurement for D2C brands.',
     type: 'article',
   },
   alternates: {
-    canonical: '/marketing-attribution-framework',
+    canonical: '/consumer-attribution-framework',
   },
 };
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: 'Advanced Marketing Attribution Framework for SaaS Companies',
-  description: 'Technical framework guide for implementing multi-touch attribution modeling in subscription businesses',
+  headline: 'Consumer Subscription Attribution Framework for D2C Brands',
+  description: 'Technical framework guide for implementing multi-touch attribution modeling in consumer subscription businesses',
   author: {
     '@type': 'Organization',
     name: 'Strategic Ad Intelligence System',
@@ -41,7 +41,7 @@ const structuredData = {
   dateModified: '2024-01-15',
 };
 
-export default function MarketingAttributionFrameworkPage() {
+export default function ConsumerAttributionFrameworkPage() {
   return (
     <>
       <script
@@ -49,50 +49,50 @@ export default function MarketingAttributionFrameworkPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100">
+      <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-100">
         {/* Header */}
         <Header />
 
         {/* Hero Section */}
         <section className="pt-24 py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold mb-6">
-              🔍 Advanced Analytics Framework
+            <div className="inline-flex items-center px-4 py-2 bg-pink-100 text-pink-800 rounded-full text-sm font-semibold mb-6">
+              🎯 D2C Attribution Framework
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Advanced Marketing Attribution Framework
+              Consumer Subscription Attribution Framework
               <br />
-              <span className="text-purple-600">for SaaS Companies</span>
+              <span className="text-purple-600">for D2C Brands</span>
             </h1>
             <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
               Implement sophisticated multi-touch attribution modeling to accurately measure CAC, 
-              optimize marketing spend, and drive revenue growth. Based on Fortune 100 attribution 
-              methodologies adapted for subscription businesses.
+              optimize marketing spend, and drive subscriber growth. Designed specifically for 
+              consumer subscription businesses and D2C brands.
             </p>
             
             {/* Trust Indicators */}
             <div className="flex flex-wrap justify-center items-center gap-8 mb-12 text-sm text-gray-600">
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
-                Multi-touch attribution models
+                Cross-platform attribution models
               </div>
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
-                Revenue attribution tracking
+                Customer lifetime value tracking
               </div>
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
-                Implementation templates
+                D2C implementation templates
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <ConsultationBookingCTA 
-                text="Get Free Attribution Audit"
+                text="Get Free D2C Attribution Audit"
                 variant="primary"
               />
               <button className="px-8 py-3 border-2 border-purple-600 text-purple-600 rounded-lg font-semibold hover:bg-purple-50">
-                Get Weekly Attribution Insights
+                Get Weekly D2C Insights
               </button>
             </div>
           </div>
@@ -102,7 +102,7 @@ export default function MarketingAttributionFrameworkPage() {
         <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-              Attribution Model Comparison
+              D2C Attribution Model Comparison
             </h2>
             
             <div className="grid md:grid-cols-5 gap-6">
@@ -147,7 +147,7 @@ export default function MarketingAttributionFrameworkPage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Use Case:</span>
-                    <span className="text-gray-800">Awareness focus</span>
+                    <span className="text-gray-800">Brand awareness</span>
                   </div>
                 </div>
               </div>
@@ -193,7 +193,7 @@ export default function MarketingAttributionFrameworkPage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Use Case:</span>
-                    <span className="text-gray-800">Revenue focus</span>
+                    <span className="text-gray-800">Customer journey</span>
                   </div>
                 </div>
               </div>
@@ -216,7 +216,7 @@ export default function MarketingAttributionFrameworkPage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Use Case:</span>
-                    <span className="text-gray-800">Enterprise scale</span>
+                    <span className="text-gray-800">Omnichannel brands</span>
                   </div>
                 </div>
               </div>
@@ -225,8 +225,8 @@ export default function MarketingAttributionFrameworkPage() {
             <div className="mt-8 text-center">
               <div className="bg-gray-100 border border-gray-200 rounded-lg p-4 max-w-2xl mx-auto">
                 <p className="text-gray-800 text-sm">
-                  <strong>The right attribution model depends on your business stage and data maturity.</strong> 
-                  Start with what you can implement effectively, then evolve as your organization grows.
+                  <strong>For D2C brands, multi-touch attribution is essential</strong> due to complex customer 
+                  journeys across multiple touchpoints including social media, influencers, email, and paid ads.
                 </p>
               </div>
             </div>
@@ -238,14 +238,14 @@ export default function MarketingAttributionFrameworkPage() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Attribution Model Calculator & Setup Tool
+                D2C Attribution Model Calculator & Setup Tool
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Configure your attribution model parameters and see the impact on CAC calculation 
-                and budget allocation decisions.
+                Configure your attribution model parameters for consumer subscription channels and see the impact 
+                on CAC calculation and budget allocation decisions.
               </p>
             </div>
-            <AttributionModelingTool />
+            <ConsumerAttributionModelingTool />
           </div>
         </section>
 
@@ -253,7 +253,7 @@ export default function MarketingAttributionFrameworkPage() {
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-              Multi-Touch Attribution Implementation Framework
+              D2C Multi-Touch Attribution Implementation Framework
             </h2>
             
             {/* Phase 1 */}
@@ -262,43 +262,43 @@ export default function MarketingAttributionFrameworkPage() {
                 <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
                   <span className="text-xl font-bold text-white">1</span>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Data Foundation & Tracking Setup</h3>
+                <h3 className="text-2xl font-bold text-gray-900">Cross-Platform Tracking Setup</h3>
               </div>
               
               <div className="bg-gray-50 rounded-lg p-8 mb-8">
-                <h4 className="text-lg font-semibold mb-4">Customer Journey Mapping</h4>
+                <h4 className="text-lg font-semibold mb-4">Consumer Journey Mapping</h4>
                 <p className="text-gray-700 mb-6">
-                  Before implementing attribution, map all customer touchpoints from awareness 
-                  to conversion and beyond. This foundation ensures no critical interactions are missed.
+                  Consumer subscription journeys are complex, spanning multiple touchpoints from social discovery 
+                  to subscription conversion. Map all critical interactions across the customer lifecycle.
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <h5 className="font-semibold mb-3">Essential Touchpoints to Track:</h5>
+                    <h5 className="font-semibold mb-3">Essential D2C Touchpoints:</h5>
                     <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start">
                         <span className="text-purple-600 mr-2">•</span>
-                        Organic search visits and keyword analysis
+                        Social media discovery (Instagram, TikTok, Facebook)
                       </li>
                       <li className="flex items-start">
                         <span className="text-purple-600 mr-2">•</span>
-                        Paid advertising clicks (Google, LinkedIn, Facebook)
+                        Influencer content and recommendations
                       </li>
                       <li className="flex items-start">
                         <span className="text-purple-600 mr-2">•</span>
-                        Email marketing engagement and clicks
+                        Paid social advertising clicks and engagement
                       </li>
                       <li className="flex items-start">
                         <span className="text-purple-600 mr-2">•</span>
-                        Content downloads and resource interactions
+                        Email marketing and SMS campaigns
                       </li>
                       <li className="flex items-start">
                         <span className="text-purple-600 mr-2">•</span>
-                        Webinar attendance and demo requests
+                        Referral program interactions
                       </li>
                       <li className="flex items-start">
                         <span className="text-purple-600 mr-2">•</span>
-                        Social media engagement and referrals
+                        Content consumption and reviews
                       </li>
                     </ul>
                   </div>
@@ -307,27 +307,27 @@ export default function MarketingAttributionFrameworkPage() {
                     <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start">
                         <span className="text-purple-600 mr-2">•</span>
-                        UTM parameter standardization across channels
+                        Cross-platform pixel implementation
                       </li>
                       <li className="flex items-start">
                         <span className="text-purple-600 mr-2">•</span>
-                        Cross-domain tracking implementation
+                        UTM parameter standardization
                       </li>
                       <li className="flex items-start">
                         <span className="text-purple-600 mr-2">•</span>
-                        Customer ID linking and deduplication
+                        Customer ID linking across touchpoints
                       </li>
                       <li className="flex items-start">
                         <span className="text-purple-600 mr-2">•</span>
-                        Event tracking for micro-conversions
+                        Subscription lifecycle event tracking
                       </li>
                       <li className="flex items-start">
                         <span className="text-purple-600 mr-2">•</span>
-                        Revenue and LTV data integration
+                        LTV and retention data integration
                       </li>
                       <li className="flex items-start">
                         <span className="text-purple-600 mr-2">•</span>
-                        Data warehouse setup for attribution modeling
+                        First-party data collection setup
                       </li>
                     </ul>
                   </div>
@@ -341,44 +341,44 @@ export default function MarketingAttributionFrameworkPage() {
                 <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
                   <span className="text-xl font-bold text-white">2</span>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Attribution Model Selection & Configuration</h3>
+                <h3 className="text-2xl font-bold text-gray-900">Consumer-Focused Attribution Model Selection</h3>
               </div>
               
               <div className="bg-gray-50 rounded-lg p-8 mb-8">
-                <h4 className="text-lg font-semibold mb-4">Choosing the Right Attribution Model</h4>
+                <h4 className="text-lg font-semibold mb-4">Choosing the Right Model for D2C</h4>
                 <p className="text-gray-700 mb-6">
-                  Different business models and customer journeys require different attribution approaches. 
-                  Select and configure the model that best reflects your customer acquisition reality.
+                  Consumer subscription businesses need attribution models that account for social influence, 
+                  word-of-mouth, and the emotional decision-making process typical in D2C purchases.
                 </p>
                 
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="bg-white p-6 rounded-lg border">
                     <h5 className="font-semibold mb-3 text-purple-800">Time-Decay Model</h5>
                     <p className="text-sm text-gray-600 mb-4">
-                      More credit to touchpoints closer to conversion
+                      More credit to touchpoints closer to subscription
                     </p>
                     <div className="text-xs text-gray-500">
-                      <strong>Best for:</strong> Long sales cycles, complex B2B purchases
+                      <strong>Best for:</strong> Impulse-driven consumer purchases
                     </div>
                   </div>
                   
                   <div className="bg-white p-6 rounded-lg border">
                     <h5 className="font-semibold mb-3 text-purple-800">Position-Based Model</h5>
                     <p className="text-sm text-gray-600 mb-4">
-                      40% first touch, 40% last touch, 20% middle
+                      40% discovery, 40% conversion, 20% consideration
                     </p>
                     <div className="text-xs text-gray-500">
-                      <strong>Best for:</strong> Balanced awareness and conversion focus
+                      <strong>Best for:</strong> Discovery-driven subscription brands
                     </div>
                   </div>
                   
                   <div className="bg-white p-6 rounded-lg border">
                     <h5 className="font-semibold mb-3 text-purple-800">Data-Driven Model</h5>
                     <p className="text-sm text-gray-600 mb-4">
-                      ML-based credit assignment using conversion data
+                      ML-based credit using consumer behavior data
                     </p>
                     <div className="text-xs text-gray-500">
-                      <strong>Best for:</strong> High-volume, mature attribution programs
+                      <strong>Best for:</strong> High-volume D2C subscription brands
                     </div>
                   </div>
                 </div>
@@ -391,35 +391,35 @@ export default function MarketingAttributionFrameworkPage() {
                 <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
                   <span className="text-xl font-bold text-white">3</span>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Revenue Attribution & CAC Optimization</h3>
+                <h3 className="text-2xl font-bold text-gray-900">LTV Attribution & Retention Optimization</h3>
               </div>
               
               <div className="bg-gray-50 rounded-lg p-8 mb-8">
-                <h4 className="text-lg font-semibold mb-4">Connecting Attribution to Business Outcomes</h4>
+                <h4 className="text-lg font-semibold mb-4">Connecting Attribution to Subscriber Value</h4>
                 <p className="text-gray-700 mb-6">
-                  Transform attribution data into actionable insights for budget allocation, 
-                  channel optimization, and revenue forecasting.
+                  For subscription businesses, attribution must connect to lifetime value and retention, 
+                  not just initial conversion. Optimize for subscriber quality, not just quantity.
                 </p>
                 
                 <div className="space-y-6">
                   <div className="bg-white p-6 rounded-lg border">
-                    <h5 className="font-semibold mb-3">CAC Calculation with Attribution</h5>
+                    <h5 className="font-semibold mb-3">LTV-Based CAC Calculation</h5>
                     <div className="bg-purple-50 p-4 rounded font-mono text-sm mb-4">
-                      Channel CAC = (Channel Spend × Attribution Weight) / Attributed Conversions
+                      Channel LTV CAC = (Channel Spend × Attribution Weight) / (Attributed Subscribers × Avg LTV)
                     </div>
                     <p className="text-gray-600 text-sm">
-                      Instead of simple last-click CAC, calculate the true cost based on each channel's 
-                      attributed contribution to conversions.
+                      Calculate the true cost per dollar of lifetime value, accounting for retention differences 
+                      across acquisition channels.
                     </p>
                   </div>
                   
                   <div className="bg-white p-6 rounded-lg border">
-                    <h5 className="font-semibold mb-3">Budget Optimization Framework</h5>
+                    <h5 className="font-semibold mb-3">Channel Quality Optimization</h5>
                     <ul className="space-y-2 text-gray-700 text-sm">
-                      <li>• Reallocate budget to channels with lowest attributed CAC</li>
-                      <li>• Identify high-assist channels that support conversion</li>
-                      <li>• Optimize creative and messaging for multi-touch journey</li>
-                      <li>• Scale channels with best LTV:CAC ratios</li>
+                      <li>• Analyze retention rates by acquisition channel</li>
+                      <li>• Track subscription upgrade/downgrade patterns</li>
+                      <li>• Optimize for high-LTV customer segments</li>
+                      <li>• Balance acquisition volume with subscriber quality</li>
                     </ul>
                   </div>
                 </div>
@@ -428,12 +428,11 @@ export default function MarketingAttributionFrameworkPage() {
           </div>
         </section>
 
-
         {/* Implementation Checklist */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-              Attribution Implementation Checklist
+              D2C Attribution Implementation Checklist
             </h2>
             
             <div className="grid md:grid-cols-2 gap-8">
@@ -442,27 +441,27 @@ export default function MarketingAttributionFrameworkPage() {
                 <div className="space-y-4">
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
-                    <span className="text-sm">Implement comprehensive UTM parameter strategy</span>
+                    <span className="text-sm">Implement cross-platform tracking pixels</span>
                   </label>
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
-                    <span className="text-sm">Set up cross-domain tracking for all touchpoints</span>
+                    <span className="text-sm">Set up UTM parameter strategy for all channels</span>
                   </label>
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
-                    <span className="text-sm">Configure customer ID linking and deduplication</span>
+                    <span className="text-sm">Configure customer ID linking across platforms</span>
                   </label>
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
-                    <span className="text-sm">Implement event tracking for all micro-conversions</span>
+                    <span className="text-sm">Implement subscription lifecycle event tracking</span>
                   </label>
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
-                    <span className="text-sm">Set up data warehouse for attribution processing</span>
+                    <span className="text-sm">Set up first-party data collection system</span>
                   </label>
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
-                    <span className="text-sm">Create automated attribution calculation scripts</span>
+                    <span className="text-sm">Create attribution calculation automation</span>
                   </label>
                 </div>
               </div>
@@ -472,23 +471,23 @@ export default function MarketingAttributionFrameworkPage() {
                 <div className="space-y-4">
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
-                    <span className="text-sm">Map complete customer journey and touchpoints</span>
+                    <span className="text-sm">Map complete consumer subscription journey</span>
                   </label>
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
-                    <span className="text-sm">Select appropriate attribution model for business</span>
+                    <span className="text-sm">Select appropriate attribution model for D2C</span>
                   </label>
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
-                    <span className="text-sm">Integrate revenue and LTV data with attribution</span>
+                    <span className="text-sm">Integrate LTV and retention data with attribution</span>
                   </label>
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
-                    <span className="text-sm">Build attribution-based CAC calculation framework</span>
+                    <span className="text-sm">Build LTV-based CAC calculation framework</span>
                   </label>
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
-                    <span className="text-sm">Create channel performance dashboards</span>
+                    <span className="text-sm">Create subscriber quality performance dashboards</span>
                   </label>
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
@@ -504,32 +503,32 @@ export default function MarketingAttributionFrameworkPage() {
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-purple-600">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-6">
-              Get Your Complete Attribution Implementation Toolkit
+              Get Your D2C Attribution Implementation Toolkit
             </h2>
             <p className="text-xl text-purple-100 mb-8">
-              Download our comprehensive toolkit including technical specifications, SQL queries, 
-              data schema templates, and step-by-step implementation guides.
+              Download our comprehensive toolkit including platform setup guides, tracking templates, 
+              and consumer-focused attribution strategies.
             </p>
             
             <div className="bg-white rounded-lg p-8 max-w-md mx-auto mb-8">
               <EmailCaptureForm
                 placeholder="Enter your business email"
-                buttonText="Get Attribution Toolkit"
+                buttonText="Get D2C Attribution Toolkit"
                 variant="cta"
-                source="marketing-attribution-framework"
+                source="consumer-attribution-framework"
               />
               <div className="text-sm text-gray-600 mt-4">
-                ✓ Technical implementation guide<br />
-                ✓ SQL queries and data schema<br />
-                ✓ Attribution model templates<br />
-                ✓ Free attribution strategy consultation
+                ✓ D2C implementation guide<br />
+                ✓ Cross-platform tracking setup<br />
+                ✓ Consumer attribution templates<br />
+                ✓ Free D2C attribution consultation
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <ConsultationBookingCTA 
                 variant="secondary" 
-                text="Book Free Attribution Strategy Session"
+                text="Book Free D2C Attribution Strategy Session"
               />
             </div>
           </div>
@@ -539,16 +538,16 @@ export default function MarketingAttributionFrameworkPage() {
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-              Related Strategic Resources
+              Related D2C Resources
             </h2>
             
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold mb-3">CAC Reduction Implementation Guide</h3>
+                <h3 className="text-lg font-semibold mb-3">Consumer Subscription Marketing Guide</h3>
                 <p className="text-gray-600 mb-4">
-                  Use attribution insights to systematically reduce customer acquisition costs.
+                  Complete channel optimization guide for D2C subscription businesses.
                 </p>
-                <a href="/cac-optimization-calculator" className="text-purple-600 font-semibold hover:underline">
+                <a href="/consumer-subscription-marketing-guide" className="text-purple-600 font-semibold hover:underline">
                   Read Guide →
                 </a>
               </div>
@@ -556,7 +555,7 @@ export default function MarketingAttributionFrameworkPage() {
               <div className="bg-gray-50 p-6 rounded-lg">
                 <h3 className="text-lg font-semibold mb-3">Revenue Growth Benchmarking</h3>
                 <p className="text-gray-600 mb-4">
-                  Compare your attribution sophistication against industry leaders.
+                  Compare your D2C attribution sophistication against industry leaders.
                 </p>
                 <a href="/revenue-growth-benchmarking" className="text-purple-600 font-semibold hover:underline">
                   Take Assessment →
@@ -564,12 +563,12 @@ export default function MarketingAttributionFrameworkPage() {
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold mb-3">Consumer Attribution Framework</h3>
+                <h3 className="text-lg font-semibold mb-3">SaaS Attribution Framework</h3>
                 <p className="text-gray-600 mb-4">
-                  Multi-touch attribution specialized for D2C and consumer subscription brands.
+                  Multi-touch attribution framework designed for B2B SaaS companies.
                 </p>
-                <a href="/consumer-attribution-framework" className="text-purple-600 font-semibold hover:underline">
-                  View D2C Framework →
+                <a href="/marketing-attribution-framework" className="text-purple-600 font-semibold hover:underline">
+                  View SaaS Framework →
                 </a>
               </div>
             </div>
@@ -578,7 +577,7 @@ export default function MarketingAttributionFrameworkPage() {
 
         {/* Content Navigation */}
         <ContentNavigation 
-          currentPath="/marketing-attribution-framework" 
+          currentPath="/consumer-attribution-framework" 
           variant="horizontal"
         />
       </div>

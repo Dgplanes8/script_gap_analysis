@@ -509,7 +509,6 @@ export default function CACReductionGuidePage() {
                 placeholder="Enter your business email"
                 buttonText="Get Implementation Kit"
                 variant="cta"
-                showFirstName={true}
                 source="cac-reduction-guide"
               />
               <div className="text-sm text-gray-600 mt-4">
@@ -537,32 +536,32 @@ export default function CACReductionGuidePage() {
             </h2>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
                 <h3 className="text-lg font-semibold mb-3">CAC Optimization Calculator</h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600 mb-4 flex-grow">
                   Interactive calculator to estimate your CAC reduction potential and ROI.
                 </p>
-                <a href="/cac-optimization-calculator" className="text-indigo-600 font-semibold hover:underline">
+                <a href="/cac-optimization-calculator" className="text-indigo-600 font-semibold hover:underline mt-auto">
                   Use Calculator →
                 </a>
               </div>
               
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold mb-3">$1M ARR Marketing Playbook</h3>
-                <p className="text-gray-600 mb-4">
-                  Complete strategic framework for scaling subscription businesses to $1M ARR.
+              <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
+                <h3 className="text-lg font-semibold mb-3">AI Creative Intelligence Suite</h3>
+                <p className="text-gray-600 mb-4 flex-grow">
+                  Advanced tools for automated creative analysis and strategic optimization.
                 </p>
-                <a href="/1m-arr-marketing-playbook" className="text-indigo-600 font-semibold hover:underline">
-                  Download Playbook →
+                <a href="/marketing-attribution-framework" className="text-indigo-600 font-semibold hover:underline mt-auto">
+                  Explore Framework →
                 </a>
               </div>
               
-              <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
                 <h3 className="text-lg font-semibold mb-3">Marketing Attribution Framework</h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600 mb-4 flex-grow">
                   Advanced attribution modeling for accurate CAC measurement and optimization.
                 </p>
-                <a href="/marketing-attribution-framework" className="text-indigo-600 font-semibold hover:underline">
+                <a href="/marketing-attribution-framework" className="text-indigo-600 font-semibold hover:underline mt-auto">
                   Learn Framework →
                 </a>
               </div>

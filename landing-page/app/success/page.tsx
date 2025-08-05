@@ -266,7 +266,6 @@ export default function SuccessPage() {
                 placeholder="Enter your email address"
                 buttonText="Subscribe to Monday Morning Ideas"
                 variant="cta"
-                showFirstName={false}
               />
               
               <p className="text-sm text-gray-500 mt-4">

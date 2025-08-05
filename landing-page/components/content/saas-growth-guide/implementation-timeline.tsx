@@ -185,7 +185,6 @@ export function ImplementationTimeline({
                     placeholder="Enter your work email for results"
                     buttonText="Get My Assessment Results"
                     variant="cta"
-                    showFirstName={true}
                     source="saas-growth-channel-assessment"
                     onSubmit={async () => setShowAssessment(false)}
                   />
@@ -203,7 +202,7 @@ export function ImplementationTimeline({
             <div className="p-6">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-bold text-gray-900">
-                  Download Optimization Guide
+                  Subscribe for Growth Insights
                 </h2>
                 <button
                   onClick={() => setShowDownload(false)}
@@ -218,9 +217,8 @@ export function ImplementationTimeline({
               
               <EmailCaptureForm
                 placeholder="Enter your work email"
-                buttonText="Download Guide"
+                buttonText="Get Growth Insights"
                 variant="cta"
-                showFirstName={true}
                 source="saas-growth-marketing-guide-download"
                 onSubmit={async () => setShowDownload(false)}
               />

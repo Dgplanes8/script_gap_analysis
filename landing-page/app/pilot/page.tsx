@@ -475,7 +475,6 @@ export default function PilotPage() {
                 placeholder="Enter your email address"
                 buttonText="Subscribe"
                 variant="cta"
-                showFirstName={false}
               />
             </div>
           </div>

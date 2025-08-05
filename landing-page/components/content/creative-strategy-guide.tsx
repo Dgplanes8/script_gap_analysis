@@ -289,16 +289,15 @@ export function CreativeStrategyGuide() {
             Get the Complete Creative Strategy Framework
           </h3>
           <p className="text-gray-600 mb-6">
-            Download our 40-page Creative Intelligence Guide with templates, 
-            checklists, and case study examples.
+            Subscribe to get weekly creative strategy insights with templates, 
+            checklists, and proven examples.
           </p>
           
           {showDownload ? (
             <EmailCaptureForm
               placeholder="Enter your work email"
-              buttonText="Download Framework Guide"
+              buttonText="Get Creative Insights"
               variant="cta"
-              showFirstName={true}
               source="creative-strategy-guide"
             />
           ) : (

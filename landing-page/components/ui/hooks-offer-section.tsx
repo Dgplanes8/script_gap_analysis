@@ -29,9 +29,9 @@ export function HooksOfferSection() {
             </h2>
             
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              These hooks are based on recent trends and proven media performance from managing 
-              <strong> $100M+ in ad spend</strong> across subscription companies. Each hook includes 
-              the psychology behind why it works and real performance data.
+              These hooks are based on recent trends and proven psychological principles from 
+              working with subscription companies. Each hook includes 
+              the psychology behind why it works and strategic implementation guidance.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export function HooksOfferSection() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Proven Performance</h3>
               <p className="text-gray-600">
-                Every hook includes actual CTR data and conversion metrics from real campaigns across multiple verticals.
+                Every hook includes strategic analysis and optimization principles tested across multiple verticals.
               </p>
             </div>
             
@@ -91,7 +91,7 @@ export function HooksOfferSection() {
                 <li className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
-                    <strong>Real Performance Metrics</strong> - CTR, CVR, and engagement data from live campaigns
+                    <strong>Strategic Analysis</strong> - Psychological principles and optimization insights
                   </span>
                 </li>
               </ul>
@@ -133,7 +133,6 @@ export function HooksOfferSection() {
                 placeholder="Enter your email address"
                 buttonText="Send Me The 10 Hooks"
                 variant="inline"
-                showFirstName={true}
               />
               <p className="text-xs text-gray-500 mt-3">
                 We respect your privacy. Unsubscribe at any time.

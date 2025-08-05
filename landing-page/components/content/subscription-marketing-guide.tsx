@@ -236,7 +236,7 @@ export function SubscriptionMarketingGuide() {
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                Fortune 100 case studies
+                Strategic implementation guides
               </div>
             </div>
           </div>
@@ -381,7 +381,6 @@ export function SubscriptionMarketingGuide() {
                   placeholder="Enter your work email"
                   buttonText="Start Email Course"
                   variant="cta"
-                  showFirstName={true}
                   source="subscription-marketing-email-course"
                 />
               </div>

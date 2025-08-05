@@ -6,16 +6,13 @@ jest.mock('@/components/forms/email-capture-form', () => ({
   EmailCaptureForm: ({ 
     placeholder, 
     buttonText, 
-    source, 
-    showFirstName 
+    source 
   }: { 
     placeholder: string; 
     buttonText: string; 
     source: string;
-    showFirstName?: boolean;
   }) => (
     <form data-testid="email-capture-form" data-source={source}>
-      {showFirstName && <input placeholder="First name" data-testid="first-name-input" />}
       <input placeholder={placeholder} type="email" data-testid="email-input" />
       <button type="submit" data-testid="submit-button">{buttonText}</button>
     </form>
@@ -111,7 +108,6 @@ describe('Navigation and Forms Integration Tests', () => {
       // Check for form elements
       expect(screen.getByTestId('email-input')).toBeInTheDocument();
       expect(screen.getByTestId('submit-button')).toBeInTheDocument();
-      expect(screen.getByTestId('first-name-input')).toBeInTheDocument(); // showFirstName is true
     });
 
     it('shows correct placeholder and button text', () => {

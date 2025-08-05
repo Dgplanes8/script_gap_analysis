@@ -38,15 +38,6 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link 
-                  href="/fortune-100-case-studies" 
-                  className="flex items-center text-gray-400 hover:text-white transition-colors"
-                >
-                  <TrendingUp className="h-4 w-4 mr-2" />
-                  Fortune 100 Case Studies
-                </Link>
-              </li>
-              <li>
-                <Link 
                   href="/cac-reduction-guide" 
                   className="flex items-center text-gray-400 hover:text-white transition-colors"
                 >
@@ -131,15 +122,6 @@ export function Footer() {
                 >
                   <TrendingUp className="h-4 w-4 mr-2" />
                   Channel Assessment Tool
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/1m-arr-marketing-playbook" 
-                  className="flex items-center text-gray-400 hover:text-white transition-colors"
-                >
-                  <Building2 className="h-4 w-4 mr-2" />
-                  $1M ARR Marketing Playbook
                 </Link>
               </li>
             </ul>

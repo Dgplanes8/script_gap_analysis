@@ -8,7 +8,7 @@ import { GrowthMetrics } from './growth-metrics';
 import { ChannelStrategies } from './channel-strategies';
 import { ImplementationTimeline } from './implementation-timeline';
 
-export function SaaSGrowthMarketingGuide() {
+export function ConsumerSubscriptionMarketingGuide() {
   const [showAssessment, setShowAssessment] = useState(false);
   const [showConsultation, setShowConsultation] = useState(false);
   const [showDownload, setShowDownload] = useState(false);
@@ -21,7 +21,7 @@ export function SaaSGrowthMarketingGuide() {
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'channel_assessment_start', {
         event_category: 'engagement',
-        event_label: 'saas_growth_marketing'
+        event_label: 'consumer_subscription_marketing'
       });
     }
   };
@@ -32,19 +32,19 @@ export function SaaSGrowthMarketingGuide() {
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'playbook_download_intent', {
         event_category: 'lead_generation',
-        event_label: 'saas_growth_marketing_guide'
+        event_label: 'consumer_subscription_marketing_guide'
       });
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100">
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <nav className="flex justify-between items-center">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-emerald-600">Strategic Ad Intelligence</span>
+              <span className="text-2xl font-bold text-purple-600">Strategic Ad Intelligence</span>
             </div>
             <ConsultationBookingCTA variant="header" />
           </nav>
@@ -80,7 +80,7 @@ export function SaaSGrowthMarketingGuide() {
 
       {/* Content Navigation */}
       <ContentNavigation 
-        currentPath="/saas-growth-marketing-guide" 
+        currentPath="/consumer-subscription-marketing-guide" 
         variant="horizontal"
       />
     </div>

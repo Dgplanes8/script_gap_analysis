@@ -139,35 +139,33 @@ export default function CACOptimizationCalculatorPage() {
               </div>
             </div>
 
-            {/* Case Study Highlight */}
+            {/* Framework Methodology */}
             <div className="bg-gray-50 rounded-lg p-8 mb-12">
-              <h3 className="text-2xl font-semibold mb-4">Case Study: SaaS Company Reduces CAC by 43%</h3>
+              <h3 className="text-2xl font-semibold mb-4">Our Systematic CAC Optimization Approach</h3>
               <p className="text-gray-700 mb-4">
-                A $50M ARR B2B SaaS company was struggling with rising acquisition costs. 
-                Using our Strategic Ad Intelligence framework, we:
+                Our proven 3-phase methodology systematically identifies and eliminates 
+                inefficiencies in your customer acquisition process:
               </p>
               <ul className="space-y-2 text-gray-700 mb-6">
                 <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Identified 3 high-value micro-segments reducing wasted ad spend by $180K/month
+                  <span className="text-indigo-500 mr-2">1.</span>
+                  <strong>Audience Intelligence:</strong> Deep analysis of your highest-value customer segments
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Optimized creative strategy using customer language analysis
+                  <span className="text-indigo-500 mr-2">2.</span>
+                  <strong>Channel Optimization:</strong> Multi-touch attribution for accurate budget allocation
                 </li>
                 <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  Implemented multi-touch attribution for accurate CAC measurement
+                  <span className="text-indigo-500 mr-2">3.</span>
+                  <strong>Creative Strategy:</strong> Customer language analysis driving message optimization
                 </li>
               </ul>
-              <div className="grid grid-cols-2 gap-8 text-center">
-                <div>
-                  <div className="text-3xl font-bold text-red-600 mb-2">$420</div>
-                  <div className="text-sm text-gray-600">Previous CAC</div>
+              <div className="text-center bg-indigo-50 rounded-lg p-6">
+                <div className="text-lg font-semibold text-indigo-800 mb-2">
+                  Typical Results: 30-50% CAC Reduction
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-green-600 mb-2">$240</div>
-                  <div className="text-sm text-gray-600">Optimized CAC</div>
+                <div className="text-sm text-indigo-600">
+                  Based on systematic optimization of audience targeting, channel allocation, and creative messaging
                 </div>
               </div>
             </div>
@@ -181,8 +179,8 @@ export default function CACOptimizationCalculatorPage() {
               Get Your Personalized CAC Optimization Strategy
             </h2>
             <p className="text-xl text-indigo-100 mb-8">
-              Download our comprehensive CAC Optimization Playbook and get a 
-              free strategic consultation to implement these frameworks in your business.
+              Subscribe to get weekly CAC optimization insights and a 
+              free strategic consultation to implement proven frameworks in your business.
             </p>
             
             <div className="bg-white rounded-lg p-8 max-w-md mx-auto">
@@ -190,7 +188,6 @@ export default function CACOptimizationCalculatorPage() {
                 placeholder="Enter your work email"
                 buttonText="Get Free Playbook"
                 variant="cta"
-                showFirstName={true}
                 source="cac-calculator-page"
               />
             </div>

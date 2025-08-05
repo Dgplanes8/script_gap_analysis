@@ -611,7 +611,6 @@ export default function DoneForYouPage() {
                 placeholder="Enter your email address"
                 buttonText="Subscribe"
                 variant="cta"
-                showFirstName={false}
               />
             </div>
           </div>
