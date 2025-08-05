@@ -7,6 +7,7 @@ import { BenchmarkTools } from './benchmark-tools';
 import { GrowthMetrics } from './growth-metrics';
 import { ChannelStrategies } from './channel-strategies';
 import { ImplementationTimeline } from './implementation-timeline';
+import { Header } from '@/components/layout/header';
 
 export function SaaSGrowthMarketingGuide() {
   const [showAssessment, setShowAssessment] = useState(false);
@@ -38,18 +39,11 @@ export function SaaSGrowthMarketingGuide() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100">
-      {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <nav className="flex justify-between items-center">
-            <div className="flex items-center">
-              <span className="text-2xl font-bold text-emerald-600">Strategic Ad Intelligence</span>
-            </div>
-            <ConsultationBookingCTA variant="header" />
-          </nav>
-        </div>
-      </header>
+    <>
+      {/* Header Navigation */}
+      <Header />
+      
+      <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 pt-16 lg:pt-20">
 
       {/* Hero Section */}
       <BenchmarkTools 
@@ -84,5 +78,6 @@ export function SaaSGrowthMarketingGuide() {
         variant="horizontal"
       />
     </div>
+    </>
   );
 }
