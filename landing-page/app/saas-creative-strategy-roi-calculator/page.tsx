@@ -3,6 +3,7 @@ import { SaaSCreativeROICalculator } from '@/components/calculators/saas-creativ
 import { CreativeStrategyGuide } from '@/components/content/creative-strategy-guide';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { ContentNavigation } from '@/components/layout/content-navigation';
+import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
   title: 'SaaS Creative Strategy ROI Calculator - Measure Creative Performance Impact',
@@ -51,18 +52,10 @@ export default function SaaSCreativeStrategyROIPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       
-      <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100">
-        {/* Header */}
-        <header className="bg-white shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <nav className="flex justify-between items-center">
-              <div className="flex items-center">
-                <span className="text-2xl font-bold text-emerald-600">Strategic Ad Intelligence</span>
-              </div>
-              <ConsultationBookingCTA variant="header" />
-            </nav>
-          </div>
-        </header>
+      {/* Header Navigation */}
+      <Header />
+      
+      <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100 pt-16 lg:pt-20">
 
         {/* Hero Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
