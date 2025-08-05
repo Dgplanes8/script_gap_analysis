@@ -61,7 +61,7 @@ export default function HomePage() {
             icon: Building2,
             title: 'Performance Marketing Expertise',
             description:
-              '10+ years managing $100M+ ad spend for D2C brands and subscription businesses scaling from $10K-$100K monthly.'
+              '10+ years managing $100M+ ad spend for D2C brands and subscription businesses scaling from $10K-$1MM monthly.'
           },
           {
             icon: TrendingUp,
