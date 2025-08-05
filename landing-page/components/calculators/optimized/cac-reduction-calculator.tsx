@@ -61,7 +61,7 @@ const questions: CalculatorQuestion[] = [
       {
         value: 'aggressive',
         label: 'Aggressive (40% CTR, 35% CVR improvement)',
-        description: 'With advanced personalization and AI optimization'
+        description: 'With advanced personalization and data-driven optimization'
       }
     ]
   }

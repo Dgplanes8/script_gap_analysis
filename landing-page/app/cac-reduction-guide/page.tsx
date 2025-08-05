@@ -547,7 +547,7 @@ export default function CACReductionGuidePage() {
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
-                <h3 className="text-lg font-semibold mb-3">AI Creative Intelligence Suite</h3>
+                <h3 className="text-lg font-semibold mb-3">Expert Creative Intelligence Suite</h3>
                 <p className="text-gray-600 mb-4 flex-grow">
                   Advanced tools for automated creative analysis and strategic optimization.
                 </p>

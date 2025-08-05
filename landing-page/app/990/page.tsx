@@ -470,7 +470,7 @@ export default function DoneForYouPage() {
                 
                 <div className="bg-gray-50 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">🔍 "How is this different from AI tools like ChatGPT?"</h3>
-                  <p className="text-gray-600 mb-3">AI tools give generic outputs. We combine AI with human insight, real customer research, competitor analysis, and 2+ years of performance data from successful campaigns.</p>
+                  <p className="text-gray-600 mb-3">AI tools give generic outputs. We combine AI research tools with human expertise, real customer research, competitive analysis, and 2+ years of performance data from successful campaigns.</p>
                   <div className="bg-red-100 p-3 rounded text-sm text-red-800">
                     <strong>Reality check:</strong> Generic AI scripts typically underperform by 40-60% vs our research-backed approach
                   </div>
