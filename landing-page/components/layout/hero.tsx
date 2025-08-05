@@ -61,7 +61,7 @@ export function Hero({
                     {ctaText}
                   </button>
                 ) : (
-                  <Link href="/pilot" className="btn-primary text-lg px-8 py-4">
+                  <Link href="/#service-tiers" className="btn-primary text-lg px-8 py-4">
                     {ctaText}
                   </Link>
                 )}

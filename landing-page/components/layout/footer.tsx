@@ -133,18 +133,18 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link 
-                  href="/pilot" 
+                  href="/#service-tiers" 
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Pilot Program
+                  Service Tiers
                 </Link>
               </li>
               <li>
                 <Link 
-                  href="/990" 
+                  href="/about" 
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Strategic Scripts
+                  About
                 </Link>
               </li>
               <li>
