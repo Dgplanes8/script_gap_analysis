@@ -12,16 +12,16 @@ export function ServiceTiers() {
   const tiers = [
     {
       id: 'sprint',
-      name: 'AI Creative Sprints',
+      name: 'Expert Creative Intelligence',
       icon: Zap,
       price: '$97',
       period: '/month',
-      description: 'AI-powered creative concepts and strategic research delivered in 48 hours',
+      description: 'Expert creative strategy with AI-enhanced research delivered in 48 hours',
       features: [
-        'Weekly Creative Concept Batch (5 AI-generated concepts)',
+        'Weekly Creative Concept Batch (5 expert-developed concepts)',
         'TikTok Trend Analysis (weekly report)',
         'Competitor Intelligence Digest (bi-weekly)',
-        'Creative Performance Scoring (AI-powered)',
+        'Strategic Performance Analysis (data-driven)',
         'Template Library Access',
         'Community Discord Access',
         '48-Hour Turnaround Guarantee'
@@ -40,7 +40,7 @@ export function ServiceTiers() {
       period: '/month',
       description: 'Complete 11-phase methodology with strategic implementation guidance',
       features: [
-        'Everything in AI Creative Sprints, plus:',
+        'Everything in Expert Creative Intelligence, plus:',
         'Full 11-Phase Strategic Process',
         'Monthly Strategic Consultation (60 min)',
         'Custom Brand Archetype Analysis',
@@ -90,13 +90,13 @@ export function ServiceTiers() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-semibold mb-6">
             <Zap className="h-4 w-4 mr-2" />
-            AI-Powered Creative Intelligence
+            Expert Creative Intelligence
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            48-Hour Creative Intelligence Plans
+            48-Hour Expert Creative Strategy Plans
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-            Get AI-powered creative concepts and strategic research that traditionally takes weeks, 
+            Get expert creative strategy with AI-enhanced research that traditionally takes weeks, 
             delivered in 48 hours. Choose the plan that matches your ad spend and growth goals.
           </p>
           <div className="bg-white rounded-xl p-6 max-w-3xl mx-auto shadow-lg border">
@@ -106,8 +106,8 @@ export function ServiceTiers() {
                 <div className="text-sm text-gray-600">Creative Delivery</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-green-600">AI-Powered</div>
-                <div className="text-sm text-gray-600">Performance Scoring</div>
+                <div className="text-3xl font-bold text-green-600">Expert-Driven</div>
+                <div className="text-sm text-gray-600">Strategic Analysis</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-purple-600">$97/Month</div>

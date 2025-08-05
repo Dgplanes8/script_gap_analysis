@@ -244,13 +244,13 @@ export function StrategyROICalculator() {
               <Info className="h-6 w-6 text-indigo-600 mt-1 mr-3 flex-shrink-0" />
               <div>
                 <h4 className="font-semibold text-gray-900 mb-2">
-                  AI-Enhanced Strategic Framework
+                  Expert Strategic Framework
                 </h4>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   These projections are based on our systematic 11-phase methodology enhanced with 
-                  AI automation for speed and precision. Individual results may vary based on market 
+                  AI-accelerated research for speed and precision. Individual results may vary based on market 
                   conditions, execution quality, and business-specific factors. Our approach combines 
-                  proven strategic frameworks with modern AI tools for competitive advantage.
+                  proven strategic frameworks with modern AI research tools for competitive advantage.
                 </p>
               </div>
             </div>

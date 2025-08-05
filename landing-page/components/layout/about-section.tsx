@@ -16,7 +16,7 @@ export function AboutSection({ onOpenApplication }: AboutSectionProps) {
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-semibold mb-6">
               <Building2 className="h-4 w-4 mr-2" />
-              Strategic Ad Intelligence System
+              Expert Strategic Intelligence System
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Fortune 100 Systematic Methodology
@@ -24,7 +24,7 @@ export function AboutSection({ onOpenApplication }: AboutSectionProps) {
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               The same systematic 11-phase methodology used to manage $100M+ in ad spend for Fortune 100 companies, 
               now available as a strategic partnership for subscription businesses ready to scale systematically. 
-              Unlike agencies that focus on execution, we provide strategic transformation.
+              Unlike agencies that focus on execution, we provide strategic transformation enhanced with AI research tools.
             </p>
           </div>
 

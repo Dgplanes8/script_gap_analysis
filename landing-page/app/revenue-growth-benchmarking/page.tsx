@@ -248,11 +248,11 @@ export default function RevenueGrowthBenchmarkingPage() {
                   </div>
                   
                   <div className="bg-blue-50 p-6 rounded-lg">
-                    <h4 className="font-semibold mb-4 text-blue-800">Our AI-Enhanced Methodology</h4>
+                    <h4 className="font-semibold mb-4 text-blue-800">Our Expert Methodology</h4>
                     <div className="space-y-3 text-gray-700">
                       <div className="flex items-start">
                         <span className="text-blue-500 mr-2 mt-1">•</span>
-                        <span>Accelerated testing cycles through AI-powered creative analysis</span>
+                        <span>Accelerated testing cycles through expert creative analysis with AI research</span>
                       </div>
                       <div className="flex items-start">
                         <span className="text-blue-500 mr-2 mt-1">•</span>
@@ -373,7 +373,7 @@ export default function RevenueGrowthBenchmarkingPage() {
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
-                <h3 className="text-lg font-semibold mb-3">AI Creative Intelligence Tools</h3>
+                <h3 className="text-lg font-semibold mb-3">Expert Creative Intelligence Tools</h3>
                 <p className="text-gray-600 mb-4 flex-grow">
                   Automated creative analysis and competitor intelligence for strategic advantage.
                 </p>
