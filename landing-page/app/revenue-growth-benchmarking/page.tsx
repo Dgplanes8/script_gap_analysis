@@ -100,7 +100,7 @@ export default function RevenueGrowthBenchmarkingPage() {
                 variant="primary"
               />
               <button className="px-8 py-3 border-2 border-emerald-600 text-emerald-600 rounded-lg font-semibold hover:bg-emerald-50">
-                Download Benchmark Report
+                Get Weekly Benchmark Insights
               </button>
             </div>
           </div>
@@ -223,40 +223,48 @@ export default function RevenueGrowthBenchmarkingPage() {
               </div>
               
               <div>
-                <h3 className="text-2xl font-semibold mb-6">Revenue Growth Correlation</h3>
+                <h3 className="text-2xl font-semibold mb-6">Strategic Creative Approach Benefits</h3>
                 <div className="space-y-6">
-                  <div className="bg-gray-50 p-6 rounded-lg">
-                    <h4 className="font-semibold mb-4">Companies with Systematic Creative Strategy</h4>
-                    <div className="space-y-3">
-                      <div className="flex justify-between">
-                        <span className="text-gray-700">Average MRR Growth Rate:</span>
-                        <span className="font-bold text-green-600">12-18% monthly</span>
+                  <div className="bg-emerald-50 p-6 rounded-lg">
+                    <h4 className="font-semibold mb-4 text-emerald-800">Systematic Creative Strategy Advantages</h4>
+                    <div className="space-y-3 text-gray-700">
+                      <div className="flex items-start">
+                        <span className="text-emerald-500 mr-2 mt-1">✓</span>
+                        <span>Consistent testing framework reduces guesswork and improves decision speed</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-700">CAC Payback Period:</span>
-                        <span className="font-bold text-green-600">8-12 months</span>
+                      <div className="flex items-start">
+                        <span className="text-emerald-500 mr-2 mt-1">✓</span>
+                        <span>Customer language integration creates more resonant messaging</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-700">LTV:CAC Ratio:</span>
-                        <span className="font-bold text-green-600">5:1 - 8:1</span>
+                      <div className="flex items-start">
+                        <span className="text-emerald-500 mr-2 mt-1">✓</span>
+                        <span>Multi-touch attribution provides clearer ROI visibility</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-emerald-500 mr-2 mt-1">✓</span>
+                        <span>Systematic optimization prevents ad fatigue and creative stagnation</span>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="bg-gray-50 p-6 rounded-lg">
-                    <h4 className="font-semibold mb-4">Companies with Ad-Hoc Creative Approach</h4>
-                    <div className="space-y-3">
-                      <div className="flex justify-between">
-                        <span className="text-gray-700">Average MRR Growth Rate:</span>
-                        <span className="text-red-600">3-7% monthly</span>
+                  <div className="bg-blue-50 p-6 rounded-lg">
+                    <h4 className="font-semibold mb-4 text-blue-800">Our AI-Enhanced Methodology</h4>
+                    <div className="space-y-3 text-gray-700">
+                      <div className="flex items-start">
+                        <span className="text-blue-500 mr-2 mt-1">•</span>
+                        <span>Accelerated testing cycles through AI-powered creative analysis</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-700">CAC Payback Period:</span>
-                        <span className="text-red-600">18-24 months</span>
+                      <div className="flex items-start">
+                        <span className="text-blue-500 mr-2 mt-1">•</span>
+                        <span>Automated competitor intelligence for strategic positioning</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-700">LTV:CAC Ratio:</span>
-                        <span className="text-red-600">2:1 - 4:1</span>
+                      <div className="flex items-start">
+                        <span className="text-blue-500 mr-2 mt-1">•</span>
+                        <span>Trend analysis integration for timely creative adaptations</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-blue-500 mr-2 mt-1">•</span>
+                        <span>Speed-to-market advantage with 48-hour creative development</span>
                       </div>
                     </div>
                   </div>
@@ -310,80 +318,6 @@ export default function RevenueGrowthBenchmarkingPage() {
           </div>
         </section>
 
-        {/* Case Study */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white rounded-2xl p-8">
-              <h2 className="text-3xl font-bold mb-8 text-center">
-                Case Study: 340% Revenue Growth Through Strategic Creative Optimization
-              </h2>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-semibold mb-4">The Challenge</h3>
-                  <p className="text-gray-300 mb-6">
-                    A $1.2M ARR HR software company was plateauing at 4% monthly growth. Their creative 
-                    strategy was based on internal assumptions and limited testing, resulting in high CAC 
-                    and low conversion rates.
-                  </p>
-                  
-                  <h3 className="text-xl font-semibold mb-4">Initial Performance</h3>
-                  <ul className="space-y-2 text-gray-300">
-                    <li>• Monthly growth rate: 4%</li>
-                    <li>• CAC: $420</li>
-                    <li>• Conversion rate: 1.8%</li>
-                    <li>• Creative testing: 2-3 variants/month</li>
-                    <li>• Customer insights: Limited</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold mb-4">Strategic Implementation</h3>
-                  <ul className="space-y-3 text-gray-300 mb-6">
-                    <li className="flex items-start">
-                      <span className="text-emerald-400 mr-2">✓</span>
-                      Implemented systematic voice-of-customer research
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-emerald-400 mr-2">✓</span>
-                      Developed creative testing framework (20+ variants/month)
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-emerald-400 mr-2">✓</span>
-                      Built multi-touch attribution model
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-emerald-400 mr-2">✓</span>
-                      Created systematic creative strategy process
-                    </li>
-                  </ul>
-                  
-                  <h3 className="text-xl font-semibold mb-4">Results After 6 Months</h3>
-                  <div className="bg-emerald-600 p-4 rounded-lg">
-                    <div className="grid grid-cols-2 gap-4 text-center">
-                      <div>
-                        <div className="text-2xl font-bold">14%</div>
-                        <div className="text-sm text-emerald-100">Monthly Growth</div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold">$180</div>
-                        <div className="text-sm text-emerald-100">Reduced CAC</div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold">4.2%</div>
-                        <div className="text-sm text-emerald-100">Conversion Rate</div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold">340%</div>
-                        <div className="text-sm text-emerald-100">Growth Increase</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Lead Generation Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-emerald-600">
@@ -401,7 +335,6 @@ export default function RevenueGrowthBenchmarkingPage() {
                 placeholder="Enter your business email"
                 buttonText="Get Benchmark Report"
                 variant="cta"
-                showFirstName={true}
                 source="revenue-growth-benchmarking"
               />
               <div className="text-sm text-gray-600 mt-4">
@@ -429,32 +362,32 @@ export default function RevenueGrowthBenchmarkingPage() {
             </h2>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
                 <h3 className="text-lg font-semibold mb-3">CAC Reduction Implementation Guide</h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600 mb-4 flex-grow">
                   Step-by-step framework to reduce customer acquisition costs by 30-50%.
                 </p>
-                <a href="/cac-reduction-guide" className="text-emerald-600 font-semibold hover:underline">
+                <a href="/cac-reduction-guide" className="text-emerald-600 font-semibold hover:underline mt-auto">
                   Read Guide →
                 </a>
               </div>
               
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-semibold mb-3">$1M ARR Marketing Playbook</h3>
-                <p className="text-gray-600 mb-4">
-                  Complete strategic framework for scaling subscription businesses to $1M ARR.
+              <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
+                <h3 className="text-lg font-semibold mb-3">AI Creative Intelligence Tools</h3>
+                <p className="text-gray-600 mb-4 flex-grow">
+                  Automated creative analysis and competitor intelligence for strategic advantage.
                 </p>
-                <a href="/1m-arr-marketing-playbook" className="text-emerald-600 font-semibold hover:underline">
-                  Download Playbook →
+                <a href="/saas-creative-strategy-roi-calculator" className="text-emerald-600 font-semibold hover:underline mt-auto">
+                  Explore Tools →
                 </a>
               </div>
               
-              <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
                 <h3 className="text-lg font-semibold mb-3">Creative Strategy ROI Calculator</h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600 mb-4 flex-grow">
                   Calculate the potential ROI of implementing systematic creative strategy.
                 </p>
-                <a href="/saas-creative-strategy-roi-calculator" className="text-emerald-600 font-semibold hover:underline">
+                <a href="/saas-creative-strategy-roi-calculator" className="text-emerald-600 font-semibold hover:underline mt-auto">
                   Use Calculator →
                 </a>
               </div>

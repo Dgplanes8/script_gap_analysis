@@ -9,7 +9,6 @@ import { trackEmailSignup, trackFormAbandonment } from '@/components/analytics';
 
 const emailSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
-  firstName: z.string().min(1, 'First name is required').optional(),
 });
 
 type EmailFormData = z.infer<typeof emailSchema>;
@@ -18,7 +17,6 @@ interface EmailCaptureFormProps {
   placeholder?: string;
   buttonText?: string;
   variant?: 'hero' | 'cta' | 'inline';
-  showFirstName?: boolean;
   source?: string; // Track where the signup came from
   onSubmit?: (data: EmailFormData) => Promise<void>;
 }
@@ -27,7 +25,6 @@ export function EmailCaptureForm({
   placeholder = 'Enter your email address',
   buttonText = 'Get Started',
   variant = 'inline',
-  showFirstName = false,
   source = 'unknown',
   onSubmit,
 }: EmailCaptureFormProps) {
@@ -112,22 +109,6 @@ export function EmailCaptureForm({
       className="space-y-4"
     >
       <div className={`flex ${variant === 'hero' ? 'flex-col sm:flex-row' : 'flex-col sm:flex-row'} gap-3`}>
-        {showFirstName && (
-          <div className="flex-1">
-            <input
-              type="text"
-              placeholder="First name"
-              className={inputClasses[variant]}
-              {...register('firstName')}
-            />
-            {errors.firstName && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.firstName.message}
-              </p>
-            )}
-          </div>
-        )}
-        
         <div className="flex-1">
           <input
             type="email"

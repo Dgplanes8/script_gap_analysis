@@ -77,20 +77,20 @@ export default function FreeHooksPage() {
                   </a>
                 </div>
 
-                {/* Marketing Playbook */}
+                {/* Benchmarking Tool */}
                 <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-6 border border-indigo-200">
                   <div className="bg-indigo-600 rounded-lg p-3 w-fit mb-4">
                     <BookOpen className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">$1M ARR Marketing Playbook</h3>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Revenue Growth Benchmarking Tool</h3>
                   <p className="text-gray-600 mb-4">
-                    16-week implementation roadmap for subscription businesses ready to scale.
+                    Compare your creative strategy performance against industry leaders and get personalized recommendations.
                   </p>
                   <a
-                    href="/1m-arr-marketing-playbook"
+                    href="/revenue-growth-benchmarking"
                     className="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700 transition-colors"
                   >
-                    Get Playbook
+                    Try Benchmarking Tool
                     <Download className="h-4 w-4 ml-2" />
                   </a>
                 </div>

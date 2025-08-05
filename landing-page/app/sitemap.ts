@@ -17,25 +17,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/1m-arr-marketing-playbook`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
       url: `${baseUrl}/saas-creative-strategy-roi-calculator`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/fortune-100-case-studies`,
+      url: `${baseUrl}/saas-growth-marketing-guide`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/saas-growth-marketing-guide`,
+      url: `${baseUrl}/consumer-subscription-marketing-guide`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.95,
@@ -54,12 +48,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/marketing-attribution-framework`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/fortune-100-case-studies`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,

@@ -80,19 +80,31 @@ export function Header({ onOpenApplication }: HeaderProps) {
                 Services
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
-              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="py-2">
+                  <Link
+                    href="/cac-reduction-guide"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                  >
+                    CAC Reduction Guide
+                  </Link>
+                  <Link
+                    href="/revenue-growth-benchmarking"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                  >
+                    Benchmarking Tool
+                  </Link>
+                  <Link
+                    href="/saas-creative-strategy-roi-calculator"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                  >
+                    ROI Calculator
+                  </Link>
                   <button
-                    onClick={() => scrollToSection('service-tiers')}
+                    onClick={openConsultation}
                     className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
                   >
-                    Strategic Partnerships
-                  </button>
-                  <button
-                    onClick={() => scrollToSection('strategic-process')}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
-                  >
-                    Our Process
+                    Strategic Consultation
                   </button>
                 </div>
               </div>
@@ -146,17 +158,35 @@ export function Header({ onOpenApplication }: HeaderProps) {
               >
                 Free Hooks
               </button>
+              <Link
+                href="/cac-reduction-guide"
+                className="block text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                CAC Reduction Guide
+              </Link>
+              <Link
+                href="/revenue-growth-benchmarking"
+                className="block text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                Benchmarking Tool
+              </Link>
+              <Link
+                href="/saas-creative-strategy-roi-calculator"
+                className="block text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                ROI Calculator
+              </Link>
               <button
-                onClick={() => scrollToSection('service-tiers')}
+                onClick={() => {
+                  openConsultation();
+                  setIsOpen(false);
+                }}
                 className="block w-full text-left text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
               >
-                Strategic Partnerships
-              </button>
-              <button
-                onClick={() => scrollToSection('strategic-process')}
-                className="block w-full text-left text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
-              >
-                Our Process
+                Strategic Consultation
               </button>
               <Link
                 href="mailto:hello@mondaymorningmarketer.com"

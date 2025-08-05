@@ -153,7 +153,7 @@ export function MarketingPlaybookLanding() {
                   className="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors flex items-center justify-center"
                 >
                   <Download className="h-5 w-5 mr-2" />
-                  Download Free Playbook
+                  Get Strategic Newsletter
                 </button>
                 
                 <button
@@ -338,9 +338,8 @@ export function MarketingPlaybookLanding() {
             <div className="bg-white rounded-lg p-8 max-w-md mx-auto">
               <EmailCaptureForm
                 placeholder="Enter your work email"
-                buttonText="Download Playbook"
+                buttonText="Get Strategic Updates"
                 variant="cta"
-                showFirstName={true}
                 source="1m-arr-playbook-download"
               />
             </div>

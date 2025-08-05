@@ -7,10 +7,10 @@ import { useConsultation } from '@/components/contexts/consultation-context';
 export function StrategyROICalculator() {
   const { openModal: openConsultation } = useConsultation();
   const [inputs, setInputs] = useState({
-    currentARR: 500000,
-    currentCAC: 200,
-    currentLTV: 1000,
-    monthlyAdSpend: 25000,
+    currentARR: 1200000,
+    currentCAC: 300,
+    currentLTV: 2400,
+    monthlyAdSpend: 50000,
     targetGrowth: 50
   });
 
@@ -28,8 +28,8 @@ export function StrategyROICalculator() {
     // Current metrics
     const currentLTVCAC = inputData.currentLTV / inputData.currentCAC;
     
-    // Conservative strategic improvements
-    const cacReductionFactor = 0.8; // Conservative 20% CAC reduction
+    // Strategic improvements based on methodology
+    const cacReductionFactor = 0.7; // 30% CAC reduction from systematic approach
     
     // Projected improvements
     const projectedCAC = inputData.currentCAC * cacReductionFactor;
@@ -40,8 +40,8 @@ export function StrategyROICalculator() {
     const projectedMonthlyCustomers = inputData.monthlyAdSpend / projectedCAC;
     const additionalCustomers = projectedMonthlyCustomers - currentMonthlyCustomers;
     
-    // ARR impact
-    const averageMonthlyRevenue = inputData.currentLTV / 12; // Assuming 12-month average lifecycle
+    // ARR impact calculation
+    const averageMonthlyRevenue = inputData.currentLTV / 24; // More realistic 24-month average lifecycle for SaaS
     const additionalMonthlyRevenue = additionalCustomers * averageMonthlyRevenue;
     const projectedARRIncrease = additionalMonthlyRevenue * 12;
     
@@ -131,7 +131,7 @@ export function StrategyROICalculator() {
                     value={inputs.currentARR}
                     onChange={(e) => handleInputChange('currentARR', parseInt(e.target.value) || 0)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                    placeholder="500000"
+                    placeholder="1200000"
                   />
                 </div>
 
@@ -145,7 +145,7 @@ export function StrategyROICalculator() {
                       value={inputs.currentCAC}
                       onChange={(e) => handleInputChange('currentCAC', parseInt(e.target.value) || 0)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                      placeholder="200"
+                      placeholder="300"
                     />
                   </div>
                   
@@ -158,7 +158,7 @@ export function StrategyROICalculator() {
                       value={inputs.currentLTV}
                       onChange={(e) => handleInputChange('currentLTV', parseInt(e.target.value) || 0)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                      placeholder="1000"
+                      placeholder="2400"
                     />
                   </div>
                 </div>
@@ -172,7 +172,7 @@ export function StrategyROICalculator() {
                     value={inputs.monthlyAdSpend}
                     onChange={(e) => handleInputChange('monthlyAdSpend', parseInt(e.target.value) || 0)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                    placeholder="25000"
+                    placeholder="50000"
                   />
                 </div>
 
@@ -192,7 +192,7 @@ export function StrategyROICalculator() {
                   <div className="text-3xl font-bold text-green-600">
                     {formatPercentage(results.projectedCACReduction)}
                   </div>
-                  <div className="text-sm text-green-800">Conservative CAC Reduction</div>
+                  <div className="text-sm text-green-800">Strategic CAC Reduction</div>
                 </div>
 
                 {/* Revenue Impact */}
@@ -244,12 +244,13 @@ export function StrategyROICalculator() {
               <Info className="h-6 w-6 text-indigo-600 mt-1 mr-3 flex-shrink-0" />
               <div>
                 <h4 className="font-semibold text-gray-900 mb-2">
-                  Projections Based on Fortune 100 Methodology
+                  AI-Enhanced Strategic Framework
                 </h4>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  These projections are based on average performance improvements achieved through our 
-                  systematic 11-phase methodology, validated across $100M+ in managed ad spend. Individual 
-                  results may vary based on market conditions, execution quality, and business-specific factors.
+                  These projections are based on our systematic 11-phase methodology enhanced with 
+                  AI automation for speed and precision. Individual results may vary based on market 
+                  conditions, execution quality, and business-specific factors. Our approach combines 
+                  proven strategic frameworks with modern AI tools for competitive advantage.
                 </p>
               </div>
             </div>

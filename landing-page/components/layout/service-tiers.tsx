@@ -11,102 +11,76 @@ export function ServiceTiers() {
 
   const tiers = [
     {
-      id: 'assessment',
-      name: 'Assessment',
-      icon: Target,
-      price: '$500',
+      id: 'sprint',
+      name: 'AI Creative Sprints',
+      icon: Zap,
+      price: '$97',
       period: '/month',
-      description: 'Strategic assessment and optimization guidance for early-stage companies',
+      description: 'AI-powered creative concepts and strategic research delivered in 48 hours',
       features: [
-        'Monthly strategic assessment and recommendations',
-        'CAC optimization audit and action plan',
-        'Creative performance evaluation',
-        'Channel effectiveness analysis',
-        'Growth strategy roadmap development',
-        'Email support and strategic guidance',
-        'Access to strategic frameworks and templates',
-        'Quarterly performance review sessions'
+        'Weekly Creative Concept Batch (5 AI-generated concepts)',
+        'TikTok Trend Analysis (weekly report)',
+        'Competitor Intelligence Digest (bi-weekly)',
+        'Creative Performance Scoring (AI-powered)',
+        'Template Library Access',
+        'Community Discord Access',
+        '48-Hour Turnaround Guarantee'
       ],
-      badge: 'Great for Under $500K ARR',
+      badge: 'Perfect for $10K-$100K/month ad spend',
       badgeColor: 'bg-green-100 text-green-800',
       borderColor: 'border-green-200 hover:border-green-400',
       ctaColor: 'bg-green-600 hover:bg-green-700 text-white',
-      ideal: 'Early-stage companies under $500K ARR needing strategic direction'
+      ideal: 'D2C brands and subscription businesses needing fresh creative ideas fast'
     },
     {
-      id: 'foundation',
-      name: 'Foundation',
-      icon: Building2,
-      price: '$1,500',
+      id: 'intelligence',
+      name: 'Strategic Intelligence',
+      icon: Target,
+      price: '$297',
       period: '/month',
-      description: 'Core strategic optimization and validation for growing SaaS companies',
+      description: 'Complete 11-phase methodology with strategic implementation guidance',
       features: [
-        'Everything in Assessment, plus:',
-        'Bi-weekly strategic consultation sessions',
-        '11-Phase strategic methodology implementation',
-        'Custom CAC optimization roadmap',
-        'Creative performance validation framework',
-        'Direct access to strategic team',
-        'Market positioning and messaging refinement',
-        'Attribution modeling setup guidance'
+        'Everything in AI Creative Sprints, plus:',
+        'Full 11-Phase Strategic Process',
+        'Monthly Strategic Consultation (60 min)',
+        'Custom Brand Archetype Analysis',
+        'Competitor Gap Analysis',
+        'Customer Language Research',
+        'Attribution Modeling Setup',
+        'Creative Brief Development',
+        'Performance Optimization Recommendations'
       ],
-      badge: 'Perfect for $500K-$1M ARR',
+      badge: 'Most Popular - $50K-$500K ARR',
       badgeColor: 'bg-blue-100 text-blue-800',
-      borderColor: 'border-blue-200 hover:border-blue-400',
+      borderColor: 'border-blue-300 hover:border-blue-500',
       ctaColor: 'bg-blue-600 hover:bg-blue-700 text-white',
-      ideal: 'Companies with $500K-$1M ARR seeking systematic growth optimization'
-    },
-    {
-      id: 'growth',
-      name: 'Growth',
-      icon: TrendingUp,
-      price: '$4,500',
-      period: '/month',
-      description: 'Complete strategic transformation with hands-on implementation',
-      features: [
-        'Everything in Foundation, plus:',
-        'Bi-weekly strategic implementation calls',
-        'Custom creative asset development',
-        'Advanced attribution and analytics setup',
-        'Cross-channel optimization strategies',
-        'Team training and knowledge transfer',
-        'Priority support and rapid response',
-        'Custom ROI tracking and reporting',
-        'Competitive intelligence and positioning',
-        'Advanced funnel optimization'
-      ],
-      badge: 'Most Popular - $1M-$2M ARR',
-      badgeColor: 'bg-green-100 text-green-800',
-      borderColor: 'border-green-300 hover:border-green-500',
-      ctaColor: 'bg-green-600 hover:bg-green-700 text-white',
       popular: true,
-      ideal: 'High-growth companies scaling from $1M to $2M+ ARR'
+      ideal: 'Growing businesses wanting systematic creative strategy and implementation'
     },
     {
-      id: 'enterprise',
-      name: 'Enterprise',
+      id: 'transformation',
+      name: 'Creative Transformation',
       icon: Crown,
-      price: '$9,500',
-      period: '/month',
-      description: 'Full strategic transformation partnership with dedicated team',
+      price: '$997',
+      period: '/month + performance bonuses',
+      description: 'Full creative transformation with dedicated strategic partnership',
       features: [
-        'Everything in Growth, plus:',
-        'Dedicated strategic account manager',
-        'Weekly strategic planning sessions',
-        'Custom technology stack integration',
-        'Advanced predictive modeling and forecasting',
-        'Executive-level strategic consulting',
-        'Multi-channel attribution modeling',
-        'Custom dashboard and reporting suite',
-        'Strategic partnerships and channel development',
-        'Board-level performance reporting',
-        'Emergency strategic support (24/7)'
+        'Everything in Strategic Intelligence, plus:',
+        'Bi-weekly Strategy Sessions (90 min)',
+        'Custom Creative Asset Development',
+        'Advanced Performance Modeling',
+        'Team Training & Knowledge Transfer',
+        'Priority Support (24-hour response)',
+        'Custom Dashboard & Reporting',
+        'Creative Testing Framework',
+        'Retention & LTV Optimization',
+        'Performance-Based Success Bonuses'
       ],
-      badge: 'Enterprise - $2M+ ARR',
+      badge: 'Enterprise - $500K+ ARR',
       badgeColor: 'bg-purple-100 text-purple-800',
       borderColor: 'border-purple-300 hover:border-purple-500',
       ctaColor: 'bg-purple-600 hover:bg-purple-700 text-white',
-      ideal: 'Enterprise SaaS companies with $2M+ ARR requiring comprehensive transformation'
+      ideal: 'High-growth companies requiring comprehensive creative transformation'
     }
   ];
 
@@ -115,36 +89,35 @@ export function ServiceTiers() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-semibold mb-6">
-            <Building2 className="h-4 w-4 mr-2" />
-            Fortune 100 Systematic Methodology
+            <Zap className="h-4 w-4 mr-2" />
+            AI-Powered Creative Intelligence
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Strategic Ad Intelligence System
+            48-Hour Creative Intelligence Plans
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-            Transform your subscription business with the same systematic 11-phase methodology 
-            used to manage $100M+ in ad spend for Fortune 100 companies. Choose the partnership 
-            level that matches your growth stage and revenue goals.
+            Get AI-powered creative concepts and strategic research that traditionally takes weeks, 
+            delivered in 48 hours. Choose the plan that matches your ad spend and growth goals.
           </p>
           <div className="bg-white rounded-xl p-6 max-w-3xl mx-auto shadow-lg border">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-indigo-600">$100M+</div>
-                <div className="text-sm text-gray-600">Ad Spend Managed</div>
+                <div className="text-3xl font-bold text-indigo-600">48 Hours</div>
+                <div className="text-sm text-gray-600">Creative Delivery</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-green-600">11-Phase</div>
-                <div className="text-sm text-gray-600">Systematic Process</div>
+                <div className="text-3xl font-bold text-green-600">AI-Powered</div>
+                <div className="text-sm text-gray-600">Performance Scoring</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-purple-600">Fortune 100</div>
-                <div className="text-sm text-gray-600">Proven Methods</div>
+                <div className="text-3xl font-bold text-purple-600">$97/Month</div>
+                <div className="text-sm text-gray-600">Starting Price</div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {tiers.map((tier, index) => {
             const Icon = tier.icon;
             return (
@@ -207,7 +180,7 @@ export function ServiceTiers() {
                   className={`w-full py-4 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center ${tier.ctaColor}`}
                 >
                   <Calendar className="h-5 w-5 mr-2" />
-                  Book Strategic Consultation
+                  Get My {tier.name}
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </button>
 
@@ -223,23 +196,23 @@ export function ServiceTiers() {
         <div className="mt-16 text-center">
           <div className="bg-white rounded-2xl p-8 max-w-4xl mx-auto shadow-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Not Sure Which Tier is Right for You?
+              Not Sure Which Plan is Right for You?
             </h3>
             <p className="text-lg text-gray-600 mb-6">
-              Book a free strategic consultation to get a custom recommendation based on your 
-              current ARR, growth goals, and specific challenges.
+              Book a free consultation to get a custom recommendation based on your 
+              current ad spend, creative needs, and growth goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <ConsultationBookingCTA 
-                text="Book Free Strategic Consultation"
+                text="Book Free Creative Consultation"
                 variant="primary"
               />
               <div className="text-sm text-gray-500">
-                • 30-minute strategic assessment
+                • 30-minute creative assessment
                 <br />
-                • Custom ROI projection
+                • Custom plan recommendation
                 <br />
-                • No-obligation strategic guidance
+                • No-obligation creative guidance
               </div>
             </div>
           </div>

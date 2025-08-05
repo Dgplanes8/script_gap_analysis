@@ -37,14 +37,6 @@ const contentPieces = [
     color: 'indigo'
   },
   {
-    title: '$1M ARR Marketing Playbook',
-    href: '/1m-arr-marketing-playbook',
-    icon: BookOpen,
-    description: 'Complete 16-week implementation guide for scaling to $1M ARR',
-    cta: 'Get Playbook',
-    color: 'purple'
-  },
-  {
     title: 'Creative Strategy ROI Calculator',
     href: '/saas-creative-strategy-roi-calculator',
     icon: PieChart,
@@ -53,20 +45,20 @@ const contentPieces = [
     color: 'emerald'
   },
   {
-    title: 'Fortune 100 Case Studies',
-    href: '/fortune-100-case-studies',
-    icon: FileText,
-    description: 'Detailed case studies with methodology breakdowns and templates',
-    cta: 'View Cases',
-    color: 'slate'
-  },
-  {
     title: 'SaaS Growth Marketing Guide',
     href: '/saas-growth-marketing-guide',
     icon: TrendingUp,
     description: 'Channel assessment tool and optimization playbook for SaaS growth',
     cta: 'Start Assessment',
     color: 'green'
+  },
+  {
+    title: 'Consumer Subscription Marketing',
+    href: '/consumer-subscription-marketing-guide',
+    icon: TrendingUp,
+    description: 'D2C channel optimization and growth strategy for consumer subscriptions',
+    cta: 'Get D2C Strategy',
+    color: 'purple'
   }
 ];
 
