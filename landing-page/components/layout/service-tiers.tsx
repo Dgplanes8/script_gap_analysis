@@ -26,7 +26,7 @@ export function ServiceTiers() {
         'Community Discord Access',
         '48-Hour Turnaround Guarantee'
       ],
-      badge: 'Perfect for $10K-$100K/month ad spend',
+      badge: 'Perfect for $10K-$1MM/month ad spend',
       badgeColor: 'bg-green-100 text-green-800',
       borderColor: 'border-green-200 hover:border-green-400',
       ctaColor: 'bg-green-600 hover:bg-green-700 text-white',

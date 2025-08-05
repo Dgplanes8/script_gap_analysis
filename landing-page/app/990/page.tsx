@@ -478,7 +478,7 @@ export default function DoneForYouPage() {
                 
                 <div className="bg-gray-50 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">📈 "Our current ads are already doing okay..."</h3>
-                  <p className="text-gray-600 mb-3">"Okay" is the enemy of great. If you're spending $10k+/month on ads, even a 20% improvement means $2,000+ in additional profit monthly. That's $24,000+ annually from a $990 investment.</p>
+                  <p className="text-gray-600 mb-3">"Okay" is the enemy of great. If you're spending $10k+/month on ads, even a 20% improvement means $2,000+ in additional profit monthly. For larger spends ($100k+/month), the returns are exponentially higher.</p>
                   <div className="bg-blue-100 p-3 rounded text-sm text-blue-800">
                     <strong>Math:</strong> $990 investment → $24,000+ annual improvement = 2,400% ROI
                   </div>
