@@ -1,5 +1,5 @@
 {
-  "name": "monday-morning-marketer-landing",
+  "name": "apsics-media-landing",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -54,7 +54,7 @@
     "prettier": "^3.2.0",
     "prettier-plugin-tailwindcss": "^0.5.11"
   },
-  "description": "Monday Morning Marketer landing pages built with Next.js 14",
+  "description": "Apsics Media landing pages built with Next.js 14",
   "keywords": [
     "nextjs",
     "typescript",
@@ -62,5 +62,5 @@
     "landing-page",
     "marketing"
   ],
-  "author": "Monday Morning Marketer"
+  "author": "Apsics Media"
 }

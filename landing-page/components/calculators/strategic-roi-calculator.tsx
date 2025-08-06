@@ -21,7 +21,7 @@ export function StrategyROICalculator() {
     monthlyROI: 0,
     annualROI: 0,
     paybackPeriod: 0,
-    recommendedTier: 'Foundation'
+    recommendedTier: 'Concept Starter'
   });
 
   const calculateROI = (inputData: {currentARR: number; currentCAC: number; currentLTV: number; monthlyAdSpend: number; targetGrowth: number}) => {
@@ -46,15 +46,15 @@ export function StrategyROICalculator() {
     const projectedARRIncrease = additionalMonthlyRevenue * 12;
     
     // Service tier recommendation
-    let recommendedTier = 'Foundation';
-    let monthlyInvestment = 3000;
+    let recommendedTier = 'Concept Starter';
+    let monthlyInvestment = 97;
     
-    if (inputData.currentARR >= 2000000) {
-      recommendedTier = 'Enterprise';
-      monthlyInvestment = 15000;
-    } else if (inputData.currentARR >= 1000000) {
-      recommendedTier = 'Growth';
-      monthlyInvestment = 8500;
+    if (inputData.currentARR >= 500000) {
+      recommendedTier = 'Performance Accelerator';
+      monthlyInvestment = 997;
+    } else if (inputData.currentARR >= 100000) {
+      recommendedTier = 'Intelligence Accelerator';
+      monthlyInvestment = 297;
     }
     
     // ROI calculations
@@ -104,11 +104,11 @@ export function StrategyROICalculator() {
             Strategic ROI Calculator
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Calculate Your Strategic Investment ROI
+            Calculate Your Apsics Media ROI
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            See the potential impact of implementing our Fortune 100 systematic methodology 
-            on your subscription business performance and growth.
+            See the potential impact of our performance marketing acceleration 
+            on your business growth with ready-to-develop scripts and expert strategy.
           </p>
         </div>
 

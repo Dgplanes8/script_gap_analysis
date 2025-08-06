@@ -8,7 +8,7 @@ import { Hero } from '@/components/layout/hero';
 import { Features } from '@/components/layout/features';
 import { ServiceTiers } from '@/components/layout/service-tiers';
 import { StrategyProcess } from '@/components/layout/strategic-process';
-import { StrategyROICalculator } from '@/components/calculators/strategic-roi-calculator';
+import { CreativeStrategyBenchmarkTool } from '@/components/calculators/creative-strategy-benchmark-tool';
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { AboutSection } from '@/components/layout/about-section';
 import { StrategicConsultationForm } from '@/components/forms/strategic-consultation-form';
@@ -31,8 +31,8 @@ export default function HomePage() {
       <main className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
       <Hero
-        title="Fortune 100 Creative Strategy Delivered in 48 Hours"
-        subtitle="Get expert creative strategy and competitive intelligence that traditionally takes weeks, accelerated by proprietary AI research tools. 10+ years performance marketing experience serving D2C brands and subscription businesses."
+        title="Performance Marketing Acceleration Delivered in 48 Hours"
+        subtitle="Expert creative strategy with ready-to-develop scripts. Each concept includes 3 platform-optimized scripts plus competitive intelligence. 10+ years performance marketing experience accelerated by AI research tools."
         ctaText="Get My Expert Analysis"
         secondaryCtaText="See Pricing & Plans"
         showEmailCapture={false}
@@ -48,14 +48,14 @@ export default function HomePage() {
 
       {/* Strategic Differentiators */}
       <Features
-        title="Why Expert Strategy With AI Research Works for Growth Businesses"
-        subtitle="Unlike slow agencies, we deliver systematic creative strategy with AI-accelerated research in 48 hours"
+        title="Why Expert Performance Marketing Acceleration Works for Growth Businesses"
+        subtitle="Unlike slow agencies, we deliver ready-to-develop scripts with expert strategy in 48 hours"
         features={[
           {
             icon: Target,
-            title: 'Expert Strategy, AI-Accelerated Research',
+            title: 'Ready-to-Develop Scripts',
             description:
-              'Get expert creative strategy with AI-enhanced competitive intelligence in 48 hours that traditionally takes agencies 2-4 weeks.',
+              'Each creative concept includes 3 ready-to-develop scripts optimized for different platforms. No more vague ideas - get executable creative.',
           },
           {
             icon: Building2,
@@ -65,15 +65,15 @@ export default function HomePage() {
           },
           {
             icon: TrendingUp,
-            title: 'Data-Driven Performance Prediction',
+            title: 'Expert Strategy + AI Research',
             description:
-              'Every creative concept comes with strategic analysis and data-driven performance prediction before you spend a dollar on testing.',
+              'Expert creative strategy backed by AI-enhanced competitive intelligence and trending concept analysis delivered in 48 hours.',
           },
         ]}
       />
 
-      {/* Strategic ROI Calculator */}
-      <StrategyROICalculator />
+      {/* Creative Strategy Benchmark Analysis */}
+      <CreativeStrategyBenchmarkTool />
 
       {/* Service Tiers Section */}
       <section id="service-tiers">
@@ -91,25 +91,25 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              48-Hour Expert Creative Strategy Guarantee
+              48-Hour Ready-to-Develop Scripts Guarantee
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white rounded-xl p-6 shadow-lg border border-indigo-100">
                 <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Target className="h-6 w-6 text-indigo-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Expert Speed Advantage</h3>
+                <h3 className="text-xl font-semibold mb-3">Ready-to-Develop Scripts</h3>
                 <p className="text-gray-600">
-                  Expert creative strategy with AI-enhanced research delivered in 48 hours, not weeks.
+                  Each concept includes 3 ready-to-develop scripts delivered in 48 hours, not weeks of back-and-forth.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg border border-green-100">
                 <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="h-6 w-6 text-green-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Strategic Performance Analysis</h3>
+                <h3 className="text-xl font-semibold mb-3">Expert Strategy + AI Research</h3>
                 <p className="text-gray-600">
-                  Every creative comes with expert strategic analysis and data-driven performance prediction before you spend money testing.
+                  Every script comes with expert strategic rationale and AI-enhanced competitive intelligence before you invest in production.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg border border-purple-100">
@@ -135,21 +135,21 @@ export default function HomePage() {
               <div className="text-lg font-bold">Only 20 spots left for September Expert Creative Strategy</div>
             </div>
             <h2 className="text-4xl font-bold mb-6">
-              Ready to Get Expert Creative Strategy in 48 Hours?
+              Ready to Get Ready-to-Develop Scripts in 48 Hours?
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Join D2C brands using expert creative strategy with AI-accelerated research to scale faster and more profitably.
+              Join D2C brands using expert performance marketing acceleration to scale faster and more profitably.
             </p>
             
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
               <div className="grid md:grid-cols-3 gap-6 text-center mb-8">
                 <div>
                   <div className="text-3xl font-bold">48 Hours</div>
-                  <div className="text-sm opacity-80">Creative Delivery</div>
+                  <div className="text-sm opacity-80">Script Delivery</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold">Expert-Driven</div>
-                  <div className="text-sm opacity-80">Strategic Analysis</div>
+                  <div className="text-3xl font-bold">3 Scripts</div>
+                  <div className="text-sm opacity-80">Per Concept</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold">$97/Month</div>

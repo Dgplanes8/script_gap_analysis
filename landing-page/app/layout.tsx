@@ -10,14 +10,14 @@ import { ConsultationModal } from '@/components/modals/consultation-modal';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Strategic Ad Intelligence System - Fortune 100 Methodology for Subscription Businesses',
+  title: 'Apsics Media - Performance Marketing Acceleration in 48 Hours',
   description:
-    'Transform your subscription business with Fortune 100 systematic methodology. Strategic partnerships for $500K-$2M ARR companies ready to scale systematically. 11-phase proven process.',
+    'Ready-to-develop scripts delivered in 48 hours. Each creative concept includes 3 platform-optimized scripts. Expert performance marketing acceleration with AI-enhanced research.',
   keywords:
-    'strategic ad intelligence, Fortune 100 methodology, subscription business marketing, systematic marketing process, CAC optimization, strategic consulting, subscription growth',
-  authors: [{ name: 'Monday Morning Marketer' }],
-  creator: 'Monday Morning Marketer',
-  publisher: 'Monday Morning Marketer',
+    'performance marketing acceleration, ready-to-develop scripts, creative concepts, performance marketing consultant, D2C marketing, subscription business marketing',
+  authors: [{ name: 'Apsics Media' }],
+  creator: 'Apsics Media',
+  publisher: 'Apsics Media',
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
   ),
@@ -25,17 +25,17 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Strategic Ad Intelligence System - Fortune 100 Methodology',
+    title: 'Apsics Media - Performance Marketing Acceleration in 48 Hours',
     description:
-      'Transform your subscription business with Fortune 100 systematic methodology. Strategic partnerships for $500K-$2M ARR companies ready to scale systematically.',
+      'Ready-to-develop scripts delivered in 48 hours. Each creative concept includes 3 platform-optimized scripts. Expert performance marketing acceleration.',
     url: '/',
-    siteName: 'Monday Morning Marketer',
+    siteName: 'Apsics Media',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Monday Morning Marketer',
+        alt: 'Apsics Media',
       },
     ],
     locale: 'en_US',
@@ -43,11 +43,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Strategic Ad Intelligence System - Fortune 100 Methodology',
+    title: 'Apsics Media - Performance Marketing Acceleration in 48 Hours',
     description:
-      'Transform your subscription business with Fortune 100 systematic methodology. Strategic partnerships for $500K-$2M ARR companies ready to scale systematically.',
+      'Ready-to-develop scripts delivered in 48 hours. Each creative concept includes 3 platform-optimized scripts. Expert performance marketing acceleration.',
     images: ['/images/og-image.jpg'],
-    creator: '@mondaymorningmarketer',
+    creator: '@apsicsmedia',
   },
   robots: {
     index: true,

@@ -1,18 +1,9 @@
 export interface StrategicConsultationFormData {
-  firstName: string;
-  lastName: string;
+  fullName: string;
   email: string;
   company: string;
-  title: string;
-  currentARR: string;
-  targetARR: string;
-  currentCAC: string;
   monthlyAdSpend: string;
-  primaryChallenge: string;
-  timeline: string;
-  previousExperience: string;
-  specificGoals: string;
-  consultationPreference: 'phone' | 'video';
+  packageInterest: string;
 }
 
 export interface StrategicConsultationFormProps {

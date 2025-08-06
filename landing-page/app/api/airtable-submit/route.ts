@@ -57,22 +57,15 @@ export async function POST(request: NextRequest) {
       };
     } else if (data.type === 'strategic_consultation') {
       fields = {
-        'First Name': data.firstName || '',
-        'Last Name': data.lastName || '',
-        'Work Email': data.email || '',
-        'Job Title': data.title || '',
-        'Company Name': data.company || '',
-        'Current ARR': data.currentARR || '',
-        'Target ARR': data.targetARR || '',
-        'Current CAC': data.currentCAC || '',
-        'Ad Spend': data.monthlyAdSpend || '',
-        'Challenge': data.primaryChallenge || '',
-        'Timeline': data.timeline || '',
-        'Previous Experience': data.previousExperience || '',
-        'Goals': data.specificGoals || '',
-        'Preference': data.consultationPreference || '',
-        'Source': data.source || 'unknown',
-        'Submission Date': data.submissionDate || new Date().toISOString()
+        'Name': data.fullName || '',
+        'Email': data.email || '',
+        'Company': data.company || '',
+        'Monthly Ad Spend': data.monthlyAdSpend || '',
+        'Package Interest': data.packageInterest || '',
+        'Source': data.source || 'apsics_media_landing',
+        'Type': 'Strategic Consultation',
+        'Status': 'New',
+        'Submitted': new Date().toISOString()
       };
     }
 

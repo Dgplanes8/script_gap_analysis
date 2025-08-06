@@ -26,12 +26,12 @@ const structuredData = {
   description: 'Technical framework guide for implementing multi-touch attribution modeling in subscription businesses',
   author: {
     '@type': 'Organization',
-    name: 'Strategic Ad Intelligence System',
-    url: 'https://mondaymorningmarketer.com'
+    name: 'Apsics Media',
+    url: 'https://apsicsmedia.com'
   },
   publisher: {
     '@type': 'Organization',
-    name: 'Strategic Ad Intelligence System',
+    name: 'Apsics Media',
     logo: {
       '@type': 'ImageObject',
       url: 'https://mondaymorningmarketer.com/logo.png'
