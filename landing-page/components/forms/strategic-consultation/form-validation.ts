@@ -2,11 +2,11 @@ import { StrategicConsultationFormData } from './form-types';
 
 export const validateRequiredFields = (formData: StrategicConsultationFormData): boolean => {
   const requiredFields: (keyof StrategicConsultationFormData)[] = [
-    'firstName',
-    'lastName', 
+    'fullName',
     'email',
     'company',
-    'title'
+    'monthlyAdSpend',
+    'packageInterest'
   ];
   
   return requiredFields.every(field => formData[field].trim() !== '');
@@ -18,18 +18,9 @@ export const validateEmail = (email: string): boolean => {
 };
 
 export const getInitialFormData = (): StrategicConsultationFormData => ({
-  firstName: '',
-  lastName: '',
+  fullName: '',
   email: '',
   company: '',
-  title: '',
-  currentARR: '',
-  targetARR: '',
-  currentCAC: '',
   monthlyAdSpend: '',
-  primaryChallenge: '',
-  timeline: '',
-  previousExperience: '',
-  specificGoals: '',
-  consultationPreference: 'phone'
+  packageInterest: ''
 });
