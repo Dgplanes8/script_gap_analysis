@@ -64,10 +64,10 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
         <div className="p-8">
           <div className="mb-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
-              Book Your $100 Strategy Consultation
+              Get Your Strategy Consultation
             </h2>
             <p className="text-gray-600">
-              Strategic assessment + $100 credit toward any package
+              Expert analysis + $100 credit toward any package
             </p>
           </div>
 
@@ -170,9 +170,9 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
               <div className="bg-indigo-50 rounded-lg p-4 mb-6">
                 <h4 className="font-semibold text-indigo-900 mb-2">What Happens Next:</h4>
                 <ul className="text-sm text-indigo-800 space-y-1">
-                  <li>1. We'll reach out within 24 hours to schedule your call</li>
-                  <li>2. Performance marketing assessment</li>
-                  <li>3. Custom package recommendation + $100 credit applied</li>
+                  <li>1. We'll reach out within 24 hours</li>
+                  <li>2. Confirmation of your subscription or scheduling a call</li>
+                  <li>3. $100 credit applied after consultation</li>
                 </ul>
               </div>
               
@@ -182,11 +182,11 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
                 className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
               >
                 <Calendar className="h-5 w-5 mr-2" />
-                {isSubmitting ? 'Booking Consultation...' : 'Book $100 Strategy Consultation'}
+                {isSubmitting ? 'Submitting Request...' : 'Get My Strategy Consultation'}
               </button>
               
               <p className="text-xs text-gray-500 mt-4 text-center">
-                $100 consultation fee fully credited toward chosen package
+                $100 credit applied toward your chosen package
               </p>
             </div>
           </form>
