@@ -3,27 +3,30 @@
 import { useState } from 'react';
 import { X, Calendar } from 'lucide-react';
 import { StrategicConsultationFormProps } from './form-types';
-import { getInitialFormData } from './form-validation';
 import { useFormSubmission } from '@/hooks/useFormSubmission';
-import { ContactInfoSection } from './contact-info-section';
-import { BusinessMetricsSection } from './business-metrics-section';
-import { StrategicAssessmentSection } from './strategic-assessment-section';
-import { ConsultationPreferences } from './consultation-preferences';
 import { SuccessConfirmation } from './success-confirmation';
+
+const getInitialFormData = () => ({
+  fullName: '',
+  email: '',
+  company: '',
+  monthlyAdSpend: '',
+  packageInterest: ''
+});
 
 export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicConsultationFormProps) {
   const [formData, setFormData] = useState(getInitialFormData());
   
   const { isSubmitting, isSubmitted, submit } = useFormSubmission({
     trackingEventName: 'strategic_consultation_booking',
-    trackingFormType: 'premium_positioning',
+    trackingFormType: 'simplified_form',
     additionalData: {
       type: 'strategic_consultation',
-      source: 'strategic_landing_page'
+      source: 'apsics_media_landing'
     }
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -50,7 +53,7 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
       className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
       onClick={handleOverlayClick}
     >
-      <div className="bg-white rounded-2xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative animate-in zoom-in duration-200">
+      <div className="bg-white rounded-2xl shadow-xl max-w-md w-full relative animate-in zoom-in duration-200">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10"
@@ -61,51 +64,129 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
         <div className="p-8">
           <div className="mb-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
-              Book Your Strategic Consultation
+              Book Your $100 Strategy Consultation
             </h2>
             <p className="text-gray-600">
-              Free 30-minute strategic assessment with custom ROI projection
+              30-minute assessment + $100 credit toward any package
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-8">
-            <ContactInfoSection formData={formData} handleInputChange={handleInputChange} />
-            <BusinessMetricsSection formData={formData} handleInputChange={handleInputChange} />
-            <StrategicAssessmentSection formData={formData} handleInputChange={handleInputChange} />
-            <ConsultationPreferences formData={formData} handleInputChange={handleInputChange} />
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Full Name */}
+            <div>
+              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+                Full Name *
+              </label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleInputChange}
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                placeholder="Enter your full name"
+              />
+            </div>
+
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                Email Address *
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                placeholder="Enter your email"
+              />
+            </div>
+
+            {/* Company */}
+            <div>
+              <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                Company *
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                value={formData.company}
+                onChange={handleInputChange}
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                placeholder="Enter your company name"
+              />
+            </div>
+
+            {/* Monthly Ad Spend */}
+            <div>
+              <label htmlFor="monthlyAdSpend" className="block text-sm font-medium text-gray-700 mb-2">
+                Current Monthly Ad Spend *
+              </label>
+              <select
+                id="monthlyAdSpend"
+                name="monthlyAdSpend"
+                value={formData.monthlyAdSpend}
+                onChange={handleInputChange}
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              >
+                <option value="">Select your ad spend range</option>
+                <option value="<$10K">Less than $10K/month</option>
+                <option value="$10K-$50K">$10K - $50K/month</option>
+                <option value="$50K-$200K">$50K - $200K/month</option>
+                <option value="$200K+">$200K+/month</option>
+              </select>
+            </div>
+
+            {/* Package Interest */}
+            <div>
+              <label htmlFor="packageInterest" className="block text-sm font-medium text-gray-700 mb-2">
+                Package Interest *
+              </label>
+              <select
+                id="packageInterest"
+                name="packageInterest"
+                value={formData.packageInterest}
+                onChange={handleInputChange}
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              >
+                <option value="">Select package interest</option>
+                <option value="Concept Starter ($97/month)">Concept Starter - $97/month</option>
+                <option value="Intelligence Accelerator ($297/month)">Intelligence Accelerator - $297/month</option>
+                <option value="Performance Accelerator ($997/month)">Performance Accelerator - $997/month</option>
+                <option value="Not Sure">Not Sure - Help Me Decide</option>
+              </select>
+            </div>
 
             {/* Submit Button */}
-            <div className="border-t border-gray-200 pt-6">
+            <div className="pt-4">
               <div className="bg-indigo-50 rounded-lg p-4 mb-6">
                 <h4 className="font-semibold text-indigo-900 mb-2">What Happens Next:</h4>
                 <ul className="text-sm text-indigo-800 space-y-1">
-                  <li>1. We'll review your information and reach out within 24 hours</li>
-                  <li>2. Schedule a 30-minute strategic assessment call</li>
-                  <li>3. Receive a custom ROI projection and implementation roadmap</li>
-                  <li>4. Get strategic guidance with no obligation to proceed</li>
+                  <li>1. We'll reach out within 24 hours to schedule your call</li>
+                  <li>2. 30-minute performance marketing assessment</li>
+                  <li>3. Custom package recommendation + $100 credit applied</li>
                 </ul>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-                >
-                  <Calendar className="h-5 w-5 mr-2" />
-                  {isSubmitting ? 'Booking Consultation...' : 'Book Strategic Consultation'}
-                </button>
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="px-8 py-4 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-colors"
-                >
-                  Cancel
-                </button>
-              </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+              >
+                <Calendar className="h-5 w-5 mr-2" />
+                {isSubmitting ? 'Booking Consultation...' : 'Book $100 Strategy Consultation'}
+              </button>
               
               <p className="text-xs text-gray-500 mt-4 text-center">
-                Free consultation • No obligation • We respect your privacy and won't share your information
+                $100 consultation fee fully credited toward chosen package
               </p>
             </div>
           </form>

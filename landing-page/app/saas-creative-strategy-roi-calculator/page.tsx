@@ -33,8 +33,8 @@ const structuredData = {
   },
   provider: {
     '@type': 'Organization',
-    name: 'Strategic Ad Intelligence System',
-    url: 'https://mondaymorningmarketer.com'
+    name: 'Apsics Media',
+    url: 'https://apsicsmedia.com'
   },
   featureList: [
     'Creative performance ROI calculation',

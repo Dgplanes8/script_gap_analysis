@@ -10,31 +10,31 @@ export function Footer() {
           <div className="md:col-span-1">
             <div className="flex items-center mb-4">
               <Building2 className="h-8 w-8 text-indigo-400 mr-2" />
-              <span className="text-xl font-bold">Strategic Ad Intelligence</span>
+              <span className="text-xl font-bold">Apsics Media</span>
             </div>
             <p className="text-gray-400 mb-6">
-              Fortune 100 methodology for subscription businesses. Transform your growth with 
-              systematic ad intelligence and strategic optimization.
+              Performance marketing acceleration for D2C and subscription businesses. Expert creative strategy 
+              with ready-to-develop scripts delivered in 48 hours.
             </p>
             <div className="flex space-x-4">
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-white">$100M+</div>
-                <div>Ad Spend Managed</div>
+                <div className="font-semibold text-white">48 Hours</div>
+                <div>Script Delivery</div>
               </div>
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-white">11-Phase</div>
-                <div>Methodology</div>
+                <div className="font-semibold text-white">3 Scripts</div>
+                <div>Per Concept</div>
               </div>
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-white">Fortune 100</div>
-                <div>Proven Methods</div>
+                <div className="font-semibold text-white">10+ Years</div>
+                <div>Performance Marketing</div>
               </div>
             </div>
           </div>
 
           {/* Strategic Resources */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Strategic Resources</h3>
+            <h3 className="text-lg font-semibold mb-4">Resources</h3>
             <ul className="space-y-3">
               <li>
                 <Link 
@@ -77,7 +77,7 @@ export function Footer() {
 
           {/* Strategic Tools */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Strategic Tools</h3>
+            <h3 className="text-lg font-semibold mb-4">Tools & Calculators</h3>
             <ul className="space-y-3">
               <li>
                 <Link 
@@ -181,14 +181,14 @@ export function Footer() {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © {new Date().getFullYear()} Strategic Ad Intelligence System. All rights reserved.
+              © {new Date().getFullYear()} Apsics Media. All rights reserved.
             </div>
             <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <span>Fortune 100 Methodology</span>
+              <span>Performance Marketing Acceleration</span>
               <span>•</span>
-              <span>$100M+ Ad Spend Managed</span>
+              <span>Ready-to-Develop Scripts</span>
               <span>•</span>
-              <span>Subscription Business Focus</span>
+              <span>D2C & Subscription Focus</span>
             </div>
           </div>
         </div>

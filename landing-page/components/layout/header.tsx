@@ -54,10 +54,10 @@ export function Header({ onOpenApplication }: HeaderProps) {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-xl px-3 py-2 rounded-lg">
-              MMM
+              AM
             </div>
             <span className="font-bold text-xl text-gray-900 hidden sm:block">
-              Monday Morning Marketer
+              Apsics Media
             </span>
           </Link>
 
@@ -110,7 +110,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
               </div>
             </div>
             <Link
-              href="mailto:hello@mondaymorningmarketer.com"
+              href="mailto:hello@apsicsmedia.com"
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
             >
               Contact
@@ -189,7 +189,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
                 Strategic Consultation
               </button>
               <Link
-                href="mailto:hello@mondaymorningmarketer.com"
+                href="mailto:hello@apsicsmedia.com"
                 className="block text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
                 onClick={() => setIsOpen(false)}
               >

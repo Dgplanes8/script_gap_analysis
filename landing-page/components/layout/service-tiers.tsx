@@ -11,76 +11,70 @@ export function ServiceTiers() {
 
   const tiers = [
     {
-      id: 'sprint',
-      name: 'Expert Creative Intelligence',
+      id: 'starter',
+      name: 'Concept Starter',
       icon: Zap,
       price: '$97',
       period: '/month',
-      description: 'Expert creative strategy with AI-enhanced research delivered in 48 hours',
+      description: '1 expert creative concept per week with 3 ready-to-develop scripts',
       features: [
-        'Weekly Creative Concept Batch (5 expert-developed concepts)',
-        'TikTok Trend Analysis (weekly report)',
-        'Competitor Intelligence Digest (bi-weekly)',
-        'Strategic Performance Analysis (data-driven)',
-        'Template Library Access',
-        'Community Discord Access',
-        '48-Hour Turnaround Guarantee'
+        '1 expert creative concept per week (4/month)',
+        'Each concept includes 3 ready-to-develop scripts',
+        'Trending concept analysis',
+        'Basic competitive context',
+        '48-hour turnaround guarantee',
+        'Email delivery and support'
       ],
-      badge: 'Perfect for $10K-$1MM/month ad spend',
+      badge: 'Perfect for testing Aspics Media',
       badgeColor: 'bg-green-100 text-green-800',
       borderColor: 'border-green-200 hover:border-green-400',
       ctaColor: 'bg-green-600 hover:bg-green-700 text-white',
-      ideal: 'D2C brands and subscription businesses needing fresh creative ideas fast'
+      ideal: 'D2C brands wanting to test our creative approach with executable scripts'
     },
     {
       id: 'intelligence',
-      name: 'Strategic Intelligence',
+      name: 'Intelligence Accelerator',
       icon: Target,
       price: '$297',
       period: '/month',
-      description: 'Complete 11-phase methodology with strategic implementation guidance',
+      description: '3 expert concepts weekly plus competitive intelligence and research',
       features: [
-        'Everything in Expert Creative Intelligence, plus:',
-        'Full 11-Phase Strategic Process',
-        'Monthly Strategic Consultation (60 min)',
-        'Custom Brand Archetype Analysis',
-        'Competitor Gap Analysis',
-        'Customer Language Research',
-        'Attribution Modeling Setup',
-        'Creative Brief Development',
-        'Performance Optimization Recommendations'
+        '3 expert creative concepts per week',
+        'Each concept includes 3 ready-to-develop scripts (9 scripts/week)',
+        'Monthly competitive intelligence report',
+        'Customer language research and insights',
+        'Strategic rationale for each concept',
+        'Performance optimization insights',
+        'Priority email support'
       ],
-      badge: 'Most Popular - $50K-$500K ARR',
+      badge: 'Most Popular - High Volume Scripts',
       badgeColor: 'bg-blue-100 text-blue-800',
       borderColor: 'border-blue-300 hover:border-blue-500',
       ctaColor: 'bg-blue-600 hover:bg-blue-700 text-white',
       popular: true,
-      ideal: 'Growing businesses wanting systematic creative strategy and implementation'
+      ideal: 'Growing businesses needing consistent creative output with strategic backing'
     },
     {
-      id: 'transformation',
-      name: 'Creative Transformation',
+      id: 'performance',
+      name: 'Performance Accelerator',
       icon: Crown,
       price: '$997',
-      period: '/month + performance bonuses',
-      description: 'Full creative transformation with dedicated strategic partnership',
+      period: '/month',
+      description: 'Full performance marketing acceleration with strategic consultation',
       features: [
-        'Everything in Strategic Intelligence, plus:',
-        'Bi-weekly Strategy Sessions (90 min)',
-        'Custom Creative Asset Development',
-        'Advanced Performance Modeling',
-        'Team Training & Knowledge Transfer',
-        'Priority Support (24-hour response)',
-        'Custom Dashboard & Reporting',
-        'Creative Testing Framework',
-        'Retention & LTV Optimization',
-        'Performance-Based Success Bonuses'
+        'Everything in Intelligence Accelerator, plus:',
+        'Custom media performance assessment',
+        'Campaign setup and attribution modeling consultation',
+        'Full 11-phase strategic approach',
+        'Ready-to-develop scripts with creative briefs',
+        'Monthly strategy calls (30 minutes)',
+        'Priority support and direct access'
       ],
-      badge: 'Enterprise - $500K+ ARR',
+      badge: 'Full Service - $10K-$1MM ad spend',
       badgeColor: 'bg-purple-100 text-purple-800',
       borderColor: 'border-purple-300 hover:border-purple-500',
       ctaColor: 'bg-purple-600 hover:bg-purple-700 text-white',
-      ideal: 'High-growth companies requiring comprehensive creative transformation'
+      ideal: 'High-growth companies requiring comprehensive performance marketing acceleration'
     }
   ];
 
@@ -90,24 +84,24 @@ export function ServiceTiers() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-semibold mb-6">
             <Zap className="h-4 w-4 mr-2" />
-            Expert Creative Intelligence
+            Performance Marketing Acceleration
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            48-Hour Expert Creative Strategy Plans
+            Ready-to-Develop Scripts in 48 Hours
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-            Get expert creative strategy with AI-enhanced research that traditionally takes weeks, 
-            delivered in 48 hours. Choose the plan that matches your ad spend and growth goals.
+            Each creative concept includes 3 ready-to-develop scripts optimized for different platforms. 
+            Expert strategy with AI-enhanced research delivered in 48 hours, not weeks.
           </p>
           <div className="bg-white rounded-xl p-6 max-w-3xl mx-auto shadow-lg border">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
                 <div className="text-3xl font-bold text-indigo-600">48 Hours</div>
-                <div className="text-sm text-gray-600">Creative Delivery</div>
+                <div className="text-sm text-gray-600">Script Delivery</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-green-600">Expert-Driven</div>
-                <div className="text-sm text-gray-600">Strategic Analysis</div>
+                <div className="text-3xl font-bold text-green-600">3 Scripts</div>
+                <div className="text-sm text-gray-600">Per Concept</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-purple-600">$97/Month</div>
@@ -199,20 +193,20 @@ export function ServiceTiers() {
               Not Sure Which Plan is Right for You?
             </h3>
             <p className="text-lg text-gray-600 mb-6">
-              Book a free consultation to get a custom recommendation based on your 
-              current ad spend, creative needs, and growth goals.
+              Book a $100 strategy consultation (fully credited toward any package you choose) 
+              to get a custom recommendation based on your performance marketing needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <ConsultationBookingCTA 
-                text="Book Free Creative Consultation"
+                text="Book $100 Strategy Consultation"
                 variant="primary"
               />
               <div className="text-sm text-gray-500">
-                • 30-minute creative assessment
+                • 30-minute performance marketing assessment
                 <br />
-                • Custom plan recommendation
+                • $100 credit applied to chosen package
                 <br />
-                • No-obligation creative guidance
+                • Custom strategy recommendation
               </div>
             </div>
           </div>
