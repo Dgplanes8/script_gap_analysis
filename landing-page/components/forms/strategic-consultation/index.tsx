@@ -50,10 +50,10 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
 
   return (
     <div 
-      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 overflow-y-auto"
       onClick={handleOverlayClick}
     >
-      <div className="bg-white rounded-2xl shadow-xl max-w-md w-full relative animate-in zoom-in duration-200">
+      <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full relative animate-in zoom-in duration-200 my-8 max-h-[90vh] overflow-y-auto">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10"
@@ -67,7 +67,7 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
               Book Your $100 Strategy Consultation
             </h2>
             <p className="text-gray-600">
-              30-minute assessment + $100 credit toward any package
+              Strategic assessment + $100 credit toward any package
             </p>
           </div>
 
@@ -171,7 +171,7 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
                 <h4 className="font-semibold text-indigo-900 mb-2">What Happens Next:</h4>
                 <ul className="text-sm text-indigo-800 space-y-1">
                   <li>1. We'll reach out within 24 hours to schedule your call</li>
-                  <li>2. 30-minute performance marketing assessment</li>
+                  <li>2. Performance marketing assessment</li>
                   <li>3. Custom package recommendation + $100 credit applied</li>
                 </ul>
               </div>
