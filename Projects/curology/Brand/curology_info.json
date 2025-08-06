@@ -1,0 +1,24 @@
+{
+  "brand_name": "curology",
+  "original_name": "Curology",
+  "competitors": [
+    "Proven",
+    "Apostrophe",
+    "Dermatica"
+  ],
+  "created_at": "20250805_193823",
+  "folder_structure": [
+    "Brand",
+    "Perplexity",
+    "Reddit",
+    "Apify",
+    "AssemblyAI",
+    "Guide",
+    "Gap_Analysis",
+    "Concepts",
+    "Copy",
+    "Script",
+    "Completed_Analysis"
+  ],
+  "workflow_type": "phased"
+}

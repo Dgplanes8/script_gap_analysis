@@ -1,0 +1,27 @@
+{
+  "brand": "Curology",
+  "competitors": [
+    "Proven",
+    "Apostrophe",
+    "Dermatica"
+  ],
+  "subreddits_to_search": [
+    "marketing",
+    "advertising",
+    "entrepreneur",
+    "smallbusiness",
+    "reviews",
+    "askreddit",
+    "personalfinance",
+    "buyitforlife"
+  ],
+  "search_terms": [
+    "Curology",
+    "Proven",
+    "Apostrophe",
+    "Dermatica",
+    "alternatives to Curology",
+    "vs Curology"
+  ],
+  "output_file": "/Users/nataliebasque/Ad Workflow/Projects/curology/Reddit/curology_reddit_results.json"
+}
