@@ -1,0 +1,19 @@
+{
+  "brands_to_scrape": [
+    "Curology",
+    "Proven",
+    "Apostrophe",
+    "Dermatica"
+  ],
+  "search_terms": [
+    "Curology",
+    "Proven",
+    "Apostrophe",
+    "Dermatica"
+  ],
+  "output_format": "json",
+  "include_images": true,
+  "include_videos": true,
+  "max_ads_per_brand": 50,
+  "output_file": "/Users/nataliebasque/Ad Workflow/Projects/curology/Apify/curology_apify_results.json"
+}

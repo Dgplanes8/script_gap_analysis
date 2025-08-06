@@ -1,0 +1,31 @@
+{
+  "api_settings": {
+    "api_key": "your_assemblyai_api_key_here",
+    "api_url": "https://api.assemblyai.com/v2/transcript"
+  },
+  "input_sources": {
+    "apify_videos": "/Users/nataliebasque/Ad Workflow/Projects/curology/Apify/videos/",
+    "manual_uploads": "/Users/nataliebasque/Ad Workflow/Projects/curology/AssemblyAI/input_videos/",
+    "supported_formats": [
+      ".mp4",
+      ".mov",
+      ".avi",
+      ".mkv",
+      ".webm",
+      ".mp3",
+      ".wav",
+      ".m4a"
+    ]
+  },
+  "transcription_settings": {
+    "language_code": "en_us",
+    "punctuate": true,
+    "format_text": true,
+    "speaker_labels": true,
+    "sentiment_analysis": true,
+    "entity_detection": true,
+    "iab_categories": true,
+    "content_safety": true,
+    "auto_highlights": true
+  }
+}
