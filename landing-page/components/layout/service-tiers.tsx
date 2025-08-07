@@ -25,7 +25,7 @@ export function ServiceTiers() {
         '48-hour turnaround guarantee',
         'Email delivery and support'
       ],
-      badge: 'Perfect for testing Aspics Media',
+      badge: 'Perfect for testing Apsics Media',
       badgeColor: 'bg-green-100 text-green-800',
       borderColor: 'border-green-200 hover:border-green-400',
       ctaColor: 'bg-green-600 hover:bg-green-700 text-white',
@@ -193,12 +193,12 @@ export function ServiceTiers() {
               Not Sure Which Plan is Right for You?
             </h3>
             <p className="text-lg text-gray-600 mb-6">
-              Book a $100 strategy consultation (fully credited toward any package you choose) 
+              Book a strategy consultation (with $100 credit toward any package you choose) 
               to get a custom recommendation based on your performance marketing needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <ConsultationBookingCTA 
-                text="Book $100 Strategy Consultation"
+                text="Book Strategy Consultation"
                 variant="primary"
               />
               <div className="text-sm text-gray-500">

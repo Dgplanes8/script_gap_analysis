@@ -29,7 +29,7 @@ interface AirtableFormProps {
 
 export function AirtableForm({
   title = 'Get Featured - Share Your Success Story',
-  description = 'Tell us about your subscription business and how Monday Morning Marketer helped improve your ad performance.',
+  description = 'Tell us about your subscription business and how Apsics Media helped improve your ad performance.',
   onSubmit,
 }: AirtableFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -85,7 +85,7 @@ export function AirtableForm({
           We've received your information and will review it within 24 hours.
         </p>
         <p className="text-sm text-green-600">
-          If your story is a good fit, we'll reach out to discuss featuring you in our case studies.
+          If your story is a good fit, we'll reach out to discuss featuring your success with Apsics Media.
         </p>
       </div>
     );
