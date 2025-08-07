@@ -11,7 +11,7 @@ export function StructuredData() {
         '@id': `${process.env.NEXT_PUBLIC_APP_URL}#organization`,
         name: 'Apsics Media',
         url: process.env.NEXT_PUBLIC_APP_URL,
-        email: 'hello@apsicsmedia.com',
+        email: 'brian@apsicsmedia.com',
         description: 'Performance marketing acceleration with ready-to-develop scripts. Expert creative strategy delivered in 48 hours.',
         sameAs: [
           'https://twitter.com/apsicsmedia',
