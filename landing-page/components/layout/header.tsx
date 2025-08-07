@@ -110,7 +110,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
               </div>
             </div>
             <Link
-              href="mailto:hello@apsicsmedia.com"
+              href="mailto:brian@apsicsmedia.com"
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
             >
               Contact
@@ -189,7 +189,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
                 Strategic Consultation
               </button>
               <Link
-                href="mailto:hello@apsicsmedia.com"
+                href="mailto:brian@apsicsmedia.com"
                 className="block text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
                 onClick={() => setIsOpen(false)}
               >
