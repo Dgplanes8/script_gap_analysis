@@ -27,7 +27,7 @@ export function SuccessConfirmation({ onClose, handleOverlayClick }: SuccessConf
             Strategic Consultation Booked!
           </h2>
           <p className="text-lg text-gray-600 mb-6">
-            Thank you for your interest in our Strategic Ad Intelligence System. 
+            Thank you for your interest in Apsics Media. 
             We'll review your information and reach out within 24 hours to schedule 
             your personalized strategic consultation.
           </p>
@@ -37,10 +37,6 @@ export function SuccessConfirmation({ onClose, handleOverlayClick }: SuccessConf
               <li className="flex items-center">
                 <CheckCircle className="h-4 w-4 text-indigo-600 mr-2 flex-shrink-0" />
                 30-minute strategic assessment call
-              </li>
-              <li className="flex items-center">
-                <CheckCircle className="h-4 w-4 text-indigo-600 mr-2 flex-shrink-0" />
-                Custom ROI projection for your business
               </li>
               <li className="flex items-center">
                 <CheckCircle className="h-4 w-4 text-indigo-600 mr-2 flex-shrink-0" />
