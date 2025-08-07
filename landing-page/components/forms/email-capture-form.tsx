@@ -85,7 +85,7 @@ export function EmailCaptureForm({
           Thank you for subscribing!
         </h3>
         <p className="text-green-700">
-          Check your email for your 10 Hook Bank PDF and first Monday Morning Ideas newsletter.
+          Check your email for your 10 Hook Bank PDF and first Apsics Media newsletter.
         </p>
       </div>
     );
