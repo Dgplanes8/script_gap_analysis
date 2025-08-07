@@ -29,7 +29,7 @@ const structuredData = {
   },
   provider: {
     '@type': 'Organization',
-    name: 'Strategic Ad Intelligence System',
+    name: 'Apsics Media',
     url: 'https://mondaymorningmarketer.com'
   },
   featureList: [

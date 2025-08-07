@@ -7,9 +7,9 @@ import { CTASection } from '@/components/layout/cta-section';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 
 export const metadata: Metadata = {
-  title: 'Thank You - Monday Morning Marketer',
+  title: 'Thank You - Apsics Media',
   description:
-    'Thank you for your interest in Monday Morning Marketer. Your next steps and what to expect.',
+    'Thank you for your interest in Apsics Media. Your next steps and what to expect.',
 };
 
 export default function SuccessPage() {
@@ -32,7 +32,7 @@ export default function SuccessPage() {
           };
         case 'newsletter':
           return {
-            title: "Welcome to Monday Morning Ideas — your first issue arrives next Monday at 8am ET.",
+            title: "Welcome to Apsics Media — your first issue arrives next Monday at 8am ET.",
             subtitle: "Check your inbox for a welcome email and your '10 Hook Bank' PDF. Every Monday you'll get 3 hooks worth testing, 1 creative teardown, and 1 mini test idea."
           };
         default:
@@ -164,7 +164,7 @@ export default function SuccessPage() {
                 </Link>
               </div>
               
-              {/* $990 Pack Card */}
+              {/* Performance Accelerator Card */}
               <div className="bg-gradient-to-br from-brand-600 to-brand-700 rounded-xl p-8 shadow-lg text-white relative">
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-yellow-900 px-4 py-1 rounded-full text-sm font-semibold">
                   Most Popular
@@ -172,7 +172,7 @@ export default function SuccessPage() {
                 
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold mb-2">
-                    $990 Script System
+                    Performance Accelerator
                   </h3>
                   <p className="text-brand-100">
                     12 shoot-ready scripts in 48 hours with full test plan.
@@ -202,7 +202,7 @@ export default function SuccessPage() {
                   href="/#service-tiers"
                   className="w-full bg-white text-brand-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-50 transition-colors text-center block"
                 >
-                  View $990 Pack
+                  View Performance Package
                 </Link>
               </div>
             </div>

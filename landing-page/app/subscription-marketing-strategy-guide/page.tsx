@@ -22,12 +22,12 @@ const structuredData = {
   description: 'Comprehensive guide covering subscription marketing frameworks, implementation strategies, and case studies',
   author: {
     '@type': 'Organization',
-    name: 'Strategic Ad Intelligence System',
+    name: 'Apsics Media',
     url: 'https://mondaymorningmarketer.com'
   },
   publisher: {
     '@type': 'Organization',
-    name: 'Strategic Ad Intelligence System',
+    name: 'Apsics Media',
     logo: {
       '@type': 'ImageObject',
       url: 'https://mondaymorningmarketer.com/logo.png'
