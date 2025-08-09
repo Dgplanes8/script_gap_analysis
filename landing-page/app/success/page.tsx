@@ -22,18 +22,18 @@ export default function SuccessPage() {
       switch(source) {
         case 'call':
           return {
-            title: "Booked! Bring a control ad + your median CTR/TSR.",
-            subtitle: "We'll confirm scope and eligibility for the free pilot. Expect 12 scripts + 6 thumbnails within 48–72 business hours of the brief."
+            title: "Booked! Bring your current creative performance data.",
+            subtitle: "We'll confirm scope and discuss which weekly trend intelligence plan fits your growth goals. Fresh scripts delivered every Monday starting next week."
           };
         case 'order':
           return {
-            title: "Order received. We'll review your intake within 4 business hours.",
-            subtitle: "Your 48‑hour clock starts after intake completion. Watch for two emails: payment receipt and intake form confirmation. You can reply to either with questions."
+            title: "Welcome to weekly trend intelligence! First delivery this Monday.",
+            subtitle: "Watch for two emails: payment receipt and welcome guide with this Monday's trending concepts. You can reply to either with questions."
           };
         case 'newsletter':
           return {
-            title: "Welcome to Apsics Media — your first issue arrives next Monday at 8am ET.",
-            subtitle: "Check your inbox for a welcome email and your '10 Hook Bank' PDF. Every Monday you'll get 3 hooks worth testing, 1 creative teardown, and 1 mini test idea."
+            title: "Welcome to weekly trend intelligence — your first issue arrives next Monday at 8am ET.",
+            subtitle: "Check your inbox for a welcome email and your '10 Hook Bank' PDF. Every Monday you'll get trending concepts, competitor analysis, and ready-to-develop scripts."
           };
         default:
           return {
@@ -84,7 +84,7 @@ export default function SuccessPage() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3">If You Booked a Call</h3>
                 <p className="text-gray-600">
-                  We'll confirm scope and eligibility for the free pilot. Bring your control ad and median CTR/TSR data.
+                  We'll confirm scope and discuss which weekly plan fits your business. Bring your current creative performance data for strategic assessment.
                 </p>
               </div>
               
@@ -92,9 +92,9 @@ export default function SuccessPage() {
                 <div className="bg-brand-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="h-8 w-8 text-brand-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">If You Ordered</h3>
+                <h3 className="text-xl font-semibold mb-3">If You Subscribed</h3>
                 <p className="text-gray-600">
-                  Watch for payment receipt and intake form. Your 48-hour delivery clock starts after intake completion.
+                  Watch for payment receipt and welcome guide. Your first weekly trend intelligence delivery arrives this Monday.
                 </p>
               </div>
               
@@ -102,9 +102,9 @@ export default function SuccessPage() {
                 <div className="bg-brand-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="h-8 w-8 text-brand-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">If You Subscribed</h3>
+                <h3 className="text-xl font-semibold mb-3">If You Downloaded Free Hooks</h3>
                 <p className="text-gray-600">
-                  Check your inbox for a welcome email and your 10 Hook Bank PDF. First issue Monday at 8am ET.
+                  Check your inbox for your 10 Hook Bank PDF and welcome email. Consider weekly trend intelligence for fresh concepts every Monday.
                 </p>
               </div>
             </div>
@@ -126,33 +126,33 @@ export default function SuccessPage() {
             </div>
             
             <div className="grid md:grid-cols-2 gap-8">
-              {/* Pilot Program Card */}
+              {/* Trend Tracker Card */}
               <div className="bg-white rounded-xl p-8 shadow-lg border-2 border-gray-200 hover:border-brand-300 transition-colors">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    Free 7-Day Pilot
+                    Trend Tracker - $67/Month
                   </h3>
                   <p className="text-gray-600">
-                    Test our script system with 3 concepts for your fitness/sports app.
+                    Weekly trend intelligence with ready-to-develop scripts based on what's working RIGHT NOW.
                   </p>
                 </div>
                 
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mt-1 mr-3 flex-shrink-0" />
-                    <span>12 scripts (3 concepts × 4 variants)</span>
+                    <span>1 trending concept every Monday</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mt-1 mr-3 flex-shrink-0" />
-                    <span>6 storyboard thumbnails</span>
+                    <span>2 ready-to-develop scripts</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mt-1 mr-3 flex-shrink-0" />
-                    <span>1-week test matrix</span>
+                    <span>Platform optimization guide</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mt-1 mr-3 flex-shrink-0" />
-                    <span>Mid-week iteration</span>
+                    <span>Weekly trend analysis</span>
                   </li>
                 </ul>
                 
@@ -160,11 +160,11 @@ export default function SuccessPage() {
                   href="/#service-tiers"
                   className="w-full btn-primary text-center block"
                 >
-                  Learn About Pilot
+                  Start Weekly Intelligence
                 </Link>
               </div>
               
-              {/* Performance Accelerator Card */}
+              {/* Market Intelligence Card */}
               <div className="bg-gradient-to-br from-brand-600 to-brand-700 rounded-xl p-8 shadow-lg text-white relative">
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-yellow-900 px-4 py-1 rounded-full text-sm font-semibold">
                   Most Popular
@@ -172,29 +172,29 @@ export default function SuccessPage() {
                 
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold mb-2">
-                    Performance Accelerator
+                    Market Intelligence - $497/Month
                   </h3>
                   <p className="text-brand-100">
-                    12 shoot-ready scripts in 48 hours with full test plan.
+                    Complete weekly trend intelligence + competitor analysis + direct strategic support.
                   </p>
                 </div>
                 
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-brand-200 mt-1 mr-3 flex-shrink-0" />
-                    <span>12 platform-optimized scripts</span>
+                    <span>4 trending concepts every Monday</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-brand-200 mt-1 mr-3 flex-shrink-0" />
-                    <span>6 thumbnails + Mini Angle Map</span>
+                    <span>Comprehensive competitor analysis</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-brand-200 mt-1 mr-3 flex-shrink-0" />
-                    <span>Complete test plan (60/20/20 split)</span>
+                    <span>Strategic implementation guide</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-brand-200 mt-1 mr-3 flex-shrink-0" />
-                    <span>48-hour delivery guarantee</span>
+                    <span>Direct access for strategic support</span>
                   </li>
                 </ul>
                 
@@ -202,7 +202,7 @@ export default function SuccessPage() {
                   href="/#service-tiers"
                   className="w-full bg-white text-brand-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-50 transition-colors text-center block"
                 >
-                  View Performance Package
+                  Get Full Intelligence Package
                 </Link>
               </div>
             </div>
@@ -259,7 +259,7 @@ export default function SuccessPage() {
                 Haven't Subscribed Yet?
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Get weekly hook ideas, creative breakdowns, and mini test ideas for subscription apps. Every Monday at 8am ET.
+                Get weekly trending concepts, competitor analysis, and ready-to-develop scripts for subscription businesses. Every Monday at 8am ET.
               </p>
               
               <EmailCaptureForm

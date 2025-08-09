@@ -40,6 +40,54 @@ export default function HomePage() {
         onSecondaryClick={() => document.getElementById('service-tiers')?.scrollIntoView({ behavior: 'smooth' })}
       />
 
+      {/* Lead Magnet Prominence Section */}
+      <section className="py-16 bg-gradient-to-r from-green-50 to-blue-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-green-200">
+              <div className="inline-flex items-center bg-gradient-to-r from-green-600 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                <Mail className="h-4 w-4 mr-2" />
+                FREE DOWNLOAD - LIMITED TIME
+              </div>
+              
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Get 10 Viral Hooks from Fortune 100 Campaigns
+              </h2>
+              
+              <p className="text-lg text-gray-600 mb-6">
+                The exact hooks that drove viral growth for subscription businesses. Each hook includes strategic rationale and platform adaptation guide. From someone who managed $100M+ ad spend.
+              </p>
+              
+              <div className="grid md:grid-cols-3 gap-4 mb-8">
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <div className="text-2xl font-bold text-green-600">Fortune 100</div>
+                  <div className="text-sm text-gray-600">Proven Hooks</div>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <div className="text-2xl font-bold text-blue-600">Ready to Use</div>
+                  <div className="text-sm text-gray-600">Copy & Customize</div>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <div className="text-2xl font-bold text-purple-600">Weekly Bonus</div>
+                  <div className="text-sm text-gray-600">Trend Intelligence</div>
+                </div>
+              </div>
+              
+              <div className="max-w-md mx-auto">
+                <EmailCaptureForm
+                  placeholder="Enter your work email"
+                  buttonText="Get My 10 Free Hooks"
+                  variant="hero"
+                />
+                <p className="text-xs text-gray-500 mt-3">
+                  Plus weekly trend intelligence newsletter. Unsubscribe anytime.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About Section - Enhanced Fortune 100 Positioning */}
       <AboutSection onOpenApplication={handleOpenConsultation} />
 
@@ -90,6 +138,11 @@ export default function HomePage() {
       <section className="py-16 bg-gradient-to-r from-green-50 to-blue-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-full text-sm font-bold mb-6">
+              <Calendar className="h-5 w-5 mr-2" />
+              MONDAY DELIVERY GUARANTEE
+            </div>
+            
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
               Weekly Script Delivery (Every Monday)
             </h2>
@@ -119,6 +172,69 @@ export default function HomePage() {
                 <h3 className="text-xl font-semibold mb-3">Subscription Business Focus</h3>
                 <p className="text-gray-600">
                   Built specifically for digital subscription businesses needing consistent creative testing fuel to combat churn and drive growth.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-lg text-gray-600">
+                Common questions about our weekly trend intelligence service
+              </p>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="border-b border-gray-200 pb-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  How is this different from traditional agencies?
+                </h3>
+                <p className="text-gray-600">
+                  Traditional agencies take 1-2 weeks for script delivery and charge $5,000+ monthly minimums. We deliver fresh, trending concepts every Monday at a fraction of the cost, using Fortune 100 proven methodology enhanced with AI research.
+                </p>
+              </div>
+              
+              <div className="border-b border-gray-200 pb-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  What makes your trend intelligence unique?
+                </h3>
+                <p className="text-gray-600">
+                  We combine real-time social media trend analysis with competitor reverse-engineering, backed by 10+ years managing $100M+ in ad spend for Fortune 100 subscription businesses. You get strategic context, not just trending formats.
+                </p>
+              </div>
+              
+              <div className="border-b border-gray-200 pb-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  Can I cancel anytime?
+                </h3>
+                <p className="text-gray-600">
+                  Yes, all plans are month-to-month with no long-term contracts. Cancel anytime. We're confident in our weekly delivery quality and strategic value.
+                </p>
+              </div>
+              
+              <div className="border-b border-gray-200 pb-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  Do you work with businesses outside of subscriptions?
+                </h3>
+                <p className="text-gray-600">
+                  While our expertise is optimized for subscription and recurring revenue businesses (SaaS, D2C subscriptions, memberships), our trend intelligence methodology works for any business needing consistent creative testing fuel.
+                </p>
+              </div>
+              
+              <div className="pb-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  How do I get started?
+                </h3>
+                <p className="text-gray-600">
+                  Start with our free 10 Hook Bank to experience our strategic approach. Then book a strategy call to discuss which weekly plan fits your growth needs. No obligation, no pressure.
                 </p>
               </div>
             </div>

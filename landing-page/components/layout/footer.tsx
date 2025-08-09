@@ -13,21 +13,21 @@ export function Footer() {
               <span className="text-xl font-bold">Apsics Media</span>
             </div>
             <p className="text-gray-400 mb-6">
-              Performance marketing acceleration for D2C and subscription businesses. Expert creative strategy 
-              with ready-to-develop scripts delivered in 48 hours.
+              Weekly trend intelligence for subscription businesses. Fresh scripts based on trending concepts 
+              and competitor analysis delivered every Monday.
             </p>
             <div className="flex space-x-4">
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-white">48 Hours</div>
-                <div>Script Delivery</div>
+                <div className="font-semibold text-white">Weekly</div>
+                <div>Monday Delivery</div>
               </div>
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-white">3 Scripts</div>
-                <div>Per Concept</div>
+                <div className="font-semibold text-white">Trending</div>
+                <div>Fresh Concepts</div>
               </div>
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-white">10+ Years</div>
-                <div>Performance Marketing</div>
+                <div className="font-semibold text-white">Fortune 100</div>
+                <div>Proven Methods</div>
               </div>
             </div>
           </div>

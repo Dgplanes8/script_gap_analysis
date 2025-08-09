@@ -186,3 +186,46 @@
 .btn-tertiary {
   @apply text-blue-600 hover:text-blue-700 font-semibold transition-colors;
 }
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Larger tap targets for mobile */
+  .btn, .btn-primary, .btn-secondary {
+    min-height: 48px;
+    padding: 12px 24px;
+  }
+  
+  /* Better spacing on mobile */
+  .py-24 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Responsive text sizing */
+  .text-4xl {
+    font-size: 2.25rem;
+    line-height: 1.2;
+  }
+  
+  .text-5xl {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+  
+  /* Mobile-friendly forms */
+  input[type="email"] {
+    min-height: 48px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  /* Better mobile card spacing */
+  .grid.gap-8 {
+    gap: 1.5rem;
+  }
+  
+  /* Mobile-optimized hero section */
+  .hero-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
