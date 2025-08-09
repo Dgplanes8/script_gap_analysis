@@ -9,25 +9,25 @@ export function Footer() {
           {/* Brand Section */}
           <div className="md:col-span-1">
             <div className="flex items-center mb-4">
-              <Building2 className="h-8 w-8 text-indigo-400 mr-2" aria-label="Apsics Media" />
+              <Building2 className="h-8 w-8 text-orange-400 mr-2" aria-label="Apsics Media" />
               <span className="text-xl font-bold">Apsics Media</span>
             </div>
             <p className="text-gray-400 mb-6">
-              Weekly trend intelligence for subscription businesses. Fresh scripts based on trending concepts 
-              and competitor analysis delivered every Monday.
+              48-hour creative concept delivery for growth leaders at subscription companies. Fresh ideas 
+              and competitor intelligence delivered every Monday when agencies take weeks.
             </p>
             <div className="flex space-x-4">
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-white">Weekly</div>
-                <div>Monday Delivery</div>
+                <div className="font-semibold text-orange-400">48 Hours</div>
+                <div>Not 2 Weeks</div>
               </div>
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-white">Trending</div>
-                <div>Fresh Concepts</div>
+                <div className="font-semibold text-teal-400">Growth Focus</div>
+                <div>Subscription Companies</div>
               </div>
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-white">Fortune 100</div>
-                <div>Proven Methods</div>
+                <div className="font-semibold text-navy-400">200+</div>
+                <div>Growth Leaders</div>
               </div>
             </div>
           </div>
@@ -169,7 +169,7 @@ export function Footer() {
               <h4 className="text-sm font-semibold mb-3 text-gray-300">Get Started</h4>
               <Link
                 href="/#consultation"
-                className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-semibold rounded-lg hover:bg-indigo-700 transition-colors"
+                className="inline-flex items-center px-4 py-2 bg-orange-600 text-white text-sm font-semibold rounded-lg hover:bg-orange-700 transition-colors"
               >
                 Book Strategic Consultation
               </Link>

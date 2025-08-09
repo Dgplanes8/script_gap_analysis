@@ -28,8 +28,8 @@ export function Hero({
 }: HeroProps) {
   const bgClasses =
     background === 'gradient'
-      ? 'bg-gradient-to-br from-brand-600 via-brand-700 to-brand-800'
-      : 'bg-gray-900';
+      ? 'bg-gradient-to-br from-orange-600 via-orange-700 to-red-800'
+      : 'bg-gradient-to-br from-navy-800 via-navy-900 to-gray-900';
 
   return (
     <section className={`${bgClasses} text-white py-24 lg:py-32`}>
@@ -90,16 +90,16 @@ export function Hero({
           {/* Strategic Credibility */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-gray-300">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-white mr-2">$100M+</span>
-              <span>Ad Spend Managed</span>
+              <span className="text-2xl font-bold text-orange-400 mr-2">10+</span>
+              <span>Years Experience</span>
             </div>
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-white mr-2">Weekly</span>
-              <span>Trend Intelligence</span>
+              <span className="text-2xl font-bold text-teal-400 mr-2">48 Hours</span>
+              <span>Creative Delivery</span>
             </div>
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-white mr-2">Fortune 100</span>
-              <span>Proven Methods</span>
+              <span className="text-2xl font-bold text-navy-400 mr-2">200+</span>
+              <span>Growth Leaders</span>
             </div>
           </div>
         </div>

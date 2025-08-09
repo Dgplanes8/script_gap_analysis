@@ -53,7 +53,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-xl px-3 py-2 rounded-lg">
+            <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold text-xl px-3 py-2 rounded-lg">
               AM
             </div>
             <span className="font-bold text-xl text-gray-900 hidden sm:block">
@@ -65,18 +65,18 @@ export function Header({ onOpenApplication }: HeaderProps) {
           <nav className="hidden lg:flex items-center space-x-8">
             <button
               onClick={() => handleNavigation('about')}
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
             >
               About
             </button>
             <button
               onClick={() => handleNavigation('hooks-offer')}
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
             >
               Free Hooks
             </button>
             <div className="relative group">
-              <button className="flex items-center text-gray-700 hover:text-blue-600 font-medium transition-colors">
+              <button className="flex items-center text-gray-700 hover:text-orange-600 font-medium transition-colors">
                 Services
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
@@ -84,25 +84,25 @@ export function Header({ onOpenApplication }: HeaderProps) {
                 <div className="py-2">
                   <Link
                     href="/cac-reduction-guide"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-orange-600 transition-colors"
                   >
                     CAC Reduction Guide
                   </Link>
                   <Link
                     href="/revenue-growth-benchmarking"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-orange-600 transition-colors"
                   >
                     Benchmarking Tool
                   </Link>
                   <Link
                     href="/saas-creative-strategy-roi-calculator"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-orange-600 transition-colors"
                   >
                     ROI Calculator
                   </Link>
                   <button
                     onClick={openConsultation}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-orange-600 transition-colors"
                   >
                     Strategic Consultation
                   </button>
@@ -111,7 +111,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
             </div>
             <Link
               href="mailto:brian@apsicsmedia.com"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
             >
               Contact
             </Link>
@@ -136,7 +136,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors"
+            className="lg:hidden p-2 text-gray-700 hover:text-orange-600 transition-colors"
           >
             {isOpen ? <X className="h-6 w-6" aria-label="Close menu" /> : <Menu className="h-6 w-6" aria-label="Open menu" />}
           </button>
@@ -148,33 +148,33 @@ export function Header({ onOpenApplication }: HeaderProps) {
             <nav className="space-y-4">
               <button
                 onClick={() => handleNavigation('about')}
-                className="block w-full text-left text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
+                className="block w-full text-left text-gray-700 hover:text-orange-600 font-medium transition-colors py-2"
               >
                 About
               </button>
               <button
                 onClick={() => handleNavigation('hooks-offer')}
-                className="block w-full text-left text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
+                className="block w-full text-left text-gray-700 hover:text-orange-600 font-medium transition-colors py-2"
               >
                 Free Hooks
               </button>
               <Link
                 href="/cac-reduction-guide"
-                className="block text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
+                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-2"
                 onClick={() => setIsOpen(false)}
               >
                 CAC Reduction Guide
               </Link>
               <Link
                 href="/revenue-growth-benchmarking"
-                className="block text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
+                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-2"
                 onClick={() => setIsOpen(false)}
               >
                 Benchmarking Tool
               </Link>
               <Link
                 href="/saas-creative-strategy-roi-calculator"
-                className="block text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
+                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-2"
                 onClick={() => setIsOpen(false)}
               >
                 ROI Calculator
@@ -184,13 +184,13 @@ export function Header({ onOpenApplication }: HeaderProps) {
                   openConsultation();
                   setIsOpen(false);
                 }}
-                className="block w-full text-left text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
+                className="block w-full text-left text-gray-700 hover:text-orange-600 font-medium transition-colors py-2"
               >
                 Strategic Consultation
               </button>
               <Link
                 href="mailto:brian@apsicsmedia.com"
-                className="block text-gray-700 hover:text-blue-600 font-medium transition-colors py-2"
+                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-2"
                 onClick={() => setIsOpen(false)}
               >
                 Contact
