@@ -7,12 +7,12 @@ import { StructuredData } from '@/components/structured-data';
 import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
-  title: 'CAC Optimization Calculator - Reduce Customer Acquisition Costs by 40%',
-  description: 'Free CAC optimization calculator and strategic framework. Reduce customer acquisition costs by up to 40% with our Fortune 100 methodology. Get personalized recommendations.',
-  keywords: 'CAC optimization consultant, customer acquisition cost calculator, reduce CAC, CAC optimization strategy, customer acquisition cost reduction',
+  title: 'CAC Optimization Calculator - Fortune 100 Weekly Trend Intelligence',
+  description: 'Free CAC calculator + weekly trend intelligence from $100M+ ad spend experience. Get competitor analysis and viral scripts delivered every Monday starting at $67/month.',
+  keywords: 'CAC optimization, weekly trend intelligence, competitor analysis, viral scripts, Fortune 100 marketing, subscription business growth',
   openGraph: {
-    title: 'CAC Optimization Calculator - Reduce Customer Acquisition Costs by 40%',
-    description: 'Free CAC optimization calculator and strategic framework. Reduce customer acquisition costs by up to 40% with our Fortune 100 methodology.',
+    title: 'CAC Optimization Calculator - Fortune 100 Weekly Trend Intelligence',
+    description: 'Free CAC calculator + weekly trend intelligence from $100M+ ad spend experience. Viral scripts delivered every Monday.',
     type: 'website',
   },
   alternates: {

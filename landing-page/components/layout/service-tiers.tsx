@@ -12,69 +12,69 @@ export function ServiceTiers() {
   const tiers = [
     {
       id: 'starter',
-      name: 'Concept Starter',
+      name: 'Trend Tracker',
       icon: Zap,
-      price: '$97',
+      price: '$67',
       period: '/month',
-      description: '1 expert creative concept per week with 3 ready-to-develop scripts',
+      description: '1 trending concept delivered every Monday with 2 ready-to-develop scripts',
       features: [
-        '1 expert creative concept per week (4/month)',
-        'Each concept includes 3 ready-to-develop scripts',
-        'Trending concept analysis',
-        'Basic competitive context',
-        '48-hour turnaround guarantee',
+        '1 creative concept delivered every Monday',
+        '2 ready-to-develop scripts per concept',
+        'Based on current social media trends',
+        'Trend source attribution (TikTok, Instagram, etc.)',
+        'Weekly delivery consistency',
         'Email delivery and support'
       ],
-      badge: 'Perfect for testing Apsics Media',
+      badge: 'Perfect for testing trending concepts',
       badgeColor: 'bg-green-100 text-green-800',
       borderColor: 'border-green-200 hover:border-green-400',
       ctaColor: 'bg-green-600 hover:bg-green-700 text-white',
-      ideal: 'D2C brands wanting to test our creative approach with executable scripts'
+      ideal: 'Small businesses and startups testing creative concepts with trending formats'
     },
     {
       id: 'intelligence',
-      name: 'Intelligence Accelerator',
+      name: 'Competitive Edge',
       icon: Target,
-      price: '$297',
+      price: '$197',
       period: '/month',
-      description: '3 expert concepts weekly plus competitive intelligence and research',
+      description: '2 concepts weekly: 1 trend-based + 1 competitor-inspired with analysis',
       features: [
-        '3 expert creative concepts per week',
-        'Each concept includes 3 ready-to-develop scripts (9 scripts/week)',
-        'Monthly competitive intelligence report',
-        'Customer language research and insights',
-        'Strategic rationale for each concept',
-        'Performance optimization insights',
+        '2 creative concepts delivered every Monday',
+        '3 ready-to-develop scripts total per week',
+        '1 trend-based + 1 competitor-inspired concept',
+        'Brief competitive context analysis',
+        'Weekly trend intelligence updates',
+        'Competitor analysis methodology',
         'Priority email support'
       ],
-      badge: 'Most Popular - High Volume Scripts',
+      badge: 'Most Popular - Trend + Competitor Intelligence',
       badgeColor: 'bg-blue-100 text-blue-800',
       borderColor: 'border-blue-300 hover:border-blue-500',
       ctaColor: 'bg-blue-600 hover:bg-blue-700 text-white',
       popular: true,
-      ideal: 'Growing businesses needing consistent creative output with strategic backing'
+      ideal: 'Growing D2C brands seeking competitive advantage with strategic intelligence'
     },
     {
       id: 'performance',
-      name: 'Performance Accelerator',
+      name: 'Market Intelligence',
       icon: Crown,
-      price: '$997',
+      price: '$497',
       period: '/month',
-      description: 'Full performance marketing acceleration with strategic consultation',
+      description: 'Full market intelligence with direct team access for strategic support',
       features: [
-        'Everything in Intelligence Accelerator, plus:',
-        'Custom media performance assessment',
-        'Campaign setup and attribution modeling consultation',
-        'Full 11-phase strategic approach',
-        'Ready-to-develop scripts with creative briefs',
-        'Monthly strategy calls (30 minutes)',
-        'Priority support and direct access'
+        '3 creative concepts delivered every Monday',
+        '4 ready-to-develop scripts total per week',
+        'Trend analysis + competitor breakdown + original concept',
+        'Weekly "what\'s working" insight summary',
+        'Direct team access for strategic support',
+        'Fortune 100 proven methodology application',
+        'Priority support with strategic consultation'
       ],
-      badge: 'Full Service - $10K-$1MM ad spend',
+      badge: 'Premium - Market Intelligence + Direct Access',
       badgeColor: 'bg-purple-100 text-purple-800',
       borderColor: 'border-purple-300 hover:border-purple-500',
       ctaColor: 'bg-purple-600 hover:bg-purple-700 text-white',
-      ideal: 'High-growth companies requiring comprehensive performance marketing acceleration'
+      ideal: 'Established subscription businesses requiring comprehensive creative strategy'
     }
   ];
 
@@ -87,24 +87,24 @@ export function ServiceTiers() {
             Performance Marketing Acceleration
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Ready-to-Develop Scripts in 48 Hours
+            Weekly Trend Intelligence Delivered Every Monday
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-            Each creative concept includes 3 ready-to-develop scripts optimized for different platforms. 
-            Expert strategy with AI-enhanced research delivered in 48 hours, not weeks.
+            Fresh scripts based on trending social media formats + competitor analysis. 
+            Weekly delivery vs industry standard 1-2 week turnaround from traditional agencies.
           </p>
           <div className="bg-white rounded-xl p-6 max-w-3xl mx-auto shadow-lg border">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-indigo-600">48 Hours</div>
-                <div className="text-sm text-gray-600">Script Delivery</div>
+                <div className="text-3xl font-bold text-indigo-600">Weekly</div>
+                <div className="text-sm text-gray-600">Monday Delivery</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-green-600">3 Scripts</div>
-                <div className="text-sm text-gray-600">Per Concept</div>
+                <div className="text-3xl font-bold text-green-600">Trending</div>
+                <div className="text-sm text-gray-600">Fresh Concepts</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-purple-600">$97/Month</div>
+                <div className="text-3xl font-bold text-purple-600">$67/Month</div>
                 <div className="text-sm text-gray-600">Starting Price</div>
               </div>
             </div>
@@ -190,23 +190,22 @@ export function ServiceTiers() {
         <div className="mt-16 text-center">
           <div className="bg-white rounded-2xl p-8 max-w-4xl mx-auto shadow-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Not Sure Which Plan is Right for You?
+              Not Sure Which Weekly Plan is Right for You?
             </h3>
             <p className="text-lg text-gray-600 mb-6">
-              Book a strategy consultation (with $100 credit toward any package you choose) 
-              to get a custom recommendation based on your performance marketing needs.
+              Book a strategy consultation to get personalized recommendations for your subscription business growth needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <ConsultationBookingCTA 
-                text="Book Strategy Consultation"
+                text="Book Strategy Call"
                 variant="primary"
               />
               <div className="text-sm text-gray-500">
-                • 30-minute performance marketing assessment
+                • 30-minute subscription business assessment
                 <br />
-                • $100 credit applied to chosen package
+                • Weekly trend intelligence plan recommendation  
                 <br />
-                • Custom strategy recommendation
+                • Fortune 100 performance marketing insights
               </div>
             </div>
           </div>

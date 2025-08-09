@@ -9,7 +9,7 @@ export function Footer() {
           {/* Brand Section */}
           <div className="md:col-span-1">
             <div className="flex items-center mb-4">
-              <Building2 className="h-8 w-8 text-indigo-400 mr-2" />
+              <Building2 className="h-8 w-8 text-indigo-400 mr-2" aria-label="Apsics Media" />
               <span className="text-xl font-bold">Apsics Media</span>
             </div>
             <p className="text-gray-400 mb-6">
@@ -41,7 +41,7 @@ export function Footer() {
                   href="/cac-reduction-guide" 
                   className="flex items-center text-gray-400 hover:text-white transition-colors"
                 >
-                  <Target className="h-4 w-4 mr-2" />
+                  <Target className="h-4 w-4 mr-2" aria-label="CAC Reduction Guide" />
                   CAC Reduction Guide
                 </Link>
               </li>
@@ -50,7 +50,7 @@ export function Footer() {
                   href="/saas-growth-marketing-guide" 
                   className="flex items-center text-gray-400 hover:text-white transition-colors"
                 >
-                  <TrendingUp className="h-4 w-4 mr-2" />
+                  <TrendingUp className="h-4 w-4 mr-2" aria-label="SaaS Growth Marketing Guide" />
                   SaaS Growth Marketing Guide
                 </Link>
               </li>
@@ -59,7 +59,7 @@ export function Footer() {
                   href="/revenue-growth-benchmarking" 
                   className="flex items-center text-gray-400 hover:text-white transition-colors"
                 >
-                  <BarChart3 className="h-4 w-4 mr-2" />
+                  <BarChart3 className="h-4 w-4 mr-2" aria-label="Revenue Growth Benchmarking" />
                   Revenue Growth Benchmarking
                 </Link>
               </li>
@@ -68,7 +68,7 @@ export function Footer() {
                   href="/marketing-attribution-framework" 
                   className="flex items-center text-gray-400 hover:text-white transition-colors"
                 >
-                  <BarChart3 className="h-4 w-4 mr-2" />
+                  <BarChart3 className="h-4 w-4 mr-2" aria-label="Attribution Framework" />
                   Attribution Framework
                 </Link>
               </li>
@@ -84,7 +84,7 @@ export function Footer() {
                   href="/cac-optimization-calculator" 
                   className="flex items-center text-gray-400 hover:text-white transition-colors"
                 >
-                  <Calculator className="h-4 w-4 mr-2" />
+                  <Calculator className="h-4 w-4 mr-2" aria-label="CAC Optimization Calculator" />
                   CAC Optimization Calculator
                 </Link>
               </li>
@@ -93,7 +93,7 @@ export function Footer() {
                   href="/saas-creative-strategy-roi-calculator" 
                   className="flex items-center text-gray-400 hover:text-white transition-colors"
                 >
-                  <TrendingUp className="h-4 w-4 mr-2" />
+                  <TrendingUp className="h-4 w-4 mr-2" aria-label="Creative Strategy ROI Calculator" />
                   Creative Strategy ROI Calculator
                 </Link>
               </li>
@@ -102,7 +102,7 @@ export function Footer() {
                   href="/revenue-growth-benchmarking" 
                   className="flex items-center text-gray-400 hover:text-white transition-colors"
                 >
-                  <BarChart3 className="h-4 w-4 mr-2" />
+                  <BarChart3 className="h-4 w-4 mr-2" aria-label="Performance Benchmark Tool" />
                   Performance Benchmark Tool
                 </Link>
               </li>
@@ -111,7 +111,7 @@ export function Footer() {
                   href="/marketing-attribution-framework" 
                   className="flex items-center text-gray-400 hover:text-white transition-colors"
                 >
-                  <Target className="h-4 w-4 mr-2" />
+                  <Target className="h-4 w-4 mr-2" aria-label="Attribution Modeling Tool" />
                   Attribution Modeling Tool
                 </Link>
               </li>
@@ -120,7 +120,7 @@ export function Footer() {
                   href="/saas-growth-marketing-guide" 
                   className="flex items-center text-gray-400 hover:text-white transition-colors"
                 >
-                  <TrendingUp className="h-4 w-4 mr-2" />
+                  <TrendingUp className="h-4 w-4 mr-2" aria-label="Channel Assessment Tool" />
                   Channel Assessment Tool
                 </Link>
               </li>
@@ -149,18 +149,18 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/#service-tiers" 
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Service Tiers
-                </Link>
-              </li>
-              <li>
-                <Link 
                   href="/#strategic-process" 
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Our Process
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/about" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  About
                 </Link>
               </li>
             </ul>

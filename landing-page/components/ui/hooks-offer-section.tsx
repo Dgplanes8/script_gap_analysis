@@ -24,14 +24,14 @@ export function HooksOfferSection() {
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Get 10 Proven Hooks That Convert
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> Instantly</span>
+              10 Viral Hooks from Fortune 100
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> Campaigns</span>
             </h2>
             
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              These hooks are based on recent trends and proven psychological principles from 
-              working with subscription companies. Each hook includes 
-              the psychology behind why it works and strategic implementation guidance.
+              Get the exact hooks that drove viral growth for subscription businesses. 
+              From someone who managed $100M+ ad spend. Each hook includes the strategic rationale 
+              and platform-specific adaptation guide.
             </p>
           </div>
 
@@ -41,9 +41,9 @@ export function HooksOfferSection() {
               <div className="bg-blue-100 rounded-lg p-3 w-fit mb-4">
                 <TrendingUp className="h-6 w-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Trending Psychology</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Fortune 100 Proven</h3>
               <p className="text-gray-600">
-                Based on current consumer behavior patterns and what's working right now in subscription marketing.
+                Hooks that drove viral growth for subscription businesses at enterprise scale. Real performance data, not theory.
               </p>
             </div>
             
@@ -51,9 +51,9 @@ export function HooksOfferSection() {
               <div className="bg-indigo-100 rounded-lg p-3 w-fit mb-4">
                 <Target className="h-6 w-6 text-indigo-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Proven Performance</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Ready to Use</h3>
               <p className="text-gray-600">
-                Every hook includes strategic analysis and optimization principles tested across multiple verticals.
+                Each hook includes strategic rationale and platform adaptation guide. Copy, paste, and customize for your brand.
               </p>
             </div>
             
@@ -61,9 +61,9 @@ export function HooksOfferSection() {
               <div className="bg-purple-100 rounded-lg p-3 w-fit mb-4">
                 <Mail className="h-6 w-6 text-purple-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Weekly Updates</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Weekly Intelligence</h3>
               <p className="text-gray-600">
-                Plus get exclusive Monday Morning Ideas with fresh hooks, creative breakdowns, and testing strategies.
+                Plus get weekly trend intelligence newsletter with fresh hooks, competitor breakdowns, and Fortune 100 strategies.
               </p>
             </div>
           </div>
