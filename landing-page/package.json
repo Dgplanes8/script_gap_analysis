@@ -18,7 +18,7 @@
     "@hookform/resolvers": "^3.3.0",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-toast": "^1.1.5",
-    "@stripe/stripe-js": "^2.4.0",
+    "@stripe/stripe-js": "^3.3.0",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20",
@@ -38,7 +38,7 @@
     "stripe": "^14.17.0",
     "tailwindcss": "^3.4.0",
     "typescript": "^5",
-    "zod": "^3.22.0"
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.4",

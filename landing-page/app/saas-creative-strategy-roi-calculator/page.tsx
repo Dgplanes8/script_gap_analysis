@@ -6,12 +6,12 @@ import { ContentNavigation } from '@/components/layout/content-navigation';
 import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
-  title: 'SaaS Creative Strategy ROI Calculator - Measure Creative Performance Impact',
-  description: 'Calculate the ROI of your SaaS creative strategy. Free calculator with scenario modeling and strategic recommendations for optimizing creative performance.',
-  keywords: 'SaaS creative strategy, creative strategy ROI calculator, SaaS ad creative performance, creative strategy consultant, SaaS marketing creative optimization',
+  title: 'SaaS Creative ROI Calculator - Weekly Trend Intelligence Plans',
+  description: 'Free ROI calculator + weekly viral scripts for SaaS businesses. Get trending concepts and competitor analysis every Monday from Fortune 100 methodology.',
+  keywords: 'SaaS creative ROI, weekly trend intelligence, viral scripts, SaaS marketing, competitor analysis, subscription business growth',
   openGraph: {
-    title: 'SaaS Creative Strategy ROI Calculator - Optimize Your Creative Performance',
-    description: 'Calculate the ROI of your SaaS creative strategy with our free calculator and get strategic recommendations.',
+    title: 'SaaS Creative ROI Calculator - Weekly Trend Intelligence Plans',
+    description: 'Free ROI calculator + weekly viral scripts for SaaS. Trending concepts every Monday from Fortune 100 experience.',
     type: 'website',
   },
   alternates: {

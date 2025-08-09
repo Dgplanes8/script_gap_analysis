@@ -56,7 +56,7 @@ export function Hero({
                 {onPrimaryClick ? (
                   <button 
                     onClick={onPrimaryClick}
-                    className="btn-primary text-lg px-8 py-4"
+                    className="btn btn-primary"
                   >
                     {ctaText}
                   </button>
@@ -72,7 +72,7 @@ export function Hero({
               onSecondaryClick ? (
                 <button
                   onClick={onSecondaryClick}
-                  className="text-gray-200 hover:text-white underline transition-colors"
+                  className="btn btn-secondary"
                 >
                   {secondaryCtaText}
                 </button>
@@ -94,8 +94,8 @@ export function Hero({
               <span>Ad Spend Managed</span>
             </div>
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-white mr-2">11-Phase</span>
-              <span>Systematic Process</span>
+              <span className="text-2xl font-bold text-white mr-2">Weekly</span>
+              <span>Trend Intelligence</span>
             </div>
             <div className="flex items-center">
               <span className="text-2xl font-bold text-white mr-2">Fortune 100</span>

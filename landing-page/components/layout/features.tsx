@@ -27,7 +27,7 @@ export function Features({ title, subtitle, features }: FeaturesProps) {
             return (
               <div key={index} className="text-center p-6">
                 <div className="bg-brand-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon className="h-8 w-8 text-brand-600" />
+                  <Icon className="h-8 w-8 text-brand-600" aria-label={feature.title} />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>

@@ -33,10 +33,10 @@ export default function FreeHooksPage() {
               </div>
               
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                Free Marketing Resources
+                10 Free Viral Hooks That Stop the Scroll
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Access proven hooks, strategic frameworks, and performance data from $100M+ in managed ad spend.
+                Get the exact hooks used by Fortune 100 subscription businesses to drive viral growth. Based on $100M+ in managed ad spend data.
               </p>
             </div>
           </div>
@@ -122,16 +122,16 @@ export default function FreeHooksPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-6">
-                Want More Personalized Strategy?
+                Ready for Weekly Trend Intelligence?
               </h2>
               <p className="text-xl mb-8 opacity-90">
-                Book a strategic consultation to explore how Fortune 100 methodology can be customized for your specific business needs.
+                Get fresh scripts every Monday based on trending formats + competitor analysis. Starting at $67/month.
               </p>
               <button
                 onClick={handleOpenConsultation}
                 className="bg-white text-gray-900 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-200 text-lg"
               >
-                Book Strategic Consultation
+                Book Strategy Call
               </button>
             </div>
           </div>

@@ -120,16 +120,16 @@ export function Header({ onOpenApplication }: HeaderProps) {
           {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
             <button
-              onClick={() => scrollToSection('strategic-resources')}
-              className="px-4 py-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors"
+              onClick={() => window.location.href = '/free-hooks'}
+              className="btn btn-tertiary"
             >
-              Free Resources
+              Get 10 Free Hooks
             </button>
             <button
               onClick={openConsultation}
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="btn btn-primary"
             >
-              Book Consultation
+              Book Strategy Call
             </button>
           </div>
 
@@ -138,7 +138,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-6 w-6" aria-label="Close menu" /> : <Menu className="h-6 w-6" aria-label="Open menu" />}
           </button>
         </div>
 
@@ -200,21 +200,21 @@ export function Header({ onOpenApplication }: HeaderProps) {
               <div className="pt-4 space-y-3 border-t border-gray-100">
                 <button
                   onClick={() => {
-                    scrollToSection('strategic-resources');
+                    window.location.href = '/free-hooks';
                     setIsOpen(false);
                   }}
-                  className="w-full px-4 py-3 text-blue-600 border border-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                  className="btn btn-tertiary w-full"
                 >
-                  Free Resources
+                  Get 10 Free Hooks
                 </button>
                 <button
                   onClick={() => {
                     openConsultation();
                     setIsOpen(false);
                   }}
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-200"
+                  className="btn btn-primary w-full"
                 >
-                  Book Consultation
+                  Book Strategy Call
                 </button>
               </div>
             </nav>
