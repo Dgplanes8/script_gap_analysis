@@ -10,11 +10,11 @@ import { ConsultationModal } from '@/components/modals/consultation-modal';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Apsics Media - Performance Marketing Acceleration in 48 Hours',
+  title: 'Apsics Media - Weekly Trend Intelligence for Subscription Businesses',
   description:
-    'Ready-to-develop scripts delivered in 48 hours. Each creative concept includes 3 platform-optimized scripts. Expert performance marketing acceleration with AI-enhanced research.',
+    'Get viral scripts every Monday based on trending formats + competitor analysis. Fortune 100 methodology delivering weekly trend intelligence starting at $67/month.',
   keywords:
-    'performance marketing acceleration, ready-to-develop scripts, creative concepts, performance marketing consultant, D2C marketing, subscription business marketing',
+    'weekly trend intelligence, viral scripts, competitor analysis, subscription business marketing, Fortune 100 marketing, TikTok trends, weekly creative concepts',
   authors: [{ name: 'Apsics Media' }],
   creator: 'Apsics Media',
   publisher: 'Apsics Media',
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Apsics Media - Performance Marketing Acceleration in 48 Hours',
+    title: 'Apsics Media - Weekly Trend Intelligence for Subscription Businesses',
     description:
-      'Ready-to-develop scripts delivered in 48 hours. Each creative concept includes 3 platform-optimized scripts. Expert performance marketing acceleration.',
+      'Get viral scripts every Monday based on trending formats + competitor analysis. Fortune 100 methodology starting at $67/month.',
     url: '/',
     siteName: 'Apsics Media',
     images: [
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Apsics Media - Performance Marketing Acceleration in 48 Hours',
+    title: 'Apsics Media - Weekly Trend Intelligence for Subscription Businesses',
     description:
-      'Ready-to-develop scripts delivered in 48 hours. Each creative concept includes 3 platform-optimized scripts. Expert performance marketing acceleration.',
+      'Get viral scripts every Monday based on trending formats + competitor analysis. Fortune 100 methodology starting at $67/month.',
     images: ['/images/og-image.jpg'],
     creator: '@apsicsmedia',
   },

@@ -16,15 +16,28 @@ export function AboutSection({ onOpenApplication }: AboutSectionProps) {
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-semibold mb-6">
               <Building2 className="h-4 w-4 mr-2" />
-              Expert Strategic Intelligence System
+              Fortune 100 Proven Methodology
             </div>
+            
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <div className="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+                ✓ $100M+ AD SPEND MANAGED
+              </div>
+              <div className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+                ✓ 10+ YEARS EXPERIENCE
+              </div>
+              <div className="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+                ✓ SYSTEMATIC APPROACH
+              </div>
+            </div>
+            
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Fortune 100 Systematic Methodology
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               The same systematic 11-phase methodology used to manage $100M+ in ad spend for Fortune 100 companies, 
-              now available as a strategic partnership for subscription businesses ready to scale systematically. 
-              Unlike agencies that focus on execution, we provide strategic transformation enhanced with AI research tools.
+              now adapted for weekly trend intelligence delivery. Unlike agencies that focus on execution, we provide 
+              strategic transformation enhanced with AI research tools and competitive analysis.
             </p>
           </div>
 

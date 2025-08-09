@@ -27,24 +27,24 @@ export function SuccessConfirmation({ onClose, handleOverlayClick }: SuccessConf
             Strategic Consultation Booked!
           </h2>
           <p className="text-lg text-gray-600 mb-6">
-            Thank you for your interest in Apsics Media. 
+            Thank you for your interest in weekly trend intelligence. 
             We'll review your information and reach out within 24 hours to schedule 
-            your personalized strategic consultation.
+            your personalized strategy call to discuss which plan fits your growth goals.
           </p>
           <div className="bg-indigo-50 rounded-lg p-6 mb-6">
             <h3 className="font-semibold text-indigo-900 mb-3">What to Expect:</h3>
             <ul className="text-sm text-indigo-800 space-y-2">
               <li className="flex items-center">
                 <CheckCircle className="h-4 w-4 text-indigo-600 mr-2 flex-shrink-0" />
-                30-minute strategic assessment call
+                30-minute growth strategy assessment
               </li>
               <li className="flex items-center">
                 <CheckCircle className="h-4 w-4 text-indigo-600 mr-2 flex-shrink-0" />
-                Personalized implementation roadmap
+                Weekly trend intelligence plan recommendation
               </li>
               <li className="flex items-center">
                 <CheckCircle className="h-4 w-4 text-indigo-600 mr-2 flex-shrink-0" />
-                No-obligation strategic guidance
+                No-obligation strategic guidance from Fortune 100 expertise
               </li>
             </ul>
           </div>
