@@ -31,8 +31,8 @@ export default function HomePage() {
       <main className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
       <Hero
-        title="Get Viral Scripts Every Week (Not Every Month)"
-        subtitle="Weekly trend intelligence + competitor analysis delivered every Monday. Each concept includes ready-to-develop scripts from someone who managed $100M+ ad spend for Fortune 100 subscription businesses."
+        title="Stop Waiting Weeks for Creative Concepts - Get Fresh Scripts in 48 Hours"
+        subtitle="Weekly creative intelligence delivered every Monday for growth leaders at subscription companies. Battle-tested concepts from 10+ years managing performance marketing campaigns, not corporate methodology."
         ctaText="Get My 10 Free Hooks"
         secondaryCtaText="See Weekly Plans"
         showEmailCapture={true}
@@ -41,35 +41,35 @@ export default function HomePage() {
       />
 
       {/* Lead Magnet Prominence Section */}
-      <section className="py-16 bg-gradient-to-r from-green-50 to-blue-50">
+      <section className="py-16 bg-gradient-to-r from-orange-50 to-orange-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-green-200">
-              <div className="inline-flex items-center bg-gradient-to-r from-green-600 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-orange-200">
+              <div className="inline-flex items-center bg-gradient-to-r from-orange-600 to-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Mail className="h-4 w-4 mr-2" />
                 FREE DOWNLOAD - LIMITED TIME
               </div>
               
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Get 10 Viral Hooks from Fortune 100 Campaigns
+                10 Hooks That Convert Subscription Sign-ups
               </h2>
               
               <p className="text-lg text-gray-600 mb-6">
-                The exact hooks that drove viral growth for subscription businesses. Each hook includes strategic rationale and platform adaptation guide. From someone who managed $100M+ ad spend.
+                Proven hooks from high-performing subscription campaigns. Perfect for growth teams testing new creative angles weekly. Stop guessing what hooks will work - get concepts you can test this week.
               </p>
               
               <div className="grid md:grid-cols-3 gap-4 mb-8">
                 <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="text-2xl font-bold text-green-600">Fortune 100</div>
-                  <div className="text-sm text-gray-600">Proven Hooks</div>
+                  <div className="text-2xl font-bold text-orange-600">Performance</div>
+                  <div className="text-sm text-gray-600">Tested Hooks</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="text-2xl font-bold text-blue-600">Ready to Use</div>
-                  <div className="text-sm text-gray-600">Copy & Customize</div>
+                  <div className="text-2xl font-bold text-navy-600">Ready to Test</div>
+                  <div className="text-sm text-gray-600">This Week</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="text-2xl font-bold text-purple-600">Weekly Bonus</div>
-                  <div className="text-sm text-gray-600">Trend Intelligence</div>
+                  <div className="text-2xl font-bold text-teal-600">Growth Focus</div>
+                  <div className="text-sm text-gray-600">Subscription Specific</div>
                 </div>
               </div>
               
@@ -96,26 +96,26 @@ export default function HomePage() {
 
       {/* Strategic Differentiators */}
       <Features
-        title="Why Weekly Trend Intelligence Works for Digital Subscription Businesses"
-        subtitle="Get trending concepts and competitor analysis delivered every Monday vs waiting weeks for traditional agencies"
+        title="Built for Growth Leaders Who Can't Wait on Agencies"
+        subtitle="48-hour creative delivery vs 2-week agency turnaround times. Perfect for performance marketers scaling subscription companies."
         features={[
           {
             icon: Target,
-            title: 'Weekly Trend Intelligence',
+            title: 'Creative Bottleneck Solution',
             description:
-              'Scripts inspired by what\'s working RIGHT NOW on social media. Fresh concepts every Monday based on trending formats, not guesswork.',
+              'Fresh creative concepts every Monday when your team is stuck on the same angles. Stop waiting weeks for agencies - get testable scripts immediately.',
           },
           {
             icon: Building2,
-            title: 'Fortune 100 Proven Methods',
+            title: 'Performance Marketing Focus',
             description:
-              '10+ years managing $100M+ ad spend for subscription businesses. Systematic approach proven at Fortune 100 scale, optimized for speed.'
+              '10+ years optimizing campaigns for subscription companies. Built specifically for growth teams managing $10k-$50k+ monthly ad spend.',
           },
           {
             icon: TrendingUp,
-            title: 'Competitive Analysis Included',
+            title: 'Audience Expansion Intelligence',
             description:
-              'We reverse-engineer your competitors\' best content. Weekly delivery vs industry standard 1-2 week turnaround times.',
+              'Find new audiences when you\'ve saturated your core segments. Competitor analysis shows you what\'s working for similar subscription companies.',
           },
         ]}
       />
@@ -135,10 +135,10 @@ export default function HomePage() {
 
 
       {/* Weekly Delivery Guarantee Section */}
-      <section className="py-16 bg-gradient-to-r from-green-50 to-blue-50">
+      <section className="py-16 bg-gradient-to-r from-orange-50 to-orange-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-full text-sm font-bold mb-6">
+            <div className="inline-flex items-center bg-orange-600 text-white px-6 py-3 rounded-full text-sm font-bold mb-6">
               <Calendar className="h-5 w-5 mr-2" />
               MONDAY DELIVERY GUARANTEE
             </div>
@@ -147,31 +147,31 @@ export default function HomePage() {
               Weekly Script Delivery (Every Monday)
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-xl p-6 shadow-lg border border-indigo-100">
-                <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Target className="h-6 w-6 text-indigo-600" />
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-orange-100">
+                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Target className="h-6 w-6 text-orange-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Trending Concepts Weekly</h3>
+                <h3 className="text-xl font-semibold mb-3">Creative Testing Fuel</h3>
                 <p className="text-gray-600">
-                  Fresh scripts based on what's working RIGHT NOW on social media. Delivered every Monday, not every month.
+                  New concepts to test when your current ads are fatiguing. Fresh angles delivered every Monday for continuous optimization.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-6 shadow-lg border border-green-100">
-                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="h-6 w-6 text-green-600" />
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-teal-100">
+                <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="h-6 w-6 text-teal-600" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Competitor Intelligence</h3>
                 <p className="text-gray-600">
-                  We reverse-engineer what's working for your competitors and adapt it for your brand. Fortune 100 methodology at startup speed.
+                  See what's working for other subscription companies before your competitors copy it. Adapt winning concepts for your growth goals.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-6 shadow-lg border border-purple-100">
-                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Building2 className="h-6 w-6 text-purple-600" />
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-navy-100">
+                <div className="w-12 h-12 bg-navy-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Building2 className="h-6 w-6 text-navy-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Subscription Business Focus</h3>
+                <h3 className="text-xl font-semibold mb-3">Growth-Stage Focused</h3>
                 <p className="text-gray-600">
-                  Built specifically for digital subscription businesses needing consistent creative testing fuel to combat churn and drive growth.
+                  Perfect for 5-75 employee subscription companies scaling beyond basic audiences. Built for teams managing serious ad budgets.
                 </p>
               </div>
             </div>
@@ -198,16 +198,16 @@ export default function HomePage() {
                   How is this different from traditional agencies?
                 </h3>
                 <p className="text-gray-600">
-                  Traditional agencies take 1-2 weeks for script delivery and charge $5,000+ monthly minimums. We deliver fresh, trending concepts every Monday at a fraction of the cost, using Fortune 100 proven methodology enhanced with AI research.
+                  Agencies take 1-2 weeks for concept delivery and charge $5,000+ monthly minimums. We deliver fresh concepts every Monday at a fraction of the cost, specifically for performance marketers who need constant creative testing.
                 </p>
               </div>
               
               <div className="border-b border-gray-200 pb-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                  What makes your trend intelligence unique?
+                  What makes your creative intelligence unique?
                 </h3>
                 <p className="text-gray-600">
-                  We combine real-time social media trend analysis with competitor reverse-engineering, backed by 10+ years managing $100M+ in ad spend for Fortune 100 subscription businesses. You get strategic context, not just trending formats.
+                  We combine trend analysis with competitor intelligence, specifically for subscription business models. 10+ years optimizing campaigns for recurring revenue companies means we understand your growth challenges.
                 </p>
               </div>
               
@@ -243,14 +243,14 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-indigo-600 to-purple-700 text-white">
+      <section className="py-24 bg-gradient-to-br from-orange-600 to-red-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">
-              Ready to Get Fresh Scripts Every Monday?
+              Stop Waiting on Agencies - Get Concepts This Week
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Join subscription businesses getting weekly trend intelligence from someone who managed $100M+ ad spend at Fortune 100 companies.
+              Join 200+ growth leaders at subscription companies getting fresh creative concepts every Monday. Built for teams that can't wait weeks for new ideas.
             </p>
             
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
@@ -289,10 +289,10 @@ export default function HomePage() {
             
             <div className="border-t border-white/20 pt-8">
               <h3 className="text-2xl font-bold mb-4">
-                Weekly Creative Intelligence Newsletter
+                Growth Leader Creative Intelligence
               </h3>
               <p className="text-lg mb-6 opacity-90">
-                Get trending hooks, competitor insights, and Fortune 100 performance marketing strategies delivered every Monday.
+                Get fresh creative angles, audience insights, and performance marketing strategies delivered every Monday. Perfect for heads of growth.
               </p>
               <div className="max-w-md mx-auto">
                 <EmailCaptureForm

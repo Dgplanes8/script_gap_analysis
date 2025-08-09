@@ -23,28 +23,28 @@ export default function AboutPage() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section for About Page */}
-        <section className="py-16 bg-gradient-to-br from-indigo-50 to-purple-50">
+        <section className="py-16 bg-gradient-to-br from-orange-50 to-red-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                About Monday Morning Marketer
+                Built for Growth Leaders Who Can't Wait on Agencies
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Fortune 100 systematic methodology for subscription businesses ready to scale strategically and profitably.
+                Performance marketing expertise for subscription companies scaling beyond basic audiences. 48-hour creative delivery when agencies take weeks.
               </p>
               <div className="bg-white/60 backdrop-blur rounded-xl p-8">
                 <div className="grid md:grid-cols-3 gap-6 text-center">
                   <div>
-                    <div className="text-3xl font-bold text-indigo-600">$100M+</div>
-                    <div className="text-sm text-gray-600">Ad Spend Managed</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-indigo-600">10+</div>
+                    <div className="text-3xl font-bold text-orange-600">10+</div>
                     <div className="text-sm text-gray-600">Years Experience</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-indigo-600">Fortune 100</div>
-                    <div className="text-sm text-gray-600">Proven Methods</div>
+                    <div className="text-3xl font-bold text-teal-600">200+</div>
+                    <div className="text-sm text-gray-600">Growth Leaders Served</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-navy-600">48 Hours</div>
+                    <div className="text-sm text-gray-600">Creative Delivery</div>
                   </div>
                 </div>
               </div>
@@ -56,20 +56,20 @@ export default function AboutPage() {
         <AboutSection onOpenApplication={handleOpenConsultation} />
 
         {/* Strategic Consultation CTA */}
-        <section className="py-16 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+        <section className="py-16 bg-gradient-to-r from-orange-600 to-red-600 text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-6">
-                Ready to Transform Your Marketing Strategy?
+                Stop Waiting Weeks for Creative Concepts
               </h2>
               <p className="text-xl mb-8 opacity-90">
-                Book a strategic consultation to explore how Fortune 100 methodology can accelerate your subscription business growth.
+                Book a growth bottleneck assessment to see how 48-hour creative delivery can accelerate your subscription business growth.
               </p>
               <button
                 onClick={handleOpenConsultation}
-                className="bg-white text-blue-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-lg"
+                className="bg-white text-orange-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-lg"
               >
-                Book Strategic Consultation
+                Book Growth Assessment
               </button>
             </div>
           </div>

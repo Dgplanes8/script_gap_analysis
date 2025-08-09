@@ -25,11 +25,11 @@ export function ServiceTiers() {
         'Weekly delivery consistency',
         'Email delivery and support'
       ],
-      badge: 'Perfect for testing trending concepts',
-      badgeColor: 'bg-green-100 text-green-800',
-      borderColor: 'border-green-200 hover:border-green-400',
-      ctaColor: 'bg-green-600 hover:bg-green-700 text-white',
-      ideal: 'Small businesses and startups testing creative concepts with trending formats'
+      badge: 'Perfect for growth teams testing new angles',
+      badgeColor: 'bg-orange-100 text-orange-800',
+      borderColor: 'border-orange-200 hover:border-orange-400',
+      ctaColor: 'bg-orange-600 hover:bg-orange-700 text-white',
+      ideal: 'Growth teams at 5-25 employee subscription companies testing creative concepts weekly'
     },
     {
       id: 'intelligence',
@@ -47,12 +47,12 @@ export function ServiceTiers() {
         'Competitor analysis methodology',
         'Priority email support'
       ],
-      badge: 'Most Popular - Trend + Competitor Intelligence',
-      badgeColor: 'bg-blue-100 text-blue-800',
-      borderColor: 'border-blue-300 hover:border-blue-500',
-      ctaColor: 'bg-blue-600 hover:bg-blue-700 text-white',
+      badge: 'Most Popular - Ideal for saturated audiences',
+      badgeColor: 'bg-teal-100 text-teal-800',
+      borderColor: 'border-teal-300 hover:border-teal-500',
+      ctaColor: 'bg-teal-600 hover:bg-teal-700 text-white',
       popular: true,
-      ideal: 'Growing D2C brands seeking competitive advantage with strategic intelligence'
+      ideal: 'Performance marketers at 25-75 employee companies who\'ve saturated their core audiences'
     },
     {
       id: 'performance',
@@ -67,14 +67,14 @@ export function ServiceTiers() {
         'Trend analysis + competitor breakdown + original concept',
         'Weekly "what\'s working" insight summary',
         'Direct team access for strategic support',
-        'Fortune 100 proven methodology application',
+        'Performance marketing methodology application',
         'Priority support with strategic consultation'
       ],
-      badge: 'Premium - Market Intelligence + Direct Access',
-      badgeColor: 'bg-purple-100 text-purple-800',
-      borderColor: 'border-purple-300 hover:border-purple-500',
-      ctaColor: 'bg-purple-600 hover:bg-purple-700 text-white',
-      ideal: 'Established subscription businesses requiring comprehensive creative strategy'
+      badge: 'Premium - For $50k+ monthly ad spend',
+      badgeColor: 'bg-navy-100 text-navy-800',
+      borderColor: 'border-navy-300 hover:border-navy-500',
+      ctaColor: 'bg-navy-600 hover:bg-navy-700 text-white',
+      ideal: 'Heads of Growth at subscription companies scaling beyond $50k/month ad spend'
     }
   ];
 
@@ -82,29 +82,29 @@ export function ServiceTiers() {
     <section className="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-semibold mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-6">
             <Zap className="h-4 w-4 mr-2" />
-            Performance Marketing Acceleration
+            Built for Growth Leaders
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Weekly Trend Intelligence Delivered Every Monday
+            Creative Concepts Delivered Every Monday (Not Every Month)
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-            Fresh scripts based on trending social media formats + competitor analysis. 
-            Weekly delivery vs industry standard 1-2 week turnaround from traditional agencies.
+            Fresh creative concepts and audience insights for performance marketers who can't wait weeks for agencies. 
+            48-hour delivery vs industry standard 1-2 week turnaround.
           </p>
           <div className="bg-white rounded-xl p-6 max-w-3xl mx-auto shadow-lg border">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-indigo-600">Weekly</div>
-                <div className="text-sm text-gray-600">Monday Delivery</div>
+                <div className="text-3xl font-bold text-orange-600">48 Hours</div>
+                <div className="text-sm text-gray-600">Not 2 Weeks</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-green-600">Trending</div>
-                <div className="text-sm text-gray-600">Fresh Concepts</div>
+                <div className="text-3xl font-bold text-teal-600">Growth Focus</div>
+                <div className="text-sm text-gray-600">Subscription Companies</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-purple-600">$67/Month</div>
+                <div className="text-3xl font-bold text-navy-600">$67/Month</div>
                 <div className="text-sm text-gray-600">Starting Price</div>
               </div>
             </div>
@@ -118,14 +118,14 @@ export function ServiceTiers() {
               <div
                 key={tier.id}
                 className={`relative bg-white rounded-2xl shadow-xl p-8 transition-all duration-300 hover:shadow-2xl flex flex-col h-full ${
-                  tier.popular ? 'ring-2 ring-green-500 transform scale-105' : ''
+                  tier.popular ? 'ring-2 ring-teal-500 transform scale-105' : ''
                 } ${tier.borderColor} border-2`}
                 onMouseEnter={() => setSelectedTier(tier.id as any)}
                 onMouseLeave={() => setSelectedTier(null)}
               >
                 {tier.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center">
+                    <div className="bg-teal-500 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center">
                       <Zap className="h-4 w-4 mr-1" />
                       Most Popular
                     </div>
@@ -154,7 +154,7 @@ export function ServiceTiers() {
                   <ul className="space-y-3">
                     {tier.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
-                        <Check className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                        <Check className="h-5 w-5 text-teal-500 mt-0.5 mr-3 flex-shrink-0" />
                         <span className={`text-gray-700 ${feature.startsWith('Everything') ? 'font-semibold text-gray-900' : ''}`}>
                           {feature}
                         </span>
@@ -190,10 +190,10 @@ export function ServiceTiers() {
         <div className="mt-16 text-center">
           <div className="bg-white rounded-2xl p-8 max-w-4xl mx-auto shadow-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Not Sure Which Weekly Plan is Right for You?
+              Not Sure Which Plan Fits Your Growth Stage?
             </h3>
             <p className="text-lg text-gray-600 mb-6">
-              Book a strategy consultation to get personalized recommendations for your subscription business growth needs.
+              Book a growth assessment to get personalized recommendations based on your current ad spend and team size.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <ConsultationBookingCTA 
@@ -201,11 +201,11 @@ export function ServiceTiers() {
                 variant="primary"
               />
               <div className="text-sm text-gray-500">
-                • 30-minute subscription business assessment
+                • 30-minute growth bottleneck assessment
                 <br />
-                • Weekly trend intelligence plan recommendation  
+                • Creative delivery plan recommendation  
                 <br />
-                • Fortune 100 performance marketing insights
+                • Performance marketing acceleration strategies
               </div>
             </div>
           </div>
