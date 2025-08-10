@@ -3,7 +3,7 @@ import { SubscriptionMarketingGuide } from '@/components/content/subscription-ma
 
 export const metadata: Metadata = {
   title: 'Complete Guide to Subscription Marketing Strategy - Scale Your Recurring Revenue',
-  description: 'Comprehensive 8,000-word guide to subscription marketing strategy. Includes strategic frameworks, implementation checklist, case studies, and 7-part email course for scaling subscription businesses.',
+  description: 'Comprehensive guide to subscription marketing strategy. Includes strategic frameworks, implementation checklist, case studies, and 10 free high-converting hooks for scaling subscription businesses.',
   keywords: 'subscription marketing strategy, subscription business marketing, recurring revenue marketing, subscription marketing consultant, SaaS marketing strategy',
   openGraph: {
     title: 'Complete Guide to Subscription Marketing Strategy - Scale Your Recurring Revenue',

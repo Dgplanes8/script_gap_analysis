@@ -52,7 +52,7 @@ export default function CACReductionGuidePage() {
       {/* Header Navigation */}
       <Header />
       
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 pt-16 lg:pt-20">
+      <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100 pt-16 lg:pt-20">
 
         {/* Hero Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">

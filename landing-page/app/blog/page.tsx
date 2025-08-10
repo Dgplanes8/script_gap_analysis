@@ -1,8 +1,12 @@
+'use client';
+
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { BookOpen, TrendingUp, Calculator, Target, Users, Zap } from 'lucide-react';
+import { PopupFormModal } from '@/components/forms/popup-form-modal';
+import { usePopupForm } from '@/hooks/use-popup-form';
 
 export const metadata: Metadata = {
   title: 'Blog & Resources - Weekly Trend Intelligence for Subscription Marketing | Apsics Media',
@@ -176,6 +180,8 @@ const articles = [
 ];
 
 export default function BlogPage() {
+  const { isPopupOpen, openPopup, closePopup } = usePopupForm();
+  
   return (
     <>
       <Header />
@@ -199,12 +205,12 @@ export default function BlogPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/free-hooks"
+                <button
+                  onClick={openPopup}
                   className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
                 >
                   Get 10 Free Hooks First
-                </Link>
+                </button>
                 <Link
                   href="/#service-tiers"
                   className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
@@ -220,17 +226,13 @@ export default function BlogPage() {
         <section className="py-12 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <div className="text-3xl font-bold text-blue-600 mb-2">28+</div>
-                  <div className="text-gray-600">SEO-Optimized Articles</div>
-                </div>
+              <div className="grid md:grid-cols-2 gap-8 text-center">
                 <div>
                   <div className="text-3xl font-bold text-green-600 mb-2">5</div>
                   <div className="text-gray-600">Interactive Calculators</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-purple-600 mb-2">100%</div>
+                  <div className="text-3xl font-bold text-red-600 mb-2">100%</div>
                   <div className="text-gray-600">Subscription-Focused</div>
                 </div>
               </div>
@@ -294,12 +296,12 @@ export default function BlogPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/free-hooks"
+                <button
+                  onClick={openPopup}
                   className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
                 >
                   Get My 10 Free Hooks
-                </Link>
+                </button>
                 <Link
                   href="/#service-tiers"
                   className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
@@ -313,6 +315,12 @@ export default function BlogPage() {
       </main>
       
       <Footer />
+      
+      <PopupFormModal
+        isOpen={isPopupOpen}
+        onClose={closePopup}
+        source="blog-page"
+      />
     </>
   );
 }

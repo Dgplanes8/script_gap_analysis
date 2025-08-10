@@ -84,38 +84,6 @@ const implementationChecklist = [
   }
 ];
 
-const caseStudyHighlights = [
-  {
-    company: 'B2B Project Management SaaS',
-    challenge: 'High CAC ($450) and low trial-to-paid conversion (1.2%)',
-    solution: 'Implemented customer language-driven messaging and funnel optimization',
-    results: {
-      cacReduction: '42%',
-      conversionImprovement: '158%',
-      timeToResult: '90 days'
-    }
-  },
-  {
-    company: 'FinTech Subscription Platform',
-    challenge: 'Struggled to scale beyond $500K ARR with high churn',
-    solution: 'Built cohort-based retention system and multi-channel attribution',
-    results: {
-      arrGrowth: '140%',
-      churnReduction: '35%',
-      timeToResult: '120 days'
-    }
-  },
-  {
-    company: 'Marketing Automation SaaS',
-    challenge: 'Low customer lifetime value and poor expansion revenue',
-    solution: 'Developed growth loop optimization and expansion campaigns',
-    results: {
-      ltvIncrease: '85%',
-      expansionRevenue: '65% of new revenue',
-      timeToResult: '6 months'
-    }
-  }
-];
 
 const emailCourseModules = [
   {
@@ -156,12 +124,12 @@ const emailCourseModules = [
 ];
 
 export function SubscriptionMarketingGuide() {
-  const [showEmailCourse, setShowEmailCourse] = useState(false);
+  const [showHookBank, setShowHookBank] = useState(false);
   const [showAssessment, setShowAssessment] = useState(false);
   const [activeSection, setActiveSection] = useState('overview');
 
-  const handleEmailCourseRequest = () => {
-    setShowEmailCourse(true);
+  const handleHookBankRequest = () => {
+    setShowHookBank(true);
     // Track email course request
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'email_course_request', {
@@ -205,16 +173,16 @@ export function SubscriptionMarketingGuide() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <button
-                onClick={handleEmailCourseRequest}
-                className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center"
+                onClick={handleHookBankRequest}
+                className="bg-red-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-red-700 transition-colors flex items-center justify-center"
               >
                 <Mail className="h-5 w-5 mr-2" />
-                Get 7-Part Email Course
+                Get My 10 Free Hooks
               </button>
               
               <button
                 onClick={() => setShowAssessment(true)}
-                className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors flex items-center justify-center"
+                className="border-2 border-red-600 text-red-600 px-8 py-4 rounded-lg font-semibold hover:bg-red-50 transition-colors flex items-center justify-center"
               >
                 <Calendar className="h-5 w-5 mr-2" />
                 Book Strategy Consultation
@@ -321,49 +289,8 @@ export function SubscriptionMarketingGuide() {
         </div>
       </section>
 
-      {/* Case Study Highlights */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Real Implementation Success Stories
-            </h2>
-            <p className="text-xl text-gray-600">
-              See how companies transformed their subscription marketing
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-3 gap-8">
-            {caseStudyHighlights.map((study, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg p-8">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">{study.company}</h3>
-                
-                <div className="mb-4">
-                  <h4 className="font-semibold text-gray-900 mb-2">Challenge:</h4>
-                  <p className="text-gray-700 text-sm">{study.challenge}</p>
-                </div>
-                
-                <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-2">Solution:</h4>
-                  <p className="text-gray-700 text-sm">{study.solution}</p>
-                </div>
-                
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                    <span className="text-sm font-medium text-gray-700">Results:</span>
-                    <span className="text-lg font-bold text-green-600">{Object.values(study.results)[0]}</span>
-                  </div>
-                  <div className="text-xs text-gray-600 text-center">
-                    Achieved in {study.results.timeToResult}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Email Course CTA */}
+      {/* Hook Bank CTA */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-blue-600">
         <div className="max-w-4xl mx-auto">
           <div className="text-center">
@@ -375,22 +302,22 @@ export function SubscriptionMarketingGuide() {
               Each lesson includes templates, checklists, and real implementation examples.
             </p>
             
-            {showEmailCourse ? (
+            {showHookBank ? (
               <div className="bg-white rounded-lg p-8 max-w-md mx-auto">
                 <EmailCaptureForm
                   placeholder="Enter your work email"
-                  buttonText="Start Email Course"
+                  buttonText="Get My 10 Free Hooks"
                   variant="cta"
                   source="subscription-marketing-email-course"
                 />
               </div>
             ) : (
               <button
-                onClick={handleEmailCourseRequest}
-                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-50 transition-colors inline-flex items-center"
+                onClick={handleHookBankRequest}
+                className="bg-white text-red-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-50 transition-colors inline-flex items-center"
               >
                 <Mail className="h-6 w-6 mr-3" />
-                Get Free 7-Part Email Course
+                Get My 10 Free Hooks
               </button>
             )}
             
@@ -404,12 +331,12 @@ export function SubscriptionMarketingGuide() {
         </div>
       </section>
 
-      {/* Email Course Curriculum */}
+      {/* Hook Bank Preview */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              7-Part Email Course Curriculum
+              10 High-Converting Hook Examples
             </h2>
             <p className="text-xl text-gray-600">
               Each lesson delivered daily with actionable frameworks and templates

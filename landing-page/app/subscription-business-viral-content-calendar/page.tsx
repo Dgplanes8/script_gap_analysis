@@ -49,7 +49,7 @@ export default function ViralContentCalendarPage() {
                   <Download className="h-5 w-5 mr-2" />
                   Download Calendar Template
                 </Link>
-                <Link href="#strategy" className="btn btn-secondary border-white text-white hover:bg-white/10">
+                <Link href="#strategy" className="btn border-white text-white hover:bg-white/10 px-6 py-3 rounded-lg font-semibold">
                   See Strategic Framework
                 </Link>
               </div>
@@ -456,7 +456,7 @@ export default function ViralContentCalendarPage() {
                   <Download className="h-5 w-5 mr-2" />
                   Download Free Calendar Template
                 </Link>
-                <Link href="/#service-tiers" className="btn border-white text-white hover:bg-white/10">
+                <Link href="/#service-tiers" className="btn border-white text-white hover:bg-white/10 px-6 py-3 rounded-lg font-semibold">
                   Get Weekly Intelligence Too
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Link>

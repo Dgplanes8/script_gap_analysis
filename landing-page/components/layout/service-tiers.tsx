@@ -4,9 +4,12 @@ import { useState } from 'react';
 import { Check, ArrowRight, Zap, Target, Crown, Building2, TrendingUp, Calendar } from 'lucide-react';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { useConsultation } from '@/components/contexts/consultation-context';
+import { PopupFormModal } from '@/components/forms/popup-form-modal';
+import { usePopupForm } from '@/hooks/use-popup-form';
 
 export function ServiceTiers() {
   const { openModal: openConsultation } = useConsultation();
+  const { isPopupOpen, openPopup, closePopup } = usePopupForm();
   const [selectedTier, setSelectedTier] = useState<'assessment' | 'foundation' | 'growth' | 'enterprise' | null>(null);
 
   const tiers = [
@@ -170,7 +173,7 @@ export function ServiceTiers() {
 
                 <div className="mt-auto">
                   <button
-                  onClick={() => window.location.href = '/free-hooks'}
+                  onClick={openPopup}
                   className={`w-full py-4 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center min-h-[56px] ${tier.ctaColor}`}
                 >
                   <Calendar className="h-5 w-5 mr-2 flex-shrink-0" />
@@ -197,7 +200,7 @@ export function ServiceTiers() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
-                onClick={() => window.location.href = '/free-hooks'}
+                onClick={openPopup}
                 className="btn btn-primary text-lg px-8 py-4"
               >
                 Get My 10 Free Hooks
@@ -214,5 +217,11 @@ export function ServiceTiers() {
         </div>
       </div>
     </section>
+    
+    <PopupFormModal
+      isOpen={isPopupOpen}
+      onClose={closePopup}
+      source="service-tiers"
+    />
   );
 }

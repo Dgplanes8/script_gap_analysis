@@ -1,9 +1,13 @@
+'use client';
+
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { Building2, TrendingUp, Target, Users, ArrowRight, CheckCircle, X, DollarSign } from 'lucide-react';
 import Link from 'next/link';
+import { PopupFormModal } from '@/components/forms/popup-form-modal';
+import { usePopupForm } from '@/hooks/use-popup-form';
 
 export const metadata: Metadata = {
   title: 'Fortune 100 vs Agency Creative Strategies: What Subscription Businesses Should Know',
@@ -22,6 +26,8 @@ export const metadata: Metadata = {
 };
 
 export default function Fortune100VsAgencyPage() {
+  const { isPopupOpen, openPopup, closePopup } = usePopupForm();
+  
   return (
     <>
       <Header />
@@ -49,8 +55,8 @@ export default function Fortune100VsAgencyPage() {
                   <Target className="h-5 w-5 mr-2" />
                   See Complete Comparison
                 </Link>
-                <Link href="#methodology" className="btn btn-secondary">
-                  Learn Fortune 100 Method
+                <Link href="/#service-tiers" className="btn btn-primary bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg">
+                  Start Weekly Intelligence
                 </Link>
               </div>
             </div>
@@ -234,121 +240,6 @@ export default function Fortune100VsAgencyPage() {
           </div>
         </section>
 
-        {/* Case Study Comparison */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  Real-World Performance Comparison
-                </h2>
-                <p className="text-xl text-gray-600">
-                  Same subscription business, different approaches. Results speak for themselves.
-                </p>
-              </div>
-
-              <div className="grid lg:grid-cols-2 gap-12">
-                {/* Agency Results */}
-                <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8">
-                  <h3 className="text-2xl font-bold text-red-900 mb-6">6 Months with Traditional Agency</h3>
-                  
-                  <div className="space-y-6">
-                    <div className="bg-white rounded-lg p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-gray-700">Creative Concepts Delivered</span>
-                        <span className="text-2xl font-bold text-red-600">18</span>
-                      </div>
-                      <div className="text-sm text-gray-600">3 concepts per month average</div>
-                    </div>
-
-                    <div className="bg-white rounded-lg p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-gray-700">Customer Acquisition Cost</span>
-                        <span className="text-2xl font-bold text-red-600">+15%</span>
-                      </div>
-                      <div className="text-sm text-gray-600">CAC increased due to creative fatigue</div>
-                    </div>
-
-                    <div className="bg-white rounded-lg p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-gray-700">Campaign Performance</span>
-                        <span className="text-2xl font-bold text-red-600">Declining</span>
-                      </div>
-                      <div className="text-sm text-gray-600">CTR decreased 23% over 6 months</div>
-                    </div>
-
-                    <div className="bg-white rounded-lg p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-gray-700">Total Investment</span>
-                        <span className="text-2xl font-bold text-red-600">$54,000</span>
-                      </div>
-                      <div className="text-sm text-gray-600">$9,000/month average spend</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Fortune 100 Results */}
-                <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8">
-                  <h3 className="text-2xl font-bold text-green-900 mb-6">6 Months with Fortune 100 Method</h3>
-                  
-                  <div className="space-y-6">
-                    <div className="bg-white rounded-lg p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-gray-700">Creative Concepts Delivered</span>
-                        <span className="text-2xl font-bold text-green-600">72</span>
-                      </div>
-                      <div className="text-sm text-gray-600">3 concepts weekly (12 per month)</div>
-                    </div>
-
-                    <div className="bg-white rounded-lg p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-gray-700">Customer Acquisition Cost</span>
-                        <span className="text-2xl font-bold text-green-600">-34%</span>
-                      </div>
-                      <div className="text-sm text-gray-600">CAC reduced through trend optimization</div>
-                    </div>
-
-                    <div className="bg-white rounded-lg p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-gray-700">Campaign Performance</span>
-                        <span className="text-2xl font-bold text-green-600">Improving</span>
-                      </div>
-                      <div className="text-sm text-gray-600">CTR increased 67% over 6 months</div>
-                    </div>
-
-                    <div className="bg-white rounded-lg p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-gray-700">Total Investment</span>
-                        <span className="text-2xl font-bold text-green-600">$5,964</span>
-                      </div>
-                      <div className="text-sm text-gray-600">$994/month for Competitive Edge tier</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-12 text-center">
-                <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white">
-                  <h3 className="text-2xl font-bold mb-4">The Bottom Line</h3>
-                  <div className="grid md:grid-cols-3 gap-6 text-center">
-                    <div>
-                      <div className="text-3xl font-bold mb-2">300%</div>
-                      <div className="text-indigo-200">More Creative Concepts</div>
-                    </div>
-                    <div>
-                      <div className="text-3xl font-bold mb-2">89%</div>
-                      <div className="text-indigo-200">Lower Investment</div>
-                    </div>
-                    <div>
-                      <div className="text-3xl font-bold mb-2">49%</div>
-                      <div className="text-indigo-200">Better Performance</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Why This Difference Matters */}
         <section className="py-16 bg-gray-900 text-white">
@@ -460,11 +351,11 @@ export default function Fortune100VsAgencyPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="/free-hooks" className="btn bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">
+                <button onClick={openPopup} className="btn bg-white text-red-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">
                   Get 10 Free Hooks First
-                </Link>
-                <Link href="/#service-tiers" className="btn btn-secondary">
-                  Compare Weekly Plans
+                </button>
+                <Link href="/#service-tiers" className="btn btn-primary bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg">
+                  Start Weekly Intelligence
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Link>
               </div>
@@ -493,6 +384,12 @@ export default function Fortune100VsAgencyPage() {
       </main>
 
       <Footer />
+      
+      <PopupFormModal
+        isOpen={isPopupOpen}
+        onClose={closePopup}
+        source="fortune-100-vs-agency"
+      />
     </>
   );
 }

@@ -86,34 +86,34 @@ export function ContentNavigation({
 
   const colorClasses = {
     indigo: {
-      bg: 'bg-indigo-50',
-      icon: 'text-indigo-600',
-      button: 'bg-indigo-600 hover:bg-indigo-700 text-white'
+      bg: 'bg-red-50',
+      icon: 'text-red-600',
+      button: 'bg-red-600 hover:bg-red-700 text-white'
     },
     purple: {
-      bg: 'bg-purple-50',
-      icon: 'text-purple-600',
-      button: 'bg-purple-600 hover:bg-purple-700 text-white'
+      bg: 'bg-orange-50',
+      icon: 'text-orange-600',
+      button: 'bg-orange-600 hover:bg-orange-700 text-white'
     },
     emerald: {
-      bg: 'bg-emerald-50',
-      icon: 'text-emerald-600',
-      button: 'bg-emerald-600 hover:bg-emerald-700 text-white'
+      bg: 'bg-red-50',
+      icon: 'text-red-600',
+      button: 'bg-red-600 hover:bg-red-700 text-white'
     },
     blue: {
-      bg: 'bg-blue-50',
-      icon: 'text-blue-600',
-      button: 'bg-blue-600 hover:bg-blue-700 text-white'
+      bg: 'bg-orange-50',
+      icon: 'text-orange-600',
+      button: 'bg-orange-600 hover:bg-orange-700 text-white'
     },
     slate: {
-      bg: 'bg-slate-50',
-      icon: 'text-slate-600',
-      button: 'bg-slate-600 hover:bg-slate-700 text-white'
+      bg: 'bg-red-50',
+      icon: 'text-red-600',
+      button: 'bg-red-600 hover:bg-red-700 text-white'
     },
     green: {
-      bg: 'bg-green-50',
-      icon: 'text-green-600',
-      button: 'bg-green-600 hover:bg-green-700 text-white'
+      bg: 'bg-orange-50',
+      icon: 'text-orange-600',
+      button: 'bg-orange-600 hover:bg-orange-700 text-white'
     }
   };
 
@@ -189,7 +189,7 @@ export function ContentNavigation({
             const colors = colorClasses[piece.color as keyof typeof colorClasses];
             
             return (
-              <div key={piece.href} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col h-full">
+              <div key={piece.href} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col h-full min-h-[400px]">
                 <div className={`${colors.bg} p-6`}>
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4">
                     <IconComponent className={`h-6 w-6 ${colors.icon}`} />

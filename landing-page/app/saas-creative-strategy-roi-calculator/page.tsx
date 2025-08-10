@@ -55,13 +55,13 @@ export default function SaaSCreativeStrategyROIPage() {
       {/* Header Navigation */}
       <Header />
       
-      <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100 pt-16 lg:pt-20">
+      <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100 pt-16 lg:pt-20">
 
         {/* Hero Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Calculate Your <span className="text-emerald-600">Creative Strategy ROI</span>
+              Calculate Your <span className="text-red-600">Creative Strategy ROI</span>
               <br />with Precision Modeling
             </h1>
             <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">

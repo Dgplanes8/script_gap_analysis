@@ -49,14 +49,14 @@ export default function MarketingAttributionFrameworkPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100">
+      <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100">
         {/* Header */}
         <Header />
 
         {/* Hero Section */}
         <section className="pt-24 py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-semibold mb-6">
               🔍 Advanced Analytics Framework
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">

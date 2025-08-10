@@ -59,10 +59,10 @@ export default function WeeklyTrendIntelligenceGuidePage() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-indigo-50 to-purple-50">
+        <section className="py-16 bg-gradient-to-br from-red-50 to-orange-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <TrendingUp className="h-4 w-4 mr-2" />
                 FORTUNE 100 STRATEGY GUIDE
               </div>
@@ -80,7 +80,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                   <Target className="h-5 w-5 mr-2" />
                   Read Complete Guide
                 </Link>
-                <Link href="#service-tiers" className="btn btn-secondary">
+                <Link href="#service-tiers" className="btn btn-primary bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg">
                   Get Weekly Intelligence
                 </Link>
               </div>
@@ -167,24 +167,30 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4">The Three Pillars of Trend Intelligence</h3>
                 
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
-                  <div className="bg-gray-50 rounded-xl p-6">
-                    <TrendingUp className="h-8 w-8 text-indigo-600 mb-4" />
+                  <div className="bg-gray-50 rounded-xl p-6 text-center">
+                    <div className="flex justify-center mb-4">
+                      <TrendingUp className="h-8 w-8 text-red-600" />
+                    </div>
                     <h4 className="font-semibold text-gray-900 mb-3">1. Trend Identification</h4>
                     <p className="text-gray-600 text-sm">
                       Real-time monitoring of platform algorithms, hashtag performance, and viral content patterns 
                       across TikTok, Instagram, Twitter, and LinkedIn.
                     </p>
                   </div>
-                  <div className="bg-gray-50 rounded-xl p-6">
-                    <Target className="h-8 w-8 text-green-600 mb-4" />
+                  <div className="bg-gray-50 rounded-xl p-6 text-center">
+                    <div className="flex justify-center mb-4">
+                      <Target className="h-8 w-8 text-red-600" />
+                    </div>
                     <h4 className="font-semibold text-gray-900 mb-3">2. Strategic Adaptation</h4>
                     <p className="text-gray-600 text-sm">
                       Converting trending formats into subscription business-specific concepts that align with 
                       your brand voice, customer journey, and conversion goals.
                     </p>
                   </div>
-                  <div className="bg-gray-50 rounded-xl p-6">
-                    <Users className="h-8 w-8 text-purple-600 mb-4" />
+                  <div className="bg-gray-50 rounded-xl p-6 text-center">
+                    <div className="flex justify-center mb-4">
+                      <Users className="h-8 w-8 text-red-600" />
+                    </div>
                     <h4 className="font-semibold text-gray-900 mb-3">3. Performance Analysis</h4>
                     <p className="text-gray-600 text-sm">
                       Weekly performance tracking, A/B testing results, and trend longevity analysis to 
@@ -513,7 +519,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
         </article>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-indigo-600 to-purple-700 text-white">
+        <section className="py-16 bg-gradient-to-br from-red-600 to-orange-600 text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-6">
@@ -542,10 +548,10 @@ export default function WeeklyTrendIntelligenceGuidePage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="/free-hooks" className="btn bg-white text-indigo-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">
+                <Link href="/free-hooks" className="btn bg-white text-red-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">
                   Get 10 Free Hooks First
                 </Link>
-                <Link href="/#service-tiers" className="btn btn-secondary">
+                <Link href="/#service-tiers" className="btn btn-primary bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg">
                   View Weekly Plans
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Link>

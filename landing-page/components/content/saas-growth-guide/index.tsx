@@ -43,7 +43,7 @@ export function SaaSGrowthMarketingGuide() {
       {/* Header Navigation */}
       <Header />
       
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 pt-16 lg:pt-20">
+      <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100 pt-16 lg:pt-20">
 
       {/* Hero Section */}
       <BenchmarkTools 
