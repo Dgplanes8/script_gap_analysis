@@ -24,20 +24,49 @@ export default function FreeHooksPage() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section for Free Hooks */}
-        <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <section className="py-16 bg-gradient-to-br from-red-50 to-orange-100">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Download className="h-4 w-4 mr-2" />
-                FREE RESOURCES
+                AI-POWERED HOOKS - FREE
               </div>
               
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                10 Free Viral Hooks That Stop the Scroll
+                10 Free AI-Powered Hooks That Cut Your CPA in Half
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Get proven hooks from high-performing subscription campaigns. Perfect for growth marketing teams testing new creative angles weekly.
+                Skip months of testing. These hooks are derived from trending social media content and optimized with conversion psychology. Download now and launch your winning campaign this week.
               </p>
+              
+              {/* Above-fold CTA */}
+              <div className="max-w-md mx-auto mb-8">
+                <div className="bg-white rounded-2xl shadow-xl p-6 border-2 border-orange-200">
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-red-600">50%</div>
+                      <div className="text-sm text-gray-600">Lower CPAs</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-orange-600">15+</div>
+                      <div className="text-sm text-gray-600">Hours Saved</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-red-600">AI</div>
+                      <div className="text-sm text-gray-600">Powered</div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => document.getElementById('email-form')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="w-full bg-gradient-to-r from-red-600 to-orange-600 text-white py-4 px-8 rounded-lg font-semibold hover:from-red-700 hover:to-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+                  >
+                    Get My 10 Free Hooks Now
+                  </button>
+                  <p className="text-xs text-gray-500 mt-3 text-center">
+                    Instant download • No spam • Used by 1000+ growth teams
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -60,8 +89,8 @@ export default function FreeHooksPage() {
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {/* CAC Calculator */}
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
-                  <div className="bg-blue-600 rounded-lg p-3 w-fit mb-4">
+                <div className="bg-gradient-to-br from-red-50 to-orange-100 rounded-xl p-6 border border-red-200">
+                  <div className="bg-red-600 rounded-lg p-3 w-fit mb-4">
                     <Zap className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">CAC Optimization Calculator</h3>
@@ -69,17 +98,17 @@ export default function FreeHooksPage() {
                     Interactive calculator to optimize your customer acquisition costs with industry benchmarks.
                   </p>
                   <a
-                    href="/free-hooks"
-                    className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+                    href="/cac-optimization-calculator"
+                    className="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors"
                   >
-                    Get My 10 Free Hooks
+                    Use Calculator
                     <Download className="h-4 w-4 ml-2" />
                   </a>
                 </div>
 
                 {/* Benchmarking Tool */}
-                <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-6 border border-indigo-200">
-                  <div className="bg-indigo-600 rounded-lg p-3 w-fit mb-4">
+                <div className="bg-gradient-to-br from-orange-50 to-red-100 rounded-xl p-6 border border-orange-200">
+                  <div className="bg-orange-600 rounded-lg p-3 w-fit mb-4">
                     <BookOpen className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Revenue Growth Benchmarking Tool</h3>
@@ -87,17 +116,17 @@ export default function FreeHooksPage() {
                     Compare your creative strategy performance against industry leaders and get personalized recommendations.
                   </p>
                   <a
-                    href="/free-hooks"
-                    className="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700 transition-colors"
+                    href="/revenue-growth-benchmarking"
+                    className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors"
                   >
-                    Get My 10 Free Hooks
+                    Start Benchmarking
                     <Download className="h-4 w-4 ml-2" />
                   </a>
                 </div>
 
                 {/* ROI Calculator */}
-                <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border border-purple-200">
-                  <div className="bg-purple-600 rounded-lg p-3 w-fit mb-4">
+                <div className="bg-gradient-to-br from-red-50 to-orange-100 rounded-xl p-6 border border-red-200">
+                  <div className="bg-red-600 rounded-lg p-3 w-fit mb-4">
                     <Users className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">SaaS Creative ROI Calculator</h3>
@@ -105,10 +134,10 @@ export default function FreeHooksPage() {
                     Calculate potential ROI improvements from strategic creative optimization.
                   </p>
                   <a
-                    href="/free-hooks"
-                    className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors"
+                    href="/saas-creative-strategy-roi-calculator"
+                    className="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors"
                   >
-                    Get My 10 Free Hooks
+                    Calculate ROI
                     <Download className="h-4 w-4 ml-2" />
                   </a>
                 </div>

@@ -720,7 +720,7 @@ export default function TrendBasedCreativeDevelopmentPage() {
               </div>
               
               <p className="text-sm mt-4 opacity-80">
-                Join 200+ subscription companies catching trends before they break • Cancel anytime
+                From 10+ years experience with trend-based campaigns • Cancel anytime
               </p>
             </div>
           </div>

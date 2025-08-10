@@ -609,7 +609,7 @@ export default function CreativeFatiguePage() {
               </div>
               
               <p className="text-sm mt-4 opacity-80">
-                Join 200+ subscription companies getting fatigue-proof creative concepts • Cancel anytime
+                From 10+ years optimizing subscription campaigns • Cancel anytime
               </p>
             </div>
           </div>

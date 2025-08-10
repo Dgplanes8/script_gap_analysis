@@ -516,7 +516,7 @@ export default function CompetitiveCreativeAnalysisPage() {
               </div>
               
               <p className="text-sm mt-4 opacity-80">
-                Join 200+ growth teams getting competitor-inspired concepts • Cancel anytime
+                Based on $250MM+ in managed media spend • Cancel anytime
               </p>
             </div>
           </div>

@@ -30,8 +30,8 @@ export function Hero({
 }: HeroProps) {
   const bgClasses =
     background === 'gradient'
-      ? 'bg-gradient-to-br from-orange-600 via-orange-700 to-red-800'
-      : 'bg-gradient-to-br from-navy-800 via-navy-900 to-gray-900';
+      ? 'bg-gradient-to-br from-red-600 via-red-700 to-orange-800'
+      : 'bg-gradient-to-br from-orange-600 via-red-700 to-red-800';
 
   return (
     <section className={`${bgClasses} text-white py-24 lg:py-32`}>
@@ -113,12 +113,12 @@ export function Hero({
               <span>Years Experience</span>
             </div>
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-teal-400 mr-2">Weekly</span>
+              <span className="text-2xl font-bold text-red-400 mr-2">Weekly</span>
               <span>Creative Delivery</span>
             </div>
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-navy-400 mr-2">200+</span>
-              <span>Growth Teams</span>
+              <span className="text-2xl font-bold text-orange-400 mr-2">$250MM+</span>
+              <span>Media Spend Managed</span>
             </div>
           </div>
         </div>

@@ -591,7 +591,7 @@ export default function GrowthTeamCreativeBottlenecksPage() {
               </div>
               
               <p className="text-sm mt-4 opacity-80">
-                Join 200+ growth teams that eliminated agency bottlenecks • Cancel anytime
+                Built from 10+ years performance marketing experience • Cancel anytime
               </p>
             </div>
           </div>

@@ -22,12 +22,12 @@ export function Footer() {
                 <div>Not 2 Weeks</div>
               </div>
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-teal-400">Growth Focus</div>
+                <div className="font-semibold text-red-400">Growth Focus</div>
                 <div>Subscription Companies</div>
               </div>
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-navy-400">200+</div>
-                <div>Growth Teams</div>
+                <div className="font-semibold text-orange-400">10+ Years</div>
+                <div>Experience</div>
               </div>
             </div>
           </div>

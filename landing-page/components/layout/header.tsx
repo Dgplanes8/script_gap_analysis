@@ -127,7 +127,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
             </button>
             <button
               onClick={() => document.getElementById('service-tiers')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn btn-tertiary text-gray-700 bg-transparent border-2 border-gray-300 hover:bg-gray-50 hover:text-orange-600"
+              className="btn btn-secondary bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2 rounded-lg transition-colors duration-200 border-2 border-red-600"
             >
               See Weekly Plans
             </button>
@@ -212,7 +212,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
                     document.getElementById('service-tiers')?.scrollIntoView({ behavior: 'smooth' });
                     setIsOpen(false);
                   }}
-                  className="btn btn-tertiary w-full py-4 text-lg font-semibold min-h-[48px]"
+                  className="btn btn-secondary bg-red-600 hover:bg-red-700 text-white w-full py-4 text-lg font-semibold min-h-[48px]"
                 >
                   See Weekly Plans
                 </button>

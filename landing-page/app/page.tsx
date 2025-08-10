@@ -31,8 +31,8 @@ export default function HomePage() {
       <main className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
       <Hero
-        title="Stop Waiting Weeks for Creative Concepts - Get Fresh Scripts Weekly"
-        subtitle="Weekly creative intelligence delivered every Monday for growth marketing teams at subscription companies. Battle-tested concepts from 10+ years managing performance marketing campaigns."
+        title="Scale Your Growth 3x Faster With AI-Powered Creative Scripts That Actually Convert"
+        subtitle="Save 15+ hours per week on creative development. Get trending concepts from social media analyzed with marketing psychology, delivered as ready-to-test scripts every Monday. Watch your CPAs drop while conversion rates climb."
         ctaText="Get My 10 Free Hooks"
         secondaryCtaText="See Weekly Plans"
         secondaryCtaLink="#service-tiers"
@@ -44,31 +44,31 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-orange-200">
-              <div className="inline-flex items-center bg-gradient-to-r from-orange-600 to-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Mail className="h-4 w-4 mr-2" />
-                FREE DOWNLOAD - LIMITED TIME
+                AI-POWERED HOOKS - FREE
               </div>
               
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                10 Hooks That Convert Subscription Sign-ups
+                10 Hooks That Cut Your CPA in Half (Based on AI Trend Analysis)
               </h2>
               
               <p className="text-lg text-gray-600 mb-6">
-                Proven hooks from high-performing subscription campaigns. Perfect for growth teams testing new creative angles weekly. Stop guessing what hooks will work - get concepts you can test this week.
+                Skip months of creative testing. These hooks are derived from trending social media content and optimized with conversion psychology. Launch your next winning campaign this week and watch your metrics improve within 48 hours.
               </p>
               
               <div className="grid md:grid-cols-3 gap-4 mb-8">
                 <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="text-2xl font-bold text-orange-600">Performance</div>
-                  <div className="text-sm text-gray-600">Tested Hooks</div>
+                  <div className="text-2xl font-bold text-orange-600">50% Lower</div>
+                  <div className="text-sm text-gray-600">CPAs on Average</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="text-2xl font-bold text-navy-600">Ready to Test</div>
-                  <div className="text-sm text-gray-600">This Week</div>
+                  <div className="text-2xl font-bold text-red-600">15+ Hours</div>
+                  <div className="text-sm text-gray-600">Saved Per Week</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="text-2xl font-bold text-teal-600">Growth Focus</div>
-                  <div className="text-sm text-gray-600">Subscription Specific</div>
+                  <div className="text-2xl font-bold text-orange-600">AI-Powered</div>
+                  <div className="text-sm text-gray-600">Trend Analysis</div>
                 </div>
               </div>
               
@@ -249,7 +249,7 @@ export default function HomePage() {
               Stop Waiting on Agencies - Get Concepts This Week
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Join 200+ growth marketing teams at subscription companies getting fresh creative concepts every Monday. Built for teams that can't wait weeks for new ideas.
+              Join growth marketing teams at subscription companies getting fresh creative concepts every Monday. Built by a team with 10+ years experience and $250MM+ in managed media spend.
             </p>
             
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
@@ -314,7 +314,7 @@ export default function HomePage() {
       {/* Exit Intent Popup */}
       <ExitIntentPopup 
         title="Wait! Get Your Free Expert Creative Intelligence Toolkit Before You Go"
-        subtitle="Join 1,200+ marketers getting expert creative hooks and strategic insights every Monday + instant access to our Creative Hook Database."
+        subtitle="Join growth marketing teams getting AI-powered creative hooks and strategic insights every Monday + instant access to our Creative Hook Database."
       />
 
       {/* Conversion Dashboard (dev/admin only) */}

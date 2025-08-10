@@ -59,12 +59,12 @@ export function AboutSection({ onOpenApplication }: AboutSectionProps) {
               <div className="text-sm text-gray-600">Years Experience</div>
             </div>
             
-            <div className="text-center bg-gradient-to-br from-navy-50 to-navy-100 rounded-xl p-6">
-              <div className="bg-navy-600 rounded-full p-3 w-fit mx-auto mb-4">
+            <div className="text-center bg-gradient-to-br from-red-50 to-orange-100 rounded-xl p-6">
+              <div className="bg-red-600 rounded-full p-3 w-fit mx-auto mb-4">
                 <Building2 className="h-8 w-8 text-white" />
               </div>
-              <div className="text-3xl font-bold text-navy-600 mb-2">200+</div>
-              <div className="text-sm text-gray-600">Growth Leaders Served</div>
+              <div className="text-3xl font-bold text-red-600 mb-2">$250MM+</div>
+              <div className="text-sm text-gray-600">Media Spend Managed</div>
             </div>
           </div>
 
@@ -137,7 +137,7 @@ export function AboutSection({ onOpenApplication }: AboutSectionProps) {
                   <Award className="h-6 w-6 text-navy-600" />
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Proven Results</h4>
-                <p className="text-sm text-gray-600">200+ growth leaders already getting fresh concepts weekly</p>
+                <p className="text-sm text-gray-600">10+ years experience with subscription marketing campaigns</p>
               </div>
             </div>
             

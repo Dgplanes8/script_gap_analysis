@@ -387,7 +387,7 @@ export default function WeeklyCreativeIntelligencePage() {
               </div>
               
               <p className="text-sm mt-4 opacity-80">
-                Join 200+ growth teams getting creative concepts every Monday • Cancel anytime
+                From 10+ years experience and $250MM+ managed spend • Cancel anytime
               </p>
             </div>
           </div>
