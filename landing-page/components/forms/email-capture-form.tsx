@@ -22,8 +22,8 @@ interface EmailCaptureFormProps {
 }
 
 export function EmailCaptureForm({
-  placeholder = 'Enter your email address',
-  buttonText = 'Get Started',
+  placeholder = 'Enter your work email address',
+  buttonText = 'Get My 10 Free Hooks',
   variant = 'inline',
   source = 'unknown',
   onSubmit,
@@ -82,10 +82,10 @@ export function EmailCaptureForm({
           <Mail className="h-8 w-8 text-green-600" />
         </div>
         <h3 className="text-lg font-semibold text-green-800 mb-2">
-          Thank you for subscribing!
+          Your 10 Free Hooks Are Coming!
         </h3>
         <p className="text-green-700">
-          Check your email for your 10 Hook Bank PDF and first Apsics Media newsletter.
+          Check your email for your Hook Bank PDF and weekly creative intelligence newsletter.
         </p>
       </div>
     );
@@ -139,9 +139,10 @@ export function EmailCaptureForm({
         </button>
       </div>
       
-      <p className="text-sm text-gray-500 text-center">
-        Join 1,200+ marketers getting Monday Morning Ideas. Get your 10 Hook Bank PDF instantly. Unsubscribe anytime.
-      </p>
+      <div className="text-sm text-gray-600 text-center bg-gray-50 rounded-lg p-3">
+        <div className="font-medium">Join 1,200+ growth marketers getting weekly concepts</div>
+        <div className="mt-1">Get your 10 Hook Bank PDF instantly • Unsubscribe anytime</div>
+      </div>
     </form>
   );
 }

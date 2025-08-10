@@ -31,8 +31,8 @@ export default function HomePage() {
       <main className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
       <Hero
-        title="Stop Waiting Weeks for Creative Concepts - Get Fresh Scripts in 48 Hours"
-        subtitle="Weekly creative intelligence delivered every Monday for growth leaders at subscription companies. Battle-tested concepts from 10+ years managing performance marketing campaigns, not corporate methodology."
+        title="Stop Waiting Weeks for Creative Concepts - Get Fresh Scripts Weekly"
+        subtitle="Weekly creative intelligence delivered every Monday for growth marketing teams at subscription companies. Battle-tested concepts from 10+ years managing performance marketing campaigns."
         ctaText="Get My 10 Free Hooks"
         secondaryCtaText="See Weekly Plans"
         showEmailCapture={true}
@@ -88,28 +88,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* About Section - Enhanced Fortune 100 Positioning */}
-      <AboutSection onOpenApplication={handleOpenConsultation} />
-
-      {/* Strategic Process Overview */}
-      <StrategyProcess />
+      {/* Service Tiers Section - Moved higher for better conversion */}
+      <section id="service-tiers">
+        <ServiceTiers />
+      </section>
 
       {/* Strategic Differentiators */}
       <Features
-        title="Built for Growth Leaders Who Can't Wait on Agencies"
-        subtitle="48-hour creative delivery vs 2-week agency turnaround times. Perfect for performance marketers scaling subscription companies."
+        title="Built for Growth Marketing Teams Who Can't Wait on Agencies"
+        subtitle="Weekly creative delivery vs 2-week agency turnaround times. Perfect for performance marketers scaling subscription companies."
         features={[
           {
             icon: Target,
             title: 'Creative Bottleneck Solution',
             description:
-              'Fresh creative concepts every Monday when your team is stuck on the same angles. Stop waiting weeks for agencies - get testable scripts immediately.',
+              'Fresh creative concepts every Monday when your team is stuck on the same angles. Stop waiting weeks for agencies - get testable scripts weekly.',
           },
           {
             icon: Building2,
             title: 'Performance Marketing Focus',
             description:
-              '10+ years optimizing campaigns for subscription companies. Built specifically for growth teams managing $10k-$50k+ monthly ad spend.',
+              '10+ years optimizing campaigns for subscription companies. Built specifically for growth teams managing $10K-$200K+ monthly ad spend.',
           },
           {
             icon: TrendingUp,
@@ -120,13 +119,14 @@ export default function HomePage() {
         ]}
       />
 
+      {/* About Section - Enhanced Fortune 100 Positioning */}
+      <AboutSection onOpenApplication={handleOpenConsultation} />
+
+      {/* Strategic Process Overview */}
+      <StrategyProcess />
+
       {/* Creative Strategy Benchmark Analysis */}
       <CreativeStrategyBenchmarkTool />
-
-      {/* Service Tiers Section */}
-      <section id="service-tiers">
-        <ServiceTiers />
-      </section>
 
       {/* Strategic Resources Section */}
       <section id="strategic-resources" className="bg-gray-50">
@@ -171,7 +171,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Growth-Stage Focused</h3>
                 <p className="text-gray-600">
-                  Perfect for 5-75 employee subscription companies scaling beyond basic audiences. Built for teams managing serious ad budgets.
+                  Focused on helping growing subscription companies scaling beyond basic audiences. Built for growth marketing teams managing serious ad budgets.
                 </p>
               </div>
             </div>
@@ -250,7 +250,7 @@ export default function HomePage() {
               Stop Waiting on Agencies - Get Concepts This Week
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Join 200+ growth leaders at subscription companies getting fresh creative concepts every Monday. Built for teams that can't wait weeks for new ideas.
+              Join 200+ growth marketing teams at subscription companies getting fresh creative concepts every Monday. Built for teams that can't wait weeks for new ideas.
             </p>
             
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
@@ -289,10 +289,10 @@ export default function HomePage() {
             
             <div className="border-t border-white/20 pt-8">
               <h3 className="text-2xl font-bold mb-4">
-                Growth Leader Creative Intelligence
+                Growth Team Creative Intelligence
               </h3>
               <p className="text-lg mb-6 opacity-90">
-                Get fresh creative angles, audience insights, and performance marketing strategies delivered every Monday. Perfect for heads of growth.
+                Get fresh creative angles, audience insights, and performance marketing strategies delivered every Monday. Perfect for growth marketing teams.
               </p>
               <div className="max-w-md mx-auto">
                 <EmailCaptureForm

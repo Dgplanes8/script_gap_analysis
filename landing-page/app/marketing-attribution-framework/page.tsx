@@ -152,17 +152,17 @@ export default function MarketingAttributionFrameworkPage() {
                 </div>
               </div>
               
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
                 <div className="text-center mb-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-blue-600 font-bold">LN</span>
+                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-orange-600 font-bold">LN</span>
                   </div>
-                  <h3 className="font-semibold text-blue-800">Linear</h3>
+                  <h3 className="font-semibold text-orange-800">Linear</h3>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Accuracy:</span>
-                    <span className="text-blue-600">Medium</span>
+                    <span className="text-orange-600">Medium</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Complexity:</span>

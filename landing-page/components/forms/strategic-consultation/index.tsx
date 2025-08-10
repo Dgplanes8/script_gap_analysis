@@ -67,7 +67,7 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
               Get Your Strategy Consultation
             </h2>
             <p className="text-gray-600">
-              Expert analysis + $100 credit toward any package
+              Expert analysis + custom recommendations for your growth needs
             </p>
           </div>
 
@@ -84,7 +84,7 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
                 value={formData.fullName}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
                 placeholder="Enter your full name"
               />
             </div>
@@ -101,7 +101,7 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
                 placeholder="Enter your email"
               />
             </div>
@@ -118,7 +118,7 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
                 value={formData.company}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
                 placeholder="Enter your company name"
               />
             </div>
@@ -134,7 +134,7 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
                 value={formData.monthlyAdSpend}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
               >
                 <option value="">Select your ad spend range</option>
                 <option value="<$10K">Less than $10K/month</option>
@@ -155,38 +155,38 @@ export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicC
                 value={formData.packageInterest}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
               >
                 <option value="">Select package interest</option>
-                <option value="Concept Starter ($97/month)">Concept Starter - $97/month</option>
-                <option value="Intelligence Accelerator ($297/month)">Intelligence Accelerator - $297/month</option>
-                <option value="Performance Accelerator ($997/month)">Performance Accelerator - $997/month</option>
+                <option value="Trend Tracker ($67/month)">Trend Tracker - $67/month</option>
+                <option value="Competitive Edge ($197/month)">Competitive Edge - $197/month</option>
+                <option value="Market Intelligence ($497/month)">Market Intelligence - $497/month</option>
                 <option value="Not Sure">Not Sure - Help Me Decide</option>
               </select>
             </div>
 
             {/* Submit Button */}
             <div className="pt-4">
-              <div className="bg-indigo-50 rounded-lg p-4 mb-6">
-                <h4 className="font-semibold text-indigo-900 mb-2">What Happens Next:</h4>
-                <ul className="text-sm text-indigo-800 space-y-1">
+              <div className="bg-orange-50 rounded-lg p-4 mb-6">
+                <h4 className="font-semibold text-orange-900 mb-2">What Happens Next:</h4>
+                <ul className="text-sm text-orange-800 space-y-1">
                   <li>1. We'll reach out within 24 hours</li>
-                  <li>2. Confirmation of your subscription or scheduling a call</li>
-                  <li>3. $100 credit applied after consultation</li>
+                  <li>2. Get your 10 free hooks immediately</li>
+                  <li>3. Setup your weekly creative intelligence delivery</li>
                 </ul>
               </div>
               
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-orange-700 hover:to-red-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
               >
                 <Calendar className="h-5 w-5 mr-2" />
                 {isSubmitting ? 'Submitting Request...' : 'Get My Strategy Consultation'}
               </button>
               
               <p className="text-xs text-gray-500 mt-4 text-center">
-                $100 credit applied toward your chosen package
+                Get personalized recommendations for your weekly creative intelligence plan
               </p>
             </div>
           </form>

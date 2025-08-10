@@ -27,12 +27,12 @@ export function AboutSection({ onOpenApplication }: AboutSectionProps) {
                 ✓ SUBSCRIPTION FOCUS
               </div>
               <div className="bg-navy-600 text-white px-4 py-2 rounded-full text-sm font-bold">
-                ✓ 48-HOUR DELIVERY
+                ✓ WEEKLY DELIVERY
               </div>
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Built for Growth Leaders at Subscription Companies
+              Built for Growth Marketing Teams at Subscription Companies
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               10+ years optimizing campaigns specifically for subscription and recurring revenue businesses. 
@@ -47,7 +47,7 @@ export function AboutSection({ onOpenApplication }: AboutSectionProps) {
               <div className="bg-orange-600 rounded-full p-3 w-fit mx-auto mb-4">
                 <Target className="h-8 w-8 text-white" />
               </div>
-              <div className="text-3xl font-bold text-orange-600 mb-2">48 Hours</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2">Weekly</div>
               <div className="text-sm text-gray-600">Creative Delivery</div>
             </div>
             
@@ -96,7 +96,7 @@ export function AboutSection({ onOpenApplication }: AboutSectionProps) {
                 <div>
                   <h4 className="text-lg font-semibold text-yellow-400 mb-2">Speed & Optimization</h4>
                   <p className="text-gray-300 leading-relaxed">
-                    48-hour creative concept delivery when agencies take weeks. Built for performance marketers 
+                    Weekly creative concept delivery when agencies take weeks. Built for performance marketers 
                     who need constant creative testing fuel to maintain growth velocity and competitive advantage.
                   </p>
                 </div>
@@ -123,7 +123,7 @@ export function AboutSection({ onOpenApplication }: AboutSectionProps) {
                   <Target className="h-6 w-6 text-orange-600" />
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Speed Advantage</h4>
-                <p className="text-sm text-gray-600">48-hour delivery vs 2-week agency turnarounds</p>
+                <p className="text-sm text-gray-600">Weekly delivery vs 2-week agency turnarounds</p>
               </div>
               <div className="text-center bg-white rounded-xl p-6">
                 <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-4">

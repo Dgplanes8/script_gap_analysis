@@ -13,12 +13,12 @@ export function Footer() {
               <span className="text-xl font-bold">Apsics Media</span>
             </div>
             <p className="text-gray-400 mb-6">
-              48-hour creative concept delivery for growth leaders at subscription companies. Fresh ideas 
+              Weekly creative concept delivery for growth marketing teams at subscription companies. Fresh ideas 
               and competitor intelligence delivered every Monday when agencies take weeks.
             </p>
             <div className="flex space-x-4">
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-orange-400">48 Hours</div>
+                <div className="font-semibold text-orange-400">Weekly</div>
                 <div>Not 2 Weeks</div>
               </div>
               <div className="text-sm text-gray-400">
@@ -27,7 +27,7 @@ export function Footer() {
               </div>
               <div className="text-sm text-gray-400">
                 <div className="font-semibold text-navy-400">200+</div>
-                <div>Growth Leaders</div>
+                <div>Growth Teams</div>
               </div>
             </div>
           </div>
@@ -157,10 +157,10 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/about" 
+                  href="/free-hooks" 
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  About
+                  Free Hooks
                 </Link>
               </li>
             </ul>
@@ -168,10 +168,10 @@ export function Footer() {
             <div className="mt-8">
               <h4 className="text-sm font-semibold mb-3 text-gray-300">Get Started</h4>
               <Link
-                href="/#consultation"
+                href="/free-hooks"
                 className="inline-flex items-center px-4 py-2 bg-orange-600 text-white text-sm font-semibold rounded-lg hover:bg-orange-700 transition-colors"
               >
-                Book Strategic Consultation
+                Get 10 Free Hooks
               </Link>
             </div>
           </div>
@@ -184,11 +184,11 @@ export function Footer() {
               © {new Date().getFullYear()} Apsics Media. All rights reserved.
             </div>
             <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <span>Performance Marketing Acceleration</span>
+              <span>Weekly Creative Intelligence</span>
               <span>•</span>
               <span>Ready-to-Develop Scripts</span>
               <span>•</span>
-              <span>D2C & Subscription Focus</span>
+              <span>Growth Marketing Teams</span>
             </div>
           </div>
         </div>

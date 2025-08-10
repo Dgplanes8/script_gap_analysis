@@ -1,19 +1,26 @@
-Workflow:
-1. Use the workflow to generate sample copy, hooks and comeptitive analysis for each brand. Review the readme.md for more details.
-2. Write a X and Reddit post for each brand to use as a case study for building in public.
-3. Store each case study in a folder with the brand name under the "Content" folder.
-
-
-research:
-1. Do comprehensive research on how to write strong posts on X and reddit to build in public and drive engagement.
-2. Do research to understand how to build a community on X 
-3. Create a guide that can be referenced to build X and reddit posts. Include specific examples that work well and don't work well. Store each guide in a "Content" folder.
-4. Research 25 brands or companies that would be a good fit for my service. Review revised-value-proposition.md and create a list of 25 brands or companies that would be a good fit for my service.
-5. Score each brand on a scale of 1-10 based on how likely they are to use my service.
-6. Store the list of brands and their scores in a "Brands" folder.
-
-Implementation:
-1. Identify the top 5 brands that are a good fit for my service.
-2. Use the workflow to generate sample copy, hooks and comeptitive analysis for each brand. Review the readme.md for more details.
-3. Write a X and Reddit post for each brand to use as a case study for building in public.
-4. Store each case study in a folder with the brand name under the "Content" folder.
+1. copy in header CTA is not visibilie
+2. color palette across all web pages
+3. remove contact button from header
+4. "see weekly plans" on hero is misaligned with Get Free Hooks CTA
+5. "enter my email address" in form is not visible and slightly hidden
+6. remove "not corporate methodolgy"
+7. change hero from "growth leaders" to "growth marketing teams"
+8. change hero to be able getting weekly concepts - not every 48 hours. helps avoid creative fatigue and challenge of coming up new creative ideas 
+9. In growth stage companies, remove "5-75" replace with more general Focused on helping growing subscrption
+10. any speed advantages should reference the weekly drop - not 48 hours
+11. remove any mention of the Free $100 consultation in any forms or pages
+12. change from 10-$50k monthly spend to $10 - $200K monthly spend
+13. make sure creative strategy maturity calculator recommendations match with new pricing tiers
+14. move pricing tiers higher on the page. rethink best order of the homepage for best conversion
+15. make sure consultation form matches with updated pricing models
+16. CTA's shouldn't focus on consultation call. they should be to sign up for a package with an option for a free consultation call. people may not need the consultation call for lower price points
+17. make sure all forms - pre and post are updated to amtch new CTA and pricing strategy. make sure to update the what you get, next steps sections.
+18. change competitive edge model to have 4 weekly scripts - 2 per each concept.
+19. change Market Intelligence to have 6 weekly scripts - 2 per each concept
+20. make sure buttons in pricing matrix align and are the same size
+21. make sure all CTA's for form collection use the same form fields
+21. copy at the bottom of the homepage is hard to read in email collection from around 10 hooks. make it easier to read
+22. update footer to not focus on 48 hour delivery - weekly and change to growth teams
+23. there are two abouts in the footer
+24. make sure all CTA's in strategic resources and tools pages mention the 10 free hooks or weekly scripts. don't make up services that aren't being offered
+25. create a articles.md file with all the SEO articles that are already built

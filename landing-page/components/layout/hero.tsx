@@ -42,48 +42,58 @@ export function Hero({
             {subtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <div className="flex flex-col items-center justify-center gap-6 mb-16">
             {showEmailCapture ? (
-              <div className="w-full max-w-md">
-                <EmailCaptureForm
-                  placeholder="Enter your email address"
-                  buttonText={ctaText}
-                  variant="hero"
-                />
-              </div>
+              <>
+                <div className="w-full max-w-md">
+                  <EmailCaptureForm
+                    placeholder="Enter your email address"
+                    buttonText={ctaText}
+                    variant="hero"
+                  />
+                </div>
+                {secondaryCtaText && onSecondaryClick && (
+                  <button
+                    onClick={onSecondaryClick}
+                    className="btn btn-secondary"
+                  >
+                    {secondaryCtaText}
+                  </button>
+                )}
+              </>
             ) : (
-              <div className="flex flex-col sm:flex-row gap-4 items-center">
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
                 {onPrimaryClick ? (
                   <button 
                     onClick={onPrimaryClick}
-                    className="btn btn-primary"
+                    className="btn btn-primary text-lg px-8 py-4"
                   >
                     {ctaText}
                   </button>
                 ) : (
-                  <Link href="/#service-tiers" className="btn-primary text-lg px-8 py-4">
+                  <Link href="/#service-tiers" className="btn btn-primary text-lg px-8 py-4">
                     {ctaText}
                   </Link>
                 )}
+                
+                {secondaryCtaText && (
+                  onSecondaryClick ? (
+                    <button
+                      onClick={onSecondaryClick}
+                      className="btn btn-secondary text-lg px-8 py-4"
+                    >
+                      {secondaryCtaText}
+                    </button>
+                  ) : secondaryCtaLink ? (
+                    <Link
+                      href={secondaryCtaLink}
+                      className="text-gray-200 hover:text-white underline transition-colors text-lg"
+                    >
+                      {secondaryCtaText}
+                    </Link>
+                  ) : null
+                )}
               </div>
-            )}
-            
-            {secondaryCtaText && (
-              onSecondaryClick ? (
-                <button
-                  onClick={onSecondaryClick}
-                  className="btn btn-secondary"
-                >
-                  {secondaryCtaText}
-                </button>
-              ) : secondaryCtaLink ? (
-                <Link
-                  href={secondaryCtaLink}
-                  className="text-gray-200 hover:text-white underline transition-colors"
-                >
-                  {secondaryCtaText}
-                </Link>
-              ) : null
             )}
           </div>
 
@@ -94,12 +104,12 @@ export function Hero({
               <span>Years Experience</span>
             </div>
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-teal-400 mr-2">48 Hours</span>
+              <span className="text-2xl font-bold text-teal-400 mr-2">Weekly</span>
               <span>Creative Delivery</span>
             </div>
             <div className="flex items-center">
               <span className="text-2xl font-bold text-navy-400 mr-2">200+</span>
-              <span>Growth Leaders</span>
+              <span>Growth Teams</span>
             </div>
           </div>
         </div>

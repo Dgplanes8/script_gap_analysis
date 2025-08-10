@@ -109,27 +109,21 @@ export function Header({ onOpenApplication }: HeaderProps) {
                 </div>
               </div>
             </div>
-            <Link
-              href="mailto:brian@apsicsmedia.com"
-              className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
-            >
-              Contact
-            </Link>
           </nav>
 
           {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
             <button
               onClick={() => window.location.href = '/free-hooks'}
-              className="btn btn-tertiary"
+              className="btn btn-primary bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-2 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
             >
               Get 10 Free Hooks
             </button>
             <button
-              onClick={openConsultation}
-              className="btn btn-primary"
+              onClick={() => document.getElementById('service-tiers')?.scrollIntoView({ behavior: 'smooth' })}
+              className="btn btn-tertiary text-gray-700 bg-transparent border-2 border-gray-300 hover:bg-gray-50 hover:text-orange-600"
             >
-              Book Strategy Call
+              See Weekly Plans
             </button>
           </div>
 
@@ -188,13 +182,6 @@ export function Header({ onOpenApplication }: HeaderProps) {
               >
                 Strategic Consultation
               </button>
-              <Link
-                href="mailto:brian@apsicsmedia.com"
-                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-2"
-                onClick={() => setIsOpen(false)}
-              >
-                Contact
-              </Link>
               
               {/* Mobile CTA Buttons */}
               <div className="pt-4 space-y-3 border-t border-gray-100">
@@ -203,18 +190,18 @@ export function Header({ onOpenApplication }: HeaderProps) {
                     window.location.href = '/free-hooks';
                     setIsOpen(false);
                   }}
-                  className="btn btn-tertiary w-full"
+                  className="btn btn-primary w-full"
                 >
                   Get 10 Free Hooks
                 </button>
                 <button
                   onClick={() => {
-                    openConsultation();
+                    document.getElementById('service-tiers')?.scrollIntoView({ behavior: 'smooth' });
                     setIsOpen(false);
                   }}
-                  className="btn btn-primary w-full"
+                  className="btn btn-tertiary w-full"
                 >
-                  Book Strategy Call
+                  See Weekly Plans
                 </button>
               </div>
             </nav>

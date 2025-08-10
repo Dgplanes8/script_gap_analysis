@@ -1,0 +1,25 @@
+{
+  "brand_name": "liquid_i.v.",
+  "original_name": "Liquid I.V.",
+  "competitors": [
+    "Nuun",
+    "DripDrop",
+    "Pedialyte",
+    "Gatorlyte"
+  ],
+  "created_at": "20250806_201818",
+  "folder_structure": [
+    "Brand",
+    "Perplexity",
+    "Reddit",
+    "Apify",
+    "AssemblyAI",
+    "Guide",
+    "Gap_Analysis",
+    "Concepts",
+    "Copy",
+    "Script",
+    "Completed_Analysis"
+  ],
+  "workflow_type": "phased"
+}

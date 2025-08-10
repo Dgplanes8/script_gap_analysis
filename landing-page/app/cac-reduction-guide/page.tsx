@@ -508,14 +508,14 @@ export default function CACReductionGuidePage() {
                 ✓ 50+ page implementation guide<br />
                 ✓ Excel templates and calculators<br />
                 ✓ Strategic framework documentation<br />
-                ✓ Free 30-minute CAC audit call
+                ✓ 10 Free Hooks for CAC reduction + Weekly scripts
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <ConsultationBookingCTA 
                 variant="secondary" 
-                text="Book Free CAC Strategy Session"
+                text="Get My 10 Free Hooks + Weekly Scripts"
               />
             </div>
           </div>

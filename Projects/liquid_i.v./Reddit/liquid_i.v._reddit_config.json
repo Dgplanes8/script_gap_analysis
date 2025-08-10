@@ -1,0 +1,29 @@
+{
+  "brand": "Liquid I.V.",
+  "competitors": [
+    "Nuun",
+    "DripDrop",
+    "Pedialyte",
+    "Gatorlyte"
+  ],
+  "subreddits_to_search": [
+    "marketing",
+    "advertising",
+    "entrepreneur",
+    "smallbusiness",
+    "reviews",
+    "askreddit",
+    "personalfinance",
+    "buyitforlife"
+  ],
+  "search_terms": [
+    "Liquid I.V.",
+    "Nuun",
+    "DripDrop",
+    "Pedialyte",
+    "Gatorlyte",
+    "alternatives to Liquid I.V.",
+    "vs Liquid I.V."
+  ],
+  "output_file": "/Users/nataliebasque/Ad Workflow/Projects/liquid_i.v./Reddit/liquid_i.v._reddit_results.json"
+}

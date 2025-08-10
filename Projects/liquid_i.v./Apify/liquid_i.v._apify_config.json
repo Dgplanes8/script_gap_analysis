@@ -1,0 +1,21 @@
+{
+  "brands_to_scrape": [
+    "Liquid I.V.",
+    "Nuun",
+    "DripDrop",
+    "Pedialyte",
+    "Gatorlyte"
+  ],
+  "search_terms": [
+    "Liquid I.V.",
+    "Nuun",
+    "DripDrop",
+    "Pedialyte",
+    "Gatorlyte"
+  ],
+  "output_format": "json",
+  "include_images": true,
+  "include_videos": true,
+  "max_ads_per_brand": 50,
+  "output_file": "/Users/nataliebasque/Ad Workflow/Projects/liquid_i.v./Apify/liquid_i.v._apify_results.json"
+}

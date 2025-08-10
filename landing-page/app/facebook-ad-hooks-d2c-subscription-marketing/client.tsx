@@ -174,14 +174,14 @@ export function FacebookAdHooksClient() {
         <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-6">
                 <Facebook className="h-4 w-4 mr-2" />
                 Facebook Ad Strategy
               </div>
               
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 Facebook Ad Creative Strategy: 15 Winning Hooks for 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> D2C Subscriptions</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600"> D2C Subscriptions</span>
               </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
@@ -191,11 +191,11 @@ export function FacebookAdHooksClient() {
               
               <div className="flex flex-wrap justify-center items-center gap-6 mb-8 text-sm text-gray-600">
                 <div className="flex items-center">
-                  <Clock className="h-4 w-4 mr-2 text-blue-600" />
+                  <Clock className="h-4 w-4 mr-2 text-orange-600" />
                   18-minute read
                 </div>
                 <div className="flex items-center">
-                  <Users className="h-4 w-4 mr-2 text-blue-600" />
+                  <Users className="h-4 w-4 mr-2 text-orange-600" />
                   For D2C subscriptions
                 </div>
                 <div className="flex items-center">

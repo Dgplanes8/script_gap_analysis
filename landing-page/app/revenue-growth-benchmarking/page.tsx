@@ -334,14 +334,14 @@ export default function RevenueGrowthBenchmarkingPage() {
                 ✓ Industry benchmark comparison<br />
                 ✓ Performance gap analysis<br />
                 ✓ Strategic recommendations<br />
-                ✓ Free growth strategy consultation
+                ✓ 10 Free Growth Hooks + Weekly script delivery
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <ConsultationBookingCTA 
                 variant="secondary" 
-                text="Book Free Growth Strategy Session"
+                text="Get My 10 Free Growth Hooks + Weekly Scripts"
               />
             </div>
           </div>

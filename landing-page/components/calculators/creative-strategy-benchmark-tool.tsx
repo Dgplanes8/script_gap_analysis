@@ -34,7 +34,7 @@ export function CreativeStrategyBenchmarkTool() {
   const [results, setResults] = useState<BenchmarkResults>({
     maturityScore: 0,
     industryPercentile: 0,
-    recommendedTier: 'Concept Starter',
+    recommendedTier: 'Trend Tracker',
     gapAnalysis: [],
     priorityActions: [],
     competitiveAdvantage: 'Beginner'
@@ -151,11 +151,11 @@ export function CreativeStrategyBenchmarkTool() {
     }
 
     // Determine recommended tier
-    let recommendedTier = 'Concept Starter';
+    let recommendedTier = 'Trend Tracker';
     if (maturityScore >= 70) {
-      recommendedTier = 'Performance Accelerator';
+      recommendedTier = 'Market Intelligence';
     } else if (maturityScore >= 50) {
-      recommendedTier = 'Intelligence Accelerator';
+      recommendedTier = 'Competitive Edge';
     }
 
     return {
@@ -422,7 +422,7 @@ export function CreativeStrategyBenchmarkTool() {
                 <ArrowRight className="h-5 w-5 ml-2" />
               </button>
               <p className="text-sm mt-4 opacity-80">
-                Free consultation • Custom action plan • 48-hour script acceleration
+                Free consultation • Custom action plan • Weekly creative intelligence
               </p>
             </div>
           </div>

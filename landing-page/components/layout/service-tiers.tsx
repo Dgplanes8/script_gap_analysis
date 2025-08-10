@@ -29,7 +29,7 @@ export function ServiceTiers() {
       badgeColor: 'bg-orange-100 text-orange-800',
       borderColor: 'border-orange-200 hover:border-orange-400',
       ctaColor: 'bg-orange-600 hover:bg-orange-700 text-white',
-      ideal: 'Growth teams at 5-25 employee subscription companies testing creative concepts weekly'
+      ideal: 'Growth teams at growing subscription companies testing creative concepts weekly'
     },
     {
       id: 'intelligence',
@@ -40,7 +40,7 @@ export function ServiceTiers() {
       description: '2 concepts weekly: 1 trend-based + 1 competitor-inspired with analysis',
       features: [
         '2 creative concepts delivered every Monday',
-        '3 ready-to-develop scripts total per week',
+        '4 weekly scripts - 2 per each concept',
         '1 trend-based + 1 competitor-inspired concept',
         'Brief competitive context analysis',
         'Weekly trend intelligence updates',
@@ -52,7 +52,7 @@ export function ServiceTiers() {
       borderColor: 'border-teal-300 hover:border-teal-500',
       ctaColor: 'bg-teal-600 hover:bg-teal-700 text-white',
       popular: true,
-      ideal: 'Performance marketers at 25-75 employee companies who\'ve saturated their core audiences'
+      ideal: 'Performance marketers who\'ve saturated their core audiences and need fresh concepts'
     },
     {
       id: 'performance',
@@ -63,18 +63,18 @@ export function ServiceTiers() {
       description: 'Full market intelligence with direct team access for strategic support',
       features: [
         '3 creative concepts delivered every Monday',
-        '4 ready-to-develop scripts total per week',
+        '6 weekly scripts - 2 per each concept',
         'Trend analysis + competitor breakdown + original concept',
         'Weekly "what\'s working" insight summary',
         'Direct team access for strategic support',
         'Performance marketing methodology application',
         'Priority support with strategic consultation'
       ],
-      badge: 'Premium - For $50k+ monthly ad spend',
+      badge: 'Premium - For $200K+ monthly ad spend',
       badgeColor: 'bg-navy-100 text-navy-800',
       borderColor: 'border-navy-300 hover:border-navy-500',
       ctaColor: 'bg-navy-600 hover:bg-navy-700 text-white',
-      ideal: 'Heads of Growth at subscription companies scaling beyond $50k/month ad spend'
+      ideal: 'Heads of Growth at subscription companies scaling beyond $200K/month ad spend'
     }
   ];
 
@@ -84,19 +84,19 @@ export function ServiceTiers() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-6">
             <Zap className="h-4 w-4 mr-2" />
-            Built for Growth Leaders
+            Built for Growth Teams
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Creative Concepts Delivered Every Monday (Not Every Month)
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
             Fresh creative concepts and audience insights for performance marketers who can't wait weeks for agencies. 
-            48-hour delivery vs industry standard 1-2 week turnaround.
+            Weekly delivery vs industry standard 1-2 week turnaround.
           </p>
           <div className="bg-white rounded-xl p-6 max-w-3xl mx-auto shadow-lg border">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-orange-600">48 Hours</div>
+                <div className="text-3xl font-bold text-orange-600">Weekly</div>
                 <div className="text-sm text-gray-600">Not 2 Weeks</div>
               </div>
               <div>
@@ -170,16 +170,16 @@ export function ServiceTiers() {
 
                 <div className="mt-auto">
                   <button
-                  onClick={openConsultation}
-                  className={`w-full py-4 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center ${tier.ctaColor}`}
+                  onClick={() => window.location.href = '/free-hooks'}
+                  className={`w-full py-4 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center min-h-[56px] ${tier.ctaColor}`}
                 >
-                  <Calendar className="h-5 w-5 mr-2" />
-                  Get My {tier.name}
-                  <ArrowRight className="h-4 w-4 ml-2" />
+                  <Calendar className="h-5 w-5 mr-2 flex-shrink-0" />
+                  <span className="text-center flex-1">Get 10 Free Hooks & Start {tier.name}</span>
+                  <ArrowRight className="h-4 w-4 ml-2 flex-shrink-0" />
                 </button>
 
-                  <p className="text-xs text-gray-500 mt-4 text-center">
-                    Free consultation • No obligation • Custom proposal provided
+                  <p className="text-xs text-gray-500 mt-4 text-center min-h-[36px] flex items-center justify-center">
+                    Start with free hooks • Optional consultation available • Cancel anytime
                   </p>
                 </div>
               </div>
@@ -190,22 +190,24 @@ export function ServiceTiers() {
         <div className="mt-16 text-center">
           <div className="bg-white rounded-2xl p-8 max-w-4xl mx-auto shadow-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Not Sure Which Plan Fits Your Growth Stage?
+              Start With Free Hooks - No Risk, Instant Value
             </h3>
             <p className="text-lg text-gray-600 mb-6">
-              Book a growth assessment to get personalized recommendations based on your current ad spend and team size.
+              Experience our strategic approach with 10 high-converting hooks before choosing your weekly plan. Perfect for testing our creative intelligence methodology.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <ConsultationBookingCTA 
-                text="Book Strategy Call"
-                variant="primary"
-              />
+              <button
+                onClick={() => window.location.href = '/free-hooks'}
+                className="btn btn-primary text-lg px-8 py-4"
+              >
+                Get My 10 Free Hooks
+              </button>
               <div className="text-sm text-gray-500">
-                • 30-minute growth bottleneck assessment
+                • Instant access to hook bank PDF
                 <br />
-                • Creative delivery plan recommendation  
+                • Weekly creative intelligence newsletter  
                 <br />
-                • Performance marketing acceleration strategies
+                • See our strategic methodology firsthand
               </div>
             </div>
           </div>

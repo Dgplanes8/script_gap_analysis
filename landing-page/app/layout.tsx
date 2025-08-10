@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Apsics Media - Weekly Trend Intelligence for Subscription Businesses',
   description:
-    'Get viral scripts every Monday based on trending formats + competitor analysis. Fortune 100 methodology delivering weekly trend intelligence starting at $67/month.',
+    'Get viral scripts every Monday based on trending formats + competitor analysis. Weekly trend intelligence for growth marketing teams at subscription companies starting at $67/month.',
   keywords:
     'weekly trend intelligence, viral scripts, competitor analysis, subscription business marketing, Fortune 100 marketing, TikTok trends, weekly creative concepts',
   authors: [{ name: 'Apsics Media' }],
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Apsics Media - Weekly Trend Intelligence for Subscription Businesses',
     description:
-      'Get viral scripts every Monday based on trending formats + competitor analysis. Fortune 100 methodology starting at $67/month.',
+      'Get viral scripts every Monday based on trending formats + competitor analysis. Weekly trend intelligence for growth marketing teams starting at $67/month.',
     url: '/',
     siteName: 'Apsics Media',
     images: [
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Apsics Media - Weekly Trend Intelligence for Subscription Businesses',
     description:
-      'Get viral scripts every Monday based on trending formats + competitor analysis. Fortune 100 methodology starting at $67/month.',
+      'Get viral scripts every Monday based on trending formats + competitor analysis. Weekly trend intelligence for growth marketing teams starting at $67/month.',
     images: ['/images/og-image.jpg'],
     creator: '@apsicsmedia',
   },
@@ -60,6 +60,16 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/apple-touch-icon-precomposed.png',
+    },
+  },
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
