@@ -84,6 +84,31 @@ const articles = [
     color: 'bg-purple-50 border-purple-200 text-purple-800',
     articles: [
       {
+        title: 'Weekly Creative Intelligence for Subscription Marketing',
+        slug: '/blog/weekly-creative-intelligence-subscription-marketing',
+        description: 'Transform subscription marketing with weekly creative concepts delivered every Monday'
+      },
+      {
+        title: 'Competitive Creative Analysis for Growth Teams',
+        slug: '/blog/competitive-creative-analysis-growth-teams',
+        description: 'Systematic frameworks for analyzing competitor strategies and adapting winning concepts'
+      },
+      {
+        title: 'Creative Fatigue Solutions for Subscription Companies',
+        slug: '/blog/creative-fatigue-subscription-companies',
+        description: 'Combat creative fatigue with systematic solutions and maintain consistent acquisition costs'
+      },
+      {
+        title: 'Growth Team Creative Bottlenecks: Agency Alternative',
+        slug: '/blog/growth-team-creative-bottlenecks',
+        description: 'Eliminate creative bottlenecks with weekly delivery systems that accelerate growth'
+      },
+      {
+        title: 'Trend-Based Creative Development for Subscription Business',
+        slug: '/blog/trend-based-creative-development',
+        description: 'Leverage social media trends for high-performing ad concepts and audience expansion'
+      },
+      {
         title: 'Facebook Ad Hooks for D2C Subscription Marketing',
         slug: '/facebook-ad-hooks-d2c-subscription-marketing',
         description: 'Platform-specific hook strategies'
@@ -197,7 +222,7 @@ export default function BlogPage() {
             <div className="max-w-4xl mx-auto">
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
-                  <div className="text-3xl font-bold text-blue-600 mb-2">23+</div>
+                  <div className="text-3xl font-bold text-blue-600 mb-2">28+</div>
                   <div className="text-gray-600">SEO-Optimized Articles</div>
                 </div>
                 <div>

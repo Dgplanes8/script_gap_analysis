@@ -58,11 +58,11 @@ export default function SuccessPage() {
         title={title}
         subtitle={subtitle}
         ctaText="Get 10 Free Hooks"
-        ctaLink="/free-hooks"
         secondaryCtaText="View Weekly Plans"
         secondaryCtaLink="/#service-tiers"
         background="gradient"
         showEmailCapture={false}
+        onPrimaryClick={() => window.location.href = '/free-hooks'}
       />
 
       {/* Next Steps Section */}
