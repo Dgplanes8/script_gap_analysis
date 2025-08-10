@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description:
     'Get viral scripts every Monday based on trending formats + competitor analysis. Weekly trend intelligence for growth marketing teams at subscription companies starting at $67/month.',
   keywords:
-    'weekly trend intelligence, viral scripts, competitor analysis, subscription business marketing, Fortune 100 marketing, TikTok trends, weekly creative concepts',
+    'weekly trend intelligence, viral scripts, competitor analysis, subscription business marketing, growth marketing teams, TikTok trends, weekly creative concepts',
   authors: [{ name: 'Apsics Media' }],
   creator: 'Apsics Media',
   publisher: 'Apsics Media',

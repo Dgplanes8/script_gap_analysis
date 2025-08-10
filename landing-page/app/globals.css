@@ -70,7 +70,11 @@
   }
   
   .form-input {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors duration-200;
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors duration-200 text-base sm:text-lg leading-tight;
+    min-height: 48px; /* Ensures proper touch targets on mobile */
+    font-size: 16px; /* Prevents zoom on iOS */
+    background-color: rgba(255, 255, 255, 0.98);
+    border-width: 2px; /* Thicker border for better visibility */
   }
   
   .bg-grid-pattern {
@@ -172,19 +176,43 @@
    ======================================================================== */
 
 .btn {
-  @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500;
+  @apply inline-flex items-center justify-center border border-transparent text-base font-medium shadow-sm text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500;
+  min-height: 48px;
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-size: 16px;
+  line-height: 1.2;
 }
 
 .btn-primary {
   @apply bg-gradient-to-r from-orange-600 to-red-600 text-white font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-200 shadow-lg hover:shadow-xl;
+  min-height: 48px;
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-size: 16px;
+  line-height: 1.2;
 }
 
 .btn-secondary {
   @apply bg-transparent border-2 border-white text-white font-semibold hover:bg-white/10 transition-colors duration-200;
+  min-height: 48px;
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-size: 16px;
+  line-height: 1.2;
 }
 
 .btn-tertiary {
   @apply text-orange-600 hover:text-orange-700 font-semibold transition-colors;
+  min-height: 48px;
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-size: 16px;
+  line-height: 1.2;
+  border: 2px solid currentColor;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Visual improvements */
@@ -210,15 +238,25 @@
 /* Mobile optimizations */
 @media (max-width: 768px) {
   /* Larger tap targets for mobile */
-  .btn, .btn-primary, .btn-secondary {
+  .btn, .btn-primary, .btn-secondary, .btn-tertiary {
     min-height: 48px;
-    padding: 12px 24px;
+    padding: 14px 20px;
   }
   
   /* Better spacing on mobile */
   .py-24 {
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }
+  
+  .py-16 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  
+  .py-12 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
   
   .section-spacing {
@@ -233,19 +271,37 @@
   
   /* Responsive text sizing */
   .text-4xl {
-    font-size: 2.25rem;
+    font-size: 2rem;
     line-height: 1.2;
   }
   
   .text-5xl {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     line-height: 1.1;
   }
   
+  .text-3xl {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+  
+  .text-2xl {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  .text-xl {
+    font-size: 1.125rem;
+    line-height: 1.4;
+  }
+  
   /* Mobile-friendly forms */
-  input[type="email"] {
+  input[type="email"], 
+  input[type="text"],
+  textarea {
     min-height: 48px;
     font-size: 16px; /* Prevents zoom on iOS */
+    padding: 14px 16px;
   }
   
   /* Better mobile card spacing */
@@ -253,9 +309,162 @@
     gap: 1.5rem;
   }
   
+  .grid.gap-6 {
+    gap: 1rem;
+  }
+  
+  .space-y-8 > * + * {
+    margin-top: 1.5rem;
+  }
+  
+  .space-y-6 > * + * {
+    margin-top: 1rem;
+  }
+  
+  /* Mobile-optimized containers */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .max-w-4xl,
+  .max-w-6xl {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
   /* Mobile-optimized hero section */
   .hero-section {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
+  
+  /* Better contrast for mobile text */
+  .text-gray-600 {
+    color: rgb(75 85 99); /* Darker gray for better contrast */
+  }
+  
+  .text-gray-700 {
+    color: rgb(55 65 81); /* Even darker for improved readability */
+  }
+  
+  /* Mobile service tier optimizations */
+  .service-tier-card {
+    margin-bottom: 2rem;
+  }
+  
+  /* Mobile form layout improvements */
+  .flex.flex-col.sm\\:flex-row {
+    gap: 1rem;
+  }
+  
+  .flex.flex-col.sm\\:flex-row > * {
+    width: 100%;
+  }
+}
+
+/* Enhanced contrast and readability */
+.text-contrast-high {
+  color: rgb(17 24 39); /* Very dark gray for maximum contrast */
+}
+
+.bg-contrast-light {
+  background-color: rgba(255, 255, 255, 0.98); /* High contrast white background */
+}
+
+/* Improved focus states for accessibility */
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgb(249 115 22); /* Orange focus ring */
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
+}
+
+/* Better hover states for touch devices */
+@media (hover: hover) {
+  .hover-enhanced:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .text-gray-600,
+  .text-gray-700 {
+    color: rgb(0 0 0);
+  }
+  
+  .bg-gray-50 {
+    background-color: rgb(255 255 255);
+  }
+  
+  button,
+  .btn {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Enhanced typography hierarchy */
+.text-hero {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.text-section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.text-card-title {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.text-body-large {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.text-body {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Improved visual spacing */
+.section-padding {
+  padding-top: clamp(3rem, 8vw, 6rem);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+.card-padding {
+  padding: clamp(1.5rem, 4vw, 2rem);
+}
+
+/* Enhanced interactive states */
+.interactive-element {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-element:hover {
+  transform: translateY(-2px);
+}
+
+.interactive-element:active {
+  transform: translateY(0);
+}
+
+/* Better focus indicators for keyboard navigation */
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.5);
+  border-color: rgb(249 115 22);
 }

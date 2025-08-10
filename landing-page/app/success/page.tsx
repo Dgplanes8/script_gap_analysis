@@ -57,8 +57,9 @@ export default function SuccessPage() {
       <Hero
         title={title}
         subtitle={subtitle}
-        ctaText="View Service Tiers"
-        secondaryCtaText="Book Consultation"
+        ctaText="Get 10 Free Hooks"
+        ctaLink="/free-hooks"
+        secondaryCtaText="View Weekly Plans"
         secondaryCtaLink="/#service-tiers"
         background="gradient"
         showEmailCapture={false}
@@ -130,7 +131,7 @@ export default function SuccessPage() {
               <div className="bg-white rounded-xl p-8 shadow-lg border-2 border-gray-200 hover:border-brand-300 transition-colors">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    Trend Tracker - $67/Month
+                    Weekly Trend Intelligence
                   </h3>
                   <p className="text-gray-600">
                     Weekly trend intelligence with ready-to-develop scripts based on what's working RIGHT NOW.
@@ -157,10 +158,10 @@ export default function SuccessPage() {
                 </ul>
                 
                 <Link
-                  href="/#service-tiers"
+                  href="/free-hooks"
                   className="w-full btn-primary text-center block"
                 >
-                  Start Weekly Intelligence
+                  Get 10 Free Hooks First
                 </Link>
               </div>
               
@@ -172,29 +173,29 @@ export default function SuccessPage() {
                 
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold mb-2">
-                    Market Intelligence - $497/Month
+                    All Weekly Plans Available
                   </h3>
                   <p className="text-brand-100">
-                    Complete weekly trend intelligence + competitor analysis + direct strategic support.
+                    Starting at $67/month. See all tiers and choose what fits your growth goals.
                   </p>
                 </div>
                 
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-brand-200 mt-1 mr-3 flex-shrink-0" />
-                    <span>4 trending concepts every Monday</span>
+                    <span>Trend Tracker: $67/month - 1 concept weekly</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-brand-200 mt-1 mr-3 flex-shrink-0" />
-                    <span>Comprehensive competitor analysis</span>
+                    <span>Competitive Edge: $197/month - 2 concepts weekly</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-brand-200 mt-1 mr-3 flex-shrink-0" />
-                    <span>Strategic implementation guide</span>
+                    <span>Market Intelligence: $497/month - 3 concepts weekly</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-brand-200 mt-1 mr-3 flex-shrink-0" />
-                    <span>Direct access for strategic support</span>
+                    <span>All plans include trend analysis & ready scripts</span>
                   </li>
                 </ul>
                 
@@ -202,7 +203,7 @@ export default function SuccessPage() {
                   href="/#service-tiers"
                   className="w-full bg-white text-brand-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-50 transition-colors text-center block"
                 >
-                  Get Full Intelligence Package
+                  Compare All Weekly Plans
                 </Link>
               </div>
             </div>
@@ -223,7 +224,7 @@ export default function SuccessPage() {
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <a
-                href="https://twitter.com/mondaymorningmarketer"
+                href="https://twitter.com/apsicsmedia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors flex items-center"
@@ -235,7 +236,7 @@ export default function SuccessPage() {
               </a>
               
               <a
-                href="https://linkedin.com/company/monday-morning-marketer"
+                href="https://linkedin.com/company/apsics-media"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-3 rounded-lg font-semibold transition-colors flex items-center"
@@ -250,26 +251,27 @@ export default function SuccessPage() {
         </div>
       </section>
 
-      {/* Newsletter Signup */}
+      {/* Hook Bank CTA */}
       <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <div className="bg-white rounded-xl p-8 shadow-lg text-center">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Haven't Subscribed Yet?
+                Start With 10 Free Hooks
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Get weekly trending concepts, competitor analysis, and ready-to-develop scripts for subscription businesses. Every Monday at 8am ET.
+                Get proven hooks from high-performing subscription campaigns. Perfect way to experience our strategic approach before choosing a weekly plan.
               </p>
               
-              <EmailCaptureForm
-                placeholder="Enter your email address"
-                buttonText="Subscribe to Monday Morning Ideas"
-                variant="cta"
-              />
+              <Link
+                href="/free-hooks"
+                className="btn-primary inline-block px-8 py-4 text-lg font-semibold"
+              >
+                Get My 10 Free Hooks
+              </Link>
               
               <p className="text-sm text-gray-500 mt-4">
-                Plus get your free 10 Hook Bank PDF with proven customer-language hooks.
+                Instant PDF download + weekly trend intelligence newsletter
               </p>
             </div>
           </div>
@@ -289,7 +291,7 @@ export default function SuccessPage() {
             
             <div className="bg-gray-50 rounded-xl p-8">
               <p className="text-lg text-gray-700 mb-6">
-                <strong>Contact us:</strong> <a href="mailto:mondaymorningmarketer@gmail.com" className="text-brand-600 hover:underline">mondaymorningmarketer@gmail.com</a>
+                <strong>Contact us:</strong> <a href="mailto:hello@apsicsmedia.com" className="text-brand-600 hover:underline">hello@apsicsmedia.com</a>
               </p>
               
               <div className="text-sm text-gray-600 space-y-2">

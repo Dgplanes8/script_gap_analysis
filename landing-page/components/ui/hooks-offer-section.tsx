@@ -24,14 +24,12 @@ export function HooksOfferSection() {
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              10 Viral Hooks from Fortune 100
+              10 Viral Hooks from High-Performing
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> Campaigns</span>
             </h2>
             
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              Get the exact hooks that drove viral growth for subscription businesses. 
-              From someone who managed $100M+ ad spend. Each hook includes the strategic rationale 
-              and platform-specific adaptation guide.
+              Get proven hooks from high-performing subscription campaigns. Perfect for growth marketing teams testing new creative angles weekly. Each hook includes strategic rationale and platform-specific adaptation guide.
             </p>
           </div>
 
@@ -41,9 +39,9 @@ export function HooksOfferSection() {
               <div className="bg-blue-100 rounded-lg p-3 w-fit mb-4">
                 <TrendingUp className="h-6 w-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Fortune 100 Proven</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Performance Proven</h3>
               <p className="text-gray-600">
-                Hooks that drove viral growth for subscription businesses at enterprise scale. Real performance data, not theory.
+                Hooks that drove viral growth for subscription businesses at scale. Real performance data, not theory.
               </p>
             </div>
             

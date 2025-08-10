@@ -7,7 +7,7 @@ import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
   title: 'Advanced Marketing Attribution Framework for SaaS Companies | Strategic Ad Intelligence',
-  description: 'Master multi-touch attribution modeling for SaaS companies. Implement advanced CAC measurement, optimize marketing spend, and drive revenue growth with Fortune 100 attribution methodologies.',
+  description: 'Master multi-touch attribution modeling for SaaS companies. Implement advanced CAC measurement, optimize marketing spend, and drive revenue growth with proven enterprise attribution methodologies.',
   keywords: 'SaaS marketing attribution, multi-touch attribution framework, B2B attribution modeling, CAC optimization, marketing attribution software, revenue attribution tracking, SaaS marketing analytics',
   openGraph: {
     title: 'Advanced Marketing Attribution Framework for SaaS Companies',
@@ -34,7 +34,7 @@ const structuredData = {
     name: 'Apsics Media',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://mondaymorningmarketer.com/logo.png'
+      url: 'https://apsicsmedia.com/logo.png'
     }
   },
   datePublished: '2024-01-15',
@@ -66,7 +66,7 @@ export default function MarketingAttributionFrameworkPage() {
             </h1>
             <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
               Implement sophisticated multi-touch attribution modeling to accurately measure CAC, 
-              optimize marketing spend, and drive revenue growth. Based on Fortune 100 attribution 
+              optimize marketing spend, and drive revenue growth. Based on proven enterprise attribution 
               methodologies adapted for subscription businesses.
             </p>
             
@@ -87,13 +87,18 @@ export default function MarketingAttributionFrameworkPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <ConsultationBookingCTA 
-                text="Get Free Attribution Audit"
-                variant="primary"
-              />
-              <button className="px-8 py-3 border-2 border-purple-600 text-purple-600 rounded-lg font-semibold hover:bg-purple-50">
-                Get Weekly Attribution Insights
-              </button>
+              <a
+                href="/free-hooks"
+                className="px-8 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors"
+              >
+                Get 10 Free Attribution Hooks
+              </a>
+              <a
+                href="/#service-tiers"
+                className="px-8 py-3 border-2 border-purple-600 text-purple-600 rounded-lg font-semibold hover:bg-purple-50 transition-colors"
+              >
+                See Weekly Plans
+              </a>
             </div>
           </div>
         </section>
@@ -511,26 +516,28 @@ export default function MarketingAttributionFrameworkPage() {
               data schema templates, and step-by-step implementation guides.
             </p>
             
-            <div className="bg-white rounded-lg p-8 max-w-md mx-auto mb-8">
-              <EmailCaptureForm
-                placeholder="Enter your business email"
-                buttonText="Get Attribution Toolkit"
-                variant="cta"
-                source="marketing-attribution-framework"
-              />
-              <div className="text-sm text-gray-600 mt-4">
-                ✓ Technical implementation guide<br />
-                ✓ SQL queries and data schema<br />
-                ✓ Attribution model templates<br />
-                ✓ Free attribution strategy consultation
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/free-hooks"
+                className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+              >
+                Get My 10 Free Attribution Hooks
+              </a>
+              <a
+                href="/#service-tiers"
+                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors"
+              >
+                See Weekly Plans
+              </a>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <ConsultationBookingCTA 
-                variant="secondary" 
-                text="Book Free Attribution Strategy Session"
-              />
+            <div className="text-purple-100 mt-6 max-w-md mx-auto">
+              <div className="text-sm">
+                ✓ 10 proven attribution hooks<br />
+                ✓ Weekly trend intelligence newsletter<br />
+                ✓ Technical implementation frameworks<br />
+                ✓ Platform adaptation guides
+              </div>
             </div>
           </div>
         </section>
@@ -548,8 +555,8 @@ export default function MarketingAttributionFrameworkPage() {
                 <p className="text-gray-600 mb-4">
                   Use attribution insights to systematically reduce customer acquisition costs.
                 </p>
-                <a href="/cac-optimization-calculator" className="text-purple-600 font-semibold hover:underline">
-                  Read Guide →
+                <a href="/free-hooks" className="text-purple-600 font-semibold hover:underline">
+                  Get Free Hooks →
                 </a>
               </div>
               
@@ -558,8 +565,8 @@ export default function MarketingAttributionFrameworkPage() {
                 <p className="text-gray-600 mb-4">
                   Compare your attribution sophistication against industry leaders.
                 </p>
-                <a href="/revenue-growth-benchmarking" className="text-purple-600 font-semibold hover:underline">
-                  Take Assessment →
+                <a href="/free-hooks" className="text-purple-600 font-semibold hover:underline">
+                  Get Free Hooks →
                 </a>
               </div>
               
@@ -568,8 +575,8 @@ export default function MarketingAttributionFrameworkPage() {
                 <p className="text-gray-600 mb-4">
                   Multi-touch attribution specialized for D2C and consumer subscription brands.
                 </p>
-                <a href="/consumer-attribution-framework" className="text-purple-600 font-semibold hover:underline">
-                  View D2C Framework →
+                <a href="/free-hooks" className="text-purple-600 font-semibold hover:underline">
+                  Get Free Hooks →
                 </a>
               </div>
             </div>

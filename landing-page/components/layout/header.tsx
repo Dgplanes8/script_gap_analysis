@@ -53,10 +53,10 @@ export function Header({ onOpenApplication }: HeaderProps) {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold text-xl px-3 py-2 rounded-lg">
+            <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold text-xl sm:text-2xl px-3 py-2 rounded-lg shadow-lg">
               AM
             </div>
-            <span className="font-bold text-xl text-gray-900 hidden sm:block">
+            <span className="font-bold text-lg sm:text-xl text-gray-900 hidden sm:block">
               Apsics Media
             </span>
           </Link>
@@ -69,6 +69,12 @@ export function Header({ onOpenApplication }: HeaderProps) {
             >
               About
             </button>
+            <Link
+              href="/blog"
+              className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
+            >
+              Blog & Guides
+            </Link>
             <button
               onClick={() => handleNavigation('hooks-offer')}
               className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
@@ -130,7 +136,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-orange-600 transition-colors"
+            className="lg:hidden p-3 text-gray-700 hover:text-orange-600 transition-colors bg-gray-50 hover:bg-gray-100 rounded-lg border border-gray-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
           >
             {isOpen ? <X className="h-6 w-6" aria-label="Close menu" /> : <Menu className="h-6 w-6" aria-label="Open menu" />}
           </button>
@@ -138,37 +144,44 @@ export function Header({ onOpenApplication }: HeaderProps) {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden border-t border-gray-100 py-4 bg-white/95 backdrop-blur-md">
-            <nav className="space-y-4">
+          <div className="lg:hidden border-t border-gray-100 py-6 bg-white/95 backdrop-blur-md shadow-lg">
+            <nav className="space-y-6">
               <button
                 onClick={() => handleNavigation('about')}
-                className="block w-full text-left text-gray-700 hover:text-orange-600 font-medium transition-colors py-2"
+                className="block w-full text-left text-gray-700 hover:text-orange-600 font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
               >
                 About
               </button>
+              <Link
+                href="/blog"
+                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
+                onClick={() => setIsOpen(false)}
+              >
+                Blog & Guides
+              </Link>
               <button
                 onClick={() => handleNavigation('hooks-offer')}
-                className="block w-full text-left text-gray-700 hover:text-orange-600 font-medium transition-colors py-2"
+                className="block w-full text-left text-gray-700 hover:text-orange-600 font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
               >
                 Free Hooks
               </button>
               <Link
                 href="/cac-reduction-guide"
-                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-2"
+                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
                 onClick={() => setIsOpen(false)}
               >
                 CAC Reduction Guide
               </Link>
               <Link
                 href="/revenue-growth-benchmarking"
-                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-2"
+                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
                 onClick={() => setIsOpen(false)}
               >
                 Benchmarking Tool
               </Link>
               <Link
                 href="/saas-creative-strategy-roi-calculator"
-                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-2"
+                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
                 onClick={() => setIsOpen(false)}
               >
                 ROI Calculator
@@ -178,19 +191,19 @@ export function Header({ onOpenApplication }: HeaderProps) {
                   openConsultation();
                   setIsOpen(false);
                 }}
-                className="block w-full text-left text-gray-700 hover:text-orange-600 font-medium transition-colors py-2"
+                className="block w-full text-left text-gray-700 hover:text-orange-600 font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
               >
                 Strategic Consultation
               </button>
               
               {/* Mobile CTA Buttons */}
-              <div className="pt-4 space-y-3 border-t border-gray-100">
+              <div className="pt-6 space-y-4 border-t border-gray-100">
                 <button
                   onClick={() => {
                     window.location.href = '/free-hooks';
                     setIsOpen(false);
                   }}
-                  className="btn btn-primary w-full"
+                  className="btn btn-primary w-full py-4 text-lg font-semibold min-h-[48px]"
                 >
                   Get 10 Free Hooks
                 </button>
@@ -199,7 +212,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
                     document.getElementById('service-tiers')?.scrollIntoView({ behavior: 'smooth' });
                     setIsOpen(false);
                   }}
-                  className="btn btn-tertiary w-full"
+                  className="btn btn-tertiary w-full py-4 text-lg font-semibold min-h-[48px]"
                 >
                   See Weekly Plans
                 </button>

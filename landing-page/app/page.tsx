@@ -119,7 +119,7 @@ export default function HomePage() {
         ]}
       />
 
-      {/* About Section - Enhanced Fortune 100 Positioning */}
+      {/* About Section - Weekly Intelligence Positioning */}
       <AboutSection onOpenApplication={handleOpenConsultation} />
 
       {/* Strategic Process Overview */}

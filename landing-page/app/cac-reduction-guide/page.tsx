@@ -7,11 +7,11 @@ import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
   title: 'Customer Acquisition Cost Reduction: Step-by-Step Implementation Guide | Strategic Ad Intelligence',
-  description: 'Complete guide to reduce customer acquisition cost for subscription businesses. Proven Fortune 100 methodology, implementation checklist, and strategic framework.',
+  description: 'Complete guide to reduce customer acquisition cost for subscription businesses. Proven enterprise methodology, implementation checklist, and strategic framework.',
   keywords: 'reduce customer acquisition cost subscription business, CAC reduction strategy, customer acquisition cost optimization, subscription marketing efficiency',
   openGraph: {
     title: 'Customer Acquisition Cost Reduction: Step-by-Step Implementation Guide',
-    description: 'Complete guide to reduce customer acquisition cost for subscription businesses. Proven Fortune 100 methodology and implementation framework.',
+    description: 'Complete guide to reduce customer acquisition cost for subscription businesses. Proven enterprise methodology and implementation framework.',
     type: 'article',
   },
   alternates: {
@@ -23,18 +23,18 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: 'Customer Acquisition Cost Reduction: Step-by-Step Implementation Guide',
-  description: 'Complete guide to reduce customer acquisition cost for subscription businesses using Fortune 100 methodology',
+  description: 'Complete guide to reduce customer acquisition cost for subscription businesses using proven enterprise methodology',
   author: {
     '@type': 'Organization',
     name: 'Strategic Ad Intelligence System',
-    url: 'https://mondaymorningmarketer.com'
+    url: 'https://apsicsmedia.com'
   },
   publisher: {
     '@type': 'Organization',
     name: 'Strategic Ad Intelligence System',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://mondaymorningmarketer.com/logo.png'
+      url: 'https://apsicsmedia.com/logo.png'
     }
   },
   datePublished: '2024-01-15',
@@ -58,7 +58,7 @@ export default function CACReductionGuidePage() {
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold mb-6">
-              🎯 Fortune 100 Proven Methodology
+              🎯 Enterprise-Proven Methodology
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Customer Acquisition Cost Reduction:
@@ -67,7 +67,7 @@ export default function CACReductionGuidePage() {
             </h1>
             <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
               The complete strategic framework to reduce customer acquisition costs by 30-50% 
-              for subscription businesses. Based on methodologies proven at Fortune 100 scale, 
+              for subscription businesses. Based on methodologies proven at enterprise scale, 
               adapted for $500K-$2M ARR companies.
             </p>
             
@@ -88,13 +88,18 @@ export default function CACReductionGuidePage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <ConsultationBookingCTA 
-                text="Get Free CAC Audit"
-                variant="primary"
-              />
-              <button className="px-8 py-3 border-2 border-indigo-600 text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50">
-                Download Implementation Kit
-              </button>
+              <a
+                href="/free-hooks"
+                className="px-8 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
+              >
+                Get 10 Free Hooks + CAC Guide
+              </a>
+              <a
+                href="/#service-tiers"
+                className="px-8 py-3 border-2 border-indigo-600 text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50 transition-colors"
+              >
+                See Weekly Plans
+              </a>
             </div>
           </div>
         </section>
@@ -497,26 +502,28 @@ export default function CACReductionGuidePage() {
               frameworks. Plus, get a free CAC audit consultation to identify your biggest opportunities.
             </p>
             
-            <div className="bg-white rounded-lg p-8 max-w-md mx-auto mb-8">
-              <EmailCaptureForm
-                placeholder="Enter your business email"
-                buttonText="Get Implementation Kit"
-                variant="cta"
-                source="cac-reduction-guide"
-              />
-              <div className="text-sm text-gray-600 mt-4">
-                ✓ 50+ page implementation guide<br />
-                ✓ Excel templates and calculators<br />
-                ✓ Strategic framework documentation<br />
-                ✓ 10 Free Hooks for CAC reduction + Weekly scripts
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/free-hooks"
+                className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+              >
+                Get My 10 Free Hooks + CAC Guide
+              </a>
+              <a
+                href="/#service-tiers"
+                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition-colors"
+              >
+                See Weekly Plans
+              </a>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <ConsultationBookingCTA 
-                variant="secondary" 
-                text="Get My 10 Free Hooks + Weekly Scripts"
-              />
+            <div className="text-indigo-100 mt-6 max-w-md mx-auto">
+              <div className="text-sm">
+                ✓ 10 proven CAC-reducing hooks<br />
+                ✓ Strategic implementation guide<br />
+                ✓ Weekly trend intelligence newsletter<br />
+                ✓ Platform adaptation frameworks
+              </div>
             </div>
           </div>
         </section>
@@ -534,8 +541,8 @@ export default function CACReductionGuidePage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Interactive calculator to estimate your CAC reduction potential and ROI.
                 </p>
-                <a href="/cac-optimization-calculator" className="text-indigo-600 font-semibold hover:underline mt-auto">
-                  Use Calculator →
+                <a href="/free-hooks" className="text-indigo-600 font-semibold hover:underline mt-auto">
+                  Get Free Hooks →
                 </a>
               </div>
               
@@ -544,8 +551,8 @@ export default function CACReductionGuidePage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Advanced tools for automated creative analysis and strategic optimization.
                 </p>
-                <a href="/marketing-attribution-framework" className="text-indigo-600 font-semibold hover:underline mt-auto">
-                  Explore Framework →
+                <a href="/free-hooks" className="text-indigo-600 font-semibold hover:underline mt-auto">
+                  Get Free Hooks →
                 </a>
               </div>
               
@@ -554,8 +561,8 @@ export default function CACReductionGuidePage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Advanced attribution modeling for accurate CAC measurement and optimization.
                 </p>
-                <a href="/marketing-attribution-framework" className="text-indigo-600 font-semibold hover:underline mt-auto">
-                  Learn Framework →
+                <a href="/free-hooks" className="text-indigo-600 font-semibold hover:underline mt-auto">
+                  Get Free Hooks →
                 </a>
               </div>
             </div>

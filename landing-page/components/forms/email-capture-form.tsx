@@ -92,15 +92,15 @@ export function EmailCaptureForm({
   }
 
   const inputClasses = {
-    hero: 'form-input text-gray-900 text-lg',
-    cta: 'form-input text-gray-900',
-    inline: 'form-input text-gray-900',
+    hero: 'form-input text-gray-900 text-lg min-h-[48px] text-base sm:text-lg',
+    cta: 'form-input text-gray-900 min-h-[44px] text-base',
+    inline: 'form-input text-gray-900 min-h-[44px] text-base',
   };
 
   const buttonClasses = {
-    hero: 'btn-primary text-lg px-8 py-3 whitespace-nowrap',
-    cta: 'btn-primary px-6 py-3 whitespace-nowrap',
-    inline: 'btn-primary px-6 py-3 whitespace-nowrap',
+    hero: 'btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 min-h-[48px] flex-shrink-0',
+    cta: 'btn-primary text-base px-4 sm:px-6 py-3 min-h-[44px] flex-shrink-0',
+    inline: 'btn-primary text-base px-4 sm:px-6 py-3 min-h-[44px] flex-shrink-0',
   };
 
   return (
@@ -108,7 +108,7 @@ export function EmailCaptureForm({
       onSubmit={handleSubmit(handleFormSubmit)}
       className="space-y-4"
     >
-      <div className={`flex ${variant === 'hero' ? 'flex-col sm:flex-row' : 'flex-col sm:flex-row'} gap-3`}>
+      <div className={`flex ${variant === 'hero' ? 'flex-col sm:flex-row' : 'flex-col sm:flex-row'} gap-3 items-stretch`}>
         <div className="flex-1">
           <input
             type="email"
@@ -131,9 +131,9 @@ export function EmailCaptureForm({
           {isSubmitting ? (
             'Subscribing...'
           ) : (
-            <span className="flex items-center">
-              {buttonText}
-              <ArrowRight className="ml-2 h-4 w-4" />
+            <span className="flex items-center justify-center text-center">
+              <span className="truncate">{buttonText}</span>
+              <ArrowRight className="ml-2 h-4 w-4 flex-shrink-0" />
             </span>
           )}
         </button>

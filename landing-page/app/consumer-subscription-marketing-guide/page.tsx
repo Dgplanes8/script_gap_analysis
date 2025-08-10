@@ -30,7 +30,7 @@ const structuredData = {
   provider: {
     '@type': 'Organization',
     name: 'Apsics Media',
-    url: 'https://mondaymorningmarketer.com'
+    url: 'https://apsicsmedia.com'
   },
   featureList: [
     'Channel performance assessment',

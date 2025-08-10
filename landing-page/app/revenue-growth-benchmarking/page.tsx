@@ -27,14 +27,14 @@ const structuredData = {
   author: {
     '@type': 'Organization',
     name: 'Strategic Ad Intelligence System',
-    url: 'https://mondaymorningmarketer.com'
+    url: 'https://apsicsmedia.com'
   },
   publisher: {
     '@type': 'Organization',
     name: 'Strategic Ad Intelligence System',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://mondaymorningmarketer.com/logo.png'
+      url: 'https://apsicsmedia.com/logo.png'
     }
   },
   datePublished: '2024-01-15',
@@ -68,7 +68,7 @@ export default function RevenueGrowthBenchmarkingPage() {
             <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
               Compare your creative strategy performance against industry leaders and high-growth 
               subscription businesses. Get personalized insights and recommendations to accelerate 
-              your revenue growth using Fortune 100 creative intelligence methodologies.
+              your revenue growth using proven enterprise creative intelligence methodologies.
             </p>
             
             {/* Trust Indicators */}
@@ -79,7 +79,7 @@ export default function RevenueGrowthBenchmarkingPage() {
               </div>
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div>
-                Fortune 100 creative frameworks
+                Enterprise-proven creative frameworks
               </div>
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div>
@@ -88,13 +88,18 @@ export default function RevenueGrowthBenchmarkingPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <ConsultationBookingCTA 
-                text="Get Free Growth Strategy Audit"
-                variant="primary"
-              />
-              <button className="px-8 py-3 border-2 border-emerald-600 text-emerald-600 rounded-lg font-semibold hover:bg-emerald-50">
-                Get Weekly Benchmark Insights
-              </button>
+              <a
+                href="/free-hooks"
+                className="px-8 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
+              >
+                Get 10 Free Growth Hooks
+              </a>
+              <a
+                href="/#service-tiers"
+                className="px-8 py-3 border-2 border-emerald-600 text-emerald-600 rounded-lg font-semibold hover:bg-emerald-50 transition-colors"
+              >
+                See Weekly Plans
+              </a>
             </div>
           </div>
         </section>
@@ -323,26 +328,28 @@ export default function RevenueGrowthBenchmarkingPage() {
               leaders, plus actionable recommendations for accelerating revenue growth.
             </p>
             
-            <div className="bg-white rounded-lg p-8 max-w-md mx-auto mb-8">
-              <EmailCaptureForm
-                placeholder="Enter your business email"
-                buttonText="Get Benchmark Report"
-                variant="cta"
-                source="revenue-growth-benchmarking"
-              />
-              <div className="text-sm text-gray-600 mt-4">
-                ✓ Industry benchmark comparison<br />
-                ✓ Performance gap analysis<br />
-                ✓ Strategic recommendations<br />
-                ✓ 10 Free Growth Hooks + Weekly script delivery
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/free-hooks"
+                className="bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+              >
+                Get My 10 Free Growth Hooks
+              </a>
+              <a
+                href="/#service-tiers"
+                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-emerald-600 transition-colors"
+              >
+                See Weekly Plans
+              </a>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <ConsultationBookingCTA 
-                variant="secondary" 
-                text="Get My 10 Free Growth Hooks + Weekly Scripts"
-              />
+            <div className="text-emerald-100 mt-6 max-w-md mx-auto">
+              <div className="text-sm">
+                ✓ 10 proven growth hooks<br />
+                ✓ Weekly trend intelligence newsletter<br />
+                ✓ Performance benchmarking insights<br />
+                ✓ Platform adaptation frameworks
+              </div>
             </div>
           </div>
         </section>
@@ -360,8 +367,8 @@ export default function RevenueGrowthBenchmarkingPage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Step-by-step framework to reduce customer acquisition costs by 30-50%.
                 </p>
-                <a href="/cac-reduction-guide" className="text-emerald-600 font-semibold hover:underline mt-auto">
-                  Read Guide →
+                <a href="/free-hooks" className="text-emerald-600 font-semibold hover:underline mt-auto">
+                  Get Free Hooks →
                 </a>
               </div>
               
@@ -370,8 +377,8 @@ export default function RevenueGrowthBenchmarkingPage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Automated creative analysis and competitor intelligence for strategic advantage.
                 </p>
-                <a href="/saas-creative-strategy-roi-calculator" className="text-emerald-600 font-semibold hover:underline mt-auto">
-                  Explore Tools →
+                <a href="/free-hooks" className="text-emerald-600 font-semibold hover:underline mt-auto">
+                  Get Free Hooks →
                 </a>
               </div>
               
@@ -380,8 +387,8 @@ export default function RevenueGrowthBenchmarkingPage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Calculate the potential ROI of implementing systematic creative strategy.
                 </p>
-                <a href="/saas-creative-strategy-roi-calculator" className="text-emerald-600 font-semibold hover:underline mt-auto">
-                  Use Calculator →
+                <a href="/free-hooks" className="text-emerald-600 font-semibold hover:underline mt-auto">
+                  Get Free Hooks →
                 </a>
               </div>
             </div>

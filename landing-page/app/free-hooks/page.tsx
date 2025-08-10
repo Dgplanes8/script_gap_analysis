@@ -36,7 +36,7 @@ export default function FreeHooksPage() {
                 10 Free Viral Hooks That Stop the Scroll
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Get the exact hooks used by Fortune 100 subscription businesses to drive viral growth. Based on $100M+ in managed ad spend data.
+                Get proven hooks from high-performing subscription campaigns. Perfect for growth marketing teams testing new creative angles weekly.
               </p>
             </div>
           </div>
@@ -69,10 +69,10 @@ export default function FreeHooksPage() {
                     Interactive calculator to optimize your customer acquisition costs with industry benchmarks.
                   </p>
                   <a
-                    href="/cac-optimization-calculator"
+                    href="/free-hooks"
                     className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors"
                   >
-                    Try Calculator
+                    Get My 10 Free Hooks
                     <Download className="h-4 w-4 ml-2" />
                   </a>
                 </div>
@@ -87,10 +87,10 @@ export default function FreeHooksPage() {
                     Compare your creative strategy performance against industry leaders and get personalized recommendations.
                   </p>
                   <a
-                    href="/revenue-growth-benchmarking"
+                    href="/free-hooks"
                     className="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700 transition-colors"
                   >
-                    Try Benchmarking Tool
+                    Get My 10 Free Hooks
                     <Download className="h-4 w-4 ml-2" />
                   </a>
                 </div>
@@ -105,10 +105,10 @@ export default function FreeHooksPage() {
                     Calculate potential ROI improvements from strategic creative optimization.
                   </p>
                   <a
-                    href="/saas-creative-strategy-roi-calculator"
+                    href="/free-hooks"
                     className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors"
                   >
-                    Calculate ROI
+                    Get My 10 Free Hooks
                     <Download className="h-4 w-4 ml-2" />
                   </a>
                 </div>
@@ -128,10 +128,10 @@ export default function FreeHooksPage() {
                 Get fresh scripts every Monday based on trending formats + competitor analysis. Starting at $67/month.
               </p>
               <button
-                onClick={handleOpenConsultation}
+                onClick={() => window.location.href = '/#service-tiers'}
                 className="bg-white text-gray-900 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-200 text-lg"
               >
-                Book Strategy Call
+                See Weekly Plans
               </button>
             </div>
           </div>
