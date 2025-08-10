@@ -35,9 +35,8 @@ export default function HomePage() {
         subtitle="Weekly creative intelligence delivered every Monday for growth marketing teams at subscription companies. Battle-tested concepts from 10+ years managing performance marketing campaigns."
         ctaText="Get My 10 Free Hooks"
         secondaryCtaText="See Weekly Plans"
+        secondaryCtaLink="#service-tiers"
         showEmailCapture={true}
-        onPrimaryClick={() => window.location.href = '/free-hooks'}
-        onSecondaryClick={() => document.getElementById('service-tiers')?.scrollIntoView({ behavior: 'smooth' })}
       />
 
       {/* Lead Magnet Prominence Section */}

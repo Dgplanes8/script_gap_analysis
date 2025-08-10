@@ -7,6 +7,7 @@ interface HeroProps {
   title: string;
   subtitle: string;
   ctaText: string;
+  primaryCtaLink?: string;
   secondaryCtaText?: string;
   secondaryCtaLink?: string;
   background?: 'gradient' | 'default';
@@ -19,6 +20,7 @@ export function Hero({
   title,
   subtitle,
   ctaText,
+  primaryCtaLink,
   secondaryCtaText,
   secondaryCtaLink,
   background = 'default',
@@ -63,7 +65,14 @@ export function Hero({
               </>
             ) : (
               <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-                {onPrimaryClick ? (
+                {primaryCtaLink ? (
+                  <Link 
+                    href={primaryCtaLink}
+                    className="btn btn-primary text-lg px-8 py-4"
+                  >
+                    {ctaText}
+                  </Link>
+                ) : onPrimaryClick ? (
                   <button 
                     onClick={onPrimaryClick}
                     className="btn btn-primary text-lg px-8 py-4"
