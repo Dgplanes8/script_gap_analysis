@@ -39,7 +39,12 @@ export default function HomePage() {
         showEmailCapture={true}
       />
 
-      {/* Lead Magnet Prominence Section */}
+      {/* Service Tiers Section - Prioritized for better conversion */}
+      <section id="service-tiers">
+        <ServiceTiers />
+      </section>
+
+      {/* Lead Magnet Prominence Section - Moved below service tiers */}
       <section className="py-16 bg-gradient-to-r from-orange-50 to-orange-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -85,11 +90,6 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Service Tiers Section - Moved higher for better conversion */}
-      <section id="service-tiers">
-        <ServiceTiers />
       </section>
 
       {/* Strategic Differentiators */}

@@ -4,12 +4,10 @@ import { useState } from 'react';
 import { Check, ArrowRight, Zap, Target, Crown, Building2, TrendingUp, Calendar } from 'lucide-react';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { useConsultation } from '@/components/contexts/consultation-context';
-import { PopupFormModal } from '@/components/forms/popup-form-modal';
-import { usePopupForm } from '@/hooks/use-popup-form';
+import { SimpleAirtableForm } from '@/components/forms/simple-airtable-form';
 
 export function ServiceTiers() {
   const { openModal: openConsultation } = useConsultation();
-  const { isPopupOpen, openPopup, closePopup } = usePopupForm();
   const [selectedTier, setSelectedTier] = useState<'assessment' | 'foundation' | 'growth' | 'enterprise' | null>(null);
 
   const tiers = [
@@ -78,6 +76,29 @@ export function ServiceTiers() {
       borderColor: 'border-navy-300 hover:border-navy-500',
       ctaColor: 'bg-navy-600 hover:bg-navy-700 text-white',
       ideal: 'Heads of Growth at subscription companies scaling beyond $200K/month ad spend'
+    },
+    {
+      id: 'enterprise',
+      name: 'Enterprise',
+      icon: Building2,
+      price: 'Custom',
+      period: '',
+      description: 'Full-service creative and media buying solution with comprehensive strategic support',
+      features: [
+        'Unlimited creative concepts delivered weekly',
+        'Full-service media buying management',
+        'Dedicated account manager and creative team',
+        'Comprehensive competitive intelligence',
+        'Custom attribution and performance reporting',
+        'Strategic consulting and growth planning',
+        'Priority support with direct team access',
+        'Custom packages tailored to business needs'
+      ],
+      badge: 'Enterprise - Full service solution',
+      badgeColor: 'bg-purple-100 text-purple-800',
+      borderColor: 'border-purple-300 hover:border-purple-500',
+      ctaColor: 'bg-purple-600 hover:bg-purple-700 text-white',
+      ideal: 'Large subscription companies with $500K+ monthly ad spend requiring comprehensive marketing solutions'
     }
   ];
 
@@ -115,7 +136,7 @@ export function ServiceTiers() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {tiers.map((tier, index) => {
             const Icon = tier.icon;
             return (
@@ -173,17 +194,29 @@ export function ServiceTiers() {
                 </div>
 
                 <div className="mt-auto">
-                  <button
-                  onClick={openPopup}
-                  className={`w-full py-4 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center min-h-[56px] ${tier.ctaColor}`}
-                >
-                  <Calendar className="h-5 w-5 mr-2 flex-shrink-0" />
-                  <span className="text-center flex-1">Get 10 Free Hooks & Start {tier.name}</span>
-                  <ArrowRight className="h-4 w-4 ml-2 flex-shrink-0" />
-                </button>
+                  {tier.id === 'enterprise' ? (
+                    <button
+                      onClick={openConsultation}
+                      className={`w-full py-4 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center min-h-[56px] ${tier.ctaColor}`}
+                    >
+                      <Calendar className="h-5 w-5 mr-2 flex-shrink-0" />
+                      <span className="text-center flex-1">Contact Us</span>
+                      <ArrowRight className="h-4 w-4 ml-2 flex-shrink-0" />
+                    </button>
+                  ) : (
+                    <SimpleAirtableForm
+                      buttonText={`Start ${tier.name}`}
+                      buttonClassName={`w-full py-4 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center min-h-[56px] ${tier.ctaColor}`}
+                      source={`service-tier-${tier.id}`}
+                      tier={tier.id}
+                    />
+                  )}
 
                   <p className="text-xs text-gray-500 mt-4 text-center min-h-[36px] flex items-center justify-center">
-                    Start with free hooks • Optional consultation available • Cancel anytime
+                    {tier.id === 'enterprise' 
+                      ? 'Custom pricing • Dedicated support • Tailored solutions'
+                      : 'Start with free hooks • Optional consultation available • Cancel anytime'
+                    }
                   </p>
                 </div>
               </div>
@@ -200,12 +233,12 @@ export function ServiceTiers() {
               Experience our strategic approach with 10 high-converting hooks before choosing your weekly plan. Perfect for testing our creative intelligence methodology.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button
-                onClick={openPopup}
-                className="btn btn-primary text-lg px-8 py-4"
-              >
-                Get My 10 Free Hooks
-              </button>
+              <SimpleAirtableForm
+                buttonText="Get My 10 Free Hooks"
+                buttonClassName="btn btn-primary text-lg px-8 py-4"
+                source="service-tiers-free-hooks"
+                tier="free-hooks"
+              />
               <div className="text-sm text-gray-500">
                 • Instant access to hook bank PDF
                 <br />
@@ -218,12 +251,6 @@ export function ServiceTiers() {
         </div>
       </div>
     </section>
-    
-    <PopupFormModal
-      isOpen={isPopupOpen}
-      onClose={closePopup}
-      source="service-tiers"
-    />
     </>
   );
 }

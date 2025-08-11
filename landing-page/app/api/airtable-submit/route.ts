@@ -67,6 +67,13 @@ export async function POST(request: NextRequest) {
         'Status': 'New',
         'Submitted': new Date().toISOString()
       };
+    } else if (data.type === 'service_tier_signup') {
+      fields = {
+        ...fields,
+        'Type': 'Service Tier Signup',
+        'Tier': data.tier || '',
+        'Status': 'New'
+      };
     }
 
     console.log('Submitting to Airtable with fields:', fields);

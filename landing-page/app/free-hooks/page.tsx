@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { HooksOfferSection } from '@/components/ui/hooks-offer-section';
 import { StrategicConsultationForm } from '@/components/forms/strategic-consultation-form';
+import { ConvertKitForm } from '@/components/forms/convertkit-form';
 import { trackPageView } from '@/components/analytics';
 import { useConsultation } from '@/components/contexts/consultation-context';
 import { Download, BookOpen, Zap, Users } from 'lucide-react';
@@ -40,8 +41,16 @@ export default function FreeHooksPage() {
               </p>
               
               {/* Above-fold CTA */}
-              <div className="max-w-md mx-auto mb-8">
+              <div className="max-w-lg mx-auto mb-8">
                 <div className="bg-white rounded-2xl shadow-xl p-6 border-2 border-orange-200">
+                  {/* ConvertKit Form Above the Fold */}
+                  <div className="mb-6">
+                    <ConvertKitForm 
+                      formId="your-form-id-here"
+                      className="w-full"
+                    />
+                  </div>
+                  
                   <div className="grid grid-cols-3 gap-4 mb-6">
                     <div className="text-center">
                       <div className="text-2xl font-bold text-red-600">50%</div>

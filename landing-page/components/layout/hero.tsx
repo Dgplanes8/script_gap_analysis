@@ -47,7 +47,7 @@ export function Hero({
           <div className="flex flex-col items-center justify-center gap-6 mb-16">
             {showEmailCapture ? (
               <>
-                <div className="w-full max-w-md">
+                <div className="w-full max-w-xl">
                   <EmailCaptureForm
                     placeholder="Enter your email address"
                     buttonText={ctaText}
