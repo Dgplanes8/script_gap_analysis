@@ -203,7 +203,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
                     window.location.href = '/free-hooks';
                     setIsOpen(false);
                   }}
-                  className="btn btn-primary w-full py-4 text-lg font-semibold min-h-[48px]"
+                  className="btn btn-primary bg-orange-600 hover:bg-orange-700 text-white w-full py-4 text-lg font-semibold min-h-[48px]"
                 >
                   Get 10 Free Hooks
                 </button>
@@ -212,7 +212,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
                     document.getElementById('service-tiers')?.scrollIntoView({ behavior: 'smooth' });
                     setIsOpen(false);
                   }}
-                  className="btn btn-primary w-full py-4 text-lg font-semibold min-h-[48px]"
+                  className="btn btn-primary bg-orange-600 hover:bg-orange-700 text-white w-full py-4 text-lg font-semibold min-h-[48px]"
                 >
                   See Weekly Plans
                 </button>
