@@ -346,9 +346,9 @@ export default function Fortune100VsAgencyPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button onClick={openPopup} className="btn bg-white text-red-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">
+                <Link href="/#service-tiers" className="btn bg-white text-red-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">
                   Get 10 Free Hooks First
-                </button>
+                </Link>
                 <Link href="/#service-tiers" className="btn btn-primary bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg">
                   Start Weekly Intelligence
                   <ArrowRight className="h-5 w-5 ml-2" />
