@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/footer';
 import { HooksOfferSection } from '@/components/ui/hooks-offer-section';
 import { StrategicConsultationForm } from '@/components/forms/strategic-consultation-form';
 import { ConvertKitForm } from '@/components/forms/convertkit-form';
+import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { trackPageView } from '@/components/analytics';
 import { useConsultation } from '@/components/contexts/consultation-context';
 import { Download, BookOpen, Zap, Users } from 'lucide-react';
@@ -65,15 +66,16 @@ export default function FreeHooksPage() {
                       <div className="text-sm text-gray-600">Powered</div>
                     </div>
                   </div>
-                  <button
-                    onClick={() => document.getElementById('email-form')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="w-full bg-gradient-to-r from-red-600 to-orange-600 text-white py-4 px-8 rounded-lg font-semibold hover:from-red-700 hover:to-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl"
-                  >
-                    Get My 10 Free Hooks Now
-                  </button>
-                  <p className="text-xs text-gray-500 mt-3 text-center">
-                    Instant download • No spam • Used by 1000+ growth teams
-                  </p>
+                  <div className="space-y-4">
+                    <EmailCaptureForm
+                      placeholder="Enter your work email"
+                      buttonText="Get My 10 Free Hooks Now"
+                      variant="hero"
+                    />
+                    <p className="text-xs text-gray-500 text-center">
+                      Instant download • No spam • Used by 1000+ growth teams
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
