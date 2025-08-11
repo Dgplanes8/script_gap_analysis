@@ -235,7 +235,7 @@ export function ServiceTiers() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <SimpleAirtableForm
                 buttonText="Get My 10 Free Hooks"
-                buttonClassName="btn btn-primary text-lg px-8 py-4"
+                buttonClassName="bg-orange-600 hover:bg-orange-700 text-white font-semibold text-lg px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
                 source="service-tiers-free-hooks"
                 tier="free-hooks"
               />

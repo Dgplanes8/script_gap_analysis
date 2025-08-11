@@ -271,14 +271,14 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <button
                   onClick={() => window.location.href = '/free-hooks'}
-                  className="btn btn-primary"
+                  className="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center"
                 >
                   <Mail className="h-5 w-5 mr-2" />
                   Get My 10 Free Hooks
                 </button>
                 <button
                   onClick={() => document.getElementById('service-tiers')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="btn btn-secondary"
+                  className="bg-white border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center"
                 >
                   <Calculator className="h-5 w-5 mr-2" />
                   See Weekly Plans
