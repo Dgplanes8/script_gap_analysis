@@ -64,7 +64,7 @@ export default function HomePage() {
               
               <div className="grid md:grid-cols-3 gap-4 mb-8">
                 <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="text-2xl font-bold text-orange-600">50% Lower</div>
+                  <div className="text-2xl font-bold text-orange-600">25% Lower</div>
                   <div className="text-sm text-gray-600">CPAs on Average</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-4">
@@ -72,8 +72,8 @@ export default function HomePage() {
                   <div className="text-sm text-gray-600">Saved Per Week</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="text-2xl font-bold text-orange-600">AI-Powered</div>
-                  <div className="text-sm text-gray-600">Trend Analysis</div>
+                  <div className="text-2xl font-bold text-orange-600">3+</div>
+                  <div className="text-sm text-gray-600">Platforms</div>
                 </div>
               </div>
               

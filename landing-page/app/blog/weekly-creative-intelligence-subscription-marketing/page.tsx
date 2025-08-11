@@ -386,7 +386,7 @@ export default function WeeklyCreativeIntelligencePage() {
                 </Link>
                 <Link 
                   href="/#service-tiers"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition-colors inline-flex items-center"
+                  className="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
                 >
                   <Calendar className="h-5 w-5 mr-2" />
                   See Weekly Plans

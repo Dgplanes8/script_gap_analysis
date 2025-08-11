@@ -54,7 +54,7 @@ export default function FreeHooksPage() {
                   
                   <div className="grid grid-cols-3 gap-4 mb-6">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-red-600">50%</div>
+                      <div className="text-2xl font-bold text-red-600">20%</div>
                       <div className="text-sm text-gray-600">Lower CPAs</div>
                     </div>
                     <div className="text-center">
@@ -62,11 +62,11 @@ export default function FreeHooksPage() {
                       <div className="text-sm text-gray-600">Hours Saved</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-red-600">AI</div>
-                      <div className="text-sm text-gray-600">Powered</div>
+                      <div className="text-2xl font-bold text-red-600">3+</div>
+                      <div className="text-sm text-gray-600">Platforms</div>
                     </div>
                   </div>
-                  <div className="space-y-4">
+                  <div className="w-full max-w-xl">
                     <EmailCaptureForm
                       placeholder="Enter your work email"
                       buttonText="Get My 10 Free Hooks Now"
