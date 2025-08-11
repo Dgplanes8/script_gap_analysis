@@ -1,10 +1,7 @@
-'use client';
-
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Target, TrendingUp, Users, Calendar, Mail } from 'lucide-react';
-import { PopupFormModal } from '@/components/forms/popup-form-modal';
-import { usePopupForm } from '@/hooks/use-popup-form';
+import { BlogCTASection } from '@/components/blog/blog-cta-section';
 
 export const metadata: Metadata = {
   title: 'Weekly Creative Intelligence for Subscription Marketing | Apsics Media',
@@ -22,8 +19,6 @@ export const metadata: Metadata = {
 };
 
 export default function WeeklyCreativeIntelligencePage() {
-  const { isPopupOpen, openPopup, closePopup } = usePopupForm();
-  
   return (
     <>
       <main className="min-h-screen bg-white">
@@ -382,13 +377,13 @@ export default function WeeklyCreativeIntelligencePage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button
-                  onClick={openPopup}
+                <Link
+                  href="/#service-tiers"
                   className="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
                 >
                   <Mail className="h-5 w-5 mr-2" />
                   Get My 10 Free Hooks
-                </button>
+                </Link>
                 <Link 
                   href="/#service-tiers"
                   className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition-colors inline-flex items-center"
@@ -407,11 +402,6 @@ export default function WeeklyCreativeIntelligencePage() {
       </div>
       </main>
       
-      <PopupFormModal
-        isOpen={isPopupOpen}
-        onClose={closePopup}
-        source="weekly-creative-intelligence-blog"
-      />
     </>
   );
 }

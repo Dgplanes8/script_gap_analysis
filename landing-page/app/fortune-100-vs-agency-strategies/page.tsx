@@ -1,13 +1,10 @@
-'use client';
-
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { Building2, TrendingUp, Target, Users, ArrowRight, CheckCircle, X, DollarSign } from 'lucide-react';
 import Link from 'next/link';
-import { PopupFormModal } from '@/components/forms/popup-form-modal';
-import { usePopupForm } from '@/hooks/use-popup-form';
+import { BlogCTASection } from '@/components/blog/blog-cta-section';
 
 export const metadata: Metadata = {
   title: 'Fortune 100 vs Agency Creative Strategies: What Subscription Businesses Should Know',
@@ -26,8 +23,6 @@ export const metadata: Metadata = {
 };
 
 export default function Fortune100VsAgencyPage() {
-  const { isPopupOpen, openPopup, closePopup } = usePopupForm();
-  
   return (
     <>
       <Header />
@@ -385,11 +380,6 @@ export default function Fortune100VsAgencyPage() {
 
       <Footer />
       
-      <PopupFormModal
-        isOpen={isPopupOpen}
-        onClose={closePopup}
-        source="fortune-100-vs-agency"
-      />
     </>
   );
 }

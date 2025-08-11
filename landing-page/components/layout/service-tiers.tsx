@@ -82,6 +82,7 @@ export function ServiceTiers() {
   ];
 
   return (
+    <>
     <section className="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
@@ -223,5 +224,6 @@ export function ServiceTiers() {
       onClose={closePopup}
       source="service-tiers"
     />
+    </>
   );
 }

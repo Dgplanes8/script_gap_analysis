@@ -1,12 +1,9 @@
-'use client';
-
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { BookOpen, TrendingUp, Calculator, Target, Users, Zap } from 'lucide-react';
-import { PopupFormModal } from '@/components/forms/popup-form-modal';
-import { usePopupForm } from '@/hooks/use-popup-form';
+import { BlogCTASection } from '@/components/blog/blog-cta-section';
 
 export const metadata: Metadata = {
   title: 'Blog & Resources - Weekly Trend Intelligence for Subscription Marketing | Apsics Media',
@@ -180,8 +177,6 @@ const articles = [
 ];
 
 export default function BlogPage() {
-  const { isPopupOpen, openPopup, closePopup } = usePopupForm();
-  
   return (
     <>
       <Header />
@@ -205,12 +200,12 @@ export default function BlogPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={openPopup}
+                <Link
+                  href="/#service-tiers"
                   className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
                 >
                   Get 10 Free Hooks First
-                </button>
+                </Link>
                 <Link
                   href="/#service-tiers"
                   className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
@@ -296,12 +291,12 @@ export default function BlogPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={openPopup}
+                <Link
+                  href="/#service-tiers"
                   className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
                 >
                   Get My 10 Free Hooks
-                </button>
+                </Link>
                 <Link
                   href="/#service-tiers"
                   className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
@@ -315,12 +310,6 @@ export default function BlogPage() {
       </main>
       
       <Footer />
-      
-      <PopupFormModal
-        isOpen={isPopupOpen}
-        onClose={closePopup}
-        source="blog-page"
-      />
     </>
   );
 }

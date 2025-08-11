@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://apsicsmedia.com';
+  const baseUrl = 'https://apsicsmedia.com';
 
   return [
     // Main pages
@@ -51,6 +51,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/blog/trend-based-creative-development`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/fortune-100-vs-agency-strategies`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.95,

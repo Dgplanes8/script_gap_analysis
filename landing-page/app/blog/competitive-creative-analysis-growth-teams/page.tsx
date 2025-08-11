@@ -1,10 +1,7 @@
-'use client';
-
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, Clock, Target, Eye, TrendingUp, Users, Search, Mail, Calendar } from 'lucide-react';
-import { PopupFormModal } from '@/components/forms/popup-form-modal';
-import { usePopupForm } from '@/hooks/use-popup-form';
+import { ArrowLeft, Clock, Target, Eye, TrendingUp, Users, Search } from 'lucide-react';
+import { BlogCTASection } from '@/components/blog/blog-cta-section';
 
 export const metadata: Metadata = {
   title: 'Competitive Creative Analysis for Growth Teams | Apsics Media',
@@ -22,7 +19,6 @@ export const metadata: Metadata = {
 };
 
 export default function CompetitiveCreativeAnalysisPage() {
-  const { isPopupOpen, openPopup, closePopup } = usePopupForm();
   
   return (
     <>
@@ -502,45 +498,15 @@ export default function CompetitiveCreativeAnalysisPage() {
             </div>
 
             {/* CTA Section */}
-            <div className="bg-gradient-to-br from-teal-600 to-teal-700 text-white rounded-2xl p-8 text-center mb-12">
-              <h3 className="text-2xl font-bold mb-4">
-                Get Competitive Creative Intelligence Every Monday
-              </h3>
-              <p className="text-lg mb-8 opacity-90">
-                Skip the manual competitive analysis. Get competitor-inspired creative concepts delivered weekly, plus trend analysis and strategic insights for your subscription marketing.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button
-                  onClick={openPopup}
-                  className="bg-white text-teal-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
-                >
-                  <Mail className="h-5 w-5 mr-2" />
-                  Get My 10 Free Hooks
-                </button>
-                <Link 
-                  href="/#service-tiers"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-teal-600 transition-colors inline-flex items-center"
-                >
-                  <Calendar className="h-5 w-5 mr-2" />
-                  See Competitive Intelligence Plans
-                </Link>
-              </div>
-              
-              <p className="text-sm mt-4 opacity-80">
-                Based on $250MM+ in managed media spend • Cancel anytime
-              </p>
-            </div>
+            <BlogCTASection 
+              title="Get Competitive Creative Intelligence Every Monday"
+              description="Skip the manual competitive analysis. Get competitor-inspired creative concepts delivered weekly, plus trend analysis and strategic insights for your subscription marketing."
+            />
           </div>
         </article>
       </div>
       </main>
       
-      <PopupFormModal
-        isOpen={isPopupOpen}
-        onClose={closePopup}
-        source="competitive-creative-analysis-blog"
-      />
     </>
   );
 }
