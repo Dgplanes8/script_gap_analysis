@@ -66,6 +66,11 @@ const articles = [
         description: 'Subscription-specific CAC reduction strategies'
       },
       {
+        title: 'LTV CAC Ratio Optimization: Growth Team Playbook',
+        slug: '/blog/ltv-cac-ratio-optimization-growth-teams',
+        description: 'Master LTV:CAC ratio optimization for sustainable growth with proven strategies to improve unit economics'
+      },
+      {
         title: 'Marketing Attribution Framework',
         slug: '/marketing-attribution-framework',
         description: 'Complete attribution modeling guide'
@@ -74,6 +79,25 @@ const articles = [
         title: 'Consumer Attribution Framework',
         slug: '/consumer-attribution-framework',
         description: 'Attribution strategies for consumer brands'
+      }
+    ]
+  },
+
+  // Customer Retention & Lifecycle
+  {
+    category: 'Retention & Lifecycle',
+    icon: Users,
+    color: 'bg-teal-50 border-teal-200 text-teal-800',
+    articles: [
+      {
+        title: 'Subscription Churn Rate Optimization: 7 Data-Driven Strategies',
+        slug: '/blog/subscription-churn-rate-optimization',
+        description: 'Reduce subscription churn with proven strategies for growth teams and data-driven retention frameworks'
+      },
+      {
+        title: 'Retention Marketing Automation for SaaS Growth',
+        slug: '/blog/retention-marketing-automation-saas-growth',
+        description: 'Advanced retention automation strategies beyond email sequences for SaaS growth teams'
       }
     ]
   },
