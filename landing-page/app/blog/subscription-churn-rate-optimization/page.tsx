@@ -102,7 +102,8 @@ export default function SubscriptionChurnOptimizationPage() {
                   <div className="text-2xl font-bold text-orange-600">5x</div>
                   <div className="text-sm text-gray-600">Cost to Acquire vs Retain</div>
                 </div>
-                <div className="text-2xl font-bold text-green-600">95%</div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-600">95%</div>
                   <div className="text-sm text-gray-600">Profit Increase from 5% Churn Reduction</div>
                 </div>
               </div>

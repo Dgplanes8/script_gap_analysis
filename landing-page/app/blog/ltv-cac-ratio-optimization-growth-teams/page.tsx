@@ -94,7 +94,7 @@ export default function LTVCACOptimizationPage() {
               </h3>
               <div className="grid md:grid-cols-4 gap-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-red-600">< 2:1</div>
+                  <div className="text-2xl font-bold text-red-600">&lt; 2:1</div>
                   <div className="text-sm text-gray-600">Unsustainable</div>
                 </div>
                 <div className="text-center">
