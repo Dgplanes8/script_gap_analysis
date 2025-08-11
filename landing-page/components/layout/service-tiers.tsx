@@ -194,28 +194,19 @@ export function ServiceTiers() {
                 </div>
 
                 <div className="mt-auto">
-                  {tier.id === 'enterprise' ? (
-                    <button
-                      onClick={openConsultation}
-                      className={`w-full py-4 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center min-h-[56px] ${tier.ctaColor}`}
-                    >
-                      <Calendar className="h-5 w-5 mr-2 flex-shrink-0" />
-                      <span className="text-center flex-1">Contact Us</span>
-                      <ArrowRight className="h-4 w-4 ml-2 flex-shrink-0" />
-                    </button>
-                  ) : (
-                    <SimpleAirtableForm
-                      buttonText={`Start ${tier.name}`}
-                      buttonClassName={`w-full py-4 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center min-h-[56px] ${tier.ctaColor}`}
-                      source={`service-tier-${tier.id}`}
-                      tier={tier.id}
-                    />
-                  )}
+                  <button
+                    onClick={() => openConsultation(tier.name)}
+                    className={`w-full py-4 px-6 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center min-h-[56px] ${tier.ctaColor}`}
+                  >
+                    <Calendar className="h-5 w-5 mr-2 flex-shrink-0" />
+                    <span className="text-center flex-1">{tier.id === 'enterprise' ? 'Contact Us' : `Start ${tier.name}`}</span>
+                    <ArrowRight className="h-4 w-4 ml-2 flex-shrink-0" />
+                  </button>
 
                   <p className="text-xs text-gray-500 mt-4 text-center min-h-[36px] flex items-center justify-center">
                     {tier.id === 'enterprise' 
                       ? 'Custom pricing • Dedicated support • Tailored solutions'
-                      : 'Start with free hooks • Optional consultation available • Cancel anytime'
+                      : 'Get personalized recommendations • Optional consultation available • Cancel anytime'
                     }
                   </p>
                 </div>
@@ -233,12 +224,12 @@ export function ServiceTiers() {
               Experience our strategic approach with 10 high-converting hooks before choosing your weekly plan. Perfect for testing our creative intelligence methodology.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <SimpleAirtableForm
-                buttonText="Get My 10 Free Hooks"
-                buttonClassName="bg-orange-600 hover:bg-orange-700 text-white font-semibold text-lg px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
-                source="service-tiers-free-hooks"
-                tier="free-hooks"
-              />
+              <button
+                onClick={() => openConsultation("Not Sure - Help Me Decide")}
+                className="bg-orange-600 hover:bg-orange-700 text-white font-semibold text-lg px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+              >
+                Get My 10 Free Hooks
+              </button>
               <div className="text-sm text-gray-500">
                 • Instant access to hook bank PDF
                 <br />

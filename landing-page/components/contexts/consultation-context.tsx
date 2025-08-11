@@ -4,20 +4,31 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 interface ConsultationContextType {
   isModalOpen: boolean;
-  openModal: () => void;
+  openModal: (packageId?: string) => void;
   closeModal: () => void;
+  selectedPackage: string | null;
 }
 
 const ConsultationContext = createContext<ConsultationContextType | undefined>(undefined);
 
 export function ConsultationProvider({ children }: { children: ReactNode }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const openModal = (packageId?: string) => {
+    if (packageId) {
+      setSelectedPackage(packageId);
+    }
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedPackage(null); // Reset selected package on close
+  };
 
   return (
-    <ConsultationContext.Provider value={{ isModalOpen, openModal, closeModal }}>
+    <ConsultationContext.Provider value={{ isModalOpen, openModal, closeModal, selectedPackage }}>
       {children}
     </ConsultationContext.Provider>
   );

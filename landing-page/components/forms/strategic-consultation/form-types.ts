@@ -9,6 +9,7 @@ export interface StrategicConsultationFormData {
 export interface StrategicConsultationFormProps {
   isOpen?: boolean;
   onClose: () => void;
+  defaultPackageInterest?: string;
 }
 
 export interface FormSectionProps {

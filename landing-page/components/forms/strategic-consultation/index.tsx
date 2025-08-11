@@ -6,16 +6,16 @@ import { StrategicConsultationFormProps } from './form-types';
 import { useFormSubmission } from '@/hooks/useFormSubmission';
 import { SuccessConfirmation } from './success-confirmation';
 
-const getInitialFormData = () => ({
+const getInitialFormData = (defaultPackageInterest?: string) => ({
   fullName: '',
   email: '',
   company: '',
   monthlyAdSpend: '',
-  packageInterest: ''
+  packageInterest: defaultPackageInterest || ''
 });
 
-export function StrategicConsultationForm({ isOpen = true, onClose }: StrategicConsultationFormProps) {
-  const [formData, setFormData] = useState(getInitialFormData());
+export function StrategicConsultationForm({ isOpen = true, onClose, defaultPackageInterest }: StrategicConsultationFormProps) {
+  const [formData, setFormData] = useState(getInitialFormData(defaultPackageInterest));
   
   const { isSubmitting, isSubmitted, submit } = useFormSubmission({
     trackingEventName: 'strategic_consultation_booking',
