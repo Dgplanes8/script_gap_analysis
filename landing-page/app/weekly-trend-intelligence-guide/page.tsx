@@ -80,7 +80,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                   <Target className="h-5 w-5 mr-2" />
                   Read Complete Guide
                 </Link>
-                <Link href="#service-tiers" className="btn btn-primary bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg">
+                <Link href="/#service-tiers" className="btn btn-primary bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg">
                   Get Weekly Intelligence
                 </Link>
               </div>

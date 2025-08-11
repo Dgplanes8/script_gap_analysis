@@ -1,0 +1,8 @@
+{
+  "mcpServers": [
+    {
+      "name": "actors-mcp-server",
+      "path": "npx @smithery/cli run @MJBeauty/actors-mcp-server --key 0a1b041d-405f-4469-83b5-1f7b6f49c78b"
+    }
+  ]
+}

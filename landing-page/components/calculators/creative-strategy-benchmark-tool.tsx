@@ -22,7 +22,11 @@ interface BenchmarkResults {
 }
 
 export function CreativeStrategyBenchmarkTool() {
-  const { openModal: openConsultation } = useConsultation();
+  const { openModal } = useConsultation();
+
+  const openConsultation = () => {
+    openModal();
+  };
   const [inputs, setInputs] = useState<BenchmarkInputs>({
     creativeProcessType: '',
     scriptsPerMonth: 5,

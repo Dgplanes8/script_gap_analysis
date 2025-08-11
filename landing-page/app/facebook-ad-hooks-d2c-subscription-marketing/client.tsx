@@ -163,7 +163,11 @@ const testingFramework = [
 export function FacebookAdHooksClient() {
   const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
 
-  const { openModal: handleOpenConsultation } = useConsultation();
+  const { openModal } = useConsultation();
+
+  const handleOpenConsultation = () => {
+    openModal();
+  };
 
   return (
     <React.Fragment>

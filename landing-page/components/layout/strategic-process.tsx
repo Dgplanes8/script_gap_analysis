@@ -18,7 +18,11 @@ import {
 import { useConsultation } from '@/components/contexts/consultation-context';
 
 export function StrategyProcess() {
-  const { openModal: openConsultation } = useConsultation();
+  const { openModal } = useConsultation();
+
+  const openConsultation = () => {
+    openModal();
+  };
   const [activePhase, setActivePhase] = useState<number | null>(null);
 
   const phases = [

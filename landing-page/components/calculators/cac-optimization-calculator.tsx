@@ -37,7 +37,11 @@ const industryBenchmarks: Record<string, { averageCAC: number; topQuartileCAC: n
 };
 
 export function CACOptimizationCalculator() {
-  const { openModal: openConsultation } = useConsultation();
+  const { openModal } = useConsultation();
+
+  const openConsultation = () => {
+    openModal();
+  };
   const [formData, setFormData] = useState<CACData>({
     monthlyRevenue: 0,
     currentCAC: 0,

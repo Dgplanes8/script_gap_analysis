@@ -191,7 +191,11 @@ const measurementFramework = [
 export function CACReductionClient() {
   const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
 
-  const { openModal: handleOpenConsultation } = useConsultation();
+  const { openModal } = useConsultation();
+
+  const handleOpenConsultation = () => {
+    openModal();
+  };
 
   return (
     <div>

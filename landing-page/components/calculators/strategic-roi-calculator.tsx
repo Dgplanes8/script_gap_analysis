@@ -5,7 +5,11 @@ import { Calculator, DollarSign, TrendingUp, Target, ArrowRight, Info } from 'lu
 import { useConsultation } from '@/components/contexts/consultation-context';
 
 export function StrategyROICalculator() {
-  const { openModal: openConsultation } = useConsultation();
+  const { openModal } = useConsultation();
+
+  const openConsultation = () => {
+    openModal();
+  };
   const [inputs, setInputs] = useState({
     currentARR: 1200000,
     currentCAC: 300,

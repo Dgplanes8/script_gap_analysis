@@ -10,7 +10,7 @@ export function ConsultationModal() {
     <StrategicConsultationForm 
       isOpen={isModalOpen} 
       onClose={closeModal} 
-      defaultPackageInterest={selectedPackage}
+      defaultPackageInterest={selectedPackage || undefined}
     />
   );
 }

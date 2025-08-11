@@ -9,12 +9,16 @@ import { trackPageView } from '@/components/analytics';
 import { useConsultation } from '@/components/contexts/consultation-context';
 
 export default function AboutPage() {
-  const { openModal: handleOpenConsultation } = useConsultation();
+  const { openModal } = useConsultation();
   const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
 
   useEffect(() => {
     trackPageView('about');
   }, []);
+
+  const handleOpenConsultation = () => {
+    openModal();
+  };
 
   return (
     <>
@@ -53,7 +57,7 @@ export default function AboutPage() {
         </section>
 
         {/* About Section Content */}
-        <AboutSection onOpenApplication={handleOpenConsultation} />
+        <AboutSection onOpenApplication={(variant) => openModal()} />
 
         {/* Strategic Consultation CTA */}
         <section className="py-16 bg-gradient-to-r from-orange-600 to-red-600 text-white">
@@ -66,7 +70,7 @@ export default function AboutPage() {
                 Book a growth bottleneck assessment to see how 48-hour creative delivery can accelerate your subscription business growth.
               </p>
               <button
-                onClick={handleOpenConsultation}
+                onClick={() => handleOpenConsultation()}
                 className="bg-white text-orange-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-lg"
               >
                 Book Growth Assessment

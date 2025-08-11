@@ -83,7 +83,11 @@ const industryBenchmarks: Record<string, { avgCTR: number; avgCVR: number; topQu
 };
 
 export function SaaSCreativeROICalculator() {
-  const { openModal: openConsultation } = useConsultation();
+  const { openModal } = useConsultation();
+
+  const openConsultation = () => {
+    openModal();
+  };
   const [formData, setFormData] = useState<CreativeData>({
     monthlyAdSpend: 0,
     currentCTR: 0,

@@ -10,7 +10,11 @@ interface HeaderProps {
 }
 
 export function Header({ onOpenApplication }: HeaderProps) {
-  const { openModal: openConsultation } = useConsultation();
+  const { openModal } = useConsultation();
+
+  const openConsultation = () => {
+    openModal();
+  };
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -126,7 +130,14 @@ export function Header({ onOpenApplication }: HeaderProps) {
               Get 10 Free Hooks
             </button>
             <button
-              onClick={() => document.getElementById('service-tiers')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => {
+                const serviceSection = document.getElementById('service-tiers');
+                if (serviceSection) {
+                  serviceSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/#service-tiers';
+                }
+              }}
               className="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-2 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
             >
               See Weekly Plans
@@ -209,7 +220,12 @@ export function Header({ onOpenApplication }: HeaderProps) {
                 </button>
                 <button
                   onClick={() => {
-                    document.getElementById('service-tiers')?.scrollIntoView({ behavior: 'smooth' });
+                    const serviceSection = document.getElementById('service-tiers');
+                    if (serviceSection) {
+                      serviceSection.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      window.location.href = '/#service-tiers';
+                    }
                     setIsOpen(false);
                   }}
                   className="bg-orange-600 hover:bg-orange-700 text-white w-full py-4 text-lg font-semibold min-h-[48px] rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
