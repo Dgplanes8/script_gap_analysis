@@ -149,9 +149,9 @@ const articles = [
         description: 'Content planning framework'
       },
       {
-        title: 'AI-Enhanced Creative Intelligence',
+        title: 'Advanced Creative Intelligence',
         slug: '/ai-enhanced-creative-intelligence',
-        description: 'AI-powered creative optimization'
+        description: 'Data-driven creative optimization'
       }
     ]
   },

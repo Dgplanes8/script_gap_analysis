@@ -31,11 +31,11 @@ export default function FreeHooksPage() {
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Download className="h-4 w-4 mr-2" />
-                AI-POWERED HOOKS - FREE
+                HIGH-CONVERTING HOOKS - FREE
               </div>
               
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                10 Free AI-Powered Hooks That Cut Your CPA in Half
+                10 Free High-Converting Hooks That Cut Your CPA in Half
               </h1>
               <p className="text-xl text-gray-600 mb-8">
                 Skip months of testing. These hooks are derived from trending social media content and optimized with conversion psychology. Download now and launch your winning campaign this week.

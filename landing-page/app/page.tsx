@@ -31,7 +31,7 @@ export default function HomePage() {
       <main className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
       <Hero
-        title="Scale Your Growth 3x Faster With AI-Powered Creative Scripts That Actually Convert"
+        title="Scale Your Growth 3x Faster With Data-Driven Creative Scripts That Actually Convert"
         subtitle="Save 15+ hours per week on creative development. Get trending concepts from social media analyzed with marketing psychology, delivered as ready-to-test scripts every Monday. Watch your CPAs drop while conversion rates climb."
         ctaText="Get My 10 Free Hooks"
         secondaryCtaText="See Weekly Plans"
@@ -51,11 +51,11 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-orange-200">
               <div className="inline-flex items-center bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Mail className="h-4 w-4 mr-2" />
-                AI-POWERED HOOKS - FREE
+                HIGH-CONVERTING HOOKS - FREE
               </div>
               
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                10 Hooks That Cut Your CPA in Half (Based on AI Trend Analysis)
+                10 Hooks That Cut Your CPA in Half (Based on Trend Analysis)
               </h2>
               
               <p className="text-lg text-gray-600 mb-6">
@@ -321,7 +321,7 @@ export default function HomePage() {
       {/* Exit Intent Popup */}
       <ExitIntentPopup 
         title="Wait! Get Your Free Expert Creative Intelligence Toolkit Before You Go"
-        subtitle="Join growth marketing teams getting AI-powered creative hooks and strategic insights every Monday + instant access to our Creative Hook Database."
+        subtitle="Join growth marketing teams getting data-driven creative hooks and strategic insights every Monday + instant access to our Creative Hook Database."
       />
 
       {/* Conversion Dashboard (dev/admin only) */}
