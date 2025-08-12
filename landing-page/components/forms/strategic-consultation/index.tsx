@@ -161,6 +161,7 @@ export function StrategicConsultationForm({ isOpen = true, onClose, defaultPacka
                 <option value="Trend Tracker ($67/month)">Trend Tracker - $67/month</option>
                 <option value="Competitive Edge ($197/month)">Competitive Edge - $197/month</option>
                 <option value="Market Intelligence ($497/month)">Market Intelligence - $497/month</option>
+                <option value="Enterprise (Custom)">Enterprise - Custom</option>
                 <option value="Not Sure">Not Sure - Help Me Decide</option>
               </select>
             </div>

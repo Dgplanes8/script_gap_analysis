@@ -85,7 +85,7 @@ export function ServiceTiers() {
       period: '',
       description: 'Full-service creative and media buying solution with comprehensive strategic support',
       features: [
-        'Unlimited creative concepts delivered weekly',
+        'Creative concepts delivered weekly',
         'Full-service media buying management',
         'Dedicated account manager and creative team',
         'Comprehensive competitive intelligence',
