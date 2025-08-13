@@ -18,6 +18,12 @@ import { ConversionDashboard } from '@/components/analytics/conversion-dashboard
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { Footer } from '@/components/layout/footer';
 import { useConsultation } from '@/components/contexts/consultation-context';
+import { TikTokAnalysisShowcase } from '@/components/creative/tiktok-analysis-showcase';
+import { HookGeneratorDemo } from '@/components/creative/hook-generator-demo';
+import { ConceptIdeationFramework } from '@/components/creative/concept-ideation-framework';
+import { PerformanceScoringSystem } from '@/components/creative/performance-scoring-system';
+import { FormatShowcase } from '@/components/creative/format-showcase';
+import { CreativeBriefStructure } from '@/components/creative/creative-brief-structure';
 
 export default function HomePage() {
   const { openModal: handleOpenConsultation } = useConsultation();
@@ -117,6 +123,24 @@ export default function HomePage() {
           },
         ]}
       />
+
+      {/* Creative Intelligence Showcase */}
+      <TikTokAnalysisShowcase />
+
+      {/* Hook Generation Demo */}
+      <HookGeneratorDemo />
+
+      {/* Concept Ideation Framework */}
+      <ConceptIdeationFramework />
+
+      {/* Performance Scoring System */}
+      <PerformanceScoringSystem />
+
+      {/* Format Showcase */}
+      <FormatShowcase />
+
+      {/* Creative Brief Structure */}
+      <CreativeBriefStructure />
 
       {/* About Section - Weekly Intelligence Positioning */}
       <AboutSection onOpenApplication={handleOpenConsultation} />

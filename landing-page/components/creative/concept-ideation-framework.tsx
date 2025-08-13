@@ -1,0 +1,272 @@
+'use client';
+
+import { useState } from 'react';
+import { Brain, Users, Heart, Target, Eye, Lightbulb, ArrowRight, Play } from 'lucide-react';
+
+interface ConceptExample {
+  id: number;
+  name: string;
+  target: string;
+  emotion: string;
+  lifeForce: string;
+  awareness: string;
+  moment: string;
+  format: string;
+  positioning: string;
+  formats: string[];
+}
+
+const conceptExamples: ConceptExample[] = [
+  {
+    id: 1,
+    name: "Professional Performance Authority",
+    target: "Growth marketers managing $50K+ monthly ad spend",
+    emotion: "Confidence through expertise",
+    lifeForce: "Superior achievement and recognition",
+    awareness: "Solution-Aware",
+    moment: "When creative performance plateaus and team needs fresh angles",
+    format: "Founder authority video",
+    positioning: "The strategic intelligence system growth teams use when creativity becomes the bottleneck",
+    formats: ["UGC testimonial", "Founder video", "Us vs them comparison", "Before/after results", "3 reasons why"]
+  },
+  {
+    id: 2, 
+    name: "Time-Efficiency Crisis Solver",
+    target: "Marketing teams at growing SaaS companies",
+    emotion: "Relief from overwhelm",
+    lifeForce: "Time and convenience",
+    awareness: "Problem-Aware", 
+    moment: "When waiting 2 weeks for agency creative becomes unacceptable",
+    format: "Pain-pleasure narrative",
+    positioning: "Weekly creative delivery vs agency turnaround times - for teams who can't wait",
+    formats: ["Mash up content", "Statistics ad", "Post-it note style", "Press ad format", "Why I regret ad"]
+  },
+  {
+    id: 3,
+    name: "Competitive Intelligence Edge",
+    target: "Performance marketers with saturated audiences", 
+    emotion: "Discovery excitement",
+    lifeForce: "Survival and superiority",
+    awareness: "Most-Aware",
+    moment: "When current creative concepts stop converting and need competitive insights",
+    format: "Intelligence reveal",
+    positioning: "See what's working for competitors before they scale it against you",
+    formats: ["Meme ad approach", "Headline feature callout", "Testimonial focus", "UGC mashup", "Trend adaptation"]
+  }
+];
+
+const awarenessLevels = [
+  { key: 'unaware', label: 'Unaware', color: 'bg-gray-100 text-gray-700', description: 'Story lead (slow reveal)' },
+  { key: 'problem-aware', label: 'Problem-Aware', color: 'bg-red-100 text-red-700', description: 'Proclamation lead' },
+  { key: 'solution-aware', label: 'Solution-Aware', color: 'bg-yellow-100 text-yellow-700', description: 'Problem-solution lead' },
+  { key: 'product-aware', label: 'Product-Aware', color: 'bg-blue-100 text-blue-700', description: 'Promise lead' },
+  { key: 'most-aware', label: 'Most-Aware', color: 'bg-green-100 text-green-700', description: 'Offer lead' }
+];
+
+const formatTypes = [
+  'UGC', 'Mash up', 'Founder video', 'Us vs them', 'Before and after', 
+  '3 reasons why', 'Why I regret', 'Press ad', 'Testimonial ad', 'Meme ad',
+  'Headline feature callout', 'Post it note ad', 'Statistics ads'
+];
+
+export function ConceptIdeationFramework() {
+  const [activeConcept, setActiveConcept] = useState(0);
+  const [selectedElement, setSelectedElement] = useState<string | null>(null);
+
+  const concept = conceptExamples[activeConcept];
+
+  return (
+    <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 rounded-full text-sm font-semibold mb-6">
+              <Brain className="h-4 w-4 mr-2" />
+              Concept Ideation System
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              Strategic Concept Development Framework
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              See how we generate 3 strategic concepts using proven ideation models, then create 3-5 format variations for each concept (15 ads total).
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 mb-12">
+            {/* Concept Selection */}
+            <div className="lg:col-span-1">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Strategic Concepts</h3>
+              <div className="space-y-3">
+                {conceptExamples.map((concept, index) => (
+                  <button
+                    key={concept.id}
+                    onClick={() => setActiveConcept(index)}
+                    className={`w-full p-4 rounded-xl border-2 text-left transition-all duration-200 ${
+                      activeConcept === index
+                        ? 'border-purple-500 bg-purple-50 shadow-lg'
+                        : 'border-gray-200 bg-white hover:border-gray-300'
+                    }`}
+                  >
+                    <div className="font-semibold text-gray-900 mb-1">{concept.name}</div>
+                    <div className="text-sm text-gray-600">{concept.target}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Concept Details */}
+            <div className="lg:col-span-2">
+              <div className="bg-white rounded-xl border-2 border-purple-100 p-6 shadow-lg">
+                <h3 className="text-xl font-bold text-gray-900 mb-6">{concept.name}</h3>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Core Elements */}
+                  <div className="space-y-4">
+                    <div 
+                      className="p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
+                      onClick={() => setSelectedElement('target')}
+                    >
+                      <div className="flex items-center mb-2">
+                        <Users className="h-5 w-5 text-blue-500 mr-2" />
+                        <span className="font-semibold text-gray-900">Target Avatar</span>
+                      </div>
+                      <p className="text-sm text-gray-700">{concept.target}</p>
+                    </div>
+
+                    <div 
+                      className="p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
+                      onClick={() => setSelectedElement('emotion')}
+                    >
+                      <div className="flex items-center mb-2">
+                        <Heart className="h-5 w-5 text-red-500 mr-2" />
+                        <span className="font-semibold text-gray-900">Core Emotion</span>
+                      </div>
+                      <p className="text-sm text-gray-700">{concept.emotion}</p>
+                    </div>
+
+                    <div 
+                      className="p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
+                      onClick={() => setSelectedElement('lifeForce')}
+                    >
+                      <div className="flex items-center mb-2">
+                        <Target className="h-5 w-5 text-green-500 mr-2" />
+                        <span className="font-semibold text-gray-900">Life Force 8</span>
+                      </div>
+                      <p className="text-sm text-gray-700">{concept.lifeForce}</p>
+                    </div>
+                  </div>
+
+                  {/* Strategic Elements */}
+                  <div className="space-y-4">
+                    <div 
+                      className="p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
+                      onClick={() => setSelectedElement('awareness')}
+                    >
+                      <div className="flex items-center mb-2">
+                        <Eye className="h-5 w-5 text-purple-500 mr-2" />
+                        <span className="font-semibold text-gray-900">Awareness Level</span>
+                      </div>
+                      <div className="flex items-center">
+                        <span className={`px-2 py-1 rounded text-xs font-medium ${
+                          awarenessLevels.find(level => level.label === concept.awareness)?.color
+                        }`}>
+                          {concept.awareness}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div 
+                      className="p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
+                      onClick={() => setSelectedElement('moment')}
+                    >
+                      <div className="flex items-center mb-2">
+                        <Lightbulb className="h-5 w-5 text-yellow-500 mr-2" />
+                        <span className="font-semibold text-gray-900">Target Moment</span>
+                      </div>
+                      <p className="text-sm text-gray-700">{concept.moment}</p>
+                    </div>
+
+                    <div 
+                      className="p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
+                      onClick={() => setSelectedElement('positioning')}
+                    >
+                      <div className="flex items-center mb-2">
+                        <Play className="h-5 w-5 text-orange-500 mr-2" />
+                        <span className="font-semibold text-gray-900">Product Positioning</span>
+                      </div>
+                      <p className="text-sm text-gray-700 italic">"{concept.positioning}"</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Format Variations */}
+          <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-xl font-bold text-gray-900">Format Variations (5 per concept)</h3>
+              <span className="text-sm text-gray-600">15 total ads from 3 concepts</span>
+            </div>
+
+            <div className="grid md:grid-cols-5 gap-4">
+              {concept.formats.map((format, index) => (
+                <div 
+                  key={index}
+                  className="p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg border border-gray-200 hover:shadow-md transition-all duration-200"
+                >
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                      <span className="text-white font-bold text-lg">{index + 1}</span>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 text-sm mb-2">{format}</h4>
+                    <p className="text-xs text-gray-600">Platform-optimized execution</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Ideation Models Used */}
+          <div className="mt-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl p-6 text-white">
+            <h3 className="text-lg font-bold mb-4">Ideation Models Applied</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div>
+                <h4 className="font-semibold mb-2">Core Advertising Models</h4>
+                <ul className="text-sm text-purple-100 space-y-1">
+                  <li>• Jobs-to-be-Done Framework</li>
+                  <li>• Pain-Pleasure-Gain Model</li>
+                  <li>• Competitive Disruption</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2">Social Media Specific</h4>
+                <ul className="text-sm text-purple-100 space-y-1">
+                  <li>• Hook Framework</li>
+                  <li>• Platform-Native Content</li>
+                  <li>• Trend Adaptation</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2">Strategic Frameworks</h4>
+                <ul className="text-sm text-purple-100 space-y-1">
+                  <li>• Cultural Tension Resolution</li>
+                  <li>• Emotional Journey Mapping</li>
+                  <li>• Persona-Based Targeting</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="mt-6 pt-6 border-t border-purple-400">
+              <button className="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors duration-200 flex items-center">
+                Get Weekly Concept Development
+                <ArrowRight className="h-4 w-4 ml-2" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
