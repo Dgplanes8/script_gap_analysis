@@ -9,14 +9,45 @@ export function StructuredData() {
       {
         '@type': 'Organization',
         '@id': `${process.env.NEXT_PUBLIC_APP_URL}#organization`,
-        name: 'Apsics Media',
+        name: 'Strategic Ad Intelligence',
+        alternateName: 'Apsics Media',
         url: process.env.NEXT_PUBLIC_APP_URL,
         email: 'brian@apsicsmedia.com',
-        description: 'Weekly trend intelligence for subscription businesses. Creative concepts and competitor analysis delivered every Monday to growth teams.',
+        description: 'Weekly creative intelligence and trend analysis for subscription businesses. Fortune 100 methodology delivered to growth teams every Monday.',
+        foundingDate: '2023',
+        industry: 'Marketing Technology',
+        numberOfEmployees: '2-10',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'United States',
+          addressCountry: 'US'
+        },
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: '+1-888-GROWTH',
+          contactType: 'customer service',
+          availableLanguage: 'English',
+          areaServed: 'US'
+        },
+        logo: {
+          '@type': 'ImageObject',
+          url: `${process.env.NEXT_PUBLIC_APP_URL}/images/logo.png`,
+          width: 600,
+          height: 60
+        },
         sameAs: [
           'https://twitter.com/apsicsmedia',
           'https://linkedin.com/company/apsics-media',
         ],
+        knowsAbout: [
+          'Subscription Marketing',
+          'Creative Intelligence', 
+          'Competitive Analysis',
+          'TikTok Marketing',
+          'Mobile App Marketing',
+          'Customer Acquisition',
+          'Growth Marketing'
+        ]
       },
       {
         '@type': 'WebSite',

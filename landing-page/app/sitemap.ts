@@ -55,6 +55,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.95,
     },
+    
+    // 2025 SEO Strategy Articles - Top priority for organic search
+    {
+      url: `${baseUrl}/blog/mobile-app-cac-crisis-2025-guide`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/blog/aso-roi-calculator-guide`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/blog/freemium-conversion-optimization-framework`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/blog/d2c-subscription-marketing-playbook`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/blog/ai-creative-development-mobile-apps`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.98,
+    },
     {
       url: `${baseUrl}/fortune-100-vs-agency-strategies`,
       lastModified: new Date(),

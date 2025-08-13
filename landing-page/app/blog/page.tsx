@@ -182,6 +182,11 @@ const articles = [
     color: 'bg-indigo-50 border-indigo-200 text-indigo-800',
     articles: [
       {
+        title: 'ASO ROI Calculator: Measure Mobile App Marketing Returns',
+        slug: '/blog/aso-roi-calculator-guide',
+        description: 'Comprehensive framework for calculating App Store Optimization ROI and measuring mobile app marketing performance'
+      },
+      {
         title: 'CAC Optimization Calculator',
         slug: '/cac-optimization-calculator',
         description: 'Interactive CAC optimization tool'
@@ -195,6 +200,44 @@ const articles = [
         title: 'Revenue Growth Benchmarking',
         slug: '/revenue-growth-benchmarking',
         description: 'Performance benchmarking tool'
+      }
+    ]
+  },
+
+  // Mobile App Marketing (NEW CATEGORY)
+  {
+    category: 'Mobile App Marketing',
+    icon: TrendingUp,
+    color: 'bg-pink-50 border-pink-200 text-pink-800',
+    articles: [
+      {
+        title: 'Mobile App CAC Crisis: 2025 Acquisition Cost Reduction Guide',
+        slug: '/blog/mobile-app-cac-crisis-2025-guide',
+        description: 'Proven strategies to reduce mobile app customer acquisition costs with Fortune 100 methodology'
+      },
+      {
+        title: 'Freemium to Premium: Conversion Optimization Framework',
+        slug: '/blog/freemium-conversion-optimization-framework',
+        description: 'Transform free users into high-value premium customers using psychological triggers and data-driven optimization'
+      },
+      {
+        title: 'D2C Subscription Marketing Playbook: Growth Strategy Guide 2025',
+        slug: '/blog/d2c-subscription-marketing-playbook',
+        description: 'Comprehensive D2C growth strategies for customer acquisition, retention, and community building'
+      }
+    ]
+  },
+
+  // AI & Technology (NEW CATEGORY)
+  {
+    category: 'AI & Technology',
+    icon: Zap,
+    color: 'bg-violet-50 border-violet-200 text-violet-800',
+    articles: [
+      {
+        title: 'AI Creative Development for Mobile Apps: Performance-Driven Design',
+        slug: '/blog/ai-creative-development-mobile-apps',
+        description: 'Master AI-powered creative development for mobile app marketing with machine learning optimization'
       }
     ]
   }
