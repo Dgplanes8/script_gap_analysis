@@ -5,6 +5,7 @@ import { HookGeneratorDemo } from '@/components/creative/hook-generator-demo';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { ServiceTiers } from '@/components/layout/service-tiers';
+import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 
 export const metadata: Metadata = {
   title: 'Free Ad Hook Generator - Copywriting Templates & Creative Scripts | Hook Generator Tool',
@@ -71,6 +72,24 @@ export default function HookGeneratorPage() {
                   <h3 className="text-lg font-semibold mb-2">Performance-Scored</h3>
                   <p className="text-gray-600 text-sm">Each hook receives a 25-point performance score based on attention, emotion, clarity, CTA power, and memorability.</p>
                 </div>
+              </div>
+
+              {/* Email CTA */}
+              <div className="max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-xl border">
+                <div className="text-center mb-6">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                    Get 10 Proven High-Converting Hooks
+                  </h2>
+                  <p className="text-gray-600">
+                    Start with our Hook Bank PDF featuring 10 battle-tested hooks that have generated millions in ad spend. Join 1,200+ growth marketers getting weekly creative intelligence.
+                  </p>
+                </div>
+                <EmailCaptureForm 
+                  source="hook-generator-hero"
+                  variant="cta"
+                  buttonText="Get My 10 Free Hooks"
+                  placeholder="Enter your work email address"
+                />
               </div>
             </div>
           </div>

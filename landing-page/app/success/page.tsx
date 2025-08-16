@@ -176,7 +176,7 @@ export default function SuccessPage() {
                     All Weekly Plans Available
                   </h3>
                   <p className="text-brand-100">
-                    Starting at $67/month. See all tiers and choose what fits your growth goals.
+                    Starting at $5/week with first week FREE. See all tiers and choose what fits your growth goals.
                   </p>
                 </div>
                 

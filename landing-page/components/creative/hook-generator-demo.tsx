@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Zap, Target, Users, TrendingUp, ArrowRight, Shuffle, Star } from 'lucide-react';
 
 interface HookExample {
@@ -12,7 +12,14 @@ interface HookExample {
 }
 
 const hookExamples: HookExample[] = [
-  // TikTok Examples
+  // TikTok Examples - All 5 awareness levels
+  {
+    platform: 'tiktok',
+    awareness: 'unaware',
+    hook: "This makeup artist just exposed what beauty brands don't want you to know...",
+    reasoning: "Curiosity hook + authority figure + secret revelation for unaware audience",
+    score: 22
+  },
   {
     platform: 'tiktok',
     awareness: 'problem-aware',
@@ -27,8 +34,29 @@ const hookExamples: HookExample[] = [
     reasoning: "Social proof + specific benefit + authority positioning",
     score: 21
   },
+  {
+    platform: 'tiktok',
+    awareness: 'product-aware',
+    hook: "Why subscription companies choose weekly creative delivery over monthly reviews",
+    reasoning: "Educational positioning + industry focus + choice comparison",
+    score: 20
+  },
+  {
+    platform: 'tiktok',
+    awareness: 'most-aware',
+    hook: "Weekly creative intelligence starts at $5/week. Your move, growth team.",
+    reasoning: "Direct pricing + challenge + urgency for ready-to-buy audience",
+    score: 19
+  },
   
-  // Facebook Examples
+  // Facebook Examples - All 5 awareness levels
+  {
+    platform: 'facebook',
+    awareness: 'unaware',
+    hook: "The Psychology Secret Behind Ads That Make People Stop Scrolling (Study Inside)",
+    reasoning: "Educational angle + psychology authority + proof element for cold audience",
+    score: 23
+  },
   {
     platform: 'facebook',
     awareness: 'problem-aware',
@@ -38,13 +66,41 @@ const hookExamples: HookExample[] = [
   },
   {
     platform: 'facebook',
+    awareness: 'solution-aware',
+    hook: "Why Smart Growth Teams Are Switching From Monthly Creative Reviews to Weekly Intelligence",
+    reasoning: "Social proof + comparison + benefit implication for solution-aware",
+    score: 22
+  },
+  {
+    platform: 'facebook',
+    awareness: 'product-aware',
+    hook: "Creative Intelligence vs Traditional Agency Work: A Side-by-Side Comparison for Growth Teams",
+    reasoning: "Direct comparison + positioning + target audience clarity",
+    score: 21
+  },
+  {
+    platform: 'facebook',
     awareness: 'most-aware',
-    hook: "Weekly Creative Intelligence: Fresh Scripts Delivered Every Monday - Starting at $67/Month",
+    hook: "Weekly Creative Intelligence: Fresh Scripts Delivered Every Monday - Starting at $5/Week",
     reasoning: "Direct offer + clear value prop + pricing transparency for hot audience",
     score: 20
   },
 
-  // Instagram Examples  
+  // Instagram Examples - All 5 awareness levels
+  {
+    platform: 'instagram',
+    awareness: 'unaware',
+    hook: "The creative strategy that's quietly revolutionizing how brands approach social advertising...",
+    reasoning: "Intrigue + transformation promise + industry positioning for unaware",
+    score: 21
+  },
+  {
+    platform: 'instagram',
+    awareness: 'problem-aware',
+    hook: "When your creative team runs out of ideas but your CAC keeps climbing...",
+    reasoning: "Relatable problem + emotional tension + implied solution",
+    score: 23
+  },
   {
     platform: 'instagram',
     awareness: 'solution-aware',
@@ -58,6 +114,13 @@ const hookExamples: HookExample[] = [
     hook: "Weekly delivery vs monthly creative reviews. Which growth team are you?",
     reasoning: "Comparison + identity positioning + urgency through choice",
     score: 19
+  },
+  {
+    platform: 'instagram',
+    awareness: 'most-aware',
+    hook: "Ready to transform your creative process? Weekly intelligence starts at $5/week."
+    reasoning: "Direct question + transformation promise + clear pricing for hot leads",
+    score: 18
   }
 ];
 
@@ -97,17 +160,27 @@ export function HookGeneratorDemo() {
     setIsGenerating(true);
     
     setTimeout(() => {
-      const filteredHooks = hookExamples.filter(
+      const exactHook = hookExamples.find(
         hook => hook.platform === selectedPlatform && hook.awareness === selectedAwareness
       );
       
-      if (filteredHooks.length > 0) {
-        const randomHook = filteredHooks[Math.floor(Math.random() * filteredHooks.length)];
-        setCurrentHook(randomHook);
+      if (exactHook) {
+        setCurrentHook(exactHook);
       }
       setIsGenerating(false);
     }, 1000);
   };
+
+  // Auto-update hook when platform or awareness changes
+  useEffect(() => {
+    const exactHook = hookExamples.find(
+      hook => hook.platform === selectedPlatform && hook.awareness === selectedAwareness
+    );
+    
+    if (exactHook && exactHook !== currentHook) {
+      setCurrentHook(exactHook);
+    }
+  }, [selectedPlatform, selectedAwareness, currentHook]);
 
   const platformStyle = platformStyles[currentHook.platform];
 
@@ -263,16 +336,16 @@ export function HookGeneratorDemo() {
               </div>
 
               {/* CTA */}
-              <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl p-6 text-white">
-                <h4 className="text-lg font-bold mb-2">Get Weekly Hook Variations</h4>
-                <p className="text-gray-300 mb-4">
-                  Every Monday: 6+ platform-optimized hooks for your latest creative concepts.
+              <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl p-6 text-white">
+                <h4 className="text-lg font-bold mb-2">Get 10 Proven High-Converting Hooks</h4>
+                <p className="text-gray-100 mb-4">
+                  Start with our Hook Bank PDF featuring 10 battle-tested hooks that reduce CPA by 25%. Join 1,200+ growth marketers getting weekly creative intelligence.
                 </p>
                 <button 
-                  onClick={() => window.location.href = '/hook-generator'}
-                  className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors duration-200 flex items-center"
+                  onClick={() => window.location.href = '/#email-signup'}
+                  className="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 flex items-center"
                 >
-                  See Hook Library
+                  Get My 10 Free Hooks
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </button>
               </div>

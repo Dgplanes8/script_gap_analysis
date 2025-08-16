@@ -386,7 +386,7 @@ export default function GrowthTeamCreativeBottlenecksPage() {
                   <tr className="border-b border-gray-200">
                     <td className="p-4 font-semibold">Concept Development</td>
                     <td className="p-4 text-gray-700">$5,000-10,000/month agency retainer</td>
-                    <td className="p-4 text-gray-700">$67-497/month weekly intelligence</td>
+                    <td className="p-4 text-gray-700">$5-99/week creative intelligence</td>
                     <td className="p-4 text-green-600">10x faster delivery</td>
                   </tr>
                   <tr className="bg-gray-50 border-b border-gray-200">

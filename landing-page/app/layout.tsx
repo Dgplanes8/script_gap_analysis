@@ -10,9 +10,9 @@ import { ConsultationModal } from '@/components/modals/consultation-modal';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Weekly Ad Hooks & Creative Scripts for Subscription Businesses | Apsics Media',
+  title: 'Weekly Creative Intelligence - Revolutionary Weekly Pricing | Apsics Media',
   description:
-    'Get viral ad hooks and creative scripts every Monday. Reduce CAC by 25%, increase conversion rates 3x faster with trending concepts + competitor analysis. Growth marketing teams at subscription companies starting at $67/month.',
+    'Revolutionary weekly pricing for weekly delivery. Get viral ad hooks and creative scripts every Monday starting at $5/week. First week FREE trial. Reduce CAC by 25%, increase conversion rates 3x faster. Growth marketing teams at subscription companies.',
   keywords:
     'ad hooks, creative hooks, facebook ad templates, viral content, subscription marketing, creative scripts, reduce CAC, increase conversions, creative strategy, growth marketing, weekly trend intelligence, copywriting templates, social media hooks, tiktok hooks, subscription business creative, saas creative, conversion copywriting',
   authors: [{ name: 'Apsics Media' }],
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Weekly Ad Hooks & Creative Scripts for Subscription Businesses | Apsics Media',
+    title: 'Weekly Creative Intelligence - Revolutionary Weekly Pricing | Apsics Media',
     description:
-      'Get viral ad hooks and creative scripts every Monday. Reduce CAC by 25%, increase conversion rates 3x faster with trending concepts + competitor analysis for growth marketing teams.',
+      'Revolutionary weekly pricing for weekly delivery. Get viral ad hooks and creative scripts every Monday starting at $5/week. First week FREE trial. Reduce CAC by 25% for growth marketing teams.',
 
     url: '/',
     siteName: 'Apsics Media',
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Weekly Ad Hooks & Creative Scripts for Subscription Businesses | Apsics Media',
+    title: 'Weekly Creative Intelligence - Revolutionary Weekly Pricing | Apsics Media',
     description:
-      'Get viral ad hooks and creative scripts every Monday. Reduce CAC by 25%, increase conversion rates 3x faster with trending concepts + competitor analysis for growth marketing teams.',
+      'Revolutionary weekly pricing for weekly delivery. Get viral ad hooks and creative scripts every Monday starting at $5/week. First week FREE trial. Reduce CAC by 25% for growth marketing teams.',
     images: ['/images/og-image.jpg'],
     creator: '@apsicsmedia',
   },
@@ -62,13 +62,13 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
-    other: {
-      rel: 'apple-touch-icon-precomposed',
-      url: '/apple-touch-icon-precomposed.png',
-    },
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16', type: 'image/x-icon' },
+      { url: '/favicon.svg', type: 'image/svg+xml' }
+    ],
+    apple: [
+      { url: '/favicon.svg', sizes: '180x180', type: 'image/svg+xml' }
+    ],
   },
   manifest: '/site.webmanifest',
 };

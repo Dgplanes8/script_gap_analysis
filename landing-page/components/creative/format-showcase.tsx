@@ -25,7 +25,7 @@ const formatExamples: FormatExample[] = [
     icon: <Users className="h-6 w-6" />,
     category: 'video',
     platforms: ['TikTok', 'Instagram', 'Facebook'],
-    hookExample: '"I\'m seriously obsessed with this creative intelligence system and here\'s why..."',
+    hookExample: '"I\'m seriously obsessed with this clean beauty routine and here\'s why..."',
     visualDescription: 'Authentic user speaking directly to camera, casual setting, genuine enthusiasm',
     conversionStrength: 9,
     whenToUse: 'High-trust situations, social proof needed, authentic brand positioning',
@@ -38,7 +38,7 @@ const formatExamples: FormatExample[] = [
     icon: <Video className="h-6 w-6" />,
     category: 'video',
     platforms: ['LinkedIn', 'Facebook', 'Instagram'],
-    hookExample: '"After 10 years optimizing $250M+ in ad spend, here\'s what I learned about creative..."',
+    hookExample: '"After 15 years as a makeup artist, here\'s what I learned about effortless beauty..."',
     visualDescription: 'Professional setting, direct camera address, confident delivery, authority positioning',
     conversionStrength: 8,
     whenToUse: 'B2B audiences, professional services, expertise-based products',
@@ -51,7 +51,7 @@ const formatExamples: FormatExample[] = [
     icon: <TrendingUp className="h-6 w-6" />,
     category: 'video',
     platforms: ['TikTok', 'Instagram', 'Facebook'],
-    hookExample: '"Agencies take 2 weeks for creative concepts. We deliver every Monday..."',
+    hookExample: '"Traditional makeup requires 20+ products. This routine uses just 3..."',
     visualDescription: 'Split screen or quick cuts showing competitor flaws vs our advantages',
     conversionStrength: 7,
     whenToUse: 'Crowded markets, clear differentiators, competitive displacement',
@@ -64,7 +64,7 @@ const formatExamples: FormatExample[] = [
     icon: <Star className="h-6 w-6" />,
     category: 'video',
     platforms: ['Instagram', 'Facebook', 'TikTok'],
-    hookExample: '"Our creative process went from 2 weeks to 2 days after implementing this system..."',
+    hookExample: '"My morning routine went from 45 minutes to 10 minutes with this simple change..."',
     visualDescription: 'Clear before/after visuals, metrics comparison, transformation narrative',
     conversionStrength: 9,
     whenToUse: 'Clear transformation outcomes, measurable results, proof-heavy markets',
@@ -77,7 +77,7 @@ const formatExamples: FormatExample[] = [
     icon: <MessageSquare className="h-6 w-6" />,
     category: 'video',
     platforms: ['TikTok', 'Instagram', 'LinkedIn'],
-    hookExample: '"3 reasons growth teams are switching to weekly creative delivery..."',
+    hookExample: '"3 reasons makeup artists are switching to this clean beauty approach..."',
     visualDescription: 'Numbered list format, quick transitions, benefit-focused content',
     conversionStrength: 6,
     whenToUse: 'Complex products, educational audience, benefit-heavy positioning',
@@ -90,7 +90,7 @@ const formatExamples: FormatExample[] = [
     icon: <Zap className="h-6 w-6" />,
     category: 'video',
     platforms: ['TikTok', 'Instagram'],
-    hookExample: '"3 reasons I regret using this creative intelligence system..." (reveals benefits)',
+    hookExample: '"3 reasons I regret switching to clean beauty..." (reveals benefits)',
     visualDescription: 'Hook with negative angle, reveal positive outcomes, curiosity-driven',
     conversionStrength: 8,
     whenToUse: 'Skeptical audiences, saturated markets, attention-grabbing needed',
@@ -103,7 +103,7 @@ const formatExamples: FormatExample[] = [
     icon: <Image className="h-6 w-6" />,
     category: 'static',
     platforms: ['Facebook', 'Instagram', 'LinkedIn'],
-    hookExample: '"Weekly Creative Intelligence: Fresh Scripts Delivered Every Monday"',
+    hookExample: '"Clean Beauty Made Simple: Natural Glow Without the Fuss"',
     visualDescription: 'Bold headline, feature bullets, clear CTA, professional design',
     conversionStrength: 7,
     whenToUse: 'Retargeting campaigns, clear offer, feature-focused positioning',
@@ -116,7 +116,7 @@ const formatExamples: FormatExample[] = [
     icon: <TrendingUp className="h-6 w-6" />,
     category: 'static',
     platforms: ['LinkedIn', 'Facebook'],
-    hookExample: '"73% of growth teams report creative fatigue every 30 days..."',
+    hookExample: '"73% of women spend 30+ minutes on makeup daily..."',
     visualDescription: 'Large stat display, source credibility, problem-solution narrative',
     conversionStrength: 6,
     whenToUse: 'B2B audiences, credibility needed, data-driven decision makers',
@@ -129,7 +129,7 @@ const formatExamples: FormatExample[] = [
     icon: <MessageSquare className="h-6 w-6" />,
     category: 'static',
     platforms: ['TikTok', 'Instagram', 'Facebook'],
-    hookExample: '"Drake pointing: ❌ Waiting 2 weeks for agency creative ✅ Getting concepts every Monday"',
+    hookExample: '"Drake pointing: ❌ 20-step beauty routine ✅ 3-product natural glow"',
     visualDescription: 'Popular meme template adapted for brand message, cultural relevance',
     conversionStrength: 5,
     whenToUse: 'Younger audiences, viral potential, brand personality showcase',
@@ -306,7 +306,17 @@ export function FormatShowcase() {
                 <p className="text-blue-100 mb-4">
                   Every Monday: 3 concepts × 5 formats = 15 ready-to-test ad variations using these proven formats.
                 </p>
-                <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 flex items-center">
+                <button 
+                  onClick={() => {
+                    const serviceSection = document.getElementById('service-tiers');
+                    if (serviceSection) {
+                      serviceSection.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      window.location.href = '/#service-tiers';
+                    }
+                  }}
+                  className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200 flex items-center"
+                >
                   See Creative Plans
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </button>

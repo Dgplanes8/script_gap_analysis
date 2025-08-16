@@ -158,9 +158,10 @@ export function StrategicConsultationForm({ isOpen = true, onClose, defaultPacka
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
               >
                 <option value="">Select package interest</option>
-                <option value="Trend Tracker ($67/month)">Trend Tracker - $67/month</option>
-                <option value="Competitive Edge ($197/month)">Competitive Edge - $197/month</option>
-                <option value="Market Intelligence ($497/month)">Market Intelligence - $497/month</option>
+                <option value="Creative Starter ($5/week)">Creative Starter - $5/week</option>
+                <option value="Trend Tracker ($15/week)">Trend Tracker - $15/week</option>
+                <option value="Competitive Edge ($35/week)">Competitive Edge - $35/week</option>
+                <option value="Market Intelligence ($99/week)">Market Intelligence - $99/week</option>
                 <option value="Enterprise (Custom)">Enterprise - Custom</option>
                 <option value="Not Sure">Not Sure - Help Me Decide</option>
               </select>

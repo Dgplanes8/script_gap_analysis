@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Calculator, BookOpen, PieChart, FileText, TrendingUp, Target, ArrowRight, Play, Facebook, TrendingDown } from 'lucide-react';
+import { Calculator, BookOpen, PieChart, FileText, TrendingUp, Target, ArrowRight, Play, Facebook, TrendingDown, Zap, Users, BarChart3 } from 'lucide-react';
 
 const contentPieces = [
   {
@@ -59,6 +59,54 @@ const contentPieces = [
     description: 'D2C channel optimization and growth strategy for consumer subscriptions',
     cta: 'Get D2C Strategy',
     color: 'purple'
+  },
+  {
+    title: 'Revenue Growth Benchmarking',
+    href: '/revenue-growth-benchmarking',
+    icon: BarChart3,
+    description: 'Benchmark your revenue growth against industry standards and get optimization insights',
+    cta: 'Benchmark Growth',
+    color: 'blue'
+  },
+  {
+    title: 'Hook Generator Tool',
+    href: '/hook-generator',
+    icon: Zap,
+    description: 'Generate platform-optimized ad hooks for TikTok, Facebook, and Instagram',
+    cta: 'Generate Hooks',
+    color: 'purple'
+  },
+  {
+    title: 'Consumer Attribution Framework',
+    href: '/consumer-attribution-framework',
+    icon: Target,
+    description: 'Advanced attribution modeling for consumer subscription businesses',
+    cta: 'Model Attribution',
+    color: 'indigo'
+  },
+  {
+    title: 'Marketing Attribution Framework',
+    href: '/marketing-attribution-framework',
+    icon: PieChart,
+    description: 'Comprehensive attribution methodology for multi-channel marketing campaigns',
+    cta: 'Get Framework',
+    color: 'emerald'
+  },
+  {
+    title: 'Creative Brief Framework',
+    href: '/creative-brief-framework',
+    icon: FileText,
+    description: 'Structured framework for creating high-converting creative briefs',
+    cta: 'Get Framework',
+    color: 'slate'
+  },
+  {
+    title: 'Ad Formats Guide',
+    href: '/ad-formats-guide',
+    icon: BookOpen,
+    description: 'Complete guide to high-converting ad formats across all platforms',
+    cta: 'Explore Formats',
+    color: 'green'
   }
 ];
 

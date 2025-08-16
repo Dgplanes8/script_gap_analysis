@@ -100,29 +100,36 @@ export function generateServiceSchema(): Service {
     '@context': 'https://schema.org',
     '@type': 'Service',
     '@id': `${baseUrl}#service`,
-    name: 'Weekly Trend Intelligence for Subscription Businesses',
-    description: 'Weekly creative concepts and competitor analysis for subscription business growth teams, starting at $67/month',
+    name: 'Weekly Creative Intelligence - Revolutionary Weekly Pricing',
+    description: 'Revolutionary weekly pricing for weekly creative delivery. Weekly creative concepts and competitor analysis for subscription business growth teams, starting at $5/week with first week FREE',
     provider: {
       '@id': `${baseUrl}#organization`
     },
     offers: [
       {
         '@type': 'Offer',
-        price: SERVICE_TIERS.trendTracker.price,
+        price: `${SERVICE_TIERS.creativeStarter.price}/week`,
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        description: `${SERVICE_TIERS.creativeStarter.name} - ${SERVICE_TIERS.creativeStarter.description}`
+      },
+      {
+        '@type': 'Offer',
+        price: `${SERVICE_TIERS.trendTracker.price}/week`,
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
         description: `${SERVICE_TIERS.trendTracker.name} - ${SERVICE_TIERS.trendTracker.description}`
       },
       {
         '@type': 'Offer',
-        price: SERVICE_TIERS.competitiveEdge.price,
+        price: `${SERVICE_TIERS.competitiveEdge.price}/week`,
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
         description: `${SERVICE_TIERS.competitiveEdge.name} - ${SERVICE_TIERS.competitiveEdge.description}`
       },
       {
         '@type': 'Offer',
-        price: SERVICE_TIERS.marketIntelligence.price,
+        price: `${SERVICE_TIERS.marketIntelligence.price}/week`,
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
         description: `${SERVICE_TIERS.marketIntelligence.name} - ${SERVICE_TIERS.marketIntelligence.description}`
@@ -132,7 +139,7 @@ export function generateServiceSchema(): Service {
       '@type': 'Audience',
       audienceType: 'Growth Marketing Teams at Subscription Companies'
     },
-    serviceType: 'Weekly Creative Intelligence',
+    serviceType: 'Weekly Creative Intelligence with Revolutionary Weekly Pricing',
     category: 'Marketing Strategy and Creative Development'
   };
 }

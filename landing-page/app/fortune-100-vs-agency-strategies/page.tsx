@@ -319,7 +319,7 @@ export default function Fortune100VsAgencyPage() {
               </h2>
               <p className="text-xl mb-8 opacity-90">
                 Stop paying agency premiums for inconsistent results. Get the same systematic methodology used by 
-                Fortune 100 companies, delivered weekly starting at $67/month.
+                Fortune 100 companies, delivered weekly starting at $5/week with first week FREE.
               </p>
               
               <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">

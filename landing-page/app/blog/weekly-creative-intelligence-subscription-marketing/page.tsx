@@ -170,7 +170,7 @@ export default function WeeklyCreativeIntelligencePage() {
                   <tr className="bg-gray-50 border-b border-gray-200">
                     <td className="p-4 font-semibold">Cost Structure</td>
                     <td className="p-4 text-gray-700">$5,000-15,000+ monthly</td>
-                    <td className="p-4 text-gray-700">$67-497 monthly</td>
+                    <td className="p-4 text-gray-700">$5-99 weekly</td>
                   </tr>
                   <tr>
                     <td className="p-4 font-semibold">Subscription Focus</td>

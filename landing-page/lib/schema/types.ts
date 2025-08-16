@@ -238,36 +238,48 @@ export interface FAQSchemaProps extends SchemaComponentProps {
   }[];
 }
 
-// Service tier data from CLAUDE.md
+// Service tier data from updated weekly pricing strategy
 export const SERVICE_TIERS = {
+  creativeStarter: {
+    name: 'Creative Starter',
+    price: '5',
+    period: 'week',
+    description: '1 high-converting creative concept weekly with 2 ready-to-test scripts and single platform focus',
+    target: 'Solopreneurs & early stage',
+    ideal: 'Solo founders and early-stage startups with $500-$2K monthly ad spend'
+  },
   trendTracker: {
     name: 'Trend Tracker',
-    price: '67',
-    description: '1 creative concept delivered every Monday with 2 ready-to-develop scripts per concept',
-    target: 'Growth teams testing new angles',
-    ideal: 'Growth teams at growing subscription companies'
+    price: '15',
+    period: 'week',
+    description: '1 strategic creative concept every Monday with 2 ready-to-develop scripts and multi-platform optimization',
+    target: 'Growing startups',
+    ideal: 'Growth teams at subscription companies with $2K-$10K monthly ad spend',
+    popular: true
   },
   competitiveEdge: {
     name: 'Competitive Edge',
-    price: '197',
-    description: '2 creative concepts weekly (1 trend-based + 1 competitor-inspired) with 4 weekly scripts',
-    target: 'Performance marketers with saturated audiences',
-    ideal: 'Performance marketers who have saturated core audiences',
-    popular: true
+    price: '35',
+    period: 'week',
+    description: '2 creative concepts weekly (1 trend-based + 1 competitor-inspired) with 4 weekly scripts and competitive intelligence',
+    target: 'Performance marketing teams',
+    ideal: 'Performance marketers with $10K-$50K monthly ad spend who have saturated audiences'
   },
   marketIntelligence: {
     name: 'Market Intelligence',
-    price: '497',
-    description: '3 creative concepts delivered every Monday with 6 weekly scripts and direct team access',
-    target: '$200K+ monthly ad spend companies',
-    ideal: 'Heads of Growth at subscription companies scaling beyond $200K/month'
+    price: '99',
+    period: 'week',
+    description: '3 creative concepts delivered weekly with 6 ready-to-test scripts, comprehensive competitive analysis and direct team access',
+    target: 'Scale companies $50K+ spend',
+    ideal: 'Heads of Growth at scaling companies with $50K+ monthly ad spend'
   },
   enterprise: {
     name: 'Enterprise',
     price: 'Custom',
-    description: 'Creative concepts delivered weekly with full-service media buying management and dedicated account manager',
-    target: '$500K+ monthly ad spend companies',
-    ideal: 'Large subscription companies requiring comprehensive solutions'
+    period: '',
+    description: 'Custom creative concepts delivered weekly with full-service media buying management and dedicated account manager',
+    target: '$500K+ spend companies',
+    ideal: 'Large subscription companies with $500K+ monthly ad spend requiring comprehensive solutions'
   }
 } as const;
 

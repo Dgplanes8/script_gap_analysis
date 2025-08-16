@@ -51,7 +51,7 @@ export default function HomePage() {
       </section>
 
       {/* Lead Magnet Prominence Section - Moved below service tiers */}
-      <section className="py-16 bg-gradient-to-r from-orange-50 to-orange-100">
+      <section id="email-signup" className="py-16 bg-gradient-to-r from-orange-50 to-orange-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-orange-200">
@@ -208,47 +208,74 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Frequently Asked Questions - Ad Hooks & Creative Scripts
+                Frequently Asked Questions - Weekly Creative Intelligence
               </h2>
               <p className="text-lg text-gray-600">
-                Common questions about our weekly ad hooks, creative scripts, and copywriting templates service
+                Common questions about our revolutionary weekly pricing model and creative intelligence service
               </p>
             </div>
             
             <div className="space-y-6">
               <div className="border-b border-gray-200 pb-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  How does weekly billing work?
+                </h3>
+                <p className="text-gray-600">
+                  You're billed every week for continued access. Your first week is completely FREE. After that, you can cancel anytime before your next weekly billing cycle. It's the most flexible pricing in the industry.
+                </p>
+              </div>
+              
+              <div className="border-b border-gray-200 pb-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  Why weekly pricing instead of monthly like everyone else?
+                </h3>
+                <p className="text-gray-600">
+                  Because we deliver weekly! Pay for what you get, when you get it. If you only need creative concepts for 2 weeks, pay for 2 weeks. If you need to pause for a month, restart anytime. Revolutionary pricing for revolutionary delivery.
+                </p>
+              </div>
+              
+              <div className="border-b border-gray-200 pb-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  What's included in the first week FREE trial?
+                </h3>
+                <p className="text-gray-600">
+                  Full access to your chosen tier for 7 days. You'll receive your first creative concepts, scripts, and insights exactly as paying customers do. Experience our Monday delivery system with zero commitment.
+                </p>
+              </div>
+              
+              <div className="border-b border-gray-200 pb-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  Can I upgrade or downgrade tiers weekly?
+                </h3>
+                <p className="text-gray-600">
+                  Yes! Changes take effect immediately. Need more concepts this week? Upgrade to Competitive Edge. Scaling back? Drop to Creative Starter. You're in complete control of your investment.
+                </p>
+              </div>
+              
+              <div className="border-b border-gray-200 pb-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
                   How is this different from traditional agencies?
                 </h3>
                 <p className="text-gray-600">
-                  Agencies take 1-2 weeks for concept delivery and charge $5,000+ monthly minimums. We deliver fresh concepts every Monday at a fraction of the cost, specifically for performance marketers who need constant creative testing.
+                  Agencies charge $800-2,000+ per week with 6-month contracts and 2-week turnarounds. We start at $5/week with no contracts and Monday delivery. Plus, you only pay for weeks you actually want service.
                 </p>
               </div>
               
               <div className="border-b border-gray-200 pb-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                  What makes your ad hooks and creative scripts unique?
+                  Is the $5/week pricing limited time?
                 </h3>
                 <p className="text-gray-600">
-                  We combine viral content analysis with competitor intelligence, specifically for subscription marketing. 10+ years creating high-converting ad hooks and copywriting templates for recurring revenue companies means we understand how to reduce CAC and increase conversions.
+                  The first 50 customers lock in launch pricing forever. After that, new customer pricing will increase. Early adopters get grandfathered pricing and never see price increases.
                 </p>
               </div>
               
               <div className="border-b border-gray-200 pb-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                  Can I cancel anytime?
+                  What if I want to pause for a few weeks?
                 </h3>
                 <p className="text-gray-600">
-                  Yes, all plans are month-to-month with no long-term contracts. Cancel anytime. We're confident in our weekly delivery quality and strategic value.
-                </p>
-              </div>
-              
-              <div className="border-b border-gray-200 pb-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                  Do you work with businesses outside of subscriptions?
-                </h3>
-                <p className="text-gray-600">
-                  While our expertise is optimized for subscription and recurring revenue businesses (SaaS, D2C subscriptions, memberships), our trend intelligence methodology works for any business needing consistent creative testing fuel.
+                  Just cancel before your next billing cycle and restart whenever you're ready. Your pricing tier and any early adopter benefits are preserved. No reactivation fees, no hassles.
                 </p>
               </div>
               
@@ -257,7 +284,7 @@ export default function HomePage() {
                   How do I get started?
                 </h3>
                 <p className="text-gray-600">
-                  Start with our free 10 Hook Bank to experience our strategic approach. Then book a strategy call to discuss which weekly plan fits your growth needs. No obligation, no pressure.
+                  Start your FREE week trial today. Choose your tier, experience our Monday delivery system, then decide if you want to continue. No payment required upfront, no contracts, no commitment.
                 </p>
               </div>
             </div>
@@ -270,10 +297,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">
-              Stop Waiting on Agencies - Get High-Converting Ad Hooks This Week
+              Revolutionary Weekly Pricing - Start Your Free Week Today
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Join growth marketing teams at subscription companies getting fresh ad hooks and creative scripts every Monday. Built by a team with 10+ years creating viral content and $250MM+ in managed media spend.
+              Join the first 50 customers getting weekly creative intelligence with revolutionary weekly pricing. Lock in $5/week starting price forever. Built by a team with 10+ years creating viral content and $250MM+ in managed media spend.
             </p>
             
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
@@ -287,8 +314,8 @@ export default function HomePage() {
                   <div className="text-sm opacity-80">Fresh Concepts</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold">$67/Month</div>
-                  <div className="text-sm opacity-80">Starting Price</div>
+                  <div className="text-3xl font-bold">$5/Week</div>
+                  <div className="text-sm opacity-80">Starting + Free Trial</div>
                 </div>
               </div>
               
