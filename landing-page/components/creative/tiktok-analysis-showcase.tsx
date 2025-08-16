@@ -88,20 +88,8 @@ export function TikTokAnalysisShowcase() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Video Demo Area */}
+            {/* Current Analysis */}
             <div className="space-y-6">
-              <div className="relative bg-black rounded-2xl overflow-hidden aspect-[9/16] max-w-sm mx-auto shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
-                  <div className="text-center text-white p-6">
-                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Play className="h-8 w-8 text-white" />
-                    </div>
-                    <h3 className="text-lg font-semibold mb-2">Interactive Demo</h3>
-                    <p className="text-sm opacity-90">See our analysis in action</p>
-                  </div>
-                </div>
-              </div>
-              
               <div className="bg-white rounded-xl p-6 shadow-lg border">
                 <h4 className="font-semibold text-gray-900 mb-3">Current Analysis: Virtual Courtroom Trend</h4>
                 <div className="space-y-3">
