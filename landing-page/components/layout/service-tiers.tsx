@@ -158,22 +158,22 @@ export function ServiceTiers() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-5 gap-6 max-w-7xl mx-auto pt-6">
           {tiers.map((tier, index) => {
             const Icon = tier.icon;
             return (
               <div
                 key={tier.id}
                 className={`relative bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl flex flex-col h-full ${
-                  tier.popular ? 'ring-2 ring-orange-500 transform scale-105' : ''
+                  tier.popular ? 'ring-2 ring-orange-500 transform scale-105 mt-2' : 'mt-6'
                 } ${tier.borderColor} border-2`}
                 onMouseEnter={() => setSelectedTier(tier.id as any)}
                 onMouseLeave={() => setSelectedTier(null)}
               >
                 {tier.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center">
-                      <Zap className="h-4 w-4 mr-1" />
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="bg-orange-500 text-white px-3 py-1.5 rounded-full text-xs font-semibold flex items-center shadow-lg">
+                      <Zap className="h-3 w-3 mr-1" />
                       Most Popular
                     </div>
                   </div>
