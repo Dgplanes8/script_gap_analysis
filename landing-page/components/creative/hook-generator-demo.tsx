@@ -118,7 +118,7 @@ const hookExamples: HookExample[] = [
   {
     platform: 'instagram',
     awareness: 'most-aware',
-    hook: "Ready to transform your creative process? Weekly intelligence starts at $5/week."
+    hook: "Ready to transform your creative process? Weekly intelligence starts at $5/week.",
     reasoning: "Direct question + transformation promise + clear pricing for hot leads",
     score: 18
   }
