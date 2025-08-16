@@ -19,7 +19,7 @@ const briefSections: BriefSection[] = [
     description: 'Strategic foundation and core objectives',
     icon: <Target className="h-5 w-5" />,
     fields: ['Campaign Name', 'Primary Objective', 'Target Audience', 'Key Message', 'Unique Value Proposition'],
-    example: 'Weekly Creative Intelligence System for Growth Teams - Convert creative bottlenecks into competitive advantages through strategic concept delivery'
+    example: 'Premium Makeup Brand Q4 Campaign - Transform morning routines into professional confidence through expert-designed efficiency'
   },
   {
     id: 'concepts',
@@ -27,7 +27,7 @@ const briefSections: BriefSection[] = [
     description: 'Strategic approach for each of 3 concepts',
     icon: <Users className="h-5 w-5" />,
     fields: ['Concept Name', 'Target Persona', 'Core Emotion', 'Life Force 8', 'Awareness Level', 'Performance Score'],
-    example: 'Professional Performance Authority - Target: Growth marketers managing $50K+ spend - Emotion: Confidence through expertise - Score: 23/25'
+    example: 'The 5-Minute Professional - Target: Working women 28-40, time-pressured professionals - Emotion: Time relief + Professional confidence - Score: 21.6/25'
   },
   {
     id: 'executions',
@@ -35,7 +35,7 @@ const briefSections: BriefSection[] = [
     description: 'Detailed execution for each of 15 ad variations',
     icon: <Zap className="h-5 w-5" />,
     fields: ['Format Type', 'Primary Hook/Headline', 'Complete Copy', 'Key Visuals', 'Talent Notes', 'Platform Optimization'],
-    example: 'UGC Testimonial - Hook: "Growth teams managing $200K+ are using this weekly system..." - Visual: Authentic user, casual setting, direct camera'
+    example: 'Time-Lapse Tutorial - Hook: "POV: You have 5 minutes to look professional for your 9am meeting" - Visual: Split-screen clock vs application progress'
   },
   {
     id: 'guidelines',
@@ -43,36 +43,36 @@ const briefSections: BriefSection[] = [
     description: 'Voice, language, and compliance requirements',
     icon: <FileText className="h-5 w-5" />,
     fields: ['Voice Positioning', 'Power Words', 'Forbidden Language', 'Required Disclaimers', 'Platform Compliance'],
-    example: 'Voice: Strategic authority without corporate stiffness - Power Words: Intelligence, Systems, Strategic - Avoid: Hack, Secret, Guaranteed'
+    example: 'Voice: Expert authority with authentic relatability - Power Words: Professional, Expert, Simplified - Avoid: Perfect, Flawless, Anti-aging'
   }
 ];
 
 const exampleBriefData = {
-  campaignName: 'Weekly Creative Intelligence Q4 Campaign',
-  objective: 'Drive subscription conversions for creative intelligence service',
-  audience: 'Growth marketing teams at SaaS companies with $50K+ monthly ad spend',
-  keyMessage: 'Get fresh creative concepts every Monday instead of waiting weeks for agencies',
+  campaignName: 'Premium Makeup Brand Q4 Campaign',
+  objective: 'Drive conversions for time-efficient professional beauty solutions',
+  audience: 'Working women 28-50, time-pressured professionals and beauty enthusiasts',
+  keyMessage: 'Professional confidence in 5 minutes or less through expert-designed makeup',
   concepts: [
     {
-      name: 'Professional Performance Authority',
-      persona: 'Growth marketers managing significant ad budgets',
-      emotion: 'Confidence through strategic expertise',
+      name: 'The 5-Minute Professional',
+      persona: 'Working women 28-40, time-pressured professionals',
+      emotion: 'Time relief + Professional confidence',
       awareness: 'Solution-Aware',
-      score: '23/25'
+      score: '21.6/25'
     },
     {
-      name: 'Time-Efficiency Crisis Solver', 
-      persona: 'Marketing teams at growing companies',
-      emotion: 'Relief from creative bottlenecks',
+      name: 'Expert Authority Simplified', 
+      persona: 'Beauty enthusiasts 30-45, quality-conscious',
+      emotion: 'Expert validation + Mastery confidence',
       awareness: 'Problem-Aware',
-      score: '21/25'
+      score: '22.2/25'
     },
     {
-      name: 'Competitive Intelligence Edge',
-      persona: 'Performance marketers with saturated audiences',
-      emotion: 'Discovery and competitive advantage',
-      awareness: 'Most-Aware', 
-      score: '22/25'
+      name: 'Real Women, Real Results',
+      persona: 'Women 35-50, authentic beauty seekers',
+      emotion: 'Age validation + Authentic confidence',
+      awareness: 'Product-Aware', 
+      score: '22.0/25'
     }
   ]
 };
@@ -242,11 +242,15 @@ export function CreativeBriefStructure() {
                   Every Monday: Complete creative briefs for 15 ad variations, ready for immediate production and testing.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="bg-white text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 flex items-center justify-center">
-                    <Download className="h-4 w-4 mr-2" />
-                    Sample Brief Template
-                  </button>
-                  <button className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors duration-200 flex items-center justify-center">
+                  <button 
+                    onClick={() => {
+                      const serviceTiersElement = document.getElementById('service-tiers');
+                      if (serviceTiersElement) {
+                        serviceTiersElement.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors duration-200 flex items-center justify-center"
+                  >
                     See Weekly Plans
                     <ArrowRight className="h-4 w-4 ml-2" />
                   </button>

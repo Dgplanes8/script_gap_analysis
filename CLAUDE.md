@@ -166,6 +166,34 @@ gh pr status
 
 ---
 
+## Content Authenticity & Ethics Guidelines
+
+### Testimonials & Social Proof Rules
+- **NO FABRICATED TESTIMONIALS**: Never create fake client testimonials or case studies
+- **SOURCE VERIFICATION**: All data, statistics, and claims must have verifiable sources
+- **PLACEHOLDER POLICY**: Use clear placeholders like "[CLIENT TESTIMONIAL NEEDED]" instead of fake content
+- **Real Results Only**: Only reference actual client results with permission and documentation
+
+### Data & Statistics Standards
+- **Source Attribution**: All statistics must include source (e.g., "According to HubSpot 2024 study...")
+- **No Speculation**: Avoid phrases like "clients typically see" without documented proof
+- **Industry Benchmarks**: Use only verified industry reports for comparative data
+- **Honest Projections**: Mark estimates clearly as projections, not guaranteed outcomes
+
+### Content Creation Guidelines
+- **Authentic Voice**: Focus on methodology and approach rather than unverified results
+- **Process Over Promises**: Emphasize strategic process rather than specific outcome claims
+- **Transparent Communication**: Be honest about service limitations and realistic timelines
+- **Documentation Required**: Keep records of all sources for claims and statistics used
+
+### Approved Data Sources
+- **Industry Reports**: HubSpot, Salesforce, Google, Facebook Business studies
+- **Academic Research**: Peer-reviewed marketing and psychology journals
+- **Platform Data**: Official platform statistics (TikTok, Instagram, LinkedIn analytics)
+- **Third-Party Research**: Verified studies from reputable marketing research firms
+
+---
+
 ## Direct Response Marketing Guidelines
 
 ### Copy Development Principles

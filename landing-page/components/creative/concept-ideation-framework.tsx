@@ -19,39 +19,39 @@ interface ConceptExample {
 const conceptExamples: ConceptExample[] = [
   {
     id: 1,
-    name: "Professional Performance Authority",
-    target: "Growth marketers managing $50K+ monthly ad spend",
-    emotion: "Confidence through expertise",
-    lifeForce: "Superior achievement and recognition",
+    name: "The 5-Minute Professional",
+    target: "Working women 28-40, middle to upper-middle income, urban/suburban",
+    emotion: "Relief from time stress → Professional confidence",
+    lifeForce: "Survival (time efficiency) + Social Approval (professional appearance)",
     awareness: "Solution-Aware",
-    moment: "When creative performance plateaus and team needs fresh angles",
-    format: "Founder authority video",
-    positioning: "The strategic intelligence system growth teams use when creativity becomes the bottleneck",
-    formats: ["UGC testimonial", "Founder video", "Us vs them comparison", "Before/after results", "3 reasons why"]
+    moment: "When morning routine feels rushed and overwhelming but professional appearance is non-negotiable",
+    format: "Time-lapse tutorial with timer",
+    positioning: "Professional confidence in 5 minutes or less",
+    formats: ["Time-lapse tutorial", "Morning routine comparison", "Real-life scenario UGC", "Professional testimonial", "Challenge format"]
   },
   {
     id: 2, 
-    name: "Time-Efficiency Crisis Solver",
-    target: "Marketing teams at growing SaaS companies",
-    emotion: "Relief from overwhelm",
-    lifeForce: "Time and convenience",
+    name: "Expert Authority Simplified",
+    target: "Premium makeup brand customers 30-45, beauty enthusiasts, higher income",
+    emotion: "Frustration with DIY attempts → Expert mastery confidence",
+    lifeForce: "To be superior (expertise/mastery)",
     awareness: "Problem-Aware", 
-    moment: "When waiting 2 weeks for agency creative becomes unacceptable",
-    format: "Pain-pleasure narrative",
-    positioning: "Weekly creative delivery vs agency turnaround times - for teams who can't wait",
-    formats: ["Mash up content", "Statistics ad", "Post-it note style", "Press ad format", "Why I regret ad"]
+    moment: "When overwhelmed by product choices and seeking expert guidance vs trial and error",
+    format: "Makeup artist secrets reveal",
+    positioning: "30 years of makeup artistry, simplified for real life",
+    formats: ["Makeup artist secrets", "Celebrity technique breakdown", "Expert vs amateur", "Professional transformation", "Industry insider story"]
   },
   {
     id: 3,
-    name: "Competitive Intelligence Edge",
-    target: "Performance marketers with saturated audiences", 
-    emotion: "Discovery excitement",
-    lifeForce: "Survival and superiority",
-    awareness: "Most-Aware",
-    moment: "When current creative concepts stop converting and need competitive insights",
-    format: "Intelligence reveal",
-    positioning: "See what's working for competitors before they scale it against you",
-    formats: ["Meme ad approach", "Headline feature callout", "Testimonial focus", "UGC mashup", "Trend adaptation"]
+    name: "Real Women, Real Results",
+    target: "Women 35-50, diverse backgrounds, working mothers and professionals", 
+    emotion: "Feeling excluded by youth-focused marketing → Age-appropriate confidence",
+    lifeForce: "Social Approval (age-appropriate confidence)",
+    awareness: "Product-Aware",
+    moment: "When tired of unrealistic beauty standards and seeking makeup for real life scenarios",
+    format: "Age-diverse testimonials",
+    positioning: "Makeup that works for your real life, not your Instagram",
+    formats: ["Age-diverse testimonials", "Real life scenarios", "Honest before/after", "Mother-daughter comparison", "Professional confidence"]
   }
 ];
 
@@ -259,7 +259,15 @@ export function ConceptIdeationFramework() {
             </div>
             
             <div className="mt-6 pt-6 border-t border-purple-400">
-              <button className="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors duration-200 flex items-center">
+              <button 
+                onClick={() => {
+                  const serviceTiersElement = document.getElementById('service-tiers');
+                  if (serviceTiersElement) {
+                    serviceTiersElement.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors duration-200 flex items-center"
+              >
                 Get Weekly Concept Development
                 <ArrowRight className="h-4 w-4 ml-2" />
               </button>

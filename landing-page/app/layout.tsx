@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Analytics } from '@/components/analytics';
-import { StructuredData } from '@/components/structured-data';
+import { StructuredData } from '@/components/schema';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ConsultationProvider } from '@/components/contexts/consultation-context';
 import { ConsultationModal } from '@/components/modals/consultation-modal';
@@ -10,11 +10,11 @@ import { ConsultationModal } from '@/components/modals/consultation-modal';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Apsics Media - Weekly Trend Intelligence for Subscription Businesses',
+  title: 'Weekly Ad Hooks & Creative Scripts for Subscription Businesses | Apsics Media',
   description:
-    'Get viral scripts every Monday based on trending formats + competitor analysis. Weekly trend intelligence for growth marketing teams at subscription companies starting at $67/month.',
+    'Get viral ad hooks and creative scripts every Monday. Reduce CAC by 25%, increase conversion rates 3x faster with trending concepts + competitor analysis. Growth marketing teams at subscription companies starting at $67/month.',
   keywords:
-    'weekly trend intelligence, viral scripts, competitor analysis, subscription business marketing, growth marketing teams, TikTok trends, weekly creative concepts',
+    'ad hooks, creative hooks, facebook ad templates, viral content, subscription marketing, creative scripts, reduce CAC, increase conversions, creative strategy, growth marketing, weekly trend intelligence, copywriting templates, social media hooks, tiktok hooks, subscription business creative, saas creative, conversion copywriting',
   authors: [{ name: 'Apsics Media' }],
   creator: 'Apsics Media',
   publisher: 'Apsics Media',
@@ -25,9 +25,10 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Apsics Media - Weekly Trend Intelligence for Subscription Businesses',
+    title: 'Weekly Ad Hooks & Creative Scripts for Subscription Businesses | Apsics Media',
     description:
-      'Get viral scripts every Monday based on trending formats + competitor analysis. Weekly trend intelligence for growth marketing teams starting at $67/month.',
+      'Get viral ad hooks and creative scripts every Monday. Reduce CAC by 25%, increase conversion rates 3x faster with trending concepts + competitor analysis for growth marketing teams.',
+
     url: '/',
     siteName: 'Apsics Media',
     images: [
@@ -43,9 +44,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Apsics Media - Weekly Trend Intelligence for Subscription Businesses',
+    title: 'Weekly Ad Hooks & Creative Scripts for Subscription Businesses | Apsics Media',
     description:
-      'Get viral scripts every Monday based on trending formats + competitor analysis. Weekly trend intelligence for growth marketing teams starting at $67/month.',
+      'Get viral ad hooks and creative scripts every Monday. Reduce CAC by 25%, increase conversion rates 3x faster with trending concepts + competitor analysis for growth marketing teams.',
     images: ['/images/og-image.jpg'],
     creator: '@apsicsmedia',
   },
@@ -84,7 +85,7 @@ export default function RootLayout({
           {children}
           <ConsultationModal />
           <Analytics />
-          <StructuredData />
+          <StructuredData pageType="homepage" />
           <SpeedInsights />
         </ConsultationProvider>
       </body>

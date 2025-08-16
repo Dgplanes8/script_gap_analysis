@@ -18,11 +18,11 @@ const analysisSteps: AnalysisStep[] = [
     title: "Trend Deconstruction",
     description: "Identify the core concept, audio-visual formula, and audience psychology behind viral content.",
     icon: <Brain className="h-6 w-6" />,
-    example: "POV: Professional explaining complex concepts with quick cuts and trending audio",
+    example: "Virtual courtroom with judge reading defendant's shocking criminal record list",
     insights: [
-      "Core emotion: Authority + Accessibility",
-      "Visual formula: Quick transitions, text overlays, direct camera angles",
-      "Psychology: Status achievement through knowledge simplification"
+      "Core emotion: Raw, unfiltered reality + dark humor + schadenfreude",
+      "Visual formula: Split screen (judge/defendant), focus on facial expressions",
+      "Psychology: Voyeuristic glimpse into high-stakes drama, relatability validation"
     ]
   },
   {
@@ -30,11 +30,11 @@ const analysisSteps: AnalysisStep[] = [
     title: "Strategic Application",
     description: "Map trend potential to brand archetypes and identify authenticity requirements.",
     icon: <Target className="h-6 w-6" />,
-    example: "Perfect for: The Sage archetype, B2B services, professional development brands",
+    example: "Perfect for: The Jester (humor brands), The Sage (educational), The Everyman (relatable)",
     insights: [
-      "Best fit: Expert/educator positioning",
-      "Authenticity test: Does your brand have genuine expertise?",
-      "Strategic angle: Problem/solution with authority positioning"
+      "Best fit: Brands that can handle edgy humor without being tone-deaf",
+      "Authenticity test: Is the 'crime' a genuine relatable pain point?",
+      "Strategic angle: Problems = charges, product = verdict/solution"
     ]
   },
   {
@@ -42,11 +42,11 @@ const analysisSteps: AnalysisStep[] = [
     title: "Paid Media Templates",
     description: "Create adaptable hook formulas and narrative structures for immediate implementation.",
     icon: <Zap className="h-6 w-6" />,
-    example: "Hook: '[Industry] pros don't want you to know this [time] secret...'",
+    example: "Hook: 'You've been charged with [Number] counts of [Relatable Problem]'",
     insights: [
-      "Universal formula: Authority + Secret + Specificity",
-      "15-30s narrative: Problem reveal → Expert solution → Quick demo",
-      "CTA variations: Learn more / Get access / Try now"
+      "Universal formula: Direct accusation + relatable 'crimes'",
+      "15-30s narrative: Hook → List charges → Product as solution",
+      "CTA variations: 'Plead not guilty' / 'Avoid repeat offense' / 'Get defense'"
     ]
   },
   {
@@ -54,11 +54,11 @@ const analysisSteps: AnalysisStep[] = [
     title: "Strategic Foresight",
     description: "Predict trend longevity, evolution paths, and common execution mistakes.",
     icon: <BarChart3 className="h-6 w-6" />,
-    example: "Longevity score: 4/5 - Professional content formats have lasting power",
+    example: "Longevity score: 3/5 - Core 'list reaction' format is durable",
     insights: [
-      "Evolution: Will shift to more niche professional topics",
-      "Avoid: Over-complicated explanations, poor audio quality",
-      "Future-proof: Focus on the teaching format, not specific topics"
+      "Evolution: Will adapt to therapist lists, teacher reports, friend interventions",
+      "Avoid: Making light of serious crimes, low-quality audio mimicking",
+      "Future-proof: Focus on 'reveal and react' dynamic, not courtroom aesthetic"
     ]
   }
 ];
@@ -103,19 +103,19 @@ export function TikTokAnalysisShowcase() {
               </div>
               
               <div className="bg-white rounded-xl p-6 shadow-lg border">
-                <h4 className="font-semibold text-gray-900 mb-3">Current Analysis: Professional Teaching Format</h4>
+                <h4 className="font-semibold text-gray-900 mb-3">Current Analysis: Virtual Courtroom Trend</h4>
                 <div className="space-y-3">
                   <div className="flex items-center text-sm text-gray-600">
                     <Users className="h-4 w-4 mr-2 text-blue-500" />
-                    <span>Target: B2B professionals seeking expertise</span>
+                    <span>Target: Audiences who relate to 'life choice consequences'</span>
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
                     <TrendingUp className="h-4 w-4 mr-2 text-green-500" />
-                    <span>Trend Score: 4.2/5 - High longevity potential</span>
+                    <span>Trend Score: 3/5 - Durable 'list reaction' format</span>
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
                     <Target className="h-4 w-4 mr-2 text-orange-500" />
-                    <span>Conversion Potential: Premium education/consulting</span>
+                    <span>Conversion Potential: Problem-solution brands with humor</span>
                   </div>
                 </div>
               </div>
@@ -188,7 +188,15 @@ export function TikTokAnalysisShowcase() {
                 <p className="text-orange-100 mb-4">
                   Get weekly trend analyses with ready-to-use script templates delivered every Monday.
                 </p>
-                <button className="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-orange-50 transition-colors duration-200 flex items-center">
+                <button 
+                  onClick={() => {
+                    const serviceTiersElement = document.getElementById('service-tiers');
+                    if (serviceTiersElement) {
+                      serviceTiersElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-orange-50 transition-colors duration-200 flex items-center"
+                >
                   See Weekly Plans
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </button>

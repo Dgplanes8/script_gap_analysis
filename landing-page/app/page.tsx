@@ -37,8 +37,8 @@ export default function HomePage() {
       <main className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
       <Hero
-        title="Scale Your Growth 3x Faster With Data-Driven Creative Scripts That Actually Convert"
-        subtitle="Save 15+ hours per week on creative development. Get trending concepts from social media analyzed with marketing psychology, delivered as ready-to-test scripts every Monday. Watch your CPAs drop while conversion rates climb."
+        title="Scale Your Growth 3x Faster With Viral Ad Hooks & Creative Scripts That Convert"
+        subtitle="Get high-converting ad hooks and creative scripts every Monday. Reduce CAC by 25% with trending social media concepts analyzed through marketing psychology. Stop creative fatigue - increase conversion rates 3x faster."
         ctaText="Get My 10 Free Hooks"
         secondaryCtaText="See Weekly Plans"
         secondaryCtaLink="#service-tiers"
@@ -61,11 +61,11 @@ export default function HomePage() {
               </div>
               
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                10 Hooks That Cut Your CPA in Half (Based on Trend Analysis)
+                10 High-Converting Ad Hooks That Reduce CPA by 25% (Facebook Ad Templates)
               </h2>
               
               <p className="text-lg text-gray-600 mb-6">
-                Skip months of creative testing. These hooks are derived from trending social media content and optimized with conversion psychology. Launch your next winning campaign this week and watch your metrics improve within 48 hours.
+                Skip months of creative testing. These proven ad hooks and creative scripts are derived from viral social media content and optimized with conversion psychology. Launch your next winning campaign this week with copywriting templates that increase conversions.
               </p>
               
               <div className="grid md:grid-cols-3 gap-4 mb-8">
@@ -100,14 +100,14 @@ export default function HomePage() {
 
       {/* Strategic Differentiators */}
       <Features
-        title="Built for Growth Marketing Teams Who Can't Wait on Agencies"
-        subtitle="Weekly creative delivery vs 2-week agency turnaround times. Perfect for performance marketers scaling subscription companies."
+        title="Weekly Creative Strategy Intelligence for Growth Marketing Teams"
+        subtitle="Get viral content and ad hooks delivered weekly vs 2-week agency turnaround times. Perfect for subscription marketing teams needing fresh creative concepts."
         features={[
           {
             icon: Target,
-            title: 'Creative Bottleneck Solution',
+            title: 'Ad Hook & Creative Script Solution',
             description:
-              'Fresh creative concepts every Monday when your team is stuck on the same angles. Stop waiting weeks for agencies - get testable scripts weekly.',
+              'Fresh ad hooks and creative scripts every Monday when your team needs new angles. Stop waiting weeks for agencies - get conversion-optimized copywriting templates weekly.',
           },
           {
             icon: Building2,
@@ -117,9 +117,9 @@ export default function HomePage() {
           },
           {
             icon: TrendingUp,
-            title: 'Audience Expansion Intelligence',
+            title: 'Viral Content & Audience Intelligence',
             description:
-              'Find new audiences when you\'ve saturated your core segments. Competitor analysis shows you what\'s working for similar subscription companies.',
+              'Find new audiences with viral content strategies when you\'ve saturated core segments. Creative strategy analysis shows winning ad hooks for subscription marketing.',
           },
         ]}
       />
@@ -167,16 +167,16 @@ export default function HomePage() {
             </div>
             
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              Weekly Script Delivery (Every Monday)
+              Weekly Ad Hooks & Creative Scripts (Every Monday)
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white rounded-xl p-6 shadow-lg border border-orange-100">
                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Target className="h-6 w-6 text-orange-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Creative Testing Fuel</h3>
+                <h3 className="text-xl font-semibold mb-3">High-Converting Ad Hooks</h3>
                 <p className="text-gray-600">
-                  New concepts to test when your current ads are fatiguing. Fresh angles delivered every Monday for continuous optimization.
+                  New ad hooks and creative scripts to test when your current campaigns are fatiguing. Fresh copywriting templates delivered every Monday for continuous conversion optimization.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg border border-teal-100">
@@ -208,10 +208,10 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Frequently Asked Questions
+                Frequently Asked Questions - Ad Hooks & Creative Scripts
               </h2>
               <p className="text-lg text-gray-600">
-                Common questions about our weekly trend intelligence service
+                Common questions about our weekly ad hooks, creative scripts, and copywriting templates service
               </p>
             </div>
             
@@ -227,10 +227,10 @@ export default function HomePage() {
               
               <div className="border-b border-gray-200 pb-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                  What makes your creative intelligence unique?
+                  What makes your ad hooks and creative scripts unique?
                 </h3>
                 <p className="text-gray-600">
-                  We combine trend analysis with competitor intelligence, specifically for subscription business models. 10+ years optimizing campaigns for recurring revenue companies means we understand your growth challenges.
+                  We combine viral content analysis with competitor intelligence, specifically for subscription marketing. 10+ years creating high-converting ad hooks and copywriting templates for recurring revenue companies means we understand how to reduce CAC and increase conversions.
                 </p>
               </div>
               
@@ -270,10 +270,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">
-              Stop Waiting on Agencies - Get Concepts This Week
+              Stop Waiting on Agencies - Get High-Converting Ad Hooks This Week
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Join growth marketing teams at subscription companies getting fresh creative concepts every Monday. Built by a team with 10+ years experience and $250MM+ in managed media spend.
+              Join growth marketing teams at subscription companies getting fresh ad hooks and creative scripts every Monday. Built by a team with 10+ years creating viral content and $250MM+ in managed media spend.
             </p>
             
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
@@ -319,10 +319,10 @@ export default function HomePage() {
             
             <div className="border-t border-white/20 pt-8">
               <h3 className="text-2xl font-bold mb-4">
-                Growth Team Creative Intelligence
+                Weekly Ad Hooks & Creative Strategy Intelligence
               </h3>
               <p className="text-lg mb-6 opacity-90">
-                Get fresh creative angles, audience insights, and performance marketing strategies delivered every Monday. Perfect for growth marketing teams.
+                Get fresh ad hooks, copywriting templates, and creative scripts delivered every Monday. Perfect for subscription marketing teams needing high-converting content to reduce CAC.
               </p>
               <div className="max-w-md mx-auto">
                 <EmailCaptureForm

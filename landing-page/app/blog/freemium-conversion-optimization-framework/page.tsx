@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Users, TrendingUp, Target, Brain, Zap, Clock } from 'lucide-react';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
-import { ArticleStructuredData } from '@/components/blog/article-structured-data';
+import { ArticleSchema, StructuredData } from '@/components/schema';
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation';
 import { RelatedArticles } from '@/components/blog/related-articles';
 import { SocialSharing } from '@/components/blog/social-sharing';
@@ -32,13 +32,20 @@ export default function FreemiumConversionPage() {
   return (
     <article className="min-h-screen bg-white">
       {/* Structured Data */}
-      <ArticleStructuredData
+      <ArticleSchema
         title="Freemium to Premium: Conversion Optimization Framework for Mobile Apps"
         description="Master freemium conversion optimization with proven psychological triggers and Fortune 100 methodologies. Transform free users into high-value premium customers."
         slug="/blog/freemium-conversion-optimization-framework"
         category="Mobile App Marketing"
         keywords={['freemium conversion optimization', 'mobile app monetization', 'premium conversion', 'user acquisition strategy']}
         readingTime={15}
+      />
+      
+      <StructuredData 
+        pageType="article"
+        title="Freemium to Premium: Conversion Optimization Framework for Mobile Apps"
+        description="Master freemium conversion optimization with proven psychological triggers and Fortune 100 methodologies. Transform free users into high-value premium customers."
+        slug="/blog/freemium-conversion-optimization-framework"
       />
 
       {/* Header Navigation */}

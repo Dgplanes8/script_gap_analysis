@@ -1,0 +1,22 @@
+# Social Media Outreach Automation - Free Tool Stack
+# Core automation libraries
+requests>=2.32.0
+beautifulsoup4>=4.12.0
+selenium>=4.15.0
+pyairtable>=2.3.0
+
+# Social media specific libraries
+praw>=7.7.0  # Reddit API wrapper
+twitter-scraper>=0.4.4  # Free Twitter scraping
+socialreaper>=0.3.0  # Multi-platform social media scraper
+
+# Utility libraries
+python-dotenv>=1.0.0  # Environment variable management
+schedule>=1.2.0  # Task scheduling
+pandas>=2.0.0  # Data manipulation
+time>=0.0.0  # Built-in delay management
+random>=0.0.0  # Built-in randomization
+
+# Optional dependencies for enhanced functionality
+webdriver-manager>=4.0.0  # Automatic WebDriver management for Selenium
+fake-useragent>=1.4.0  # User agent rotation for scraping

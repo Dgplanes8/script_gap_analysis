@@ -3,7 +3,7 @@ import { CACOptimizationCalculator } from '@/components/calculators/cac-optimiza
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { ContentNavigation } from '@/components/layout/content-navigation';
-import { StructuredData } from '@/components/structured-data';
+import { WebApplicationSchema, StructuredData } from '@/components/schema';
 import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
@@ -20,31 +20,57 @@ export const metadata: Metadata = {
   },
 };
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'WebApplication',
-  name: 'CAC Optimization Calculator',
-  applicationCategory: 'BusinessApplication',
-  description: 'Calculate and optimize your customer acquisition costs with our strategic framework',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-    description: 'Free CAC optimization calculator and strategic guide'
+const calculatorFAQs = [
+  {
+    question: 'How accurate is the CAC calculator?',
+    answer: 'Our calculator provides directional insights based on industry benchmarks and proven optimization strategies. For precise recommendations tailored to your business, we recommend a strategic consultation.'
   },
-  provider: {
-    '@type': 'Organization',
-    name: 'Apsics Media',
-    url: 'https://apsicsmedia.com'
+  {
+    question: 'What industries do you work with?',
+    answer: 'We specialize in B2B SaaS, subscription services, and high-value service businesses with CACs above $200. Our frameworks are most effective for companies with $1M+ in annual revenue.'
+  },
+  {
+    question: 'How long does CAC optimization take?',
+    answer: 'Initial optimizations can show results within 30-60 days. Complete framework implementation typically takes 90-120 days, with ongoing optimization for maximum ROI.'
   }
-};
+];
 
 export default function CACOptimizationCalculatorPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      {/* Structured Data */}
+      <WebApplicationSchema
+        name="CAC Optimization Calculator"
+        description="Calculate and optimize your customer acquisition costs with our strategic framework"
+        slug="/cac-optimization-calculator"
+        features={[
+          'Customer Acquisition Cost calculation',
+          'Strategic optimization recommendations', 
+          'Industry benchmark analysis',
+          'ROI projection modeling',
+          'Channel performance insights'
+        ]}
+        category="BusinessApplication"
+      />
+      
+      <StructuredData 
+        pageType="calculator"
+        title="CAC Optimization Calculator - Fortune 100 Weekly Trend Intelligence"
+        description="Free CAC calculator + weekly trend intelligence from $100M+ ad spend experience. Get competitor analysis and viral scripts delivered every Monday starting at $67/month."
+        slug="/cac-optimization-calculator"
+        additionalSchemas={[
+          {
+            '@type': 'FAQPage',
+            mainEntity: calculatorFAQs.map(faq => ({
+              '@type': 'Question',
+              name: faq.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.answer
+              }
+            }))
+          }
+        ]}
       />
       
       {/* Header Navigation */}

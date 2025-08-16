@@ -48,7 +48,7 @@ export function ServiceTiers() {
         'Competitor analysis methodology',
         'Priority email support'
       ],
-      badge: 'Most Popular - Ideal for saturated audiences',
+      badge: 'Most Popular - Ideal for scaling revenue',
       badgeColor: 'bg-teal-100 text-teal-800',
       borderColor: 'border-teal-300 hover:border-teal-500',
       ctaColor: 'bg-teal-600 hover:bg-teal-700 text-white',
@@ -104,7 +104,7 @@ export function ServiceTiers() {
 
   return (
     <>
-    <section className="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
+    <section id="service-tiers" className="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-6">

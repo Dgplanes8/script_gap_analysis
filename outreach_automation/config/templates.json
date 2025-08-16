@@ -1,0 +1,134 @@
+{
+  "twitter_templates": {
+    "initial_dm": [
+      {
+        "name": "creative_fatigue_hook",
+        "template": "Hey {name}! Saw your post about {pain_point}. I've been helping D2C/SaaS brands break through creative fatigue using AI analysis - turned around 15 validated script concepts in 48hrs for similar situations. Mind if I send over my free '10 High-Converting Ad Hooks' that might spark some ideas? No strings attached 🎯",
+        "variables": ["name", "pain_point"],
+        "use_case": "When prospect mentions creative challenges or ad fatigue"
+      },
+      {
+        "name": "cac_optimization",
+        "template": "Hi {name}! Your insights on CAC optimization really resonated. With $250MM in managed ad spend, I've seen how the right creative approach can cut acquisition costs 25-40%. Built an AI system that generates performance-scored concepts in hours vs weeks. Would love to share my free hooks framework that's helped similar {industry} brands - think it could give you some fresh angles 💡",
+        "variables": ["name", "industry"],
+        "use_case": "When prospect discusses rising CAC or acquisition costs"
+      },
+      {
+        "name": "agency_frustration",
+        "template": "Hey {name}, totally get the agency frustration you mentioned. Speed is everything in performance marketing. I've built a 48-hour creative intelligence process that delivers what agencies take weeks to produce. Ex-DraftKings, now helping subscription brands scale faster. Mind if I send my '10 Free Hooks' resource? Might be exactly what you need while shopping for better solutions 🚀",
+        "variables": ["name"],
+        "use_case": "When prospect complains about slow agency turnaround"
+      }
+    ],
+    "follow_up": [
+      {
+        "name": "value_follow_up",
+        "template": "Hey {name}! Following up on those hooks I shared. Curious if any resonated for {company}? I just analyzed {industry} performance data and found some interesting patterns that might apply to your situation. Happy to share insights if helpful 📊",
+        "variables": ["name", "company", "industry"],
+        "timing": "3 days after initial contact"
+      },
+      {
+        "name": "case_study_follow_up", 
+        "template": "Hi {name}! Thought you'd find this interesting - just helped a {similar_industry} brand increase CTR from 1.2% to 4.1% using our AI concept framework. Similar challenge to what you mentioned about {specific_challenge}. Would love to show you the methodology if you're curious about the process 🎯",
+        "variables": ["name", "similar_industry", "specific_challenge"],
+        "timing": "1 week after initial contact"
+      }
+    ]
+  },
+  "linkedin_templates": {
+    "connection_request": [
+      {
+        "name": "growth_professional",
+        "template": "Hi {name}, love your insights on growth marketing at {company}. I help D2C/SaaS brands break through creative fatigue using AI-powered analysis (ex-DraftKings/ESPN+). Would enjoy connecting and sharing ideas about subscription growth strategies.",
+        "variables": ["name", "company"],
+        "use_case": "Growth marketers at target companies"
+      },
+      {
+        "name": "performance_marketer",
+        "template": "Hey {name}, your content about performance marketing really resonates. I've managed $250MM in ad spend and now help brands like {company} generate validated creative concepts in 48hrs vs weeks. Always enjoy connecting with fellow performance marketers!",
+        "variables": ["name", "company"],
+        "use_case": "Performance marketing managers"
+      }
+    ],
+    "initial_message": [
+      {
+        "name": "creative_intelligence_intro",
+        "template": "Hi {name},\n\nReally enjoyed your recent post about {specific_post_topic}. As someone who's been in performance marketing for 10+ years (DraftKings/ESPN+ background), I completely understand the creative bottleneck challenge.\n\nI've developed an AI-powered process that helps D2C/SaaS brands generate 15+ validated creative concepts in 48 hours - something that typically takes agencies 2-3 weeks.\n\nWould love to share my free '10 High-Converting Ad Hooks' framework that's helped similar {industry} brands break through creative fatigue. Think it could spark some fresh ideas for {company}.\n\nInterested in taking a look?\n\nBest,\n[Your name]",
+        "variables": ["name", "specific_post_topic", "industry", "company"],
+        "use_case": "Initial value-driven outreach"
+      },
+      {
+        "name": "data_driven_approach",
+        "template": "Hi {name},\n\nSaw your insights on {marketing_challenge} at {company}. Your data-driven approach really stands out.\n\nI've been analyzing creative performance across 1000+ ads and found some fascinating patterns that might interest you:\n\n• 73% of {industry} ads use fear-based messaging, but curiosity gaps perform 2.3x better\n• AI performance scoring correlates 0.89 with actual CTR\n• Biggest missed opportunity: authentic user-generated content\n\nBuilt a 48-hour creative intelligence system that turns this data into validated concepts. Would love to share the methodology and my free hooks framework that applies these insights.\n\nThought you'd appreciate the analytical approach!\n\nBest,\n[Your name]",
+        "variables": ["name", "marketing_challenge", "company", "industry"],
+        "use_case": "Data-focused professionals"
+      }
+    ],
+    "follow_up": [
+      {
+        "name": "case_study_share",
+        "template": "Hi {name},\n\nHope those hooks were helpful! Wanted to share a quick case study that might interest you:\n\nJust helped a {similar_industry} company increase their ad CTR from 1.2% to 4.1% in 14 days using our AI creative framework. Similar situation to the {challenge} you mentioned.\n\nThe key was identifying 3 untapped message angles that their competitors weren't using. Happy to walk you through the methodology if you're curious about the process.\n\nWorth a quick 15-minute call?\n\nBest,\n[Your name]",
+        "variables": ["name", "similar_industry", "challenge"],
+        "timing": "5 days after initial contact"
+      }
+    ]
+  },
+  "reddit_templates": {
+    "helpful_comments": [
+      {
+        "name": "creative_fatigue_solution",
+        "template": "This is exactly the creative fatigue challenge I see all the time. Here's what I've found works:\n\n1. **Systematic competitor analysis** - Most brands only look at 10-20 competitor ads. I scrape 200+ to find the gaps.\n\n2. **AI performance prediction** - Built a scoring system that correlates 0.89 with actual CTR. Saves tons of testing budget.\n\n3. **Speed over perfection** - 15 validated concepts in 48hrs beats 3 \"perfect\" concepts in 3 weeks.\n\nFrom my experience managing $250MM in ad spend (ex-DraftKings), the brands that win are the ones that can iterate fastest. Happy to share more specifics if helpful!",
+        "use_case": "When someone asks about creative challenges"
+      },
+      {
+        "name": "cac_optimization_advice", 
+        "template": "Great question about CAC optimization. Here's the hierarchy I use:\n\n**Tier 1 Impact: Creative & Messaging (40-60% improvement potential)**\n- Hook performance testing\n- Audience-message fit optimization\n- Platform-native creative adaptation\n\n**Tier 2 Impact: Targeting & Attribution (20-30% improvement)**\n- Lookalike audience expansion\n- Attribution model optimization\n- Cross-platform audience insights\n\n**Tier 3 Impact: Technical & Landing Page (10-20% improvement)**\n- Landing page optimization\n- Funnel friction reduction\n- Technical attribution fixes\n\nMost brands start with Tier 3, but I've found creative is where the real leverage is. Built an AI system specifically for this. Happy to share the framework if interested!",
+        "use_case": "CAC optimization discussions"
+      },
+      {
+        "name": "agency_alternative",
+        "template": "Totally understand the agency frustration. Here's what I've learned:\n\n**Agency pros**: Deep strategic thinking, brand consistency, full-service capabilities\n\n**Agency cons**: Slow turnaround, high cost, one-size-fits-all processes\n\n**Alternative approach I've developed**: AI-powered creative intelligence that delivers agency-quality concepts in 48hrs instead of 2-3 weeks. Combines automated competitor analysis + human creative intuition.\n\nFor D2C/SaaS brands with $10K+ monthly ad spend, it's often the sweet spot between in-house limitations and agency overhead. Built it after managing $250MM at DraftKings and seeing the same bottlenecks everywhere.\n\nHappy to share the methodology if you want to see how it works!",
+        "use_case": "Agency complaints or alternatives discussion"
+      }
+    ],
+    "value_posts": [
+      {
+        "name": "creative_analysis_breakdown",
+        "title": "Analyzed 1,000+ D2C ads - here's what's actually working in 2025",
+        "content": "Just finished analyzing Q4 2024 creative performance across 1,200+ D2C subscription ads. Some surprising findings:\n\n**📊 PERFORMANCE DATA:**\n• Video ads: 3.2% avg CTR (up from 2.8% in Q3)\n• Carousel ads: 2.8% avg CTR \n• Static images: 1.9% avg CTR (declining)\n\n**🎯 MESSAGE PATTERNS THAT WIN:**\n• Problem/solution narrative: 68% of high performers\n• Social proof integration: 91% of top quartile\n• Curiosity gap headlines: 2.1x higher engagement\n• Authentic UGC: 47% increase in usage\n\n**❌ WHAT'S NOT WORKING:**\n• Generic lifestyle shots: -23% performance\n• AI-generated visuals: Declining effectiveness\n• Feature-focused copy: Bottom 20% of performers\n• Over-polished content: -31% authenticity score\n\n**🚀 BIGGEST OPPORTUNITIES:**\n1. **Authentic behind-the-scenes content** (only 12% using effectively)\n2. **Platform-native adaptations** (most brands just resize)\n3. **Curiosity-driven hooks** vs fear-based messaging\n\nBuilt an AI scoring system that predicts performance with 89% accuracy based on these patterns. Happy to share more insights!\n\nWhat trends are you seeing in your industry?",
+        "subreddits": ["marketing", "entrepreneur", "PPC", "advertising"]
+      },
+      {
+        "name": "cac_crisis_solution",
+        "title": "[Guide] How I reduced CAC by 40% using AI creative intelligence (full methodology)",
+        "content": "**Background:** SaaS client came to me with CAC that increased 67% year-over-year. Standard optimization wasn't working.\n\n**The Problem:** They were stuck in the creative fatigue cycle:\n- Test creative → Performance drops → New creative takes 2-3 weeks → Repeat\n- Meanwhile, CAC keeps climbing\n\n**My Approach:** Built an AI-powered creative intelligence system for 48-hour concept generation.\n\n**📋 STEP-BY-STEP METHODOLOGY:**\n\n**Phase 1: Competitive Intelligence (Day 1)**\n1. Scraped 847 competitor ads across platforms\n2. AI analysis identified 4 untapped message angles\n3. Performance pattern recognition (73% used fear-based messaging)\n\n**Phase 2: Creative Generation (Day 1-2)**\n1. Generated 15 concepts using validated frameworks\n2. AI performance scoring (21.7/25 average)\n3. Platform-native adaptations for each concept\n\n**Phase 3: Rapid Testing (Week 1-2)**\n1. Launched top 5 concepts simultaneously\n2. Real-time performance monitoring\n3. Budget allocation to winners\n\n**🎯 RESULTS:**\n• CAC reduced from $247 to $148 (40% improvement)\n• CTR increased from 1.2% to 4.1%\n• 15 validated concepts in 48hrs vs 3-week agency timeline\n• ROI: 340% increase in ad performance\n\n**🔍 KEY INSIGHTS:**\n- Curiosity gaps outperformed fear messaging 2.3x\n- Platform-native adaptations crucial (not just resizing)\n- Speed of iteration matters more than \"perfect\" creative\n\n**The system combines:** Automated competitor analysis + AI performance prediction + human creative intuition.\n\nFrom my $250MM ad spend experience, creative velocity is the #1 factor in CAC optimization.\n\nAMA about the methodology or specific tactics!",
+        "subreddits": ["SaaS", "marketing", "entrepreneur", "growthmarketing"]
+      }
+    ]
+  },
+  "email_templates": {
+    "lead_magnet_delivery": {
+      "subject": "Your 10 High-Converting Ad Hooks (performance-tested)",
+      "template": "Hi {name},\n\nThanks for your interest! Here are the 10 high-converting ad hooks I promised:\n\n[Hooks content would be inserted here]\n\nThese hooks are based on analysis of 1,000+ high-performing ads across D2C and SaaS verticals. Each one is designed to stop the scroll and create curiosity.\n\n**Quick tip:** The hooks work best when you adapt them to your specific audience's pain points rather than using them verbatim.\n\nIf you found these helpful and want to dive deeper into the creative intelligence methodology behind them, I offer a free 15-minute strategy session where we can:\n\n• Analyze your current creative performance\n• Identify your biggest creative opportunities  \n• Share the 48-hour concept generation framework\n\nWorth a quick call? Just reply and let me know.\n\nBest,\n[Your name]\n\nP.S. I share weekly insights on creative intelligence and performance marketing. Follow along here: [social media link]"
+    }
+  },
+  "personalization_rules": {
+    "industry_pain_points": {
+      "SaaS": ["long sales cycles", "free trial conversion", "churn reduction", "PLG strategies"],
+      "D2C": ["creative fatigue", "iOS attribution", "rising CAC", "LTV optimization"],
+      "subscription": ["churn rates", "retention marketing", "onboarding optimization", "pricing strategy"],
+      "streaming": ["content marketing", "acquisition costs", "retention strategies", "competitive differentiation"]
+    },
+    "title_triggers": {
+      "Head of Growth": "growth strategies and scaling challenges",
+      "Marketing Director": "team efficiency and campaign performance", 
+      "Performance Marketing Manager": "ROI optimization and creative testing",
+      "CMO": "strategic marketing initiatives and competitive advantage",
+      "Founder": "resource optimization and growth acceleration"
+    },
+    "company_size_messaging": {
+      "5-25 employees": "resource efficiency and rapid iteration",
+      "25-75 employees": "scaling challenges and process optimization"
+    }
+  }
+}
