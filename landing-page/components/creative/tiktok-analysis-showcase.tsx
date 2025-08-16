@@ -87,24 +87,22 @@ export function TikTokAnalysisShowcase() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="max-w-6xl mx-auto space-y-8">
             {/* Current Analysis */}
-            <div className="space-y-6">
-              <div className="bg-white rounded-xl p-6 shadow-lg border">
-                <h4 className="font-semibold text-gray-900 mb-3">Current Analysis: Virtual Courtroom Trend</h4>
-                <div className="space-y-3">
-                  <div className="flex items-center text-sm text-gray-600">
-                    <Users className="h-4 w-4 mr-2 text-blue-500" />
-                    <span>Target: Audiences who relate to 'life choice consequences'</span>
-                  </div>
-                  <div className="flex items-center text-sm text-gray-600">
-                    <TrendingUp className="h-4 w-4 mr-2 text-green-500" />
-                    <span>Trend Score: 3/5 - Durable 'list reaction' format</span>
-                  </div>
-                  <div className="flex items-center text-sm text-gray-600">
-                    <Target className="h-4 w-4 mr-2 text-orange-500" />
-                    <span>Conversion Potential: Problem-solution brands with humor</span>
-                  </div>
+            <div className="bg-white rounded-xl p-6 shadow-lg border">
+              <h4 className="font-semibold text-gray-900 mb-3">Current Analysis: Virtual Courtroom Trend</h4>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div className="flex items-center text-sm text-gray-600">
+                  <Users className="h-4 w-4 mr-2 text-blue-500" />
+                  <span>Target: Audiences who relate to 'life choice consequences'</span>
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <TrendingUp className="h-4 w-4 mr-2 text-green-500" />
+                  <span>Trend Score: 3/5 - Durable 'list reaction' format</span>
+                </div>
+                <div className="flex items-center text-sm text-gray-600">
+                  <Target className="h-4 w-4 mr-2 text-orange-500" />
+                  <span>Conversion Potential: Problem-solution brands with humor</span>
                 </div>
               </div>
             </div>
