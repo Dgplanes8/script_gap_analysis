@@ -1,7 +1,7 @@
 'use client';
 
-import Script from 'next/script';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/next';
+import { GoogleAnalytics } from '@/components/performance/script-loader';
 
 declare global {
   interface Window {
@@ -17,25 +17,9 @@ export function Analytics() {
       {/* Vercel Analytics */}
       <VercelAnalytics />
       
-      {/* Google Analytics */}
+      {/* Google Analytics - Optimized Loading */}
       {GA_MEASUREMENT_ID && (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_MEASUREMENT_ID}', {
-                page_title: document.title,
-                page_location: window.location.href,
-              });
-            `}
-          </Script>
-        </>
+        <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
       )}
     </>
   );

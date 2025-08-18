@@ -1,7 +1,20 @@
 'use client';
 
 import Link from 'next/link';
-import { EmailCaptureForm } from '@/components/forms/email-capture-form';
+import dynamic from 'next/dynamic';
+
+// Lazy load EmailCaptureForm as it's not critical for LCP
+const EmailCaptureForm = dynamic(
+  () => import('@/components/forms/email-capture-form').then(mod => ({ default: mod.EmailCaptureForm })),
+  {
+    loading: () => (
+      <div className="w-full max-w-xl">
+        <div className="h-12 bg-white/20 rounded-lg animate-pulse"></div>
+      </div>
+    ),
+    ssr: false
+  }
+);
 
 interface HeroProps {
   title: string;
@@ -34,13 +47,27 @@ export function Hero({
       : 'bg-gradient-to-br from-orange-600 via-red-700 to-red-800';
 
   return (
-    <section className={`${bgClasses} text-white py-24 lg:py-32`}>
+    <section className={`${bgClasses} text-white py-24 lg:py-32 hero-section`}>
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
+        <div className="max-w-4xl mx-auto text-center hero-content">
+          <h1 
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 hero-title"
+            style={{ 
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+              lineHeight: '1.1',
+              fontWeight: '700',
+              letterSpacing: '-0.025em'
+            }}
+          >
             {title}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-12 animate-slide-up">
+          <p 
+            className="text-xl md:text-2xl text-gray-200 mb-12 hero-subtitle"
+            style={{
+              fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
+              lineHeight: '1.5'
+            }}
+          >
             {subtitle}
           </p>
 

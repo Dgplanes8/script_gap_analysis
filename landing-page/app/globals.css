@@ -1,3 +1,4 @@
+/* Non-critical styles loaded after critical CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

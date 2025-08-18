@@ -12,7 +12,12 @@
     "type-check": "tsc --noEmit",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "analyze": "ANALYZE=true next build",
+    "analyze-bundle": "node scripts/analyze-bundle.js",
+    "optimize-images": "node scripts/optimize-images.js",
+    "build:optimized": "npm run optimize-images && npm run build",
+    "perf-audit": "npm run analyze-bundle && npm run type-check && npm run lint"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.0",
@@ -52,7 +57,9 @@
     "jest": "^30.0.5",
     "jest-environment-jsdom": "^30.0.5",
     "prettier": "^3.2.0",
-    "prettier-plugin-tailwindcss": "^0.5.11"
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "sharp": "^0.33.5",
+    "webpack-bundle-analyzer": "^4.10.1"
   },
   "description": "Apsics Media landing pages built with Next.js 14",
   "keywords": [

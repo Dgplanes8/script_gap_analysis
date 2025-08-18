@@ -158,25 +158,25 @@ export function ServiceTiers() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 xl:grid-cols-5 gap-8 max-w-7xl mx-auto pt-12 mt-8">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-5 gap-8 max-w-7xl mx-auto pt-16 mt-8">
           {tiers.map((tier, index) => {
             const Icon = tier.icon;
             return (
               <div
                 key={tier.id}
                 className={`relative bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl flex flex-col h-full ${
-                  tier.popular ? 'ring-2 ring-orange-500 transform scale-105' : ''
+                  tier.popular ? 'ring-2 ring-orange-500 transform sm:scale-105' : ''
                 } ${tier.borderColor} border-2`}
                 style={{
-                  marginTop: tier.popular ? '0px' : '24px'
+                  marginTop: tier.popular ? '12px' : '36px'
                 }}
                 onMouseEnter={() => setSelectedTier(tier.id as any)}
                 onMouseLeave={() => setSelectedTier(null)}
               >
                 {tier.popular && (
-                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center shadow-lg whitespace-nowrap">
-                      <Zap className="h-4 w-4 mr-1" />
+                  <div className="absolute -top-5 sm:-top-6 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="bg-orange-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold flex items-center shadow-lg whitespace-nowrap">
+                      <Zap className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                       Most Popular
                     </div>
                   </div>
