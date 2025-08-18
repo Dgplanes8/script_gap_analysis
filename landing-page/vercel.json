@@ -83,7 +83,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(css|js|woff|woff2|eot|ttf|otf))$",
+      "source": "/.*\\.(css|js|woff|woff2|eot|ttf|otf)$",
       "headers": [
         {
           "key": "Cache-Control",
