@@ -98,7 +98,7 @@ export const CreativeStrategyBenchmarkTool = dynamic(
 );
 
 export const StrategicROICalculator = dynamic(
-  () => import('@/components/calculators/strategic-roi-calculator').then(mod => ({ default: mod.StrategicROICalculator })),
+  () => import('@/components/calculators/strategic-roi-calculator').then(mod => ({ default: mod.StrategyROICalculator })),
   {
     loading: () => <CalculatorSkeleton />,
     ssr: false
