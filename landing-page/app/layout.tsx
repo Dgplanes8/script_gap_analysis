@@ -184,7 +184,11 @@ export default function RootLayout({
           rel="preload" 
           href="/app/globals.css" 
           as="style" 
-          onLoad="this.onload=null;this.rel='stylesheet'" 
+          onLoad={(e) => {
+            const target = e.target as HTMLLinkElement;
+            target.onload = null;
+            target.rel = 'stylesheet';
+          }}
         />
         <noscript>
           <link rel="stylesheet" href="/app/globals.css" />
