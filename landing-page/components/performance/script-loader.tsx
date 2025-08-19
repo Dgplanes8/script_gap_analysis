@@ -11,9 +11,9 @@ interface ScriptLoaderProps {
   onError?: () => void;
   defer?: boolean;
   async?: boolean;
-  crossOrigin?: string;
+  crossOrigin?: 'anonymous' | 'use-credentials' | '';
   integrity?: string;
-  referrerPolicy?: string;
+  referrerPolicy?: 'no-referrer' | 'no-referrer-when-downgrade' | 'origin' | 'origin-when-cross-origin' | 'same-origin' | 'strict-origin' | 'strict-origin-when-cross-origin' | 'unsafe-url';
   type?: string;
   children?: string;
 }
@@ -48,12 +48,12 @@ export function PerformantScript({
         
         // Remove event listeners after first interaction
         ['mouseenter', 'touchstart', 'scroll', 'keydown'].forEach(event => {
-          document.removeEventListener(event, handleInteraction, { passive: true });
+          document.removeEventListener(event, handleInteraction);
         });
       };
 
       ['mouseenter', 'touchstart', 'scroll', 'keydown'].forEach(event => {
-        document.addEventListener(event, handleInteraction, { passive: true });
+        document.addEventListener(event, handleInteraction);
       });
 
       return () => {
@@ -168,6 +168,7 @@ export function GoogleAnalytics({ measurementId }: { measurementId: string }) {
         defer
       />
       <PerformantScript
+        src=""
         id="google-analytics"
         strategy="afterInteractive"
       >
@@ -216,10 +217,14 @@ export function PerformanceMonitor() {
           console.log('LCP:', entry.startTime);
         }
         if (entry.entryType === 'first-input') {
-          console.log('FID:', entry.processingStart - entry.startTime);
+          const fidEntry = entry as PerformanceEventTiming & { processingStart: number };
+          console.log('FID:', fidEntry.processingStart - entry.startTime);
         }
-        if (entry.entryType === 'layout-shift' && !entry.hadRecentInput) {
-          console.log('CLS:', entry.value);
+        if (entry.entryType === 'layout-shift') {
+          const clsEntry = entry as PerformanceEventTiming & { hadRecentInput: boolean; value: number };
+          if (!clsEntry.hadRecentInput) {
+            console.log('CLS:', clsEntry.value);
+          }
         }
       }
     });
@@ -237,7 +242,7 @@ export function PerformanceMonitor() {
 }
 
 // Critical resource preloader
-export function CriticalResourcePreloader({ resources }: { resources: Array<{ href: string; as: string; type?: string; crossOrigin?: string }> }) {
+export function CriticalResourcePreloader({ resources }: { resources: Array<{ href: string; as: string; type?: string; crossOrigin?: 'anonymous' | 'use-credentials' | '' }> }) {
   return (
     <>
       {resources.map((resource, index) => (

@@ -179,20 +179,6 @@ export default function RootLayout({
         {/* Critical resource hints */}
         <link rel="preload" href="/images/og-image.jpg" as="image" type="image/jpeg" />
         
-        {/* Non-critical CSS loaded asynchronously */}
-        <link 
-          rel="preload" 
-          href="/app/globals.css" 
-          as="style" 
-          onLoad={(e) => {
-            const target = e.target as HTMLLinkElement;
-            target.onload = null;
-            target.rel = 'stylesheet';
-          }}
-        />
-        <noscript>
-          <link rel="stylesheet" href="/app/globals.css" />
-        </noscript>
       </head>
       <body className={`${inter.className} ${inter.variable}`}>
         <ConsultationProvider>

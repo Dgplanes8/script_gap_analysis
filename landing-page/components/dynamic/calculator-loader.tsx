@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { ComponentType, Suspense, useState, useEffect } from 'react';
+import React, { ComponentType, Suspense, useState, useEffect } from 'react';
 
 // Loading placeholder for calculators
 function CalculatorSkeleton() {
@@ -160,7 +160,7 @@ export function lazyLoadComponent<T extends ComponentType<any>>(
   fallback?: ComponentType
 ): T {
   return dynamic(importFn, {
-    loading: fallback ? () => <Suspense fallback={null}><fallback /></Suspense> : undefined,
+    loading: fallback ? () => <Suspense fallback={null}>{React.createElement(fallback)}</Suspense> : undefined,
     ssr: false
   }) as T;
 }
