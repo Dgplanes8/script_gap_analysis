@@ -114,8 +114,7 @@ export function ServiceTiers() {
         'Custom competitive intelligence & market analysis',
         'Strategic planning and campaign optimization',
         'Direct executive access and quarterly reviews',
-        'Custom reporting and performance dashboards',
-        'Integration with existing marketing stack'
+        'Custom reporting and performance dashboards'
       ],
       badge: 'Enterprise - $500K+ spend companies',
       badgeColor: 'bg-purple-100 text-purple-800',
@@ -132,7 +131,7 @@ export function ServiceTiers() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-6">
             <Zap className="h-4 w-4 mr-2" />
-            🔥 LIMITED TIME: First 50 Customers Only
+            🔥 LIMITED TIME: $5/Week Plan - First 50 Customers Only
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Weekly Creative Intelligence - Revolutionary Weekly Pricing

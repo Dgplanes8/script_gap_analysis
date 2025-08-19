@@ -339,7 +339,7 @@ export function CompetitorComparison() {
                 }}
                 className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
               >
-                Get My 10 Free Hooks Now
+                Start My Free Week Trial
               </button>
             </div>
           </div>

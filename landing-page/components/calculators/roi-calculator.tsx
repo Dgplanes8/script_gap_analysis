@@ -6,6 +6,7 @@ import { Calculator, TrendingUp, DollarSign, Clock, Target, ArrowRight } from 'l
 interface ROIInputs {
   monthlyAdSpend: number;
   currentConversionRate: number;
+  currentCAC: number;
   expectedImprovement: number;
 }
 
@@ -20,15 +21,15 @@ interface ROIResults {
 }
 
 function calculateROI(inputs: ROIInputs): ROIResults {
-  const { monthlyAdSpend, currentConversionRate, expectedImprovement } = inputs;
+  const { monthlyAdSpend, currentConversionRate, currentCAC, expectedImprovement } = inputs;
   
-  // Calculate conversions based on typical conversion values
-  const currentConversions = (monthlyAdSpend * currentConversionRate) / 100;
+  // Calculate conversions based on current CAC
+  const currentConversions = monthlyAdSpend / currentCAC;
   const improvedConversions = currentConversions * (1 + expectedImprovement / 100);
   
-  // Calculate CPA (Cost Per Acquisition)
-  const currentCPA = currentConversions > 0 ? monthlyAdSpend / currentConversions : 0;
-  const improvedCPA = improvedConversions > 0 ? monthlyAdSpend / improvedConversions : 0;
+  // Calculate improved CAC
+  const currentCPA = currentCAC;
+  const improvedCPA = monthlyAdSpend / improvedConversions;
   
   // Calculate savings
   const monthlySavings = (currentCPA - improvedCPA) * improvedConversions;
@@ -59,6 +60,7 @@ export function ROICalculator() {
   const [inputs, setInputs] = useState<ROIInputs>({
     monthlyAdSpend: 10000,
     currentConversionRate: 2.5,
+    currentCAC: 40,
     expectedImprovement: 25
   });
   
@@ -123,7 +125,6 @@ export function ROICalculator() {
                     Monthly Ad Spend
                   </label>
                   <div className="relative">
-                    <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                     <input
                       type="range"
                       min="1000"
@@ -147,7 +148,6 @@ export function ROICalculator() {
                     Current Conversion Rate
                   </label>
                   <div className="relative">
-                    <Target className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                     <input
                       type="range"
                       min="0.5"
@@ -165,13 +165,35 @@ export function ROICalculator() {
                   </div>
                 </div>
 
+                {/* Current CAC */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Current CAC (Customer Acquisition Cost)
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="range"
+                      min="10"
+                      max="200"
+                      step="5"
+                      value={inputs.currentCAC}
+                      onChange={(e) => setInputs(prev => ({ ...prev, currentCAC: parseInt(e.target.value) }))}
+                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                    />
+                    <div className="flex justify-between text-sm text-gray-500 mt-1">
+                      <span>$10</span>
+                      <span className="font-semibold text-gray-900">{formatCurrency(inputs.currentCAC)}</span>
+                      <span>$200</span>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Expected Improvement */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Expected Improvement (Our Average: 25%)
                   </label>
                   <div className="relative">
-                    <TrendingUp className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                     <input
                       type="range"
                       min="5"
@@ -195,19 +217,19 @@ export function ROICalculator() {
                 <p className="text-sm font-medium text-gray-700 mb-3">Quick Scenarios:</p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   <button
-                    onClick={() => setInputs({ monthlyAdSpend: 5000, currentConversionRate: 2.0, expectedImprovement: 20 })}
+                    onClick={() => setInputs({ monthlyAdSpend: 5000, currentConversionRate: 2.0, currentCAC: 60, expectedImprovement: 20 })}
                     className="text-xs bg-white border border-gray-300 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
                   >
                     Small Business
                   </button>
                   <button
-                    onClick={() => setInputs({ monthlyAdSpend: 15000, currentConversionRate: 3.0, expectedImprovement: 25 })}
+                    onClick={() => setInputs({ monthlyAdSpend: 15000, currentConversionRate: 3.0, currentCAC: 40, expectedImprovement: 25 })}
                     className="text-xs bg-white border border-gray-300 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
                   >
                     Growing Startup
                   </button>
                   <button
-                    onClick={() => setInputs({ monthlyAdSpend: 50000, currentConversionRate: 2.5, expectedImprovement: 30 })}
+                    onClick={() => setInputs({ monthlyAdSpend: 50000, currentConversionRate: 2.5, currentCAC: 30, expectedImprovement: 30 })}
                     className="text-xs bg-white border border-gray-300 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
                   >
                     Scale-up
@@ -268,29 +290,9 @@ export function ROICalculator() {
           {/* Bottom Section */}
           <div className="mt-12 text-center">
             <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 border border-orange-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Real Growth Teams See These Results
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Start Your Free Week Trial Today
               </h3>
-              
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">15-40%</div>
-                  <div className="text-sm text-gray-600">Typical conversion improvement range</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-red-600 mb-2">3.2 weeks</div>
-                  <div className="text-sm text-gray-600">Average payback period</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">580%</div>
-                  <div className="text-sm text-gray-600">Average annual ROI</div>
-                </div>
-              </div>
-              
-              <p className="text-gray-600 mb-6">
-                These calculations are based on conservative estimates. Many teams see even better results 
-                when they implement our performance-scored creative concepts and competitive intelligence insights.
-              </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <button

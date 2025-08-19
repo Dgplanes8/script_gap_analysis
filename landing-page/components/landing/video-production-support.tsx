@@ -187,60 +187,14 @@ export function VideoProductionSupport() {
             </div>
           </div>
 
-          {/* Success Stories */}
+          {/* Getting Started */}
           <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 border border-orange-200">
-            <div className="text-center mb-8">
+            <div className="text-center">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                "But I've Never Made Videos Before..."
+                Ready to Turn Scripts Into Videos?
               </h3>
-              <p className="text-lg text-gray-600">
-                Neither had most of our clients. Here's what they discovered:
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-lg p-6 border border-orange-200">
-                <div className="flex items-center mb-4">
-                  <Star className="h-5 w-5 text-yellow-500 mr-2" />
-                  <span className="font-semibold text-gray-900">Solo Founder Journey</span>
-                </div>
-                <blockquote className="text-gray-600 italic mb-4">
-                  "Started with just my iPhone and our DIY guides. First video took 2 hours, now I can shoot 3 videos in 30 minutes. 
-                  Our conversion rate improved 40% in the first month."
-                </blockquote>
-                <div className="text-sm text-gray-500">E-commerce founder, $5K monthly ad spend</div>
-              </div>
-
-              <div className="bg-white rounded-lg p-6 border border-orange-200">
-                <div className="flex items-center mb-4">
-                  <Star className="h-5 w-5 text-yellow-500 mr-2" />
-                  <span className="font-semibold text-gray-900">Growing Team Success</span>
-                </div>
-                <blockquote className="text-gray-600 italic mb-4">
-                  "Used our Partner Network to find a video creator who 'gets' our brand. Now we have 12 new videos every month 
-                  and our CAC dropped 35%."
-                </blockquote>
-                <div className="text-sm text-gray-500">SaaS marketing team, $25K monthly ad spend</div>
-              </div>
-            </div>
-
-            <div className="text-center mt-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-orange-600">90%</div>
-                  <div className="text-sm text-gray-600">Success rate with DIY support</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-red-600">2.5x</div>
-                  <div className="text-sm text-gray-600">Faster video creation after month 1</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-orange-600">Zero</div>
-                  <div className="text-sm text-gray-600">Video experience required to start</div>
-                </div>
-              </div>
-
-              <p className="text-gray-600 mb-6">
+              
+              <p className="text-lg text-gray-600 mb-6">
                 The hardest part isn't making videos - it's knowing what to say. 
                 We give you the scripts, you choose how to bring them to life.
               </p>
