@@ -24,6 +24,9 @@ import { ConceptIdeationFramework } from '@/components/creative/concept-ideation
 import { PerformanceScoringSystem } from '@/components/creative/performance-scoring-system';
 import { FormatShowcase } from '@/components/creative/format-showcase';
 import { CreativeBriefStructure } from '@/components/creative/creative-brief-structure';
+import { CompetitorComparison } from '@/components/landing/competitor-comparison';
+import { ROICalculator } from '@/components/calculators/roi-calculator';
+import { VideoProductionSupport } from '@/components/landing/video-production-support';
 
 export default function HomePage() {
   const { openModal: handleOpenConsultation } = useConsultation();
@@ -49,6 +52,12 @@ export default function HomePage() {
       <section id="service-tiers">
         <ServiceTiers />
       </section>
+
+      {/* Competitor Comparison - Address "Why not use alternatives?" objection */}
+      <CompetitorComparison />
+
+      {/* ROI Calculator - Interactive value quantification */}
+      <ROICalculator />
 
       {/* Lead Magnet Prominence Section - Moved below service tiers */}
       <section id="email-signup" className="py-16 bg-gradient-to-r from-orange-50 to-orange-100">
@@ -123,6 +132,9 @@ export default function HomePage() {
           },
         ]}
       />
+
+      {/* Video Production Support - Address "making videos is hard" objection */}
+      <VideoProductionSupport />
 
       {/* Creative Intelligence Showcase */}
       <TikTokAnalysisShowcase />
