@@ -1,3 +1,5 @@
+'use client';
+
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, BarChart3, Target, Eye, Heart, Zap, Star, Calculator, CheckCircle, TrendingUp, Brain, Award, ClipboardCheck } from 'lucide-react';
