@@ -141,6 +141,42 @@ export function AboutSection({ onOpenApplication }: AboutSectionProps) {
               </div>
             </div>
             
+            {/* Strategic Methodology Showcase */}
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 mb-12 border border-orange-200">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Systematic Fortune 100 Methodology
+                </h3>
+                <p className="text-lg text-gray-600">
+                  Our proven frameworks that power the weekly creative intelligence service
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <Link href="/weekly-creative-intelligence-playbook" className="group">
+                  <div className="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-all">
+                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
+                      <TrendingUp className="h-6 w-6 text-orange-600" />
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Weekly Intelligence Playbook</h4>
+                    <p className="text-sm text-gray-600 mb-3">Complete Fortune 100 methodology for systematic creative development and strategic implementation</p>
+                    <span className="text-orange-600 text-sm font-medium group-hover:text-orange-700">Learn the Complete Framework →</span>
+                  </div>
+                </Link>
+                
+                <Link href="/25-point-performance-scoring-system" className="group">
+                  <div className="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-all">
+                    <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-teal-200 transition-colors">
+                      <Target className="h-6 w-6 text-teal-600" />
+                    </div>
+                    <h4 className="font-semibold text-gray-900 mb-2">25-Point Performance Scoring</h4>
+                    <p className="text-sm text-gray-600 mb-3">Research-backed framework for predicting creative performance before testing, saving time and budget</p>
+                    <span className="text-orange-600 text-sm font-medium group-hover:text-orange-700">See the Scoring System →</span>
+                  </div>
+                </Link>
+              </div>
+            </div>
+            
             <div className="text-center">
               <button
                 onClick={() => onOpenApplication && onOpenApplication('full')}

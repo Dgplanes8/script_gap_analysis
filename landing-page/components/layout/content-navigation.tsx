@@ -5,6 +5,31 @@ import { Calculator, BookOpen, PieChart, FileText, TrendingUp, Target, ArrowRigh
 
 const contentPieces = [
   {
+    title: 'Weekly Creative Intelligence Playbook',
+    href: '/weekly-creative-intelligence-playbook',
+    icon: BookOpen,
+    description: 'Complete Fortune 100 methodology for systematic creative development and performance optimization',
+    cta: 'Master Framework',
+    color: 'orange',
+    featured: true
+  },
+  {
+    title: '52 High-Converting Hooks Library',
+    href: '/52-high-converting-ad-hooks-library',
+    icon: Zap,
+    description: 'Performance-scored hooks with strategic analysis and implementation frameworks',
+    cta: 'Browse Hooks',
+    color: 'orange'
+  },
+  {
+    title: 'Creative Fatigue Prevention',
+    href: '/creative-fatigue-prevention-framework',
+    icon: TrendingDown,
+    description: 'Systematic approach to preventing audience saturation and maintaining performance',
+    cta: 'Prevent Fatigue',
+    color: 'red'
+  },
+  {
     title: '25 TikTok Hooks for Subscriptions',
     href: '/tiktok-hooks-subscription-business-marketing',
     icon: Play,
@@ -69,12 +94,36 @@ const contentPieces = [
     color: 'blue'
   },
   {
-    title: 'Hook Generator Tool',
+    title: '25-Point Performance Scoring',
+    href: '/25-point-performance-scoring-system',
+    icon: Target,
+    description: 'Predict creative performance with systematic evaluation methodology',
+    cta: 'Learn Scoring',
+    color: 'orange'
+  },
+  {
+    title: 'Creative Brief Framework',
+    href: '/creative-brief-framework',
+    icon: FileText,
+    description: 'Strategic template system for briefing creative teams consistently',
+    cta: 'Get Templates',
+    color: 'blue'
+  },
+  {
+    title: 'Hook Generator Methodology',
     href: '/hook-generator',
     icon: Zap,
-    description: 'Generate platform-optimized ad hooks for TikTok, Facebook, and Instagram',
-    cta: 'Generate Hooks',
+    description: 'Systematic approach to creating high-converting hooks with proven frameworks',
+    cta: 'Master Method',
     color: 'purple'
+  },
+  {
+    title: 'Implementation Guide',
+    href: '/creative-intelligence-implementation-guide',
+    icon: BookOpen,
+    description: 'Complete 8-week roadmap for implementing creative intelligence methodology',
+    cta: 'Start Implementation',
+    color: 'green'
   },
   {
     title: 'Consumer Attribution Framework',
@@ -133,6 +182,16 @@ export function ContentNavigation({
     });
 
   const colorClasses = {
+    orange: {
+      bg: 'bg-orange-50',
+      icon: 'text-orange-600',
+      button: 'bg-orange-600 hover:bg-orange-700 text-white'
+    },
+    red: {
+      bg: 'bg-red-50',
+      icon: 'text-red-600',
+      button: 'bg-red-600 hover:bg-red-700 text-white'
+    },
     indigo: {
       bg: 'bg-red-50',
       icon: 'text-red-600',

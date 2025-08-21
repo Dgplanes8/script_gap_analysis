@@ -211,9 +211,30 @@ export default function CreativeFatiguePage() {
 
             <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-12">Systematic Creative Refresh Framework</h2>
             
-            <p className="text-lg text-gray-700 mb-8">
+            <p className="text-lg text-gray-700 mb-6">
               Combating creative fatigue requires proactive creative refresh strategies implemented before performance decline occurs. The framework below provides structured approaches to maintaining creative performance through systematic concept rotation and audience management.
             </p>
+
+            <div className="bg-blue-50 rounded-xl p-6 border border-blue-200 mb-8">
+              <div className="flex items-start">
+                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <RefreshCw className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Complete Prevention Framework Available</h4>
+                  <p className="text-gray-700 text-sm mb-3">
+                    For systematic creative fatigue prevention with early warning systems, 8-week implementation roadmap, and recovery protocols, see our comprehensive guide.
+                  </p>
+                  <Link 
+                    href="/creative-fatigue-prevention-framework"
+                    className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                  >
+                    Access Complete Prevention Framework
+                    <ArrowLeft className="h-4 w-4 ml-1 rotate-180" />
+                  </Link>
+                </div>
+              </div>
+            </div>
 
             <h3 className="text-2xl font-semibold text-gray-900 mb-6">The Three-Tier Creative Refresh System</h3>
             

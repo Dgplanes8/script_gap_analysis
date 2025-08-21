@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   description:
     'Revolutionary weekly pricing for weekly delivery. Get viral ad hooks and creative scripts every Monday starting at $5/week. First week FREE trial. Reduce CAC by 25%, increase conversion rates 3x faster. Growth marketing teams at subscription companies.',
   keywords:
-    'ad hooks, creative hooks, facebook ad templates, viral content, subscription marketing, creative scripts, reduce CAC, increase conversions, creative strategy, growth marketing, weekly trend intelligence, copywriting templates, social media hooks, tiktok hooks, subscription business creative, saas creative, conversion copywriting',
+    'ad hooks, creative hooks, facebook ad templates, viral content, subscription marketing, creative scripts, reduce CAC, increase conversions, creative strategy, growth marketing, weekly trend intelligence, copywriting templates, social media hooks, tiktok hooks, subscription business creative, saas creative, conversion copywriting, weekly creative intelligence, creative intelligence methodology, systematic creative development, creative intelligence framework, performance-scored hooks, creative fatigue prevention, hook generator methodology, creative brief framework, 25-point performance scoring',
   authors: [{ name: 'Apsics Media' }],
   creator: 'Apsics Media',
   publisher: 'Apsics Media',

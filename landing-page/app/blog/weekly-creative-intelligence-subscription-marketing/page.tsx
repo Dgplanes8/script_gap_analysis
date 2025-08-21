@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, Clock, Target, TrendingUp, Users, Calendar, Mail } from 'lucide-react';
+import { ArrowLeft, Clock, Target, TrendingUp, Users, Calendar, Mail, BookOpen, ArrowRight } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
 
 export const metadata: Metadata = {
@@ -187,6 +187,27 @@ export default function WeeklyCreativeIntelligencePage() {
               Implementing weekly creative intelligence requires structured integration with your existing performance marketing workflows. The framework below outlines how growth teams can maximize the value of weekly concept delivery.
             </p>
 
+            <div className="bg-orange-50 rounded-xl p-6 border border-orange-200 mb-8">
+              <div className="flex items-start">
+                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <BookOpen className="h-5 w-5 text-orange-600" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Complete Implementation Methodology</h4>
+                  <p className="text-gray-700 text-sm mb-3">
+                    For the complete Fortune 100 methodology, systematic implementation approach, and 8-week roadmap for weekly creative intelligence, see our comprehensive playbook.
+                  </p>
+                  <Link 
+                    href="/weekly-creative-intelligence-playbook"
+                    className="inline-flex items-center text-orange-600 hover:text-orange-700 font-semibold text-sm"
+                  >
+                    Access Complete Methodology & Implementation Guide
+                    <ArrowRight className="h-4 w-4 ml-1" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
             <h3 className="text-2xl font-semibold text-gray-900 mb-6">Monday Creative Intelligence Workflow</h3>
             
             <div className="space-y-8 mb-12">
@@ -208,7 +229,7 @@ export default function WeeklyCreativeIntelligencePage() {
                   Integrate weekly concepts with your existing creative production process, whether internal team or freelance creators.
                 </p>
                 <ul className="text-gray-700 space-y-2">
-                  <li>• Brief creative team or freelancers on selected concepts</li>
+                  <li>• <Link href="/creative-brief-framework" className="text-blue-600 hover:text-blue-700 underline">Brief creative team or freelancers</Link> using systematic briefing templates</li>
                   <li>• Provide concept context and strategic positioning</li>
                   <li>• Begin asset production for end-of-week testing</li>
                 </ul>

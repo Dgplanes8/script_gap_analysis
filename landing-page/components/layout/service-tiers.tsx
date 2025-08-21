@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Check, ArrowRight, Zap, Target, Crown, Building2, TrendingUp, Calendar } from 'lucide-react';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { useConsultation } from '@/components/contexts/consultation-context';
@@ -44,7 +45,7 @@ export function ServiceTiers() {
         '2 ready-to-develop scripts per concept',
         'Multi-platform optimization (TikTok + Facebook + Instagram)',
         'Trend analysis & competitive insights',
-        'Performance scoring (25-point framework)',
+        'Performance scoring (25-point framework) - see methodology',
         'Email delivery + basic support',
         'Monthly strategy overview'
       ],
@@ -205,7 +206,28 @@ export function ServiceTiers() {
                       <li key={featureIndex} className="flex items-start">
                         <Check className="h-4 w-4 text-teal-500 mt-0.5 mr-2 flex-shrink-0" />
                         <span className={`text-gray-700 text-xs ${feature.startsWith('Everything') ? 'font-semibold text-gray-900' : ''}`}>
-                          {feature}
+                          {feature.includes('25-point framework') ? (
+                            <>
+                              Performance scoring (
+                              <Link 
+                                href="/25-point-performance-scoring-system" 
+                                className="text-blue-600 hover:text-blue-700 underline"
+                              >
+                                25-point framework
+                              </Link>
+                              ) - see methodology
+                            </>
+                          ) : feature.includes('creative brief development') ? (
+                            <>
+                              Custom{' '}
+                              <Link 
+                                href="/creative-brief-framework" 
+                                className="text-blue-600 hover:text-blue-700 underline"
+                              >
+                                creative brief development
+                              </Link>
+                            </>
+                          ) : feature}
                         </span>
                       </li>
                     ))}
@@ -237,6 +259,55 @@ export function ServiceTiers() {
               </div>
             );
           })}
+        </div>
+
+        {/* Strategic Methodology Links */}
+        <div className="mt-16 max-w-6xl mx-auto">
+          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Learn About Our Proven Methodology
+              </h3>
+              <p className="text-lg text-gray-600">
+                Understand the Fortune 100 frameworks and systematic approach behind our weekly creative intelligence service
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <Link href="/weekly-creative-intelligence-playbook" className="group">
+                <div className="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-shadow">
+                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
+                    <TrendingUp className="h-6 w-6 text-orange-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Complete Methodology</h4>
+                  <p className="text-sm text-gray-600 mb-3">Fortune 100 methodology for systematic creative intelligence implementation</p>
+                  <span className="text-blue-600 text-sm font-medium group-hover:text-blue-700">Learn the Framework →</span>
+                </div>
+              </Link>
+              
+              <Link href="/25-point-performance-scoring-system" className="group">
+                <div className="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-shadow">
+                  <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-teal-200 transition-colors">
+                    <Target className="h-6 w-6 text-teal-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Performance Scoring</h4>
+                  <p className="text-sm text-gray-600 mb-3">25-point framework for predicting creative performance before testing</p>
+                  <span className="text-blue-600 text-sm font-medium group-hover:text-blue-700">See Scoring System →</span>
+                </div>
+              </Link>
+              
+              <Link href="/creative-intelligence-implementation-guide" className="group">
+                <div className="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-shadow">
+                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
+                    <Building2 className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Implementation Guide</h4>
+                  <p className="text-sm text-gray-600 mb-3">8-week roadmap for implementing creative intelligence in your organization</p>
+                  <span className="text-blue-600 text-sm font-medium group-hover:text-blue-700">Get Implementation Plan →</span>
+                </div>
+              </Link>
+            </div>
+          </div>
         </div>
 
         <div className="mt-16 text-center">

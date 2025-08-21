@@ -244,6 +244,27 @@ export default function GrowthTeamCreativeBottlenecksPage() {
               Instead of comprehensive creative strategy development, weekly creative intelligence delivers consistent concept variety that enables continuous testing and optimization.
             </p>
 
+            <div className="bg-blue-50 rounded-xl p-6 border border-blue-200 mb-8">
+              <div className="flex items-start">
+                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <CheckCircle2 className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Complete Weekly Intelligence Methodology Available</h4>
+                  <p className="text-gray-700 text-sm mb-3">
+                    For the complete systematic approach to weekly creative intelligence with Fortune 100 methodology, implementation roadmap, and performance scoring system, see our comprehensive playbook.
+                  </p>
+                  <Link 
+                    href="/weekly-creative-intelligence-playbook"
+                    className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                  >
+                    Access Complete Weekly Intelligence Methodology
+                    <ArrowRight className="h-4 w-4 ml-1" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
             <h3 className="text-2xl font-semibold text-gray-900 mb-6">How Weekly Delivery Eliminates Each Bottleneck</h3>
             
             <div className="space-y-8 mb-12">
@@ -345,7 +366,7 @@ export default function GrowthTeamCreativeBottlenecksPage() {
                   </p>
                   <ul className="text-sm text-gray-700 space-y-1">
                     <li>• Pre-briefed creative team or freelancers</li>
-                    <li>• Standardized production workflows</li>
+                    <li>• <Link href="/creative-brief-framework" className="text-blue-600 hover:text-blue-700 underline">Standardized production workflows</Link> with strategic briefing templates</li>
                     <li>• Asset template and brand guideline library</li>
                     <li>• Expedited review and approval process</li>
                   </ul>
@@ -490,7 +511,7 @@ export default function GrowthTeamCreativeBottlenecksPage() {
                       <li>• Scale weekly concept volume based on testing capacity</li>
                       <li>• Expand freelance creative team as needed</li>
                       <li>• Implement advanced concept variety and testing</li>
-                      <li>• Build internal creative intelligence capabilities</li>
+                      <li>• <Link href="/creative-intelligence-implementation-guide" className="text-blue-600 hover:text-blue-700 underline">Build internal creative intelligence capabilities</Link> with 8-week implementation roadmap</li>
                     </ul>
                   </div>
                 </div>

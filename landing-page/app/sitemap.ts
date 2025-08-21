@@ -24,6 +24,50 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     
+    // Cluster 1: Creative Intelligence Hub - Maximum priority for topic authority
+    {
+      url: `${baseUrl}/weekly-creative-intelligence-playbook`,
+      lastModified: new Date('2025-01-20'),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/52-high-converting-ad-hooks-library`,
+      lastModified: new Date('2025-01-20'),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/creative-fatigue-prevention-framework`,
+      lastModified: new Date('2025-01-20'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/25-point-performance-scoring-system`,
+      lastModified: new Date('2025-01-20'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/creative-brief-framework`,
+      lastModified: new Date('2025-01-20'),
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/hook-generator`,
+      lastModified: new Date('2025-01-20'),
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/creative-intelligence-implementation-guide`,
+      lastModified: new Date('2025-01-20'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    
     // New SEO articles - High priority for organic search
     {
       url: `${baseUrl}/blog/weekly-creative-intelligence-subscription-marketing`,
