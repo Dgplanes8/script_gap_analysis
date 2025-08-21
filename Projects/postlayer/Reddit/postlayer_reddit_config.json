@@ -1,0 +1,31 @@
+{
+  "brand": "PostLayer",
+  "competitors": [
+    "Buffer",
+    "Hootsuite",
+    "Later",
+    "SocialBee",
+    "Sprout Social"
+  ],
+  "subreddits_to_search": [
+    "marketing",
+    "advertising",
+    "entrepreneur",
+    "smallbusiness",
+    "reviews",
+    "askreddit",
+    "personalfinance",
+    "buyitforlife"
+  ],
+  "search_terms": [
+    "PostLayer",
+    "Buffer",
+    "Hootsuite",
+    "Later",
+    "SocialBee",
+    "Sprout Social",
+    "alternatives to PostLayer",
+    "vs PostLayer"
+  ],
+  "output_file": "/Users/nataliebasque/Ad Workflow/Projects/postlayer/Reddit/postlayer_reddit_results.json"
+}

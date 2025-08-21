@@ -1,0 +1,137 @@
+{
+  "brand_overview": {
+    "brand_name": "PostLayer",
+    "name": "PostLayer",
+    "tagline": "Social Media Scheduling for Everyone",
+    "industry": "Social Media Management Software",
+    "founded": "2023",
+    "founder": "Vikram Suthar (@buildwithvikram)",
+    "mission": "Making social media management accessible and efficient for creators, startups, and agencies",
+    "value_proposition": "Save 15+ hours weekly with unified social media scheduling across 10+ platforms"
+  },
+  "target_audience": {
+    "primary_audience": {
+      "demographics": {
+        "age_range": "25-45",
+        "gender": "Mixed (slightly female-leaning for creators)",
+        "income_level": "$40K-$150K annually",
+        "education": "College-educated, self-taught entrepreneurs",
+        "location": "Global, English-speaking markets (US, UK, Canada, Australia)"
+      },
+      "psychographics": {
+        "pain_points": [
+          "Spending 3+ hours daily on social media management",
+          "Struggling to maintain consistent posting across platforms",
+          "Need for professional-looking content without design skills",
+          "Difficulty tracking performance across multiple platforms",
+          "Overwhelmed by complex, expensive social media tools",
+          "Time constraints preventing content creation and engagement"
+        ],
+        "motivations": [
+          "Building personal brand and online presence",
+          "Growing business through social media marketing",
+          "Achieving work-life balance through automation",
+          "Professional success and recognition",
+          "Financial independence and business growth",
+          "Time freedom to focus on core business activities"
+        ],
+        "values": [
+          "Efficiency and productivity",
+          "Authenticity in content creation",
+          "Direct access to support and real people",
+          "Affordable, accessible tools",
+          "Continuous learning and improvement",
+          "Building genuine communities"
+        ]
+      }
+    },
+    "secondary_audience": {
+      "demographics": {
+        "age_range": "30-55",
+        "description": "Small business owners and marketing professionals",
+        "team_size": "1-25 employees",
+        "budget_authority": "$50-$500/month for marketing tools"
+      },
+      "psychographics": {
+        "pain_points": [
+          "Managing multiple client accounts efficiently",
+          "Proving ROI to clients or stakeholders",
+          "Scaling content creation and management",
+          "Team collaboration and approval workflows"
+        ]
+      }
+    }
+  },
+  "competitive_landscape": {
+    "direct_competitors": [
+      "Buffer",
+      "Hootsuite", 
+      "Later",
+      "SocialBee",
+      "Sprout Social"
+    ],
+    "competitive_advantages": [
+      "Affordable pricing starting at $5/month",
+      "Direct founder support and real human contact",
+      "Built-in video studio and AI content assistant",
+      "User-friendly interface designed for simplicity",
+      "7-day free trial without credit card requirement",
+      "10+ platform integrations including newer platforms"
+    ]
+  },
+  "brand_voice": {
+    "tone": "Friendly, helpful, and approachable",
+    "personality": [
+      "Genuine and authentic",
+      "Supportive and encouraging", 
+      "Straightforward and honest",
+      "Creator-focused and empathetic"
+    ],
+    "communication_style": "Direct, benefit-focused, no corporate jargon"
+  },
+  "product_details": {
+    "core_features": [
+      "Multi-platform scheduling (10+ platforms)",
+      "Content calendar and planning",
+      "AI content assistant for caption writing",
+      "Built-in video studio with templates",
+      "Team workspaces and collaboration",
+      "Analytics and performance tracking",
+      "Mobile app for on-the-go management"
+    ],
+    "unique_selling_points": [
+      "All-in-one platform with video creation built-in",
+      "Direct founder support and real human interaction",
+      "Affordable pricing with powerful features",
+      "Beginner-friendly with professional capabilities",
+      "No long-term contracts or hidden fees"
+    ]
+  },
+  "pricing_strategy": {
+    "model": "Freemium with tiered subscription",
+    "tiers": [
+      {
+        "name": "Starter",
+        "price": "$5/month",
+        "target": "Solo creators and freelancers"
+      },
+      {
+        "name": "Pro", 
+        "price": "$15/month",
+        "target": "Growing creators and small teams",
+        "most_popular": true
+      },
+      {
+        "name": "Elite",
+        "price": "$29/month", 
+        "target": "Established businesses and agencies"
+      }
+    ]
+  },
+  "growth_metrics": {
+    "users": "100+ creators and businesses",
+    "time_savings": "15+ hours saved weekly per user",
+    "platform_coverage": "10+ social media platforms",
+    "uptime": "98% platform reliability"
+  }
+}

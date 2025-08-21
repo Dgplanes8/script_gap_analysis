@@ -1,5 +1,3 @@
-'use client';
-
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, AlertTriangle, TrendingDown, RefreshCw, BarChart3, Clock, Target, CheckCircle, TrendingUp, Zap, Users, Calendar } from 'lucide-react';
@@ -154,18 +152,14 @@ export default function CreativeFatiguePreventionFramework() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => {
-                  const frameworkSection = document.getElementById('prevention-framework');
-                  if (frameworkSection) {
-                    frameworkSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+              <Link
+                href="#prevention-framework"
                 className="bg-white text-red-600 hover:bg-red-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                style={{ scrollBehavior: 'smooth' }}
               >
                 Explore the Framework
                 <ArrowRight className="h-5 w-5 ml-2" />
-              </button>
+              </Link>
               <Link
                 href="/weekly-creative-intelligence-playbook"
                 className="border-2 border-white text-white hover:bg-white hover:text-red-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
@@ -645,18 +639,14 @@ export default function CreativeFatiguePreventionFramework() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => {
-                  const emailSection = document.getElementById('email-signup');
-                  if (emailSection) {
-                    emailSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+              <Link
+                href="#email-signup"
                 className="bg-white text-orange-600 hover:bg-orange-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                style={{ scrollBehavior: 'smooth' }}
               >
                 Start Prevention Framework
                 <ArrowRight className="h-5 w-5 ml-2" />
-              </button>
+              </Link>
               
               <Link
                 href="/#service-tiers"

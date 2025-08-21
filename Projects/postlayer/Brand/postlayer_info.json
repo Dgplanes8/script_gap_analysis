@@ -1,0 +1,26 @@
+{
+  "brand_name": "postlayer",
+  "original_name": "PostLayer",
+  "competitors": [
+    "Buffer",
+    "Hootsuite",
+    "Later",
+    "SocialBee",
+    "Sprout Social"
+  ],
+  "created_at": "20250820_213559",
+  "folder_structure": [
+    "Brand",
+    "Perplexity",
+    "Reddit",
+    "Apify",
+    "AssemblyAI",
+    "Guide",
+    "Gap_Analysis",
+    "Concepts",
+    "Copy",
+    "Script",
+    "Completed_Analysis"
+  ],
+  "workflow_type": "phased"
+}

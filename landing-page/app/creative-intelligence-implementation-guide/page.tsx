@@ -1,5 +1,3 @@
-'use client';
-
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, Calendar, Users, Target, BarChart3, FileText, Settings, Clock, Zap, Brain, TrendingUp, Download, BookOpen, PlayCircle } from 'lucide-react';
@@ -299,18 +297,14 @@ export default function CreativeIntelligenceImplementationGuide() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => {
-                  const implementationSection = document.getElementById('implementation-phases');
-                  if (implementationSection) {
-                    implementationSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+              <Link
+                href="#implementation-phases"
                 className="bg-white text-green-600 hover:bg-green-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                style={{ scrollBehavior: 'smooth' }}
               >
                 Start Implementation
                 <ArrowRight className="h-5 w-5 ml-2" />
-              </button>
+              </Link>
               <Link
                 href="/weekly-creative-intelligence-playbook"
                 className="border-2 border-white text-white hover:bg-white hover:text-green-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
@@ -751,18 +745,14 @@ export default function CreativeIntelligenceImplementationGuide() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => {
-                  const emailSection = document.getElementById('email-signup');
-                  if (emailSection) {
-                    emailSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+              <Link
+                href="#email-signup"
                 className="bg-white text-green-600 hover:bg-green-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                style={{ scrollBehavior: 'smooth' }}
               >
                 Get Implementation Package
                 <ArrowRight className="h-5 w-5 ml-2" />
-              </button>
+              </Link>
               
               <Link
                 href="/#service-tiers"

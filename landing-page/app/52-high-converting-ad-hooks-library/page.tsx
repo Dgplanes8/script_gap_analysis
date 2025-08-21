@@ -1,5 +1,3 @@
-'use client';
-
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, Download, Star, Filter, Search, BarChart3, Target, TrendingUp, Eye, Heart, Zap, CheckCircle } from 'lucide-react';
@@ -301,18 +299,14 @@ export default function HighConvertingAdHooksLibrary() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => {
-                  const librarySection = document.getElementById('hook-library');
-                  if (librarySection) {
-                    librarySection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+              <Link
+                href="#hook-library"
                 className="bg-white text-orange-600 hover:bg-orange-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                style={{ scrollBehavior: 'smooth' }}
               >
                 Explore Complete Library
                 <ArrowRight className="h-5 w-5 ml-2" />
-              </button>
+              </Link>
               <Link
                 href="/weekly-creative-intelligence-playbook"
                 className="border-2 border-white text-white hover:bg-white hover:text-orange-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
@@ -614,18 +608,14 @@ export default function HighConvertingAdHooksLibrary() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => {
-                  const emailSection = document.getElementById('email-signup');
-                  if (emailSection) {
-                    emailSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+              <Link
+                href="#email-signup"
                 className="bg-white text-orange-600 hover:bg-orange-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                style={{ scrollBehavior: 'smooth' }}
               >
                 Start Your Free Week Trial
                 <ArrowRight className="h-5 w-5 ml-2" />
-              </button>
+              </Link>
               
               <Link
                 href="/#service-tiers"

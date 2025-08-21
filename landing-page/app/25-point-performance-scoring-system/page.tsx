@@ -1,5 +1,3 @@
-'use client';
-
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, BarChart3, Target, Eye, Heart, Zap, Star, Calculator, CheckCircle, TrendingUp, Brain, Award, ClipboardCheck } from 'lucide-react';
@@ -339,18 +337,13 @@ export default function PerformanceScoringSystem() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => {
-                  const systemSection = document.getElementById('scoring-system');
-                  if (systemSection) {
-                    systemSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+              <Link
+                href="#scoring-system"
                 className="bg-white text-blue-600 hover:bg-blue-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
               >
                 Master the System
                 <ArrowRight className="h-5 w-5 ml-2" />
-              </button>
+              </Link>
               <Link
                 href="/weekly-creative-intelligence-playbook"
                 className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
@@ -731,18 +724,13 @@ export default function PerformanceScoringSystem() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => {
-                  const emailSection = document.getElementById('email-signup');
-                  if (emailSection) {
-                    emailSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+              <Link
+                href="#email-signup"
                 className="bg-white text-blue-600 hover:bg-blue-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
               >
                 Get Performance-Scored Creative
                 <ArrowRight className="h-5 w-5 ml-2" />
-              </button>
+              </Link>
               
               <Link
                 href="/#service-tiers"
