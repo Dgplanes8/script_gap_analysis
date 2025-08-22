@@ -411,11 +411,20 @@ export default function FreemiumConversionPage() {
                     Get a personalized freemium conversion strategy using our Fortune 100-tested methodologies to increase conversion rates by 200-300%.
                   </p>
                   <div className="space-y-4">
-                    <ConsultationBookingCTA 
-                      text="Get Your Conversion Strategy"
-                    />
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                      <Link
+                        href="/freemium-to-premium-conversion-optimization"
+                        className="inline-flex items-center px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors"
+                      >
+                        <Brain className="h-5 w-5 mr-2" />
+                        Get Conversion Psychology Framework
+                      </Link>
+                      <ConsultationBookingCTA 
+                        text="Book Strategy Call"
+                      />
+                    </div>
                     <p className="text-sm text-gray-600">
-                      Custom conversion audit • Psychological trigger implementation • Revenue optimization roadmap
+                      Behavioral psychology insights • Systematic framework • Implementation guide
                     </p>
                   </div>
                 </div>

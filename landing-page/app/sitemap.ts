@@ -68,6 +68,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     
+    // Cluster 2: Performance Marketing Optimization - Strategic priority scoring
+    {
+      url: `${baseUrl}/mobile-app-cac-optimization-2025`,
+      lastModified: new Date('2025-01-21'),
+      changeFrequency: 'weekly',
+      priority: 0.95, // Score: 9.5 - Maximum priority for CAC crisis content
+    },
+    {
+      url: `${baseUrl}/subscription-business-cac-reduction-framework`,
+      lastModified: new Date('2025-01-21'),
+      changeFrequency: 'weekly',
+      priority: 0.94, // Score: 9.4 - Systematic CAC reduction framework
+    },
+    {
+      url: `${baseUrl}/d2c-subscription-marketing-strategy`,
+      lastModified: new Date('2025-01-21'),
+      changeFrequency: 'monthly',
+      priority: 0.93, // Score: 9.3 - Consumer psychology insights
+    },
+    {
+      url: `${baseUrl}/freemium-to-premium-conversion-optimization`,
+      lastModified: new Date('2025-01-21'),
+      changeFrequency: 'monthly',
+      priority: 0.85, // Score: 8.5 - Behavioral psychology framework
+    },
+    {
+      url: `${baseUrl}/saas-creative-strategy-roi-calculator`,
+      lastModified: new Date('2025-01-21'),
+      changeFrequency: 'weekly',
+      priority: 0.84, // Score: 8.4 - Interactive ROI tool
+    },
+    {
+      url: `${baseUrl}/subscription-churn-reduction-framework`,
+      lastModified: new Date('2025-01-21'),
+      changeFrequency: 'monthly',
+      priority: 0.83, // Score: 8.3 - Retention intelligence system
+    },
+    
     // New SEO articles - High priority for organic search
     {
       url: `${baseUrl}/blog/weekly-creative-intelligence-subscription-marketing`,
@@ -141,12 +179,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Calculators and tools
     {
       url: `${baseUrl}/cac-optimization-calculator`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/saas-creative-strategy-roi-calculator`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,

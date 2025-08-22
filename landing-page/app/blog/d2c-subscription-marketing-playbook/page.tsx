@@ -444,11 +444,20 @@ export default function D2CSubscriptionMarketingPage() {
                     Get a personalized D2C growth strategy using our Fortune 100 methodologies to optimize acquisition, retention, and community building.
                   </p>
                   <div className="space-y-4">
-                    <ConsultationBookingCTA 
-                      text="Get Your D2C Growth Strategy"
-                    />
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                      <Link
+                        href="/d2c-subscription-marketing-strategy"
+                        className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
+                      >
+                        <Users className="h-5 w-5 mr-2" />
+                        Get D2C Psychology Framework
+                      </Link>
+                      <ConsultationBookingCTA 
+                        text="Book Strategy Call"
+                      />
+                    </div>
                     <p className="text-sm text-gray-600">
-                      Custom growth audit • Community building roadmap • Retention optimization strategy
+                      Consumer psychology insights • Strategic framework • Implementation roadmap
                     </p>
                   </div>
                 </div>

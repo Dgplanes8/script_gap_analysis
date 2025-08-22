@@ -534,10 +534,19 @@ export default function SubscriptionChurnOptimizationPage() {
                 Start with a churn audit: Calculate your current churn rate by acquisition channel and identify your biggest 
                 involuntary churn drivers. This single analysis will reveal which strategy to implement first for maximum impact.
               </p>
-              <p className="text-gray-800">
+              <p className="text-gray-800 mb-4">
                 Remember: A 1% reduction in monthly churn rate typically increases customer lifetime value by 12-15%. 
                 The compound effect of churn optimization creates exponential growth advantages over time.
               </p>
+              <div className="text-center">
+                <Link
+                  href="/subscription-churn-reduction-framework"
+                  className="inline-flex items-center px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors"
+                >
+                  <TrendingDown className="h-5 w-5 mr-2" />
+                  Get Complete Churn Reduction Framework
+                </Link>
+              </div>
             </div>
           </section>
 

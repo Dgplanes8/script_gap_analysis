@@ -110,6 +110,47 @@ const contentPieces = [
     color: 'blue'
   },
   {
+    title: 'Mobile App CAC Optimization 2025',
+    href: '/mobile-app-cac-optimization-2025',
+    icon: TrendingDown,
+    description: 'Combat the mobile app CAC crisis with data-driven creative intelligence reducing costs 25%',
+    cta: 'Reduce CAC',
+    color: 'red',
+    featured: true
+  },
+  {
+    title: 'Subscription CAC Reduction Framework',
+    href: '/subscription-business-cac-reduction-framework',
+    icon: Target,
+    description: '3-phase systematic framework to reduce subscription business acquisition costs',
+    cta: 'Get Framework',
+    color: 'orange'
+  },
+  {
+    title: 'D2C Subscription Marketing Strategy',
+    href: '/d2c-subscription-marketing-strategy',
+    icon: Users,
+    description: 'Consumer psychology-driven marketing strategies for D2C subscription businesses',
+    cta: 'Learn Strategy',
+    color: 'purple'
+  },
+  {
+    title: 'Freemium to Premium Conversion',
+    href: '/freemium-to-premium-conversion-optimization',
+    icon: TrendingUp,
+    description: 'Behavioral psychology framework for optimizing freemium to premium conversions',
+    cta: 'Optimize Conversion',
+    color: 'blue'
+  },
+  {
+    title: 'Churn Reduction Framework',
+    href: '/subscription-churn-reduction-framework',
+    icon: TrendingDown,
+    description: 'Cut subscription churn 35% with retention intelligence and proactive prevention',
+    cta: 'Reduce Churn',
+    color: 'purple'
+  },
+  {
     title: 'Hook Generator Methodology',
     href: '/hook-generator',
     icon: Zap,
@@ -140,14 +181,6 @@ const contentPieces = [
     description: 'Comprehensive attribution methodology for multi-channel marketing campaigns',
     cta: 'Get Framework',
     color: 'emerald'
-  },
-  {
-    title: 'Creative Brief Framework',
-    href: '/creative-brief-framework',
-    icon: FileText,
-    description: 'Structured framework for creating high-converting creative briefs',
-    cta: 'Get Framework',
-    color: 'slate'
   },
   {
     title: 'Ad Formats Guide',

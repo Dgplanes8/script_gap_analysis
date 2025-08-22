@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { SaaSCreativeROICalculator } from '@/components/calculators/saas-creative-roi-calculator';
-import { CreativeStrategyGuide } from '@/components/content/creative-strategy-guide';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { Header } from '@/components/layout/header';
@@ -95,11 +94,26 @@ export default function SaaSCreativeStrategyROIPage() {
           </div>
         </section>
 
-        {/* Creative Strategy Guide */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-          <CreativeStrategyGuide />
+        {/* Consultation CTA */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Ready to Optimize Your SaaS Creative Strategy?
+            </h2>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Get personalized recommendations and strategic implementation roadmap based on your calculator results.
+            </p>
+            <div className="space-y-4">
+              <ConsultationBookingCTA 
+                text="Book Strategy Call"
+                variant="primary"
+              />
+              <p className="text-sm text-gray-600">
+                Free strategic consultation • Custom implementation roadmap • ROI optimization plan
+              </p>
+            </div>
+          </div>
         </section>
-
 
         {/* Content Navigation */}
         <ContentNavigation 

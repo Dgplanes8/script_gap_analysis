@@ -334,11 +334,20 @@ export default function MobileAppCACCrisisPage() {
                     Get a comprehensive CAC optimization strategy tailored to your mobile app with our Fortune 100 methodology.
                   </p>
                   <div className="space-y-4">
-                    <ConsultationBookingCTA 
-                      text="Get Your CAC Reduction Strategy"
-                    />
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                      <Link
+                        href="/mobile-app-cac-optimization-2025"
+                        className="inline-flex items-center px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors"
+                      >
+                        <Calculator className="h-5 w-5 mr-2" />
+                        Get Free CAC Calculator & Framework
+                      </Link>
+                      <ConsultationBookingCTA 
+                        text="Book Strategy Call"
+                      />
+                    </div>
                     <p className="text-sm text-gray-600">
-                      Free strategic consultation • Custom ROI projections • Implementation roadmap
+                      Interactive calculator • Proven framework • Custom implementation roadmap
                     </p>
                   </div>
                 </div>
