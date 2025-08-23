@@ -106,6 +106,90 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.83, // Score: 8.3 - Retention intelligence system
     },
     
+    // Cluster 3: Competitive Intelligence & Analysis - Strategic priority scoring
+    {
+      url: `${baseUrl}/fortune-100-creative-intelligence-framework`,
+      lastModified: new Date('2025-01-22'),
+      changeFrequency: 'monthly',
+      priority: 0.92, // Score: 9.2 - Fortune 100 methodology anchor
+    },
+    {
+      url: `${baseUrl}/competitor-creative-analysis-system`,
+      lastModified: new Date('2025-01-22'), 
+      changeFrequency: 'monthly',
+      priority: 0.91, // Score: 9.1 - Systematic competitor analysis
+    },
+    {
+      url: `${baseUrl}/ai-enhanced-creative-intelligence-framework`,
+      lastModified: new Date('2025-01-22'),
+      changeFrequency: 'monthly', 
+      priority: 0.89, // Score: 8.9 - AI creative automation
+    },
+    {
+      url: `${baseUrl}/multi-touch-attribution-framework`,
+      lastModified: new Date('2025-01-22'),
+      changeFrequency: 'monthly',
+      priority: 0.82, // Score: 8.2 - Attribution modeling
+    },
+    
+    // Cluster 4: Platform-Specific Intelligence - Channel optimization priority
+    {
+      url: `${baseUrl}/tiktok-creative-intelligence-framework`,
+      lastModified: new Date('2025-01-22'),
+      changeFrequency: 'weekly',
+      priority: 0.77, // Score: 7.7 - TikTok trend analysis anchor
+    },
+    {
+      url: `${baseUrl}/facebook-ad-creative-intelligence-system`,
+      lastModified: new Date('2025-01-22'),
+      changeFrequency: 'monthly', 
+      priority: 0.76, // Score: 7.6 - Facebook optimization
+    },
+    {
+      url: `${baseUrl}/linkedin-creative-intelligence-framework`,
+      lastModified: new Date('2025-01-22'),
+      changeFrequency: 'monthly',
+      priority: 0.75, // Score: 7.5 - B2B LinkedIn strategy
+    },
+    {
+      url: `${baseUrl}/voice-commerce-optimization-framework`,
+      lastModified: new Date('2025-01-22'),
+      changeFrequency: 'monthly',
+      priority: 0.57, // Score: 5.7 - Emerging voice technology
+    },
+    
+    // Cluster 5: Technical Implementation - Advanced setup priority
+    {
+      url: `${baseUrl}/marketing-automation-weekly-creative-intelligence-setup`,
+      lastModified: new Date('2025-01-23'),
+      changeFrequency: 'monthly',
+      priority: 0.65, // Score: 6.5 - Automation anchor
+    },
+    {
+      url: `${baseUrl}/first-party-data-collection-weekly-intelligence-framework`,
+      lastModified: new Date('2025-01-23'),
+      changeFrequency: 'monthly', 
+      priority: 0.64, // Score: 6.4 - Data collection framework
+    },
+    {
+      url: `${baseUrl}/analytics-setup-weekly-creative-intelligence-tracking`,
+      lastModified: new Date('2025-01-23'),
+      changeFrequency: 'monthly',
+      priority: 0.63, // Score: 6.3 - Analytics setup
+    },
+    {
+      url: `${baseUrl}/api-integration-weekly-creative-intelligence-automation`,
+      lastModified: new Date('2025-01-23'),
+      changeFrequency: 'monthly',
+      priority: 0.62, // Score: 6.2 - API integration
+    },
+    {
+      url: `${baseUrl}/marketing-technology-stack-weekly-intelligence-optimization`,
+      lastModified: new Date('2025-01-23'),
+      changeFrequency: 'monthly',
+      priority: 0.46, // Score: 4.6 - Technology stack
+    },
+    
     // New SEO articles - High priority for organic search
     {
       url: `${baseUrl}/blog/weekly-creative-intelligence-subscription-marketing`,
