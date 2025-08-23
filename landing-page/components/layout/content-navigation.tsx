@@ -294,11 +294,12 @@ export function ContentNavigation({
                     {piece.description}
                   </p>
                   
-                  <Link href={piece.href}>
-                    <button className={`${colors.button} px-4 py-2 rounded-lg font-semibold text-sm transition-colors flex items-center`}>
-                      {piece.cta}
-                      <ArrowRight className="h-4 w-4 ml-1" />
-                    </button>
+                  <Link 
+                    href={piece.href}
+                    className={`${colors.button} px-4 py-2 rounded-lg font-semibold text-sm transition-colors flex items-center inline-flex`}
+                  >
+                    {piece.cta}
+                    <ArrowRight className="h-4 w-4 ml-1" />
                   </Link>
                 </div>
               );
@@ -344,11 +345,12 @@ export function ContentNavigation({
                     {piece.description}
                   </p>
                   
-                  <Link href={piece.href} className="mt-auto">
-                    <button className={`${colors.button} w-full py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center`}>
-                      {piece.cta}
-                      <ArrowRight className="h-4 w-4 ml-2" />
-                    </button>
+                  <Link 
+                    href={piece.href} 
+                    className={`${colors.button} w-full py-3 px-4 rounded-lg font-semibold transition-colors flex items-center justify-center mt-auto`}
+                  >
+                    {piece.cta}
+                    <ArrowRight className="h-4 w-4 ml-2" />
                   </Link>
                 </div>
               </div>

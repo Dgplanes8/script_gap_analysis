@@ -161,18 +161,13 @@ export default function HookGeneratorMethodology() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => {
-                  const methodologySection = document.getElementById('hook-methodology');
-                  if (methodologySection) {
-                    methodologySection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+              <Link
+                href="#hook-methodology"
                 className="bg-white text-purple-600 hover:bg-purple-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
               >
                 Explore Methodology
                 <ArrowRight className="h-5 w-5 ml-2" />
-              </button>
+              </Link>
               <Link
                 href="/weekly-creative-intelligence-playbook"
                 className="border-2 border-white text-white hover:bg-white hover:text-purple-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
@@ -542,18 +537,13 @@ export default function HookGeneratorMethodology() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => {
-                  const emailSection = document.getElementById('email-signup');
-                  if (emailSection) {
-                    emailSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+              <Link
+                href="#email-signup"
                 className="bg-white text-purple-600 hover:bg-purple-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
               >
                 Get Complete Methodology
                 <ArrowRight className="h-5 w-5 ml-2" />
-              </button>
+              </Link>
               
               <Link
                 href="/#service-tiers"

@@ -1,8 +1,24 @@
 import type { Metadata } from 'next';
-import { ChurnReductionCalculator } from '@/components/calculators/churn-reduction-calculator';
+import dynamic from 'next/dynamic';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { Header } from '@/components/layout/header';
+
+const ChurnReductionCalculator = dynamic(
+  () => import('@/components/calculators/churn-reduction-calculator').then((mod) => ({ default: mod.ChurnReductionCalculator })),
+  { 
+    ssr: false,
+    loading: () => (
+      <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+        <div className="animate-pulse">
+          <div className="h-8 bg-gray-200 rounded mb-4"></div>
+          <div className="h-4 bg-gray-200 rounded mb-8"></div>
+          <div className="h-64 bg-gray-200 rounded"></div>
+        </div>
+      </div>
+    )
+  }
+);
 
 export const metadata: Metadata = {
   title: 'Subscription Churn Reduction Framework: Retention Intelligence That Cuts Churn 35% | Apsics Media',

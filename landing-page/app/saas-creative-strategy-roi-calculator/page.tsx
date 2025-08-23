@@ -1,8 +1,24 @@
 import type { Metadata } from 'next';
-import { SaaSCreativeROICalculator } from '@/components/calculators/saas-creative-roi-calculator';
+import dynamic from 'next/dynamic';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { Header } from '@/components/layout/header';
+
+const SaaSCreativeROICalculator = dynamic(
+  () => import('@/components/calculators/saas-creative-roi-calculator').then((mod) => ({ default: mod.SaaSCreativeROICalculator })),
+  { 
+    ssr: false,
+    loading: () => (
+      <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+        <div className="animate-pulse">
+          <div className="h-8 bg-gray-200 rounded mb-4"></div>
+          <div className="h-4 bg-gray-200 rounded mb-8"></div>
+          <div className="h-64 bg-gray-200 rounded"></div>
+        </div>
+      </div>
+    )
+  }
+);
 
 export const metadata: Metadata = {
   title: 'SaaS Creative ROI Calculator - Weekly Trend Intelligence Plans',
