@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, TrendingUp, Target, Database, BarChart3, Users, Zap, Download, Calculator, BookOpen, PlayCircle, Shield, Lock, Eye, FileText, Server, Cloud } from 'lucide-react';
+import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
   title: 'First-Party Data Collection: Weekly Intelligence Framework for Subscription Brands | Apsics Media',
@@ -164,7 +165,9 @@ const complianceFramework = [
 
 export default function FirstPartyDataCollectionWeeklyIntelligenceFramework() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <>
+      <Header />
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-16 lg:pt-20">
       {/* Schema Markup */}
       <script
         type="application/ld+json"
@@ -639,6 +642,7 @@ export default function FirstPartyDataCollectionWeeklyIntelligenceFramework() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

@@ -371,6 +371,6 @@ export default function MobileAppCACCrisisPage() {
         category="Mobile App Marketing"
       />
       </article>
-    </>)
+    </>
   );
 }
