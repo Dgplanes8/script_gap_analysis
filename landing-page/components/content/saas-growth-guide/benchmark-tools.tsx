@@ -1,7 +1,6 @@
 'use client';
 
-import { TrendingUp, Download, CheckCircle } from 'lucide-react';
-import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
+import { TrendingUp, Download, CheckCircle, ArrowRight } from 'lucide-react';
 
 interface BenchmarkToolsProps {
   handleDownloadRequest: () => void;
@@ -28,10 +27,20 @@ export function BenchmarkTools({ handleDownloadRequest }: BenchmarkToolsProps) {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <ConsultationBookingCTA 
-              text="Get Subscription Growth Strategy"
-              variant="primary"
-            />
+            <button
+              onClick={() => {
+                const serviceSection = document.getElementById('service-tiers');
+                if (serviceSection) {
+                  serviceSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/#service-tiers';
+                }
+              }}
+              className="bg-green-600 text-white hover:bg-green-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
+            >
+              Claim Free Week
+              <ArrowRight className="h-4 w-4 ml-2" />
+            </button>
             
             <button
               onClick={handleDownloadRequest}

@@ -4,16 +4,13 @@ import { useState, useEffect } from 'react';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { HooksOfferSection } from '@/components/ui/hooks-offer-section';
-import { StrategicConsultationForm } from '@/components/forms/strategic-consultation-form';
 import { ConvertKitForm } from '@/components/forms/convertkit-form';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { trackPageView } from '@/components/analytics';
-import { useConsultation } from '@/components/contexts/consultation-context';
+import { ArrowRight } from 'lucide-react';
 import { Download, BookOpen, Zap, Users } from 'lucide-react';
 
 export default function FreeHooksPage() {
-  const { openModal: handleOpenConsultation } = useConsultation();
-  const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
 
   useEffect(() => {
     trackPageView('free-hooks');
@@ -178,11 +175,6 @@ export default function FreeHooksPage() {
         </section>
       </main>
 
-      {/* Strategic Consultation Form Modal */}
-      <StrategicConsultationForm
-        isOpen={isConsultationFormOpen}
-        onClose={() => setIsConsultationFormOpen(false)}
-      />
 
       {/* Footer */}
       <Footer />

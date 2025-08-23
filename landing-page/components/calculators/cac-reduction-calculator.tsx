@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { Calculator, TrendingDown, Target, ArrowRight } from 'lucide-react';
-import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 
 export function CACReductionCalculator() {
   const [inputs, setInputs] = useState({
@@ -289,12 +288,22 @@ export function CACReductionCalculator() {
               <div className="bg-indigo-600 rounded-lg p-6 text-center">
                 <h5 className="font-semibold mb-2 text-white">Ready to Implement These Optimizations?</h5>
                 <p className="text-indigo-100 text-sm mb-4">
-                  Get a free strategic consultation to create your custom CAC reduction roadmap
+                  Claim your free week to create your custom CAC reduction roadmap
                 </p>
-                <ConsultationBookingCTA 
-                  variant="secondary"
-                  text="Book Free CAC Strategy Call"
-                />
+                <button
+                  onClick={() => {
+                    const serviceSection = document.getElementById('service-tiers');
+                    if (serviceSection) {
+                      serviceSection.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      window.location.href = '/#service-tiers';
+                    }
+                  }}
+                  className="bg-white text-indigo-600 hover:bg-gray-50 font-semibold px-6 py-2 rounded-lg transition-colors flex items-center justify-center mx-auto"
+                >
+                  Claim Free Week
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </button>
               </div>
             </>
           ) : (

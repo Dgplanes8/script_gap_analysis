@@ -3,8 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Calculator, TrendingUp, Target, PieChart, BarChart3, Zap } from 'lucide-react';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
-import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
-import { useConsultation } from '@/components/contexts/consultation-context';
+import { ArrowRight } from 'lucide-react';
 
 interface CreativeData {
   monthlyAdSpend: number;
@@ -83,11 +82,6 @@ const industryBenchmarks: Record<string, { avgCTR: number; avgCVR: number; topQu
 };
 
 export function SaaSCreativeROICalculator() {
-  const { openModal } = useConsultation();
-
-  const openConsultation = () => {
-    openModal();
-  };
   const [formData, setFormData] = useState<CreativeData>({
     monthlyAdSpend: 0,
     currentCTR: 0,
@@ -476,10 +470,18 @@ export function SaaSCreativeROICalculator() {
                 </p>
                 <div className="flex justify-center space-x-4">
                   <button
-                    onClick={openConsultation}
-                    className="bg-white text-emerald-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-50 transition-colors"
+                    onClick={() => {
+                      const serviceSection = document.getElementById('service-tiers');
+                      if (serviceSection) {
+                        serviceSection.scrollIntoView({ behavior: 'smooth' });
+                      } else {
+                        window.location.href = '/#service-tiers';
+                      }
+                    }}
+                    className="bg-white text-green-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-50 transition-colors flex items-center"
                   >
-                    Book Strategic Consultation
+                    Claim Free Week
+                    <ArrowRight className="h-4 w-4 ml-2" />
                   </button>
                   <div className="max-w-xs">
                     <EmailCaptureForm
@@ -504,10 +506,20 @@ export function SaaSCreativeROICalculator() {
             <p className="text-gray-600 mb-6">
               Get a free creative strategy audit and personalized implementation plan.
             </p>
-            <ConsultationBookingCTA 
-              variant="primary" 
-              text="Book Creative Strategy Audit" 
-            />
+            <button
+              onClick={() => {
+                const serviceSection = document.getElementById('service-tiers');
+                if (serviceSection) {
+                  serviceSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/#service-tiers';
+                }
+              }}
+              className="bg-green-600 text-white hover:bg-green-700 font-semibold px-8 py-3 rounded-lg transition-colors flex items-center justify-center"
+            >
+              Claim Free Week
+              <ArrowRight className="h-5 w-5 ml-2" />
+            </button>
           </div>
         )}
       </div>

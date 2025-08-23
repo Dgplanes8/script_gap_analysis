@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
+import { ArrowRight } from 'lucide-react';
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { BenchmarkTools } from './benchmark-tools';
 import { GrowthMetrics } from './growth-metrics';
@@ -46,7 +46,20 @@ export function ConsumerSubscriptionMarketingGuide() {
             <div className="flex items-center">
               <span className="text-2xl font-bold text-purple-600">Strategic Ad Intelligence</span>
             </div>
-            <ConsultationBookingCTA variant="header" />
+            <button
+              onClick={() => {
+                const serviceSection = document.getElementById('service-tiers');
+                if (serviceSection) {
+                  serviceSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/#service-tiers';
+                }
+              }}
+              className="bg-green-600 text-white hover:bg-green-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
+            >
+              Claim Free Week
+              <ArrowRight className="h-4 w-4 ml-2" />
+            </button>
           </nav>
         </div>
       </header>

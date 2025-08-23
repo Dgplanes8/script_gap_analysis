@@ -1,10 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Calculator, TrendingDown, Target, Users, DollarSign } from 'lucide-react';
+import { Calculator, TrendingDown, Target, Users, DollarSign, ArrowRight } from 'lucide-react';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
-import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
-import { useConsultation } from '@/components/contexts/consultation-context';
 
 interface CACData {
   monthlyRevenue: number;
@@ -37,11 +35,6 @@ const industryBenchmarks: Record<string, { averageCAC: number; topQuartileCAC: n
 };
 
 export function CACOptimizationCalculator() {
-  const { openModal } = useConsultation();
-
-  const openConsultation = () => {
-    openModal();
-  };
   const [formData, setFormData] = useState<CACData>({
     monthlyRevenue: 0,
     currentCAC: 0,
@@ -321,14 +314,22 @@ export function CACOptimizationCalculator() {
                 <div className="bg-indigo-600 p-6 rounded-lg text-white">
                   <h4 className="text-lg font-semibold mb-3">Ready to Implement These Optimizations?</h4>
                   <p className="text-indigo-100 mb-4 text-sm">
-                    Book a free strategic consultation to get a personalized CAC reduction plan for your business.
+                    Claim your free week to get a personalized CAC reduction plan for your business.
                   </p>
                   <div className="flex flex-col space-y-3">
                     <button
-                      onClick={openConsultation}
-                      className="bg-white text-indigo-600 font-semibold py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors text-sm"
+                      onClick={() => {
+                        const serviceSection = document.getElementById('service-tiers');
+                        if (serviceSection) {
+                          serviceSection.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                          window.location.href = '/#service-tiers';
+                        }
+                      }}
+                      className="bg-white text-indigo-600 font-semibold py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors text-sm flex items-center justify-center"
                     >
-                      Book Strategic Consultation
+                      Claim Free Week
+                      <ArrowRight className="h-4 w-4 ml-2" />
                     </button>
                     <EmailCaptureForm
                       placeholder="Get 10 free hooks"
@@ -358,9 +359,22 @@ export function CACOptimizationCalculator() {
             Ready to Implement These Optimizations?
           </h3>
           <p className="text-gray-600 mb-6">
-            Get a free strategic consultation to create your personalized CAC optimization roadmap.
+            Claim your free week to create your personalized CAC optimization roadmap.
           </p>
-          <ConsultationBookingCTA variant="primary" text="Book Free Strategy Call" />
+          <button
+            onClick={() => {
+              const serviceSection = document.getElementById('service-tiers');
+              if (serviceSection) {
+                serviceSection.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                window.location.href = '/#service-tiers';
+              }
+            }}
+            className="bg-green-600 text-white hover:bg-green-700 font-semibold px-8 py-3 rounded-lg transition-colors flex items-center justify-center"
+          >
+            Claim Free Week
+            <ArrowRight className="h-5 w-5 ml-2" />
+          </button>
         </div>
       )}
     </div>

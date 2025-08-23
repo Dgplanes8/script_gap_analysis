@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { TrendingDown, DollarSign, Users, Target, Calculator, AlertCircle } from 'lucide-react';
-import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
+import { TrendingDown, DollarSign, Users, Target, Calculator, AlertCircle, ArrowRight } from 'lucide-react';
 
 interface ChurnInputs {
   monthlyRecurringRevenue: number;
@@ -348,12 +347,22 @@ export function ChurnReductionCalculator() {
                     Ready to Reduce Your Churn Rate?
                   </h4>
                   <p className="text-gray-600 mb-4 text-sm">
-                    Get a custom churn reduction strategy based on your specific patterns
+                    Claim your free week to get a custom churn reduction strategy
                   </p>
-                  <ConsultationBookingCTA 
-                    text="Book Churn Audit Call"
-                    variant="primary"
-                  />
+                  <button
+                    onClick={() => {
+                      const serviceSection = document.getElementById('service-tiers');
+                      if (serviceSection) {
+                        serviceSection.scrollIntoView({ behavior: 'smooth' });
+                      } else {
+                        window.location.href = '/#service-tiers';
+                      }
+                    }}
+                    className="bg-green-600 text-white hover:bg-green-700 font-semibold px-8 py-3 rounded-lg transition-colors flex items-center justify-center mx-auto"
+                  >
+                    Claim Free Week
+                    <ArrowRight className="h-5 w-5 ml-2" />
+                  </button>
                 </div>
               </>
             ) : (

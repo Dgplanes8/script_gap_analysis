@@ -1,8 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { BarChart, Settings, TrendingUp, Calculator } from 'lucide-react';
-import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
+import { BarChart, Settings, TrendingUp, Calculator, ArrowRight } from 'lucide-react';
 
 interface AttributionInputs {
   attributionModel: string;
@@ -411,12 +410,22 @@ export function AttributionModelingTool() {
               <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg p-6 text-center">
                 <h4 className="font-semibold mb-2 text-white">Ready to Improve Your Attribution?</h4>
                 <p className="text-purple-100 text-sm mb-4">
-                  Get expert guidance on implementing advanced attribution for your business
+                  Claim your free week to get expert guidance on implementing advanced attribution
                 </p>
-                <ConsultationBookingCTA 
-                  variant="secondary"
-                  text="Book Attribution Strategy Session"
-                />
+                <button
+                  onClick={() => {
+                    const serviceSection = document.getElementById('service-tiers');
+                    if (serviceSection) {
+                      serviceSection.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      window.location.href = '/#service-tiers';
+                    }
+                  }}
+                  className="bg-white text-purple-600 hover:bg-gray-50 font-semibold px-6 py-2 rounded-lg transition-colors flex items-center justify-center mx-auto"
+                >
+                  Claim Free Week
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </button>
               </div>
             </>
           ) : (

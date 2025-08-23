@@ -245,11 +245,19 @@ export function ServiceTiers() {
 
                 <div className="mt-auto">
                   <button
-                    onClick={() => openConsultation(tier.name)}
+                    onClick={() => {
+                      if (tier.id === 'enterprise') {
+                        openConsultation(tier.name);
+                      } else {
+                        // For all non-enterprise tiers, these are the weekly service buttons that should stay on this page
+                        // Track the tier selection
+                        setSelectedTier(tier.id as any);
+                      }
+                    }}
                     className={`w-full py-3 px-4 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center min-h-[48px] text-sm ${tier.ctaColor}`}
                   >
                     <Calendar className="h-4 w-4 mr-2 flex-shrink-0" />
-                    <span className="text-center flex-1">{tier.id === 'enterprise' ? 'Contact Us' : `Try Free Week`}</span>
+                    <span className="text-center flex-1">{tier.id === 'enterprise' ? 'Contact Us' : `Claim Free Week`}</span>
                     <ArrowRight className="h-3 w-3 ml-2 flex-shrink-0" />
                   </button>
 
@@ -324,7 +332,7 @@ export function ServiceTiers() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
-                onClick={() => openConsultation("Not Sure - Help Me Decide")}
+                onClick={() => window.location.href = '/free-hooks'}
                 className="bg-orange-600 hover:bg-orange-700 text-white font-semibold text-lg px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
               >
                 Get My 10 Free Hooks

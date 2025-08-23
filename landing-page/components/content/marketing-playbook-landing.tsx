@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { BookOpen, Download, Play, CheckCircle, Target, TrendingUp, Users, DollarSign, ArrowRight } from 'lucide-react';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
-import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { StrategyAssessmentForm } from '@/components/forms/strategy-assessment-form';
 import { ContentNavigation } from '@/components/layout/content-navigation';
 
@@ -121,7 +120,20 @@ export function MarketingPlaybookLanding() {
             <div className="flex items-center">
               <span className="text-2xl font-bold text-indigo-600">Strategic Ad Intelligence</span>
             </div>
-            <ConsultationBookingCTA variant="header" />
+            <button
+              onClick={() => {
+                const serviceSection = document.getElementById('service-tiers');
+                if (serviceSection) {
+                  serviceSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/#service-tiers';
+                }
+              }}
+              className="bg-green-600 text-white hover:bg-green-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
+            >
+              Claim Free Week
+              <ArrowRight className="h-4 w-4 ml-2" />
+            </button>
           </nav>
         </div>
       </header>
@@ -157,11 +169,18 @@ export function MarketingPlaybookLanding() {
                 </button>
                 
                 <button
-                  onClick={() => setShowAssessment(true)}
-                  className="border-2 border-purple-600 text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors flex items-center justify-center"
+                  onClick={() => {
+                    const serviceSection = document.getElementById('service-tiers');
+                    if (serviceSection) {
+                      serviceSection.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      window.location.href = '/#service-tiers';
+                    }
+                  }}
+                  className="bg-green-600 text-white hover:bg-green-700 font-semibold px-8 py-3 rounded-lg transition-colors flex items-center justify-center"
                 >
-                  <Target className="h-5 w-5 mr-2" />
-                  Get Strategy Assessment
+                  <ArrowRight className="h-5 w-5 mr-2" />
+                  Claim Free Week
                 </button>
               </div>
               
@@ -354,10 +373,20 @@ export function MarketingPlaybookLanding() {
           )}
           
           <div className="mt-8">
-            <ConsultationBookingCTA 
-              variant="secondary" 
-              text="Book Strategy Assessment Call"
-            />
+            <button
+              onClick={() => {
+                const serviceSection = document.getElementById('service-tiers');
+                if (serviceSection) {
+                  serviceSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/#service-tiers';
+                }
+              }}
+              className="bg-green-600 text-white hover:bg-green-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
+            >
+              Claim Free Week
+              <ArrowRight className="h-4 w-4 ml-2" />
+            </button>
           </div>
         </div>
       </section>

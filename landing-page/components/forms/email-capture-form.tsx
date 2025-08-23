@@ -23,7 +23,7 @@ interface EmailCaptureFormProps {
 
 export function EmailCaptureForm({
   placeholder = 'Enter your work email address',
-  buttonText = 'Get My 10 Free Hooks',
+  buttonText = 'Claim Free Week',
   variant = 'inline',
   source = 'unknown',
   onSubmit,

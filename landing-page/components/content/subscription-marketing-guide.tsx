@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { BookOpen, Download, CheckCircle, Target, TrendingUp, Users, DollarSign, ArrowRight, Mail, Calendar, BarChart3, Zap, Shield, Rocket } from 'lucide-react';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
-import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { StrategyAssessmentForm } from '@/components/forms/strategy-assessment-form';
 import { ContentNavigation } from '@/components/layout/content-navigation';
 
@@ -148,7 +147,20 @@ export function SubscriptionMarketingGuide() {
             <div className="flex items-center">
               <span className="text-2xl font-bold text-blue-600">Strategic Ad Intelligence</span>
             </div>
-            <ConsultationBookingCTA variant="header" />
+            <button
+              onClick={() => {
+                const serviceSection = document.getElementById('service-tiers');
+                if (serviceSection) {
+                  serviceSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/#service-tiers';
+                }
+              }}
+              className="bg-green-600 text-white hover:bg-green-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
+            >
+              Claim Free Week
+              <ArrowRight className="h-4 w-4 ml-2" />
+            </button>
           </nav>
         </div>
       </header>
@@ -184,8 +196,8 @@ export function SubscriptionMarketingGuide() {
                 onClick={() => setShowAssessment(true)}
                 className="border-2 border-red-600 text-red-600 px-8 py-4 rounded-lg font-semibold hover:bg-red-50 transition-colors flex items-center justify-center"
               >
-                <Calendar className="h-5 w-5 mr-2" />
-                Book Strategy Consultation
+                <ArrowRight className="h-5 w-5 mr-2" />
+                Claim Free Week
               </button>
             </div>
             
@@ -322,10 +334,20 @@ export function SubscriptionMarketingGuide() {
             )}
             
             <div className="mt-8">
-              <ConsultationBookingCTA 
-                variant="secondary" 
-                text="Book Strategic Consultation"
-              />
+              <button
+                onClick={() => {
+                  const serviceSection = document.getElementById('service-tiers');
+                  if (serviceSection) {
+                    serviceSection.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    window.location.href = '/#service-tiers';
+                  }
+                }}
+                className="bg-green-600 text-white hover:bg-green-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
+              >
+                Claim Free Week
+                <ArrowRight className="h-4 w-4 ml-2" />
+              </button>
             </div>
           </div>
         </div>

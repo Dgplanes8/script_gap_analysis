@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Download, CheckCircle, Calendar } from 'lucide-react';
+import { Download, CheckCircle, Calendar, ArrowRight } from 'lucide-react';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { StrategicConsultationForm } from '@/components/forms/strategic-consultation-form';
 
@@ -123,11 +123,18 @@ export function ImplementationTimeline({
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => setShowConsultation(true)}
-              className="bg-white text-purple-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors duration-200 flex items-center justify-center"
+              onClick={() => {
+                const serviceSection = document.getElementById('service-tiers');
+                if (serviceSection) {
+                  serviceSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/#service-tiers';
+                }
+              }}
+              className="bg-green-600 text-white hover:bg-green-700 font-semibold py-4 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center"
             >
-              <Calendar className="h-5 w-5 mr-2" />
-              Book D2C Strategy Consultation
+              <ArrowRight className="h-5 w-5 mr-2" />
+              Claim Free Week
             </button>
             <button
               onClick={handleDownloadRequest}

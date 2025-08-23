@@ -3,11 +3,7 @@
 import { TrendingUp, Users, Award, Target, DollarSign, Building2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-interface AboutSectionProps {
-  onOpenApplication?: (variant: 'pilot' | 'full') => void;
-}
-
-export function AboutSection({ onOpenApplication }: AboutSectionProps) {
+export function AboutSection() {
   return (
     <section id="about" className="py-24 bg-white">
       <div className="container mx-auto px-4">
@@ -179,7 +175,14 @@ export function AboutSection({ onOpenApplication }: AboutSectionProps) {
             
             <div className="text-center">
               <button
-                onClick={() => onOpenApplication && onOpenApplication('full')}
+                onClick={() => {
+                  const serviceSection = document.getElementById('service-tiers');
+                  if (serviceSection) {
+                    serviceSection.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    window.location.href = '/#service-tiers';
+                  }
+                }}
                 className="bg-gradient-to-r from-orange-600 to-red-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-orange-700 hover:to-red-700 transition-all duration-200 inline-flex items-center"
               >
                 Book Growth Assessment

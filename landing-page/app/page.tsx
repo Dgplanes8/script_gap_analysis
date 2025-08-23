@@ -11,13 +11,10 @@ import { StrategyProcess } from '@/components/layout/strategic-process';
 import { CreativeStrategyBenchmarkTool } from '@/components/calculators/creative-strategy-benchmark-tool';
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { AboutSection } from '@/components/layout/about-section';
-import { StrategicConsultationForm } from '@/components/forms/strategic-consultation-form';
-import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { Header } from '@/components/layout/header';
 import { ConversionDashboard } from '@/components/analytics/conversion-dashboard';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { Footer } from '@/components/layout/footer';
-import { useConsultation } from '@/components/contexts/consultation-context';
 import { TikTokAnalysisShowcase } from '@/components/creative/tiktok-analysis-showcase';
 import { HookGeneratorDemo } from '@/components/creative/hook-generator-demo';
 import { ConceptIdeationFramework } from '@/components/creative/concept-ideation-framework';
@@ -29,8 +26,6 @@ import { ROICalculator } from '@/components/calculators/roi-calculator';
 import { VideoProductionSupport } from '@/components/landing/video-production-support';
 
 export default function HomePage() {
-  const { openModal: handleOpenConsultation } = useConsultation();
-  const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
 
   return (
     <>
@@ -155,7 +150,7 @@ export default function HomePage() {
       <CreativeBriefStructure />
 
       {/* About Section - Weekly Intelligence Positioning */}
-      <AboutSection onOpenApplication={handleOpenConsultation} />
+      <AboutSection />
 
       {/* Strategic Process Overview */}
       <StrategyProcess />
@@ -375,11 +370,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Strategic Consultation Form Modal */}
-      <StrategicConsultationForm
-        isOpen={isConsultationFormOpen}
-        onClose={() => setIsConsultationFormOpen(false)}
-      />
 
       {/* Exit Intent Popup */}
       <ExitIntentPopup 

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { BenchmarkTools } from './benchmark-tools';
 import { GrowthMetrics } from './growth-metrics';

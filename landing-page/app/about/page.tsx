@@ -4,21 +4,15 @@ import { useState, useEffect } from 'react';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { AboutSection } from '@/components/layout/about-section';
-import { StrategicConsultationForm } from '@/components/forms/strategic-consultation-form';
 import { trackPageView } from '@/components/analytics';
-import { useConsultation } from '@/components/contexts/consultation-context';
+import { ArrowRight } from 'lucide-react';
 
 export default function AboutPage() {
-  const { openModal } = useConsultation();
-  const [isConsultationFormOpen, setIsConsultationFormOpen] = useState(false);
 
   useEffect(() => {
     trackPageView('about');
   }, []);
 
-  const handleOpenConsultation = () => {
-    openModal();
-  };
 
   return (
     <>
@@ -57,34 +51,37 @@ export default function AboutPage() {
         </section>
 
         {/* About Section Content */}
-        <AboutSection onOpenApplication={(variant) => openModal()} />
+        <AboutSection />
 
-        {/* Strategic Consultation CTA */}
-        <section className="py-16 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+        {/* Free Week CTA */}
+        <section className="py-16 bg-gradient-to-r from-green-600 to-emerald-600 text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-6">
                 Stop Waiting Weeks for Creative Concepts
               </h2>
               <p className="text-xl mb-8 opacity-90">
-                Book a growth bottleneck assessment to see how 48-hour creative delivery can accelerate your subscription business growth.
+                Start your free week of creative intelligence to experience 48-hour creative delivery firsthand.
               </p>
               <button
-                onClick={() => handleOpenConsultation()}
-                className="bg-white text-orange-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-lg"
+                onClick={() => {
+                  const serviceSection = document.getElementById('service-tiers');
+                  if (serviceSection) {
+                    serviceSection.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    window.location.href = '/#service-tiers';
+                  }
+                }}
+                className="bg-white text-green-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-lg flex items-center justify-center mx-auto"
               >
-                Book Growth Assessment
+                Claim Free Week
+                <ArrowRight className="h-5 w-5 ml-2" />
               </button>
             </div>
           </div>
         </section>
       </main>
 
-      {/* Strategic Consultation Form Modal */}
-      <StrategicConsultationForm
-        isOpen={isConsultationFormOpen}
-        onClose={() => setIsConsultationFormOpen(false)}
-      />
 
       {/* Footer */}
       <Footer />

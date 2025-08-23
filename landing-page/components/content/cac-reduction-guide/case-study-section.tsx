@@ -1,8 +1,7 @@
 'use client';
 
-import { CheckCircle, Download, BookOpen } from 'lucide-react';
+import { CheckCircle, Download, BookOpen, ArrowRight } from 'lucide-react';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
-import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 
 export function CaseStudySection() {
   return (
@@ -41,21 +40,31 @@ export function CaseStudySection() {
             <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
               <BookOpen className="h-6 w-6 text-white" />
             </div>
-            <h3 className="text-xl font-semibold mb-4">Free Strategic CAC Audit</h3>
+            <h3 className="text-xl font-semibold mb-4">Claim Your Free Week</h3>
             <p className="text-indigo-100 mb-6">
-              Get a personalized CAC reduction strategy session with our senior strategists. 
-              We'll analyze your current performance and create a custom 90-day optimization roadmap.
+              Get access to our complete strategic ad intelligence system for one week completely free. 
+              Experience our proven methodology and see the results for yourself.
             </p>
             <ul className="space-y-2 text-indigo-100 mb-6">
-              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-2" />30-minute strategic assessment</li>
-              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-2" />Custom CAC reduction projection</li>
-              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-2" />Personalized implementation roadmap</li>
-              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-2" />No-obligation strategic guidance</li>
+              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-2" />Weekly creative concepts and scripts</li>
+              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-2" />Complete competitive intelligence</li>
+              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-2" />Strategic analysis and insights</li>
+              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-2" />No commitment required</li>
             </ul>
-            <ConsultationBookingCTA 
-              variant="secondary" 
-              text="Book Free CAC Audit"
-            />
+            <button
+              onClick={() => {
+                const serviceSection = document.getElementById('service-tiers');
+                if (serviceSection) {
+                  serviceSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/#service-tiers';
+                }
+              }}
+              className="bg-green-600 text-white hover:bg-green-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
+            >
+              Claim Free Week
+              <ArrowRight className="h-4 w-4 ml-2" />
+            </button>
           </div>
         </div>
       </section>

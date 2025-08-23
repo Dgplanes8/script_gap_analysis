@@ -15,8 +15,8 @@ interface PopupFormModalProps {
 export function PopupFormModal({
   isOpen,
   onClose,
-  title = "Get Your 10 Free Hooks",
-  subtitle = "Join 1,200+ growth marketers getting weekly creative concepts",
+  title = "Claim Free Week",
+  subtitle = "Start your free week of trending creative concepts and scripts",
   source = "popup"
 }: PopupFormModalProps) {
   useEffect(() => {
@@ -81,7 +81,7 @@ export function PopupFormModal({
           {/* Form */}
           <EmailCaptureForm
             placeholder="Enter your work email"
-            buttonText="Get My 10 Free Hooks"
+            buttonText="Claim Free Week"
             variant="cta"
             source={source}
           />

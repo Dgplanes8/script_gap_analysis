@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { BarChart3, Target, TrendingUp, Award, ArrowRight } from 'lucide-react';
-import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 
 interface BenchmarkInputs {
   creativeTestingFrequency: string;
@@ -380,12 +379,22 @@ export function RevenueGrowthBenchmarkTool() {
         <div className="bg-gradient-to-r from-emerald-600 to-blue-600 rounded-lg p-6 text-center">
           <h4 className="font-semibold mb-2 text-white">Ready to Optimize Your Creative Strategy?</h4>
           <p className="text-blue-100 text-sm mb-4">
-            Get a personalized growth strategy session to implement these recommendations
+            Claim your free week to implement these personalized recommendations
           </p>
-          <ConsultationBookingCTA 
-            variant="secondary"
-            text="Book Free Growth Strategy Session"
-          />
+          <button
+            onClick={() => {
+              const serviceSection = document.getElementById('service-tiers');
+              if (serviceSection) {
+                serviceSection.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                window.location.href = '/#service-tiers';
+              }
+            }}
+            className="bg-white text-emerald-600 hover:bg-gray-50 font-semibold px-6 py-2 rounded-lg transition-colors flex items-center justify-center mx-auto"
+          >
+            Claim Free Week
+            <ArrowRight className="h-4 w-4 ml-2" />
+          </button>
         </div>
       </div>
     );

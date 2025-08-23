@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { useConsultation } from '@/components/contexts/consultation-context';
 
 interface HeaderProps {
@@ -110,12 +110,6 @@ export function Header({ onOpenApplication }: HeaderProps) {
                   >
                     ROI Calculator
                   </Link>
-                  <button
-                    onClick={openConsultation}
-                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-orange-600 transition-colors"
-                  >
-                    Strategic Consultation
-                  </button>
                 </div>
               </div>
             </div>
@@ -134,7 +128,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
               }}
               className="bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-2 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
             >
-              Start FREE Week
+              Claim Free Week
             </button>
             <button
               onClick={() => window.location.href = '/free-hooks'}
@@ -147,9 +141,9 @@ export function Header({ onOpenApplication }: HeaderProps) {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-3 text-gray-700 hover:text-orange-600 transition-colors bg-gray-50 hover:bg-gray-100 rounded-lg border border-gray-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
+            className="lg:hidden p-3 text-gray-700 hover:text-orange-600 transition-colors bg-white border border-gray-300 rounded-lg min-w-[44px] min-h-[44px] flex items-center justify-center"
           >
-            {isOpen ? <X className="h-6 w-6" aria-label="Close menu" /> : <Menu className="h-6 w-6" aria-label="Open menu" />}
+            <span className="text-sm font-medium">{isOpen ? 'Close' : 'Menu'}</span>
           </button>
         </div>
 
@@ -197,15 +191,6 @@ export function Header({ onOpenApplication }: HeaderProps) {
               >
                 ROI Calculator
               </Link>
-              <button
-                onClick={() => {
-                  openConsultation();
-                  setIsOpen(false);
-                }}
-                className="block w-full text-left text-gray-700 hover:text-orange-600 font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
-              >
-                Strategic Consultation
-              </button>
               
               {/* Mobile CTA Buttons */}
               <div className="pt-6 space-y-4 border-t border-gray-100">
@@ -221,7 +206,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
                   }}
                   className="bg-green-600 hover:bg-green-700 text-white w-full py-4 text-lg font-bold min-h-[48px] rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
                 >
-                  Start FREE Week
+                  Claim Free Week
                 </button>
                 <button
                   onClick={() => {
