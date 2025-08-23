@@ -6,6 +6,7 @@ import { ArticleStructuredData } from '@/components/blog/article-structured-data
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation';
 import { RelatedArticles } from '@/components/blog/related-articles';
 import { SocialSharing } from '@/components/blog/social-sharing';
+import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
   title: 'Mobile App CAC Crisis: 2025 Acquisition Cost Reduction Guide | Strategic Ad Intelligence',
@@ -30,7 +31,9 @@ export default function MobileAppCACCrisisPage() {
   ];
 
   return (
-    <article className="min-h-screen bg-white">
+    <>
+      <Header />
+      <article className="min-h-screen bg-white pt-16 lg:pt-20">
       {/* Structured Data */}
       <ArticleStructuredData
         title="Mobile App CAC Crisis: 2025 Acquisition Cost Reduction Guide"
@@ -331,23 +334,27 @@ export default function MobileAppCACCrisisPage() {
                     Ready to Reduce Your Mobile App CAC?
                   </h2>
                   <p className="text-lg text-gray-700 mb-6">
-                    Get a comprehensive CAC optimization strategy tailored to your mobile app with our Fortune 100 methodology.
+                    Start your first week FREE. Get weekly creative intelligence that reduces mobile app CAC by 25% with our proven methodology.
                   </p>
                   <div className="space-y-4">
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                       <Link
+                        href="/#service-tiers"
+                        className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition-colors"
+                      >
+                        <Zap className="h-5 w-5 mr-2" />
+                        Start Your FREE Week
+                      </Link>
+                      <Link
                         href="/mobile-app-cac-optimization-2025"
-                        className="inline-flex items-center px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-colors"
+                        className="inline-flex items-center px-6 py-3 border-2 border-orange-600 text-orange-600 font-semibold rounded-lg hover:bg-orange-600 hover:text-white transition-colors"
                       >
                         <Calculator className="h-5 w-5 mr-2" />
-                        Get Free CAC Calculator & Framework
+                        Get CAC Calculator
                       </Link>
-                      <ConsultationBookingCTA 
-                        text="Book Strategy Call"
-                      />
                     </div>
                     <p className="text-sm text-gray-600">
-                      Interactive calculator • Proven framework • Custom implementation roadmap
+                      First week FREE • No commitment • Weekly creative intelligence delivered every Monday
                     </p>
                   </div>
                 </div>
@@ -363,6 +370,7 @@ export default function MobileAppCACCrisisPage() {
         currentSlug="/blog/mobile-app-cac-crisis-2025-guide"
         category="Mobile App Marketing"
       />
-    </article>
+      </article>
+    </>)
   );
 }

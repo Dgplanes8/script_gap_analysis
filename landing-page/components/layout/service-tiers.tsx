@@ -183,6 +183,10 @@ export function ServiceTiers() {
                 )}
 
                 <div className="text-center mb-6">
+                  {/* FREE Week Badge */}
+                  <div className="bg-green-100 text-green-800 text-xs font-bold px-3 py-2 rounded-full mb-3">
+                    🎉 FIRST WEEK FREE
+                  </div>
                   <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mb-3 ${tier.badgeColor}`}>
                     <Icon className="h-3 w-3 mr-1" />
                     {tier.badge}

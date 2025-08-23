@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, TrendingUp, Target, Settings, BarChart3, Users, Zap, Download, Calculator, BookOpen, PlayCircle, Workflow, Bot, Clock, Database, GitBranch, Layers } from 'lucide-react';
+import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
   title: 'Marketing Automation for Weekly Creative Intelligence: Subscription Business Setup Guide | Apsics Media',
@@ -193,7 +194,9 @@ const implementationTimeline = [
 
 export default function MarketingAutomationWeeklyCreativeIntelligenceSetup() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <>
+      <Header />
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-16 lg:pt-20">
       {/* Schema Markup */}
       <script
         type="application/ld+json"
@@ -585,19 +588,19 @@ export default function MarketingAutomationWeeklyCreativeIntelligenceSetup() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="#email-signup"
-                className="bg-white text-indigo-600 hover:bg-indigo-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                href="/#service-tiers"
+                className="bg-green-600 text-white hover:bg-green-700 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
               >
-                Get Automation Framework
+                Start Your FREE Week
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
               <Link
-                href="/#service-tiers"
+                href="/free-hooks"
                 className="border-2 border-white text-white hover:bg-white hover:text-indigo-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
               >
-                View Automation Plans
-                <Settings className="h-5 w-5 ml-2" />
+                Get Free Hooks
+                <Download className="h-5 w-5 ml-2" />
               </Link>
             </div>
           </div>
@@ -655,6 +658,7 @@ export default function MarketingAutomationWeeklyCreativeIntelligenceSetup() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

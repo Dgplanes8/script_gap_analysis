@@ -124,12 +124,6 @@ export function Header({ onOpenApplication }: HeaderProps) {
           {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
             <button
-              onClick={() => window.location.href = '/free-hooks'}
-              className="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-2 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
-            >
-              Get 10 Free Hooks
-            </button>
-            <button
               onClick={() => {
                 const serviceSection = document.getElementById('service-tiers');
                 if (serviceSection) {
@@ -138,9 +132,15 @@ export function Header({ onOpenApplication }: HeaderProps) {
                   window.location.href = '/#service-tiers';
                 }
               }}
-              className="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-2 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+              className="bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-2 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
             >
-              See Weekly Plans
+              Start FREE Week
+            </button>
+            <button
+              onClick={() => window.location.href = '/free-hooks'}
+              className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white font-semibold px-6 py-2 rounded-lg transition-colors duration-200"
+            >
+              Get Free Hooks
             </button>
           </div>
 
@@ -211,15 +211,6 @@ export function Header({ onOpenApplication }: HeaderProps) {
               <div className="pt-6 space-y-4 border-t border-gray-100">
                 <button
                   onClick={() => {
-                    window.location.href = '/free-hooks';
-                    setIsOpen(false);
-                  }}
-                  className="bg-orange-600 hover:bg-orange-700 text-white w-full py-4 text-lg font-semibold min-h-[48px] rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
-                >
-                  Get 10 Free Hooks
-                </button>
-                <button
-                  onClick={() => {
                     const serviceSection = document.getElementById('service-tiers');
                     if (serviceSection) {
                       serviceSection.scrollIntoView({ behavior: 'smooth' });
@@ -228,9 +219,18 @@ export function Header({ onOpenApplication }: HeaderProps) {
                     }
                     setIsOpen(false);
                   }}
-                  className="bg-orange-600 hover:bg-orange-700 text-white w-full py-4 text-lg font-semibold min-h-[48px] rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+                  className="bg-green-600 hover:bg-green-700 text-white w-full py-4 text-lg font-bold min-h-[48px] rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
                 >
-                  See Weekly Plans
+                  Start FREE Week
+                </button>
+                <button
+                  onClick={() => {
+                    window.location.href = '/free-hooks';
+                    setIsOpen(false);
+                  }}
+                  className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white w-full py-4 text-lg font-semibold min-h-[48px] rounded-lg transition-colors duration-200"
+                >
+                  Get Free Hooks
                 </button>
               </div>
             </nav>

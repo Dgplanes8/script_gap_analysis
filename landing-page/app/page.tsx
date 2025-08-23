@@ -42,9 +42,9 @@ export default function HomePage() {
       <Hero
         title="Scale Your Growth 3x Faster With Viral Ad Hooks & Creative Scripts That Convert"
         subtitle="Get high-converting ad hooks and creative scripts every Monday. Reduce CAC by 25% with trending social media concepts analyzed through marketing psychology. Stop creative fatigue - increase conversion rates 3x faster."
-        ctaText="Get My 10 Free Hooks"
-        secondaryCtaText="See Weekly Plans"
-        secondaryCtaLink="#service-tiers"
+        ctaText="Start Your FREE Week"
+        secondaryCtaText="Get Free Hooks"
+        secondaryCtaLink="/free-hooks"
         showEmailCapture={true}
       />
 
