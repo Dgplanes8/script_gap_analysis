@@ -6,6 +6,7 @@ import { ArticleSchema, StructuredData } from '@/components/schema';
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation';
 import { RelatedArticles } from '@/components/blog/related-articles';
 import { SocialSharing } from '@/components/blog/social-sharing';
+import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
   title: 'Freemium to Premium: Conversion Optimization Framework for Mobile Apps | Strategic Ad Intelligence',
@@ -30,42 +31,29 @@ export default function FreemiumConversionPage() {
   ];
 
   return (
-    <article className="min-h-screen bg-white">
-      {/* Structured Data */}
-      <ArticleSchema
-        title="Freemium to Premium: Conversion Optimization Framework for Mobile Apps"
-        description="Master freemium conversion optimization with proven psychological triggers and Fortune 100 methodologies. Transform free users into high-value premium customers."
-        slug="/blog/freemium-conversion-optimization-framework"
-        category="Mobile App Marketing"
-        keywords={['freemium conversion optimization', 'mobile app monetization', 'premium conversion', 'user acquisition strategy']}
-        readingTime={15}
-      />
-      
-      <StructuredData 
-        pageType="article"
-        title="Freemium to Premium: Conversion Optimization Framework for Mobile Apps"
-        description="Master freemium conversion optimization with proven psychological triggers and Fortune 100 methodologies. Transform free users into high-value premium customers."
-        slug="/blog/freemium-conversion-optimization-framework"
-      />
-
+    <>
       {/* Header Navigation */}
-      <div className="border-b border-gray-200">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <Link 
-              href="/blog" 
-              className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors w-fit"
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Blog
-            </Link>
-            
-            <BreadcrumbNavigation items={breadcrumbItems} />
-          </div>
-        </div>
-      </div>
+      <Header />
+      
+      <article className="min-h-screen pt-16 lg:pt-20 bg-white">
+        {/* Structured Data */}
+        <ArticleSchema
+          title="Freemium to Premium: Conversion Optimization Framework for Mobile Apps"
+          description="Master freemium conversion optimization with proven psychological triggers and Fortune 100 methodologies. Transform free users into high-value premium customers."
+          slug="/blog/freemium-conversion-optimization-framework"
+          category="Mobile App Marketing"
+          keywords={['freemium conversion optimization', 'mobile app monetization', 'premium conversion', 'user acquisition strategy']}
+          readingTime={15}
+        />
+        
+        <StructuredData 
+          pageType="article"
+        title="Freemium to Premium: Conversion Optimization Framework for Mobile Apps"
+        description="Master freemium conversion optimization with proven psychological triggers and Fortune 100 methodologies. Transform free users into high-value premium customers."
+        slug="/blog/freemium-conversion-optimization-framework"
+      />
 
-      {/* Article Header */}
+        {/* Article Header */}
       <header className="bg-gradient-to-br from-purple-50 to-pink-50 py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -441,5 +429,6 @@ export default function FreemiumConversionPage() {
         category="Mobile App Marketing"
       />
     </article>
+    </>
   );
 }

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Clock, TrendingDown, RefreshCw, AlertTriangle, BarChart3, Users, Mail, Calendar, Target, Zap, ChevronRight, CheckCircle, TrendingUp } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
+import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
   title: 'Subscription Churn Rate Optimization: 7 Data-Driven Strategies for Growth Teams | Apsics Media',
@@ -22,24 +23,11 @@ export default function SubscriptionChurnOptimizationPage() {
   
   return (
     <>
-      <main className="min-h-screen bg-white">
+      {/* Header Navigation */}
+      <Header />
+      
+      <main className="min-h-screen pt-16 lg:pt-20 bg-white">
       <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between">
-            <Link 
-              href="/blog"
-              className="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium"
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Blog
-            </Link>
-            <div className="flex items-center text-gray-500 text-sm">
-              <Clock className="h-4 w-4 mr-1" />
-              12 min read
-            </div>
-          </div>
-        </div>
 
         {/* Article Header */}
         <header className="mb-12">

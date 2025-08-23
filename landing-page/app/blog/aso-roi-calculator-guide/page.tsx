@@ -6,6 +6,7 @@ import { ArticleStructuredData } from '@/components/blog/article-structured-data
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation';
 import { RelatedArticles } from '@/components/blog/related-articles';
 import { SocialSharing } from '@/components/blog/social-sharing';
+import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
   title: 'ASO ROI Calculator: Measure Mobile App Marketing Returns | Strategic Ad Intelligence',
@@ -30,35 +31,22 @@ export default function ASOROICalculatorPage() {
   ];
 
   return (
-    <article className="min-h-screen bg-white">
-      {/* Structured Data */}
-      <ArticleStructuredData
-        title="ASO ROI Calculator: Measure Mobile App Marketing Returns"
-        description="Master App Store Optimization ROI calculation with our comprehensive framework. Learn how to measure, predict, and optimize mobile app marketing returns with Fortune 100 methodology."
-        slug="/blog/aso-roi-calculator-guide"
-        category="Tools & Calculators"
-        keywords={['ASO ROI calculator', 'app store optimization ROI', 'mobile app marketing ROI', 'ASO measurement']}
-        readingTime={10}
-      />
-
+    <>
       {/* Header Navigation */}
-      <div className="border-b border-gray-200">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <Link 
-              href="/blog" 
-              className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors w-fit"
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Blog
-            </Link>
-            
-            <BreadcrumbNavigation items={breadcrumbItems} />
-          </div>
-        </div>
-      </div>
+      <Header />
+      
+      <article className="min-h-screen pt-16 lg:pt-20 bg-white">
+        {/* Structured Data */}
+        <ArticleStructuredData
+          title="ASO ROI Calculator: Measure Mobile App Marketing Returns"
+          description="Master App Store Optimization ROI calculation with our comprehensive framework. Learn how to measure, predict, and optimize mobile app marketing returns with Fortune 100 methodology."
+          slug="/blog/aso-roi-calculator-guide"
+          category="Tools & Calculators"
+          keywords={['ASO ROI calculator', 'app store optimization ROI', 'mobile app marketing ROI', 'ASO measurement']}
+          readingTime={10}
+        />
 
-      {/* Article Header */}
+        {/* Article Header */}
       <header className="bg-gradient-to-br from-blue-50 to-indigo-50 py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -372,5 +360,6 @@ export default function ASOROICalculatorPage() {
         category="Tools & Calculators"
       />
     </article>
+    </>
   );
 }

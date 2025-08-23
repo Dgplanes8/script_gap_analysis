@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Target, TrendingUp, Users, Calendar, Mail, BookOpen, ArrowRight } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
+import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
   title: 'Weekly Creative Intelligence for Subscription Marketing | Apsics Media',
@@ -21,23 +22,11 @@ export const metadata: Metadata = {
 export default function WeeklyCreativeIntelligencePage() {
   return (
     <>
-      <main className="min-h-screen bg-white">
+      {/* Header Navigation */}
+      <Header />
+      
+      <main className="min-h-screen pt-16 lg:pt-20 bg-white">
       <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between">
-            <Link 
-              href="/" 
-              className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Home
-            </Link>
-            <div className="text-lg font-bold text-red-600">
-              Apsics Media
-            </div>
-          </div>
-        </div>
 
         {/* Article Header */}
         <article className="max-w-4xl mx-auto">
