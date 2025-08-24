@@ -143,7 +143,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-3 text-gray-700 hover:text-orange-600 transition-colors bg-white border border-gray-300 rounded-lg min-w-[44px] min-h-[44px] flex items-center justify-center"
           >
-            <span className="text-sm font-medium">{isOpen ? 'Close' : 'Menu'}</span>
+            <span className="text-sm font-medium">{isOpen ? 'Close' : ''}</span>
           </button>
         </div>
 

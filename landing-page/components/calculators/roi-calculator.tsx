@@ -5,7 +5,6 @@ import { Calculator, TrendingUp, DollarSign, Clock, Target, ArrowRight } from 'l
 
 interface ROIInputs {
   monthlyAdSpend: number;
-  currentConversionRate: number;
   currentCAC: number;
   expectedImprovement: number;
 }
@@ -21,7 +20,7 @@ interface ROIResults {
 }
 
 function calculateROI(inputs: ROIInputs): ROIResults {
-  const { monthlyAdSpend, currentConversionRate, currentCAC, expectedImprovement } = inputs;
+  const { monthlyAdSpend, currentCAC, expectedImprovement } = inputs;
   
   // Calculate conversions based on current CAC
   const currentConversions = monthlyAdSpend / currentCAC;
@@ -35,8 +34,8 @@ function calculateROI(inputs: ROIInputs): ROIResults {
   const monthlySavings = (currentCPA - improvedCPA) * improvedConversions;
   const annualSavings = monthlySavings * 12;
   
-  // Service cost calculations (Competitive Edge tier at $67/week)
-  const serviceCost = 67 * 52; // Annual cost
+  // Service cost calculations (Creative Starter tier at $5/week)
+  const serviceCost = 5 * 52; // Annual cost
   
   // ROI calculation
   const roi = serviceCost > 0 ? ((annualSavings - serviceCost) / serviceCost) * 100 : 0;
@@ -58,9 +57,8 @@ function calculateROI(inputs: ROIInputs): ROIResults {
 
 export function ROICalculator() {
   const [inputs, setInputs] = useState<ROIInputs>({
-    monthlyAdSpend: 10000,
-    currentConversionRate: 2.5,
-    currentCAC: 40,
+    monthlyAdSpend: 2000,
+    currentCAC: 50,
     expectedImprovement: 25
   });
   
@@ -142,29 +140,6 @@ export function ROICalculator() {
                   </div>
                 </div>
 
-                {/* Current Conversion Rate */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Current Conversion Rate
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="range"
-                      min="0.5"
-                      max="10"
-                      step="0.1"
-                      value={inputs.currentConversionRate}
-                      onChange={(e) => setInputs(prev => ({ ...prev, currentConversionRate: parseFloat(e.target.value) }))}
-                      className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
-                    />
-                    <div className="flex justify-between text-sm text-gray-500 mt-1">
-                      <span>0.5%</span>
-                      <span className="font-semibold text-gray-900">{formatPercentage(inputs.currentConversionRate)}</span>
-                      <span>10%</span>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Current CAC */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -217,19 +192,19 @@ export function ROICalculator() {
                 <p className="text-sm font-medium text-gray-700 mb-3">Quick Scenarios:</p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   <button
-                    onClick={() => setInputs({ monthlyAdSpend: 5000, currentConversionRate: 2.0, currentCAC: 60, expectedImprovement: 20 })}
+                    onClick={() => setInputs({ monthlyAdSpend: 5000, currentCAC: 60, expectedImprovement: 20 })}
                     className="text-xs bg-white border border-gray-300 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
                   >
                     Small Business
                   </button>
                   <button
-                    onClick={() => setInputs({ monthlyAdSpend: 15000, currentConversionRate: 3.0, currentCAC: 40, expectedImprovement: 25 })}
+                    onClick={() => setInputs({ monthlyAdSpend: 15000, currentCAC: 40, expectedImprovement: 25 })}
                     className="text-xs bg-white border border-gray-300 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
                   >
                     Growing Startup
                   </button>
                   <button
-                    onClick={() => setInputs({ monthlyAdSpend: 50000, currentConversionRate: 2.5, currentCAC: 30, expectedImprovement: 30 })}
+                    onClick={() => setInputs({ monthlyAdSpend: 50000, currentCAC: 30, expectedImprovement: 30 })}
                     className="text-xs bg-white border border-gray-300 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
                   >
                     Scale-up

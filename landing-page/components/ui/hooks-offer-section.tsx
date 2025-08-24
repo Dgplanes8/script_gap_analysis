@@ -123,7 +123,7 @@ export function HooksOfferSection() {
               Download Your 10 Proven Hooks Now
             </h3>
             <p className="text-xl opacity-90 mb-8">
-              Join 1,200+ subscription company founders getting hooks that actually convert
+              Join 100+ startup founders getting hooks that actually convert
             </p>
             
             <div className="max-w-md mx-auto bg-white rounded-xl p-6">

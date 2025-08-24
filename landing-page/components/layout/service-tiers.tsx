@@ -10,6 +10,7 @@ import { SimpleAirtableForm } from '@/components/forms/simple-airtable-form';
 export function ServiceTiers() {
   const { openModal: openConsultation } = useConsultation();
   const [selectedTier, setSelectedTier] = useState<'assessment' | 'foundation' | 'growth' | 'enterprise' | null>(null);
+  const [showAirtableForm, setShowAirtableForm] = useState(false);
 
   const tiers = [
     {
@@ -249,9 +250,9 @@ export function ServiceTiers() {
                       if (tier.id === 'enterprise') {
                         openConsultation(tier.name);
                       } else {
-                        // For all non-enterprise tiers, these are the weekly service buttons that should stay on this page
-                        // Track the tier selection
+                        // For all non-enterprise tiers, open Airtable form
                         setSelectedTier(tier.id as any);
+                        setShowAirtableForm(true);
                       }
                     }}
                     className={`w-full py-3 px-4 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center min-h-[48px] text-sm ${tier.ctaColor}`}
@@ -349,6 +350,28 @@ export function ServiceTiers() {
         </div>
       </div>
     </section>
+
+    {/* Airtable Form Modal */}
+    {showAirtableForm && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+        <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-lg font-semibold">Start Your Free Week</h3>
+            <button
+              onClick={() => setShowAirtableForm(false)}
+              className="text-gray-400 hover:text-gray-600"
+            >
+              ×
+            </button>
+          </div>
+          <SimpleAirtableForm
+            buttonText="Start Free Week"
+            source="service-tiers-modal"
+            tier={selectedTier || 'unknown'}
+          />
+        </div>
+      </div>
+    )}
     </>
   );
 }

@@ -17,7 +17,7 @@ export function AboutSection() {
             
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <div className="bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-bold">
-                ✓ 10+ YEARS EXPERIENCE
+                ✓ STARTUP FOCUSED
               </div>
               <div className="bg-teal-600 text-white px-4 py-2 rounded-full text-sm font-bold">
                 ✓ SUBSCRIPTION FOCUS
@@ -28,12 +28,11 @@ export function AboutSection() {
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Built for Growth Marketing Teams at Subscription Companies
+              Weekly Ad Strategy Designed for Startup Founders
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              10+ years optimizing campaigns specifically for subscription and recurring revenue businesses. 
-              Unlike agencies that take weeks for creative concepts, we deliver fresh ideas every Monday 
-              with competitor intelligence and audience expansion strategies.
+              Professional ad strategies delivered weekly for founders who can't afford expensive agencies. 
+              Get winning creative concepts every Monday with proven frameworks that help startups launch successful campaigns.
             </p>
           </div>
 
@@ -104,12 +103,11 @@ export function AboutSection() {
           <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8">
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Why Growth Leaders Choose Us Over Traditional Agencies
+                Why Startup Founders Choose Weekly Ad Strategy
               </h3>
               <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                Unlike agencies that take weeks for concept delivery, our approach gets you fresh creative ideas 
-                every Monday. Built specifically for subscription companies who understand their growth challenges 
-                and need creative concepts that actually move the needle.
+                Unlike expensive agencies ($5K-15K/month), get professional ad strategies for $5-35/week. 
+                Built specifically for startup founders who need winning campaigns but can't afford traditional marketing services.
               </p>
             </div>
             
@@ -118,22 +116,22 @@ export function AboutSection() {
                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Target className="h-6 w-6 text-orange-600" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Speed Advantage</h4>
-                <p className="text-sm text-gray-600">Weekly delivery vs 2-week agency turnarounds</p>
+                <h4 className="font-semibold text-gray-900 mb-2">Save Time & Money</h4>
+                <p className="text-sm text-gray-600">Weekly delivery vs expensive agencies or DIY guesswork</p>
               </div>
               <div className="text-center bg-white rounded-xl p-6">
                 <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="h-6 w-6 text-teal-600" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Growth Focus</h4>
-                <p className="text-sm text-gray-600">Built specifically for subscription business models</p>
+                <h4 className="font-semibold text-gray-900 mb-2">Startup Focus</h4>
+                <p className="text-sm text-gray-600">Built specifically for early-stage startup budgets and needs</p>
               </div>
               <div className="text-center bg-white rounded-xl p-6">
                 <div className="w-12 h-12 bg-navy-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Award className="h-6 w-6 text-navy-600" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">Proven Results</h4>
-                <p className="text-sm text-gray-600">10+ years experience with subscription marketing campaigns</p>
+                <h4 className="font-semibold text-gray-900 mb-2">Launch Success</h4>
+                <p className="text-sm text-gray-600">Help founders launch winning campaigns from day one</p>
               </div>
             </div>
             
