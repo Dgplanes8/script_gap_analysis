@@ -35,11 +35,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Weekly Creative Intelligence - Revolutionary Weekly Pricing | Apsics Media',
+  title: 'Weekly Creative Intelligence for Early-Stage Startups | Apsics Media',
   description:
-    'Revolutionary weekly pricing for weekly delivery. Get viral ad hooks and creative scripts every Monday starting at $5/week. First week FREE trial. Reduce CAC by 25%, increase conversion rates 3x faster. Growth marketing teams at subscription companies.',
+    'Strategic ad hooks and creative scripts designed for early-stage startups launching their first campaigns. Starting at $5/week with first week FREE. From someone who managed $250MM+ in media spend.',
   keywords:
-    'ad hooks, creative hooks, facebook ad templates, viral content, subscription marketing, creative scripts, reduce CAC, increase conversions, creative strategy, growth marketing, weekly trend intelligence, copywriting templates, social media hooks, tiktok hooks, subscription business creative, saas creative, conversion copywriting, weekly creative intelligence, creative intelligence methodology, systematic creative development, creative intelligence framework, performance-scored hooks, creative fatigue prevention, hook generator methodology, creative brief framework, 25-point performance scoring',
+    'startup marketing, first-time advertisers, early-stage startup ads, solo founder marketing, bootstrap startup ads, creative hooks for startups, startup ad templates, launch first campaign, creative scripts for founders, startup creative intelligence, early-stage marketing, founder ad help, startup ad guidance, creative concepts for startups, small business ad creative, campaign launch support, startup advertising strategy',
   authors: [{ name: 'Apsics Media' }],
   creator: 'Apsics Media',
   publisher: 'Apsics Media',
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Weekly Creative Intelligence - Revolutionary Weekly Pricing | Apsics Media',
+    title: 'Weekly Creative Intelligence for Early-Stage Startups | Apsics Media',
     description:
-      'Revolutionary weekly pricing for weekly delivery. Get viral ad hooks and creative scripts every Monday starting at $5/week. First week FREE trial. Reduce CAC by 25% for growth marketing teams.',
+      'Strategic ad hooks and creative scripts for startup founders launching their first campaigns. Starting at $5/week with first week FREE. From someone who managed $250MM+ in media spend.',
 
     url: '/',
     siteName: 'Apsics Media',
@@ -69,9 +69,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Weekly Creative Intelligence - Revolutionary Weekly Pricing | Apsics Media',
+    title: 'Weekly Creative Intelligence for Early-Stage Startups | Apsics Media',
     description:
-      'Revolutionary weekly pricing for weekly delivery. Get viral ad hooks and creative scripts every Monday starting at $5/week. First week FREE trial. Reduce CAC by 25% for growth marketing teams.',
+      'Strategic ad hooks and creative scripts for startup founders launching their first campaigns. Starting at $5/week with first week FREE. From someone who managed $250MM+ in media spend.',
     images: ['/images/og-image.jpg'],
     creator: '@apsicsmedia',
   },

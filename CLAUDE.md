@@ -14,51 +14,59 @@
 
 ### Current Service Tiers
 
-**Trend Tracker** - $67/month
-- 1 creative concept delivered every Monday
-- 2 ready-to-develop scripts per concept  
-- Target: Growth teams testing new angles
-- Ideal for: Growth teams at growing subscription companies
+**Creative Starter** - $5/week ($20/month)
+- 1 high-converting creative concept weekly
+- 2 ready-to-test scripts per concept  
+- Target: Solo founders and early-stage startups
+- Ideal for: First-time advertisers with $500-$2K monthly ad spend
 
-**Competitive Edge** - $197/month (MOST POPULAR)
+**Trend Tracker** - $15/week ($60/month) (MOST POPULAR)
+- 1 strategic creative concept every Monday
+- 2 ready-to-develop scripts per concept
+- Target: Bootstrap and early-stage startups with initial traction
+- Ideal for: Growing startups with $2K-$10K monthly ad spend
+
+**Competitive Edge** - $35/week ($140/month)  
 - 2 creative concepts weekly (1 trend-based + 1 competitor-inspired)
 - 4 weekly scripts - 2 per concept
-- Target: Performance marketers with saturated audiences
-- Ideal for: Performance marketers who've saturated core audiences
+- Target: Small marketing teams needing competitive intelligence
+- Ideal for: Growing startups with $10K-$50K monthly ad spend
 
-**Market Intelligence** - $497/month  
-- 3 creative concepts delivered every Monday
-- 6 weekly scripts - 2 per concept
+**Market Intelligence** - $99/week ($396/month)
+- 3 creative concepts delivered weekly
+- 6 ready-to-test scripts - 2 per concept
 - Direct team access for strategic support
-- Target: $200K+ monthly ad spend companies
-- Ideal for: Heads of Growth at subscription companies scaling beyond $200K/month
+- Target: Scaling startups with comprehensive needs
+- Ideal for: Scaling startups with $50K+ monthly ad spend
 
 **Enterprise** - Custom Pricing
-- Creative concepts delivered weekly
+- Custom creative concepts delivered weekly
 - Full-service media buying management
 - Dedicated account manager and creative team
-- Target: $500K+ monthly ad spend companies
+- Target: Large companies with $500K+ monthly ad spend
 - Ideal for: Large subscription companies requiring comprehensive solutions
 
 ### Target Audience (ICP)
 
-**Primary Target**: Growth-stage SaaS Companies ($500K-$2M ARR)
-- Title: CMO, Head of Growth, Head of Marketing
-- Team Size: 10-50 employees
-- Marketing Budget: $50K-$200K/month
-- Budget Authority: $5K-$25K/month decisions
+**Primary Target**: Early-Stage Startups (Bootstrap to Series A)
+- Title: Solo Founder, CEO, Co-founder, Head of Growth (wearing marketing hat)
+- Team Size: 1-10 employees (founder + small team)
+- Revenue Stage: $500K-$2M ARR (early traction)
+- Marketing Budget: $500-$5K/month ad spend
+- Budget Authority: Direct decision making, no procurement process
 
 **Key Pain Points**:
-- Rising CAC (up 50% since 2016)
-- Creative fatigue and performance plateau
-- Need for strategic differentiation
-- Time constraints for creative development
+- First-time advertising overwhelm and platform complexity
+- Budget constraints vs. need for professional creative
+- Creative development challenges without internal design skills
+- Time constraints from managing multiple business functions
+- Knowledge gaps in creative best practices and testing
 
 **Value Delivered**:
-- 25-40% improvement in conversion rates
-- 3x faster creative concept iteration
-- Strategic positioning vs commodity copywriting
-- Fortune 100 methodology at startup speed
+- Strategic creative intelligence from $250MM+ in managed media spend
+- Campaign launch expertise with implementation guidance
+- Performance-focused creative methodology for startups
+- Budget-friendly weekly service designed for startup constraints
 
 ---
 
@@ -317,4 +325,4 @@ Ad Workflow/
 
 ---
 
-*Strategic Ad Intelligence System: Where Fortune 100 methodology meets systematic creative excellence.*
+*Strategic Ad Intelligence System: Where $250MM+ in media spend experience meets systematic creative excellence for startup success.*

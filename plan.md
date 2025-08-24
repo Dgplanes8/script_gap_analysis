@@ -1,14 +1,22 @@
-ALL FILES SHOULD BE SAVED IN /SEO-STRATEGY
+Overview: update landing page and free hooks webpages to better align with new ICP outlined in Business Strategy Folder
 
-Overview: 
-- Create an summary of the existing SEO strategy, including existing keywords targeted and content
+Steps:
+- Confirm updated ICP profiles
+- Update copy throughout landing and free hooks pages to match with new ICP
+- Update service tiers to match with ICP's and accurate needs
+- Remove any sections or modules that no longer make sense for this audience
+- Update SEO metadata, tags and titles for new audience and content
+- Update claude.md to match with new overview of the company and target audience
 
-Keyword research:
-- Do keyword research to identify long tail opportunities for driving traffic to the website. focus on winnable keywords the align. Find a variety of keywords that align with the target audience for the website. FOcus on all types of marketers, founders, companies, business models
-- Create a comphrenhesive strategy with at least 50 content ideas based on the research
-- Score each idea on a sacle of 1-10
-- Group the content ideas into clusers
-- Include targeted keywords and estimated search volume
+Landing Page Best Practices:
+- use @marketing-lp-tips for tips to build high covnerting landing page
 
-Implementation plan:
-- Create a plan to implement all 50 pieces of content in chunks of 5
+Content to include:
+- comparison to similar alternative solutions
+- education on why creative is so important in having succesful ads; most important lever you have
+- only first 50 customers get the $5/week rate for lowest tier
+
+Rules:
+- Do not make up any case studies, testimonials or previous clients
+- Apsics media does not actually build creatives for customers except for enterprise clients. do not include content creation in other service tiers unless its clear this an additional change
+- Remember the Apsics Media can provide comeptitor/gap analysis, ICP identification for start ups, media buying recommendations and weekly creative recommendations

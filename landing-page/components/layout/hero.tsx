@@ -136,16 +136,16 @@ export function Hero({
           {/* Strategic Credibility */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-gray-300">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-orange-400 mr-2">10+</span>
-              <span>Years Experience</span>
-            </div>
-            <div className="flex items-center">
-              <span className="text-2xl font-bold text-red-400 mr-2">Weekly</span>
-              <span>Creative Delivery</span>
-            </div>
-            <div className="flex items-center">
               <span className="text-2xl font-bold text-orange-400 mr-2">$250MM+</span>
               <span>Media Spend Managed</span>
+            </div>
+            <div className="flex items-center">
+              <span className="text-2xl font-bold text-red-400 mr-2">Campaign</span>
+              <span>Launch Specialist</span>
+            </div>
+            <div className="flex items-center">
+              <span className="text-2xl font-bold text-orange-400 mr-2">10+</span>
+              <span>Years Experience</span>
             </div>
           </div>
         </div>

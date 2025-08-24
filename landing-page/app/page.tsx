@@ -35,8 +35,8 @@ export default function HomePage() {
       <main className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
       <Hero
-        title="Scale Your Growth 3x Faster With Viral Ad Hooks & Creative Scripts That Convert"
-        subtitle="Get high-converting ad hooks and creative scripts every Monday. Reduce CAC by 25% with trending social media concepts analyzed through marketing psychology. Stop creative fatigue - increase conversion rates 3x faster."
+        title="Get Your First Winning Ad Creative That Actually Converts"
+        subtitle="Weekly ad hooks and creative scripts designed for early-stage startups. Launch your first successful campaign with strategic creative intelligence from someone who's managed $250MM+ in media spend."
         ctaText="Start Your FREE Week"
         secondaryCtaText="Get Free Hooks"
         secondaryCtaLink="/free-hooks"
@@ -65,21 +65,21 @@ export default function HomePage() {
               </div>
               
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                10 High-Converting Ad Hooks That Reduce CPA by 25% (Facebook Ad Templates)
+                10 High-Converting Ad Hooks for Your First Campaign (Startup Ad Templates)
               </h2>
               
               <p className="text-lg text-gray-600 mb-6">
-                Skip months of creative testing. These proven ad hooks and creative scripts are derived from viral social media content and optimized with conversion psychology. Launch your next winning campaign this week with copywriting templates that increase conversions.
+                Skip months of guessing what creative will work. These proven ad hooks and creative scripts are designed for early-stage startups launching their first campaigns. Get strategic creative intelligence from $250MM+ in managed media spend.
               </p>
               
               <div className="grid md:grid-cols-3 gap-4 mb-8">
                 <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="text-2xl font-bold text-orange-600">25% Lower</div>
-                  <div className="text-sm text-gray-600">CPAs on Average</div>
+                  <div className="text-2xl font-bold text-orange-600">$250MM+</div>
+                  <div className="text-sm text-gray-600">Media Spend Managed</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-4">
-                  <div className="text-2xl font-bold text-red-600">15+ Hours</div>
-                  <div className="text-sm text-gray-600">Saved Per Week</div>
+                  <div className="text-2xl font-bold text-red-600">Campaign</div>
+                  <div className="text-sm text-gray-600">Launch Expertise</div>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-4">
                   <div className="text-2xl font-bold text-orange-600">3+</div>
@@ -104,29 +104,75 @@ export default function HomePage() {
 
       {/* Strategic Differentiators */}
       <Features
-        title="Weekly Creative Strategy Intelligence for Growth Marketing Teams"
-        subtitle="Get viral content and ad hooks delivered weekly vs 2-week agency turnaround times. Perfect for subscription marketing teams needing fresh creative concepts."
+        title="Weekly Creative Intelligence for Early-Stage Startups"
+        subtitle="Get strategic ad hooks and creative scripts every Monday, designed specifically for founders launching their first campaigns. No more guessing what creative will work."
         features={[
           {
             icon: Target,
-            title: 'Ad Hook & Creative Script Solution',
+            title: 'First Campaign Success',
             description:
-              'Fresh ad hooks and creative scripts every Monday when your team needs new angles. Stop waiting weeks for agencies - get conversion-optimized copywriting templates weekly.',
+              'Strategic ad hooks and creative scripts delivered weekly, perfect for solo founders and small teams testing their first paid campaigns. Launch with confidence, not guesswork.',
           },
           {
             icon: Building2,
-            title: 'Performance Marketing Focus',
+            title: 'Startup-Focused Expertise',
             description:
-              '10+ years optimizing campaigns for subscription companies. Built specifically for growth teams managing $10K-$200K+ monthly ad spend.',
+              '$250MM+ in media spend managed across multiple brands, with experience launching campaigns from $0. Built specifically for early-stage companies with $500-$5K monthly ad budgets.',
           },
           {
             icon: TrendingUp,
-            title: 'Viral Content & Audience Intelligence',
+            title: 'Implementation Guidance',
             description:
-              'Find new audiences with viral content strategies when you\'ve saturated core segments. Creative strategy analysis shows winning ad hooks for subscription marketing.',
+              'Not just creative concepts - get practical setup guidance and strategic direction to help first-time advertisers avoid common mistakes and launch winning campaigns.',
           },
         ]}
       />
+
+      {/* Educational Content: Why Creative Is Critical */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              Why Creative Is Your Most Important Ad Lever
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              After managing $250MM+ in media spend, here's what most founders miss: creative drives 80% of your campaign performance. Platform, targeting, and bidding are table stakes - creative is what makes people stop scrolling and convert.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-6 border border-orange-200">
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                <Target className="h-6 w-6 text-orange-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Creative Drives Performance</h3>
+              <p className="text-gray-600 mb-4">
+                Same audience, same budget, same platform - but creative makes the difference between 0.5% CTR and 3% CTR. That's 6x more traffic from the same spend.
+              </p>
+            </div>
+            
+            <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6 border border-teal-200">
+              <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                <TrendingUp className="h-6 w-6 text-teal-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Creative Fatigue Kills Campaigns</h3>
+              <p className="text-gray-600 mb-4">
+                Your creative will fatigue within 3-7 days on most platforms. Without fresh concepts, your CPAs skyrocket and campaigns die. You need systematic creative refresh.
+              </p>
+            </div>
+            
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-200">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                <Building2 className="h-6 w-6 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Strategic Creative Wins</h3>
+              <p className="text-gray-600 mb-4">
+                Random creative testing wastes budget. Strategic creative intelligence - based on trending formats and competitor analysis - gives you winning concepts faster.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Video Production Support - Address "making videos is hard" objection */}
       <VideoProductionSupport />
@@ -174,34 +220,34 @@ export default function HomePage() {
             </div>
             
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              Weekly Ad Hooks & Creative Scripts (Every Monday)
+              Weekly Ad Hooks & Creative Scripts for Startups (Every Monday)
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white rounded-xl p-6 shadow-lg border border-orange-100">
                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Target className="h-6 w-6 text-orange-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">High-Converting Ad Hooks</h3>
+                <h3 className="text-xl font-semibold mb-3">First Campaign Success</h3>
                 <p className="text-gray-600">
-                  New ad hooks and creative scripts to test when your current campaigns are fatiguing. Fresh copywriting templates delivered every Monday for continuous conversion optimization.
+                  Strategic ad hooks and creative scripts perfect for early-stage startups launching their first campaigns. No more guessing - get strategic creative intelligence every Monday.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg border border-teal-100">
                 <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="h-6 w-6 text-teal-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Competitor Intelligence</h3>
+                <h3 className="text-xl font-semibold mb-3">Implementation Guidance</h3>
                 <p className="text-gray-600">
-                  See what's working for other subscription companies before your competitors copy it. Adapt winning concepts for your growth goals.
+                  Not just creative concepts - get practical setup guidance and strategic direction from someone who's managed $250MM+ in media spend and launched campaigns from $0.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg border border-navy-100">
                 <div className="w-12 h-12 bg-navy-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Building2 className="h-6 w-6 text-navy-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Growth-Stage Focused</h3>
+                <h3 className="text-xl font-semibold mb-3">Startup-Focused</h3>
                 <p className="text-gray-600">
-                  Focused on helping growing subscription companies scaling beyond basic audiences. Built for growth marketing teams managing serious ad budgets.
+                  Built specifically for solo founders and small teams with $500-$5K monthly ad budgets. Strategic creative intelligence designed for early-stage startup constraints.
                 </p>
               </div>
             </div>
@@ -215,10 +261,10 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Frequently Asked Questions - Weekly Creative Intelligence
+                Frequently Asked Questions - Startup Creative Intelligence
               </h2>
               <p className="text-lg text-gray-600">
-                Common questions about our revolutionary weekly pricing model and creative intelligence service
+                Common questions about our weekly creative service designed specifically for early-stage startups
               </p>
             </div>
             
@@ -264,7 +310,7 @@ export default function HomePage() {
                   How is this different from traditional agencies?
                 </h3>
                 <p className="text-gray-600">
-                  Agencies charge $800-2,000+ per week with 6-month contracts and 2-week turnarounds. We start at $5/week with no contracts and Monday delivery. Plus, you only pay for weeks you actually want service.
+                  Agencies require $5K-15K/month minimums with 6-month contracts - impossible for most startups. We start at $5/week with no contracts and Monday delivery. Built specifically for early-stage companies with limited budgets but big growth goals.
                 </p>
               </div>
               
@@ -304,10 +350,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">
-              Revolutionary Weekly Pricing - Start Your Free Week Today
+              Launch Your First Winning Campaign - Start Your Free Week Today
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Join the first 50 customers getting weekly creative intelligence with revolutionary weekly pricing. Lock in $5/week starting price forever. Built by a team with 10+ years creating viral content and $250MM+ in managed media spend.
+              Join the first 50 early-stage startups getting strategic creative intelligence with revolutionary weekly pricing. Lock in $5/week starting price forever. From someone who's managed $250MM+ in media spend and launched campaigns from $0.
             </p>
             
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
@@ -353,10 +399,10 @@ export default function HomePage() {
             
             <div className="border-t border-white/20 pt-8">
               <h3 className="text-2xl font-bold mb-4">
-                Weekly Ad Hooks & Creative Strategy Intelligence
+                Weekly Creative Intelligence for Early-Stage Startups
               </h3>
               <p className="text-lg mb-6 opacity-90">
-                Get fresh ad hooks, copywriting templates, and creative scripts delivered every Monday. Perfect for subscription marketing teams needing high-converting content to reduce CAC.
+                Get strategic ad hooks, copywriting templates, and creative scripts delivered every Monday. Perfect for solo founders and small teams launching their first successful ad campaigns.
               </p>
               <div className="max-w-md mx-auto">
                 <EmailCaptureForm

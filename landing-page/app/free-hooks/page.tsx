@@ -32,10 +32,10 @@ export default function FreeHooksPage() {
               </div>
               
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                10 Free High-Converting Hooks That Cut Your CPA in Half
+                10 Free High-Converting Hooks for Your First Campaign
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Skip months of testing. These hooks are derived from trending social media content and optimized with conversion psychology. Download now and launch your winning campaign this week.
+                Skip months of guessing what creative will work. These strategic ad hooks are designed for early-stage startups launching their first campaigns, backed by $250MM+ in managed media spend experience.
               </p>
               
               {/* Above-fold CTA */}
@@ -51,12 +51,12 @@ export default function FreeHooksPage() {
                   
                   <div className="grid grid-cols-3 gap-4 mb-6">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-red-600">20%</div>
-                      <div className="text-sm text-gray-600">Lower CPAs</div>
+                      <div className="text-2xl font-bold text-red-600">$250MM+</div>
+                      <div className="text-sm text-gray-600">Media Managed</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-orange-600">15+</div>
-                      <div className="text-sm text-gray-600">Hours Saved</div>
+                      <div className="text-2xl font-bold text-orange-600">Campaign</div>
+                      <div className="text-sm text-gray-600">Launch Expert</div>
                     </div>
                     <div className="text-center">
                       <div className="text-2xl font-bold text-red-600">3+</div>
@@ -70,7 +70,7 @@ export default function FreeHooksPage() {
                       variant="hero"
                     />
                     <p className="text-xs text-gray-500 text-center">
-                      Instant download • No spam • Used by 1000+ growth teams
+                      Instant download • No spam • Used by early-stage startup founders
                     </p>
                   </div>
                 </div>
@@ -159,10 +159,10 @@ export default function FreeHooksPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-6">
-                Ready for Weekly Trend Intelligence?
+                Ready for Weekly Creative Intelligence?
               </h2>
               <p className="text-xl mb-8 opacity-90">
-                Get fresh scripts every Monday based on trending formats + competitor analysis. Starting at $67/month.
+                Get strategic creative concepts every Monday designed for early-stage startups. Starting at $5/week with your first week FREE.
               </p>
               <button
                 onClick={() => window.location.href = '/#service-tiers'}

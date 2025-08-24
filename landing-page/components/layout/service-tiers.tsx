@@ -18,7 +18,7 @@ export function ServiceTiers() {
       icon: Zap,
       price: '$5',
       period: '/week',
-      description: 'Perfect entry point with 1 concept weekly and single platform focus',
+      description: 'Perfect for first-time advertisers with 1 concept weekly and platform setup guidance',
       features: [
         '1 high-converting creative concept weekly',
         '2 ready-to-test scripts per concept',
@@ -39,7 +39,7 @@ export function ServiceTiers() {
       icon: TrendingUp,
       price: '$15',
       period: '/week',
-      description: 'Weekly trending concepts with multi-platform optimization and strategic insights',
+      description: 'For growing startups with strategic concepts and multi-platform guidance',
       features: [
         '1 strategic creative concept every Monday',
         '2 ready-to-develop scripts per concept',
@@ -54,7 +54,7 @@ export function ServiceTiers() {
       borderColor: 'border-orange-200 hover:border-orange-400',
       ctaColor: 'bg-orange-600 hover:bg-orange-700 text-white',
       popular: true,
-      ideal: 'Growth teams at subscription companies with $2K-$10K monthly ad spend needing consistent creative testing'
+      ideal: 'Bootstrap and early-stage startups with $2K-$10K monthly ad spend looking to scale their first successful campaigns'
     },
     {
       id: 'competitive-edge',
@@ -62,7 +62,7 @@ export function ServiceTiers() {
       icon: Target,
       price: '$35',
       period: '/week',
-      description: 'Advanced intelligence with competitor analysis and strategic support',
+      description: 'For small marketing teams needing competitive intelligence and strategic guidance',
       features: [
         '2 creative concepts weekly (1 trend-based + 1 competitor-inspired)',
         '4 weekly scripts (2 per concept)',
@@ -72,11 +72,11 @@ export function ServiceTiers() {
         'Priority email support (24hr response)',
         'Monthly strategic consultation call'
       ],
-      badge: 'Performance marketing teams',
+      badge: 'Small marketing teams',
       badgeColor: 'bg-teal-100 text-teal-800',
       borderColor: 'border-teal-300 hover:border-teal-500',
       ctaColor: 'bg-teal-600 hover:bg-teal-700 text-white',
-      ideal: 'Performance marketers with $10K-$50K monthly ad spend who have saturated audiences'
+      ideal: 'Small marketing teams and growing startups with $10K-$50K monthly ad spend needing competitive intelligence'
     },
     {
       id: 'market-intelligence',
@@ -99,7 +99,7 @@ export function ServiceTiers() {
       badgeColor: 'bg-navy-100 text-navy-800',
       borderColor: 'border-navy-300 hover:border-navy-500',
       ctaColor: 'bg-navy-600 hover:bg-navy-700 text-white',
-      ideal: 'Heads of Growth at scaling companies with $50K+ monthly ad spend requiring strategic creative intelligence'
+      ideal: 'Scaling startups with $50K+ monthly ad spend requiring comprehensive strategic creative intelligence'
     },
     {
       id: 'enterprise',
@@ -132,10 +132,10 @@ export function ServiceTiers() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-6">
             <Zap className="h-4 w-4 mr-2" />
-            🔥 LIMITED TIME: $5/Week Plan - First 50 Customers Only
+            🔥 LIMITED TIME: $5/Week Plan - First 50 Startups Only
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Weekly Creative Intelligence - Revolutionary Weekly Pricing
+            Weekly Creative Intelligence for Early-Stage Startups
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
             Revolutionary weekly pricing aligned with weekly delivery. Get your first week FREE, then pay only for the weeks you want to continue. Cancel anytime, restart anytime.
