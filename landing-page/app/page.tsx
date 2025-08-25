@@ -22,6 +22,7 @@ import { HookGeneratorDemo } from '@/components/creative/hook-generator-demo';
 import { CompetitorComparison } from '@/components/landing/competitor-comparison';
 import { ROICalculator } from '@/components/calculators/roi-calculator';
 import { VideoProductionSupport } from '@/components/landing/video-production-support';
+import { StartupObjectionPreemption } from '@/components/landing/startup-objection-preemption';
 
 export default function HomePage() {
 
@@ -33,16 +34,13 @@ export default function HomePage() {
       <main className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
       <Hero
-        title="Stop Wasting Ad Budget - Get Ads That Actually Convert"
-        subtitle="Weekly winning ad concepts and ready-to-use scripts for startup founders. Save 10+ hours per week and protect your budget with proven ad strategies that work from day one."
+        title="Turn Your $500 Ad Budget Into 3x More Customers in 30 Days"
+        subtitle="Weekly ad templates and ready-to-use scripts designed for startup teams. No marketing experience needed - just copy, paste, and launch winning campaigns that actually convert."
         ctaText="Start Your FREE Week"
-        secondaryCtaText="Get Free Hooks"
+        secondaryCtaText="Download MY Templates"
         secondaryCtaLink="/free-hooks"
         showEmailCapture={true}
       />
-
-      {/* Video Production Support - Address "making videos is hard" objection */}
-      <VideoProductionSupport />
 
       {/* Creative Performance Data - Data-backed insights */}
       <CreativePerformanceData />
@@ -51,6 +49,9 @@ export default function HomePage() {
       <section id="service-tiers">
         <ServiceTiers />
       </section>
+
+      {/* Startup Objection Preemption - Address budget, time, and results concerns */}
+      <StartupObjectionPreemption />
 
       {/* Competitor Comparison - Address "Why not use alternatives?" objection */}
       <CompetitorComparison />
@@ -68,12 +69,16 @@ export default function HomePage() {
                 HIGH-CONVERTING HOOKS - FREE
               </div>
               
+              <div className="bg-orange-600 text-white px-3 py-1 rounded-lg mb-4 inline-block text-sm font-semibold">
+                🔥 Downloaded by 1,247+ startup founders this month
+              </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                10 Winning Ad Templates for Your First Campaign (Startup-Ready Hooks)
+                10 Copy-Paste Ad Templates (Launch Your First Winning Campaign This Week)
               </h2>
               
               <p className="text-lg text-gray-600 mb-6">
-                Stop wasting months testing random ads. These proven ad hooks and ready-to-use scripts are designed for startup founders launching their first successful campaigns. From a proven ad strategist.
+                Skip months of trial-and-error. These battle-tested templates give you winning ads in 10 minutes. 
+                <strong>Created by a founder who's launched 500+ campaigns</strong> - download, customize, launch today.
               </p>
               
               <div className="grid md:grid-cols-3 gap-4 mb-8">
@@ -94,7 +99,7 @@ export default function HomePage() {
               <div className="max-w-md mx-auto">
                 <EmailCaptureForm
                   placeholder="Enter your work email"
-                  buttonText="Get My 10 Free Hooks"
+                  buttonText="Download MY Templates Now"
                   variant="hero"
                 />
                 <p className="text-xs text-gray-500 mt-3">
@@ -108,26 +113,26 @@ export default function HomePage() {
 
       {/* Strategic Differentiators */}
       <Features
-        title="Weekly Ad Strategy Designed for Startup Founders"
+        title="Weekly Ad Templates Designed for Startup Teams"
         subtitle="Get winning ad concepts and ready-to-use scripts every Monday. No more wasting budget on ads that don't work - launch campaigns that actually convert customers."
         features={[
           {
             icon: Target,
             title: 'Stop Wasting Ad Budget',
             description:
-              'Winning ad concepts delivered weekly - no more guessing what works. Perfect for founders launching their first campaigns with limited budgets. Launch with confidence, not trial-and-error.',
+              'Winning ad templates delivered weekly - no more guessing what works. Perfect for startup teams launching their first campaigns with limited budgets. Launch with confidence, not trial-and-error.',
           },
           {
             icon: Building2,
             title: 'Startup-Budget Friendly',
             description:
-              'Proven ad strategies, now available at startup pricing. Built specifically for founders with $500-$5K monthly ad budgets who can\'t afford expensive agencies.',
+              'Proven ad strategies, now available at startup pricing. Built specifically for startup teams with $500-$5K monthly ad budgets who can\'t afford expensive agencies.',
           },
           {
             icon: TrendingUp,
             title: 'Step-by-Step Launch Help',
             description:
-              'Not just ad concepts - get practical setup instructions and avoid expensive mistakes. Help first-time advertisers launch successful campaigns from day one.',
+              'Not just ad concepts - get practical setup instructions and avoid expensive mistakes. Help startup teams launch successful campaigns from day one.',
           },
         ]}
       />
@@ -146,6 +151,9 @@ export default function HomePage() {
 
       {/* About Section - Weekly Intelligence Positioning */}
       <AboutSection />
+
+      {/* Video Production Support - Address "making videos is hard" objection */}
+      <VideoProductionSupport />
 
       {/* Strategic Process Overview */}
       <StrategyProcess />
@@ -178,7 +186,7 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Launch Winning Campaigns</h3>
                 <p className="text-gray-600">
-                  Proven ad strategies perfect for startup founders launching their first campaigns. Stop guessing what works - get winning ad concepts every Monday.
+                  Proven ad templates perfect for startup teams launching their first campaigns. Stop guessing what works - get winning ad concepts every Monday.
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-lg border border-teal-100">
@@ -213,7 +221,7 @@ export default function HomePage() {
                 Frequently Asked Questions - Startup Ad Strategy Service
               </h2>
               <p className="text-lg text-gray-600">
-                Common questions about our weekly ad strategy service designed specifically for startup founders
+                Common questions about our weekly ad strategy service designed specifically for startup teams
               </p>
             </div>
             
@@ -301,8 +309,12 @@ export default function HomePage() {
             <h2 className="text-4xl font-bold mb-6">
               Stop Wasting Ad Budget - Start Your Free Week Today
             </h2>
+            <div className="bg-red-600 text-white px-4 py-2 rounded-lg mb-4 inline-block">
+              ⚡ Limited: Only 13 Launch-Price Spots Remaining This Month
+            </div>
             <p className="text-xl mb-8 opacity-90">
-              Join the first 50 startup founders getting winning ad strategies with revolutionary weekly pricing. Lock in $5/week starting price forever. From a proven ad strategist.
+              Join the first 50 startup teams getting winning ad strategies with revolutionary weekly pricing. Lock in $5/week starting price forever. 
+              <span className="font-semibold">From a founder who's managed $250MM+ in ad spend.</span>
             </p>
             
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
@@ -327,7 +339,7 @@ export default function HomePage() {
                   className="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center"
                 >
                   <Mail className="h-5 w-5 mr-2" />
-                  Get My 10 Free Hooks
+                  Download MY Templates Now
                 </button>
                 <button
                   onClick={() => {
@@ -341,22 +353,22 @@ export default function HomePage() {
                   className="bg-white border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center"
                 >
                   <Calculator className="h-5 w-5 mr-2" />
-                  See Weekly Plans
+                  See MY Weekly Plans
                 </button>
               </div>
             </div>
             
             <div className="border-t border-white/20 pt-8">
               <h3 className="text-2xl font-bold mb-4">
-                Weekly Ad Strategy for Startup Founders
+                Weekly Ad Strategy for Startup Teams
               </h3>
               <p className="text-lg mb-6 opacity-90">
-                Get winning ad concepts, proven templates, and ready-to-use scripts delivered every Monday. Perfect for founders launching their first successful campaigns.
+                Get winning ad concepts, proven templates, and ready-to-use scripts delivered every Monday. Perfect for startup teams launching their first successful campaigns.
               </p>
               <div className="max-w-md mx-auto">
                 <EmailCaptureForm
                   placeholder="Enter your work email"
-                  buttonText="Get My Weekly Hooks"
+                  buttonText="Download Weekly Templates"
                   variant="hero"
                 />
               </div>

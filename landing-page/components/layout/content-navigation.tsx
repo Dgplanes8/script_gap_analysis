@@ -27,7 +27,7 @@ const contentPieces = [
     icon: TrendingDown,
     description: 'Systematic approach to preventing audience saturation and maintaining performance',
     cta: 'Prevent Fatigue',
-    color: 'red'
+    color: 'orange'
   },
   {
     title: '25 TikTok Hooks for Subscriptions',
@@ -35,7 +35,7 @@ const contentPieces = [
     icon: Play,
     description: 'Proven TikTok hooks that convert for subscription businesses with psychology breakdowns',
     cta: 'Get Hooks',
-    color: 'purple'
+    color: 'orange'
   },
   {
     title: 'Facebook Ad Hooks for D2C',
@@ -43,7 +43,7 @@ const contentPieces = [
     icon: Facebook,
     description: '15 winning Facebook ad hook formulas with A/B testing frameworks',
     cta: 'Master Hooks',
-    color: 'blue'
+    color: 'orange'
   },
   {
     title: 'Reduce CAC by 20% Strategy',
@@ -51,7 +51,7 @@ const contentPieces = [
     icon: TrendingDown,
     description: 'Fortune 100 methodology to reduce customer acquisition cost without increasing ad spend',
     cta: 'Reduce CAC',
-    color: 'green'
+    color: 'orange'
   },
   {
     title: 'CAC Optimization Calculator',
@@ -59,7 +59,7 @@ const contentPieces = [
     icon: Calculator,
     description: 'Calculate potential CAC reduction and get optimization recommendations',
     cta: 'Calculate Savings',
-    color: 'indigo'
+    color: 'orange'
   },
   {
     title: 'Creative Strategy ROI Calculator',
@@ -67,7 +67,7 @@ const contentPieces = [
     icon: PieChart,
     description: 'Model creative optimization scenarios and calculate ROI impact',
     cta: 'Calculate ROI',
-    color: 'emerald'
+    color: 'orange'
   },
   {
     title: 'SaaS Growth Marketing Guide',
@@ -75,7 +75,7 @@ const contentPieces = [
     icon: TrendingUp,
     description: 'Channel assessment tool and optimization playbook for SaaS growth',
     cta: 'Start Assessment',
-    color: 'green'
+    color: 'orange'
   },
   {
     title: 'Consumer Subscription Marketing',
@@ -83,7 +83,7 @@ const contentPieces = [
     icon: TrendingUp,
     description: 'D2C channel optimization and growth strategy for consumer subscriptions',
     cta: 'Get D2C Strategy',
-    color: 'purple'
+    color: 'orange'
   },
   {
     title: 'Revenue Growth Benchmarking',
@@ -91,7 +91,7 @@ const contentPieces = [
     icon: BarChart3,
     description: 'Benchmark your revenue growth against industry standards and get optimization insights',
     cta: 'Benchmark Growth',
-    color: 'blue'
+    color: 'orange'
   },
   {
     title: '25-Point Performance Scoring',
@@ -107,7 +107,7 @@ const contentPieces = [
     icon: FileText,
     description: 'Strategic template system for briefing creative teams consistently',
     cta: 'Get Templates',
-    color: 'blue'
+    color: 'orange'
   },
   {
     title: 'Mobile App CAC Optimization 2025',
@@ -115,7 +115,7 @@ const contentPieces = [
     icon: TrendingDown,
     description: 'Combat the mobile app CAC crisis with data-driven creative intelligence reducing costs 25%',
     cta: 'Reduce CAC',
-    color: 'red',
+    color: 'orange',
     featured: true
   },
   {
@@ -132,7 +132,7 @@ const contentPieces = [
     icon: Users,
     description: 'Consumer psychology-driven marketing strategies for D2C subscription businesses',
     cta: 'Learn Strategy',
-    color: 'purple'
+    color: 'orange'
   },
   {
     title: 'Freemium to Premium Conversion',
@@ -140,7 +140,7 @@ const contentPieces = [
     icon: TrendingUp,
     description: 'Behavioral psychology framework for optimizing freemium to premium conversions',
     cta: 'Optimize Conversion',
-    color: 'blue'
+    color: 'orange'
   },
   {
     title: 'Churn Reduction Framework',
@@ -148,7 +148,7 @@ const contentPieces = [
     icon: TrendingDown,
     description: 'Cut subscription churn 35% with retention intelligence and proactive prevention',
     cta: 'Reduce Churn',
-    color: 'purple'
+    color: 'orange'
   },
   {
     title: 'Hook Generator Methodology',
@@ -156,7 +156,7 @@ const contentPieces = [
     icon: Zap,
     description: 'Systematic approach to creating high-converting hooks with proven frameworks',
     cta: 'Master Method',
-    color: 'purple'
+    color: 'orange'
   },
   {
     title: 'Implementation Guide',
@@ -164,7 +164,7 @@ const contentPieces = [
     icon: BookOpen,
     description: 'Complete 8-week roadmap for implementing creative intelligence methodology',
     cta: 'Start Implementation',
-    color: 'green'
+    color: 'orange'
   },
   {
     title: 'Consumer Attribution Framework',
@@ -172,7 +172,7 @@ const contentPieces = [
     icon: Target,
     description: 'Advanced attribution modeling for consumer subscription businesses',
     cta: 'Model Attribution',
-    color: 'indigo'
+    color: 'orange'
   },
   {
     title: 'Marketing Attribution Framework',
@@ -180,7 +180,7 @@ const contentPieces = [
     icon: PieChart,
     description: 'Comprehensive attribution methodology for multi-channel marketing campaigns',
     cta: 'Get Framework',
-    color: 'emerald'
+    color: 'orange'
   },
   {
     title: 'Ad Formats Guide',
@@ -188,7 +188,7 @@ const contentPieces = [
     icon: BookOpen,
     description: 'Complete guide to high-converting ad formats across all platforms',
     cta: 'Explore Formats',
-    color: 'green'
+    color: 'orange'
   }
 ];
 

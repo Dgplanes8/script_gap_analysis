@@ -28,14 +28,14 @@ export default function FreeHooksPage() {
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Download className="h-4 w-4 mr-2" />
-                HIGH-CONVERTING HOOKS - FREE
+                COPY-PASTE TEMPLATES - FREE
               </div>
               
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                10 Free High-Converting Hooks for Your First Campaign
+                10 Copy-Paste Ad Templates (Launch Your First Campaign This Week)
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Skip months of guessing what creative will work. These strategic ad hooks are designed for early-stage startups launching their first campaigns, backed by $250MM+ in managed media spend experience.
+                Skip months of trial-and-error testing. These battle-tested templates help you launch winning ads in minutes. Designed for startup teams who need results fast - download, customize, launch today.
               </p>
               
               {/* Above-fold CTA */}

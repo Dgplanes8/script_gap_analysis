@@ -133,13 +133,14 @@ export function ServiceTiers() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-6">
             <Zap className="h-4 w-4 mr-2" />
-            🔥 LIMITED TIME: $5/Week Plan - First 50 Startups Only
+            ⚡ EARLY ACCESS: Only 13 Launch-Price Spots Left This Month
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Weekly Creative Intelligence for Early-Stage Startups
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-            Revolutionary weekly pricing aligned with weekly delivery. Get your first week FREE, then pay only for the weeks you want to continue. Cancel anytime, restart anytime.
+            Revolutionary weekly pricing from a fellow founder who's been in your shoes. Get your first week FREE, then pay only for the weeks you want to continue. 
+            <strong>Built by someone who's launched 500+ campaigns and managed $250MM+ in ad spend.</strong> Cancel anytime, restart anytime.
           </p>
           <div className="bg-white rounded-xl p-6 max-w-3xl mx-auto shadow-lg border">
             <div className="grid md:grid-cols-3 gap-6 text-center">

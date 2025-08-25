@@ -104,7 +104,7 @@ export function CreativePerformanceData() {
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-2">Big Companies Have Creative Teams</h4>
                     <p className="text-gray-600">
-                      Fortune 500 companies employ creative strategists earning $150K+/year. Startups can't afford this but need the same advantage.
+                      Big companies employ creative strategists earning $150K+/year. Startups can't afford this but need the same advantage.
                     </p>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ export function CreativePerformanceData() {
             {/* Bottom CTA */}
             <div className="border-t border-gray-200 pt-8 mt-8 text-center">
               <h4 className="text-xl font-bold text-gray-900 mb-4">
-                Get Fortune 500-Level Creative Strategy for Your Startup
+                Get Professional-Level Creative Strategy for Your Startup
               </h4>
               <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
                 Strategic ad hooks and creative scripts delivered weekly. No $150K/year creative strategist required.

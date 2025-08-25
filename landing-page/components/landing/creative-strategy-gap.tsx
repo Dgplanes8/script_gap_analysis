@@ -17,7 +17,7 @@ export function CreativeStrategyGap() {
               Why Big Companies Win at Advertising (And Startups Don't)
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
-              Fortune 500 companies have dedicated creative strategists. Startups have founders wearing 10 hats. 
+              Big companies have dedicated creative strategists. Startups have founders wearing 10 hats. 
               This creates an unfair advantage - until now.
             </p>
           </div>
@@ -30,7 +30,7 @@ export function CreativeStrategyGap() {
                 <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4">
                   <Building2 className="h-6 w-6 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900">Fortune 500 Companies</h3>
+                <h3 className="text-2xl font-bold text-gray-900">Big Companies</h3>
               </div>
               
               <div className="space-y-4">
@@ -162,7 +162,7 @@ export function CreativeStrategyGap() {
                 </div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">Weekly Creative Strategy</h4>
                 <p className="text-gray-600 text-sm">
-                  Get Fortune 500-level creative strategy for what big companies spend on office coffee per employee.
+                  Get professional-level creative strategy for what big companies spend on office coffee per employee.
                 </p>
               </div>
             </div>
@@ -174,8 +174,8 @@ export function CreativeStrategyGap() {
               Level the Playing Field
             </h3>
             <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
-              Get the same strategic creative intelligence that Fortune 500 companies use - 
-              delivered weekly at startup-friendly pricing. From someone who's managed $250MM+ in media spend.
+              Get the same strategic creative intelligence that big companies use - 
+              delivered weekly at startup-friendly pricing. From a proven ad strategist.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

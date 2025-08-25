@@ -28,11 +28,11 @@ export function AboutSection() {
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Weekly Ad Strategy Designed for Startup Founders
+              Weekly Ad Strategy from a Fellow Startup Founder
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Professional ad strategies delivered weekly for founders who can't afford expensive agencies. 
-              Get winning creative concepts every Monday with proven frameworks that help startups launch successful campaigns.
+              <strong>Built by a founder, for founders.</strong> Professional ad strategies delivered weekly for startup teams who can't afford expensive agencies. 
+              Get winning creative concepts every Monday with proven frameworks from someone who's been in your shoes.
             </p>
           </div>
 
@@ -139,7 +139,7 @@ export function AboutSection() {
             <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 mb-12 border border-orange-200">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Systematic Fortune 100 Methodology
+                  Systematic Proven Methodology
                 </h3>
                 <p className="text-lg text-gray-600">
                   Our proven frameworks that power the weekly creative intelligence service
@@ -153,7 +153,7 @@ export function AboutSection() {
                       <TrendingUp className="h-6 w-6 text-orange-600" />
                     </div>
                     <h4 className="font-semibold text-gray-900 mb-2">Weekly Intelligence Playbook</h4>
-                    <p className="text-sm text-gray-600 mb-3">Complete Fortune 100 methodology for systematic creative development and strategic implementation</p>
+                    <p className="text-sm text-gray-600 mb-3">Complete proven methodology for systematic creative development and strategic implementation</p>
                     <span className="text-orange-600 text-sm font-medium group-hover:text-orange-700">Learn the Complete Framework →</span>
                   </div>
                 </Link>
