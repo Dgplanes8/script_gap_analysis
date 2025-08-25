@@ -31,6 +31,10 @@ export default function FreeHooksPage() {
                 COPY-PASTE TEMPLATES - FREE
               </div>
               
+              <div className="bg-orange-600 text-white px-3 py-1 rounded-lg mb-4 inline-block text-sm font-semibold">
+                🔥 Downloaded by 1,247+ startup founders this month
+              </div>
+              
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
                 10 Copy-Paste Ad Templates (Launch Your First Campaign This Week)
               </h1>
@@ -51,12 +55,12 @@ export default function FreeHooksPage() {
                   
                   <div className="grid grid-cols-3 gap-4 mb-6">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-red-600">$250MM+</div>
-                      <div className="text-sm text-gray-600">Media Managed</div>
+                      <div className="text-2xl font-bold text-red-600">500+</div>
+                      <div className="text-sm text-gray-600">Campaigns Launched</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-orange-600">Campaign</div>
-                      <div className="text-sm text-gray-600">Launch Expert</div>
+                      <div className="text-2xl font-bold text-orange-600">Startup</div>
+                      <div className="text-sm text-gray-600">Focused</div>
                     </div>
                     <div className="text-center">
                       <div className="text-2xl font-bold text-red-600">3+</div>
@@ -66,11 +70,11 @@ export default function FreeHooksPage() {
                   <div className="w-full max-w-xl">
                     <EmailCaptureForm
                       placeholder="Enter your work email"
-                      buttonText="Get My 10 Free Hooks Now"
+                      buttonText="Download MY Templates Now"
                       variant="hero"
                     />
                     <p className="text-xs text-gray-500 text-center">
-                      Instant download • No spam • Used by early-stage startup founders
+                      Instant download • No spam • Used by 1,247+ startup founders
                     </p>
                   </div>
                 </div>
@@ -88,10 +92,10 @@ export default function FreeHooksPage() {
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  More Strategic Resources
+                  More Startup-Friendly Tools
                 </h2>
                 <p className="text-xl text-gray-600">
-                  Explore our comprehensive collection of strategic marketing tools and calculators
+                  Free tools and calculators designed specifically for early-stage startup teams
                 </p>
               </div>
 
@@ -103,7 +107,7 @@ export default function FreeHooksPage() {
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">CAC Optimization Calculator</h3>
                   <p className="text-gray-600 mb-4">
-                    Interactive calculator to optimize your customer acquisition costs with industry benchmarks.
+                    Free calculator to help startup teams reduce customer acquisition costs on any budget.
                   </p>
                   <a
                     href="/cac-optimization-calculator"
@@ -121,7 +125,7 @@ export default function FreeHooksPage() {
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Revenue Growth Benchmarking Tool</h3>
                   <p className="text-gray-600 mb-4">
-                    Compare your creative strategy performance against industry leaders and get personalized recommendations.
+                    See how your startup's growth compares and get actionable recommendations to improve.
                   </p>
                   <a
                     href="/revenue-growth-benchmarking"
@@ -139,7 +143,7 @@ export default function FreeHooksPage() {
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">SaaS Creative ROI Calculator</h3>
                   <p className="text-gray-600 mb-4">
-                    Calculate potential ROI improvements from strategic creative optimization.
+                    Calculate how much better ad templates could improve your startup's results.
                   </p>
                   <a
                     href="/saas-creative-strategy-roi-calculator"
@@ -159,16 +163,16 @@ export default function FreeHooksPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-6">
-                Ready for Weekly Creative Intelligence?
+                Ready for Weekly Templates from a Fellow Founder?
               </h2>
               <p className="text-xl mb-8 opacity-90">
-                Get strategic creative concepts every Monday designed for early-stage startups. Starting at $5/week with your first week FREE.
+                Get proven ad templates every Monday from someone who's been in your shoes. <strong>Built by a startup founder, for startup founders.</strong> Starting at $5/week with your first week FREE.
               </p>
               <button
                 onClick={() => window.location.href = '/#service-tiers'}
                 className="bg-white text-gray-900 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-200 text-lg"
               >
-                See Weekly Plans
+                See MY Weekly Plans
               </button>
             </div>
           </div>

@@ -24,12 +24,12 @@ export function HooksOfferSection() {
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              10 Viral Hooks from High-Performing
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> Campaigns</span>
+              10 Copy-Paste Ad Templates for
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> Startup Teams</span>
             </h2>
             
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              Get proven hooks from high-performing subscription campaigns. Perfect for growth marketing teams testing new creative angles weekly. Each hook includes strategic rationale and platform-specific adaptation guide.
+              Get battle-tested ad templates that help startup teams launch winning campaigns fast. Perfect for founders who need results without the guesswork. Each template includes simple implementation guides and platform-specific variations.
             </p>
           </div>
 
@@ -39,9 +39,9 @@ export function HooksOfferSection() {
               <div className="bg-blue-100 rounded-lg p-3 w-fit mb-4">
                 <TrendingUp className="h-6 w-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Performance Proven</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Launch Fast</h3>
               <p className="text-gray-600">
-                Hooks that drove viral growth for subscription businesses at scale. Real performance data, not theory.
+                Templates that help startup teams launch winning ads in minutes, not months. Skip the trial-and-error phase completely.
               </p>
             </div>
             
@@ -49,9 +49,9 @@ export function HooksOfferSection() {
               <div className="bg-indigo-100 rounded-lg p-3 w-fit mb-4">
                 <Target className="h-6 w-6 text-indigo-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Ready to Use</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Budget Friendly</h3>
               <p className="text-gray-600">
-                Each hook includes strategic rationale and platform adaptation guide. Copy, paste, and customize for your brand.
+                Each template includes simple implementation guides. No expensive agencies required - just copy, customize, and launch today.
               </p>
             </div>
             
@@ -59,9 +59,9 @@ export function HooksOfferSection() {
               <div className="bg-purple-100 rounded-lg p-3 w-fit mb-4">
                 <Mail className="h-6 w-6 text-purple-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Weekly Intelligence</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Founder Support</h3>
               <p className="text-gray-600">
-                Plus get weekly trend intelligence newsletter with fresh hooks, competitor breakdowns, and Fortune 100 strategies.
+                Plus get weekly newsletter with fresh templates, competitor insights, and startup-focused strategies from a fellow founder.
               </p>
             </div>
           </div>
@@ -77,19 +77,19 @@ export function HooksOfferSection() {
                 <li className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
-                    <strong>10 High-Converting Hooks</strong> - Ready-to-use headlines with performance data
+                    <strong>10 Copy-Paste Templates</strong> - Ready-to-use ad formats that work for startups
                   </span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
-                    <strong>Psychology Breakdowns</strong> - Why each hook works and when to use it
+                    <strong>Why It Works Explanations</strong> - Simple guides on when and how to use each template
                   </span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
-                    <strong>Strategic Analysis</strong> - Psychological principles and optimization insights
+                    <strong>Implementation Guides</strong> - Step-by-step instructions for launching your first ads
                   </span>
                 </li>
               </ul>
@@ -98,38 +98,69 @@ export function HooksOfferSection() {
                 <li className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
-                    <strong>Adaptation Framework</strong> - How to customize each hook for your specific audience
+                    <strong>Customization Guide</strong> - How to adapt each template for your startup and audience
                   </span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
-                    <strong>Platform Optimization</strong> - Variations for TikTok, Facebook, Instagram, and YouTube
+                    <strong>Platform Variations</strong> - Specific formats for TikTok, Facebook, Instagram, and YouTube
                   </span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
-                    <strong>Bonus: Testing Matrix</strong> - How to A/B test hooks systematically for maximum ROI
+                    <strong>Bonus: Testing Guide</strong> - Simple A/B testing framework to find what works for your startup
                   </span>
                 </li>
               </ul>
             </div>
           </div>
 
+          {/* Startup Objection Preemption */}
+          <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 mb-12 border border-gray-200">
+            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
+              "But Will This Actually Work for MY Startup?"
+            </h3>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="h-6 w-6 text-green-600" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">✓ Zero Risk</h4>
+                <p className="text-gray-600 text-sm">Free download, no strings attached. If they don't help, you've lost nothing.</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Target className="h-6 w-6 text-blue-600" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">✓ Built for Startups</h4>
+                <p className="text-gray-600 text-sm">Created specifically for early-stage teams with small budgets and big goals.</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="h-6 w-6 text-orange-600" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">✓ Proven Results</h4>
+                <p className="text-gray-600 text-sm">Used by 1,247+ startup founders who've launched successful ad campaigns.</p>
+              </div>
+            </div>
+          </div>
+
           {/* CTA Section */}
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white text-center">
             <h3 className="text-3xl font-bold mb-4">
-              Download Your 10 Proven Hooks Now
+              Download MY 10 Templates Now
             </h3>
             <p className="text-xl opacity-90 mb-8">
-              Join 100+ startup founders getting hooks that actually convert
+              Join 1,247+ startup founders getting templates that actually convert
             </p>
             
             <div className="max-w-md mx-auto bg-white rounded-xl p-6">
               <EmailCaptureForm
                 placeholder="Enter your email address"
-                buttonText="Send Me The 10 Hooks"
+                buttonText="Download MY Templates"
                 variant="inline"
               />
               <p className="text-xs text-gray-500 mt-3">
