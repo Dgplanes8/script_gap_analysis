@@ -174,6 +174,15 @@ export default function FreeHooksPage() {
               >
                 See MY Weekly Plans
               </button>
+              <div className="mt-8 pt-8 border-t border-gray-700">
+                <p className="text-lg opacity-90 mb-2">Questions? Get in touch:</p>
+                <a 
+                  href="mailto:brian@apsicsmedia.com" 
+                  className="text-orange-400 hover:text-orange-300 font-semibold text-lg"
+                >
+                  brian@apsicsmedia.com
+                </a>
+              </div>
             </div>
           </div>
         </section>

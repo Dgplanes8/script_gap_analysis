@@ -19,11 +19,10 @@ export function SimpleAirtableForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
-    email: '',
     name: '',
+    email: '',
     company: '',
-    monthlyBudget: '',
-    goals: ''
+    packageInterest: ''
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -41,8 +40,7 @@ export function SimpleAirtableForm({
           name: formData.name,
           email: formData.email,
           company: formData.company,
-          monthlyBudget: formData.monthlyBudget,
-          goals: formData.goals,
+          packageInterest: formData.packageInterest,
           source: source,
           type: 'free_week_trial',
           tier: tier
@@ -118,27 +116,18 @@ export function SimpleAirtableForm({
           />
           <select
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
-            value={formData.monthlyBudget}
-            onChange={(e) => setFormData({...formData, monthlyBudget: e.target.value})}
+            value={formData.packageInterest}
+            onChange={(e) => setFormData({...formData, packageInterest: e.target.value})}
             required
           >
-            <option value="">Budget</option>
-            <option value="$100-$500">$100-$500</option>
-            <option value="$500-$1k">$500-$1K</option>
-            <option value="$1k-$2.5k">$1K-$2.5K</option>
-            <option value="$2.5k-$5k">$2.5K-$5K</option>
-            <option value="$5k-$10k">$5K-$10K</option>
-            <option value="$10k+">$10K+</option>
+            <option value="">Package Interest</option>
+            <option value="Creative Starter">Creative Starter</option>
+            <option value="Trend Tracker">Trend Tracker</option>
+            <option value="Competitive Edge">Competitive Edge</option>
+            <option value="Market Intelligence">Market Intelligence</option>
+            <option value="Enterprise">Enterprise</option>
           </select>
         </div>
-        <textarea
-          placeholder="What are your main goals? (e.g., increase app downloads, grow subscriptions, improve conversion rates)"
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
-          rows={3}
-          value={formData.goals}
-          onChange={(e) => setFormData({...formData, goals: e.target.value})}
-          required
-        />
         <button
           type="submit"
           disabled={isSubmitting}

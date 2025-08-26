@@ -370,6 +370,15 @@ export default function HomePage() {
                   variant="hero"
                 />
               </div>
+              <div className="mt-8 pt-8 border-t border-white/20">
+                <p className="text-lg opacity-90 mb-2">Questions? Get in touch:</p>
+                <a 
+                  href="mailto:brian@apsicsmedia.com" 
+                  className="text-orange-300 hover:text-orange-200 font-semibold text-lg"
+                >
+                  brian@apsicsmedia.com
+                </a>
+              </div>
             </div>
           </div>
         </div>
