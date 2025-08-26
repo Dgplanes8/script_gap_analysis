@@ -83,7 +83,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
               onClick={() => handleNavigation('hooks-offer')}
               className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
             >
-              Free Hooks
+              Free Templates
             </button>
             <div className="relative group">
               <button className="flex items-center text-gray-700 hover:text-orange-600 font-medium transition-colors">
@@ -168,7 +168,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
                 onClick={() => handleNavigation('hooks-offer')}
                 className="block w-full text-left text-gray-700 hover:text-orange-600 font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
               >
-                Free Hooks
+                Free Templates
               </button>
               <Link
                 href="/cac-reduction-guide"

@@ -13,8 +13,8 @@ export function Footer() {
               <span className="text-xl font-bold">Apsics Media</span>
             </div>
             <p className="text-gray-400 mb-6">
-              Weekly creative concept delivery for growth marketing teams at subscription companies. Fresh ideas 
-              and competitor intelligence delivered every Monday when agencies take weeks.
+              Weekly ad templates for startup founders and small teams. No marketing experience needed - 
+              get professional templates at bootstrap-friendly pricing delivered every Monday.
             </p>
             <div className="flex space-x-4">
               <div className="text-sm text-gray-400">
@@ -22,8 +22,8 @@ export function Footer() {
                 <div>Not 2 Weeks</div>
               </div>
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-red-400">Growth Focus</div>
-                <div>Subscription Companies</div>
+                <div className="font-semibold text-red-400">Startup Focus</div>
+                <div>Bootstrap-Friendly</div>
               </div>
               <div className="text-sm text-gray-400">
                 <div className="font-semibold text-orange-400">10+ Years</div>
@@ -160,7 +160,7 @@ export function Footer() {
                   href="/free-hooks" 
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Free Hooks
+                  Free Templates
                 </Link>
               </li>
             </ul>
@@ -171,7 +171,7 @@ export function Footer() {
                 href="/free-hooks"
                 className="inline-flex items-center px-4 py-2 bg-orange-600 text-white text-sm font-semibold rounded-lg hover:bg-orange-700 transition-colors"
               >
-                Get 10 Free Hooks
+                Get 10 Free Templates
               </Link>
             </div>
           </div>
@@ -184,11 +184,11 @@ export function Footer() {
               © {new Date().getFullYear()} Apsics Media. All rights reserved.
             </div>
             <div className="flex items-center space-x-6 text-sm text-gray-400">
-              <span>Weekly Creative Intelligence</span>
+              <span>Weekly Templates</span>
               <span>•</span>
-              <span>Ready-to-Develop Scripts</span>
+              <span>Startup-Focused</span>
               <span>•</span>
-              <span>Growth Marketing Teams</span>
+              <span>Bootstrap-Friendly Pricing</span>
             </div>
           </div>
         </div>

@@ -79,13 +79,13 @@ export function AirtableForm({
           <CheckCircle className="h-8 w-8 text-green-600" />
         </div>
         <h3 className="text-2xl font-semibold text-green-800 mb-2">
-          Thank you for your submission!
+          Your Free Templates Are On The Way!
         </h3>
         <p className="text-green-700 mb-4">
-          We've received your information and will review it within 24 hours.
+          Check your inbox for instant access to your free templates and welcome guide.
         </p>
         <p className="text-sm text-green-600">
-          If your story is a good fit, we'll reach out to discuss featuring your success with Apsics Media.
+          You'll also receive weekly trend intelligence with fresh concepts every Monday.
         </p>
       </div>
     );

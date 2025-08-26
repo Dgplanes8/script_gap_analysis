@@ -28,24 +28,24 @@ export default function SuccessPage() {
         case 'order':
           return {
             title: "Welcome to weekly trend intelligence! First delivery this Monday.",
-            subtitle: "Watch for two emails: payment receipt and welcome guide with this Monday's trending concepts. You can reply to either with questions."
+            subtitle: "Watch for your welcome guide with this Monday's trending concepts. You can reply with any questions."
           };
         case 'newsletter':
           return {
             title: "Welcome to weekly trend intelligence — your first issue arrives next Monday at 8am ET.",
-            subtitle: "Check your inbox for a welcome email and your '10 Hook Bank' PDF. Every Monday you'll get trending concepts, competitor analysis, and ready-to-develop scripts."
+            subtitle: "Check your inbox for a welcome email and your '10 Free Templates' PDF. Every Monday you'll get trending concepts, competitor analysis, and ready-to-develop scripts."
           };
         default:
           return {
-            title: "Thank You for Your Interest!",
-            subtitle: "We're excited to help you create high-converting ad scripts that turn customer language into profitable campaigns."
+            title: "Thank You - Your Free Templates Are Coming!",
+            subtitle: "Check your inbox for instant access to your free templates. We're excited to help you create high-converting campaigns."
           };
       }
     }
     
     return {
-      title: "Thank You for Your Interest!",
-      subtitle: "We're excited to help you create high-converting ad scripts that turn customer language into profitable campaigns."
+      title: "Thank You - Your Free Templates Are Coming!",
+      subtitle: "Check your inbox for instant access to your free templates. We're excited to help you create high-converting campaigns."
     };
   };
   
@@ -57,7 +57,7 @@ export default function SuccessPage() {
       <Hero
         title={title}
         subtitle={subtitle}
-        ctaText="Get 10 Free Hooks"
+        ctaText="Get Free Templates"
         primaryCtaLink="/free-hooks"
         secondaryCtaText="View Weekly Plans"
         secondaryCtaLink="/#service-tiers"
@@ -95,7 +95,7 @@ export default function SuccessPage() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3">If You Subscribed</h3>
                 <p className="text-gray-600">
-                  Watch for payment receipt and welcome guide. Your first weekly trend intelligence delivery arrives this Monday.
+                  Watch for your welcome guide. Your first weekly trend intelligence delivery arrives this Monday.
                 </p>
               </div>
               
@@ -103,9 +103,9 @@ export default function SuccessPage() {
                 <div className="bg-brand-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="h-8 w-8 text-brand-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">If You Downloaded Free Hooks</h3>
+                <h3 className="text-xl font-semibold mb-3">If You Downloaded Free Templates</h3>
                 <p className="text-gray-600">
-                  Check your inbox for your 10 Hook Bank PDF and welcome email. Consider weekly trend intelligence for fresh concepts every Monday.
+                  Check your inbox for your 10 Free Templates PDF and welcome email. Consider weekly trend intelligence for fresh concepts every Monday.
                 </p>
               </div>
             </div>
@@ -161,7 +161,7 @@ export default function SuccessPage() {
                   href="/free-hooks"
                   className="w-full btn-primary text-center block"
                 >
-                  Get 10 Free Hooks First
+                  Get 10 Free Templates First
                 </Link>
               </div>
               
@@ -211,41 +211,21 @@ export default function SuccessPage() {
         </div>
       </section>
 
-      {/* Social Follow Section */}
+      {/* Focus Message Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-gray-900 mb-8">
-              Stay Connected
+              Focus on Building Your Startup
             </h2>
             <p className="text-xl text-gray-600 mb-12">
-              Follow us for daily hook ideas, creative breakdowns, and testing insights.
+              We'll handle the creative templates so you can focus on what matters most - growing your business.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <a
-                href="https://twitter.com/apsicsmedia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors flex items-center"
-              >
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.564-2.005.974-3.127 1.195a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                </svg>
-                Follow on X
-              </a>
-              
-              <a
-                href="https://linkedin.com/company/apsics-media"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-3 rounded-lg font-semibold transition-colors flex items-center"
-              >
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-                Follow on LinkedIn
-              </a>
+            <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-8">
+              <p className="text-lg text-gray-700">
+                <strong>Ready to get started?</strong> Check your email for your free templates and consider upgrading to weekly delivery for fresh concepts every Monday.
+              </p>
             </div>
           </div>
         </div>
@@ -257,17 +237,17 @@ export default function SuccessPage() {
           <div className="max-w-2xl mx-auto">
             <div className="bg-white rounded-xl p-8 shadow-lg text-center">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Start With 10 Free Hooks
+                Start With 10 Free Templates
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Get proven hooks from high-performing subscription campaigns. Perfect way to experience our strategic approach before choosing a weekly plan.
+                Get proven templates from high-performing subscription campaigns. Perfect way to experience our strategic approach before choosing a weekly plan.
               </p>
               
               <Link
                 href="/free-hooks"
                 className="btn-primary inline-block px-8 py-4 text-lg font-semibold"
               >
-                Get My 10 Free Hooks
+                Get My 10 Free Templates
               </Link>
               
               <p className="text-sm text-gray-500 mt-4">
