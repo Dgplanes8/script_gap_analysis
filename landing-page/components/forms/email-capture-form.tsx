@@ -82,10 +82,10 @@ export function EmailCaptureForm({
           <Mail className="h-8 w-8 text-green-600" />
         </div>
         <h3 className="text-lg font-semibold text-green-800 mb-2">
-          Your 10 Free Hooks Are Coming!
+          Your 10 Free Templates Are Coming!
         </h3>
         <p className="text-green-700">
-          Check your email for your Hook Bank PDF and weekly creative intelligence newsletter.
+          Check your email for your Free Templates PDF and weekly creative intelligence newsletter.
         </p>
       </div>
     );
@@ -140,8 +140,8 @@ export function EmailCaptureForm({
       </div>
       
       <div className="text-sm text-gray-600 text-center bg-gray-50 rounded-lg p-3">
-        <div className="font-medium">Join 1,200+ growth marketers getting weekly concepts</div>
-        <div className="mt-1">Get your 10 Hook Bank PDF instantly • Unsubscribe anytime</div>
+        <div className="font-medium">Join 1,200+ startup founders getting weekly templates</div>
+        <div className="mt-1">Get your 10 Free Templates PDF instantly • Unsubscribe anytime</div>
       </div>
     </form>
   );

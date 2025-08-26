@@ -10,8 +10,8 @@ interface ExitIntentPopupProps {
 }
 
 export function ExitIntentPopup({ 
-  title = "Wait! Get Your Free Hook Bank Before You Go",
-  subtitle = "Join 100+ startups getting winning hooks every Monday + instant access to our 10 Hook Bank PDF."
+  title = "Wait! Get Your Free Templates Before You Go",
+  subtitle = "Join 100+ startups getting winning templates every Monday + instant access to our 10 Free Templates PDF."
 }: ExitIntentPopupProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
@@ -87,7 +87,7 @@ export function ExitIntentPopup({
 
           <EmailCaptureForm
             placeholder="Enter your email for instant access"
-            buttonText="Get My Hook Bank"
+            buttonText="Get My Free Templates"
             variant="cta"
             source="exit-intent-popup"
           />
@@ -97,7 +97,7 @@ export function ExitIntentPopup({
               onClick={handleClose}
               className="text-sm text-gray-500 hover:text-gray-700"
             >
-              No thanks, I'll pass on the free hooks
+              No thanks, I'll pass on the free templates
             </button>
           </div>
         </div>

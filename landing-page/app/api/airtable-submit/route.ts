@@ -74,6 +74,18 @@ export async function POST(request: NextRequest) {
         'Tier': data.tier || '',
         'Status': 'New'
       };
+    } else if (data.type === 'free_week_trial') {
+      fields = {
+        'Name': data.name || '',
+        'Email': data.email || '',
+        'Company': data.company || '',
+        'Monthly Budget': data.monthlyBudget || '',
+        'Goals': data.goals || '',
+        'Source': data.source || 'landing_page',
+        'Type': 'Free Week Trial',
+        'Status': 'New',
+        'Submitted': new Date().toISOString()
+      };
     }
 
     console.log('Submitting to Airtable with fields:', fields);

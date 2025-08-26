@@ -34,16 +34,13 @@ export default function HomePage() {
       <main className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
       <Hero
-        title="Turn Your $500 Ad Budget Into 3x More Customers in 30 Days"
+        title="Turn Your Ad Budget Into 3x More Customers in 30 Days"
         subtitle="Weekly ad templates and ready-to-use scripts designed for startup teams. No marketing experience needed - just copy, paste, and launch winning campaigns that actually convert."
         ctaText="Start Your FREE Week"
         secondaryCtaText="Download MY Templates"
         secondaryCtaLink="/free-hooks"
         showEmailCapture={true}
       />
-
-      {/* Creative Performance Data - Data-backed insights */}
-      <CreativePerformanceData />
 
       {/* Service Tiers Section - Prioritized for better conversion */}
       <section id="service-tiers">
@@ -66,15 +63,16 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-orange-200">
               <div className="inline-flex items-center bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Mail className="h-4 w-4 mr-2" />
-                HIGH-CONVERTING HOOKS - FREE
+                FREE TEMPLATES - INSTANT ACCESS
               </div>
+              
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                10 Copy-Paste Ad Templates (Launch Your First Winning Campaign This Week)
+              </h2>
               
               <div className="bg-orange-600 text-white px-3 py-1 rounded-lg mb-4 inline-block text-sm font-semibold">
                 🔥 Downloaded by 1,247+ startup founders this month
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                10 Copy-Paste Ad Templates (Launch Your First Winning Campaign This Week)
-              </h2>
               
               <p className="text-lg text-gray-600 mb-6">
                 Skip months of trial-and-error. These battle-tested templates give you winning ads in 10 minutes. 
@@ -380,8 +378,8 @@ export default function HomePage() {
 
       {/* Exit Intent Popup */}
       <ExitIntentPopup 
-        title="Wait! Get Your Free Expert Creative Intelligence Toolkit Before You Go"
-        subtitle="Join growth marketing teams getting data-driven creative hooks and strategic insights every Monday + instant access to our Creative Hook Database."
+        title="Wait! Get Your Free Templates Before You Go"
+        subtitle="Join startup founders getting winning ad templates every Monday + instant access to our 10 Free Templates PDF."
       />
 
       {/* Conversion Dashboard (dev/admin only) */}

@@ -11,7 +11,7 @@ export function StartupObjectionPreemption() {
           <div className="text-center mb-12">
             <div className="inline-flex items-center bg-gray-800 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <Shield className="h-4 w-4 mr-2" />
-              STARTUP-SPECIFIC CONCERNS ADDRESSED
+              EVERYTHING YOU NEED TO LAUNCH SUCCESSFUL ADS
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               "But I'm Not Sure If This Will Work for My Startup..."

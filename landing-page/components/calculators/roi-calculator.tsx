@@ -57,7 +57,7 @@ function calculateROI(inputs: ROIInputs): ROIResults {
 
 export function ROICalculator() {
   const [inputs, setInputs] = useState<ROIInputs>({
-    monthlyAdSpend: 2000,
+    monthlyAdSpend: 1500,
     currentCAC: 50,
     expectedImprovement: 25
   });
@@ -125,17 +125,17 @@ export function ROICalculator() {
                   <div className="relative">
                     <input
                       type="range"
-                      min="1000"
-                      max="100000"
-                      step="1000"
+                      min="100"
+                      max="10000"
+                      step="100"
                       value={inputs.monthlyAdSpend}
                       onChange={(e) => setInputs(prev => ({ ...prev, monthlyAdSpend: parseInt(e.target.value) }))}
                       className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
                     />
                     <div className="flex justify-between text-sm text-gray-500 mt-1">
-                      <span>$1K</span>
+                      <span>$100</span>
                       <span className="font-semibold text-gray-900">{formatCurrency(inputs.monthlyAdSpend)}</span>
-                      <span>$100K</span>
+                      <span>$10K</span>
                     </div>
                   </div>
                 </div>
@@ -192,22 +192,22 @@ export function ROICalculator() {
                 <p className="text-sm font-medium text-gray-700 mb-3">Quick Scenarios:</p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   <button
-                    onClick={() => setInputs({ monthlyAdSpend: 5000, currentCAC: 60, expectedImprovement: 20 })}
+                    onClick={() => setInputs({ monthlyAdSpend: 500, currentCAC: 75, expectedImprovement: 20 })}
                     className="text-xs bg-white border border-gray-300 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
                   >
-                    Small Business
+                    Early Startup
                   </button>
                   <button
-                    onClick={() => setInputs({ monthlyAdSpend: 15000, currentCAC: 40, expectedImprovement: 25 })}
+                    onClick={() => setInputs({ monthlyAdSpend: 2000, currentCAC: 50, expectedImprovement: 25 })}
+                    className="text-xs bg-white border border-gray-300 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
+                  >
+                    Bootstrap Stage
+                  </button>
+                  <button
+                    onClick={() => setInputs({ monthlyAdSpend: 5000, currentCAC: 35, expectedImprovement: 30 })}
                     className="text-xs bg-white border border-gray-300 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
                   >
                     Growing Startup
-                  </button>
-                  <button
-                    onClick={() => setInputs({ monthlyAdSpend: 50000, currentCAC: 30, expectedImprovement: 30 })}
-                    className="text-xs bg-white border border-gray-300 rounded-lg px-3 py-2 hover:bg-gray-50 transition-colors"
-                  >
-                    Scale-up
                   </button>
                 </div>
               </div>
