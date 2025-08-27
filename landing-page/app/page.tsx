@@ -47,6 +47,9 @@ export default function HomePage() {
         <ServiceTiers />
       </section>
 
+      {/* Creative Performance Data - Data-backed insights */}
+      <CreativePerformanceData />
+
       {/* Startup Objection Preemption - Address budget, time, and results concerns */}
       <StartupObjectionPreemption />
 
@@ -134,9 +137,6 @@ export default function HomePage() {
           },
         ]}
       />
-
-      {/* Creative Performance Data - Data-backed insights */}
-      <CreativePerformanceData />
 
       {/* Creative Strategy Gap - Why big companies win */}
       <CreativeStrategyGap />

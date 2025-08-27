@@ -26,13 +26,15 @@ export default function FreeHooksPage() {
         <section className="py-16 bg-gradient-to-br from-red-50 to-orange-100">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
-                <Download className="h-4 w-4 mr-2" />
-                COPY-PASTE TEMPLATES - FREE
-              </div>
-              
-              <div className="bg-orange-600 text-white px-3 py-1 rounded-lg mb-4 inline-block text-sm font-semibold">
-                🔥 Downloaded by 1,247+ startup founders this month
+              <div className="space-y-4 mb-6">
+                <div className="inline-flex items-center bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                  <Download className="h-4 w-4 mr-2" />
+                  COPY-PASTE TEMPLATES - FREE
+                </div>
+                
+                <div className="bg-orange-600 text-white px-3 py-1 rounded-lg inline-block text-sm font-semibold">
+                  🔥 Downloaded by 1,247+ startup founders this month
+                </div>
               </div>
               
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -53,16 +55,16 @@ export default function FreeHooksPage() {
                     />
                   </div>
                   
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    <div className="text-center">
+                  <div className="grid grid-cols-3 gap-6 mb-8">
+                    <div className="text-center p-4">
                       <div className="text-2xl font-bold text-red-600">500+</div>
                       <div className="text-sm text-gray-600">Campaigns Launched</div>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center p-4">
                       <div className="text-2xl font-bold text-orange-600">Startup</div>
                       <div className="text-sm text-gray-600">Focused</div>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center p-4">
                       <div className="text-2xl font-bold text-red-600">3+</div>
                       <div className="text-sm text-gray-600">Platforms</div>
                     </div>
