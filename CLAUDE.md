@@ -110,6 +110,8 @@
 - **Landing Page**: Next.js 14, TypeScript, Tailwind CSS, Vercel deployment
 - **TikTok Tools**: yt-dlp, dynamic video downloading
 - **Analytics**: Google Analytics, Vercel Analytics, conversion tracking
+- **Testing**: Playwright MCP for browser automation and UI validation
+- **Forms**: Airtable API integration, standardized 4-field structure
 
 ### Most Used Commands
 
@@ -162,6 +164,19 @@ gh pr create --title "Title" --body "Description"
 
 # View PR status
 gh pr status
+```
+
+**Playwright MCP Testing:**
+```bash
+# Navigate to live site for testing
+mcp__playwright__browser_navigate https://apsicsmedia.com
+
+# Take screenshots for validation
+mcp__playwright__browser_take_screenshot
+
+# Test form flows and UI interactions
+mcp__playwright__browser_click [element]
+mcp__playwright__browser_fill_form [form_data]
 ```
 
 ### API Configurations Required
@@ -242,6 +257,40 @@ gh pr status
 
 ---
 
+## Recent Technical Updates & Fixes
+
+### Latest UI/UX Improvements (2025-01-27)
+**Homepage Layout Optimization:**
+- ✅ Removed strategic resource library section for cleaner layout
+- ✅ Fixed service tier form flow - eliminated unnecessary intermediate step
+- ✅ Standardized all forms to use 4-field Airtable structure (Name, Email, Company, Package Interest)
+
+**Free-Hooks Page Enhancements:**
+- ✅ Fixed promotional badges layout - now display vertically on separate rows instead of overlapping
+- ✅ Improved visual hierarchy and spacing for better mobile experience
+- ✅ Enhanced badge design with proper spacing and contrast
+
+**Form Flow Improvements:**
+- ✅ SimpleAirtableForm component now shows form immediately (no intermediate button)
+- ✅ Service tier buttons properly pass tier name for form pre-population
+- ✅ Eliminated confusing "Start Free Week" intermediate popup
+- ✅ Streamlined user journey from tier selection to form completion
+
+### Component Architecture Updates
+- **SimpleAirtableForm**: Updated to start with `showForm: true` by default
+- **ServiceTiers**: Enhanced to pass `tier.name` instead of `tier.id` for better form context
+- **Modal System**: Streamlined to reduce friction in signup flow
+
+### Outstanding Issues (from plan.md)
+- [ ] Grammar and spacing consistency across all pages
+- [ ] Color coordination in hero header
+- [ ] Footer updates for startup ICP alignment
+- [ ] Form standardization across all pages
+- [ ] Social media button removal (X and LinkedIn)
+- [ ] Template terminology consistency (hooks → templates)
+
+---
+
 ## Quality Standards & Performance Metrics
 
 ### Client Success Metrics
@@ -303,12 +352,23 @@ npm run build      # Must succeed
 ```
 Ad Workflow/
 ├── CLAUDE.md                          # This operations manual
+├── CHANGELOG.md                       # Project update tracking
+├── ISSUES_TRACKER.md                  # Outstanding issues from plan.md
+├── UI_COMPONENT_GUIDE.md             # Component documentation
 ├── phased_workflow_orchestrator.py    # Main workflow orchestrator
 ├── download_tiktok_videos.py          # TikTok video downloader
 ├── workflow_steps/                    # Individual step scripts
 ├── landing-page/                      # Next.js landing page
 │   ├── components/                    # React components
+│   │   ├── forms/                    # Form components (SimpleAirtableForm, etc.)
+│   │   ├── modals/                   # Modal components
+│   │   ├── calculators/              # Calculator components
+│   │   ├── layout/                   # Layout components (Header, Footer, ServiceTiers)
+│   │   └── ui/                      # UI components
 │   ├── app/                          # App router pages
+│   ├── hooks/                        # Custom React hooks
+│   ├── lib/                          # Utility functions
+│   ├── __tests__/                    # Jest test files
 │   └── package.json                  # Dependencies
 ├── Projects/{brand_name}/             # Brand-specific project folders
 │   ├── Brand/                        # Brand profile and guidelines
@@ -318,6 +378,7 @@ Ad Workflow/
 │   ├── Copy/                         # Hook/headline development
 │   ├── Script/                       # Complete script variations
 │   └── Completed_Analysis/           # Final strategic analysis
+├── .playwright-mcp/                   # Playwright test screenshots
 └── TikTok Videos/                    # Video research and downloads
     ├── recent_trending_videos.json   # Source video data
     └── downloaded_tiktok_videos/      # Downloaded video files
