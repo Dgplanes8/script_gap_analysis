@@ -249,7 +249,7 @@ export function ServiceTiers() {
                         openConsultation(tier.name);
                       } else {
                         // Show Airtable form popup for all non-enterprise tiers
-                        setSelectedTier(tier.id);
+                        setSelectedTier(tier.name); // Pass tier name instead of id
                         setShowAirtableForm(true);
                       }
                     }}

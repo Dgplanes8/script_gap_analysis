@@ -159,10 +159,6 @@ export default function HomePage() {
       {/* Creative Strategy Benchmark Analysis */}
       <CreativeStrategyBenchmarkTool />
 
-      {/* Strategic Resources Section */}
-      <section id="strategic-resources" className="bg-gray-50">
-        <ContentNavigation showTitle={true} variant="grid" />
-      </section>
 
 
       {/* Weekly Delivery Guarantee Section */}

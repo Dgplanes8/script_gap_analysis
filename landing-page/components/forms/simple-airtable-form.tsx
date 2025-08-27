@@ -21,13 +21,13 @@ export function SimpleAirtableForm({
   onError
 }: SimpleAirtableFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(true); // Start with form visible
   const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
-    packageInterest: ''
+    packageInterest: tier || '' // Pre-populate with tier if provided
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
