@@ -140,7 +140,7 @@ export function Hero({
               <span>Media Spend Managed</span>
             </div>
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-red-400 mr-2">Campaign</span>
+              <span className="text-2xl font-bold text-orange-400 mr-2">Campaign</span>
               <span>Launch Specialist</span>
             </div>
             <div className="flex items-center">

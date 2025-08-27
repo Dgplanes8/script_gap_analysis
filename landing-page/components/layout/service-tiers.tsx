@@ -9,7 +9,7 @@ import { SimpleAirtableForm } from '@/components/forms/simple-airtable-form';
 
 export function ServiceTiers() {
   const { openModal: openConsultation } = useConsultation();
-  const [selectedTier, setSelectedTier] = useState<'assessment' | 'foundation' | 'growth' | 'enterprise' | null>(null);
+  const [selectedTier, setSelectedTier] = useState<string | null>(null);
   const [showAirtableForm, setShowAirtableForm] = useState(false);
 
   const tiers = [
@@ -139,8 +139,7 @@ export function ServiceTiers() {
             Weekly Creative Intelligence for Early-Stage Startups
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-            Revolutionary weekly pricing from a fellow founder who's been in your shoes. Get your first week FREE, then pay only for the weeks you want to continue. 
-            <strong>Built by someone who's launched 500+ campaigns and managed $250MM+ in ad spend.</strong> Cancel anytime, restart anytime.
+            Revolutionary weekly pricing from a fellow founder who's been in your shoes. Get your first week FREE, then pay only for the weeks you want to continue. <strong>Built by someone who's launched 500+ campaigns and managed $250MM+ in ad spend.</strong> Cancel anytime, restart anytime.
           </p>
           <div className="bg-white rounded-xl p-6 max-w-3xl mx-auto shadow-lg border">
             <div className="grid md:grid-cols-3 gap-6 text-center">
@@ -172,8 +171,6 @@ export function ServiceTiers() {
                 style={{
                   marginTop: tier.popular ? '12px' : '36px'
                 }}
-                onMouseEnter={() => setSelectedTier(tier.id as any)}
-                onMouseLeave={() => setSelectedTier(null)}
               >
                 {tier.popular && (
                   <div className="absolute -top-5 sm:-top-6 left-1/2 transform -translate-x-1/2 z-10">
@@ -251,8 +248,8 @@ export function ServiceTiers() {
                       if (tier.id === 'enterprise') {
                         openConsultation(tier.name);
                       } else {
-                        // For all non-enterprise tiers, open Airtable form
-                        setSelectedTier(tier.id as any);
+                        // Show Airtable form popup for all non-enterprise tiers
+                        setSelectedTier(tier.id);
                         setShowAirtableForm(true);
                       }
                     }}
@@ -275,76 +272,28 @@ export function ServiceTiers() {
           })}
         </div>
 
-        {/* Strategic Methodology Links */}
-        <div className="mt-16 max-w-6xl mx-auto">
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Learn About Our Proven Methodology
-              </h3>
-              <p className="text-lg text-gray-600">
-                Understand the Fortune 100 frameworks and systematic approach behind our weekly creative intelligence service
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <Link href="/weekly-creative-intelligence-playbook" className="group">
-                <div className="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
-                    <TrendingUp className="h-6 w-6 text-orange-600" />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Complete Methodology</h4>
-                  <p className="text-sm text-gray-600 mb-3">Fortune 100 methodology for systematic creative intelligence implementation</p>
-                  <span className="text-blue-600 text-sm font-medium group-hover:text-blue-700">Learn the Framework →</span>
-                </div>
-              </Link>
-              
-              <Link href="/25-point-performance-scoring-system" className="group">
-                <div className="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-teal-200 transition-colors">
-                    <Target className="h-6 w-6 text-teal-600" />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Performance Scoring</h4>
-                  <p className="text-sm text-gray-600 mb-3">25-point framework for predicting creative performance before testing</p>
-                  <span className="text-blue-600 text-sm font-medium group-hover:text-blue-700">See Scoring System →</span>
-                </div>
-              </Link>
-              
-              <Link href="/creative-intelligence-implementation-guide" className="group">
-                <div className="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
-                    <Building2 className="h-6 w-6 text-purple-600" />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Implementation Guide</h4>
-                  <p className="text-sm text-gray-600 mb-3">8-week roadmap for implementing creative intelligence in your organization</p>
-                  <span className="text-blue-600 text-sm font-medium group-hover:text-blue-700">Get Implementation Plan →</span>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
 
         <div className="mt-16 text-center">
           <div className="bg-white rounded-2xl p-8 max-w-4xl mx-auto shadow-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Start With Free Hooks - No Risk, Instant Value
+              Start With Free Templates - No Risk, Instant Value
             </h3>
             <p className="text-lg text-gray-600 mb-6">
-              Experience our strategic approach with 10 high-converting hooks before choosing your weekly plan. Perfect for testing our creative intelligence methodology.
+              Experience our strategic approach with 10 high-converting templates before choosing your weekly plan. Perfect for testing our creative intelligence approach.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={() => window.location.href = '/free-hooks'}
                 className="bg-orange-600 hover:bg-orange-700 text-white font-semibold text-lg px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
               >
-                Get My 10 Free Hooks
+                Get My 10 Free Templates
               </button>
               <div className="text-sm text-gray-500">
-                • Instant access to hook bank PDF
+                • Instant access to template bank PDF
                 <br />
                 • Weekly creative intelligence newsletter  
                 <br />
-                • See our strategic methodology firsthand
+                • See our strategic approach firsthand
               </div>
             </div>
           </div>
@@ -369,10 +318,19 @@ export function ServiceTiers() {
             buttonText="Start Free Week"
             source="service-tiers-modal"
             tier={selectedTier || 'unknown'}
+            onSuccess={() => {
+              setShowAirtableForm(false);
+              window.location.href = '/success?source=order';
+            }}
+            onError={() => {
+              // Error handling is built into SimpleAirtableForm component
+              // It shows: "Something went wrong. Please reach out to brian@apsicsmedia.com"
+            }}
           />
         </div>
       </div>
     )}
+
     </>
   );
 }

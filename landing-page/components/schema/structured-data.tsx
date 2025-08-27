@@ -3,58 +3,61 @@
 import Script from 'next/script';
 import { usePathname } from 'next/navigation';
 import { generatePageSchemaGraph, formatSchemaAsJsonLD } from '@/lib/schema/utils';
+import { generateTemplateSchemaGraph } from '@/lib/schema/template-schemas';
 import { DEFAULT_FAQS } from '@/lib/schema/types';
 
 interface StructuredDataProps {
-  pageType?: 'homepage' | 'article' | 'calculator' | 'generic';
+  pageType?: 'homepage' | 'article' | 'blog' | 'calculator' | 'playbook' | 'service' | 'generic';
   title?: string;
   description?: string;
   slug?: string;
+  breadcrumbs?: Array<{ name: string; href: string }>;
+  faqs?: Array<{ question: string; answer: string }>;
   additionalSchemas?: any[];
   className?: string;
+  
+  // Template-specific props
+  category?: string;
+  keywords?: string[];
+  readingTime?: number;
+  features?: string[];
+  modules?: Array<{ title: string; description: string; duration?: string }>;
 }
 
 /**
- * Master structured data component that generates appropriate schemas
- * based on the current page and provided props
+ * Enhanced structured data component that generates comprehensive schemas
+ * for all template types with proper SEO optimization
  */
 export function StructuredData({
   pageType = 'generic',
   title = 'Apsics Media - Weekly Trend Intelligence for Subscription Businesses',
   description = 'Get viral scripts every Monday based on trending formats + competitor analysis. Weekly trend intelligence for growth marketing teams at subscription companies starting at $67/month.',
   slug,
+  breadcrumbs,
+  faqs = [],
   additionalSchemas = [],
-  className
+  className,
+  category,
+  keywords,
+  readingTime,
+  features,
+  modules
 }: StructuredDataProps = {}) {
   const pathname = usePathname();
   const finalSlug = slug || pathname;
   
   // Generate breadcrumbs based on finalSlug (except for homepage)
-  const breadcrumbs = finalSlug === '/' ? [] : generateBreadcrumbsFromPath(finalSlug);
+  const generatedBreadcrumbs = breadcrumbs || (finalSlug === '/' ? [] : generateBreadcrumbsFromPath(finalSlug));
   
-  // Add FAQ schema for homepage and key pages
-  const schemas = [...additionalSchemas];
-  if (pageType === 'homepage' || finalSlug === '/') {
-    schemas.push({
-      '@type': 'FAQPage',
-      mainEntity: DEFAULT_FAQS.map(faq => ({
-        '@type': 'Question',
-        name: faq.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: faq.answer
-        }
-      }))
-    });
-  }
-
-  const schemaGraph = generatePageSchemaGraph({
-    pageType,
+  // Use comprehensive template schema generation
+  const schemaGraph = generateTemplateSchemaGraph({
+    pageType: pageType === 'article' ? 'blog' : pageType as any,
     title,
     description,
     slug: finalSlug,
-    breadcrumbs,
-    additionalSchemas: schemas
+    breadcrumbs: generatedBreadcrumbs,
+    faqs: faqs.length > 0 ? faqs : (pageType === 'homepage' || finalSlug === '/' ? [...DEFAULT_FAQS] : []),
+    additionalSchemas
   });
 
   const jsonLD = formatSchemaAsJsonLD(schemaGraph);

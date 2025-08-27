@@ -174,7 +174,7 @@ export function ExampleOutputsShowcase() {
                   onClick={() => window.location.href = '/free-hooks'}
                   className="bg-white text-green-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200"
                 >
-                  Get Free Sample Hooks
+                  Get Free Sample Templates
                 </button>
                 <button
                   onClick={() => {

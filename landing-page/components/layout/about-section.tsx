@@ -63,41 +63,6 @@ export function AboutSection() {
             </div>
           </div>
 
-          {/* Experience Details */}
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white">
-              <div className="flex items-center mb-6">
-                <Award className="h-8 w-8 text-yellow-400 mr-3" />
-                <h3 className="text-2xl font-bold">Corporate Excellence</h3>
-              </div>
-              
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-yellow-400 mb-2">Subscription Business Focus</h4>
-                  <p className="text-gray-300 leading-relaxed">
-                    Specialized exclusively in subscription and recurring revenue models, understanding the unique challenges 
-                    of LTV optimization, churn prevention, and sustainable customer acquisition at scale.
-                  </p>
-                </div>
-                
-                <div>
-                  <h4 className="text-lg font-semibold text-yellow-400 mb-2">Growth-Stage Companies</h4>
-                  <p className="text-gray-300 leading-relaxed">
-                    Focused on helping 5-75 employee subscription companies scale beyond their initial audiences, 
-                    providing creative concepts and audience expansion strategies for teams managing serious ad budgets.
-                  </p>
-                </div>
-                
-                <div>
-                  <h4 className="text-lg font-semibold text-yellow-400 mb-2">Speed & Optimization</h4>
-                  <p className="text-gray-300 leading-relaxed">
-                    Weekly creative concept delivery when agencies take weeks. Built for performance marketers 
-                    who need constant creative testing fuel to maintain growth velocity and competitive advantage.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
 
           {/* Strategic Advantage */}
           <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8">

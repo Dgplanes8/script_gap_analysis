@@ -144,7 +144,7 @@ export default function HomePage() {
       {/* Example Outputs Showcase - What founders actually get */}
       <ExampleOutputsShowcase />
 
-      {/* Hook Generation Demo - Simplified version */}
+      {/* Template Generation Demo - Simplified version */}
       <HookGeneratorDemo />
 
       {/* About Section - Weekly Intelligence Positioning */}

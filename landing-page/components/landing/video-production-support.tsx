@@ -16,7 +16,7 @@ const supportTiers: SupportTier[] = [
     name: 'DIY Support',
     description: 'Everything you need to create videos yourself',
     features: [
-      'Hook-to-visual matching framework',
+      'Template-to-visual matching framework',
       'Mobile shooting best practices guide', 
       'Video editing workflow templates',
       'Platform-specific optimization tips',
@@ -100,7 +100,7 @@ export function VideoProductionSupport() {
             </h2>
             
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              "Great hooks are worthless if I can't make the videos." We hear this all the time. 
+              "Great templates are worthless if I can't make the videos." We hear this all the time. 
               That's why we provide video production support for ANY company size - from solo founders with iPhones 
               to growing companies with video teams.
             </p>
@@ -202,27 +202,22 @@ export function VideoProductionSupport() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <button
                   onClick={() => {
-                    const emailSection = document.getElementById('email-signup');
-                    if (emailSection) {
-                      emailSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                  className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center"
-                >
-                  Start With Free Video Support
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </button>
-                
-                <button
-                  onClick={() => {
                     const serviceSection = document.getElementById('service-tiers');
                     if (serviceSection) {
                       serviceSection.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
+                  className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center"
+                >
+                  Get Started With Weekly Templates
+                  <ArrowRight className="h-5 w-5 ml-2" />
+                </button>
+                
+                <button
+                  onClick={() => window.location.href = '/free-hooks'}
                   className="text-orange-600 hover:text-orange-700 font-semibold underline transition-colors"
                 >
-                  See Which Plan Includes Video Support
+                  Download Free Templates First
                 </button>
               </div>
             </div>

@@ -8,16 +8,21 @@ interface SimpleAirtableFormProps {
   buttonClassName?: string;
   source?: string;
   tier?: string;
+  onSuccess?: () => void;
+  onError?: () => void;
 }
 
 export function SimpleAirtableForm({ 
   buttonText = "Start My FREE Week Trial",
   buttonClassName = "btn btn-primary text-lg px-8 py-4",
   source = "service-tiers",
-  tier
+  tier,
+  onSuccess,
+  onError
 }: SimpleAirtableFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,6 +33,7 @@ export function SimpleAirtableForm({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
     try {
       // Submit to Airtable API using the same endpoint and format as existing form
@@ -48,17 +54,21 @@ export function SimpleAirtableForm({
       });
 
       if (response.ok) {
-        // Redirect to success page or show confirmation
-        window.location.href = '/success?source=' + source;
+        // Call success callback or redirect to success page
+        if (onSuccess) {
+          onSuccess();
+        } else {
+          window.location.href = '/success?source=' + source;
+        }
       } else {
-        console.error('Airtable submission failed');
-        // Fallback to original email form behavior
-        window.location.href = '/free-hooks';
+        throw new Error('Airtable submission failed');
       }
     } catch (error) {
       console.error('Error submitting to Airtable:', error);
-      // Fallback to original email form behavior
-      window.location.href = '/free-hooks';
+      setError('Something went wrong. Please reach out to brian@apsicsmedia.com');
+      if (onError) {
+        onError();
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -86,6 +96,13 @@ export function SimpleAirtableForm({
         <h3 className="text-lg font-semibold text-gray-900">Start Your FREE Week</h3>
         <p className="text-sm text-gray-600">Get winning templates every Monday</p>
       </div>
+      
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4">
+          <p className="text-sm">{error}</p>
+        </div>
+      )}
+      
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-2 gap-3">
           <input

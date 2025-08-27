@@ -31,22 +31,22 @@ export default function FreeHooksPage() {
                 COPY-PASTE TEMPLATES - FREE
               </div>
               
-              <div className="bg-orange-600 text-white px-3 py-1 rounded-lg mb-6 inline-block text-sm font-semibold">
+              <div className="bg-orange-600 text-white px-3 py-1 rounded-lg mb-4 inline-block text-sm font-semibold">
                 🔥 Downloaded by 1,247+ startup founders this month
               </div>
               
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
                 10 Copy-Paste Ad Templates (Launch Your First Campaign This Week)
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl text-gray-600 mb-6">
                 Skip months of trial-and-error testing. These battle-tested templates help you launch winning ads in minutes. Designed for startup teams who need results fast - download, customize, launch today.
               </p>
               
               {/* Above-fold CTA */}
-              <div className="max-w-lg mx-auto mb-8">
-                <div className="bg-white rounded-2xl shadow-xl p-6 border-2 border-orange-200">
+              <div className="max-w-lg mx-auto mb-12">
+                <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-orange-200">
                   {/* ConvertKit Form Above the Fold */}
-                  <div className="mb-6">
+                  <div className="mb-8">
                     <ConvertKitForm 
                       formId="your-form-id-here"
                       className="w-full"
