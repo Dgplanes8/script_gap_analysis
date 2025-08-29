@@ -300,6 +300,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     
+    // New SEO Blog Posts - High Impact Content for 2025
+    {
+      url: `${baseUrl}/blog/startup-marketing-budget-calculator-2025`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/blog/creative-fatigue-prevention-framework`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.96,
+    },
+    {
+      url: `${baseUrl}/blog/cac-optimization-calculator`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/blog/52-high-converting-ad-templates-startup`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.97,
+    },
+    {
+      url: `${baseUrl}/blog/startup-marketing-roi-calculator`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.98,
+    },
+
     // Other pages
     {
       url: `${baseUrl}/success`,
