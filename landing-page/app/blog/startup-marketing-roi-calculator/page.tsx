@@ -4,8 +4,8 @@ import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config'
 import { MarketingROICalculator } from '@/components/calculators/marketing-roi-calculator';
 
 const POST_CONFIG = {
-  title: 'Startup Marketing ROI Calculator: Measure What Matters in 2025',
-  description: 'Free marketing ROI calculator for startups. Track ROAS, attribution, channel performance, and predictive metrics. Optimize spend with data-driven insights instantly.',
+  title: 'Startup Marketing ROI Calculator 2025',
+  description: 'Free marketing ROI calculator for startups. Track ROAS, attribution, channel performance, and predictive metrics with data-driven insights.',
   keywords: [
     ...KEYWORD_CATEGORIES.budget_optimization,
     ...KEYWORD_CATEGORIES.startup_marketing,
@@ -20,7 +20,11 @@ const POST_CONFIG = {
   ],
   slug: '/blog/startup-marketing-roi-calculator',
   category: 'Analytics & Measurement',
-  readingTime: 13
+  readingTime: 13,
+  image: '/images/og/og-marketing-roi-calculator.png',
+  publishedDate: '2025-01-15',
+  modifiedDate: '2025-01-15',
+  articleSection: 'Marketing Analytics'
 };
 
 export const metadata: Metadata = generateSEOMetadata(POST_CONFIG);

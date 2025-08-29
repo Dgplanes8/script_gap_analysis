@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { ArrowRight, Clock, TrendingUp } from 'lucide-react';
+import { getInternalLinkSuggestions } from '@/templates/internal-links-config';
 
 interface RelatedArticle {
   title: string;
@@ -19,51 +20,54 @@ interface RelatedArticlesProps {
   className?: string;
 }
 
-const defaultArticles: RelatedArticle[] = [
+// All available articles for intelligent selection
+const allArticles: RelatedArticle[] = [
+  // High-priority cornerstone content
   {
-    title: 'Mobile App CAC Crisis: 2025 Acquisition Cost Reduction Guide',
-    slug: '/blog/mobile-app-cac-crisis-2025-guide',
-    description: 'Reduce customer acquisition costs with proven strategies',
-    category: 'Mobile App Marketing',
+    title: 'Startup Marketing Budget Calculator 2025',
+    slug: '/blog/startup-marketing-budget-calculator-2025',
+    description: 'Calculate optimal ad spend allocation across channels with strategic recommendations',
+    category: 'Marketing Tools',
     readingTime: 12,
     priority: 'high'
   },
   {
-    title: 'ASO ROI Calculator: Measure Mobile App Marketing Returns',
-    slug: '/blog/aso-roi-calculator-guide',
-    description: 'Comprehensive framework for App Store Optimization ROI',
-    category: 'Tools & Calculators',
-    readingTime: 10,
+    title: 'Startup Marketing ROI Calculator',
+    slug: '/blog/startup-marketing-roi-calculator',
+    description: 'Track ROAS, attribution, and predictive metrics with comprehensive analysis',
+    category: 'Marketing Analytics',
+    readingTime: 13,
     priority: 'high'
   },
   {
-    title: 'Freemium to Premium: Conversion Optimization Framework',
-    slug: '/blog/freemium-conversion-optimization-framework',
-    description: 'Transform free users into premium customers',
-    category: 'Mobile App Marketing',
+    title: 'CAC Optimization Calculator for Startups',
+    slug: '/blog/cac-optimization-calculator',
+    description: 'Reduce customer acquisition costs with data-driven optimization strategies',
+    category: 'Marketing Optimization',
+    readingTime: 11,
+    priority: 'high'
+  },
+  {
+    title: '52 High-Converting Ad Templates for Startups',
+    slug: '/blog/52-high-converting-ad-templates-startup',
+    description: 'Proven creative structures with performance scoring to reduce production time 70%',
+    category: 'Creative Resources',
     readingTime: 15,
     priority: 'high'
   },
   {
-    title: 'D2C Subscription Marketing Playbook: Growth Strategy Guide',
-    slug: '/blog/d2c-subscription-marketing-playbook',
-    description: 'Comprehensive D2C growth strategies for subscription businesses',
-    category: 'Strategy Guides',
-    readingTime: 18,
+    title: 'Creative Fatigue Prevention Framework',
+    slug: '/blog/creative-fatigue-prevention-framework',
+    description: 'Maintain ad performance and reduce CAC increases with systematic refresh cycles',
+    category: 'Creative Strategy',
+    readingTime: 10,
     priority: 'high'
   },
+  // Supporting content
   {
-    title: 'AI Creative Development for Mobile Apps',
-    slug: '/blog/ai-creative-development-mobile-apps',
-    description: 'Master AI-powered creative development for mobile marketing',
-    category: 'AI & Technology',
-    readingTime: 14,
-    priority: 'high'
-  },
-  {
-    title: 'Creative Fatigue Solutions for Subscription Companies',
-    slug: '/blog/creative-fatigue-subscription-companies',
-    description: 'Combat audience saturation with strategic creative intelligence',
+    title: 'Weekly Creative Intelligence for Subscription Marketing',
+    slug: '/blog/weekly-creative-intelligence-subscription-marketing',
+    description: 'Transform subscription marketing with weekly creative concepts delivered every Monday',
     category: 'Creative Strategy',
     readingTime: 8,
     priority: 'medium'
@@ -71,17 +75,25 @@ const defaultArticles: RelatedArticle[] = [
   {
     title: 'Competitive Creative Analysis for Growth Teams',
     slug: '/blog/competitive-creative-analysis-growth-teams',
-    description: 'Strategic intelligence for competitive advantage',
-    category: 'Competitive Intelligence',
+    description: 'Systematic frameworks for analyzing competitor strategies and adapting winning concepts',
+    category: 'Strategy',
     readingTime: 9,
     priority: 'medium'
   },
   {
-    title: 'LTV:CAC Optimization Growth Team Playbook',
+    title: 'LTV CAC Ratio Optimization Playbook',
     slug: '/blog/ltv-cac-ratio-optimization-growth-teams',
-    description: 'Master LTV:CAC ratio optimization for sustainable growth',
-    category: 'CAC & Attribution',
+    description: 'Master LTV:CAC ratio optimization for sustainable growth with proven strategies',
+    category: 'Strategy',
     readingTime: 11,
+    priority: 'medium'
+  },
+  {
+    title: 'SaaS Retention Marketing Automation',
+    slug: '/blog/retention-marketing-automation-saas-growth',
+    description: 'Advanced retention automation strategies beyond email sequences for SaaS growth teams',
+    category: 'Strategy',
+    readingTime: 14,
     priority: 'medium'
   }
 ];
@@ -89,13 +101,43 @@ const defaultArticles: RelatedArticle[] = [
 export function RelatedArticles({ 
   currentSlug, 
   category, 
-  articles = defaultArticles,
+  articles = allArticles,
   className = '' 
 }: RelatedArticlesProps) {
-  // Filter out current article and prioritize related articles
-  const filteredArticles = articles
-    .filter(article => article.slug !== currentSlug)
+  // Use intelligent internal linking algorithm
+  const internalLinkSuggestions = getInternalLinkSuggestions(
+    currentSlug,
+    category || '',
+    '',
+    4
+  );
+  
+  // Convert internal link suggestions to article format and combine with manual selection
+  const suggestedArticles = internalLinkSuggestions.map(link => ({
+    title: link.title,
+    slug: link.slug,
+    description: `${link.context.replace('{anchor}', link.anchor)} - ${link.category}`,
+    category: link.category,
+    readingTime: 8,
+    priority: 'high' as const
+  }));
+  
+  // Combine intelligent suggestions with manual articles, prioritize suggestions
+  const combinedArticles = [...suggestedArticles, ...articles]
+    .filter((article, index, self) => 
+      article.slug !== currentSlug && 
+      index === self.findIndex(a => a.slug === article.slug) // Remove duplicates
+    );
+    
+  // Apply intelligent sorting
+  const filteredArticles = combinedArticles
     .sort((a, b) => {
+      // Prioritize cornerstone content from internal linking system
+      const cornerstoneUrls = ['/blog/startup-marketing-budget-calculator-2025', '/blog/startup-marketing-roi-calculator', '/blog/cac-optimization-calculator'];
+      const aIsCornerstone = cornerstoneUrls.includes(a.slug) ? 1 : 0;
+      const bIsCornerstone = cornerstoneUrls.includes(b.slug) ? 1 : 0;
+      if (aIsCornerstone !== bIsCornerstone) return bIsCornerstone - aIsCornerstone;
+      
       // Prioritize same category articles
       if (category) {
         if (a.category === category && b.category !== category) return -1;
@@ -167,20 +209,33 @@ export function RelatedArticles({
             ))}
           </div>
           
-          {/* Strategic CTA */}
-          <div className="mt-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-8 text-center text-white">
+          {/* Strategic CTA with Internal Links */}
+          <div className="mt-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg p-8 text-center text-white">
             <h3 className="text-2xl font-bold mb-4">
-              Ready to Implement These Strategies?
+              Ready to Transform Your Marketing Strategy?
             </h3>
             <p className="text-lg opacity-90 mb-6">
-              Get weekly creative intelligence and competitor analysis delivered to your inbox every Monday.
+              Start with our free tools and templates, then upgrade to weekly strategic intelligence for sustained growth.
             </p>
-            <Link
-              href="/#service-tiers"
-              className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
-            >
-              Start with 10 Free Hooks
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/blog/startup-marketing-budget-calculator-2025"
+                className="inline-block bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+              >
+                Try Budget Calculator
+              </Link>
+              <Link
+                href="/blog/52-high-converting-ad-templates-startup"
+                className="inline-block border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition-colors"
+              >
+                Get Ad Templates
+              </Link>
+            </div>
+            <p className="text-sm opacity-80 mt-4">
+              <Link href="/#service-tiers" className="underline hover:no-underline">
+                Or explore weekly intelligence plans →
+              </Link>
+            </p>
           </div>
         </div>
       </div>

@@ -7,8 +7,9 @@ import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { SimpleAirtableForm } from '@/components/forms/simple-airtable-form';
 import { SocialSharing } from '@/components/blog/social-sharing';
 import { RelatedArticles } from '@/components/blog/related-articles';
-import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation';
+import { BreadcrumbNavigation, EnhancedBreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation';
 import { ArticleStructuredData } from '@/components/blog/article-structured-data';
+import { InternalLinkSuggestions, CategoryNavigation, PopularArticles } from '@/components/blog/internal-link-suggestions';
 
 interface BlogPostTemplateProps {
   // SEO & Meta Data
@@ -108,7 +109,7 @@ export function BlogPostTemplate({
                 Back to Blog
               </Link>
               
-              <BreadcrumbNavigation items={breadcrumbItems} />
+              <EnhancedBreadcrumbNavigation title={title} category={category} slug={slug} />
             </div>
           </div>
         </div>
@@ -200,6 +201,16 @@ export function BlogPostTemplate({
                 </section>
               )}
 
+              {/* Internal Link Suggestions */}
+              <InternalLinkSuggestions
+                currentSlug={slug}
+                currentCategory={category}
+                content={`${title} ${description}`}
+                className="mb-8"
+                title="Continue Learning"
+                limit={3}
+              />
+
               {/* Social Sharing */}
               <section className="border-t border-gray-200 pt-8 mb-12">
                 <SocialSharing
@@ -257,6 +268,16 @@ export function BlogPostTemplate({
             </div>
           </div>
         </main>
+
+        {/* Additional Navigation & Discovery */}
+        <section className="bg-gray-50 py-12">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+              <CategoryNavigation currentCategory={category} />
+              <PopularArticles currentSlug={slug} />
+            </div>
+          </div>
+        </section>
 
         {/* Related Articles */}
         <RelatedArticles 

@@ -3,21 +3,30 @@ import Link from 'next/link';
 import { ArrowLeft, Clock, Target, Eye, TrendingUp, Users, Search } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
 import { Header } from '@/components/layout/header';
+import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
 
-export const metadata: Metadata = {
-  title: 'Competitive Creative Analysis for Growth Teams | Apsics Media',
-  description: 'Master competitive creative analysis for subscription growth teams. Learn systematic frameworks to analyze competitor ad strategies and adapt winning concepts for your campaigns.',
-  keywords: 'competitive creative analysis growth teams, competitor ad analysis subscription, creative competitor intelligence, subscription marketing competitive analysis, growth team competitor research',
-  alternates: {
-    canonical: 'https://apsicsmedia.com/blog/competitive-creative-analysis-growth-teams',
-  },
-  openGraph: {
-    title: 'Competitive Creative Analysis for Growth Teams',
-    description: 'Systematic frameworks for analyzing competitor creative strategies in subscription marketing.',
-    type: 'article',
-    url: 'https://apsicsmedia.com/blog/competitive-creative-analysis-growth-teams',
-  }
+const POST_CONFIG = {
+  title: 'Competitive Creative Analysis for Growth Teams',
+  description: 'Master competitive creative analysis for subscription growth teams. Learn systematic frameworks to analyze competitor ad strategies.',
+  keywords: [
+    ...KEYWORD_CATEGORIES.ad_creative,
+    ...KEYWORD_CATEGORIES.startup_marketing,
+    'competitive creative analysis growth teams',
+    'competitor ad analysis subscription',
+    'creative competitor intelligence',
+    'subscription marketing competitive analysis',
+    'growth team competitor research'
+  ],
+  slug: '/blog/competitive-creative-analysis-growth-teams',
+  category: 'Competitive Analysis',
+  readingTime: 12,
+  image: '/images/og/og-competitive-creative-analysis.png',
+  publishedDate: '2024-11-20',
+  modifiedDate: '2025-01-15',
+  articleSection: 'Strategy'
 };
+
+export const metadata: Metadata = generateSEOMetadata(POST_CONFIG);
 
 export default function CompetitiveCreativeAnalysisPage() {
   

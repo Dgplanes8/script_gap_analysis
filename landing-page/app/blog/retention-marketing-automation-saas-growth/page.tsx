@@ -3,21 +3,30 @@ import Link from 'next/link';
 import { ArrowLeft, Clock, Bot, Users, TrendingUp, Zap, Target, BarChart3, RefreshCw, CheckCircle, AlertTriangle, Mail, Settings } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
 import { Header } from '@/components/layout/header';
+import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
 
-export const metadata: Metadata = {
-  title: 'Retention Marketing Automation for SaaS Growth: Beyond Email Sequences | Apsics Media',
-  description: 'Master advanced retention marketing automation for SaaS growth teams. Learn behavioral triggers, usage-based campaigns, and predictive systems that reduce churn and increase expansion revenue.',
-  keywords: 'retention marketing automation SaaS, subscription retention strategies growth teams, customer retention automation, SaaS lifecycle marketing, behavioral marketing automation, user engagement automation',
-  alternates: {
-    canonical: 'https://apsicsmedia.com/blog/retention-marketing-automation-saas-growth',
-  },
-  openGraph: {
-    title: 'Retention Marketing Automation for SaaS Growth: Beyond Email Sequences',
-    description: 'Advanced retention marketing automation strategies for SaaS growth teams to reduce churn and drive expansion.',
-    type: 'article',
-    url: 'https://apsicsmedia.com/blog/retention-marketing-automation-saas-growth',
-  }
+const POST_CONFIG = {
+  title: 'SaaS Retention Marketing Automation',
+  description: 'Master advanced retention marketing automation for SaaS growth teams. Learn behavioral triggers, usage-based campaigns, and predictive systems.',
+  keywords: [
+    ...KEYWORD_CATEGORIES.startup_marketing,
+    'retention marketing automation SaaS',
+    'subscription retention strategies growth teams',
+    'customer retention automation',
+    'SaaS lifecycle marketing',
+    'behavioral marketing automation',
+    'user engagement automation'
+  ],
+  slug: '/blog/retention-marketing-automation-saas-growth',
+  category: 'SaaS Marketing',
+  readingTime: 14,
+  image: '/images/og/og-retention-marketing-automation.png',
+  publishedDate: '2024-10-25',
+  modifiedDate: '2025-01-15',
+  articleSection: 'Retention Strategy'
 };
+
+export const metadata: Metadata = generateSEOMetadata(POST_CONFIG);
 
 export default function RetentionMarketingAutomationPage() {
   

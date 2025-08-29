@@ -3,8 +3,8 @@ import { BlogPostTemplate } from '@/templates/blog-post-template';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
 
 const POST_CONFIG = {
-  title: '52 High-Converting Ad Templates for Bootstrap Startups [2025 Edition]',
-  description: 'Free ad template framework guide for startups. 52 proven creative structures with performance scoring. Reduce production time 70% while maintaining quality.',
+  title: '52 High-Converting Ad Templates for Startups',
+  description: 'Free ad template framework guide for startups. 52 proven creative structures with performance scoring to reduce production time 70%.',
   keywords: [
     ...KEYWORD_CATEGORIES.ad_creative,
     ...KEYWORD_CATEGORIES.startup_marketing,
@@ -19,7 +19,11 @@ const POST_CONFIG = {
   ],
   slug: '/blog/52-high-converting-ad-templates-startup',
   category: 'Creative Templates',
-  readingTime: 15
+  readingTime: 15,
+  image: '/images/og/og-ad-templates-startup.png',
+  publishedDate: '2025-01-15',
+  modifiedDate: '2025-01-15',
+  articleSection: 'Creative Resources'
 };
 
 export const metadata: Metadata = generateSEOMetadata(POST_CONFIG);
@@ -28,7 +32,7 @@ export default function AdTemplatesStartupPage() {
   const introduction = (
     <div>
       <p className="text-xl text-gray-700 mb-6">
-        Creating high-converting ad creative consistently is the #1 challenge for bootstrap startups. With limited design resources and tight budgets, founders need systematic frameworks that deliver results without the trial-and-error.
+        Creating high-converting ad creative consistently is the number one challenge for bootstrap startups. With limited design resources and tight budgets, founders need systematic frameworks that deliver results without the trial-and-error.
       </p>
       <p className="text-lg text-gray-600 mb-6">
         These 52 template structures are derived from analysis of 2,500+ high-performing startup ads, categorized by audience awareness level and business model. Each template includes performance scoring criteria and specific implementation guidance.
@@ -363,7 +367,7 @@ export default function AdTemplatesStartupPage() {
             <ul className="space-y-2 text-gray-700">
               <li className="flex justify-between">
                 <span>Click-Through Rate (CTR)</span>
-                <span className="text-green-600">Target: >2% social, >3% search</span>
+                <span className="text-green-600">Target: {'>'}2% social, {'>'}3% search</span>
               </li>
               <li className="flex justify-between">
                 <span>Cost Per Click (CPC)</span>
@@ -371,11 +375,11 @@ export default function AdTemplatesStartupPage() {
               </li>
               <li className="flex justify-between">
                 <span>Conversion Rate</span>
-                <span className="text-purple-600">Target: >3% for all traffic</span>
+                <span className="text-purple-600">Target: {'>'}3% for all traffic</span>
               </li>
               <li className="flex justify-between">
                 <span>Cost Per Acquisition (CAC)</span>
-                <span className="text-orange-600">Must be <1/3 of LTV</span>
+                <span className="text-orange-600">Must be {'<'}1/3 of LTV</span>
               </li>
             </ul>
           </div>
@@ -385,7 +389,7 @@ export default function AdTemplatesStartupPage() {
             <ul className="space-y-2 text-gray-700">
               <li className="flex justify-between">
                 <span>Template Fatigue Rate</span>
-                <span className="text-green-600">Monitor CTR decline >25%</span>
+                <span className="text-green-600">Monitor CTR decline {'>'}25%</span>
               </li>
               <li className="flex justify-between">
                 <span>Audience Quality Score</span>
@@ -393,7 +397,7 @@ export default function AdTemplatesStartupPage() {
               </li>
               <li className="flex justify-between">
                 <span>Creative Production Time</span>
-                <span className="text-purple-600">Target: <2 hours per template</span>
+                <span className="text-purple-600">Target: {'<'}2 hours per template</span>
               </li>
               <li className="flex justify-between">
                 <span>Cross-Platform Performance</span>

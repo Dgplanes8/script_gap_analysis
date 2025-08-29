@@ -4,8 +4,8 @@ import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config'
 import { CACOptimizationCalculator } from '@/components/calculators/cac-optimization-calculator';
 
 const POST_CONFIG = {
-  title: 'CAC Optimization Calculator: Reduce Customer Acquisition Costs by 40%',
-  description: 'Free CAC optimization calculator for startups. Analyze acquisition costs, identify improvement opportunities, and optimize channel performance instantly.',
+  title: 'CAC Optimization Calculator for Startups',
+  description: 'Free CAC optimization calculator for startups. Analyze acquisition costs, identify improvement opportunities, and optimize channel performance.',
   keywords: [
     ...KEYWORD_CATEGORIES.budget_optimization,
     ...KEYWORD_CATEGORIES.startup_marketing,
@@ -20,7 +20,11 @@ const POST_CONFIG = {
   ],
   slug: '/blog/cac-optimization-calculator',
   category: 'Performance Marketing',
-  readingTime: 11
+  readingTime: 11,
+  image: '/images/og/og-cac-optimization-calculator.png',
+  publishedDate: '2025-01-15',
+  modifiedDate: '2025-01-15',
+  articleSection: 'Marketing Optimization'
 };
 
 export const metadata: Metadata = generateSEOMetadata(POST_CONFIG);
@@ -90,7 +94,7 @@ export default function CACOptimizationCalculatorPage() {
               <span className="font-semibold">$200-$1,000</span>
             </li>
             <li className="flex justify-between">
-              <span>Enterprise (>$1K MRR)</span>
+              <span>Enterprise ({'>'}$1K MRR)</span>
               <span className="font-semibold">$1,000-$10,000</span>
             </li>
             <li className="flex justify-between border-t pt-2">

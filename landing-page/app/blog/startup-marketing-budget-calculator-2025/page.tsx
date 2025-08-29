@@ -4,8 +4,8 @@ import { generateSEOMetadata, KEYWORD_CATEGORIES, COMMON_FAQS } from '@/template
 import { MarketingBudgetCalculator } from '@/components/calculators/marketing-budget-calculator';
 
 const POST_CONFIG = {
-  title: 'Startup Marketing Budget Calculator 2025: Complete Guide for Founders',
-  description: 'Free startup marketing budget calculator for founders. Calculate optimal ad spend, CAC targets, and channel allocation. Get strategic recommendations instantly.',
+  title: 'Startup Marketing Budget Calculator 2025',
+  description: 'Free startup marketing budget calculator for founders. Calculate optimal ad spend, CAC targets, and channel allocation with strategic recommendations.',
   keywords: [
     ...KEYWORD_CATEGORIES.startup_marketing,
     ...KEYWORD_CATEGORIES.budget_optimization,
@@ -19,7 +19,11 @@ const POST_CONFIG = {
   ],
   slug: '/blog/startup-marketing-budget-calculator-2025',
   category: 'Budget Planning',
-  readingTime: 12
+  readingTime: 12,
+  image: '/images/og/og-startup-marketing-budget-calculator.png',
+  publishedDate: '2025-01-15',
+  modifiedDate: '2025-01-15',
+  articleSection: 'Marketing Tools'
 };
 
 export const metadata: Metadata = generateSEOMetadata(POST_CONFIG);
@@ -165,7 +169,7 @@ export default function StartupMarketingBudgetCalculatorPage() {
           </li>
           <li className="flex items-start">
             <span className="text-red-500 mr-2">✗</span>
-            <span><strong>Ignoring payback periods:</strong> CAC payback >18 months creates cash flow crisis for startups</span>
+            <span><strong>Ignoring payback periods:</strong> CAC payback {'>'}18 months creates cash flow crisis for startups</span>
           </li>
           <li className="flex items-start">
             <span className="text-red-500 mr-2">✗</span>

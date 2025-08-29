@@ -3,21 +3,31 @@ import Link from 'next/link';
 import { ArrowLeft, Clock, Target, TrendingUp, Users, Calendar, Mail, BookOpen, ArrowRight } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
 import { Header } from '@/components/layout/header';
+import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
 
-export const metadata: Metadata = {
-  title: 'Weekly Creative Intelligence for Subscription Marketing | Apsics Media',
-  description: 'Transform your subscription marketing with weekly creative intelligence. Get fresh concepts every Monday instead of waiting weeks for agencies. Built for growth teams managing $10K+ ad spend.',
-  keywords: 'weekly creative intelligence, subscription marketing, creative concepts delivered weekly, subscription marketing creative service, growth team creative, weekly ad concepts',
-  alternates: {
-    canonical: 'https://apsicsmedia.com/blog/weekly-creative-intelligence-subscription-marketing',
-  },
-  openGraph: {
-    title: 'Weekly Creative Intelligence for Subscription Marketing',
-    description: 'Get fresh creative concepts every Monday for your subscription business. Stop waiting weeks for agencies.',
-    type: 'article',
-    url: 'https://apsicsmedia.com/blog/weekly-creative-intelligence-subscription-marketing',
-  }
+const POST_CONFIG = {
+  title: 'Weekly Creative Intelligence for Subscription Marketing',
+  description: 'Transform your subscription marketing with weekly creative intelligence. Get fresh concepts every Monday instead of waiting weeks for agencies.',
+  keywords: [
+    ...KEYWORD_CATEGORIES.ad_creative,
+    ...KEYWORD_CATEGORIES.startup_marketing,
+    'weekly creative intelligence',
+    'subscription marketing',
+    'creative concepts delivered weekly',
+    'subscription marketing creative service',
+    'growth team creative',
+    'weekly ad concepts'
+  ],
+  slug: '/blog/weekly-creative-intelligence-subscription-marketing',
+  category: 'Creative Strategy',
+  readingTime: 8,
+  image: '/images/og/og-weekly-creative-intelligence.png',
+  publishedDate: '2024-12-15',
+  modifiedDate: '2025-01-15',
+  articleSection: 'Marketing Services'
 };
+
+export const metadata: Metadata = generateSEOMetadata(POST_CONFIG);
 
 export default function WeeklyCreativeIntelligencePage() {
   return (

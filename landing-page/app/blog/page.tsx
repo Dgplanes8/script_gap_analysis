@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { BookOpen, TrendingUp, Calculator, Target, Users, Zap } from 'lucide-react';
+import { BookOpen, TrendingUp, Calculator, Target, Users, Zap, ArrowRight } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
 
 export const metadata: Metadata = {
@@ -284,18 +284,45 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="py-12 bg-white">
+        {/* Stats & Quick Navigation */}
+        <section className="py-12 bg-white border-b border-gray-200">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-8 text-center">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-4 gap-6 text-center mb-8">
                 <div>
-                  <div className="text-3xl font-bold text-green-600 mb-2">5</div>
-                  <div className="text-gray-600">Interactive Calculators</div>
+                  <div className="text-2xl font-bold text-orange-600 mb-1">5</div>
+                  <div className="text-gray-600 text-sm">Interactive Tools</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-red-600 mb-2">100%</div>
-                  <div className="text-gray-600">Subscription-Focused</div>
+                  <div className="text-2xl font-bold text-green-600 mb-1">18</div>
+                  <div className="text-gray-600 text-sm">Strategic Guides</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-blue-600 mb-1">100%</div>
+                  <div className="text-gray-600 text-sm">Startup-Focused</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-purple-600 mb-1">Free</div>
+                  <div className="text-gray-600 text-sm">All Resources</div>
+                </div>
+              </div>
+              
+              {/* Quick Links to Popular Content */}
+              <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">Start Here: Most Popular Resources</h3>
+                <div className="grid md:grid-cols-3 gap-4">
+                  <Link href="/blog/startup-marketing-budget-calculator-2025" className="flex items-center justify-between p-3 bg-white rounded-lg hover:shadow-md transition-shadow group">
+                    <span className="text-sm font-medium text-gray-700 group-hover:text-orange-600">Budget Calculator</span>
+                    <ArrowRight className="h-4 w-4 text-orange-500" />
+                  </Link>
+                  <Link href="/blog/52-high-converting-ad-templates-startup" className="flex items-center justify-between p-3 bg-white rounded-lg hover:shadow-md transition-shadow group">
+                    <span className="text-sm font-medium text-gray-700 group-hover:text-orange-600">52 Ad Templates</span>
+                    <ArrowRight className="h-4 w-4 text-orange-500" />
+                  </Link>
+                  <Link href="/blog/cac-optimization-calculator" className="flex items-center justify-between p-3 bg-white rounded-lg hover:shadow-md transition-shadow group">
+                    <span className="text-sm font-medium text-gray-700 group-hover:text-orange-600">CAC Calculator</span>
+                    <ArrowRight className="h-4 w-4 text-orange-500" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -310,33 +337,59 @@ export default function BlogPage() {
                 const Icon = category.icon;
                 return (
                   <div key={categoryIndex} className="mb-16 last:mb-0">
-                    <div className="flex items-center mb-8">
-                      <div className={`p-3 rounded-lg ${category.color} mr-4`}>
-                        <Icon className="h-6 w-6" />
+                    <div className="flex items-center justify-between mb-8">
+                      <div className="flex items-center">
+                        <div className={`p-3 rounded-lg ${category.color} mr-4`}>
+                          <Icon className="h-6 w-6" />
+                        </div>
+                        <h2 className="text-3xl font-bold text-gray-900">
+                          {category.category}
+                        </h2>
                       </div>
-                      <h2 className="text-3xl font-bold text-gray-900">
-                        {category.category}
-                      </h2>
+                      <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                        {category.articles.length} {category.articles.length === 1 ? 'article' : 'articles'}
+                      </span>
                     </div>
                     
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {category.articles.map((article, articleIndex) => (
-                        <Link
-                          key={articleIndex}
-                          href={article.slug}
-                          className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow border-2 border-gray-100 hover:border-blue-200 group"
-                        >
-                          <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                            {article.title}
-                          </h3>
-                          <p className="text-gray-600 mb-4">
-                            {article.description}
-                          </p>
-                          <div className="text-blue-600 font-semibold group-hover:underline">
-                            Read Guide →
-                          </div>
-                        </Link>
-                      ))}
+                      {category.articles.map((article, articleIndex) => {
+                        // Identify high-priority content
+                        const isCornerstone = ['/blog/startup-marketing-budget-calculator-2025', '/blog/startup-marketing-roi-calculator', '/blog/cac-optimization-calculator', '/blog/52-high-converting-ad-templates-startup'].includes(article.slug);
+                        
+                        return (
+                          <Link
+                            key={articleIndex}
+                            href={article.slug}
+                            className={`bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all border-2 group relative ${
+                              isCornerstone 
+                                ? 'border-orange-200 hover:border-orange-400 ring-1 ring-orange-100' 
+                                : 'border-gray-100 hover:border-blue-200'
+                            }`}
+                          >
+                            {isCornerstone && (
+                              <div className="absolute -top-2 -right-2 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                                Popular
+                              </div>
+                            )}
+                            <h3 className={`text-xl font-semibold mb-3 transition-colors ${
+                              isCornerstone 
+                                ? 'text-gray-900 group-hover:text-orange-600' 
+                                : 'text-gray-900 group-hover:text-blue-600'
+                            }`}>
+                              {article.title}
+                            </h3>
+                            <p className="text-gray-600 mb-4 line-clamp-3">
+                              {article.description}
+                            </p>
+                            <div className={`font-semibold group-hover:underline flex items-center ${
+                              isCornerstone ? 'text-orange-600' : 'text-blue-600'
+                            }`}>
+                              {article.slug.includes('calculator') ? 'Use Calculator' : 'Read Guide'}
+                              <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 );

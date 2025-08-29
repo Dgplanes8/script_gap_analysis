@@ -3,21 +3,31 @@ import Link from 'next/link';
 import { ArrowLeft, Clock, DollarSign, TrendingUp, Calculator, BarChart3, Users, Target, Zap, ChevronRight, CheckCircle, AlertTriangle, RefreshCw } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
 import { Header } from '@/components/layout/header';
+import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
 
-export const metadata: Metadata = {
-  title: 'LTV CAC Ratio Optimization: Growth Team Playbook for Subscription Businesses | Apsics Media',
-  description: 'Master LTV:CAC ratio optimization for sustainable growth. Learn proven strategies to improve customer lifetime value and reduce acquisition costs for subscription businesses.',
-  keywords: 'LTV CAC ratio optimization, improve customer lifetime value subscription, LTV to CAC ratio growth teams, customer acquisition cost optimization, subscription unit economics, SaaS LTV CAC improvement',
-  alternates: {
-    canonical: 'https://apsicsmedia.com/blog/ltv-cac-ratio-optimization-growth-teams',
-  },
-  openGraph: {
-    title: 'LTV CAC Ratio Optimization: Growth Team Playbook for Subscription Businesses',
-    description: 'Proven strategies to optimize LTV:CAC ratios and build sustainable unit economics for subscription growth.',
-    type: 'article',
-    url: 'https://apsicsmedia.com/blog/ltv-cac-ratio-optimization-growth-teams',
-  }
+const POST_CONFIG = {
+  title: 'LTV CAC Ratio Optimization Playbook',
+  description: 'Master LTV:CAC ratio optimization for sustainable growth. Learn proven strategies to improve customer lifetime value and reduce acquisition costs.',
+  keywords: [
+    ...KEYWORD_CATEGORIES.budget_optimization,
+    ...KEYWORD_CATEGORIES.startup_marketing,
+    'LTV CAC ratio optimization',
+    'improve customer lifetime value subscription',
+    'LTV to CAC ratio growth teams',
+    'customer acquisition cost optimization',
+    'subscription unit economics',
+    'SaaS LTV CAC improvement'
+  ],
+  slug: '/blog/ltv-cac-ratio-optimization-growth-teams',
+  category: 'Unit Economics',
+  readingTime: 16,
+  image: '/images/og/og-ltv-cac-optimization.png',
+  publishedDate: '2024-09-18',
+  modifiedDate: '2025-01-15',
+  articleSection: 'Growth Strategy'
 };
+
+export const metadata: Metadata = generateSEOMetadata(POST_CONFIG);
 
 export default function LTVCACOptimizationPage() {
   

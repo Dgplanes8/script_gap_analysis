@@ -1,0 +1,83 @@
+# Robots.txt for Apsics Media
+# Strategic marketing intelligence for subscription business growth
+
+User-agent: *
+Allow: /
+
+# High-priority content for search engines
+Allow: /blog/
+Allow: /blog/startup-marketing-budget-calculator-2025
+Allow: /blog/startup-marketing-roi-calculator  
+Allow: /blog/cac-optimization-calculator
+Allow: /blog/52-high-converting-ad-templates-startup
+Allow: /blog/creative-fatigue-prevention-framework
+
+# Content optimization pages
+Allow: /free-hooks
+Allow: /success
+Allow: /privacy
+Allow: /terms
+
+# Block admin and development paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /.well-known/
+Disallow: /temp/
+Disallow: /tmp/
+
+# Block search and filter parameters to prevent duplicate content
+Disallow: /*?category=*
+Disallow: /*?search=*
+Disallow: /*?sort=*
+Disallow: /*?filter=*
+Disallow: /*&
+
+# Allow all image types for better image SEO
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Crawl-delay to be respectful to server resources
+Crawl-delay: 1
+
+# Sitemap locations
+Sitemap: https://apsicsmedia.com/sitemap.xml
+
+# Specific instructions for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Block problematic bots while allowing good ones
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+# Performance: Cache-friendly directives
+User-agent: *
+# Allow caching of static assets
+Allow: /_next/static/
+Allow: /images/
+Allow: /favicon.ico
+Allow: /manifest.json

@@ -16,6 +16,8 @@ export interface SEOConfig {
   author?: string;
   publishedDate?: string;
   modifiedDate?: string;
+  articleSection?: string;
+  tags?: string[];
 }
 
 export interface ICPConfig {
@@ -173,40 +175,125 @@ export const KEYWORD_CATEGORIES = {
 };
 
 /**
- * Generate SEO optimized metadata
+ * Optimize title for SEO (max 60 chars total including site name)
+ */
+function optimizeTitle(title: string): string {
+  const siteSuffix = ' | Apsics Media';
+  const maxTitleLength = 60 - siteSuffix.length; // 47 chars for title
+  
+  if (title.length <= maxTitleLength) {
+    return `${title}${siteSuffix}`;
+  }
+  
+  // Truncate at word boundary
+  const truncated = title.substring(0, maxTitleLength);
+  const lastSpaceIndex = truncated.lastIndexOf(' ');
+  
+  if (lastSpaceIndex > maxTitleLength * 0.8) {
+    return `${truncated.substring(0, lastSpaceIndex)}${siteSuffix}`;
+  }
+  
+  return `${truncated}${siteSuffix}`;
+}
+
+/**
+ * Optimize description for SEO (145-155 chars)
+ */
+function optimizeDescription(description: string): string {
+  const maxLength = 155;
+  const minLength = 145;
+  
+  if (description.length >= minLength && description.length <= maxLength) {
+    return description;
+  }
+  
+  if (description.length > maxLength) {
+    // Truncate at sentence or word boundary
+    let truncated = description.substring(0, maxLength);
+    
+    // Try to end at sentence
+    const lastPeriod = truncated.lastIndexOf('.');
+    if (lastPeriod > maxLength * 0.8) {
+      return truncated.substring(0, lastPeriod + 1);
+    }
+    
+    // Try to end at word boundary
+    const lastSpace = truncated.lastIndexOf(' ');
+    if (lastSpace > maxLength * 0.9) {
+      return truncated.substring(0, lastSpace);
+    }
+    
+    return truncated;
+  }
+  
+  // Description too short - should be expanded in the config
+  return description;
+}
+
+/**
+ * Generate SEO optimized metadata with smart length optimization
  */
 export function generateSEOMetadata(config: SEOConfig) {
   const baseUrl = 'https://apsicsmedia.com';
+  const optimizedTitle = optimizeTitle(config.title);
+  const optimizedDescription = optimizeDescription(config.description);
+  const defaultImage = `${baseUrl}/images/og/og-default-blog.png`;
   
   return {
-    title: `${config.title} | Apsics Media`,
-    description: config.description,
+    title: optimizedTitle,
+    description: optimizedDescription,
     keywords: config.keywords.join(', '),
     openGraph: {
-      title: config.title,
-      description: config.description,
+      title: config.title, // Use original title for OG (no length limit)
+      description: optimizedDescription,
       type: 'article',
       url: `${baseUrl}${config.slug}`,
-      images: config.image ? [
+      images: [
         {
-          url: config.image,
+          url: config.image || defaultImage,
           width: 1200,
           height: 630,
-          alt: config.title
+          alt: config.title,
+          type: 'image/png'
         }
-      ] : undefined,
+      ],
       siteName: 'Apsics Media',
+      locale: 'en_US',
+      publishedTime: config.publishedDate,
+      modifiedTime: config.modifiedDate || config.publishedDate,
+      section: config.articleSection || config.category,
+      tags: config.tags || config.keywords.slice(0, 5),
     },
     twitter: {
       card: 'summary_large_image',
       title: config.title,
-      description: config.description,
-      images: config.image ? [config.image] : undefined,
+      description: optimizedDescription,
+      images: [{
+        url: config.image || defaultImage,
+        alt: config.title
+      }],
+      creator: '@apsicsmedia',
+      site: '@apsicsmedia',
     },
     alternates: {
-      canonical: config.slug,
+      canonical: `${baseUrl}${config.slug}`,
     },
-    authors: config.author ? [{ name: config.author }] : undefined,
+    authors: config.author ? [{ name: config.author }] : [{ name: 'Apsics Media Team' }],
+    other: {
+      // LinkedIn specific optimization
+      ...(config.publishedDate ? { 'article:published_time': config.publishedDate } : {}),
+      ...((config.modifiedDate || config.publishedDate) ? { 'article:modified_time': config.modifiedDate || config.publishedDate } : {}),
+      ...((config.articleSection || config.category) ? { 'article:section': config.articleSection || config.category } : {}),
+      'article:tag': config.keywords.slice(0, 5).join(','),
+      
+      // WhatsApp/Telegram optimization
+      'og:image:width': '1200',
+      'og:image:height': '630',
+      'og:image:type': 'image/png',
+      
+      // Pinterest Rich Pins
+      'article:author': config.author || 'Apsics Media Team',
+    },
     robots: {
       index: true,
       follow: true,
@@ -214,7 +301,7 @@ export function generateSEOMetadata(config: SEOConfig) {
         index: true,
         follow: true,
         'max-video-preview': -1,
-        'max-image-preview': 'large',
+        'max-image-preview': 'large' as const,
         'max-snippet': -1,
       },
     }
@@ -235,7 +322,8 @@ export function generateArticleStructuredData(config: SEOConfig) {
     url: `${baseUrl}${config.slug}`,
     author: {
       '@type': 'Organization',
-      name: 'Apsics Media'
+      name: 'Apsics Media',
+      url: baseUrl
     },
     publisher: {
       '@type': 'Organization',
@@ -243,30 +331,39 @@ export function generateArticleStructuredData(config: SEOConfig) {
       url: baseUrl,
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/images/logo.png`
+        url: `${baseUrl}/images/logo.png`,
+        width: 60,
+        height: 60
       }
     },
-    image: config.image ? {
+    image: {
       '@type': 'ImageObject',
-      url: config.image,
+      url: config.image || `${baseUrl}/images/og/og-default-blog.png`,
       width: 1200,
-      height: 630
-    } : undefined,
-    datePublished: config.publishedDate,
-    dateModified: config.modifiedDate || config.publishedDate,
+      height: 630,
+      caption: config.title
+    },
+    datePublished: config.publishedDate || new Date().toISOString(),
+    dateModified: config.modifiedDate || config.publishedDate || new Date().toISOString(),
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${baseUrl}${config.slug}`
     },
     keywords: config.keywords,
-    articleSection: config.category,
+    articleSection: config.articleSection || config.category || 'Marketing Strategy',
+    inLanguage: 'en-US',
     audience: {
       '@type': 'Audience',
       audienceType: 'Startup Founders and Marketing Teams'
     },
     about: {
       '@type': 'Thing',
-      name: 'Startup Marketing Strategy'
+      name: 'Startup Marketing Strategy',
+      description: 'Strategic marketing guidance for early-stage startups'
+    },
+    potentialAction: {
+      '@type': 'ReadAction',
+      target: `${baseUrl}${config.slug}`
     }
   };
 }
@@ -341,25 +438,45 @@ export const COMMON_FAQS = {
 };
 
 /**
- * Validation function for SEO config
+ * Validation function for SEO config with improved length requirements
  */
 export function validateSEOConfig(config: SEOConfig): boolean {
   const errors: string[] = [];
+  const warnings: string[] = [];
   
-  if (!config.title || config.title.length < 10 || config.title.length > 60) {
-    errors.push('Title must be 10-60 characters');
+  // Title validation (47 chars max before site suffix)
+  if (!config.title) {
+    errors.push('Title is required');
+  } else if (config.title.length < 10) {
+    errors.push('Title too short (minimum 10 characters)');
+  } else if (config.title.length > 47) {
+    warnings.push(`Title will be truncated (${config.title.length} > 47 chars)`);
   }
   
-  if (!config.description || config.description.length < 120 || config.description.length > 160) {
-    errors.push('Description must be 120-160 characters');
+  // Description validation (145-155 chars optimal)
+  if (!config.description) {
+    errors.push('Description is required');
+  } else if (config.description.length < 120) {
+    warnings.push(`Description too short for optimal SEO (${config.description.length} < 120 chars)`);
+  } else if (config.description.length > 155) {
+    warnings.push(`Description will be truncated (${config.description.length} > 155 chars)`);
   }
   
+  // Keywords validation
   if (!config.keywords || config.keywords.length < 3) {
     errors.push('Minimum 3 keywords required');
+  } else if (config.keywords.length > 10) {
+    warnings.push(`Too many keywords may dilute relevance (${config.keywords.length} > 10)`);
   }
   
+  // Slug validation
   if (!config.slug || !config.slug.startsWith('/')) {
     errors.push('Slug must start with /');
+  }
+  
+  // Log results
+  if (warnings.length > 0) {
+    console.warn('SEO Config Warnings:', warnings);
   }
   
   if (errors.length > 0) {

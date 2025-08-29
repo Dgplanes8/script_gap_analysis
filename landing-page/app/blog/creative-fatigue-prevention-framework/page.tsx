@@ -3,7 +3,7 @@ import { BlogPostTemplate } from '@/templates/blog-post-template';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
 
 const POST_CONFIG = {
-  title: 'Creative Fatigue Prevention: 5-Week Framework for Startup Ad Teams',
+  title: 'Creative Fatigue Prevention Framework',
   description: 'Prevent creative fatigue with proven 5-week framework. Maintain ad performance, reduce CAC increases, and optimize creative refresh cycles for startup teams.',
   keywords: [
     ...KEYWORD_CATEGORIES.ad_creative,
@@ -19,7 +19,11 @@ const POST_CONFIG = {
   ],
   slug: '/blog/creative-fatigue-prevention-framework',
   category: 'Creative Strategy',
-  readingTime: 10
+  readingTime: 10,
+  image: '/images/og/og-creative-fatigue-prevention.png',
+  publishedDate: '2025-01-15',
+  modifiedDate: '2025-01-15',
+  articleSection: 'Creative Strategy'
 };
 
 export const metadata: Metadata = generateSEOMetadata(POST_CONFIG);
@@ -49,11 +53,11 @@ export default function CreativeFatiguePreventionPage() {
         <ul className="space-y-2 text-red-700">
           <li className="flex items-start">
             <span className="text-red-500 mr-2">⚠</span>
-            <span>CTR drops >25% from baseline after 7 days</span>
+            <span>CTR drops {'>'}25% from baseline after 7 days</span>
           </li>
           <li className="flex items-start">
             <span className="text-red-500 mr-2">⚠</span>
-            <span>CAC increases >30% while targeting remains constant</span>
+            <span>CAC increases {'>'}30% while targeting remains constant</span>
           </li>
           <li className="flex items-start">
             <span className="text-red-500 mr-2">⚠</span>
@@ -273,7 +277,7 @@ export default function CreativeFatiguePreventionPage() {
             <ul className="space-y-2 text-gray-700">
               <li className="flex justify-between">
                 <span>Click-Through Rate (CTR)</span>
-                <span className="text-green-600">Target: >2% (social), >3% (search)</span>
+                <span className="text-green-600">Target: {'>'}2% (social), {'>'}3% (search)</span>
               </li>
               <li className="flex justify-between">
                 <span>Cost Per Click (CPC)</span>
@@ -323,7 +327,7 @@ export default function CreativeFatiguePreventionPage() {
           <div className="bg-white rounded-lg p-4">
             <h4 className="font-semibold text-gray-800 mb-2">Immediate Actions (Within 24 Hours):</h4>
             <ul className="space-y-1 text-gray-700">
-              <li>1. Pause creatives with CTR drops >40%</li>
+              <li>1. Pause creatives with CTR drops {'>'}40%</li>
               <li>2. Increase budget on stable-performing assets</li>
               <li>3. Launch previously tested backup variations</li>
               <li>4. Reduce frequency caps by 30%</li>
