@@ -588,20 +588,13 @@ export default function SmallBusinessMarketingServicesTimeline() {
                   <p className="text-blue-100 text-sm mb-4">
                     Skip the 90-day ramp-up with proven creative strategies and competitive intelligence delivered weekly.
                   </p>
-                  <button
-                    onClick={() => {
-                      const serviceSection = document.getElementById('service-tiers');
-                      if (serviceSection) {
-                        serviceSection.scrollIntoView({ behavior: 'smooth' });
-                      } else {
-                        window.location.href = '/#service-tiers';
-                      }
-                    }}
+                  <Link
+                    href="/#service-tiers"
                     className="bg-white text-indigo-600 hover:bg-gray-50 font-semibold px-6 py-2 rounded-lg transition-colors text-sm flex items-center"
                   >
                     Start Free Week
                     <ArrowRight className="h-4 w-4 ml-2" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </section>
