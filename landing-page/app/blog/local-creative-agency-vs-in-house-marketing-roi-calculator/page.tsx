@@ -38,37 +38,39 @@ const tableOfContentsItems = [
 const relatedArticles = [
   {
     title: 'Small Business Marketing Services Cost Analysis 2025',
-    href: '/blog/small-business-marketing-services-cost-analysis-2025',
+    slug: '/blog/small-business-marketing-services-cost-analysis-2025',
     description: 'Comprehensive cost breakdown of all marketing service options for small businesses, including agencies, freelancers, and weekly intelligence services.',
+    category: 'Marketing Services'
   },
   {
-    title: 'Startup Marketing Consultant Selection Guide',
-    href: '/blog/startup-marketing-consultant-selection-guide-2025',
-    description: '15 essential questions every founder should ask when evaluating marketing consultants and service providers.',
+    title: 'Startup Marketing Budget Calculator 2025',
+    slug: '/blog/startup-marketing-budget-calculator-2025',
+    description: 'Interactive budget calculator with strategic recommendations for startup marketing investment.',
+    category: 'Marketing Tools'
   },
   {
-    title: 'Creative Marketing Services Pricing Guide 2025',
-    href: '/blog/creative-marketing-services-pricing-guide-2025',
-    description: 'Transparent pricing analysis across different creative marketing service types for local businesses and growing companies.',
+    title: 'CAC Optimization Calculator',
+    slug: '/blog/cac-optimization-calculator',
+    description: 'Reduce customer acquisition costs with data-driven optimization strategies.',
+    category: 'Marketing Optimization'
   },
 ]
 
 export default function LocalCreativeAgencyVsInHouseROICalculator() {
   const breadcrumbs = [
-    { label: 'Blog', href: '/blog' },
-    { label: 'Local Creative Agency vs In-House Marketing ROI Calculator', href: '/blog/local-creative-agency-vs-in-house-marketing-roi-calculator' }
+    { name: 'Blog', href: '/blog' },
+    { name: 'Local Creative Agency vs In-House Marketing ROI Calculator', href: '/blog/local-creative-agency-vs-in-house-marketing-roi-calculator' }
   ]
 
   return (
     <div className="min-h-screen bg-white">
-      <ArticleStructuredData
-        headline="Local Creative Agency vs In-House Marketing Team: ROI Calculator for Growing Businesses"
+      <ArticleSchema
+        title="Local Creative Agency vs In-House Marketing Team: ROI Calculator for Growing Businesses"
         description="Interactive ROI calculator comparing local creative agencies with in-house marketing teams. Get data-driven insights for resource allocation decisions."
-        author="Apsics Media"
+        slug="/blog/local-creative-agency-vs-in-house-marketing-roi-calculator"
+        category="Marketing Tools"
         publishedDate="2025-01-29T00:00:00.000Z"
         modifiedDate="2025-01-29T00:00:00.000Z"
-        image="/images/blog/creative-agency-vs-in-house-roi.jpg"
-        url="/blog/local-creative-agency-vs-in-house-marketing-roi-calculator"
       />
       
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -989,11 +991,7 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
 
             <BlogCTASection
               title="Ready to Calculate Your Optimal ROI Strategy?"
-              description="Get personalized ROI projections for your specific business situation. Our detailed analysis includes cost breakdowns, timeline expectations, and strategic recommendations."
-              primaryCTA="Get ROI Analysis"
-              primaryHref="/roi-calculator"
-              secondaryCTA="Book Strategy Session"
-              secondaryHref="/consultation"
+              description="Get personalized ROI projections and strategic recommendations. Join growth teams getting data-driven marketing intelligence delivered weekly."
             />
           </article>
 
@@ -1038,7 +1036,10 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
           </aside>
         </div>
 
-        <RelatedArticles articles={relatedArticles} />
+        <RelatedArticles 
+          currentSlug="/blog/local-creative-agency-vs-in-house-marketing-roi-calculator"
+          articles={relatedArticles} 
+        />
       </div>
     </div>
   )

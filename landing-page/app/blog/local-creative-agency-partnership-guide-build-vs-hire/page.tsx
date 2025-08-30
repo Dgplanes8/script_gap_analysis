@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, Calculator, DollarSign, TrendingUp, Users, Clock
 import { BlogCTASection } from '@/components/blog/blog-cta-section'
 import { TableOfContents } from '@/components/blog/table-of-contents'
 import { SocialSharing } from '@/components/blog/social-sharing'
-import { ArticleStructuredData } from '@/components/blog/article-structured-data'
+import { ArticleSchema } from '@/components/schema'
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation'
 import { RelatedArticles } from '@/components/blog/related-articles'
 import { Header } from '@/components/layout/header'
@@ -46,7 +46,7 @@ export default function LocalCreativeAgencyPartnershipGuide() {
     <>
       <Header />
       <article className="min-h-screen bg-white pt-16 lg:pt-20">
-      <ArticleStructuredData
+      <ArticleSchema
         title="Local Creative Agency Partnership Guide: When to Hire vs Build In-House Marketing Team 2025"
         description="Complete decision framework for local businesses choosing between creative agency partnerships and in-house marketing teams. Cost analysis, timeline expectations, and strategic recommendations."
         slug="/blog/local-creative-agency-partnership-guide-build-vs-hire"
@@ -55,8 +55,6 @@ export default function LocalCreativeAgencyPartnershipGuide() {
         readingTime={16}
         publishedDate="2025-01-29T00:00:00.000Z"
         modifiedDate="2025-01-29T00:00:00.000Z"
-        image="/images/blog/local-creative-agency-partnership-guide.jpg"
-        url="/blog/local-creative-agency-partnership-guide-build-vs-hire"
       />
       
       {/* Header Navigation */}
@@ -1030,11 +1028,7 @@ export default function LocalCreativeAgencyPartnershipGuide() {
 
             <BlogCTASection
               title="Ready to Choose the Right Creative Partnership?"
-              description="Get expert guidance on creative agency vs in-house team decisions. Our free consultation includes cost analysis, capability assessment, and strategic recommendations tailored to your business."
-              primaryCTA="Get Partnership Strategy Guide"
-              primaryHref="/creative-partnership-consultation"
-              secondaryCTA="Download Decision Framework"
-              secondaryHref="/creative-agency-decision-framework"
+              description="Get expert guidance on creative agency vs in-house team decisions. Get weekly strategic intelligence and proven frameworks to make confident marketing decisions."
             />
           </article>
 

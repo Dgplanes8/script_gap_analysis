@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, Calculator, DollarSign, TrendingUp, Users, Clock
 import { BlogCTASection } from '@/components/blog/blog-cta-section'
 import { TableOfContents } from '@/components/blog/table-of-contents'
 import { SocialSharing } from '@/components/blog/social-sharing'
-import { ArticleStructuredData } from '@/components/blog/article-structured-data'
+import { ArticleSchema } from '@/components/schema'
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation'
 import { RelatedArticles } from '@/components/blog/related-articles'
 import { Header } from '@/components/layout/header'
@@ -48,7 +48,7 @@ export default function SmallBusinessMarketingCostAnalysis() {
     <>
       <Header />
       <article className="min-h-screen bg-white pt-16 lg:pt-20">
-      <ArticleStructuredData
+      <ArticleSchema
         title="Small Business Marketing Services vs Agency Partnerships: Complete 2025 Cost Analysis"
         description="Comprehensive cost breakdown of marketing options for small businesses in 2025. Compare in-house, agency, freelancer, and weekly intelligence services."
         slug="/blog/small-business-marketing-services-cost-analysis-2025"
@@ -57,8 +57,6 @@ export default function SmallBusinessMarketingCostAnalysis() {
         readingTime={18}
         publishedDate="2025-01-29T00:00:00.000Z"
         modifiedDate="2025-01-29T00:00:00.000Z"
-        image="/images/blog/small-business-marketing-cost-analysis.jpg"
-        url="/blog/small-business-marketing-services-cost-analysis-2025"
       />
       
       {/* Header Navigation */}

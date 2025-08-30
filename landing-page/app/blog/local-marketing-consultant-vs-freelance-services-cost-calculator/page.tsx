@@ -54,15 +54,15 @@ const relatedArticles = [
 
 export default function LocalMarketingConsultantVsFreelanceCalculator() {
   const breadcrumbs = [
-    { label: 'Blog', href: '/blog' },
-    { label: 'Local Marketing Consultant vs Freelance Services Cost Calculator', href: '/blog/local-marketing-consultant-vs-freelance-services-cost-calculator' }
+    { name: 'Blog', href: '/blog' },
+    { name: 'Local Marketing Consultant vs Freelance Services Cost Calculator', href: '/blog/local-marketing-consultant-vs-freelance-services-cost-calculator' }
   ]
 
   return (
     <>
       <Header />
       <article className="min-h-screen bg-white pt-16 lg:pt-20">
-      <ArticleStructuredData
+      <ArticleSchema
         title="Local Marketing Consultant vs Freelance Marketing Services: 2025 Cost Calculator & ROI Comparison"
         description="Compare costs between local marketing consultants and freelance marketing services. Interactive calculator with 2025 pricing data, ROI analysis, and decision framework for small businesses."
         slug="/blog/local-marketing-consultant-vs-freelance-services-cost-calculator"
@@ -1085,11 +1085,7 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
 
             <BlogCTASection
               title="Ready to Compare Your Marketing Service Options?"
-              description="Get a personalized cost analysis and ROI projection for your business. Our free consultation includes budget planning, service recommendations, and implementation guidance."
-              primaryCTA="Get Free Cost Analysis"
-              primaryHref="/marketing-service-calculator"
-              secondaryCTA="Book Strategy Session"
-              secondaryHref="/consultation"
+              description="Get personalized cost analysis and strategic recommendations. Join growth teams getting data-driven marketing intelligence every Monday."
             />
           </article>
 

@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, Calculator, DollarSign, TrendingUp, Users, Clock
 import { BlogCTASection } from '@/components/blog/blog-cta-section'
 import { TableOfContents } from '@/components/blog/table-of-contents'
 import { SocialSharing } from '@/components/blog/social-sharing'
-import { ArticleStructuredData } from '@/components/blog/article-structured-data'
+import { ArticleSchema } from '@/components/schema'
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation'
 import { RelatedArticles } from '@/components/blog/related-articles'
 import { Header } from '@/components/layout/header'
@@ -46,7 +46,7 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
     <>
       <Header />
       <article className="min-h-screen bg-white pt-16 lg:pt-20">
-      <ArticleStructuredData
+      <ArticleSchema
         title="Freelance Marketing Consultant Selection Checklist: 15 Essential Questions for Small Businesses 2025"
         description="Complete checklist for selecting freelance marketing consultants. 15 essential questions, evaluation criteria, and decision framework for small businesses hiring marketing experts."
         slug="/blog/freelance-marketing-consultant-selection-checklist-2025"
@@ -55,8 +55,6 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
         readingTime={13}
         publishedDate="2025-01-29T00:00:00.000Z"
         modifiedDate="2025-01-29T00:00:00.000Z"
-        image="/images/blog/freelance-marketing-consultant-selection-checklist.jpg"
-        url="/blog/freelance-marketing-consultant-selection-checklist-2025"
       />
       
       {/* Header Navigation */}

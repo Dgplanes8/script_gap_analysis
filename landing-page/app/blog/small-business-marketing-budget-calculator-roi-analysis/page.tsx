@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, Calculator, DollarSign, TrendingUp, Users, Clock
 import { BlogCTASection } from '@/components/blog/blog-cta-section'
 import { TableOfContents } from '@/components/blog/table-of-contents'
 import { SocialSharing } from '@/components/blog/social-sharing'
-import { ArticleStructuredData } from '@/components/blog/article-structured-data'
+import { ArticleSchema } from '@/components/schema'
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation'
 import { RelatedArticles } from '@/components/blog/related-articles'
 import { Header } from '@/components/layout/header'
@@ -46,14 +46,13 @@ export default function SmallBusinessMarketingBudgetCalculator() {
     <>
       <Header />
       <article className="min-h-screen bg-white pt-16 lg:pt-20">
-      <ArticleStructuredData
+      <ArticleSchema
         title="Small Business Marketing Budget Calculator: Agency vs DIY ROI Analysis 2025"
         description="Interactive marketing budget calculator comparing agency, in-house, freelance, and DIY marketing costs. Get ROI analysis and optimal budget allocation for small businesses in 2025."
         slug="/blog/small-business-marketing-budget-calculator-roi-analysis"
         category="Marketing Tools"
         keywords={['small business marketing budget calculator', 'marketing ROI calculator', 'marketing budget planning', 'agency vs DIY marketing costs', 'small business marketing ROI 2025']}
         readingTime={14}
-        url="/blog/small-business-marketing-budget-calculator-roi-analysis"
       />
       
       {/* Header Navigation */}
