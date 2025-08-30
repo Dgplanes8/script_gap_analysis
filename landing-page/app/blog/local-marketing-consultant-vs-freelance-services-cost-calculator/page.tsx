@@ -1,12 +1,13 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, Calculator, DollarSign, TrendingUp, Users, Clock, Target, BarChart3 } from 'lucide-react'
-import { BlogCTASection } from '../../../components/blog/blog-cta-section'
-import { TableOfContents } from '../../../components/blog/table-of-contents'
-import { SocialSharing } from '../../../components/blog/social-sharing'
-import { ArticleStructuredData } from '../../../components/schema/article-schema'
-import { BreadcrumbNavigation } from '../../../components/blog/breadcrumb-navigation'
-import { RelatedArticles } from '../../../components/blog/related-articles'
+import { ArrowLeft, ArrowRight, Calculator, DollarSign, TrendingUp, Users, Clock, Target, BarChart3 } from 'lucide-react'
+import { BlogCTASection } from '@/components/blog/blog-cta-section'
+import { TableOfContents } from '@/components/blog/table-of-contents'
+import { SocialSharing } from '@/components/blog/social-sharing'
+import { ArticleSchema } from '@/components/schema'
+import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation'
+import { RelatedArticles } from '@/components/blog/related-articles'
+import { Header } from '@/components/layout/header'
 
 export const metadata: Metadata = {
   title: 'Local Marketing Consultant vs Freelance Marketing Services: 2025 Cost Calculator & ROI Comparison',
@@ -82,7 +83,7 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
               Back to Blog
             </Link>
             
-            <BreadcrumbNavigation items={breadcrumbItems} />
+            <BreadcrumbNavigation items={breadcrumbs} />
           </div>
         </div>
       </div>

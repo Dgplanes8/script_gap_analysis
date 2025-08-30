@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react'
 import { Metadata } from 'next'
 import Link from 'next/link'
@@ -419,12 +417,12 @@ export default function SmallBusinessMarketingServicesTimeline() {
             Set realistic expectations for your marketing service provider with our comprehensive 90-day timeline. Know exactly what deliverables to expect from local consultants, agencies, and freelancers.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <EmailCaptureForm
-              placeholder="Get the complete timeline guide"
-              buttonText="Download Free Guide"
-              variant="hero"
-              source="marketing-timeline-hero"
-            />
+            <Link
+              href="mailto:brian@apsicsmedia.com"
+              className="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors"
+            >
+              Get Your Timeline Guide
+            </Link>
           </div>
         </div>
       </section>

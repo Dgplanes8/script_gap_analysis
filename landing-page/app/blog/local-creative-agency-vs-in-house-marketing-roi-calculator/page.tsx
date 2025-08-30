@@ -4,7 +4,7 @@ import { ArrowRight, Calculator, TrendingUp, Users, Clock, Target, BarChart3, Do
 import { BlogCTASection } from '../../../components/blog/blog-cta-section'
 import { TableOfContents } from '../../../components/blog/table-of-contents'
 import { SocialSharing } from '../../../components/blog/social-sharing'
-import { ArticleStructuredData } from '../../../components/schema/article-schema'
+import { ArticleSchema } from '@/components/schema'
 import { BreadcrumbNavigation } from '../../../components/blog/breadcrumb-navigation'
 import { RelatedArticles } from '../../../components/blog/related-articles'
 
