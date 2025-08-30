@@ -136,6 +136,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.98,
     },
 
+    // Local Services Marketing Series - 2025 SEO Optimized Content
+    {
+      url: `${baseUrl}/blog/local-marketing-consultant-vs-freelance-services-cost-calculator`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.97,
+    },
+    {
+      url: `${baseUrl}/blog/small-business-marketing-budget-calculator-roi-analysis`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/blog/local-creative-agency-partnership-guide-build-vs-hire`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.96,
+    },
+    {
+      url: `${baseUrl}/blog/freelance-marketing-consultant-selection-checklist-2025`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.97,
+    },
+    {
+      url: `${baseUrl}/blog/small-business-marketing-services-timeline-first-90-days`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.98,
+    },
+
     // Other existing pages
     {
       url: `${baseUrl}/success`,
