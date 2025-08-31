@@ -10,8 +10,8 @@ import { RelatedArticles } from '@/components/blog/related-articles'
 import { Header } from '@/components/layout/header'
 
 export const metadata: Metadata = {
-  title: 'Small Business Marketing Services vs Agency Partnerships: Complete 2025 Cost Analysis',
-  description: 'Comprehensive cost breakdown of marketing options for small businesses in 2025. Compare in-house, agency, freelancer, and weekly intelligence services. Includes ROI calculator and budget planning tools.',
+  title: 'Small Business Marketing Services Cost Analysis 2025',
+  description: 'Comprehensive cost breakdown comparing in-house, agency, freelancer, and weekly intelligence services. Includes ROI calculator.',
   keywords: 'small business marketing services cost analysis, marketing budget planning, agency vs in-house marketing costs, small business marketing ROI, marketing services pricing 2025',
   openGraph: {
     title: 'Small Business Marketing Services Cost Analysis 2025 | Apsics Media',

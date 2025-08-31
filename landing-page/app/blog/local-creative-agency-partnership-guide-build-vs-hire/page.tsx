@@ -10,8 +10,8 @@ import { RelatedArticles } from '@/components/blog/related-articles'
 import { Header } from '@/components/layout/header'
 
 export const metadata: Metadata = {
-  title: 'Local Creative Agency Partnership Guide: When to Hire vs Build In-House Marketing Team 2025',
-  description: 'Complete decision framework for local businesses choosing between creative agency partnerships and in-house marketing teams. Cost analysis, timeline expectations, and strategic recommendations.',
+  title: 'Creative Agency vs In-House Marketing: Decision Guide 2025',
+  description: 'Complete framework for local businesses choosing between agency partnerships and in-house teams. Cost analysis and strategic recommendations.',
   keywords: 'local creative agency vs in-house marketing, creative agency partnership guide, local marketing team decision, small business marketing strategy, creative agency ROI 2025',
   openGraph: {
     title: 'Local Creative Agency Partnership Guide: Build vs Hire 2025',
@@ -1041,25 +1041,25 @@ export default function LocalCreativeAgencyPartnershipGuide() {
                 <h3 className="font-semibold text-gray-900 mb-3">Free Decision Tools</h3>
                 <div className="space-y-3">
                   <Link 
-                    href="/creative-agency-evaluation-checklist" 
+                    href="/blog/freelance-marketing-consultant-selection-checklist-2025" 
                     className="flex items-center text-blue-600 hover:text-blue-700 text-sm"
                   >
                     <UserCheck className="w-4 h-4 mr-2" />
-                    Agency Evaluation Checklist
+                    Marketing Consultant Selection Checklist
                   </Link>
                   <Link 
-                    href="/build-vs-buy-calculator" 
+                    href="/blog/local-creative-agency-vs-in-house-marketing-roi-calculator" 
                     className="flex items-center text-blue-600 hover:text-blue-700 text-sm"
                   >
                     <Calculator className="w-4 h-4 mr-2" />
-                    Build vs Buy Calculator
+                    Build vs Hire ROI Calculator
                   </Link>
                   <Link 
-                    href="/creative-budget-planner" 
+                    href="/blog/small-business-marketing-budget-calculator-roi-analysis" 
                     className="flex items-center text-blue-600 hover:text-blue-700 text-sm"
                   >
                     <DollarSign className="w-4 h-4 mr-2" />
-                    Creative Budget Planner
+                    Marketing Budget Calculator
                   </Link>
                   <Link 
                     href="/free-hooks" 

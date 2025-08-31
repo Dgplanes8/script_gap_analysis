@@ -10,8 +10,8 @@ import { RelatedArticles } from '@/components/blog/related-articles'
 import { Header } from '@/components/layout/header'
 
 export const metadata: Metadata = {
-  title: 'Small Business Marketing Budget Calculator: Agency vs DIY ROI Analysis 2025',
-  description: 'Interactive marketing budget calculator comparing agency, in-house, freelance, and DIY marketing costs. Get ROI analysis and optimal budget allocation for small businesses in 2025.',
+  title: 'Marketing Budget Calculator: Agency vs DIY ROI 2025',
+  description: 'Interactive calculator comparing agency, in-house, and DIY marketing costs. Get ROI analysis and optimal budget allocation for small businesses.',
   keywords: 'small business marketing budget calculator, marketing ROI calculator, marketing budget planning, agency vs DIY marketing costs, small business marketing ROI 2025',
   openGraph: {
     title: 'Small Business Marketing Budget Calculator: ROI Analysis 2025',

@@ -12,8 +12,8 @@ import { Header } from '@/components/layout/header'
 import { InteractiveTimeline } from '@/components/blog/interactive-timeline'
 
 export const metadata: Metadata = {
-  title: 'Small Business Marketing Services Timeline: What to Expect in Your First 90 Days | APSICS Media',
-  description: 'Set realistic expectations for your marketing service provider with our comprehensive 90-day timeline. Know exactly what deliverables to expect from local consultants, agencies, and freelancers.',
+  title: 'Marketing Services Timeline: First 90 Days Guide',
+  description: 'Set realistic expectations for marketing providers with our 90-day timeline. Know exactly what deliverables to expect from consultants and agencies.',
   keywords: 'small business marketing services timeline, local marketing consultant expectations, marketing agency 90 day plan, freelance marketing consultant deliverables',
   openGraph: {
     title: 'Small Business Marketing Services Timeline: First 90 Days',

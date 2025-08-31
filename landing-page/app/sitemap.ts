@@ -17,12 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
-    {
-      url: `${baseUrl}/free-hooks`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
     
     // Implemented Blog Articles - High priority for organic search
     {
@@ -112,18 +106,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.98,
     },
     {
-      url: `${baseUrl}/blog/creative-fatigue-prevention-framework`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.96,
-    },
-    {
-      url: `${baseUrl}/blog/cac-optimization-calculator`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.98,
-    },
-    {
       url: `${baseUrl}/blog/52-high-converting-ad-templates-startup`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -168,6 +150,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.98,
     },
     {
+      url: `${baseUrl}/blog/small-business-marketing-services-cost-analysis-2025`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.97,
+    },
+    {
       url: `${baseUrl}/blog/local-creative-agency-vs-in-house-marketing-roi-calculator`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -200,6 +188,146 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.96,
+    },
+    {
+      url: `${baseUrl}/consumer-subscription-marketing-guide`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/subscription-marketing-strategy-guide`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/weekly-trend-intelligence-guide`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.94,
+    },
+
+    // Tools & Calculators - Missing High-Value Pages
+    {
+      url: `${baseUrl}/saas-creative-strategy-roi-calculator`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.97,
+    },
+    {
+      url: `${baseUrl}/revenue-growth-benchmarking`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.96,
+    },
+
+    // Framework & Analysis Pages
+    {
+      url: `${baseUrl}/marketing-attribution-framework`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.94,
+    },
+    {
+      url: `${baseUrl}/consumer-attribution-framework`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.93,
+    },
+    {
+      url: `${baseUrl}/cac-reduction-guide`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/reduce-customer-acquisition-cost-subscription-business`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.94,
+    },
+
+    // Creative Intelligence & Playbooks
+    {
+      url: `${baseUrl}/weekly-creative-intelligence-playbook`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/creative-fatigue-prevention-framework`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.94,
+    },
+    {
+      url: `${baseUrl}/creative-brief-framework`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.93,
+    },
+    {
+      url: `${baseUrl}/25-point-performance-scoring-system`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.93,
+    },
+    {
+      url: `${baseUrl}/52-high-converting-ad-hooks-library`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.94,
+    },
+
+    // Platform-Specific Guides
+    {
+      url: `${baseUrl}/facebook-ad-hooks-d2c-subscription-marketing`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+    {
+      url: `${baseUrl}/tiktok-hooks-subscription-business-marketing`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+
+    // Competitive Analysis Pages
+    {
+      url: `${baseUrl}/competitor-analysis-weekly-workflow`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.93,
+    },
+    {
+      url: `${baseUrl}/fortune-100-vs-agency-strategies`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+
+    // Content & Viral Strategy
+    {
+      url: `${baseUrl}/subscription-business-viral-content-calendar`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.91,
+    },
+    {
+      url: `${baseUrl}/ai-enhanced-creative-intelligence`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.92,
+    },
+
+    // About page - Important for trust and SEO
+    {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
 
     // Other existing pages

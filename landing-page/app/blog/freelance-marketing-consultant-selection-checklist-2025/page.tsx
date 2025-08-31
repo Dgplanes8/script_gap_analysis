@@ -10,8 +10,8 @@ import { RelatedArticles } from '@/components/blog/related-articles'
 import { Header } from '@/components/layout/header'
 
 export const metadata: Metadata = {
-  title: 'Freelance Marketing Consultant Selection Checklist: 15 Essential Questions for Small Businesses 2025',
-  description: 'Complete checklist for selecting freelance marketing consultants. 15 essential questions, evaluation criteria, and decision framework for small businesses hiring marketing experts.',
+  title: 'Freelance Marketing Consultant Selection Checklist 2025',
+  description: 'Complete checklist for selecting freelance marketing consultants. 15 essential questions and evaluation criteria for small businesses.',
   keywords: 'freelance marketing consultant selection, how to hire freelance marketing consultant, marketing consultant checklist, freelance marketing evaluation, small business marketing hiring 2025',
   openGraph: {
     title: 'Freelance Marketing Consultant Selection Checklist 2025',

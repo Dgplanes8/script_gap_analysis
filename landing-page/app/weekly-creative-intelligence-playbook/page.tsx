@@ -954,10 +954,10 @@ export default function WeeklyCreativeIntelligencePlaybook() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-3">Technology Integration</h4>
                     <ul className="text-sm text-gray-600 space-y-2">
-                      <li>• Marketing automation platform integration</li>
-                      <li>• Performance analytics dashboard setup</li>
+                      <li>• <Link href="/marketing-technology-stack-weekly-intelligence-optimization" className="text-blue-600 hover:text-blue-800 hover:underline">Marketing Technology Stack Optimization</Link></li>
+                      <li>• <Link href="/analytics-setup-weekly-creative-intelligence-tracking" className="text-blue-600 hover:text-blue-800 hover:underline">Performance Analytics Dashboard Setup</Link></li>
+                      <li>• <Link href="/api-integration-weekly-creative-intelligence-automation" className="text-blue-600 hover:text-blue-800 hover:underline">API Integration & Automation Setup</Link></li>
                       <li>• Creative asset management systems</li>
-                      <li>• Collaboration tool optimization</li>
                       <li>• Competitive intelligence automation</li>
                     </ul>
                   </div>
