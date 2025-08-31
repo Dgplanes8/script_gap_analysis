@@ -1,23 +1,69 @@
-'use client';
-
-import { useState, useEffect } from 'react';
+import type { Metadata } from 'next';
 import { Header } from '@/components/layout/header';
+import { StructuredData } from '@/components/schema';
 import { Footer } from '@/components/layout/footer';
-import { HooksOfferSection } from '@/components/ui/hooks-offer-section';
-import { ConvertKitForm } from '@/components/forms/convertkit-form';
-import { EmailCaptureForm } from '@/components/forms/email-capture-form';
-import { trackPageView } from '@/components/analytics';
-import { ArrowRight } from 'lucide-react';
 import { Download, BookOpen, Zap, Users } from 'lucide-react';
 
+export const metadata: Metadata = {
+  title: '10 Free Copy-Paste Ad Templates for Startup Founders | Launch Your First Campaign This Week',
+  description: 'Download 10 battle-tested ad templates designed for startup founders. Skip months of trial-and-error testing. Copy, customize, and launch winning ads in minutes. Free download.',
+  keywords: 'free ad templates, startup ad templates, copy-paste ad templates, launch first campaign, startup advertising templates, ad templates for founders, free marketing templates',
+  openGraph: {
+    title: '10 Free Copy-Paste Ad Templates for Startup Founders',
+    description: 'Download battle-tested ad templates to launch your first campaign this week. Free copy-paste templates for startup founders.',
+    type: 'website',
+    images: [
+      {
+        url: '/images/free-hooks-og.jpg',
+        width: 1200,
+        height: 630,
+        alt: '10 Free Ad Templates for Startup Founders',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '10 Free Copy-Paste Ad Templates for Startup Founders',
+    description: 'Download battle-tested ad templates to launch your first campaign this week.',
+    images: ['/images/free-hooks-og.jpg'],
+  },
+  alternates: {
+    canonical: '/free-hooks',
+  },
+};
+
 export default function FreeHooksPage() {
-
-  useEffect(() => {
-    trackPageView('free-hooks');
-  }, []);
-
   return (
     <>
+      {/* Structured Data */}
+      <StructuredData 
+        pageType="service"
+        title="10 Free Copy-Paste Ad Templates for Startup Founders"
+        description="Download 10 battle-tested ad templates designed for startup founders. Skip months of trial-and-error testing. Copy, customize, and launch winning ads in minutes."
+        slug="/free-hooks"
+        additionalSchemas={[
+          {
+            '@type': 'Offer',
+            name: '10 Free Copy-Paste Ad Templates',
+            description: 'Battle-tested ad templates for startup founders to launch their first campaign this week',
+            price: '0',
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock',
+            validFrom: '2025-01-29',
+            url: 'https://apsicsmedia.com/free-hooks',
+            seller: {
+              '@type': 'Organization',
+              name: 'APSICS Media'
+            },
+            itemOffered: {
+              '@type': 'DigitalDocument',
+              name: '10 Copy-Paste Ad Templates',
+              description: 'Ready-to-use ad templates for startup marketing campaigns'
+            }
+          }
+        ]}
+      />
+      
       {/* Header Navigation */}
       <Header />
       
@@ -44,39 +90,57 @@ export default function FreeHooksPage() {
                 Skip months of trial-and-error testing. These battle-tested templates help you launch winning ads in minutes. Designed for startup teams who need results fast - download, customize, launch today.
               </p>
               
-              {/* Above-fold CTA */}
+              {/* Simple CTA */}
               <div className="max-w-lg mx-auto mb-12">
                 <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-orange-200">
-                  {/* ConvertKit Form Above the Fold */}
-                  <div className="mb-8">
-                    <ConvertKitForm 
-                      formId="your-form-id-here"
-                      className="w-full"
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Get Your Free Templates</h3>
+                  <p className="text-gray-600 mb-4">Enter your email to download 10 battle-tested ad templates</p>
+                  <div className="space-y-3">
+                    <input 
+                      type="email" 
+                      placeholder="Enter your email" 
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
                     />
+                    <button className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-orange-700 hover:to-red-700 transition-all">
+                      Download Free Templates
+                    </button>
+                  </div>
+                  <p className="text-xs text-gray-500 text-center mt-3">
+                    Instant download • No spam • Used by 1,247+ startup founders
+                  </p>
+                </div>
+              </div>
+              
+              {/* Trust indicators and benefits below */}
+              <div className="text-center mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                  <div className="flex flex-col items-center">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                      <BookOpen className="h-8 w-8 text-green-600" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Copy-Paste Ready</h3>
+                    <p className="text-gray-600 text-sm">
+                      No design skills needed. Just copy, customize your details, and launch your first campaign.
+                    </p>
                   </div>
                   
-                  <div className="grid grid-cols-3 gap-6 mb-8">
-                    <div className="text-center p-4">
-                      <div className="text-2xl font-bold text-red-600">500+</div>
-                      <div className="text-sm text-gray-600">Campaigns Launched</div>
+                  <div className="flex flex-col items-center">
+                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                      <Zap className="h-8 w-8 text-blue-600" />
                     </div>
-                    <div className="text-center p-4">
-                      <div className="text-2xl font-bold text-orange-600">Startup</div>
-                      <div className="text-sm text-gray-600">Focused</div>
-                    </div>
-                    <div className="text-center p-4">
-                      <div className="text-2xl font-bold text-red-600">3+</div>
-                      <div className="text-sm text-gray-600">Platforms</div>
-                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Battle-Tested</h3>
+                    <p className="text-gray-600 text-sm">
+                      These templates are based on $250MM+ in managed ad spend and proven startup wins.
+                    </p>
                   </div>
-                  <div className="w-full max-w-xl">
-                    <EmailCaptureForm
-                      placeholder="Enter your work email"
-                      buttonText="Download MY Templates Now"
-                      variant="hero"
-                    />
-                    <p className="text-xs text-gray-500 text-center">
-                      Instant download • No spam • Used by 1,247+ startup founders
+                  
+                  <div className="flex flex-col items-center">
+                    <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                      <Users className="h-8 w-8 text-purple-600" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Founder-Focused</h3>
+                    <p className="text-gray-600 text-sm">
+                      Designed specifically for startup founders launching their first campaigns.
                     </p>
                   </div>
                 </div>
@@ -85,112 +149,35 @@ export default function FreeHooksPage() {
           </div>
         </section>
 
-        {/* Main Hooks Offer Section */}
-        <HooksOfferSection />
-
-        {/* Additional Resources Section */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  More Startup-Friendly Tools
-                </h2>
-                <p className="text-xl text-gray-600">
-                  Free tools and calculators designed specifically for early-stage startup teams
-                </p>
+        <div className="bg-white py-16 text-center">
+          <div className="max-w-4xl mx-auto px-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">What You'll Get</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="text-left">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">10 Ready-to-Use Templates</h3>
+                <ul className="space-y-2 text-gray-600">
+                  <li>• Problem-Solution frameworks</li>
+                  <li>• Social proof templates</li>
+                  <li>• Curiosity-driven hooks</li>
+                  <li>• Transformation promises</li>
+                  <li>• Authority positioning</li>
+                </ul>
               </div>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* CAC Calculator */}
-                <div className="bg-gradient-to-br from-red-50 to-orange-100 rounded-xl p-6 border border-red-200">
-                  <div className="bg-red-600 rounded-lg p-3 w-fit mb-4">
-                    <Zap className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">CAC Optimization Calculator</h3>
-                  <p className="text-gray-600 mb-4">
-                    Free calculator to help startup teams reduce customer acquisition costs on any budget.
-                  </p>
-                  <a
-                    href="/cac-optimization-calculator"
-                    className="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors"
-                  >
-                    Use Calculator
-                    <Download className="h-4 w-4 ml-2" />
-                  </a>
-                </div>
-
-                {/* Benchmarking Tool */}
-                <div className="bg-gradient-to-br from-orange-50 to-red-100 rounded-xl p-6 border border-orange-200">
-                  <div className="bg-orange-600 rounded-lg p-3 w-fit mb-4">
-                    <BookOpen className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Revenue Growth Benchmarking Tool</h3>
-                  <p className="text-gray-600 mb-4">
-                    See how your startup's growth compares and get actionable recommendations to improve.
-                  </p>
-                  <a
-                    href="/revenue-growth-benchmarking"
-                    className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors"
-                  >
-                    Start Benchmarking
-                    <Download className="h-4 w-4 ml-2" />
-                  </a>
-                </div>
-
-                {/* ROI Calculator */}
-                <div className="bg-gradient-to-br from-red-50 to-orange-100 rounded-xl p-6 border border-red-200">
-                  <div className="bg-red-600 rounded-lg p-3 w-fit mb-4">
-                    <Users className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">SaaS Creative ROI Calculator</h3>
-                  <p className="text-gray-600 mb-4">
-                    Calculate how much better ad templates could improve your startup's results.
-                  </p>
-                  <a
-                    href="/saas-creative-strategy-roi-calculator"
-                    className="inline-flex items-center text-red-600 font-semibold hover:text-red-700 transition-colors"
-                  >
-                    Calculate ROI
-                    <Download className="h-4 w-4 ml-2" />
-                  </a>
-                </div>
+              <div className="text-left">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Implementation Guide</h3>
+                <ul className="space-y-2 text-gray-600">
+                  <li>• Step-by-step customization</li>
+                  <li>• Platform-specific optimization</li>
+                  <li>• Performance tracking tips</li>
+                  <li>• Common mistakes to avoid</li>
+                  <li>• Scaling strategies</li>
+                </ul>
               </div>
             </div>
           </div>
-        </section>
-
-        {/* Strategic Consultation CTA */}
-        <section className="py-16 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-6">
-                Ready for Weekly Templates from a Fellow Founder?
-              </h2>
-              <p className="text-xl mb-8 opacity-90">
-                Get proven ad templates every Monday from someone who's been in your shoes. <strong>Built by a startup founder, for startup founders.</strong> Starting at $5/week with your first week FREE.
-              </p>
-              <button
-                onClick={() => window.location.href = '/#service-tiers'}
-                className="bg-white text-gray-900 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors duration-200 text-lg"
-              >
-                See MY Weekly Plans
-              </button>
-              <div className="mt-8 pt-8 border-t border-gray-700">
-                <p className="text-lg opacity-90 mb-2">Questions? Get in touch:</p>
-                <a 
-                  href="mailto:brian@apsicsmedia.com" 
-                  className="text-orange-400 hover:text-orange-300 font-semibold text-lg"
-                >
-                  brian@apsicsmedia.com
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+        </div>
       </main>
-
-
+      
       {/* Footer */}
       <Footer />
     </>

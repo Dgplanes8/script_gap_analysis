@@ -20,6 +20,40 @@ export const metadata: Metadata = {
 };
 
 const articles = [
+  // NEW: Local Services & Small Business Marketing (2025)
+  {
+    category: 'Small Business Marketing',
+    icon: Users,
+    color: 'bg-purple-50 border-purple-200 text-purple-800',
+    articles: [
+      {
+        title: 'Local Marketing Consultant vs Freelance Services: Cost Calculator',
+        slug: '/blog/local-marketing-consultant-vs-freelance-services-cost-calculator',
+        description: 'Interactive cost comparison tool with ROI analysis for small businesses choosing marketing services'
+      },
+      {
+        title: 'Small Business Marketing Budget Calculator & ROI Analysis',
+        slug: '/blog/small-business-marketing-budget-calculator-roi-analysis',
+        description: 'Budget planning calculator comparing agency, in-house, and freelance marketing options'
+      },
+      {
+        title: 'Local Creative Agency vs In-House Marketing: ROI Calculator',
+        slug: '/blog/local-creative-agency-vs-in-house-marketing-roi-calculator',
+        description: 'Data-driven ROI calculator for resource allocation decisions between agencies and in-house teams'
+      },
+      {
+        title: 'Freelance Marketing Consultant Selection Checklist 2025',
+        slug: '/blog/freelance-marketing-consultant-selection-checklist-2025',
+        description: '15 essential questions and evaluation criteria for hiring the right marketing consultant'
+      },
+      {
+        title: 'Marketing Services Timeline: What to Expect in First 90 Days',
+        slug: '/blog/small-business-marketing-services-timeline-first-90-days',
+        description: 'Realistic timeline expectations with detailed milestone breakdown for marketing providers'
+      }
+    ]
+  },
+
   // Marketing Strategy Guides
   {
     category: 'Strategy Guides',
@@ -45,6 +79,35 @@ const articles = [
         title: 'Weekly Trend Intelligence Guide',
         slug: '/weekly-trend-intelligence-guide',
         description: 'How to leverage trend intelligence for marketing'
+      }
+    ]
+  },
+
+  // Interactive Tools & Calculators - High SEO Value
+  {
+    category: 'Free Tools & Calculators',
+    icon: Calculator,
+    color: 'bg-orange-50 border-orange-200 text-orange-800',
+    articles: [
+      {
+        title: 'Hook Generator Methodology Framework',
+        slug: '/hook-generator',
+        description: 'Master the systematic hook generation methodology for high-converting creative development'
+      },
+      {
+        title: 'CAC Optimization Calculator (Free)',
+        slug: '/cac-optimization-calculator',
+        description: 'Interactive calculator to optimize customer acquisition costs with strategic recommendations'
+      },
+      {
+        title: '10 Free Copy-Paste Ad Templates',
+        slug: '/free-hooks',
+        description: 'Battle-tested ad templates for startup founders to launch their first campaign this week'
+      },
+      {
+        title: 'Startup Marketing ROI Calculator',
+        slug: '/blog/startup-marketing-roi-calculator',
+        description: 'Calculate ROI across different marketing channels and service providers for startups'
       }
     ]
   },

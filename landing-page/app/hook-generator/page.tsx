@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, Zap, Target, TrendingUp, Brain, Users, BarChart3, CheckCircle, Eye, Heart, Star, Settings, Lightbulb, Beaker } from 'lucide-react';
+import { StructuredData, WebApplicationSchema } from '@/components/schema';
+import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
   title: 'Hook Generator Methodology: Strategic Framework for High-Converting Creative Development | Apsics Media',

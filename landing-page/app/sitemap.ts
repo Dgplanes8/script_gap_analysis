@@ -167,6 +167,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.98,
     },
+    {
+      url: `${baseUrl}/blog/local-creative-agency-vs-in-house-marketing-roi-calculator`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.98,
+    },
+
+    // High-Value Tools & Calculators - SEO Priority Pages
+    {
+      url: `${baseUrl}/hook-generator`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.99,
+    },
+    {
+      url: `${baseUrl}/cac-optimization-calculator`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/free-hooks`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.97,
+    },
+
+    // Comprehensive Strategy Guides - High SEO Value
+    {
+      url: `${baseUrl}/saas-growth-marketing-guide`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.96,
+    },
 
     // Other existing pages
     {
