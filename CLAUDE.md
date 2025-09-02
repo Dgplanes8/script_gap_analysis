@@ -316,6 +316,76 @@ npm run build      # Must succeed
 
 ---
 
+## SEO Best Practices & Quality Standards
+
+### SEO Workflow Integration
+
+**Content Creation Standards:**
+- **Metadata Validation**: All new pages must have optimized titles (<60 chars) and descriptions (150-160 chars)
+- **Internal Linking**: Every new page must receive 2-3 contextual internal links within 48 hours
+- **Sitemap Management**: Sitemap updated within 24 hours of publishing new content
+- **Quality Assurance**: Pre-launch SEO checklist completion required
+
+**Performance Requirements:**
+- **SEO Health Score**: Maintain 80+ score in audit tools (target: 90+)
+- **Broken Links**: <5 site-wide at any time
+- **Orphan Pages**: <3% of total pages without adequate internal links
+- **Index Coverage**: >95% of important pages successfully indexed
+
+### SEO Maintenance Workflow
+
+**Weekly Responsibilities:**
+```bash
+# SEO health monitoring
+- Review Google Search Console for new issues
+- Check for broken internal links (spot check 10-20 random links)
+- Validate recent content has received internal links
+- Monitor site performance metrics
+```
+
+**Monthly Requirements:**
+```bash
+# Comprehensive SEO audit
+- Run full site audit using Ahrefs/SEMrush
+- Review and update sitemap for completeness
+- Audit metadata across all pages for optimization
+- Check for orphan pages and create linking strategy
+- Validate all external links still function
+```
+
+**Pre-Deployment SEO Checklist:**
+```bash
+# Required before any content goes live
+□ Title optimized and under 60 characters
+□ Meta description compelling and 150-160 characters
+□ URL structure follows site conventions
+□ Internal links planned and implemented
+□ Sitemap updated
+□ No broken links introduced
+□ Mobile responsiveness verified
+□ Page load speed <3 seconds
+```
+
+### Quality Standards & Compliance
+
+**Mandatory SEO Standards:**
+- **Zero Tolerance**: Broken internal links on production site
+- **Metadata Excellence**: Every page must have unique, optimized title and description
+- **Link Equity**: No pages should remain orphaned (without internal links) for >48 hours
+- **Performance**: SEO health score must not drop below 75 without immediate action
+
+**Escalation Procedures:**
+- **Health Score <70**: Immediate investigation and remediation required
+- **>10 Broken Links**: Emergency fix within 4 hours
+- **Critical Page Issues**: Fix within 2 hours for high-traffic/conversion pages
+
+**Reference Documentation:**
+- Complete SEO procedures: `SEO_BEST_PRACTICES_GUIDE.md`
+- Troubleshooting workflows: Prevention-first approach with systematic resolution
+- Team training materials: Available in SEO guide for onboarding
+
+---
+
 ## Troubleshooting Guide
 
 ### Common Issues & Solutions
@@ -353,6 +423,7 @@ npm run build      # Must succeed
 Ad Workflow/
 ├── CLAUDE.md                          # This operations manual
 ├── CHANGELOG.md                       # Project update tracking
+├── SEO_BEST_PRACTICES_GUIDE.md       # SEO maintenance & prevention guide
 ├── ISSUES_TRACKER.md                  # Outstanding issues from plan.md
 ├── UI_COMPONENT_GUIDE.md             # Component documentation
 ├── phased_workflow_orchestrator.py    # Main workflow orchestrator

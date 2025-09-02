@@ -72,22 +72,16 @@ export default function FreeHooksPage() {
         <section className="py-16 bg-gradient-to-br from-red-50 to-orange-100">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="flex flex-col items-center space-y-4 mb-6">
-                <div className="inline-flex items-center bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
-                  <Download className="h-4 w-4 mr-2" />
-                  COPY-PASTE TEMPLATES - FREE
-                </div>
-                
-                <div className="bg-orange-600 text-white px-3 py-1 rounded-lg text-sm font-semibold">
-                  🔥 Downloaded by 1,247+ startup founders this month
-                </div>
+              <div className="inline-flex items-center bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                <Download className="h-4 w-4 mr-2" />
+                COPY-PASTE TEMPLATES - FREE
               </div>
               
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                10 Copy-Paste Ad Templates (Launch Your First Campaign This Week)
+                Get 10 Copy-Paste Ad Templates That Actually Work
               </h1>
               <p className="text-xl text-gray-600 mb-6">
-                Skip months of trial-and-error testing. These battle-tested templates help you launch winning ads in minutes. Designed for startup teams who need results fast - download, customize, launch today.
+                Skip months of trial-and-error testing. These proven frameworks help you launch your first campaign this week - download, customize with your details, and start getting customers.
               </p>
               
               {/* Simple CTA */}
@@ -106,7 +100,7 @@ export default function FreeHooksPage() {
                     </button>
                   </div>
                   <p className="text-xs text-gray-500 text-center mt-3">
-                    Instant download • No spam • Used by 1,247+ startup founders
+                    Instant download • No spam • Proven templates from $250MM+ managed spend
                   </p>
                 </div>
               </div>
@@ -130,7 +124,7 @@ export default function FreeHooksPage() {
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Battle-Tested</h3>
                     <p className="text-gray-600 text-sm">
-                      These templates are based on $250MM+ in managed ad spend and proven startup wins.
+                      These frameworks come from analyzing winning campaigns across $250MM+ in managed ad spend.
                     </p>
                   </div>
                   
