@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTM Test Page</title>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TEST123');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TEST123"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <h1>GTM Tracking Test</h1>
+    
+    <button onclick="testWeeklyTrialClick()" id="weekly-trial-btn">Test Weekly Trial Click</button>
+    <br><br>
+    <button onclick="testFreeTemplateClick()" id="free-template-btn">Test Free Template Click</button>
+    <br><br>
+    <form onsubmit="testFormSubmission(event)" id="test-form">
+        <input type="email" placeholder="test@example.com" required id="email-input">
+        <button type="submit">Test Form Submission</button>
+    </form>
+
+    <script>
+        // Initialize dataLayer
+        window.dataLayer = window.dataLayer || [];
+
+        // Test tracking functions
+        function trackEvent(eventName, parameters = {}) {
+            console.log('Tracking event:', eventName, parameters);
+            window.dataLayer.push({
+                event: eventName,
+                ...parameters,
+            });
+        }
+
+        function trackWeeklyTrialClick(tier, location) {
+            trackEvent('weekly_trial_click', {
+                event_category: 'conversion',
+                event_label: tier,
+                tier_name: tier,
+                click_location: location,
+                value: tier === 'Creative Starter' ? 5 : 
+                       tier === 'Trend Tracker' ? 15 :
+                       tier === 'Competitive Edge' ? 35 :
+                       tier === 'Market Intelligence' ? 99 : 0
+            });
+        }
+
+        function trackFreeTemplateSubmission(email, source) {
+            trackEvent('free_template_signup', {
+                event_category: 'lead_generation',
+                event_label: source,
+                email_domain: email.split('@')[1] || 'unknown',
+                signup_source: source
+            });
+        }
+
+        function trackFormStart(formType, tier) {
+            trackEvent('form_start', {
+                event_category: 'engagement',
+                form_type: formType,
+                tier_name: tier || 'n/a'
+            });
+        }
+
+        // Test functions
+        function testWeeklyTrialClick() {
+            trackWeeklyTrialClick('Trend Tracker', 'test-page');
+            alert('Weekly trial click tracked! Check console.');
+        }
+
+        function testFreeTemplateClick() {
+            trackEvent('free_templates_click', {
+                event_category: 'lead_generation',
+                event_label: 'test-page',
+                click_location: 'test-page'
+            });
+            alert('Free template click tracked! Check console.');
+        }
+
+        function testFormSubmission(e) {
+            e.preventDefault();
+            const email = document.getElementById('email-input').value;
+            trackFreeTemplateSubmission(email, 'test-page');
+            alert('Form submission tracked! Check console.');
+        }
+
+        // Test form start on focus
+        document.getElementById('email-input').addEventListener('focus', function() {
+            trackFormStart('free_template');
+            console.log('Form start tracked!');
+        });
+
+        // Log dataLayer changes
+        console.log('Initial dataLayer:', window.dataLayer);
+        
+        // Check GTM loading
+        setTimeout(() => {
+            if (window.google_tag_manager) {
+                console.log('✅ GTM loaded successfully');
+            } else {
+                console.log('❌ GTM not detected');
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

@@ -3,6 +3,7 @@ import { Header } from '@/components/layout/header';
 import { StructuredData } from '@/components/schema';
 import { Footer } from '@/components/layout/footer';
 import { Download, BookOpen, Zap, Users } from 'lucide-react';
+import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 
 export const metadata: Metadata = {
   title: '10 Free Copy-Paste Ad Templates for Startup Founders | Launch Your First Campaign This Week',
@@ -84,21 +85,19 @@ export default function FreeHooksPage() {
                 Skip months of trial-and-error testing. These proven frameworks help you launch your first campaign this week - download, customize with your details, and start getting customers.
               </p>
               
-              {/* Simple CTA */}
+              {/* Email Capture Form */}
               <div className="max-w-lg mx-auto mb-12">
                 <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-orange-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Get Your Free Templates</h3>
                   <p className="text-gray-600 mb-4">Enter your email to download 10 battle-tested ad templates</p>
-                  <div className="space-y-3">
-                    <input 
-                      type="email" 
-                      placeholder="Enter your email" 
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-                    />
-                    <button className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-orange-700 hover:to-red-700 transition-all">
-                      Download Free Templates
-                    </button>
-                  </div>
+                  
+                  <EmailCaptureForm
+                    placeholder="Enter your work email"
+                    buttonText="Download Free Templates"
+                    variant="cta"
+                    source="free-hooks-main"
+                  />
+                  
                   <p className="text-xs text-gray-500 text-center mt-3">
                     Instant download • No spam • Proven templates from $250MM+ managed spend
                   </p>

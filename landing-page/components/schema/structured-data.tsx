@@ -7,7 +7,7 @@ import { generateTemplateSchemaGraph } from '@/lib/schema/template-schemas';
 import { DEFAULT_FAQS } from '@/lib/schema/types';
 
 interface StructuredDataProps {
-  pageType?: 'homepage' | 'article' | 'blog' | 'calculator' | 'playbook' | 'service' | 'generic';
+  pageType?: 'homepage' | 'article' | 'blog' | 'calculator' | 'playbook' | 'service' | 'generic' | 'organization' | 'faq';
   title?: string;
   description?: string;
   slug?: string;

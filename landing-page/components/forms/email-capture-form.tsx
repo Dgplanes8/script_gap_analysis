@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Mail, ArrowRight } from 'lucide-react';
 import { trackEmailSignup, trackFormAbandonment } from '@/components/analytics';
+import { trackFreeTemplateSubmission, trackFormStart } from '@/components/analytics/gtm';
 
 const emailSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
@@ -63,12 +64,13 @@ export function EmailCaptureForm({
       
       // Track successful signup
       trackEmailSignup(source);
+      trackFreeTemplateSubmission(data.email, source);
       
       setIsSubmitted(true);
       reset();
     } catch (error) {
       console.error('Error submitting form:', error);
-      trackFormAbandonment('email_signup', 'submission_error');
+      trackFormAbandonment('email_signup', 'submission_error', source);
       // Handle error (show toast, etc.)
     } finally {
       setIsSubmitting(false);
@@ -114,6 +116,7 @@ export function EmailCaptureForm({
             type="email"
             placeholder={placeholder}
             className={inputClasses[variant]}
+            onFocus={() => trackFormStart('free_template')}
             {...register('email')}
           />
           {errors.email && (

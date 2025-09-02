@@ -38,7 +38,7 @@ export default function AboutPage() {
     <>
       {/* Structured Data */}
       <StructuredData 
-        pageType="organization"
+        pageType="service"
         title="About APSICS Media"
         description="Meet the team behind startup ad templates. Learn our proven methodology from managing $250MM+ in ad spend for growing companies. Built by founders, for founders."
         slug="/about"
