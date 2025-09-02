@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ArrowRight, Loader2, Mail } from 'lucide-react';
+import { trackWeeklyTrialSubmission, trackFormStart } from '@/components/analytics/gtm';
 
 interface SimpleAirtableFormProps {
   buttonText?: string;
@@ -36,6 +37,13 @@ export function SimpleAirtableForm({
     setError(null);
 
     try {
+      // Track form submission attempt
+      trackWeeklyTrialSubmission(
+        formData.packageInterest || tier || 'unknown',
+        formData.email,
+        source
+      );
+
       // Submit to Airtable API using the same endpoint and format as existing form
       const response = await fetch('/api/airtable-submit', {
         method: 'POST',
@@ -111,6 +119,7 @@ export function SimpleAirtableForm({
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
+            onFocus={() => trackFormStart('weekly_trial', tier)}
             required
           />
           <input

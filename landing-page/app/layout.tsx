@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import dynamic from 'next/dynamic';
 import { ConsultationProvider } from '@/components/contexts/consultation-context';
+import { GTM, GTMNoscript } from '@/components/analytics/gtm';
 
 // Dynamically import non-critical components
 const Analytics = dynamic(() => import('@/components/analytics').then(mod => ({ default: mod.Analytics })), {
@@ -103,9 +104,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID || 'GTM-XXXXXXX';
+  
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Google Tag Manager */}
+        <GTM gtmId={gtmId} />
         {/* Critical CSS inlined for immediate render */}
         <style dangerouslySetInnerHTML={{
           __html: `
@@ -181,6 +186,8 @@ export default function RootLayout({
         
       </head>
       <body className={`${inter.className} ${inter.variable}`}>
+        {/* Google Tag Manager (noscript) */}
+        <GTMNoscript gtmId={gtmId} />
         <ConsultationProvider>
           {children}
           <ConsultationModal />

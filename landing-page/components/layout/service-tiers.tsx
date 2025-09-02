@@ -6,6 +6,7 @@ import { Check, ArrowRight, Zap, Target, Crown, Building2, TrendingUp, Calendar 
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { useConsultation } from '@/components/contexts/consultation-context';
 import { SimpleAirtableForm } from '@/components/forms/simple-airtable-form';
+import { trackWeeklyTrialClick, trackEvent } from '@/components/analytics/gtm';
 
 export function ServiceTiers() {
   const { openModal: openConsultation } = useConsultation();
@@ -245,6 +246,9 @@ export function ServiceTiers() {
                 <div className="mt-auto">
                   <button
                     onClick={() => {
+                      // Track click before action
+                      trackWeeklyTrialClick(tier.name, 'service-tiers-main');
+                      
                       if (tier.id === 'enterprise') {
                         openConsultation(tier.name);
                       } else {
@@ -283,7 +287,14 @@ export function ServiceTiers() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
-                onClick={() => window.location.href = '/free-hooks'}
+                onClick={() => {
+                  trackEvent('free_templates_click', {
+                    event_category: 'lead_generation',
+                    event_label: 'service-tiers-bottom',
+                    click_location: 'service-tiers-bottom'
+                  });
+                  window.location.href = '/free-hooks';
+                }}
                 className="bg-orange-600 hover:bg-orange-700 text-white font-semibold text-lg px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
               >
                 Get My 10 Free Templates
