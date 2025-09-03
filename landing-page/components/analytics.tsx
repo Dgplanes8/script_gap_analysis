@@ -13,7 +13,7 @@ declare global {
 
 export function Analytics() {
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-  const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || 'AW-17525209788';
+  const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || 'GTM-TP5XMJH7';
 
   return (
     <>
@@ -32,7 +32,7 @@ export function Analytics() {
         }}
       />
       
-      {/* Google Tag Manager (noscript) */}
+      {/* Google Tag Manager (noscript) - moved to body with portal */}
       <noscript>
         <iframe
           src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
