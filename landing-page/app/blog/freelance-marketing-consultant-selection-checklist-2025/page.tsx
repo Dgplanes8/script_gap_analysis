@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: 'Freelance Marketing Consultant Selection Checklist 2025',
   description: 'Complete checklist for selecting freelance marketing consultants. 15 essential questions and evaluation criteria for small businesses.',
   keywords: 'freelance marketing consultant selection, how to hire freelance marketing consultant, marketing consultant checklist, freelance marketing evaluation, small business marketing hiring 2025',
+  alternates: {
+    canonical: '/blog/freelance-marketing-consultant-selection-checklist-2025',
+  },
   openGraph: {
     title: 'Freelance Marketing Consultant Selection Checklist 2025',
     description: 'Essential checklist and evaluation framework for selecting the right freelance marketing consultant for your small business.',

@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: 'ASO ROI Calculator: Measure Mobile App Marketing Returns | Strategic Ad Intelligence',
   description: 'Master App Store Optimization ROI calculation with our comprehensive framework. Learn how to measure, predict, and optimize mobile app marketing returns with Fortune 100 methodology.',
   keywords: 'ASO ROI calculator, app store optimization ROI, mobile app marketing ROI, ASO measurement framework, app marketing analytics',
+  alternates: {
+    canonical: '/blog/aso-roi-calculator-guide',
+  },
   openGraph: {
     title: 'ASO ROI Calculator: Measure Mobile App Marketing Returns',
     description: 'Comprehensive framework for calculating App Store Optimization ROI',

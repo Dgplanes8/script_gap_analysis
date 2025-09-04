@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: 'Marketing Services Timeline: First 90 Days Guide',
   description: 'Set realistic expectations for marketing providers with our 90-day timeline. Know exactly what deliverables to expect from consultants and agencies.',
   keywords: 'small business marketing services timeline, local marketing consultant expectations, marketing agency 90 day plan, freelance marketing consultant deliverables',
+  alternates: {
+    canonical: '/blog/small-business-marketing-services-timeline-first-90-days',
+  },
   openGraph: {
     title: 'Small Business Marketing Services Timeline: First 90 Days',
     description: 'Comprehensive guide to marketing service deliverables and realistic timelines for small businesses.',

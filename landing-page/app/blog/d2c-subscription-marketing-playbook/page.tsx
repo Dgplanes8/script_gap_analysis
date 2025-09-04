@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: 'D2C Subscription Marketing Playbook: Growth Strategy Guide 2025 | Strategic Ad Intelligence',
   description: 'Master D2C subscription marketing with proven strategies for customer acquisition, retention, and community building. Learn Fortune 100 methodologies for sustainable growth.',
   keywords: 'D2C subscription marketing, direct to consumer strategy, subscription growth tactics, customer acquisition D2C, retention marketing',
+  alternates: {
+    canonical: '/blog/d2c-subscription-marketing-playbook',
+  },
   openGraph: {
     title: 'D2C Subscription Marketing Playbook: Growth Strategy Guide 2025',
     description: 'Proven strategies for D2C subscription growth and customer acquisition',

@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: 'Local Creative Agency vs In-House Marketing Team: ROI Calculator for Growing Businesses',
   description: 'Interactive ROI calculator comparing local creative agencies with in-house marketing teams. Get data-driven insights for resource allocation decisions in 2025.',
   keywords: 'local creative agency vs in house marketing, marketing ROI calculator, creative agency ROI, in house marketing team cost, marketing resource allocation, creative services ROI',
+  alternates: {
+    canonical: '/blog/local-creative-agency-vs-in-house-marketing-roi-calculator',
+  },
   openGraph: {
     title: 'Local Creative Agency vs In-House Marketing: ROI Calculator 2025 | Apsics Media',
     description: 'Compare ROI between local creative agencies and in-house marketing teams. Interactive calculator with real cost analysis and performance metrics.',

@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: 'Freemium to Premium: Conversion Optimization Framework for Mobile Apps | Strategic Ad Intelligence',
   description: 'Master freemium conversion optimization with proven psychological triggers and Fortune 100 methodologies. Transform free users into high-value premium customers.',
   keywords: 'freemium conversion optimization, mobile app monetization, user acquisition strategy, app revenue growth, conversion psychology',
+  alternates: {
+    canonical: '/blog/freemium-conversion-optimization-framework',
+  },
   openGraph: {
     title: 'Freemium to Premium: Conversion Optimization Framework for Mobile Apps',
     description: 'Transform free users into premium customers with proven conversion strategies',

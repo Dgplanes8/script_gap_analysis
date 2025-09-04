@@ -14,6 +14,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/52-high-converting-ad-hooks-library',
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 // Hook data structure with performance scoring

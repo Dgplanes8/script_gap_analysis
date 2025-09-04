@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: 'Marketing Consultant vs Freelancer: Cost Calculator 2025',
   description: 'Compare local marketing consultant costs vs freelancers. Interactive calculator with pricing data, ROI analysis, and decision framework.',
   keywords: 'local marketing consultant cost, freelance marketing services pricing, marketing consultant vs freelancer, local marketing services ROI, small business marketing costs 2025',
+  alternates: {
+    canonical: '/blog/local-marketing-consultant-vs-freelance-services-cost-calculator',
+  },
   openGraph: {
     title: 'Local Marketing Consultant vs Freelance Services: Cost Calculator 2025',
     description: 'Interactive cost calculator comparing local marketing consultants vs freelance marketing services. Get personalized ROI analysis and decision guidance.',

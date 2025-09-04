@@ -18,6 +18,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/cac-optimization-calculator',
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 const calculatorFAQs = [

@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: 'Creative Agency vs In-House Marketing: Decision Guide 2025',
   description: 'Complete framework for local businesses choosing between agency partnerships and in-house teams. Cost analysis and strategic recommendations.',
   keywords: 'local creative agency vs in-house marketing, creative agency partnership guide, local marketing team decision, small business marketing strategy, creative agency ROI 2025',
+  alternates: {
+    canonical: '/blog/local-creative-agency-partnership-guide-build-vs-hire',
+  },
   openGraph: {
     title: 'Local Creative Agency Partnership Guide: Build vs Hire 2025',
     description: 'Strategic guide for local businesses deciding between creative agency partnerships and building in-house marketing capabilities.',

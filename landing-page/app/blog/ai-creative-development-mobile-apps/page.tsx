@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: 'AI Creative Development for Mobile Apps: Performance-Driven Design Guide | Strategic Ad Intelligence',
   description: 'Master AI-powered creative development for mobile app marketing. Learn how machine learning transforms ad creative performance, user acquisition, and conversion optimization.',
   keywords: 'AI creative development, mobile app creative optimization, AI ad design, machine learning marketing, automated creative testing',
+  alternates: {
+    canonical: '/blog/ai-creative-development-mobile-apps',
+  },
   openGraph: {
     title: 'AI Creative Development for Mobile Apps: Performance-Driven Design Guide',
     description: 'Transform mobile app marketing with AI-powered creative development',

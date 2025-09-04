@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: 'Small Business Marketing Services Cost Analysis 2025',
   description: 'Comprehensive cost breakdown comparing in-house, agency, freelancer, and weekly intelligence services. Includes ROI calculator.',
   keywords: 'small business marketing services cost analysis, marketing budget planning, agency vs in-house marketing costs, small business marketing ROI, marketing services pricing 2025',
+  alternates: {
+    canonical: '/blog/small-business-marketing-services-cost-analysis-2025',
+  },
   openGraph: {
     title: 'Small Business Marketing Services Cost Analysis 2025 | Apsics Media',
     description: 'Complete cost breakdown of marketing options for small businesses. Compare agencies, freelancers, in-house teams, and innovative weekly intelligence services.',
