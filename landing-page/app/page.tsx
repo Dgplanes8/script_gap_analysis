@@ -1,8 +1,8 @@
 'use client';
 
 import { TrendingUp, Target, Building2 } from 'lucide-react';
-import { Hero } from '@/components/layout/hero';
-import { ServiceTiers } from '@/components/layout/service-tiers';
+import { HeroEnhanced } from '@/components/layout/hero-enhanced';
+import { ServiceTiersEnhanced } from '@/components/layout/service-tiers-enhanced';
 import { Header } from '@/components/layout/header';
 import { ConversionDashboard } from '@/components/analytics/conversion-dashboard';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
@@ -19,7 +19,7 @@ export default function HomePage() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
       {/* Hero Section */}
-      <Hero
+      <HeroEnhanced
         title="Get 3x More Customers From Your Ad Budget"
         subtitle="Weekly ad templates designed for startup teams with limited budgets. No marketing experience needed - just copy, paste, and launch campaigns that actually convert."
         ctaText="Start Free Week"
