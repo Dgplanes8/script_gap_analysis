@@ -8,12 +8,13 @@ import { ConversionDashboard } from '@/components/analytics/conversion-dashboard
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { Footer } from '@/components/layout/footer';
 import { StartupObjectionPreemption } from '@/components/landing/startup-objection-preemption';
+import { ConsultationProvider } from '@/components/contexts/consultation-context';
 
 
 export default function HomePage() {
 
   return (
-    <>
+    <ConsultationProvider>
       {/* Header Navigation */}
       <Header />
       
@@ -74,7 +75,7 @@ export default function HomePage() {
 
       {/* Service Tiers Section - Prioritized for better conversion */}
       <section id="service-tiers">
-        <ServiceTiers />
+        <ServiceTiersEnhanced />
       </section>
 
       {/* Benefits Section - What you actually get */}
@@ -242,6 +243,6 @@ export default function HomePage() {
 
     {/* Footer */}
     <Footer />
-    </>
+    </ConsultationProvider>
   );
 }
