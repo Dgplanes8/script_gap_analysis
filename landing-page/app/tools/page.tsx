@@ -9,7 +9,7 @@ import { Calculator, Target, Zap, BarChart3, ArrowRight, Lightbulb } from 'lucid
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Free Startup Marketing Tools | ROI Calculator & Creative Assessment | APSICS Media',
+  title: 'Free Startup Marketing Tools | ROI Calculator, Creative Assessment & Hook Generator | APSICS Media',
   description: 'Free tools for startup founders: ad ROI calculator, creative benchmark assessment, hook generator. Optimize your marketing budget and improve campaign performance.',
   keywords: 'ad ROI calculator, creative benchmark tool, startup marketing tools, hook generator, marketing budget calculator, creative assessment',
   openGraph: {
@@ -80,6 +80,18 @@ export default function ToolsPage() {
               price: '0',
               priceCurrency: 'USD'
             }
+          },
+          {
+            '@type': 'SoftwareApplication',
+            name: 'Hook Generator Demo',
+            description: 'Generate platform-native ad hooks optimized for audience awareness levels',
+            applicationCategory: 'BusinessApplication',
+            operatingSystem: 'Web Browser',
+            offers: {
+              '@type': 'Offer',
+              price: '0',
+              priceCurrency: 'USD'
+            }
           }
         ]}
       />
@@ -101,7 +113,7 @@ export default function ToolsPage() {
                 Free Tools to Optimize Your Startup Marketing
               </h1>
               <p className="text-xl text-gray-600 mb-12">
-                Professional marketing calculators and assessment tools designed for startup founders. Optimize your budget, benchmark your creative strategy, and generate winning hooks.
+                Professional marketing calculators and assessment tools designed for startup founders. Optimize your budget and benchmark your creative strategy.
               </p>
               
               {/* Tool Categories */}
@@ -121,13 +133,13 @@ export default function ToolsPage() {
                   <h3 className="font-semibold text-gray-900 mb-2">Creative Benchmark</h3>
                   <p className="text-gray-600 text-sm">Assess your creative strategy against industry standards</p>
                 </div>
-                
+
                 <div className="bg-white rounded-xl p-6 shadow-lg border border-blue-100">
                   <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <Lightbulb className="h-6 w-6 text-blue-600" />
+                    <Zap className="h-6 w-6 text-blue-600" />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-2">Hook Generator</h3>
-                  <p className="text-gray-600 text-sm">Create attention-grabbing ad hooks and headlines</p>
+                  <p className="text-gray-600 text-sm">Generate platform-native hooks that stop the scroll</p>
                 </div>
               </div>
             </div>
@@ -181,14 +193,14 @@ export default function ToolsPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center mb-12">
               <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                <Lightbulb className="h-4 w-4 mr-2" />
+                <Zap className="h-4 w-4 mr-2" />
                 TOOL #3
               </div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                AI-Powered Hook Generator
+                Hook Generator Demo
               </h2>
               <p className="text-xl text-gray-600">
-                Generate attention-grabbing ad hooks and headlines using proven direct response frameworks
+                Generate platform-native hooks optimized for each audience awareness level using our proven formula
               </p>
             </div>
           </div>
@@ -196,6 +208,7 @@ export default function ToolsPage() {
           {/* Hook Generator Demo Component */}
           <HookGeneratorDemo />
         </section>
+
 
         {/* Tool Benefits */}
         <section className="py-16 bg-gradient-to-r from-orange-50 to-red-50">
@@ -373,7 +386,7 @@ export default function ToolsPage() {
                   <strong>Like these tools?</strong> Get fresh templates every Monday with the same strategic depth.
                 </p>
                 <p className="text-sm opacity-75">
-                  Professional creative intelligence at startup pricing - starting at $5/week.
+                  Professional creative intelligence at startup pricing - starting at $15/week.
                 </p>
               </div>
             </div>
