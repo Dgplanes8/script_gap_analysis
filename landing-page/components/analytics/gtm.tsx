@@ -101,8 +101,18 @@ export const trackWeeklyTrialSubmission = (tier: string, email: string, source: 
   });
 };
 
+// Newsletter signup tracking
+export const trackNewsletterSignup = (email: string, source: string) => {
+  trackEvent('newsletter_signup', {
+    event_category: 'lead_generation',
+    event_label: source,
+    email_domain: email.split('@')[1] || 'unknown',
+    signup_source: source
+  });
+};
+
 // Form starts (when user focuses on first field)
-export const trackFormStart = (formType: 'weekly_trial' | 'free_template', tier?: string) => {
+export const trackFormStart = (formType: 'weekly_trial' | 'free_template' | 'newsletter' | 'newsletter_exit_popup', tier?: string) => {
   trackEvent('form_start', {
     event_category: 'engagement',
     form_type: formType,

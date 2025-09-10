@@ -34,7 +34,9 @@ export async function POST(request: NextRequest) {
       'cac-calculator-results': ['cac-optimization', 'calculator-results-lead'],
       '1m-arr-playbook-download': ['1m-arr-playbook', 'playbook-download'],
       'creative-roi-calculator-results': ['creative-strategy', 'roi-calculator-lead'],
-      'creative-strategy-guide': ['creative-strategy', 'guide-download']
+      'creative-strategy-guide': ['creative-strategy', 'guide-download'],
+      'alytics-newsletter-section': ['alytics-newsletter', 'content-intelligence'],
+      'alytics-exit-popup': ['alytics-exit-intent', 'content-intelligence']
     };
     
     const tags = [...baseTags, ...(sourceTags[source as keyof typeof sourceTags] || ['general-signup'])];
@@ -69,7 +71,9 @@ export async function POST(request: NextRequest) {
       'cac-calculator-results': 'Successfully subscribed! Check your email for your detailed action plan.',
       '1m-arr-playbook-download': 'Successfully subscribed! Check your email for The $1M ARR Marketing Playbook.',
       'creative-roi-calculator-results': 'Successfully subscribed! Check your email for the Creative Strategy Implementation Guide.',
-      'creative-strategy-guide': 'Successfully subscribed! Check your email for the Creative Intelligence Framework Guide.'
+      'creative-strategy-guide': 'Successfully subscribed! Check your email for the Creative Intelligence Framework Guide.',
+      'alytics-newsletter-section': 'Successfully subscribed! Get ready for weekly content intelligence insights every Monday morning.',
+      'alytics-exit-popup': 'Successfully subscribed! Welcome to our weekly content intelligence newsletter.'
     };
     
     const message = messages[source as keyof typeof messages] || 'Successfully subscribed! Check your email for your download.';
