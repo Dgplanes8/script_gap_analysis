@@ -14,96 +14,86 @@ export function ServiceTiersEnhanced() {
   const [selectedTier, setSelectedTier] = useState<string | null>(null);
   const [showAirtableForm, setShowAirtableForm] = useState(false);
 
+  const lifetimeOffer = {
+    id: 'founders-special',
+    name: 'FOUNDER\'S SPECIAL',
+    icon: Crown,
+    price: '$50',
+    period: 'lifetime',
+    yearlyPrice: 'One-time payment',
+    description: 'Limited-time lifetime access - everything in GROWTH tier forever',
+    features: [
+      '2 custom content ideas + 4 scripts weekly',
+      'All platforms (TikTok, Instagram, Facebook, LinkedIn)',
+      'Trending analysis + competitor insights',
+      'Priority email support'
+    ],
+    badge: 'LIMITED - FIRST 100 FOUNDERS',
+    badgeVariant: 'destructive' as const,
+    popular: false,
+    lifetime: true,
+    ideal: 'Early adopters who want lifetime access (normally $1,820/year)'
+  };
+
   const tiers = [
     {
-      id: 'creative-starter',
-      name: 'Creative Starter',
+      id: 'starter',
+      name: 'Starter',
       icon: Zap,
-      price: '$5',
-      period: '/week',
-      yearlyPrice: '$20/month',
-      description: 'Perfect for first-time advertisers with 1 concept weekly and platform setup guidance',
-      features: [
-        '1 high-converting creative concept weekly',
-        '2 ready-to-test scripts per concept',
-        'Single platform optimization (TikTok, Facebook, OR Instagram)',
-        'Basic trend insights & reasoning',
-        'Email delivery with implementation tips',
-        'Community access for questions'
-      ],
-      badge: 'Perfect for solopreneurs',
-      badgeVariant: 'secondary' as const,
-      popular: false,
-      ideal: 'Solo founders and early-stage startups with $500-$2K monthly ad spend testing creative approaches'
-    },
-    {
-      id: 'trend-tracker',
-      name: 'Trend Tracker',
-      icon: TrendingUp,
       price: '$15',
       period: '/week',
       yearlyPrice: '$60/month',
-      description: 'For growing startups with strategic concepts and multi-platform guidance',
+      description: 'Perfect for solo founders getting started with custom content',
       features: [
-        '1 strategic creative concept every Monday',
-        '2 ready-to-develop scripts per concept',
-        'Multi-platform optimization (TikTok + Facebook + Instagram)',
-        'Trend analysis & competitive insights',
-        'Performance scoring (25-point framework)',
+        '1 custom content idea + 2 scripts weekly',
+        'TikTok + Instagram optimization',
+        'Email delivery Monday mornings',
+        '7-day FREE trial'
+      ],
+      badge: 'Great for beginners',
+      badgeVariant: 'secondary' as const,
+      popular: false,
+      ideal: 'Solo founders ($500-$2K monthly ad spend)'
+    },
+    {
+      id: 'growth',
+      name: 'Growth',
+      icon: TrendingUp,
+      price: '$35',
+      period: '/week',
+      yearlyPrice: '$140/month',
+      description: 'For growing startups with comprehensive trending content intelligence',
+      features: [
+        '2 custom content ideas + 4 scripts weekly',
+        'All platforms (TikTok, Instagram, Facebook, LinkedIn)',
+        'Trending analysis + competitor insights',
         'Priority email support',
-        'Campaign setup guidance',
-        'Weekly performance tips'
+        '7-day FREE trial'
       ],
       badge: 'MOST POPULAR',
       badgeVariant: 'default' as const,
       popular: true,
-      ideal: 'Bootstrap and early-stage startups with initial traction ($2K-$10K monthly ad spend)'
+      ideal: 'Growing startups ($2K-$10K monthly ad spend)'
     },
     {
-      id: 'competitive-edge',
-      name: 'Competitive Edge',
-      icon: Target,
-      price: '$35',
-      period: '/week',
-      yearlyPrice: '$140/month',
-      description: 'Strategic advantage with competitor intelligence and multiple weekly concepts',
-      features: [
-        '2 creative concepts weekly (1 trend-based + 1 competitor-inspired)',
-        '4 weekly scripts - 2 per concept',
-        'Full platform optimization (TikTok, Facebook, Instagram, LinkedIn)',
-        'Competitive intelligence reports',
-        'Advanced performance analytics',
-        'Priority Slack channel access',
-        'Custom brief consultations',
-        'A/B testing recommendations'
-      ],
-      badge: 'Best Value',
-      badgeVariant: 'outline' as const,
-      popular: false,
-      ideal: 'Small marketing teams needing competitive intelligence ($10K-$50K monthly ad spend)'
-    },
-    {
-      id: 'market-intelligence',
-      name: 'Market Intelligence',
-      icon: Crown,
+      id: 'scale',
+      name: 'Scale',
+      icon: Building2,
       price: '$99',
       period: '/week',
       yearlyPrice: '$396/month',
-      description: 'Comprehensive creative intelligence with direct team access',
+      description: 'For scaling teams needing direct access and personalized support',
       features: [
-        '3 creative concepts delivered weekly',
-        '6 ready-to-test scripts - 2 per concept',
-        'Complete platform coverage + emerging channels',
-        'Direct team access for strategic support',
-        'Custom competitor tracking',
-        'Weekly strategy calls (30 min)',
-        'Priority response (same day)',
-        'Custom landing page reviews'
+        '3 custom content ideas + 6 scripts weekly',
+        'All platforms + emerging channels',
+        'Direct team access via Slack',
+        'Weekly 30-min strategy calls',
+        '7-day FREE trial'
       ],
       badge: 'Premium Support',
       badgeVariant: 'outline' as const,
       popular: false,
-      ideal: 'Scaling startups with comprehensive needs ($50K+ monthly ad spend)'
+      ideal: 'Scaling teams ($10K+ monthly ad spend)'
     }
   ];
 
@@ -125,15 +115,14 @@ export function ServiceTiersEnhanced() {
             Weekly Creative Intelligence
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Choose Your Creative Intelligence Plan
+            Simple Pricing, Powerful Results
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            All plans include fresh creative concepts delivered every Monday morning. 
-            Start with your first week FREE - no commitment required.
+            Choose your plan or grab our limited-time lifetime offer. All plans include fresh custom content + scripts delivered every Monday morning.
           </p>
           <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
             <Check className="h-4 w-4 text-green-600" />
-            <span>First week FREE</span>
+            <span>7-day FREE trial</span>
             <span>•</span>
             <Check className="h-4 w-4 text-green-600" />
             <span>No commitment</span>
@@ -143,122 +132,240 @@ export function ServiceTiersEnhanced() {
           </div>
         </div>
 
-        {/* Pricing Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        {/* Lifetime Offer - Special Highlight */}
+        <div className="mb-12">
+          <div className="max-w-2xl mx-auto">
+            <div className="framer-card relative overflow-hidden border-2 border-red-500 transform hover:scale-105 transition-all duration-300 shadow-2xl">
+              {/* Urgent Badge */}
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                <div className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full shadow-lg">
+                  <span className="framer-body-small font-bold">⚡ LIMITED TIME - FIRST 100 FOUNDERS</span>
+                </div>
+              </div>
+              
+              <div className="pt-8 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-xl flex items-center justify-center bg-gradient-to-br from-red-500 to-red-600">
+                  <Crown className="h-8 w-8 text-white" />
+                </div>
+                
+                <h3 className="framer-heading-3 mb-3">{lifetimeOffer.name}</h3>
+                
+                <div className="flex items-baseline justify-center mb-2">
+                  <span className="framer-heading-1 text-red-600">{lifetimeOffer.price}</span>
+                  <span className="framer-body framer-text ml-2">{lifetimeOffer.period}</span>
+                </div>
+                
+                <div className="framer-body-small framer-text mb-6">
+                  Normally ${(35 * 52).toLocaleString()}/year
+                </div>
+                
+                <p className="framer-body framer-text mb-6 leading-relaxed">
+                  {lifetimeOffer.description}
+                </p>
+                
+                <ul className="space-y-3 mb-6 text-left">
+                  {lifetimeOffer.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start">
+                      <Check className="h-4 w-4 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                      <span className="framer-body-small framer-text">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <button 
+                  onClick={() => {
+                    setSelectedTier(lifetimeOffer.name);
+                    setShowAirtableForm(true);
+                    trackEvent('lifetime_offer_selected', {
+                      tier_name: lifetimeOffer.name,
+                      tier_price: lifetimeOffer.price
+                    });
+                  }}
+                  className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white btn-framer border-0 mb-4"
+                >
+                  <span className="framer-body-bold">Claim Lifetime Access - $50</span>
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </button>
+                
+                <p className="framer-body-small text-red-600 font-medium">
+                  {lifetimeOffer.ideal}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Regular Pricing Cards - Framer Style */}
+        <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-6 max-w-5xl mx-auto mb-16">
           {tiers.map((tier, index) => {
             const Icon = tier.icon;
             return (
-              <Card 
+              <div 
                 key={tier.id} 
-                className={`relative overflow-hidden transition-all duration-300 hover:shadow-xl ${
+                className={`framer-card relative transition-all duration-300 ${
                   tier.popular 
-                    ? 'border-2 border-orange-500 shadow-lg scale-105' 
-                    : 'border border-gray-200 hover:border-gray-300'
+                    ? 'ring-2 ring-blue-500 transform scale-105 shadow-2xl' 
+                    : 'hover:shadow-xl'
                 }`}
               >
                 {tier.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-orange-500 to-red-500 text-white text-center py-2 text-sm font-semibold">
-                    MOST POPULAR
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-1 rounded-full shadow-lg">
+                      <span className="framer-body-small font-medium">MOST POPULAR</span>
+                    </div>
                   </div>
                 )}
                 
-                <CardHeader className={`text-center ${tier.popular ? 'pt-12' : 'pt-6'}`}>
-                  <div className="mx-auto mb-4 p-3 bg-gray-100 rounded-full w-fit">
-                    <Icon className="h-6 w-6 text-gray-700" />
+                {/* Header */}
+                <div className={`text-center pb-6 ${tier.popular ? 'pt-8' : 'pt-0'}`}>
+                  <div className={`w-16 h-16 mx-auto mb-4 rounded-xl flex items-center justify-center ${
+                    tier.popular 
+                      ? 'bg-gradient-to-br from-blue-500 to-blue-600' 
+                      : 'bg-gradient-to-br from-gray-100 to-gray-200'
+                  }`}>
+                    <Icon className={`h-8 w-8 ${
+                      tier.popular ? 'text-white' : 'text-gray-600'
+                    }`} />
                   </div>
-                  <CardTitle className="text-2xl font-bold">{tier.name}</CardTitle>
-                  <div className="flex items-baseline justify-center gap-1 my-4">
-                    <span className="text-4xl font-bold text-gray-900">{tier.price}</span>
-                    <span className="text-gray-600">{tier.period}</span>
-                  </div>
-                  <div className="text-sm text-gray-500">({tier.yearlyPrice})</div>
-                  <Badge variant={tier.badgeVariant} className="mt-2">
-                    {tier.badge}
-                  </Badge>
-                </CardHeader>
-
-                <CardContent className="px-6">
-                  <CardDescription className="text-center mb-6 text-gray-600">
-                    {tier.description}
-                  </CardDescription>
                   
-                  <ul className="space-y-3">
+                  <h3 className="framer-heading-4 mb-3">{tier.name}</h3>
+                  
+                  <div className="flex items-baseline justify-center mb-2">
+                    <span className="framer-heading-2 text-gray-900">{tier.price}</span>
+                    <span className="framer-body framer-text ml-1">{tier.period}</span>
+                  </div>
+                  
+                  <div className="framer-body-small framer-text mb-4">
+                    ({tier.yearlyPrice})
+                  </div>
+                  
+                  {!tier.popular && (
+                    <div className="mb-3">
+                      <span className="framer-bg-light-blue framer-text-blue px-3 py-1 rounded-full framer-body-small">
+                        {tier.badge}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Features */}
+                <div className="px-0">
+                  <p className="text-center mb-6 framer-body framer-text leading-relaxed">
+                    {tier.description}
+                  </p>
+                  
+                  <ul className="space-y-3 mb-6">
                     {tier.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start gap-3">
-                        <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-gray-700">{feature}</span>
+                      <li key={featureIndex} className="flex items-start">
+                        <Check className="h-4 w-4 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                        <span className="framer-body-small framer-text">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                </CardContent>
+                  
+                  <div className="mb-6 p-4 framer-bg rounded-lg">
+                    <p className="framer-body-small font-medium mb-2 framer-text">Ideal for:</p>
+                    <p className="framer-body-small framer-text leading-relaxed">{tier.ideal}</p>
+                  </div>
+                </div>
 
-                <CardFooter className="px-6 pb-6">
-                  <Button 
+                {/* CTA Button */}
+                <div className="pt-0">
+                  <button 
                     onClick={() => handleTierSelect(tier)}
-                    className={`w-full ${
+                    className={`w-full btn-framer transition-all duration-200 ${
                       tier.popular 
-                        ? 'bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600' 
-                        : ''
+                        ? 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white' 
+                        : 'bg-white border-2 border-gray-200 hover:border-blue-300 text-gray-900 hover:bg-blue-50'
                     }`}
-                    size="lg"
                   >
-                    Start Free Week
+                    <span className="framer-body-bold">Start Free Week</span>
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardFooter>
-              </Card>
+                  </button>
+                </div>
+              </div>
             );
           })}
         </div>
 
-        {/* Enterprise Section */}
-        <Card className="bg-gradient-to-r from-gray-900 to-gray-800 text-white">
-          <CardContent className="p-8">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-white/10 rounded-full">
-                  <Building2 className="h-8 w-8" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold">Enterprise</h3>
-                  <p className="text-gray-300 mt-1">
-                    Custom creative concepts with dedicated account management
-                  </p>
-                </div>
-              </div>
-              <Button 
-                variant="secondary"
-                onClick={() => openConsultation()}
-                size="lg"
-              >
-                Contact Sales
-              </Button>
+        {/* Enterprise Tier Call-to-Action - Simplified */}
+        <div className="mt-16 text-center">
+          <div className="max-w-xl mx-auto framer-card bg-gradient-to-r from-gray-900 to-gray-800 text-white">
+            <div className="flex items-center justify-center mb-4">
+              <Building2 className="h-6 w-6 text-orange-400 mr-2" />
+              <h3 className="framer-heading-4 text-white">Enterprise</h3>
             </div>
-          </CardContent>
-        </Card>
+            
+            <p className="framer-body text-gray-300 mb-6">
+              Need custom solutions? Let's talk about your specific requirements.
+            </p>
+            
+            <button 
+              onClick={() => openConsultation()}
+              className="bg-orange-500 hover:bg-orange-600 text-white btn-framer border-0"
+            >
+              <Calendar className="mr-2 h-4 w-4" />
+              <span className="framer-body-bold">Book Strategy Call</span>
+            </button>
+          </div>
+        </div>
 
-        {/* Form Modal */}
+        {/* Airtable Form Modal - Framer Style */}
         {showAirtableForm && selectedTier && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-lg p-6 max-w-md w-full">
-              <h3 className="text-xl font-bold mb-4">Start Your Free Week</h3>
-              <p className="text-gray-600 mb-6">
-                Selected plan: <strong>{selectedTier}</strong>
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div className="framer-bg-white rounded-2xl p-8 max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="framer-heading-5">Start Your Free Week</h3>
+                <button
+                  onClick={() => setShowAirtableForm(false)}
+                  className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+              
+              <p className="framer-body framer-text mb-6">
+                Selected plan: <strong className="framer-text-blue">{selectedTier}</strong>
               </p>
+              
               <SimpleAirtableForm 
                 tier={selectedTier}
                 onSuccess={() => setShowAirtableForm(false)}
               />
-              <Button 
-                variant="ghost" 
-                onClick={() => setShowAirtableForm(false)}
-                className="w-full mt-4"
-              >
-                Cancel
-              </Button>
             </div>
           </div>
         )}
+        
+        {/* Trust Indicators - Framer Style */}
+        <div className="mt-16 text-center">
+          <h4 className="framer-heading-5 mb-6">Blindly trusted by</h4>
+          <div className="flex flex-wrap justify-center items-center gap-12 opacity-60">
+            {/* Company Logo Placeholders */}
+            <div className="w-24 h-12 bg-gray-200 rounded flex items-center justify-center">
+              <span className="framer-body-small text-gray-500">[Logo 1]</span>
+            </div>
+            <div className="w-24 h-12 bg-gray-200 rounded flex items-center justify-center">
+              <span className="framer-body-small text-gray-500">[Logo 2]</span>
+            </div>
+            <div className="w-24 h-12 bg-gray-200 rounded flex items-center justify-center">
+              <span className="framer-body-small text-gray-500">[Logo 3]</span>
+            </div>
+            <div className="w-24 h-12 bg-gray-200 rounded flex items-center justify-center">
+              <span className="framer-body-small text-gray-500">[Logo 4]</span>
+            </div>
+            <div className="w-24 h-12 bg-gray-200 rounded flex items-center justify-center">
+              <span className="framer-body-small text-gray-500">[Logo 5]</span>
+            </div>
+          </div>
+        </div>
+        
+        {/* Money Back Guarantee - Framer Style */}
+        <div className="mt-12 text-center">
+          <div className="inline-flex items-center bg-green-50 text-green-800 px-6 py-3 rounded-full">
+            <Check className="h-5 w-5 mr-2" />
+            <span className="framer-body-small font-medium">7-day free trial • Cancel anytime • No long-term contracts</span>
+          </div>
+        </div>
       </div>
     </section>
   );

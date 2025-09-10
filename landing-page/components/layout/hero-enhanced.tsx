@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowRight, Play, Check, Star, TrendingUp, Users, Zap } from 'lucide-react';
+import { ArrowRight, Play, Check, Star, TrendingUp, Users, Zap, CreditCard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
@@ -14,8 +14,8 @@ interface HeroEnhancedProps {
 }
 
 export function HeroEnhanced({
-  title = "Get 3x More Customers From Your Ad Budget",
-  subtitle = "Weekly ad templates designed for startup teams with limited budgets. No marketing experience needed - just copy, paste, and launch campaigns that actually convert.",
+  title = "Get Fresh Content Ideas + Custom Scripts That Convert",
+  subtitle = "Weekly content ideas + fully customized scripts for UGC, paid ads, and social media. Built from trending content intelligence and tailored to your specific needs.",
   ctaText = "Start Free Week",
   showEmailCapture = false
 }: HeroEnhancedProps) {
@@ -30,56 +30,78 @@ export function HeroEnhanced({
 
   const trustIndicators = [
     { icon: Users, text: "1,200+ startup founders" },
-    { icon: TrendingUp, text: "$250MM+ managed spend" },
-    { icon: Zap, text: "Fortune 100 methodology" }
+    { icon: TrendingUp, text: "Trending content intelligence" },
+    { icon: Zap, text: "Custom UGC + paid ad scripts" }
+  ];
+
+  const floatingLogos = [
+    { top: "30px", left: "60px", rotation: "-8deg" },
+    { top: "250px", left: "60px", rotation: "-8deg" },
+    { top: "30px", right: "60px", rotation: "8deg" },
+    { top: "250px", right: "80px", rotation: "8deg" }
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-red-50 to-pink-50">
+    <section className="relative overflow-hidden framer-bg">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-gray-900/[0.04] bg-grid-16" />
-      <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent" />
       
-      <div className="relative container mx-auto px-4 py-20 lg:py-32">
+      {/* Floating Logo Elements - Framer Style */}
+      {floatingLogos.map((logo, index) => (
+        <div
+          key={index}
+          className="absolute w-fit h-fit z-10 opacity-20 hover:opacity-40 transition-opacity duration-300"
+          style={{
+            top: logo.top,
+            left: logo.left,
+            right: logo.right,
+            transform: `rotate(${logo.rotation})`,
+          }}
+        >
+          <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-xl flex items-center justify-center">
+            <Zap className="h-8 w-8 text-white" />
+          </div>
+        </div>
+      ))}
+      
+      <div className="relative framer-container framer-hero-padding">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div className="text-center lg:text-left">
-            {/* Badge */}
-            <Badge variant="secondary" className="mb-6 bg-orange-100 text-orange-800 hover:bg-orange-200">
-              <Star className="h-3 w-3 mr-1" />
-              Trusted by 1,200+ startup founders
-            </Badge>
+          <div className="text-center lg:text-left relative z-20">
+            {/* Trust Badge - Framer Style */}
+            <div className="mb-6 inline-flex items-center framer-bg-light-blue rounded-full px-4 py-2 framer-gap-10">
+              <div className="flex items-center -space-x-2">
+                <div className="w-6 h-6 bg-gray-300 rounded-full border-2 border-white" style={{backgroundImage: 'url(/api/placeholder/24/24)'}} />
+                <div className="w-6 h-6 bg-gray-300 rounded-full border-2 border-white" style={{backgroundImage: 'url(/api/placeholder/24/24)'}} />
+                <div className="w-6 h-6 bg-gray-300 rounded-full border-2 border-white" style={{backgroundImage: 'url(/api/placeholder/24/24)'}} />
+              </div>
+              <span className="framer-body-small framer-text">Fresh trending content + custom scripts weekly</span>
+            </div>
 
-            {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            {/* Headline - Framer Typography */}
+            <h1 className="framer-heading-1 text-gray-900 mb-6 max-w-2xl">
               {title}
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
+            <p className="framer-body-bold framer-text mb-8 max-w-xl">
               {subtitle}
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button 
-                size="lg"
+            {/* CTA Button - Framer Style */}
+            <div className="flex flex-col gap-4 mb-8">
+              <button 
                 onClick={scrollToServiceTiers}
-                className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-4 text-lg"
+                className="btn-framer w-fit"
               >
                 {ctaText}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              </button>
               
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="px-8 py-4 text-lg"
-                onClick={() => setIsVideoPlaying(true)}
-              >
-                <Play className="mr-2 h-5 w-5" />
-                See How It Works
-              </Button>
+              {/* No Credit Card Required - Framer Style */}
+              <div className="flex items-center gap-2 justify-center lg:justify-start">
+                <CreditCard className="h-5 w-5 framer-text-blue" />
+                <span className="framer-body-small framer-text">No credit card required</span>
+              </div>
             </div>
 
             {/* Trust Indicators */}
@@ -102,71 +124,70 @@ export function HeroEnhanced({
                   <Star key={star} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <span className="text-gray-600 font-medium">4.9/5 from 200+ reviews</span>
+              <span className="framer-body framer-text font-medium">4.9/5 from 200+ reviews</span>
             </div>
           </div>
 
-          {/* Visual/Demo */}
-          <div className="relative">
-            {!isVideoPlaying ? (
-              <Card className="overflow-hidden shadow-2xl">
-                <CardContent className="p-0">
-                  {/* Placeholder for demo/video thumbnail */}
-                  <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative group cursor-pointer"
+          {/* Visual/Demo - Framer Style */}
+          <div className="relative z-10">
+            <div className="framer-card overflow-hidden">
+              {!isVideoPlaying ? (
+                <>
+                  {/* Demo Image Placeholder */}
+                  <div className="aspect-[1.533] bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative group cursor-pointer rounded-2xl overflow-hidden"
                        onClick={() => setIsVideoPlaying(true)}>
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
                     <div className="relative z-10 text-center">
                       <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
                         <Play className="h-10 w-10 text-gray-700 ml-1" />
                       </div>
-                      <p className="text-white font-semibold">Watch: From Zero to Launch in 5 Minutes</p>
+                      <p className="text-white framer-body-bold">Watch: From Zero to Launch in 5 Minutes</p>
+                    </div>
+                    
+                    {/* Placeholder text for missing asset */}
+                    <div className="absolute bottom-4 left-4 bg-yellow-100 text-yellow-800 px-3 py-1 rounded text-sm">
+                      [ASSET NEEDED: Demo Video/Screenshot]
                     </div>
                   </div>
-                  
-                  {/* Quick Stats */}
-                  <div className="p-6 bg-white">
-                    <div className="grid grid-cols-3 gap-4 text-center">
-                      <div>
-                        <div className="text-2xl font-bold text-orange-600">3x</div>
-                        <div className="text-sm text-gray-600">Higher CTR</div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-green-600">47%</div>
-                        <div className="text-sm text-gray-600">Lower CAC</div>
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-blue-600">5 min</div>
-                        <div className="text-sm text-gray-600">To Launch</div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ) : (
-              <Card className="overflow-hidden shadow-2xl">
-                <CardContent className="p-0">
-                  <div className="aspect-video bg-gray-900 flex items-center justify-center">
-                    <Button 
-                      variant="secondary"
-                      onClick={() => setIsVideoPlaying(false)}
-                    >
-                      Close Demo
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
+                </>
+              ) : (
+                <div className="aspect-video bg-gray-900 flex items-center justify-center rounded-2xl">
+                  <Button 
+                    variant="secondary"
+                    onClick={() => setIsVideoPlaying(false)}
+                  >
+                    Close Demo
+                  </Button>
+                </div>
+              )}
+            </div>
+            
+            {/* Quick Stats - Framer Style */}
+            <div className="mt-6 grid grid-cols-3 gap-4 text-center">
+              <div>
+                <div className="framer-heading-3 text-orange-600">3x</div>
+                <div className="framer-body-small framer-text">Higher CTR</div>
+              </div>
+              <div>
+                <div className="framer-heading-3 text-green-600">47%</div>
+                <div className="framer-body-small framer-text">Lower CAC</div>
+              </div>
+              <div>
+                <div className="framer-heading-3 framer-text-blue">5 min</div>
+                <div className="framer-body-small framer-text">To Launch</div>
+              </div>
+            </div>
 
-            {/* Floating Elements */}
-            <div className="absolute -top-4 -right-4 bg-white p-4 rounded-lg shadow-lg">
+            {/* Floating Elements - Framer Style */}
+            <div className="absolute -top-4 -right-4 framer-bg-white p-4 rounded-xl shadow-lg z-20">
               <div className="flex items-center gap-2">
                 <Check className="h-5 w-5 text-green-500" />
-                <span className="text-sm font-semibold">First Week FREE</span>
+                <span className="framer-body-small font-semibold">First Week FREE</span>
               </div>
             </div>
             
-            <div className="absolute -bottom-4 -left-4 bg-orange-500 text-white p-4 rounded-lg shadow-lg">
-              <div className="text-sm font-semibold">Weekly Delivery</div>
+            <div className="absolute -bottom-4 -left-4 bg-orange-500 text-white p-4 rounded-xl shadow-lg z-20">
+              <div className="framer-body-small font-semibold">Weekly Delivery</div>
               <div className="text-xs opacity-90">Every Monday</div>
             </div>
           </div>
