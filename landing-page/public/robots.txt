@@ -26,6 +26,7 @@ Disallow: /dashboard/
 Disallow: /.well-known/
 Disallow: /temp/
 Disallow: /tmp/
+Disallow: /legacy-landing
 
 # Block search and filter parameters to prevent duplicate content
 Disallow: /*?category=*

@@ -6,26 +6,26 @@ import { Play, Camera, Edit, Smartphone, Monitor, Mic, Lightbulb, CheckCircle, A
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Video Production Guide for Startup Ads | DIY Video Creation Tips | APSICS Media',
-  description: 'Learn to create professional-looking ad videos on startup budgets. Step-by-step guide for founders: equipment, shooting, editing, and optimization tips.',
-  keywords: 'startup video production, DIY ad videos, video marketing for startups, low budget video production, startup video equipment, video editing tips',
+  title: 'Video Production Guide for Business Growth | DIY Video Creation Tips | APSICS Media',
+  description: 'Learn to create professional-looking ad videos on any budget. Step-by-step guide for businesses: equipment, shooting, editing, and optimization tips.',
+  keywords: 'business video production, DIY ad videos, video marketing for businesses, budget video production, video equipment guide, video editing tips',
   openGraph: {
-    title: 'Video Production Guide for Startup Ads | DIY Video Creation Tips',
-    description: 'Learn to create professional-looking ad videos on startup budgets. Step-by-step guide for founders.',
+    title: 'Video Production Guide for Business Growth | DIY Video Creation Tips',
+    description: 'Learn to create professional-looking ad videos on any budget. Step-by-step guide for businesses.',
     type: 'website',
     images: [
       {
         url: '/images/video-guide-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'Video Production Guide for Startup Ads',
+        alt: 'Video Production Guide for Business Growth',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Video Production Guide for Startup Ads | DIY Video Creation Tips',
-    description: 'Create professional ad videos on startup budgets. Complete DIY guide for founders.',
+    title: 'Video Production Guide for Business Growth | DIY Video Creation Tips',
+    description: 'Create professional ad videos on any budget. Complete DIY guide for businesses.',
     images: ['/images/video-guide-og.jpg'],
   },
   alternates: {
@@ -39,14 +39,14 @@ export default function VideoProductionGuidePage() {
       {/* Structured Data */}
       <StructuredData 
         pageType="article"
-        title="Video Production Guide for Startup Ads"
-        description="Learn to create professional-looking ad videos on startup budgets. Step-by-step guide for founders: equipment, shooting, editing, and optimization tips."
+        title="Video Production Guide for Business Growth"
+        description="Learn to create professional-looking ad videos on any budget. Step-by-step guide for businesses: equipment, shooting, editing, and optimization tips."
         slug="/video-production-guide"
         additionalSchemas={[
           {
             '@type': 'HowTo',
-            name: 'How to Create Professional Ad Videos for Startups',
-            description: 'Complete guide for creating professional-looking advertising videos on startup budgets',
+            name: 'How to Create Professional Ad Videos for Business Growth',
+            description: 'Complete guide for creating professional-looking advertising videos on any budget',
             step: [
               {
                 '@type': 'HowToStep',
@@ -87,7 +87,7 @@ export default function VideoProductionGuidePage() {
               </div>
               
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                Create Professional Ad Videos on a Startup Budget
+                Create Professional Ad Videos on Any Budget
               </h1>
               <p className="text-xl text-gray-600 mb-12">
                 Step-by-step guide for founders to create high-converting video ads without expensive equipment or agencies. Learn the techniques used by professional video marketers.
@@ -120,7 +120,7 @@ export default function VideoProductionGuidePage() {
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  Essential Equipment for Startup Video Production
+                  Essential Equipment for Business Video Production
                 </h2>
                 <p className="text-xl text-gray-600">
                   Professional results without the professional price tag
@@ -222,7 +222,7 @@ export default function VideoProductionGuidePage() {
               <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-8">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">💡 Pro Tip: Start Small, Upgrade Smart</h3>
                 <p className="text-gray-600 mb-4">
-                  Begin with the Budget Setup and reinvest your ad revenue into better equipment. Many successful startup video ads are shot entirely on smartphones with good lighting and audio.
+                  Begin with the Budget Setup and reinvest your ad revenue into better equipment. Many successful business video ads are shot entirely on smartphones with good lighting and audio.
                 </p>
                 <div className="grid md:grid-cols-3 gap-4 text-sm">
                   <div className="bg-white rounded-lg p-4">
@@ -407,7 +407,7 @@ export default function VideoProductionGuidePage() {
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  Professional Video Techniques for Startups
+                  Professional Video Techniques for Businesses
                 </h2>
                 <p className="text-xl text-gray-600">
                   Make your videos look professional without the professional budget
@@ -512,7 +512,7 @@ export default function VideoProductionGuidePage() {
                   Common Video Production Mistakes to Avoid
                 </h2>
                 <p className="text-xl text-gray-600">
-                  Learn from the mistakes that cost other startups thousands in wasted ad spend
+                  Learn from the mistakes that cost other businesses thousands in wasted ad spend
                 </p>
               </div>
 

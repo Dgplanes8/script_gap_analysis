@@ -101,7 +101,7 @@ export function EmailCaptureForm({
 
   const buttonClasses = {
     hero: 'btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 min-h-[48px] flex-shrink-0',
-    cta: 'btn-primary text-base px-4 sm:px-6 py-3 min-h-[44px] flex-shrink-0',
+    cta: 'bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg text-base px-4 sm:px-6 py-3 min-h-[44px] flex-shrink-0',
     inline: 'btn-primary text-base px-4 sm:px-6 py-3 min-h-[44px] flex-shrink-0',
   };
 

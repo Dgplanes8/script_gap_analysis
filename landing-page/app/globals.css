@@ -8,38 +8,66 @@
 
 @layer base {
   :root {
-    /* Framer Design System Colors */
-    --framer-bg: 248 248 248; /* rgb(248, 248, 248) */
-    --framer-white: 255 255 255; /* rgb(255, 255, 255) */
-    --framer-blue: 18 109 251; /* rgb(18, 109, 251) */
-    --framer-light-blue: 225 234 248; /* rgb(225, 234, 248) */
-    --framer-dark-blue: 7 101 232; /* rgb(7, 101, 232) */
-    --framer-black: 0 0 0; /* rgb(0, 0, 0) */
-    --framer-text: 87 87 87; /* rgb(87, 87, 87) */
-    --framer-stroke: 235 235 235; /* rgb(235, 235, 235) */
-    --framer-red: 255 34 68; /* rgb(255, 34, 68) */
+    /* APSICS Media Brand Colors - Primary Palette */
+    --primary-blue: 18 109 251; /* #126DFB */
+    --primary-blue-dark: 15 90 214; /* #0F5AD6 */
+    --primary-blue-light: 59 130 246; /* #3B82F6 */
     
-    /* Updated shadcn/ui colors to match Framer */
-    --background: var(--framer-bg);
-    --foreground: var(--framer-black);
-    --card: var(--framer-white);
-    --card-foreground: var(--framer-text);
-    --popover: var(--framer-white);
-    --popover-foreground: var(--framer-text);
-    --primary: var(--framer-blue);
-    --primary-foreground: var(--framer-white);
-    --secondary: var(--framer-light-blue);
-    --secondary-foreground: var(--framer-blue);
-    --muted: var(--framer-bg);
-    --muted-foreground: var(--framer-text);
-    --accent: var(--framer-light-blue);
-    --accent-foreground: var(--framer-blue);
-    --destructive: var(--framer-red);
-    --destructive-foreground: var(--framer-white);
-    --border: var(--framer-stroke);
-    --input: var(--framer-stroke);
-    --ring: var(--framer-blue);
-    --radius: 0.5rem; /* Framer uses 10px, 20px, 28px border radius */
+    /* Neutral Backgrounds */
+    --background-gray: 248 248 248; /* #F8F8F8 */
+    --background-white: 255 255 255; /* #FFFFFF */
+    --text-primary: 17 24 39; /* #111827 */
+    --text-secondary: 107 114 128; /* #6B7280 */
+    --text-muted: 156 163 175; /* #9CA3AF */
+    
+    /* Accent Colors */
+    --success-green: 16 185 129; /* #10B981 */
+    --success-light: 209 250 229; /* #D1FAE5 */
+    --warning-orange: 245 158 11; /* #F59E0B */
+    --warning-light: 254 243 199; /* #FEF3C7 */
+    --error-red: 239 68 68; /* #EF4444 */
+    --error-light: 254 226 226; /* #FEE2E2 */
+    --purple: 139 92 246; /* #8B5CF6 */
+    --purple-light: 243 232 255; /* #F3E8FF */
+    
+    /* Legacy Framer compatibility (using brand colors) */
+    --framer-bg: var(--background-gray);
+    --framer-white: var(--background-white);
+    --framer-blue: var(--primary-blue);
+    --framer-light-blue: 225 234 248; /* Light blue background */
+    --framer-dark-blue: var(--primary-blue-dark);
+    --framer-black: 0 0 0;
+    --framer-text: var(--text-secondary);
+    --framer-stroke: 235 235 235;
+    --framer-red: var(--error-red);
+    
+    /* Brand Gradient Definitions */
+    --gradient-primary: linear-gradient(135deg, rgb(var(--primary-blue)) 0%, rgb(var(--primary-blue-light)) 100%);
+    --gradient-success: linear-gradient(135deg, rgb(var(--success-green)) 0%, rgb(16 152 105) 100%);
+    --gradient-warning: linear-gradient(135deg, rgb(var(--warning-orange)) 0%, rgb(217 119 6) 100%);
+    --gradient-cta: linear-gradient(135deg, rgb(var(--warning-orange)) 0%, rgb(var(--error-red)) 100%);
+    
+    /* Updated shadcn/ui colors to match APSICS Brand */
+    --background: var(--background-gray);
+    --foreground: var(--text-primary);
+    --card: var(--background-white);
+    --card-foreground: var(--text-secondary);
+    --popover: var(--background-white);
+    --popover-foreground: var(--text-secondary);
+    --primary: var(--primary-blue);
+    --primary-foreground: var(--background-white);
+    --secondary: 225 234 248; /* Light blue */
+    --secondary-foreground: var(--primary-blue);
+    --muted: var(--background-gray);
+    --muted-foreground: var(--text-secondary);
+    --accent: 225 234 248; /* Light blue */
+    --accent-foreground: var(--primary-blue);
+    --destructive: var(--error-red);
+    --destructive-foreground: var(--background-white);
+    --border: 235 235 235; /* Light gray border */
+    --input: 235 235 235; /* Light gray input border */
+    --ring: var(--primary-blue);
+    --radius: 0.75rem; /* Brand standard 12px border radius */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -87,121 +115,339 @@
     line-height: 1.6;
   }
   
-  /* Framer Typography Hierarchy */
-  .framer-heading-1 {
-    font-family: 'Geist';
-    font-weight: 600;
-    font-size: 60px;
-    line-height: 1em;
-    letter-spacing: -0.03em;
-    text-transform: capitalize;
-  }
-  
-  .framer-heading-2 {
-    font-family: 'Geist';
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 1.1em;
-    letter-spacing: -0.03em;
-  }
-  
-  .framer-heading-3 {
-    font-family: 'Geist';
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 1.2em;
-    letter-spacing: -0.03em;
-  }
-  
-  .framer-heading-4 {
-    font-family: 'Geist';
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 1.2em;
+  /* APSICS Media Brand Typography Hierarchy - Optimized for Readability */
+  .heading-1 {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 3.5vw, 3rem); /* 32px-48px - optimal for readability */
+    line-height: 1.2;
     letter-spacing: -0.02em;
+    color: rgb(var(--text-primary));
   }
   
-  .framer-heading-5 {
-    font-family: 'Geist';
+  .heading-2 {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 2.5vw, 2rem); /* 24px-32px - optimal hierarchy */
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: rgb(var(--text-primary));
+  }
+  
+  .heading-3 {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-weight: 600;
-    font-size: 20px;
-    line-height: 1.4em;
-    letter-spacing: -0.02em;
+    font-size: clamp(1.25rem, 2vw, 1.75rem); /* 20px-28px - better proportion */
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: rgb(var(--text-primary));
   }
   
-  .framer-heading-6 {
-    font-family: 'Geist';
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 1.4em;
-    letter-spacing: -0.02em;
+  .heading-4 {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: clamp(1.125rem, 1.75vw, 1.5rem); /* 18px-24px - readable sizing */
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: rgb(var(--text-primary));
   }
   
-  .framer-body {
-    font-family: 'Geist';
+  .heading-5 {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: clamp(1rem, 1.25vw, 1.25rem); /* 16px-20px - optimal readability */
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: rgb(var(--text-primary));
+  }
+  
+  .heading-6 {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: clamp(1rem, 1.5vw, 1.25rem); /* 16px-20px responsive */
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: rgb(var(--text-primary));
+  }
+  
+  .body-large {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 1.4em;
-    letter-spacing: -0.03em;
+    font-size: clamp(1rem, 1.25vw, 1.125rem); /* 16px-18px - optimal for readability */
+    line-height: 1.6;
+    color: rgb(var(--text-secondary));
   }
   
-  .framer-body-bold {
-    font-family: 'Geist';
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.4em;
-    letter-spacing: -0.03em;
+  .body-regular {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 1rem; /* 16px - standard for accessibility */
+    line-height: 1.6;
+    color: rgb(var(--text-secondary));
   }
   
-  .framer-body-small {
-    font-family: 'Geist';
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.3em;
-    letter-spacing: -0.02em;
+  .body-small {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.5;
+    color: rgb(var(--text-secondary));
   }
+  
+  .body-xs {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem; /* 12px */
+    line-height: 1.4;
+    color: rgb(var(--text-muted));
+  }
+  
+  /* Legacy Framer classes for backward compatibility */
+  .framer-heading-1 { @apply heading-1; }
+  .framer-heading-2 { @apply heading-2; }
+  .framer-heading-3 { @apply heading-3; }
+  .framer-heading-4 { @apply heading-4; }
+  .framer-heading-5 { @apply heading-5; }
+  .framer-heading-6 { @apply heading-6; }
+  .framer-body { @apply body-regular; }
+  .framer-body-bold { @apply body-regular font-medium; }
+  .framer-body-small { @apply body-small; }
 }
 
 @layer components {
-  /* Framer-style buttons */
-  .btn-framer {
-    font-family: 'Geist';
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.4em;
-    letter-spacing: -0.03em;
-    background-color: rgb(var(--framer-blue));
-    color: rgb(var(--framer-white));
-    border-radius: 10px;
-    padding: 10px 20px;
+  /* APSICS Media Brand Button System - Updated for Alytics Patterns */
+  
+  /* Primary CTA Button (Alytics Style) */
+  .btn-primary-alytics {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 1.125rem; /* text-lg */
+    line-height: 1.2;
+    background: #126DFB;
+    color: #FFFFFF;
+    border-radius: 0.75rem; /* rounded-xl */
+    padding: 1rem 3rem; /* px-12 py-4 */
     border: none;
+    min-height: 3.5rem;
     transition: all 0.2s ease;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   }
   
-  .btn-framer:hover {
-    background-color: rgb(var(--framer-dark-blue));
-    transform: translateY(-1px);
+  .btn-primary-alytics:hover {
+    background: #0F5AD6;
+    transform: scale(1.02);
+    box-shadow: 0 12px 30px rgba(18, 109, 251, 0.4);
   }
   
+  .btn-primary-alytics:active {
+    transform: scale(0.98);
+  }
+  
+  /* Secondary Button (Gray) */
+  .btn-secondary-alytics {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.2;
+    background: #111827; /* gray-900 */
+    color: #FFFFFF;
+    border-radius: 0.75rem;
+    padding: 0.75rem 2rem; /* px-8 py-3 */
+    border: none;
+    min-height: 3rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-secondary-alytics:hover {
+    background: #1F2937; /* gray-800 */
+    transform: scale(1.02);
+  }
+  
+  /* Tertiary Button (White/Ghost) */
+  .btn-tertiary-alytics {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.2;
+    background: #FFFFFF;
+    color: #126DFB;
+    border-radius: 0.75rem;
+    padding: 0.75rem 2rem;
+    border: none;
+    min-height: 3rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-tertiary-alytics:hover {
+    background: #F9FAFB; /* gray-50 */
+    transform: scale(1.05);
+  }
+  
+  /* Legacy button support */
   .btn-primary {
-    @apply bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.2;
+    background: rgb(var(--primary-blue));
+    color: rgb(var(--background-white));
+    border-radius: 0.75rem; /* 12px */
+    padding: 1rem 2rem;
+    border: none;
+    min-height: 3rem; /* 48px */
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .btn-primary:hover {
+    background: rgb(var(--primary-blue-dark));
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .btn-primary:active {
+    transform: translateY(0);
   }
   
   .btn-secondary {
-    @apply bg-white hover:bg-gray-50 text-orange-600 font-semibold py-3 px-6 rounded-lg border border-orange-200 transition-colors duration-200;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.2;
+    background: transparent;
+    color: rgb(var(--text-primary));
+    border: 2px solid rgb(var(--text-secondary) / 0.3);
+    border-radius: 0.75rem;
+    padding: 1rem 2rem;
+    min-height: 3rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
   }
   
+  .btn-secondary:hover {
+    border-color: rgb(var(--text-secondary));
+    background: rgb(var(--background-gray));
+    transform: translateY(-1px);
+  }
+  
+  .btn-tertiary {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.2;
+    background: transparent;
+    color: rgb(var(--primary-blue));
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    min-height: 2.5rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .btn-tertiary:hover {
+    background: rgb(var(--primary-blue) / 0.1);
+    color: rgb(var(--primary-blue-dark));
+  }
+  
+  /* Legacy compatibility */
+  .btn-framer {
+    @apply btn-primary;
+  }
+  
+  /* Legacy button overrides for backward compatibility */
+  .btn-primary-legacy {
+    background: rgb(var(--primary-blue));
+    color: rgb(var(--background-white));
+    font-weight: 600;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .btn-primary-legacy:hover {
+    background: rgb(var(--primary-blue-dark));
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
+  }
+  
+  .btn-secondary-legacy {
+    background: rgb(var(--background-white));
+    color: rgb(var(--primary-blue));
+    font-weight: 600;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.75rem;
+    border: 2px solid rgb(var(--primary-blue) / 0.3);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn-secondary-legacy:hover {
+    background: rgb(var(--primary-blue) / 0.05);
+    border-color: rgb(var(--primary-blue));
+  }
+  
+  /* APSICS Media Brand Form Inputs */
   .form-input {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors duration-200 text-base sm:text-lg leading-tight;
-    min-height: 48px; /* Ensures proper touch targets on mobile */
-    font-size: 16px; /* Prevents zoom on iOS */
-    background-color: rgba(255, 255, 255, 0.98);
-    border-width: 2px; /* Thicker border for better visibility */
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    width: 100%;
+    padding: 0.875rem 1rem; /* 14px 16px */
+    border: 2px solid rgb(var(--text-secondary) / 0.2);
+    border-radius: 0.75rem; /* 12px */
+    background-color: rgb(var(--background-white));
+    color: rgb(var(--text-primary));
+    font-size: 1rem; /* 16px - prevents iOS zoom */
+    line-height: 1.5;
+    min-height: 3rem; /* 48px - proper touch targets */
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: rgb(var(--primary-blue));
+    box-shadow: 0 0 0 3px rgb(var(--primary-blue) / 0.1);
+  }
+  
+  .form-input:invalid {
+    border-color: rgb(var(--error-red));
+  }
+  
+  .form-input:invalid:focus {
+    box-shadow: 0 0 0 3px rgb(var(--error-red) / 0.1);
+  }
+  
+  .form-input::placeholder {
+    color: rgb(var(--text-muted));
   }
   
   .bg-grid-pattern {
@@ -209,29 +455,49 @@
     background-size: 20px 20px;
   }
   
-  /* Framer-style cards */
-  .framer-card {
-    background-color: rgb(var(--framer-white));
-    border-radius: 20px;
-    padding: 40px;
+  /* APSICS Media Brand Card System */
+  .brand-card {
+    background-color: rgb(var(--background-white));
+    border-radius: 1.25rem; /* 20px */
+    padding: 2rem; /* 32px */
+    border: 1px solid rgb(var(--text-secondary) / 0.1);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  .framer-card:hover {
-    transform: translateY(-2px);
+  .brand-card:hover {
+    transform: translateY(-4px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: rgb(var(--primary-blue) / 0.2);
   }
   
-  .framer-feature-card {
-    background-color: rgb(var(--framer-white));
-    border-radius: 20px;
-    padding: 16px 16px 24px 16px;
-    gap: 20px;
+  .feature-card {
+    background-color: rgb(var(--background-white));
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    border: 1px solid rgb(var(--text-secondary) / 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+    gap: 1rem;
     min-height: 280px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-color: rgb(var(--primary-blue) / 0.2);
+  }
+  
+  /* Legacy compatibility */
+  .framer-card {
+    @apply brand-card;
+  }
+  
+  .framer-feature-card {
+    @apply feature-card;
   }
   
   /* Calculator and form styling */
@@ -257,16 +523,66 @@
 }
 
 @layer utilities {
+  /* APSICS Media Brand Animation System */
+  
+  /* Standard Easing Functions */
+  .ease-out-quart {
+    transition-timing-function: cubic-bezier(0.25, 0.25, 0, 1);
+  }
+  
+  .ease-in-out-quart {
+    transition-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  
+  .ease-spring {
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  /* Duration Standards */
+  .duration-fast {
+    transition-duration: 200ms;
+  }
+  
+  .duration-normal {
+    transition-duration: 400ms;
+  }
+  
+  .duration-slow {
+    transition-duration: 600ms;
+  }
+  
+  .duration-page {
+    transition-duration: 800ms;
+  }
+  
+  /* Brand Animation Classes */
   .animate-fade-in {
-    animation: fadeIn 0.8s ease-out;
+    animation: fadeIn 0.8s cubic-bezier(0.25, 0.25, 0, 1);
   }
   
   .animate-slide-up {
-    animation: slideUp 0.8s ease-out 0.2s both;
+    animation: slideUp 0.8s cubic-bezier(0.25, 0.25, 0, 1) 0.2s both;
   }
   
   .animate-pulse-subtle {
-    animation: pulseSubtle 2s infinite;
+    animation: pulseSubtle 2s ease-in-out infinite;
+  }
+  
+  .animate-scale-hover {
+    transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .animate-scale-hover:hover {
+    transform: scale(1.02);
+  }
+  
+  .animate-lift-hover {
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .animate-lift-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
   
   @keyframes fadeIn {
@@ -283,7 +599,7 @@
   @keyframes slideUp {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(40px);
     }
     to {
       opacity: 1;
@@ -363,70 +679,174 @@
   gap: 10px;
 }
 
-/* Framer background colors */
-.framer-bg {
-  background-color: rgb(var(--framer-bg));
+/* APSICS Media Brand Background Colors */
+.brand-bg {
+  background-color: rgb(var(--background-gray));
 }
 
-.framer-bg-white {
-  background-color: rgb(var(--framer-white));
+.brand-bg-white {
+  background-color: rgb(var(--background-white));
 }
 
-.framer-bg-light-blue {
-  background-color: rgb(var(--framer-light-blue));
+.brand-bg-blue {
+  background-color: rgb(var(--primary-blue));
 }
 
-/* Framer text colors */
-.framer-text {
-  color: rgb(var(--framer-text));
+.brand-bg-blue-light {
+  background-color: rgb(var(--primary-blue-light) / 0.1);
 }
 
-.framer-text-blue {
-  color: rgb(var(--framer-blue));
+.brand-bg-success {
+  background-color: rgb(var(--success-light));
 }
+
+.brand-bg-warning {
+  background-color: rgb(var(--warning-light));
+}
+
+.brand-bg-error {
+  background-color: rgb(var(--error-light));
+}
+
+/* APSICS Media Brand Text Colors */
+.brand-text-primary {
+  color: rgb(var(--text-primary));
+}
+
+.brand-text-secondary {
+  color: rgb(var(--text-secondary));
+}
+
+.brand-text-muted {
+  color: rgb(var(--text-muted));
+}
+
+.brand-text-blue {
+  color: rgb(var(--primary-blue));
+}
+
+.brand-text-success {
+  color: rgb(var(--success-green));
+}
+
+.brand-text-warning {
+  color: rgb(var(--warning-orange));
+}
+
+.brand-text-error {
+  color: rgb(var(--error-red));
+}
+
+/* Legacy Framer compatibility */
+.framer-bg { @apply brand-bg; }
+.framer-bg-white { @apply brand-bg-white; }
+.framer-bg-light-blue { @apply brand-bg-blue-light; }
+.framer-text { @apply brand-text-secondary; }
+.framer-text-blue { @apply brand-text-blue; }
 
 /* ========================================================================
    Global Button Styles
    ======================================================================== */
 
+/* APSICS Media Brand Global Button Classes */
 .btn {
-  @apply inline-flex items-center justify-center border border-transparent text-base font-medium shadow-sm text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500;
-  min-height: 48px;
-  border-radius: 12px;
-  padding: 14px 24px;
-  font-size: 16px;
-  line-height: 1.2;
-}
-
-.btn-primary {
-  @apply bg-gradient-to-r from-orange-600 to-red-600 text-white font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-200 shadow-lg hover:shadow-xl;
-  min-height: 48px;
-  border-radius: 12px;
-  padding: 14px 24px;
-  font-size: 16px;
-  line-height: 1.2;
-}
-
-.btn-secondary {
-  @apply bg-transparent border-2 border-white text-white font-semibold hover:bg-white/10 transition-colors duration-200;
-  min-height: 48px;
-  border-radius: 12px;
-  padding: 14px 24px;
-  font-size: 16px;
-  line-height: 1.2;
-}
-
-.btn-tertiary {
-  @apply text-orange-600 hover:text-orange-700 font-semibold transition-colors;
-  min-height: 48px;
-  border-radius: 12px;
-  padding: 14px 24px;
-  font-size: 16px;
-  line-height: 1.2;
-  border: 2px solid currentColor;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2;
+  min-height: 3rem;
+  border-radius: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  background: rgb(var(--primary-blue));
+  color: rgb(var(--background-white));
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: rgb(var(--primary-blue-dark));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(var(--primary-blue) / 0.3);
+}
+
+/* Updated button variants with brand colors */
+.btn-primary {
+  background: rgb(var(--primary-blue));
+  color: rgb(var(--background-white));
+  font-weight: 600;
+  min-height: 3rem;
+  border-radius: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: rgb(var(--primary-blue-dark));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary {
+  background: rgb(var(--background-white));
+  color: rgb(var(--primary-blue));
+  border: 2px solid rgb(var(--primary-blue) / 0.3);
+  font-weight: 600;
+  min-height: 3rem;
+  border-radius: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: rgb(var(--primary-blue) / 0.05);
+  border-color: rgb(var(--primary-blue));
+  transform: translateY(-1px);
+}
+
+.btn-tertiary {
+  background: transparent;
+  color: rgb(var(--primary-blue));
+  border: none;
+  font-weight: 500;
+  min-height: 2.5rem;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-tertiary:hover {
+  background: rgb(var(--primary-blue) / 0.1);
+  color: rgb(var(--primary-blue-dark));
 }
 
 /* Visual improvements */
@@ -681,6 +1101,83 @@ a:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.5);
   border-color: rgb(249 115 22);
+}
+
+/* ========================================================================
+   Alytics Brand Utilities - Direct Implementation
+   ======================================================================== */
+
+/* Alytics Brand Color Utilities - Direct Hex Usage */
+.text-brand-blue { color: #126DFB !important; }
+.text-brand-blue-dark { color: #0F5AD6 !important; }
+.text-brand-primary { color: #111827 !important; }    /* gray-900 for headlines */
+.text-brand-secondary { color: #4B5563 !important; }  /* gray-600 for body text */
+.text-brand-muted { color: #6B7280 !important; }      /* gray-500 for captions */
+
+.bg-brand-blue { background-color: #126DFB !important; }
+.bg-brand-blue-dark { background-color: #0F5AD6 !important; }
+.bg-brand-gray { background-color: #F8F8F8 !important; }
+.bg-brand-white { background-color: #FFFFFF !important; }
+
+.border-brand-blue { border-color: #126DFB !important; }
+.border-brand-gray { border-color: #E5E7EB !important; }
+
+/* Alytics Gradient Utilities */
+.gradient-brand-blue { 
+  background: linear-gradient(to right, #126DFB, #126DFB) !important; 
+}
+.gradient-popular { 
+  background: linear-gradient(to right, #F97316, #EF4444) !important; 
+}
+.gradient-hero-bg { 
+  background: linear-gradient(to bottom right, #EFF6FF, #DBEAFE) !important; 
+}
+.gradient-card-popular {
+  background: linear-gradient(to bottom, #EFF6FF, #FFFFFF) !important;
+}
+
+/* Alytics Card Utilities */
+.card-standard {
+  background: #FFFFFF;
+  border-radius: 1rem; /* rounded-2xl */
+  padding: 2rem; /* p-8 */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  border: 1px solid #E5E7EB; /* border-gray-200 */
+}
+
+.card-popular {
+  background: linear-gradient(to bottom, #EFF6FF, #FFFFFF);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-xl */
+  border: 1px solid #126DFB;
+}
+
+/* Alytics Layout Utilities */
+.section-spacing-alytics { padding: 5rem 0; } /* py-20 */
+.section-spacing-sm-alytics { padding: 4rem 0; } /* py-16 */
+.container-standard { 
+  max-width: 56rem; /* max-w-4xl */
+  margin: 0 auto;
+  padding: 0 1.5rem; /* px-6 */
+}
+.content-spacing { gap: 2rem; } /* space-y-8 */
+.content-spacing-sm { gap: 1.5rem; } /* space-y-6 */
+
+/* Alytics Animation Classes */
+.alytics-hover-scale:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+.alytics-hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.alytics-button-shadow {
+  box-shadow: 0 12px 30px rgba(18, 109, 251, 0.4);
 }
 
 @layer base {

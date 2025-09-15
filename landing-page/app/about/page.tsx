@@ -6,12 +6,12 @@ import { TrendingUp, Users, Award, Target, DollarSign, Building2, ArrowRight, Ca
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'About APSICS Media | $250MM+ Startup Ad Strategy Experience | Brian Apsics',
-  description: 'Meet the team behind startup ad templates. Learn our proven methodology from managing $250MM+ in ad spend for growing companies. Built by founders, for founders.',
-  keywords: 'startup ad agency, creative strategy for startups, brian apsics, apsics media, weekly ad templates, startup marketing founder',
+  title: 'About APSICS Media | $250MM+ Performance Marketing Intelligence Experience | Brian Apsics',
+  description: 'Meet the team behind revenue-driving creative intelligence. Learn our proven methodology from managing $250MM+ in ad spend for growing businesses. Performance marketing that converts.',
+  keywords: 'performance marketing agency, creative intelligence, brian apsics, apsics media, revenue optimization, conversion marketing, performance advertising, creative ROI',
   openGraph: {
-    title: 'About APSICS Media | $250MM+ Startup Ad Strategy Experience',
-    description: 'Meet the team behind startup ad templates. Learn our proven methodology from managing $250MM+ in ad spend for growing companies.',
+    title: 'About APSICS Media | $250MM+ Performance Marketing Intelligence Experience',
+    description: 'Meet the team behind revenue-driving creative intelligence. Learn our proven methodology from managing $250MM+ in ad spend for growing businesses.',
     type: 'website',
     images: [
       {

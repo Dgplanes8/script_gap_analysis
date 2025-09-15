@@ -148,18 +148,18 @@ export function ServiceTiersEnhanced() {
                   <Crown className="h-8 w-8 text-white" />
                 </div>
                 
-                <h3 className="framer-heading-3 mb-3">{lifetimeOffer.name}</h3>
+                <h3 className="heading-3 mb-3">{lifetimeOffer.name}</h3>
                 
                 <div className="flex items-baseline justify-center mb-2">
-                  <span className="framer-heading-1 text-red-600">{lifetimeOffer.price}</span>
-                  <span className="framer-body framer-text ml-2">{lifetimeOffer.period}</span>
+                  <span className="heading-1 brand-text-blue">{lifetimeOffer.price}</span>
+                  <span className="body-regular brand-text-secondary ml-2">{lifetimeOffer.period}</span>
                 </div>
                 
-                <div className="framer-body-small framer-text mb-6">
+                <div className="body-small brand-text-secondary mb-6">
                   Normally ${(35 * 52).toLocaleString()}/year
                 </div>
                 
-                <p className="framer-body framer-text mb-6 leading-relaxed">
+                <p className="body-regular brand-text-secondary mb-6 leading-relaxed">
                   {lifetimeOffer.description}
                 </p>
                 
@@ -167,7 +167,7 @@ export function ServiceTiersEnhanced() {
                   {lifetimeOffer.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
                       <Check className="h-4 w-4 text-green-500 mr-3 mt-1 flex-shrink-0" />
-                      <span className="framer-body-small framer-text">{feature}</span>
+                      <span className="body-small brand-text-secondary">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -181,13 +181,13 @@ export function ServiceTiersEnhanced() {
                       tier_price: lifetimeOffer.price
                     });
                   }}
-                  className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white btn-framer border-0 mb-4"
+                  className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white btn-primary border-0 mb-4"
                 >
-                  <span className="framer-body-bold">Claim Lifetime Access - $50</span>
+                  <span className="font-semibold">Claim Strategic Intelligence Access - $50</span>
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </button>
                 
-                <p className="framer-body-small text-red-600 font-medium">
+                <p className="body-small brand-text-blue font-medium">
                   {lifetimeOffer.ideal}
                 </p>
               </div>
@@ -211,7 +211,7 @@ export function ServiceTiersEnhanced() {
                 {tier.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
                     <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-1 rounded-full shadow-lg">
-                      <span className="framer-body-small font-medium">MOST POPULAR</span>
+                      <span className="body-small font-medium">MOST POPULAR</span>
                     </div>
                   </div>
                 )}
@@ -228,20 +228,20 @@ export function ServiceTiersEnhanced() {
                     }`} />
                   </div>
                   
-                  <h3 className="framer-heading-4 mb-3">{tier.name}</h3>
+                  <h3 className="heading-4 mb-3">{tier.name}</h3>
                   
                   <div className="flex items-baseline justify-center mb-2">
-                    <span className="framer-heading-2 text-gray-900">{tier.price}</span>
-                    <span className="framer-body framer-text ml-1">{tier.period}</span>
+                    <span className="heading-2 brand-text-primary">{tier.price}</span>
+                    <span className="body-regular brand-text-secondary ml-1">{tier.period}</span>
                   </div>
                   
-                  <div className="framer-body-small framer-text mb-4">
+                  <div className="body-small brand-text-secondary mb-4">
                     ({tier.yearlyPrice})
                   </div>
                   
                   {!tier.popular && (
                     <div className="mb-3">
-                      <span className="framer-bg-light-blue framer-text-blue px-3 py-1 rounded-full framer-body-small">
+                      <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full body-small">
                         {tier.badge}
                       </span>
                     </div>

@@ -51,7 +51,7 @@ const hookFrameworks = [
     name: 'Social Proof Authority',
     description: 'Leverage crowd psychology and credibility markers',
     structure: 'Specific Numbers → Success Association → Method Reveal',
-    example: '"3,247 SaaS founders use this creative framework to reduce CAC by 25%"',
+    example: '"3,247 SaaS companies use this creative framework to reduce CAC by 25%"',
     bestFor: 'Product-aware audiences evaluating credibility',
     score: 24
   },

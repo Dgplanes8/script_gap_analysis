@@ -7,26 +7,26 @@ import { Target, FileText, TrendingUp, BarChart3, ArrowRight } from 'lucide-reac
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Startup Ad Templates & Examples | Copy-Paste Campaign Library | APSICS Media',
-  description: 'Browse 100+ proven ad templates for startups. See real examples, performance scores, and ready-to-use scripts that convert customers faster.',
-  keywords: 'ad templates for startups, startup ad examples, template gallery, copy-paste campaigns, ad scripts, marketing templates',
+  title: 'High-Converting Ad Templates & Examples | Revenue-Driven Campaign Library | APSICS Media',
+  description: 'Browse 100+ proven ad templates from $250MM+ managed spend. See real examples, performance scores, and ready-to-use scripts that convert customers faster.',
+  keywords: 'high-converting ad templates, revenue-driven ad examples, template gallery, performance marketing campaigns, conversion scripts, marketing templates',
   openGraph: {
-    title: 'Startup Ad Templates & Examples | Copy-Paste Campaign Library',
-    description: 'Browse 100+ proven ad templates for startups. See real examples, performance scores, and ready-to-use scripts that convert.',
+    title: 'High-Converting Ad Templates & Examples | Revenue-Driven Campaign Library',
+    description: 'Browse 100+ proven ad templates from $250MM+ managed spend. See real examples, performance scores, and revenue-driving scripts.',
     type: 'website',
     images: [
       {
         url: '/images/examples-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'Startup Ad Templates and Examples Gallery',
+        alt: 'High-Converting Ad Templates and Examples Gallery',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Startup Ad Templates & Examples | Copy-Paste Campaign Library',
-    description: 'Browse 100+ proven ad templates for startups. See real examples and performance scores.',
+    title: 'High-Converting Ad Templates & Examples | Revenue-Driven Campaign Library',
+    description: 'Browse 100+ proven ad templates from $250MM+ managed spend. See real examples and performance scores.',
     images: ['/images/examples-og.jpg'],
   },
   alternates: {
@@ -51,29 +51,29 @@ export default function ExamplesPage() {
       {/* Structured Data */}
       <StructuredData 
         pageType="service"
-        title="Startup Ad Templates & Examples"
-        description="Browse 100+ proven ad templates for startups. See real examples, performance scores, and ready-to-use scripts that convert customers faster."
+        title="High-Converting Ad Templates & Examples"
+        description="Browse 100+ proven ad templates from $250MM+ managed spend. See real examples, performance scores, and ready-to-use scripts that convert customers faster."
         slug="/examples"
         additionalSchemas={[
           {
             '@type': 'ItemList',
-            name: 'Startup Ad Template Examples',
-            description: 'Collection of proven ad templates for startup marketing campaigns',
+            name: 'High-Converting Ad Template Examples',
+            description: 'Collection of proven ad templates for revenue-driving marketing campaigns',
             itemListElement: [
               {
                 '@type': 'CreativeWork',
                 name: 'TikTok Ad Templates',
-                description: 'Viral TikTok ad templates optimized for startup growth'
+                description: 'Viral TikTok ad templates optimized for business growth'
               },
               {
                 '@type': 'CreativeWork', 
                 name: 'Facebook Ad Scripts',
-                description: 'High-converting Facebook ad scripts for startup founders'
+                description: 'High-converting Facebook ad scripts for revenue growth'
               },
               {
                 '@type': 'CreativeWork',
                 name: 'Instagram Campaign Templates',
-                description: 'Instagram ad templates designed for startup conversion'
+                description: 'Instagram ad templates designed for conversion optimization'
               }
             ]
           }
@@ -97,7 +97,7 @@ export default function ExamplesPage() {
                 See What You'll Get: Real Template Examples That Convert
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Browse proven ad templates used by successful startups. Every template includes performance scores, platform optimization, and ready-to-use scripts.
+                Browse proven ad templates from $250MM+ managed spend. Every template includes performance scores, platform optimization, and ready-to-use scripts.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -145,7 +145,7 @@ export default function ExamplesPage() {
                   Templates by Platform & Use Case
                 </h2>
                 <p className="text-xl text-gray-600">
-                  Each template is optimized for specific platforms and startup scenarios
+                  Each template is optimized for specific platforms and business scenarios
                 </p>
               </div>
 
@@ -248,7 +248,7 @@ export default function ExamplesPage() {
                     </li>
                     <li className="flex items-start">
                       <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3"></div>
-                      <span>Tested by startup founders with limited budgets</span>
+                      <span>Tested by growing businesses across all budgets</span>
                     </li>
                     <li className="flex items-start">
                       <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3"></div>

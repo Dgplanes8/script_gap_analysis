@@ -170,6 +170,7 @@ After completing this research:
 **Priority:** High - This research forms the foundation for all subsequent analysis
 """
     
+
     return prompt
 
 def execute_perplexity_research(brand_name: str, base_path: str = None):

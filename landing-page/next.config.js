@@ -2,7 +2,26 @@
 const nextConfig = {
   // Image optimization for better LCP
   images: {
-    domains: ['images.unsplash.com', 'avatars.githubusercontent.com', 'via.placeholder.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 31536000, // 1 year cache
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],

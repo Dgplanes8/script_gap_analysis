@@ -18,11 +18,6 @@ Compile strategic findings and recommendations from all phases:
 
 ## Phase 1: Foundation Insights
 
-### Audience Intelligence (Perplexity & Reddit)
-Synthesize findings from:
-- /Users/nataliebasque/Ad Workflow/Projects/serviceagent.ai/Perplexity/serviceagent.ai_perplexity_results.md
-- /Users/nataliebasque/Ad Workflow/Projects/serviceagent.ai/Reddit/serviceagent.ai_reddit_results.json
-
 **Key Insights:**
 - Primary audience characteristics and motivations
 - Authentic language patterns and pain points

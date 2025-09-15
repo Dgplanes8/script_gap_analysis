@@ -65,7 +65,7 @@ export function AlyticsNavbar() {
             <motion.button
               whileHover={{ scale: 1.02, boxShadow: "0 8px 25px rgba(18, 109, 251, 0.3)" }}
               whileTap={{ scale: 0.98 }}
-              className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-2.5 rounded-xl transition-all duration-200"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-200 shadow-lg"
             >
               Start Free Week
             </motion.button>

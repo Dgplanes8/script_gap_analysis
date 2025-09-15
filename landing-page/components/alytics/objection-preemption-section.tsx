@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { DollarSign, Clock, AlertCircle, TrendingUp, Shield, CheckCircle } from 'lucide-react';
 
 const containerVariants = {
@@ -234,14 +235,15 @@ export function ObjectionPreemptionSection() {
               >
                 Start My FREE Week Today
               </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => window.location.href = '/free-hooks'}
-                className="border-2 border-white text-white hover:bg-white hover:text-green-600 font-semibold px-8 py-4 rounded-xl transition-colors duration-200"
-              >
-                Get Free Templates First
-              </motion.button>
+              <Link href="/free-hooks">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="border-2 border-white text-white hover:bg-white hover:text-green-600 font-semibold px-8 py-4 rounded-xl transition-colors duration-200"
+                >
+                  Get Free Templates First
+                </motion.button>
+              </Link>
             </div>
           </div>
         </motion.div>

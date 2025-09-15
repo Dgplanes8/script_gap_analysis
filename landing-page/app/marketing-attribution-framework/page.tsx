@@ -95,7 +95,7 @@ export default function MarketingAttributionFrameworkPage() {
               </a>
               <a
                 href="/#service-tiers"
-                className="px-8 py-3 border-2 border-purple-600 text-purple-600 rounded-lg font-semibold hover:bg-purple-50 transition-colors"
+                className="px-8 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors"
               >
                 See Weekly Plans
               </a>
@@ -525,7 +525,7 @@ export default function MarketingAttributionFrameworkPage() {
               </a>
               <a
                 href="/#service-tiers"
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors"
+                className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
               >
                 See Weekly Plans
               </a>

@@ -2,7 +2,7 @@
 *Revolutionary Weekly Pricing for Weekly Creative Delivery*
 
 ## 🚀 Limited Time Launch Offer
-**First 50 customers only • Ends March 31st, 2025**
+**First 50 customers only**
 
 ### **Try Your First Week FREE**
 - No commitment • Cancel anytime
@@ -19,8 +19,7 @@
 | **Creative Starter** | $5/week | $21.67/month | Solopreneurs & Early Stage |
 | **Trend Tracker** | $15/week | $65/month | Growing Startups |
 | **Competitive Edge** | $35/week | $151.67/month | Performance Teams |
-| **Market Intelligence** | $99/week | $429/month | Scale Companies |
-| **Enterprise** | Custom | Custom | Large Companies ($500K+ spend) |
+| **Market Intelligence** | $89/week | $385.67/month | Scale Companies |
 
 ---
 
@@ -35,7 +34,6 @@
 - ✅ Single platform optimization (TikTok, Facebook, OR Instagram)
 - ✅ Basic trend insights & reasoning
 - ✅ Email delivery with implementation tips
-- ✅ Community access for questions
 
 **Ideal For:**
 - Solo founders testing creative approaches
@@ -73,7 +71,6 @@
 - Replaces $400+/week agency retainer
 - 5+ hours creative research weekly
 - Fortune 100 methodology access
-- 25-40% typical CPA improvement
 
 ---
 
@@ -103,7 +100,7 @@
 
 ---
 
-### **Market Intelligence - $99/week**
+### **Market Intelligence - $89/week**
 *For companies scaling beyond $200K/month*
 
 **What You Get Every Monday:**
@@ -112,12 +109,11 @@
 - ✅ Comprehensive competitive analysis
 - ✅ Custom audience research & insights
 - ✅ Direct team access for strategic support
-- ✅ Performance benchmarking & optimization
-- ✅ Weekly strategic review calls
+- ✅ Strategic review calls
 - ✅ Custom creative brief development
 
 **Ideal For:**
-- Heads of Growth at scaling companies
+- Scaling companies
 - $50K+ monthly ad spend
 - Multiple product lines or markets
 - Strategic creative program management
@@ -127,50 +123,6 @@
 - 20+ hours strategic research weekly
 - Executive-level creative intelligence
 - Complete creative program oversight
-
----
-
-### **Enterprise - Custom Pricing**
-*For large companies with $500K+ monthly ad spend*
-
-**What You Get:**
-- ✅ Custom creative concepts delivered weekly
-- ✅ Full-service media buying management  
-- ✅ Dedicated account manager and creative team
-- ✅ Custom competitive intelligence & market analysis
-- ✅ Strategic planning and campaign optimization
-- ✅ Direct executive access and quarterly reviews
-- ✅ Custom reporting and performance dashboards
-- ✅ Integration with your existing marketing stack
-
-**Ideal For:**
-- Large subscription companies requiring comprehensive solutions
-- $500K+ monthly ad spend
-- Complex multi-product or multi-market strategies
-- Full-service creative and media management needs
-
-**Value Delivered:**
-- Replaces entire agency relationship
-- 40+ hours strategic work weekly
-- Complete marketing intelligence operation
-- Dedicated team extension
-
----
-
-## 🎁 Launch Bonuses
-*First 50 customers receive:*
-
-### **Instant Access Bundle** ($497 value)
-- 📚 **Hook Bank PDF**: 50 proven ad hooks with psychology breakdowns
-- 🎯 **Creative Strategy Playbook**: Fortune 100 methodology guide
-- 📊 **Performance Tracking Templates**: ROI measurement frameworks
-- 🚀 **Launch Week Checklist**: Immediate implementation guide
-
-### **Exclusive Access** (Ongoing)
-- 💬 **Private Slack Community**: Direct access to our team
-- 📈 **Monthly Group Coaching**: Live creative strategy sessions
-- 🔍 **Trend Alert System**: Real-time viral content notifications
-- 📝 **Creative Brief Templates**: Professional production-ready formats
 
 ---
 
@@ -187,28 +139,25 @@
 | Service | Weekly Cost | Quality | Consistency |
 |---------|------------|---------|-------------|
 | **Freelance Copywriter** | $200-500/week | Variable | Inconsistent |
-| **Our System** | $15-99/week | Fortune 100 methodology | Every Monday |
+| **Our System** | $15-89/week | Fortune 100 methodology | Every Monday |
 
 ### vs. Internal Team
 | Approach | Weekly Cost | Time Investment | Results |
 |----------|------------|----------------|---------|
 | **Internal Research** | $1,000+/week | 20+ hours | Inconsistent |
-| **Our Intelligence** | $15-99/week | 0 hours | Proven framework |
+| **Our Intelligence** | $15-89/week | 0 hours | Proven framework |
 
 ---
 
 ## 🔥 Limited Time Offer Details
 
-### **Early Adopter Pricing** (First 50 Customers)
+### **Early Adopter Pricing** (First 200 Customers)
 - ✅ **Lock in launch pricing forever**
-- ✅ **No price increases ever**
-- ✅ **Grandfathered into all new features**
 - ✅ **Priority customer support**
 - ✅ **Direct founder access**
 
 ### **Urgency Indicators**
-- 🕐 **12 spots remaining** (updates live)
-- 📅 **Offer expires March 31st, 2025**
+- 🕐 **Limited spots remaining** 
 - 🚨 **Launch pricing never returns**
 - 💎 **Founding member benefits for life**
 
@@ -242,7 +191,7 @@
 ## 📈 Success Metrics & Guarantees
 
 ### **Performance Targets**
-- 📊 **25-40% CPA improvement** within 60 days
+- 📊 **15-25% CPA improvement** within 60 days
 - 🚀 **3x faster creative iteration** vs. traditional methods
 - 📈 **15+ hours saved** per week on creative research
 - 🎯 **Platform-native concepts** for authentic engagement
@@ -278,8 +227,7 @@
 ### **Next Steps**
 - 🎯 **Start Your Free Week**: Choose tier below
 - 📞 **Book Strategy Call**: Discuss custom needs
-- 💬 **Join Community**: Connect with other growth teams
-- 📚 **Download Resources**: Access immediate implementation guides
+- 📚 **Download Resources**: Download 10 free hooks and sign up for free weekly newsletter
 
 ---
 
@@ -299,7 +247,7 @@ A: You're billed every week for continued access. Cancel anytime before your nex
 A: Yes, changes take effect immediately. You'll be prorated for any differences.
 
 **Q: Is the launch pricing really locked forever?**
-A: Yes, first 50 customers lock in their pricing permanently, even as we raise prices for new customers.
+A: Yes, first 200 customers lock in their pricing permanently, even as we raise prices for new customers.
 
 ### **Content & Delivery**
 **Q: What if I don't like a week's concepts?**

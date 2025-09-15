@@ -57,7 +57,7 @@ export function Header({ onOpenApplication }: HeaderProps) {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold text-xl sm:text-2xl px-3 py-2 rounded-lg shadow-lg">
+            <div className="bg-gradient-to-r from-[#126DFB] to-[#0F5AD6] text-white font-bold text-xl sm:text-2xl px-3 py-2 rounded-lg shadow-lg">
               AM
             </div>
             <span className="font-bold text-lg sm:text-xl text-gray-900 hidden sm:block">
@@ -69,24 +69,24 @@ export function Header({ onOpenApplication }: HeaderProps) {
           <nav className="hidden lg:flex items-center space-x-8">
             <button
               onClick={() => handleNavigation('about')}
-              className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
+              className="text-gray-700 hover:text-[#126DFB] font-medium transition-colors"
             >
               About
             </button>
             <Link
               href="/blog"
-              className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
+              className="text-gray-700 hover:text-[#126DFB] font-medium transition-colors"
             >
               Blog & Guides
             </Link>
             <button
               onClick={() => handleNavigation('hooks-offer')}
-              className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
+              className="text-gray-700 hover:text-[#126DFB] font-medium transition-colors"
             >
               Free Templates
             </button>
             <div className="relative group">
-              <button className="flex items-center text-gray-700 hover:text-orange-600 font-medium transition-colors">
+              <button className="flex items-center text-gray-700 hover:text-[#126DFB] font-medium transition-colors">
                 Services
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
@@ -94,19 +94,19 @@ export function Header({ onOpenApplication }: HeaderProps) {
                 <div className="py-2">
                   <Link
                     href="/cac-reduction-guide"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-orange-600 transition-colors"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-[#126DFB] transition-colors"
                   >
                     CAC Reduction Guide
                   </Link>
                   <Link
                     href="/revenue-growth-benchmarking"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-orange-600 transition-colors"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-[#126DFB] transition-colors"
                   >
                     Benchmarking Tool
                   </Link>
                   <Link
                     href="/saas-creative-strategy-roi-calculator"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-orange-600 transition-colors"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-[#126DFB] transition-colors"
                   >
                     ROI Calculator
                   </Link>
@@ -126,22 +126,22 @@ export function Header({ onOpenApplication }: HeaderProps) {
                   window.location.href = '/#service-tiers';
                 }
               }}
-              className="bg-green-600 hover:bg-green-700 text-white font-bold px-6 py-2 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+              className="btn-primary"
             >
-              Claim Free Week
+              Start Free Week Trial
             </button>
             <button
               onClick={() => window.location.href = '/free-hooks'}
-              className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white font-semibold px-6 py-2 rounded-lg transition-colors duration-200"
+              className="btn-secondary"
             >
-              Download MY Templates
+              Get Free Templates
             </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-3 text-gray-700 hover:text-orange-600 transition-colors bg-white border border-gray-300 rounded-lg min-w-[44px] min-h-[44px] flex items-center justify-center"
+            className="lg:hidden p-3 text-gray-700 hover:text-[#126DFB] transition-colors bg-white border border-gray-300 rounded-lg min-w-[44px] min-h-[44px] flex items-center justify-center"
           >
             <span className="text-sm font-medium">{isOpen ? 'Close' : ''}</span>
           </button>
@@ -153,40 +153,40 @@ export function Header({ onOpenApplication }: HeaderProps) {
             <nav className="space-y-6">
               <button
                 onClick={() => handleNavigation('about')}
-                className="block w-full text-left text-gray-700 hover:text-orange-600 font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
+                className="block w-full text-left text-gray-700 hover:text-[#126DFB] font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
               >
                 About
               </button>
               <Link
                 href="/blog"
-                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
+                className="block text-gray-700 hover:text-[#126DFB] font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
                 onClick={() => setIsOpen(false)}
               >
                 Blog & Guides
               </Link>
               <button
                 onClick={() => handleNavigation('hooks-offer')}
-                className="block w-full text-left text-gray-700 hover:text-orange-600 font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
+                className="block w-full text-left text-gray-700 hover:text-[#126DFB] font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
               >
                 Free Templates
               </button>
               <Link
                 href="/cac-reduction-guide"
-                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
+                className="block text-gray-700 hover:text-[#126DFB] font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
                 onClick={() => setIsOpen(false)}
               >
                 CAC Reduction Guide
               </Link>
               <Link
                 href="/revenue-growth-benchmarking"
-                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
+                className="block text-gray-700 hover:text-[#126DFB] font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
                 onClick={() => setIsOpen(false)}
               >
                 Benchmarking Tool
               </Link>
               <Link
                 href="/saas-creative-strategy-roi-calculator"
-                className="block text-gray-700 hover:text-orange-600 font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
+                className="block text-gray-700 hover:text-[#126DFB] font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
                 onClick={() => setIsOpen(false)}
               >
                 ROI Calculator
@@ -204,18 +204,18 @@ export function Header({ onOpenApplication }: HeaderProps) {
                     }
                     setIsOpen(false);
                   }}
-                  className="bg-green-600 hover:bg-green-700 text-white w-full py-4 text-lg font-bold min-h-[48px] rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+                  className="btn-primary w-full text-lg"
                 >
-                  Claim Free Week
+                  Start Free Week Trial
                 </button>
                 <button
                   onClick={() => {
                     window.location.href = '/free-hooks';
                     setIsOpen(false);
                   }}
-                  className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white w-full py-4 text-lg font-semibold min-h-[48px] rounded-lg transition-colors duration-200"
+                  className="btn-secondary w-full text-lg"
                 >
-                  Download MY Templates
+                  Get Free Templates
                 </button>
               </div>
             </nav>

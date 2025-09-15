@@ -35,11 +35,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Weekly Creative Intelligence for Early-Stage Startups | Apsics Media',
+  title: 'Revenue Growth Through Creative Intelligence | APSICS Media',
   description:
-    'Strategic ad hooks and creative scripts designed for early-stage startups launching their first campaigns. Starting at $5/week with first week FREE. From someone who managed $250MM+ in media spend.',
+    'Transform your creative strategy into measurable revenue growth. Weekly intelligence, conversion-focused scripts, and performance optimization from $250MM+ in managed ad spend.',
   keywords:
-    'startup marketing, first-time advertisers, early-stage startup ads, solo founder marketing, bootstrap startup ads, creative hooks for startups, startup ad templates, launch first campaign, creative scripts for founders, startup creative intelligence, early-stage marketing, founder ad help, startup ad guidance, creative concepts for startups, small business ad creative, campaign launch support, startup advertising strategy',
+    'creative intelligence, revenue growth, conversion optimization, performance marketing, creative strategy, ROI optimization, marketing intelligence, ad performance, creative ROI, conversion rate optimization, performance advertising, marketing automation, creative analytics, revenue optimization, growth marketing',
   authors: [{ name: 'Apsics Media' }],
   creator: 'Apsics Media',
   publisher: 'Apsics Media',
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Weekly Creative Intelligence for Early-Stage Startups | Apsics Media',
+    title: 'Revenue Growth Through Creative Intelligence | APSICS Media',
     description:
-      'Strategic ad hooks and creative scripts for startup founders launching their first campaigns. Starting at $5/week with first week FREE. From someone who managed $250MM+ in media spend.',
+      'Transform your creative strategy into measurable revenue growth. Weekly intelligence, conversion-focused scripts, and performance optimization from $250MM+ in managed ad spend.',
 
     url: '/',
     siteName: 'Apsics Media',
@@ -69,9 +69,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Weekly Creative Intelligence for Early-Stage Startups | Apsics Media',
+    title: 'Revenue Growth Through Creative Intelligence | APSICS Media',
     description:
-      'Strategic ad hooks and creative scripts for startup founders launching their first campaigns. Starting at $5/week with first week FREE. From someone who managed $250MM+ in media spend.',
+      'Transform your creative strategy into measurable revenue growth. Weekly intelligence and conversion-focused scripts from $250MM+ in managed ad spend.',
     images: ['/images/og-image.jpg'],
     creator: '@apsicsmedia',
   },
@@ -111,13 +111,13 @@ export default function RootLayout({
           __html: `
             :root {
               --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
-              --color-orange-600: rgb(234 88 12);
-              --color-orange-700: rgb(194 65 12);
-              --color-red-600: rgb(220 38 38);
-              --color-red-700: rgb(185 28 28);
+              --color-primary-blue: 18 109 251;
+              --color-primary-blue-dark: 15 90 214;
+              --color-primary-blue-light: 59 130 246;
               --color-white: rgb(255 255 255);
               --color-gray-200: rgb(229 231 235);
-              --color-gray-900: rgb(17 24 39);
+              --color-text-primary: rgb(17 24 39);
+              --color-text-secondary: rgb(107 114 128);
             }
             body {
               font-family: var(--font-inter);
@@ -128,7 +128,7 @@ export default function RootLayout({
               -moz-osx-font-smoothing: grayscale;
             }
             .hero-section {
-              background: linear-gradient(135deg, var(--color-orange-600) 0%, var(--color-red-700) 50%, var(--color-red-600) 100%);
+              background: linear-gradient(135deg, var(--color-primary-blue) 0%, var(--color-primary-blue-dark) 50%, var(--color-primary-blue-light) 100%);
               color: var(--color-white);
               padding: 6rem 1rem;
               text-align: center;
@@ -138,7 +138,7 @@ export default function RootLayout({
               justify-content: center;
             }
             .btn-primary {
-              background: linear-gradient(135deg, var(--color-orange-600), var(--color-red-600));
+              background: var(--color-primary-blue);
               color: var(--color-white);
               font-weight: 600;
               padding: 0.875rem 1.5rem;
@@ -146,12 +146,18 @@ export default function RootLayout({
               border: none;
               font-size: 1rem;
               cursor: pointer;
-              transition: all 0.2s ease;
+              transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
               display: inline-flex;
               align-items: center;
               justify-content: center;
               text-decoration: none;
               min-height: 3rem;
+              box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            }
+            .btn-primary:hover {
+              background: var(--color-primary-blue-dark);
+              transform: translateY(-2px);
+              box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             }
             .container { max-width: 80rem; margin: 0 auto; padding: 0 1rem; }
             .text-center { text-align: center; }
@@ -187,7 +193,7 @@ export default function RootLayout({
           <Analytics />
           <StructuredData pageType="homepage" />
           <SpeedInsights />
-          <PerformanceDashboard />
+          {/* <PerformanceDashboard /> */}
         </ConsultationProvider>
       </body>
     </html>

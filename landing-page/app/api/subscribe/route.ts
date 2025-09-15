@@ -36,7 +36,13 @@ export async function POST(request: NextRequest) {
       'creative-roi-calculator-results': ['creative-strategy', 'roi-calculator-lead'],
       'creative-strategy-guide': ['creative-strategy', 'guide-download'],
       'alytics-newsletter-section': ['alytics-newsletter', 'content-intelligence'],
-      'alytics-exit-popup': ['alytics-exit-intent', 'content-intelligence']
+      'alytics-exit-popup': ['alytics-exit-intent', 'content-intelligence'],
+      'exit-intent-popup': ['exit-intent', 'content-intelligence'],
+      'alytics-hero': ['alytics-hero', 'content-intelligence'],
+      'alytics-pricing': ['alytics-pricing', 'content-intelligence'],
+      'alytics-final-conversion': ['alytics-conversion', 'content-intelligence'],
+      'alytics-free-hooks': ['free-hooks', 'content-intelligence'],
+      'alytics-founder-section': ['founder-offer', 'content-intelligence']
     };
     
     const tags = [...baseTags, ...(sourceTags[source as keyof typeof sourceTags] || ['general-signup'])];
@@ -73,7 +79,13 @@ export async function POST(request: NextRequest) {
       'creative-roi-calculator-results': 'Successfully subscribed! Check your email for the Creative Strategy Implementation Guide.',
       'creative-strategy-guide': 'Successfully subscribed! Check your email for the Creative Intelligence Framework Guide.',
       'alytics-newsletter-section': 'Successfully subscribed! Get ready for weekly content intelligence insights every Monday morning.',
-      'alytics-exit-popup': 'Successfully subscribed! Welcome to our weekly content intelligence newsletter.'
+      'alytics-exit-popup': 'Successfully subscribed! Welcome to our weekly content intelligence newsletter.',
+      'exit-intent-popup': 'Successfully subscribed! Check your email for your Free Templates PDF and weekly insights.',
+      'alytics-hero': 'Successfully subscribed! Welcome to strategic content intelligence.',
+      'alytics-pricing': 'Successfully subscribed! Check your email for next steps and pricing details.',
+      'alytics-final-conversion': 'Successfully subscribed! Get ready for game-changing content insights.',
+      'alytics-free-hooks': 'Successfully subscribed! Check your email for your free content hooks and templates.',
+      'alytics-founder-section': 'Successfully subscribed! Welcome to the founder community - check your email for exclusive insights.'
     };
     
     const message = messages[source as keyof typeof messages] || 'Successfully subscribed! Check your email for your download.';

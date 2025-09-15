@@ -7,12 +7,12 @@ import { WebApplicationSchema, StructuredData } from '@/components/schema';
 import { Header } from '@/components/layout/header';
 
 export const metadata: Metadata = {
-  title: 'CAC Optimization Calculator - Fortune 100 Weekly Trend Intelligence',
-  description: 'Free CAC calculator + weekly trend intelligence from $100M+ ad spend experience. Get competitor analysis and viral scripts delivered every Monday starting at $67/month.',
-  keywords: 'CAC optimization, weekly trend intelligence, competitor analysis, viral scripts, Fortune 100 marketing, subscription business growth',
+  title: 'CAC Optimization Calculator - Revenue Growth Through Performance Marketing',
+  description: 'Free CAC calculator + revenue intelligence from $250M+ ad spend experience. Get conversion optimization strategies and performance scripts to boost your revenue.',
+  keywords: 'CAC optimization, revenue growth, performance marketing, conversion optimization, customer acquisition cost, ROI calculator, performance advertising',
   openGraph: {
-    title: 'CAC Optimization Calculator - Fortune 100 Weekly Trend Intelligence',
-    description: 'Free CAC calculator + weekly trend intelligence from $100M+ ad spend experience. Viral scripts delivered every Monday.',
+    title: 'CAC Optimization Calculator - Revenue Growth Through Performance Marketing',
+    description: 'Free CAC calculator + revenue intelligence from $250M+ ad spend experience. Conversion optimization strategies to boost your revenue.',
     type: 'website',
   },
   alternates: {
@@ -66,8 +66,8 @@ export default function CACOptimizationCalculatorPage() {
       
       <StructuredData 
         pageType="calculator"
-        title="CAC Optimization Calculator - Fortune 100 Weekly Trend Intelligence"
-        description="Free CAC calculator + weekly trend intelligence from $100M+ ad spend experience. Get competitor analysis and viral scripts delivered every Monday starting at $67/month."
+        title="CAC Optimization Calculator - Revenue Growth Through Performance Marketing"
+        description="Free CAC calculator + revenue intelligence from $250M+ ad spend experience. Get conversion optimization strategies and performance scripts to boost your revenue."
         slug="/cac-optimization-calculator"
         additionalSchemas={[
           {

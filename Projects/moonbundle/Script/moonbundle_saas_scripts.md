@@ -4,7 +4,7 @@
 
 ## Executive Summary
 
-15 production-ready video scripts transforming MoonBundle's validated concepts into platform-specific content optimized for Shopify merchant acquisition. All scripts integrate gifting differentiation, performance-based pricing, and authentic merchant language while positioning against ReConvert, Zipify, and BOLD competitors.
+15 production-ready video scripts transforming›validated concepts into platform-specific content optimized for Shopify merchant acquisition. All scripts integrate gifting differentiation, performance-based pricing, and authentic merchant language while positioning against ReConvert, Zipify, and BOLD competitors.
 
 ---
 

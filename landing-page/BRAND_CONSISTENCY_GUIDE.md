@@ -2,7 +2,9 @@
 
 ## Overview
 
-This guide establishes comprehensive brand standards for APSICS Media's digital presence, ensuring consistent, professional, and high-converting user experiences across all touchpoints. All development, design, and content decisions should align with these standards.
+This guide establishes comprehensive brand standards for APSICS Media's digital presence based on the proven Alytics homepage design. All development, design, and content decisions should align with these standards for consistent, professional, and high-converting user experiences.
+
+**Updated**: January 2025 - Based on Alytics Landing Page Implementation
 
 ---
 
@@ -10,76 +12,132 @@ This guide establishes comprehensive brand standards for APSICS Media's digital 
 
 ### Color Palette
 
-#### Primary Colors
+#### Primary Brand Colors (Alytics Standard)
 ```css
-/* Primary Brand Blue */
---primary-blue: #126DFB;
---primary-blue-dark: #0F5AD6;
---primary-blue-light: #3B82F6;
+/* Primary Brand Blue - Direct Usage */
+--brand-blue: #126DFB;           /* Primary CTA buttons, links, icons */
+--brand-blue-dark: #0F5AD6;      /* Hover states, active elements */
+--brand-blue-light: #3B82F6;     /* Light accents, backgrounds */
 
-/* Neutral Backgrounds */
---background-gray: #F8F8F8;
---background-white: #FFFFFF;
---text-primary: #111827;
---text-secondary: #6B7280;
---text-muted: #9CA3AF;
+/* Neutral Color System */
+--gray-50: #F8F8F8;              /* Page backgrounds, cards */
+--gray-200: #E5E7EB;             /* Borders, dividers */
+--gray-500: #6B7280;             /* Secondary text, captions */
+--gray-600: #4B5563;             /* Body text */
+--gray-700: #374151;             /* Emphasized text */
+--gray-900: #111827;             /* Headlines, primary text */
+--white: #FFFFFF;                /* Card backgrounds, buttons */
 ```
 
 #### Accent Colors
 ```css
 /* Success & Growth */
---success-green: #10B981;
---success-light: #D1FAE5;
+--success-green: #10B981;        /* Checkmarks, success states */
+--success-light: #D1FAE5;        /* Success background tints */
 
 /* Warning & Attention */  
---warning-orange: #F59E0B;
---warning-light: #FEF3C7;
+--warning-orange: #F59E0B;        /* Warning states, badges */
+--warning-light: #FEF3C7;        /* Warning backgrounds */
 
-/* Error & Critical */
---error-red: #EF4444;
---error-light: #FEE2E2;
-
-/* Secondary Accents */
---purple: #8B5CF6;
---purple-light: #F3E8FF;
+/* Special Use Colors */
+--yellow-400: #FCD34D;           /* Star ratings, highlights */
+--orange-500: #F97316;           /* Popular badges, special CTAs */
+--red-500: #EF4444;              /* Gradient accents, urgency */
 ```
 
-#### Gradient Definitions
+#### Brand Color Usage Standards
 ```css
-/* Primary Gradients */
---gradient-primary: linear-gradient(135deg, #126DFB 0%, #3B82F6 100%);
---gradient-success: linear-gradient(135deg, #10B981 0%, #059669 100%);
---gradient-warning: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
---gradient-cta: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+/* Utility Classes for Consistent Usage */
+.text-brand-blue { color: #126DFB; }
+.text-brand-blue-dark { color: #0F5AD6; }
+.bg-brand-blue { background-color: #126DFB; }
+.bg-brand-blue-dark { background-color: #0F5AD6; }
+.border-brand-blue { border-color: #126DFB; }
+
+/* Gradient Applications */
+.gradient-brand-blue { background: linear-gradient(to-r, #126DFB, #126DFB); }
+.gradient-popular { background: linear-gradient(to-r, #F97316, #EF4444); }
+.gradient-hero-bg { background: linear-gradient(to-br, #EFF6FF, #DBEAFE); }
 ```
 
 ### Typography System
 
-#### Font Hierarchy
+#### Font Hierarchy (Alytics Standard)
 ```css
-/* Primary Font Stack */
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+/* Primary Font Stack - Geist for premium feel */
+font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-/* Heading Scales */
-.heading-1 { font-size: 3.5rem; font-weight: 700; line-height: 1.1; }
-.heading-2 { font-size: 3rem; font-weight: 700; line-height: 1.2; }
-.heading-3 { font-size: 2.5rem; font-weight: 600; line-height: 1.2; }
-.heading-4 { font-size: 2rem; font-weight: 600; line-height: 1.3; }
-.heading-5 { font-size: 1.5rem; font-weight: 600; line-height: 1.4; }
-.heading-6 { font-size: 1.25rem; font-weight: 600; line-height: 1.4; }
+/* Responsive Heading Scales */
+.heading-1 { 
+  font-size: clamp(2.5rem, 4vw, 4rem);        /* text-4xl to text-6xl responsive */
+  font-weight: 700; 
+  line-height: 1.1; 
+  letter-spacing: -0.02em;
+  color: #111827; /* gray-900 */
+}
+
+.heading-2 { 
+  font-size: clamp(2rem, 3vw, 3rem);          /* text-3xl to text-4xl responsive */
+  font-weight: 700; 
+  line-height: 1.2; 
+  letter-spacing: -0.015em;
+  color: #111827; /* gray-900 */
+}
+
+.heading-3 { 
+  font-size: clamp(1.5rem, 2.5vw, 2rem);      /* text-2xl responsive */
+  font-weight: 600; 
+  line-height: 1.3; 
+  color: #111827; /* gray-900 */
+}
+
+.heading-4 { 
+  font-size: clamp(1.25rem, 2vw, 1.5rem);     /* text-xl to text-2xl */
+  font-weight: 600; 
+  line-height: 1.4; 
+  color: #111827; /* gray-900 */
+}
 
 /* Body Text Scales */
-.body-large { font-size: 1.25rem; font-weight: 400; line-height: 1.6; }
-.body-regular { font-size: 1rem; font-weight: 400; line-height: 1.6; }
-.body-small { font-size: 0.875rem; font-weight: 400; line-height: 1.5; }
-.body-xs { font-size: 0.75rem; font-weight: 400; line-height: 1.4; }
+.body-large { 
+  font-size: clamp(1.125rem, 1.5vw, 1.25rem); /* text-lg to text-xl responsive */
+  font-weight: 400; 
+  line-height: 1.6; 
+  color: #4B5563; /* gray-600 */
+}
+
+.body-regular { 
+  font-size: 1rem;                            /* text-base */
+  font-weight: 400; 
+  line-height: 1.6; 
+  color: #4B5563; /* gray-600 */
+}
+
+.body-small { 
+  font-size: 0.875rem;                        /* text-sm */
+  font-weight: 400; 
+  line-height: 1.5; 
+  color: #6B7280; /* gray-500 */
+}
 ```
 
-#### Typography Usage Rules
-- **Headlines**: Maximum 2-3 levels per page section
+#### Typography Usage Rules (Updated)
+- **Hero Headlines**: Use heading-1 with brand color accents via `<span className="text-brand-blue">`
+- **Section Headlines**: Use heading-2, maximum 2-3 levels per page
+- **Card Titles**: Use heading-3 or heading-4 depending on hierarchy
 - **Body Text**: Maintain 1.6 line-height for optimal readability
-- **CTAs**: Use semibold (600) weight minimum
+- **CTAs**: Use semibold (600) weight minimum with text-lg size
 - **Captions**: Use body-small for form labels and metadata
+- **Color Hierarchy**: Gray-900 for headlines, gray-600 for body, gray-500 for captions
+
+#### Brand Text Color Classes
+```css
+.text-brand-primary { color: #111827; }      /* Headlines, important text */
+.text-brand-secondary { color: #4B5563; }    /* Body text, descriptions */
+.text-brand-muted { color: #6B7280; }        /* Captions, metadata */
+.text-brand-blue { color: #126DFB; }         /* Brand accents, links */
+.text-brand-blue-dark { color: #0F5AD6; }    /* Hover states */
+```
 
 ### Logo & Brand Mark Standards
 
@@ -123,57 +181,119 @@ const iconSizes = {
 
 ## 🏗️ Component Architecture Standards
 
-### Design System Principles
+### Design System Principles (Alytics Based)
 
-#### Framer MCP Aesthetic Standards
-1. **Premium Animations**: Smooth, purposeful micro-interactions
-2. **Subtle Shadows**: Layered depth with `shadow-lg`, `shadow-xl`
-3. **Rounded Corners**: Consistent `rounded-xl` (12px) for cards and buttons
-4. **Generous Spacing**: 20px+ section padding, 16px+ internal spacing
-5. **Performance Focus**: 60fps animations, optimized transitions
+#### Layout & Spacing Standards
+1. **Section Spacing**: `py-20` (standard sections), `py-16` (condensed)
+2. **Container Width**: `max-w-4xl mx-auto` for content areas
+3. **Content Padding**: `px-6` for mobile-first responsive design
+4. **Internal Spacing**: `space-y-8` (sections), `space-y-6` (content blocks)
+5. **Card Styling**: `rounded-2xl p-8 shadow-lg` for elevated content
 
-#### Component Consistency Rules
+#### Animation System (Framer Motion Standards)
 ```jsx
-// Standard component structure
-const ComponentVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: [0.25, 0.25, 0, 1] } 
+// Standard container animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,       // 100ms stagger between children
+      delayChildren: 0.1          // 100ms delay before children start
+    }
   }
 };
 
-// Standard hover effects
-const hoverVariants = {
-  whileHover: { 
-    y: -8, 
-    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)" 
+// Standard item animation variants
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },   // Start 20px below with 0 opacity
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,              // 400ms animation duration
+      ease: [0.25, 0.25, 0, 1]    // Custom cubic-bezier easing
+    }
   }
+};
+
+// Card hover effects
+const cardHoverVariants = {
+  whileHover: { 
+    y: -8,                        // Lift 8px on hover
+    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
+    transition: { duration: 0.2 }
+  }
+};
+
+// Button hover effects
+const buttonHoverVariants = {
+  whileHover: { 
+    scale: 1.02,                  // Slight scale increase
+    boxShadow: "0 12px 30px rgba(18, 109, 251, 0.4)"
+  },
+  whileTap: { scale: 0.98 }       // Slight scale decrease when pressed
 };
 ```
 
-### Button Standards
+#### Component Hierarchy Standards
+1. **Hero Sections**: Full-width with `bg-white`, centered content
+2. **Content Sections**: Alternating `bg-white` and `bg-[#F8F8F8]` backgrounds
+3. **Cards**: White background with `shadow-lg` and `border border-gray-200`
+4. **Buttons**: Primary blue with hover states and shadow effects
+5. **Icons**: Consistent sizing with `w-4 h-4`, `w-5 h-5` scale
 
-#### Primary Button (CTA)
+### Button Standards (Alytics Pattern)
+
+#### Primary CTA Button
 ```jsx
-<button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 shadow-lg">
-  Primary Action
-</button>
+// Main conversion buttons - trial signups, tier selection
+<motion.button
+  whileHover={{ 
+    scale: 1.02, 
+    boxShadow: "0 12px 30px rgba(18, 109, 251, 0.4)" 
+  }}
+  whileTap={{ scale: 0.98 }}
+  className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
+>
+  Start Free Week Trial
+</motion.button>
 ```
 
 #### Secondary Button
 ```jsx
-<button className="border border-gray-300 hover:border-gray-400 text-gray-700 font-semibold px-8 py-4 rounded-xl transition-all duration-200">
+// Alternative actions, less emphasis
+<motion.button
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.98 }}
+  className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
+>
   Secondary Action
-</button>
+</motion.button>
 ```
 
-#### CTA Button Hierarchy
-1. **Primary**: Service tier selection, trial signups
-2. **Secondary**: Learn more, secondary actions
-3. **Tertiary**: Cancel, dismiss actions
-4. **Ghost**: Subtle navigation, less important actions
+#### Tertiary Button (Ghost/Text)
+```jsx
+// Subtle actions, navigation
+<motion.button
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="bg-white text-[#126DFB] font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:bg-gray-50 transition-all duration-200"
+>
+  Tertiary Action
+</motion.button>
+```
+
+#### Button Usage Hierarchy
+1. **Primary Blue**: Main conversion actions (trial signup, tier selection)
+2. **Secondary Gray**: Alternative actions, less emphasis
+3. **Tertiary White**: Special contexts, inverted buttons
+4. **Text Links**: Navigation, subtle actions
+
+#### Button Size Standards
+- **Large CTA**: `text-lg px-12 py-4` (hero sections, main actions)
+- **Medium**: `text-base px-8 py-3` (cards, forms)
+- **Small**: `text-sm px-6 py-2` (compact spaces, secondary actions)
 
 ### Form Standards
 
@@ -188,20 +308,93 @@ const hoverVariants = {
 - **Loading States**: Disabled state + loading spinner
 - **Focus States**: Blue ring + increased border weight
 
-### Card Standards
+### Card Standards (Alytics Pattern)
 
-#### Standard Card Component
+#### Standard Content Card
 ```jsx
-<div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+<motion.div
+  variants={cardVariants}
+  whileHover={{ 
+    y: -8, 
+    boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)" 
+  }}
+  className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200"
+>
   {/* Card content */}
-</div>
+</motion.div>
+```
+
+#### Pricing Card (Popular Variant)
+```jsx
+<motion.div
+  variants={cardVariants}
+  whileHover={{ 
+    y: 0,  // Popular cards don't lift as much
+    boxShadow: "0 25px 50px rgba(18, 109, 251, 0.2)" 
+  }}
+  className="rounded-2xl p-8 border relative bg-gradient-to-b from-blue-50 to-white border-[#126DFB] shadow-xl"
+>
+  {/* Popular card content */}
+</motion.div>
 ```
 
 #### Card Variants
-- **Feature Cards**: Icon + title + description
-- **Testimonial Cards**: Avatar + quote + attribution
-- **Pricing Cards**: Price + features + CTA
-- **Content Cards**: Image + title + excerpt + CTA
+- **Feature Cards**: Icon + title + description, white background
+- **Pricing Cards**: Popular cards use blue gradient background
+- **Content Cards**: Standard white with shadow-lg
+- **Special Offers**: Gradient backgrounds with enhanced shadows
+
+### Page Layout Patterns
+
+#### Hero Section Template
+```jsx
+<section className="relative pt-24 pb-20 px-6 overflow-hidden bg-white">
+  <div className="max-w-4xl mx-auto text-center relative z-10">
+    {/* Trust badge */}
+    <div className="inline-flex items-center gap-3 px-4 py-2 bg-gray-50 rounded-full border border-gray-200">
+      <Icon className="w-4 h-4 text-[#126DFB]" />
+      <span className="text-sm font-medium text-gray-700">Trust indicator</span>
+    </div>
+    
+    {/* Main headline */}
+    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
+      Main headline with <span className="text-[#126DFB]">brand accent</span>
+    </h1>
+    
+    {/* Subtitle */}
+    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+      Supporting description that expands on the value proposition
+    </p>
+    
+    {/* Primary CTA */}
+    <motion.button className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">
+      Primary Action
+    </motion.button>
+  </div>
+</section>
+```
+
+#### Content Section Template
+```jsx
+<section className="py-20 bg-[#F8F8F8] relative">
+  <div className="max-w-4xl mx-auto px-6">
+    {/* Section header */}
+    <motion.div className="text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        Section Title
+      </h2>
+      <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        Section description
+      </p>
+    </motion.div>
+    
+    {/* Section content */}
+    <motion.div className="space-y-8">
+      {/* Content blocks */}
+    </motion.div>
+  </div>
+</section>
+```
 
 ---
 
@@ -455,33 +648,77 @@ export function ComponentName() {
 
 ## 📋 Implementation Checklist
 
-### New Page/Component Checklist
-- [ ] Follows established color palette
-- [ ] Uses approved typography hierarchy
-- [ ] Implements consistent spacing standards
-- [ ] Includes proper animation timing
-- [ ] Meets accessibility requirements
-- [ ] Follows messaging guidelines
-- [ ] Includes appropriate CTAs
-- [ ] Optimized for performance
-- [ ] Mobile responsive design
-- [ ] Cross-browser compatibility
+### Alytics-Based Page Standards
+- [ ] **Hero Section**: Uses `pt-24 pb-20 px-6` spacing with centered `max-w-4xl` container
+- [ ] **Typography**: Implements responsive heading scales (text-4xl to text-6xl for H1)
+- [ ] **Colors**: Uses direct brand colors (`text-[#126DFB]`, `bg-[#0F5AD6]`) consistently
+- [ ] **Buttons**: Primary CTAs use blue with hover scale and shadow effects
+- [ ] **Cards**: All cards use `rounded-2xl p-8 shadow-lg` styling
+- [ ] **Animations**: Framer Motion with 0.4s duration and custom easing
+- [ ] **Layout**: Alternating white/gray backgrounds between sections
+- [ ] **Icons**: Consistent sizing with `w-4 h-4` or `w-5 h-5` scale
 
-### Brand Compliance Review
-- [ ] Logo usage follows guidelines
-- [ ] Color usage matches specifications
-- [ ] Typography hierarchy implemented correctly
-- [ ] Component spacing consistent
-- [ ] Animation timing appropriate
-- [ ] Message tone aligned with brand
-- [ ] CTA language follows standards
-- [ ] Overall experience cohesive
+### Component Migration Standards
+- [ ] Replace hardcoded sizes with responsive classes (clamp values)
+- [ ] Convert Tailwind color classes to direct hex values
+- [ ] Add Framer Motion animations with standard variants
+- [ ] Implement consistent spacing (`py-20`, `space-y-8`)
+- [ ] Update button styling to match Alytics pattern
+- [ ] Ensure mobile-first responsive design
+
+### Quality Assurance Checklist
+- [ ] **Visual Consistency**: All pages match Alytics homepage styling
+- [ ] **Animation Performance**: 60fps animations with proper easing
+- [ ] **Typography Scale**: Responsive text sizing across all devices
+- [ ] **Color Compliance**: Brand blue (#126DFB) used consistently
+- [ ] **Button Standards**: All CTAs follow primary/secondary hierarchy
+- [ ] **Card Design**: Consistent rounded corners and shadow depth
+- [ ] **Layout Spacing**: Proper section padding and content spacing
+- [ ] **Mobile Responsiveness**: All components work on mobile devices
+
+### Page-Specific Implementation
+```jsx
+// Standard page wrapper
+<main className="min-h-screen">
+  {/* Hero section - always first */}
+  <section className="relative pt-24 pb-20 px-6 bg-white">
+    {/* Hero content */}
+  </section>
+  
+  {/* Content sections - alternating backgrounds */}
+  <section className="py-20 bg-[#F8F8F8]">
+    {/* Content */}
+  </section>
+  
+  <section className="py-20 bg-white">
+    {/* Content */}
+  </section>
+</main>
+```
 
 ---
 
-**Document Version**: 2.0  
-**Last Updated**: January 2025  
-**Document Owner**: Design & Development Team  
-**Approval Required**: Brand/Marketing Leadership
+## 🚀 Quick Start Implementation
 
-*This brand consistency guide serves as the definitive reference for maintaining professional, cohesive, and high-converting user experiences across all APSICS Media digital touchpoints. All team members should reference this guide regularly to ensure consistent implementation.*
+### For New Pages
+1. Copy hero section template from this guide
+2. Use `max-w-4xl mx-auto px-6` for content containers
+3. Apply `py-20` for section spacing
+4. Use direct hex colors for brand blue elements
+5. Add Framer Motion animations with provided variants
+
+### For Existing Pages  
+1. Update typography to use responsive scales
+2. Replace color classes with direct hex values
+3. Standardize spacing to `py-20` pattern
+4. Add hover animations to interactive elements
+5. Ensure cards use `rounded-2xl p-8 shadow-lg`
+
+---
+
+**Document Version**: 3.0 (Alytics Update)
+**Last Updated**: January 2025  
+**Based On**: Current Homepage Implementation
+**Document Owner**: Design & Development Team
+
+*This updated brand consistency guide reflects the proven patterns from the Alytics homepage implementation. All new pages and component updates should follow these standards for maximum consistency and conversion optimization.*

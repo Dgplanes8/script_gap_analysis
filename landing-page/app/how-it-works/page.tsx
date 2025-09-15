@@ -8,8 +8,8 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'How Weekly Ad Templates Work | Monday Delivery Process | APSICS Media',
-  description: 'Discover our proven weekly process. Get ad templates every Monday, launch campaigns by Friday. See exactly how weekly creative intelligence works for startups.',
-  keywords: 'how weekly ad templates work, monday delivery marketing, startup ad process, weekly creative intelligence, campaign launch process',
+  description: 'Discover our proven weekly process. Get revenue-driving ad templates every Monday, launch converting campaigns by Friday. See exactly how weekly creative intelligence works.',
+  keywords: 'how weekly ad templates work, monday delivery marketing, revenue-driving ad process, weekly creative intelligence, campaign launch process, performance marketing process',
   openGraph: {
     title: 'How Weekly Ad Templates Work | Monday Delivery Process',
     description: 'Discover our proven weekly process. Get ad templates every Monday, launch campaigns by Friday. See exactly how it works.',

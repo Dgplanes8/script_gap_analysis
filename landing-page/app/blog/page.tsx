@@ -2,16 +2,16 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { BookOpen, TrendingUp, Calculator, Target, Users, Zap, ArrowRight } from 'lucide-react';
+import { BookOpen, TrendingUp, Calculator, Target, Users, Zap } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
 
 export const metadata: Metadata = {
-  title: 'Blog & Resources - Weekly Trend Intelligence for Subscription Marketing | Apsics Media',
-  description: 'Comprehensive guides, tools, and frameworks for subscription business marketing. CAC reduction, attribution modeling, creative strategy, and weekly trend intelligence.',
-  keywords: 'subscription marketing guides, CAC reduction, marketing attribution, creative strategy, growth marketing resources',
+  title: 'Blog & Resources - Revenue Growth Through Creative Intelligence | Apsics Media',
+  description: 'Comprehensive guides, tools, and frameworks for business revenue growth. Conversion optimization, performance marketing, creative strategy, and revenue intelligence.',
+  keywords: 'revenue growth guides, conversion optimization, performance marketing, creative intelligence, business growth resources, ROI optimization, marketing performance',
   openGraph: {
-    title: 'Blog & Resources - Weekly Trend Intelligence for Subscription Marketing',
-    description: 'Comprehensive guides and tools for subscription business marketing success.',
+    title: 'Blog & Resources - Revenue Growth Through Creative Intelligence',
+    description: 'Comprehensive guides and tools for business revenue growth through performance marketing and creative optimization.',
     type: 'website',
   },
   alternates: {
@@ -20,40 +20,6 @@ export const metadata: Metadata = {
 };
 
 const articles = [
-  // NEW: Local Services & Small Business Marketing (2025)
-  {
-    category: 'Small Business Marketing',
-    icon: Users,
-    color: 'bg-purple-50 border-purple-200 text-purple-800',
-    articles: [
-      {
-        title: 'Local Marketing Consultant vs Freelance Services: Cost Calculator',
-        slug: '/blog/local-marketing-consultant-vs-freelance-services-cost-calculator',
-        description: 'Interactive cost comparison tool with ROI analysis for small businesses choosing marketing services'
-      },
-      {
-        title: 'Small Business Marketing Budget Calculator & ROI Analysis',
-        slug: '/blog/small-business-marketing-budget-calculator-roi-analysis',
-        description: 'Budget planning calculator comparing agency, in-house, and freelance marketing options'
-      },
-      {
-        title: 'Local Creative Agency vs In-House Marketing: ROI Calculator',
-        slug: '/blog/local-creative-agency-vs-in-house-marketing-roi-calculator',
-        description: 'Data-driven ROI calculator for resource allocation decisions between agencies and in-house teams'
-      },
-      {
-        title: 'Freelance Marketing Consultant Selection Checklist 2025',
-        slug: '/blog/freelance-marketing-consultant-selection-checklist-2025',
-        description: '15 essential questions and evaluation criteria for hiring the right marketing consultant'
-      },
-      {
-        title: 'Marketing Services Timeline: What to Expect in First 90 Days',
-        slug: '/blog/small-business-marketing-services-timeline-first-90-days',
-        description: 'Realistic timeline expectations with detailed milestone breakdown for marketing providers'
-      }
-    ]
-  },
-
   // Marketing Strategy Guides
   {
     category: 'Strategy Guides',
@@ -82,35 +48,6 @@ const articles = [
       }
     ]
   },
-
-  // Interactive Tools & Calculators - High SEO Value
-  {
-    category: 'Free Tools & Calculators',
-    icon: Calculator,
-    color: 'bg-orange-50 border-orange-200 text-orange-800',
-    articles: [
-      {
-        title: 'Hook Generator Methodology Framework',
-        slug: '/hook-generator',
-        description: 'Master the systematic hook generation methodology for high-converting creative development'
-      },
-      {
-        title: 'CAC Optimization Calculator (Free)',
-        slug: '/cac-optimization-calculator',
-        description: 'Interactive calculator to optimize customer acquisition costs with strategic recommendations'
-      },
-      {
-        title: '10 Free Copy-Paste Ad Templates',
-        slug: '/free-hooks',
-        description: 'Battle-tested ad templates for startup founders to launch their first campaign this week'
-      },
-      {
-        title: 'Startup Marketing ROI Calculator',
-        slug: '/blog/startup-marketing-roi-calculator',
-        description: 'Calculate ROI across different marketing channels and service providers for startups'
-      }
-    ]
-  },
   
   // CAC & Attribution Frameworks
   {
@@ -129,11 +66,6 @@ const articles = [
         description: 'Subscription-specific CAC reduction strategies'
       },
       {
-        title: 'LTV CAC Ratio Optimization: Growth Team Playbook',
-        slug: '/blog/ltv-cac-ratio-optimization-growth-teams',
-        description: 'Master LTV:CAC ratio optimization for sustainable growth with proven strategies to improve unit economics'
-      },
-      {
         title: 'Marketing Attribution Framework',
         slug: '/marketing-attribution-framework',
         description: 'Complete attribution modeling guide'
@@ -142,25 +74,6 @@ const articles = [
         title: 'Consumer Attribution Framework',
         slug: '/consumer-attribution-framework',
         description: 'Attribution strategies for consumer brands'
-      }
-    ]
-  },
-
-  // Customer Retention & Lifecycle
-  {
-    category: 'Retention & Lifecycle',
-    icon: Users,
-    color: 'bg-teal-50 border-teal-200 text-teal-800',
-    articles: [
-      {
-        title: 'Subscription Churn Rate Optimization: 7 Data-Driven Strategies',
-        slug: '/blog/subscription-churn-rate-optimization',
-        description: 'Reduce subscription churn with proven strategies for growth teams and data-driven retention frameworks'
-      },
-      {
-        title: 'Retention Marketing Automation for SaaS Growth',
-        slug: '/blog/retention-marketing-automation-saas-growth',
-        description: 'Advanced retention automation strategies beyond email sequences for SaaS growth teams'
       }
     ]
   },
@@ -212,9 +125,9 @@ const articles = [
         description: 'Content planning framework'
       },
       {
-        title: 'Advanced Creative Intelligence',
+        title: 'AI-Enhanced Creative Intelligence',
         slug: '/ai-enhanced-creative-intelligence',
-        description: 'Data-driven creative optimization'
+        description: 'AI-powered creative optimization'
       }
     ]
   },
@@ -245,11 +158,6 @@ const articles = [
     color: 'bg-indigo-50 border-indigo-200 text-indigo-800',
     articles: [
       {
-        title: 'ASO ROI Calculator: Measure Mobile App Marketing Returns',
-        slug: '/blog/aso-roi-calculator-guide',
-        description: 'Comprehensive framework for calculating App Store Optimization ROI and measuring mobile app marketing performance'
-      },
-      {
         title: 'CAC Optimization Calculator',
         slug: '/cac-optimization-calculator',
         description: 'Interactive CAC optimization tool'
@@ -265,44 +173,6 @@ const articles = [
         description: 'Performance benchmarking tool'
       }
     ]
-  },
-
-  // Mobile App Marketing (NEW CATEGORY)
-  {
-    category: 'Mobile App Marketing',
-    icon: TrendingUp,
-    color: 'bg-pink-50 border-pink-200 text-pink-800',
-    articles: [
-      {
-        title: 'Mobile App CAC Crisis: 2025 Acquisition Cost Reduction Guide',
-        slug: '/blog/mobile-app-cac-crisis-2025-guide',
-        description: 'Proven strategies to reduce mobile app customer acquisition costs with Fortune 100 methodology'
-      },
-      {
-        title: 'Freemium to Premium: Conversion Optimization Framework',
-        slug: '/blog/freemium-conversion-optimization-framework',
-        description: 'Transform free users into high-value premium customers using psychological triggers and data-driven optimization'
-      },
-      {
-        title: 'D2C Subscription Marketing Playbook: Growth Strategy Guide 2025',
-        slug: '/blog/d2c-subscription-marketing-playbook',
-        description: 'Comprehensive D2C growth strategies for customer acquisition, retention, and community building'
-      }
-    ]
-  },
-
-  // AI & Technology (NEW CATEGORY)
-  {
-    category: 'AI & Technology',
-    icon: Zap,
-    color: 'bg-violet-50 border-violet-200 text-violet-800',
-    articles: [
-      {
-        title: 'AI Creative Development for Mobile Apps: Performance-Driven Design',
-        slug: '/blog/ai-creative-development-mobile-apps',
-        description: 'Master AI-powered creative development for mobile app marketing with machine learning optimization'
-      }
-    ]
   }
 ];
 
@@ -313,180 +183,119 @@ export default function BlogPage() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-6">
-                <BookOpen className="h-4 w-4 mr-2" />
-                Strategic Resources Library
-              </div>
+        <section className="relative pt-24 pb-20 px-6 overflow-hidden bg-white">
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <div className="inline-flex items-center gap-3 px-4 py-2 bg-gray-50 rounded-full border border-gray-200 mb-6">
+              <BookOpen className="w-4 h-4 text-[#126DFB]" />
+              <span className="text-sm font-medium text-gray-700">Strategic Resources Library</span>
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight mb-6">
+              Weekly Trend Intelligence <span className="text-[#126DFB]">Blog & Resources</span>
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
+              Comprehensive guides, tools, and frameworks for growth marketing teams at subscription companies. 
+              All optimized for weekly creative intelligence and performance marketing success.
+            </p>
               
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                Weekly Trend Intelligence Blog & Resources
-              </h1>
-              <p className="text-xl text-gray-600 mb-8">
-                Comprehensive guides, tools, and frameworks for growth marketing teams at subscription companies. 
-                All optimized for weekly creative intelligence and performance marketing success.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/#service-tiers"
-                  className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                >
-                  Get 10 Free Hooks First
-                </Link>
-                <Link
-                  href="/#service-tiers"
-                  className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-                >
-                  See Weekly Plans
-                </Link>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/#service-tiers"
+                className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
+              >
+                Get 10 Free Hooks First
+              </Link>
+              <Link
+                href="/#service-tiers"
+                className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
+              >
+                See Weekly Plans
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* Stats & Quick Navigation */}
-        <section className="py-12 bg-white border-b border-gray-200">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid md:grid-cols-4 gap-6 text-center mb-8">
-                <div>
-                  <div className="text-2xl font-bold text-orange-600 mb-1">5</div>
-                  <div className="text-gray-600 text-sm">Interactive Tools</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-green-600 mb-1">18</div>
-                  <div className="text-gray-600 text-sm">Strategic Guides</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-blue-600 mb-1">100%</div>
-                  <div className="text-gray-600 text-sm">Startup-Focused</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-purple-600 mb-1">Free</div>
-                  <div className="text-gray-600 text-sm">All Resources</div>
-                </div>
+        {/* Stats Section */}
+        <section className="py-20 bg-[#F8F8F8] relative">
+          <div className="max-w-4xl mx-auto px-6">
+            <div className="grid md:grid-cols-2 gap-8 text-center">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+                <div className="text-3xl font-bold text-[#126DFB] mb-2">5</div>
+                <div className="text-gray-600">Interactive Calculators</div>
               </div>
-              
-              {/* Quick Links to Popular Content */}
-              <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">Start Here: Most Popular Resources</h3>
-                <div className="grid md:grid-cols-3 gap-4">
-                  <Link href="/blog/startup-marketing-budget-calculator-2025" className="flex items-center justify-between p-3 bg-white rounded-lg hover:shadow-md transition-shadow group">
-                    <span className="text-sm font-medium text-gray-700 group-hover:text-orange-600">Budget Calculator</span>
-                    <ArrowRight className="h-4 w-4 text-orange-500" />
-                  </Link>
-                  <Link href="/blog/52-high-converting-ad-templates-startup" className="flex items-center justify-between p-3 bg-white rounded-lg hover:shadow-md transition-shadow group">
-                    <span className="text-sm font-medium text-gray-700 group-hover:text-orange-600">52 Ad Templates</span>
-                    <ArrowRight className="h-4 w-4 text-orange-500" />
-                  </Link>
-                  <Link href="/blog/cac-optimization-calculator" className="flex items-center justify-between p-3 bg-white rounded-lg hover:shadow-md transition-shadow group">
-                    <span className="text-sm font-medium text-gray-700 group-hover:text-orange-600">CAC Calculator</span>
-                    <ArrowRight className="h-4 w-4 text-orange-500" />
-                  </Link>
-                </div>
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+                <div className="text-3xl font-bold text-[#126DFB] mb-2">100%</div>
+                <div className="text-gray-600">Subscription-Focused</div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Articles by Category */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              {articles.map((category, categoryIndex) => {
-                const Icon = category.icon;
-                return (
-                  <div key={categoryIndex} className="mb-16 last:mb-0">
-                    <div className="flex items-center justify-between mb-8">
-                      <div className="flex items-center">
-                        <div className={`p-3 rounded-lg ${category.color} mr-4`}>
-                          <Icon className="h-6 w-6" />
-                        </div>
-                        <h2 className="text-3xl font-bold text-gray-900">
-                          {category.category}
-                        </h2>
-                      </div>
-                      <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                        {category.articles.length} {category.articles.length === 1 ? 'article' : 'articles'}
-                      </span>
+        <section className="py-20 bg-white relative">
+          <div className="max-w-6xl mx-auto px-6">
+            {articles.map((category, categoryIndex) => {
+              const Icon = category.icon;
+              return (
+                <div key={categoryIndex} className="mb-16 last:mb-0">
+                  <div className="flex items-center mb-8">
+                    <div className={`p-3 rounded-lg ${category.color} mr-4`}>
+                      <Icon className="h-6 w-6" />
                     </div>
-                    
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {category.articles.map((article, articleIndex) => {
-                        // Identify high-priority content
-                        const isCornerstone = ['/blog/startup-marketing-budget-calculator-2025', '/blog/startup-marketing-roi-calculator', '/blog/cac-optimization-calculator', '/blog/52-high-converting-ad-templates-startup'].includes(article.slug);
-                        
-                        return (
-                          <Link
-                            key={articleIndex}
-                            href={article.slug}
-                            className={`bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all border-2 group relative ${
-                              isCornerstone 
-                                ? 'border-orange-200 hover:border-orange-400 ring-1 ring-orange-100' 
-                                : 'border-gray-100 hover:border-blue-200'
-                            }`}
-                          >
-                            {isCornerstone && (
-                              <div className="absolute -top-2 -right-2 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
-                                Popular
-                              </div>
-                            )}
-                            <h3 className={`text-xl font-semibold mb-3 transition-colors ${
-                              isCornerstone 
-                                ? 'text-gray-900 group-hover:text-orange-600' 
-                                : 'text-gray-900 group-hover:text-blue-600'
-                            }`}>
-                              {article.title}
-                            </h3>
-                            <p className="text-gray-600 mb-4 line-clamp-3">
-                              {article.description}
-                            </p>
-                            <div className={`font-semibold group-hover:underline flex items-center ${
-                              isCornerstone ? 'text-orange-600' : 'text-blue-600'
-                            }`}>
-                              {article.slug.includes('calculator') ? 'Use Calculator' : 'Read Guide'}
-                              <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                            </div>
-                          </Link>
-                        );
-                      })}
-                    </div>
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                      {category.category}
+                    </h2>
                   </div>
-                );
-              })}
-            </div>
+                    
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {category.articles.map((article, articleIndex) => (
+                      <Link
+                        key={articleIndex}
+                        href={article.slug}
+                        className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200 hover:border-[#126DFB] hover:transform hover:-translate-y-1 group"
+                      >
+                        <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-[#126DFB] transition-colors">
+                          {article.title}
+                        </h3>
+                        <p className="text-gray-600 mb-4 leading-relaxed">
+                          {article.description}
+                        </p>
+                        <div className="text-[#126DFB] font-semibold group-hover:underline">
+                          Read Guide →
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-blue-600 text-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-6">
-                Ready to Implement Weekly Creative Intelligence?
-              </h2>
-              <p className="text-xl mb-8 opacity-90">
-                Start with 10 free hooks, then choose the weekly plan that fits your growth goals. 
-                Fresh concepts delivered every Monday, not every month.
-              </p>
+        <section className="py-20 bg-[#F8F8F8] relative">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Ready to Implement Weekly Creative Intelligence?
+            </h2>
+            <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Start with 10 free hooks, then choose the weekly plan that fits your growth goals. 
+              Fresh concepts delivered every Monday, not every month.
+            </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/#service-tiers"
-                  className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
-                >
-                  Get My 10 Free Hooks
-                </Link>
-                <Link
-                  href="/#service-tiers"
-                  className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
-                >
-                  See Weekly Plans
-                </Link>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/#service-tiers"
+                className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
+              >
+                Get My 10 Free Hooks
+              </Link>
+              <Link
+                href="/#service-tiers"
+                className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
+              >
+                See Weekly Plans
+              </Link>
             </div>
           </div>
         </section>

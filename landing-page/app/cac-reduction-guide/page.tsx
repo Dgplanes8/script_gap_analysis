@@ -55,17 +55,17 @@ export default function CACReductionGuidePage() {
       <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100 pt-16 lg:pt-20">
 
         {/* Hero Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold mb-6">
-              🎯 Enterprise-Proven Methodology
+        <section className="relative pt-24 pb-20 px-6 overflow-hidden bg-white">
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <div className="inline-flex items-center gap-3 px-4 py-2 bg-gray-50 rounded-full border border-gray-200 mb-6">
+              <span className="text-sm font-medium text-gray-700">🎯 Enterprise-Proven Methodology</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight mb-6">
               Customer Acquisition Cost Reduction:
               <br />
-              <span className="text-indigo-600">Step-by-Step Implementation Guide</span>
+              <span className="text-[#126DFB]">Step-by-Step Implementation Guide</span>
             </h1>
-            <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
               The complete strategic framework to reduce customer acquisition costs by 30-50% 
               for subscription businesses. Based on methodologies proven at enterprise scale, 
               adapted for $500K-$2M ARR companies.
@@ -90,13 +90,13 @@ export default function CACReductionGuidePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/free-hooks"
-                className="px-8 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
+                className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
               >
                 Get 10 Free Hooks + CAC Guide
               </a>
               <a
                 href="/#service-tiers"
-                className="px-8 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
+                className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
               >
                 See Weekly Plans
               </a>
@@ -105,23 +105,23 @@ export default function CACReductionGuidePage() {
         </section>
 
         {/* Table of Contents */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">Implementation Guide Contents</h2>
+        <section className="py-20 bg-[#F8F8F8] relative">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">Implementation Guide Contents</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-4">
-                <div className="flex items-center p-4 bg-gray-50 rounded-lg">
-                  <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-sm font-bold text-indigo-600">1</span>
+                <div className="flex items-center p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-sm font-bold text-[#126DFB]">1</span>
                   </div>
                   <div>
                     <h3 className="font-semibold">Strategic Foundation Assessment</h3>
                     <p className="text-sm text-gray-600">Current state analysis and baseline establishment</p>
                   </div>
                 </div>
-                <div className="flex items-center p-4 bg-gray-50 rounded-lg">
-                  <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-sm font-bold text-indigo-600">2</span>
+                <div className="flex items-center p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-sm font-bold text-[#126DFB]">2</span>
                   </div>
                   <div>
                     <h3 className="font-semibold">Audience Intelligence Framework</h3>
@@ -190,13 +190,13 @@ export default function CACReductionGuidePage() {
         </section>
 
         {/* Calculator Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
+        <section className="py-20 bg-white relative">
+          <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Calculate Your CAC Reduction Potential
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Use our strategic calculator to estimate potential savings and get personalized 
                 recommendations based on your current acquisition metrics.
               </p>
@@ -206,23 +206,23 @@ export default function CACReductionGuidePage() {
         </section>
 
         {/* Detailed Framework Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+        <section className="py-20 bg-[#F8F8F8] relative">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
               The Strategic CAC Reduction Framework
             </h2>
             
             {/* Phase 1 */}
             <div className="mb-16">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-[#126DFB] rounded-full flex items-center justify-center mr-4">
                   <span className="text-xl font-bold text-white">1</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Strategic Foundation Assessment</h3>
               </div>
               
-              <div className="bg-gray-50 rounded-lg p-8 mb-8">
-                <h4 className="text-lg font-semibold mb-4">Current State Analysis</h4>
+              <div className="bg-white rounded-2xl p-8 mb-8 shadow-lg border border-gray-200">
+                <h4 className="text-xl font-semibold mb-4">Current State Analysis</h4>
                 <p className="text-gray-700 mb-4">
                   Before optimizing CAC, establish a comprehensive baseline of your current 
                   acquisition performance across all channels and customer segments.
@@ -286,21 +286,21 @@ export default function CACReductionGuidePage() {
             {/* Phase 2 */}
             <div className="mb-16">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-[#126DFB] rounded-full flex items-center justify-center mr-4">
                   <span className="text-xl font-bold text-white">2</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Audience Intelligence Framework</h3>
               </div>
               
-              <div className="bg-gray-50 rounded-lg p-8 mb-8">
-                <h4 className="text-lg font-semibold mb-4">High-Value Segment Identification</h4>
+              <div className="bg-white rounded-2xl p-8 mb-8 shadow-lg border border-gray-200">
+                <h4 className="text-xl font-semibold mb-4">High-Value Segment Identification</h4>
                 <p className="text-gray-700 mb-6">
                   The most impactful CAC reductions come from focusing acquisition efforts on 
                   customers with the highest lifetime value and lowest acquisition costs.
                 </p>
                 
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
-                  <div className="bg-white p-6 rounded-lg border">
+                  <div className="bg-gray-50 p-6 rounded-2xl border border-gray-200">
                     <h5 className="font-semibold mb-3">Behavioral Segmentation</h5>
                     <ul className="space-y-2 text-sm text-gray-700">
                       <li>• Usage pattern analysis</li>
@@ -332,7 +332,7 @@ export default function CACReductionGuidePage() {
             </div>
 
             {/* Case Study Section */}
-            <div className="bg-indigo-50 rounded-lg p-8 mb-12">
+            <div className="bg-blue-50 rounded-2xl p-8 mb-12 border border-blue-200">
               <h3 className="text-2xl font-semibold mb-6">Case Study: B2B SaaS CAC Reduction Implementation</h3>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
@@ -403,15 +403,15 @@ export default function CACReductionGuidePage() {
         </section>
 
         {/* Implementation Checklist */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+        <section className="py-20 bg-white relative">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
               90-Day Implementation Checklist
             </h2>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-lg border">
-                <h3 className="text-xl font-semibold mb-4 text-indigo-600">Days 1-30: Foundation</h3>
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200">
+                <h3 className="text-xl font-semibold mb-6 text-[#126DFB]">Days 1-30: Foundation</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <input type="checkbox" className="mt-1 mr-3" />
@@ -492,12 +492,12 @@ export default function CACReductionGuidePage() {
         </section>
 
         {/* Lead Generation Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-indigo-600">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-white mb-6">
+        <section className="py-20 bg-[#F8F8F8] relative">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               Get Your Complete CAC Reduction Implementation Kit
             </h2>
-            <p className="text-xl text-indigo-100 mb-8">
+            <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
               Download our comprehensive toolkit including templates, checklists, and strategic 
               frameworks. Plus, get a free CAC audit consultation to identify your biggest opportunities.
             </p>
@@ -505,20 +505,20 @@ export default function CACReductionGuidePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/free-hooks"
-                className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
               >
                 Get My 10 Free Hooks + CAC Guide
               </a>
               <a
                 href="/#service-tiers"
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition-colors"
+                className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
               >
                 See Weekly Plans
               </a>
             </div>
             
-            <div className="text-indigo-100 mt-6 max-w-md mx-auto">
-              <div className="text-sm">
+            <div className="text-gray-600 mt-8 max-w-md mx-auto">
+              <div className="text-sm bg-white p-4 rounded-xl shadow-lg">
                 ✓ 10 proven CAC-reducing hooks<br />
                 ✓ Strategic implementation guide<br />
                 ✓ Weekly trend intelligence newsletter<br />
@@ -529,19 +529,19 @@ export default function CACReductionGuidePage() {
         </section>
 
         {/* Related Resources */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+        <section className="py-20 bg-white relative">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
               Related Strategic Resources
             </h2>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 flex flex-col min-h-[200px]">
                 <h3 className="text-lg font-semibold mb-3">CAC Optimization Calculator</h3>
                 <p className="text-gray-600 mb-4 flex-grow">
                   Interactive calculator to estimate your CAC reduction potential and ROI.
                 </p>
-                <a href="/free-hooks" className="text-indigo-600 font-semibold hover:underline mt-auto">
+                <a href="/free-hooks" className="text-[#126DFB] font-semibold hover:underline mt-auto">
                   Get Free Hooks →
                 </a>
               </div>

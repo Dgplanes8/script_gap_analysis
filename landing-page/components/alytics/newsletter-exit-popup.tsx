@@ -29,6 +29,7 @@ export function NewsletterExitPopup({
   const [isDismissed, setIsDismissed] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   const {
     register,
@@ -40,6 +41,16 @@ export function NewsletterExitPopup({
   });
 
   useEffect(() => {
+    // Ensure this only runs on client
+    if (typeof window !== 'undefined') {
+      setIsMounted(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Only run on client after mounting
+    if (!isMounted || typeof window === 'undefined') return;
+    
     let hasTriggered = false;
 
     const handleMouseLeave = (e: MouseEvent) => {
@@ -58,16 +69,20 @@ export function NewsletterExitPopup({
 
     // Add event listeners after a short delay to avoid immediate triggers
     const timer = setTimeout(() => {
-      document.addEventListener('mouseleave', handleMouseLeave);
-      document.addEventListener('keydown', handleEscape);
+      if (typeof window !== 'undefined') {
+        document.addEventListener('mouseleave', handleMouseLeave);
+        document.addEventListener('keydown', handleEscape);
+      }
     }, 8000); // Wait 8 seconds before enabling exit intent
 
     return () => {
       clearTimeout(timer);
-      document.removeEventListener('mouseleave', handleMouseLeave);
-      document.removeEventListener('keydown', handleEscape);
+      if (typeof window !== 'undefined') {
+        document.removeEventListener('mouseleave', handleMouseLeave);
+        document.removeEventListener('keydown', handleEscape);
+      }
     };
-  }, [isDismissed, isSubmitted]);
+  }, [isDismissed, isSubmitted, isMounted]);
 
   const handleClose = () => {
     setIsVisible(false);
@@ -157,7 +172,8 @@ export function NewsletterExitPopup({
     }
   };
 
-  if (!isVisible || isDismissed) return null;
+  // Prevent rendering on server to avoid hydration mismatch
+  if (typeof window === 'undefined' || !isMounted || !isVisible || isDismissed) return null;
 
   return (
     <AnimatePresence>

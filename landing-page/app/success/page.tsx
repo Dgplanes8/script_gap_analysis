@@ -216,7 +216,7 @@ export default function SuccessPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-gray-900 mb-8">
-              Focus on Building Your Startup
+              Focus on Building Your Business
             </h2>
             <p className="text-xl text-gray-600 mb-12">
               We'll handle the creative templates so you can focus on what matters most - growing your business.

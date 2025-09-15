@@ -8,11 +8,11 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Marketing Agency vs Freelancer vs In-House | Complete Cost Comparison | APSICS Media',
-  description: 'Compare marketing options: agencies ($5K-15K/month), freelancers, AI tools, in-house teams. Find the best fit for your startup budget and needs.',
-  keywords: 'agency vs freelancer marketing, marketing alternatives comparison, startup marketing options, marketing agency costs, freelancer vs in-house marketing',
+  description: 'Compare marketing options: agencies ($5K-15K/month), freelancers, AI tools, in-house teams. Find the best fit for your business budget and needs.',
+  keywords: 'agency vs freelancer marketing, marketing alternatives comparison, business marketing options, marketing agency costs, freelancer vs in-house marketing',
   openGraph: {
     title: 'Marketing Agency vs Freelancer vs In-House | Complete Cost Comparison',
-    description: 'Compare marketing options: agencies ($5K-15K/month), freelancers, AI tools, in-house teams. Find the best fit for your startup budget.',
+    description: 'Compare marketing options: agencies ($5K-15K/month), freelancers, AI tools, in-house teams. Find the best fit for your business budget.',
     type: 'website',
     images: [
       {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Marketing Agency vs Freelancer vs In-House | Complete Cost Comparison',
-    description: 'Compare all marketing options for startups. Find the best fit for your budget and needs.',
+    description: 'Compare all marketing options for growing businesses. Find the best fit for your budget and needs.',
     images: ['/images/competitive-analysis-og.jpg'],
   },
   alternates: {
@@ -41,13 +41,13 @@ export default function CompetitiveAnalysisPage() {
       <StructuredData 
         pageType="article"
         title="Marketing Agency vs Freelancer vs In-House Comparison"
-        description="Compare marketing options: agencies ($5K-15K/month), freelancers, AI tools, in-house teams. Find the best fit for your startup budget and needs."
+        description="Compare marketing options: agencies ($5K-15K/month), freelancers, AI tools, in-house teams. Find the best fit for your business budget and needs."
         slug="/competitive-analysis"
         additionalSchemas={[
           {
             '@type': 'ComparisonStudy',
-            name: 'Startup Marketing Options Comparison',
-            description: 'Comprehensive comparison of marketing alternatives for startup founders',
+            name: 'Business Marketing Options Comparison',
+            description: 'Comprehensive comparison of marketing alternatives for growing businesses',
             itemsBeingCompared: [
               {
                 '@type': 'Service',
@@ -93,10 +93,10 @@ export default function CompetitiveAnalysisPage() {
               </div>
               
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                Agency vs Freelancer vs In-House: What's Best for Your Startup?
+                Agency vs Freelancer vs In-House: What's Best for Your Growing Business?
               </h1>
               <p className="text-xl text-gray-600 mb-12">
-                Complete cost and performance comparison of all marketing options available to startup founders. Find the approach that fits your budget, timeline, and growth goals.
+                Complete cost and performance comparison of all marketing options available to growing businesses. Find the approach that fits your budget, timeline, and growth goals.
               </p>
               
               {/* Quick Decision Matrix */}
@@ -151,16 +151,16 @@ export default function CompetitiveAnalysisPage() {
           </div>
         </section>
 
-        {/* The Reality for Startups */}
+        {/* The Reality for Growing Businesses */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  The Reality Every Startup Founder Faces
+                  The Reality Every Growing Business Faces
                 </h2>
                 <p className="text-xl text-gray-600">
-                  Why traditional marketing options often don't work for early-stage startups
+                  Why traditional marketing options often don't work for growing businesses
                 </p>
               </div>
 
@@ -221,8 +221,8 @@ export default function CompetitiveAnalysisPage() {
               <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-xl p-8 text-center">
                 <h3 className="text-2xl font-bold mb-4">The Gap in the Market</h3>
                 <p className="text-lg opacity-90">
-                  There's a massive gap between what startup founders need and what's available in the market. 
-                  Professional creative strategy exists, but it's locked behind agency minimums that most startups can't afford.
+                  There's a massive gap between what growing businesses need and what's available in the market. 
+                  Professional creative strategy exists, but it's locked behind agency minimums that many businesses can't afford.
                 </p>
               </div>
             </div>
@@ -238,7 +238,7 @@ export default function CompetitiveAnalysisPage() {
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  How to Choose the Right Option for Your Startup
+                  How to Choose the Right Option for Your Growing Business
                 </h2>
                 <p className="text-xl text-gray-600">
                   Use this framework to evaluate which approach fits your specific situation
@@ -330,10 +330,10 @@ export default function CompetitiveAnalysisPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Why Weekly Templates Are Perfect for Most Startups
+                Why Weekly Templates Are Perfect for Most Growing Businesses
               </h2>
               <p className="text-xl text-gray-600 mb-12">
-                The sweet spot between professional strategy and startup constraints
+                The sweet spot between professional strategy and business growth constraints
               </p>
               
               <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -354,7 +354,7 @@ export default function CompetitiveAnalysisPage() {
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 mr-3 flex-shrink-0" />
-                      <span>Startup pricing: $5-99/week vs $5K-15K/month</span>
+                      <span>Growth-focused pricing: $5-99/week vs $5K-15K/month</span>
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 mr-3 flex-shrink-0" />
@@ -393,7 +393,7 @@ export default function CompetitiveAnalysisPage() {
               <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-xl p-8">
                 <h3 className="text-2xl font-bold mb-4">The Bottom Line</h3>
                 <p className="text-lg opacity-90 mb-6">
-                  Weekly templates bridge the gap between expensive agencies and DIY struggles. You get professional creative strategy at startup pricing with the flexibility to scale up or down based on your needs.
+                  Weekly templates bridge the gap between expensive agencies and DIY struggles. You get professional creative strategy at growth-focused pricing with the flexibility to scale up or down based on your needs.
                 </p>
                 <Link
                   href="/#service-tiers"
@@ -415,7 +415,7 @@ export default function CompetitiveAnalysisPage() {
                 Still Not Sure Which Option Is Right?
               </h2>
               <p className="text-xl text-gray-600 mb-8">
-                Start with our free templates to experience our strategic approach, then decide if weekly delivery makes sense for your startup.
+                Start with our free templates to experience our strategic approach, then decide if weekly delivery makes sense for your growing business.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

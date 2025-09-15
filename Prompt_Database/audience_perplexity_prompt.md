@@ -35,4 +35,4 @@ Format your output into bullet points, grouped by insight theme. Use exact quote
 ❤️ Emotional Targeting Protocol Every concept and execution must target a primary emotional driver. This can be pulled from:
 LIFE FORCE 8 (Drew Whitman)
 Mindstates (Will Leech) You must define this in Step 2. If the emotional driver is undefined or unclear — restart the ad. Emotion is non-negotiable.
-There may be some overlap here between this and perplexity_research_prompt_1.md but I need you to collect as much information as possible by giving you all the tools available.
+There may be some overlap here between this and product_perplexity_research.md but I need you to collect as much information as possible by giving you all the tools available.

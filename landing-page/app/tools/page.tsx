@@ -9,12 +9,12 @@ import { Calculator, Target, Zap, BarChart3, ArrowRight, Lightbulb } from 'lucid
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Free Startup Marketing Tools | ROI Calculator, Creative Assessment & Hook Generator | APSICS Media',
-  description: 'Free tools for startup founders: ad ROI calculator, creative benchmark assessment, hook generator. Optimize your marketing budget and improve campaign performance.',
-  keywords: 'ad ROI calculator, creative benchmark tool, startup marketing tools, hook generator, marketing budget calculator, creative assessment',
+  title: 'Free Revenue Optimization Tools | ROI Calculator, Creative Assessment & Hook Generator | APSICS Media',
+  description: 'Free tools for business growth: ad ROI calculator, creative benchmark assessment, hook generator. Optimize your marketing budget and boost revenue performance.',
+  keywords: 'ad ROI calculator, creative benchmark tool, revenue optimization tools, hook generator, marketing budget calculator, creative assessment, performance marketing tools',
   openGraph: {
-    title: 'Free Startup Marketing Tools | ROI Calculator & Creative Assessment',
-    description: 'Free tools for startup founders: ad ROI calculator, creative benchmark assessment, hook generator. Optimize your marketing budget.',
+    title: 'Free Revenue Optimization Tools | ROI Calculator & Creative Assessment',
+    description: 'Free tools for business growth: ad ROI calculator, creative benchmark assessment, hook generator. Optimize your marketing budget and boost revenue.',
     type: 'website',
     images: [
       {

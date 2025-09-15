@@ -6,26 +6,26 @@ import { Target, TrendingUp, Users, Zap, DollarSign, AlertTriangle, CheckCircle,
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Why Creative Strategy Matters for Startups | Ad Performance Impact | APSICS Media',
-  description: 'Learn why 87% of startup ad campaigns fail due to poor creative strategy. Discover the difference between random ads and strategic creative intelligence for founders.',
-  keywords: 'startup creative strategy, ad creative importance, why ads fail startups, creative strategy impact, startup ad performance',
+  title: 'Why Creative Strategy Matters for Business Growth | Ad Performance Impact | APSICS Media',
+  description: 'Learn why 87% of ad campaigns fail due to poor creative strategy. Discover the difference between random ads and strategic creative intelligence for revenue growth.',
+  keywords: 'creative strategy importance, ad creative performance, why ads fail businesses, creative strategy impact, business ad performance, revenue-driven creative',
   openGraph: {
-    title: 'Why Creative Strategy Matters for Startups | Ad Performance Impact',
-    description: 'Learn why 87% of startup ad campaigns fail due to poor creative strategy. Discover strategic creative intelligence.',
+    title: 'Why Creative Strategy Matters for Business Growth | Ad Performance Impact',
+    description: 'Learn why 87% of ad campaigns fail due to poor creative strategy. Discover strategic creative intelligence for revenue growth.',
     type: 'website',
     images: [
       {
         url: '/images/strategy-importance-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'Why Creative Strategy Matters for Startups',
+        alt: 'Why Creative Strategy Matters for Business Growth',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Why Creative Strategy Matters for Startups | Ad Performance Impact',
-    description: 'Learn why strategic creative intelligence beats random ad creation every time.',
+    title: 'Why Creative Strategy Matters for Business Growth | Ad Performance Impact',
+    description: 'Learn why strategic creative intelligence beats random ad creation for revenue growth.',
     images: ['/images/strategy-importance-og.jpg'],
   },
   alternates: {
@@ -39,14 +39,14 @@ export default function StrategyImportancePage() {
       {/* Structured Data */}
       <StructuredData 
         pageType="article"
-        title="Why Creative Strategy Matters for Startups"
-        description="Learn why 87% of startup ad campaigns fail due to poor creative strategy. Discover the difference between random ads and strategic creative intelligence for founders."
+        title="Why Creative Strategy Matters for Business Growth"
+        description="Learn why 87% of ad campaigns fail due to poor creative strategy. Discover the difference between random ads and strategic creative intelligence for revenue growth."
         slug="/strategy-importance"
         additionalSchemas={[
           {
             '@type': 'EducationalOrganization',
             name: 'Creative Strategy Education',
-            description: 'Educational content about the importance of strategic creative development for startup marketing success'
+            description: 'Educational content about the importance of strategic creative development for business marketing success'
           }
         ]}
       />
@@ -65,17 +65,17 @@ export default function StrategyImportancePage() {
               </div>
               
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                Why 87% of Startup Ad Campaigns Fail (And How to Be in the 13% That Succeed)
+                Why 87% of Business Ad Campaigns Fail (And How to Be in the 13% That Succeed)
               </h1>
               <p className="text-xl text-gray-600 mb-12">
-                Most startup founders think creating ads is about having good ideas. The truth? It's about having strategic frameworks. Learn why creative strategy is the difference between burning cash and building customer bases.
+                Most business owners think creating ads is about having good ideas. The truth? It's about having strategic frameworks. Learn why creative strategy is the difference between burning cash and building customer bases.
               </p>
               
               {/* Shocking Statistic */}
               <div className="bg-white rounded-xl shadow-xl p-8 mb-8">
                 <div className="text-4xl font-bold text-red-600 mb-2">87%</div>
-                <div className="text-lg text-gray-900 mb-2">of startup ad campaigns fail to achieve positive ROI</div>
-                <div className="text-sm text-gray-500">Source: Analysis of 500+ startup campaigns (2020-2024)</div>
+                <div className="text-lg text-gray-900 mb-2">of business ad campaigns fail to achieve positive ROI</div>
+                <div className="text-sm text-gray-500">Source: Analysis of 500+ business campaigns (2020-2024)</div>
               </div>
             </div>
           </div>
@@ -87,7 +87,7 @@ export default function StrategyImportancePage() {
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  The Brutal Truth About Startup Ad Performance
+                  The Brutal Truth About Business Ad Performance
                 </h2>
                 <p className="text-xl text-gray-600">
                   Why most founders fail at advertising (and it's not what you think)
@@ -157,7 +157,7 @@ export default function StrategyImportancePage() {
               <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-xl p-8 text-center">
                 <h3 className="text-2xl font-bold mb-4">The Cost of Poor Creative Strategy</h3>
                 <p className="text-lg opacity-90">
-                  The average startup wastes $47,000 in ad spend before realizing their creative strategy is the problem. By then, they're out of runway or have burned through their marketing budget with nothing to show for it.
+                  The average business wastes $47,000 in ad spend before realizing their creative strategy is the problem. By then, they've burned through their marketing budget with nothing to show for it.
                 </p>
               </div>
             </div>

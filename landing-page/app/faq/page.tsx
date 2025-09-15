@@ -56,7 +56,7 @@ export default function FAQPage() {
         },
         {
           question: "How quickly can I launch my first campaign?",
-          answer: "Most founders launch their first campaign within 3-5 days of receiving templates. Monday: receive templates, Tuesday: customize content, Wednesday: create visuals, Thursday: set up campaigns, Friday: launch and test. Total time investment: 5-9 hours spread across the week."
+          answer: "Most business owners launch their first campaign within 3-5 days of receiving templates. Monday: receive templates, Tuesday: customize content, Wednesday: create visuals, Thursday: set up campaigns, Friday: launch and test. Total time investment: 5-9 hours spread across the week."
         },
         {
           question: "What if I don't have design or video skills?",
@@ -136,7 +136,7 @@ export default function FAQPage() {
         },
         {
           question: "What kind of results should I expect?",
-          answer: "Results vary by industry, implementation quality, and market conditions. Our systematic approach typically achieves 3.2x higher conversion rates than random creative attempts. Most founders see positive ROI within 30 days when following our complete methodology."
+          answer: "Results vary by industry, implementation quality, and market conditions. Our systematic approach typically achieves 3.2x higher conversion rates than random creative attempts. Most business owners see positive ROI within 30 days when following our complete methodology."
         },
         {
           question: "How do you stay current with platform changes and trends?",
@@ -221,7 +221,7 @@ export default function FAQPage() {
                 Everything You Need to Know About Weekly Ad Templates
               </h1>
               <p className="text-xl text-gray-600 mb-12">
-                Common questions from startup founders about our creative intelligence service. Can't find your answer? Contact us directly.
+                Common questions from business owners about our creative intelligence service. Can't find your answer? Contact us directly.
               </p>
               
               {/* Quick Access */}
@@ -328,7 +328,7 @@ export default function FAQPage() {
               <div className="bg-white rounded-xl p-8 shadow-lg">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Ready to Get Started?</h3>
                 <p className="text-gray-600 mb-8">
-                  Most founders start with our free templates, then upgrade to weekly delivery when they see the quality and strategic depth.
+                  Most business owners start with our free templates, then upgrade to weekly delivery when they see the quality and strategic depth.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

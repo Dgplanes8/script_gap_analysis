@@ -55,17 +55,17 @@ export default function RevenueGrowthBenchmarkingPage() {
       <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100 pt-16 lg:pt-20">
 
         {/* Hero Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full text-sm font-semibold mb-6">
-              📊 Industry Benchmark Analysis
+        <section className="relative pt-24 pb-20 px-6 overflow-hidden bg-white">
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <div className="inline-flex items-center gap-3 px-4 py-2 bg-gray-50 rounded-full border border-gray-200 mb-6">
+              <span className="text-sm font-medium text-gray-700">📊 Industry Benchmark Analysis</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight mb-6">
               Subscription Revenue Growth:
               <br />
-              <span className="text-emerald-600">Creative Strategy Benchmarking Tool</span>
+              <span className="text-[#126DFB]">Creative Strategy Benchmarking Tool</span>
             </h1>
-            <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
               Compare your creative strategy performance against industry leaders and high-growth 
               subscription businesses. Get personalized insights and recommendations to accelerate 
               your revenue growth using proven enterprise creative intelligence methodologies.
@@ -90,13 +90,13 @@ export default function RevenueGrowthBenchmarkingPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="/free-hooks"
-                className="px-8 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
+                className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
               >
                 Get 10 Free Growth Hooks
               </a>
               <a
                 href="/#service-tiers"
-                className="px-8 py-3 border-2 border-emerald-600 text-emerald-600 rounded-lg font-semibold hover:bg-emerald-50 transition-colors"
+                className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
               >
                 See Weekly Plans
               </a>
@@ -105,14 +105,14 @@ export default function RevenueGrowthBenchmarkingPage() {
         </section>
 
         {/* Benchmark Categories */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+        <section className="py-20 bg-[#F8F8F8] relative">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
               Creative Strategy Performance Categories
             </h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center p-6 bg-gray-50 rounded-lg">
+              <div className="text-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">🎯</span>
                 </div>
@@ -337,7 +337,7 @@ export default function RevenueGrowthBenchmarkingPage() {
               </a>
               <a
                 href="/#service-tiers"
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-emerald-600 transition-colors"
+                className="bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
               >
                 See Weekly Plans
               </a>
