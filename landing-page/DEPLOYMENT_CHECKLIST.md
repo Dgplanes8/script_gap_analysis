@@ -1,57 +1,44 @@
-# Monday Morning Marketer - Deployment Checklist
+# Apsics Media Website - Deployment Checklist
 
-## Pre-Deployment Setup ✅
+## ✅ Fixed Issues (Ready for Launch)
 
-### GitHub Repository
-- [x] Landing page code committed to repository
-- [x] Build passes locally (`npm run build`)
-- [x] All dependencies installed
-- [x] Vercel configuration files present
+### Critical Issues Resolved:
+- [x] **OG Image**: Created `/public/images/og-image.jpg` from existing creative intelligence image
+- [x] **ConvertKit Integration**: Fixed environment variable names (`CONVERTKIT_API_KEY`, `CONVERTKIT_FORM_ID`)
+- [x] **Production URL**: Updated to `https://apsicsmedia.com`
+- [x] **Build Process**: Successfully builds with no errors
+- [x] **Accessibility**: Fixed missing alt attributes on icons
 
-### Vercel Project Configuration
-- [ ] Repository connected to Vercel
-- [ ] Root directory set to `landing-page`
-- [ ] Framework preset: Next.js
-- [ ] Build command: `npm run build`
-- [ ] Install command: `npm install`
+### Technical Health Check:
+- [x] TypeScript compilation: ✅ No errors
+- [x] Build process: ✅ Builds successfully (93 static pages generated)
+- [x] Linting: ✅ Only minor non-blocking warnings remain
+- [x] Environment variables: ✅ Properly configured
 
-## Service Integrations Setup
+## 🚀 Pre-Deployment Steps
 
-### 1. Resend Email Service
-- [ ] Account created at resend.com
-- [ ] API key generated (starts with `re_`)
-- [ ] Domain verification completed (if using custom domain)
-- [ ] Audience created (optional)
-- [ ] Environment variables added to Vercel:
-  - [ ] `RESEND_API_KEY`
-  - [ ] `RESEND_AUDIENCE_ID` (optional)
-  - [ ] `NEXT_PUBLIC_FROM_EMAIL`
+### 1. Environment Variables (Production)
+Update these values in your production environment (Vercel/Netlify):
+```bash
+NEXT_PUBLIC_APP_URL=https://apsicsmedia.com
+CONVERTKIT_API_KEY=NkesTeJgstaSffN8LFLRwg  # ✅ Already configured
+CONVERTKIT_FORM_ID=8372309                  # ✅ Already configured
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-WSBL2SN4MH # ✅ Already configured
+```
 
-### 2. Airtable Database
-- [ ] Airtable account created
-- [ ] Base "Monday Morning Marketer" created
-- [ ] Table "Get Featured Submissions" configured with proper fields
-- [ ] Personal access token created with proper scopes
-- [ ] Environment variables added to Vercel:
-  - [ ] `AIRTABLE_API_KEY`
-  - [ ] `AIRTABLE_BASE_ID`
-  - [ ] `AIRTABLE_TABLE_NAME`
+### 2. Domain Configuration
+- [ ] Set up DNS to point to hosting provider
+- [ ] Configure SSL certificate
+- [x] Test www to non-www redirect (configured in next.config.js)
 
-### 3. Calendly Integration
-- [ ] Calendly account set up
-- [ ] Event types configured
-- [ ] Environment variable added to Vercel:
-  - [ ] `NEXT_PUBLIC_CALENDLY_URL`
-
-### 4. Google Analytics (Optional)
-- [ ] GA4 property created
-- [ ] Measurement ID obtained
-- [ ] Environment variable added to Vercel:
-  - [ ] `NEXT_PUBLIC_GA_MEASUREMENT_ID`
-
-### 5. Core Application Settings
-- [ ] Environment variable added to Vercel:
-  - [ ] `NEXT_PUBLIC_APP_URL` (set to your Vercel URL)
+### 3. Final Testing
+Before going live, test:
+- [ ] Email signup forms work correctly
+- [ ] ConvertKit integration receives subscribers
+- [ ] All internal links work
+- [ ] Mobile responsiveness
+- [ ] Page load speeds
+- [ ] Google Analytics tracking
 
 ## Deployment Process
 
