@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { CheckCircle, Star, Clock } from 'lucide-react';
+import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 export function FounderSection() {
+  const { openModal } = useFreeWeek();
   return (
     <section className="py-20 bg-white relative">
       <div className="max-w-4xl mx-auto px-6">
@@ -83,6 +85,12 @@ export function FounderSection() {
               {/* Right: CTA */}
               <div className="text-center">
                 <motion.button
+                  onClick={() => openModal({
+                    source: 'founder-cta',
+                    title: 'Claim Founding Member Access',
+                    subtitle: 'Lock in the Competitive Edge package for $20 for the year and get direct founder access.',
+                    tier: 'Founding Member'
+                  })}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="bg-white text-[#126DFB] font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:bg-gray-50 transition-all duration-200"

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Clock, Award, Zap } from 'lucide-react';
+import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -70,6 +71,7 @@ function BenefitCard({ icon, title, description, bulletPoints }: BenefitCardProp
 }
 
 export function KeyBenefitsSection() {
+  const { openModal } = useFreeWeek();
   const benefits = [
     {
       icon: <Clock className="w-8 h-8" />,
@@ -162,6 +164,11 @@ export function KeyBenefitsSection() {
             Ready to skip the guesswork and start with concepts that already work?
           </p>
           <motion.button
+            onClick={() => openModal({
+              source: 'benefits-cta',
+              title: 'Start Your FREE Week Trial',
+              subtitle: 'Get trending creative concepts and custom scripts delivered every Monday'
+            })}
             whileHover={{ 
               scale: 1.02, 
               boxShadow: "0 12px 30px rgba(18, 109, 251, 0.4)" 

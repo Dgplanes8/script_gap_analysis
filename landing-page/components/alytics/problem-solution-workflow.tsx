@@ -2,11 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { ProcessAccordion } from './process-accordion';
-
-
+import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 export function ProblemSolutionWorkflow() {
-
+  const { openModal } = useFreeWeek();
+  
   return (
     <section id="how-it-works" className="py-20 bg-[#F8F8F8] relative">
       <div className="max-w-4xl mx-auto px-6">
@@ -62,6 +62,11 @@ export function ProblemSolutionWorkflow() {
           className="text-center mt-20"
         >
           <motion.button
+            onClick={() => openModal({
+              source: 'workflow-cta',
+              title: 'Start Your FREE Week Trial',
+              subtitle: 'Get trending creative concepts and custom scripts delivered every Monday'
+            })}
             whileHover={{ 
               scale: 1.02, 
               boxShadow: "0 12px 30px rgba(18, 109, 251, 0.4)" 

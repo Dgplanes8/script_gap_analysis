@@ -1,212 +1,120 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ChevronDown } from 'lucide-react';
-import { useConsultation } from '@/components/contexts/consultation-context';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { useFreeWeek } from '@/components/contexts/free-week-context';
 
-interface HeaderProps {
-  onOpenApplication?: (variant: 'pilot' | 'full') => void;
+const NAV_LINKS = [
+  { label: 'Overview', href: '/#how-it-works' },
+  { label: 'Plans & Pricing', href: '/#pricing' },
+];
+
+function HeaderLink({ label, href, onNavigate }: { label: string; href: string; onNavigate: () => void }) {
+  return (
+    <Link
+      href={href}
+      onClick={onNavigate}
+      className="text-sm font-medium text-gray-700 transition-colors hover:text-[#126DFB]"
+    >
+      {label}
+    </Link>
+  );
 }
 
-export function Header({ onOpenApplication }: HeaderProps) {
-  const { openModal } = useConsultation();
+export function Header() {
   const { openModal: openFreeWeekModal } = useFreeWeek();
-
-  const openConsultation = () => {
-    openModal();
-  };
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
-    }
+  const handleFreeWeek = (source: string) => {
+    openFreeWeekModal({
+      title: 'Start Your FREE Week Trial',
+      subtitle: 'Get trending creative concepts and custom scripts delivered every Monday',
+      source,
+    });
   };
 
-  const handleNavigation = (target: string) => {
-    setIsOpen(false);
-    
-    if (target === 'about') {
-      // Always navigate to dedicated About page
-      window.location.href = '/about';
-    } else if (target === 'hooks-offer') {
-      // Always navigate to dedicated Free Hooks page
-      window.location.href = '/free-hooks';
-    }
-  };
+  const closeMobileMenu = () => setIsOpen(false);
+
+  const headerStyles = isScrolled
+    ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100'
+    : 'bg-white/85 backdrop-blur-sm border-b border-transparent';
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100' 
-        : 'bg-white/80 backdrop-blur-sm'
-    }`}>
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="bg-gradient-to-r from-[#126DFB] to-[#0F5AD6] text-white font-bold text-xl sm:text-2xl px-3 py-2 rounded-lg shadow-lg">
-              AM
-            </div>
-            <span className="font-bold text-lg sm:text-xl text-gray-900 hidden sm:block">
-              Apsics Media
-            </span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            <button
-              onClick={() => handleNavigation('about')}
-              className="text-gray-700 hover:text-[#126DFB] font-medium transition-colors"
-            >
-              About
-            </button>
-            <button
-              onClick={() => handleNavigation('hooks-offer')}
-              className="text-gray-700 hover:text-[#126DFB] font-medium transition-colors"
-            >
-              Free Templates
-            </button>
-            <div className="relative group">
-              <button className="flex items-center text-gray-700 hover:text-[#126DFB] font-medium transition-colors">
-                Resources
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
-              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <div className="py-2">
-                  <Link
-                    href="/cac-reduction-guide"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-[#126DFB] transition-colors"
-                  >
-                    CAC Reduction Guide
-                  </Link>
-                  <Link
-                    href="/revenue-growth-benchmarking"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-[#126DFB] transition-colors"
-                  >
-                    Revenue Benchmarking
-                  </Link>
-                  <Link
-                    href="/weekly-creative-intelligence-playbook"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-[#126DFB] transition-colors"
-                  >
-                    Creative Intelligence Playbook
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </nav>
-
-          {/* Desktop CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-3">
-            <button
-              onClick={() => openFreeWeekModal({
-                title: "Start Your FREE Week Trial",
-                subtitle: "Get trending creative concepts and custom scripts delivered every Monday",
-                source: "header-cta"
-              })}
-              className="btn-primary"
-            >
-              Start Free Week Trial
-            </button>
-            <button
-              onClick={() => window.location.href = '/free-hooks'}
-              className="btn-secondary"
-            >
-              Get Free Templates
-            </button>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${headerStyles}`}>
+      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-6">
+        {/* Brand */}
+        <Link href="/" className="flex items-center gap-3">
+          <div className="rounded-xl bg-gradient-to-br from-[#126DFB] to-[#0F5AD6] px-3 py-2 text-lg font-semibold text-white shadow-lg sm:text-xl">
+            AM
           </div>
+          <div className="hidden flex-col sm:flex">
+            <span className="text-base font-semibold text-gray-900">APSICS Media</span>
+            <span className="text-xs font-medium text-gray-500">Creative intelligence that converts</span>
+          </div>
+          <span className="sm:hidden text-sm font-semibold text-gray-900">APSICS Media</span>
+        </Link>
 
-          {/* Mobile Menu Button */}
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-6 lg:flex">
+          {NAV_LINKS.map((link) => (
+            <HeaderLink key={link.label} label={link.label} href={link.href} onNavigate={closeMobileMenu} />
+          ))}
+        </nav>
+
+        {/* Desktop CTA */}
+        <div className="hidden lg:flex items-center">
           <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-3 text-gray-700 hover:text-[#126DFB] transition-colors bg-white border border-gray-300 rounded-lg min-w-[44px] min-h-[44px] flex items-center justify-center"
+            onClick={() => handleFreeWeek('header-cta')}
+            className="inline-flex items-center gap-2 rounded-xl bg-[#126DFB] px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#0F5AD6]"
           >
-            <span className="text-sm font-medium">{isOpen ? 'Close' : ''}</span>
+            Start Free Week Trial
+            <ArrowRight className="h-4 w-4" />
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="lg:hidden border-t border-gray-100 py-6 bg-white/95 backdrop-blur-md shadow-lg">
-            <nav className="space-y-6">
-              <button
-                onClick={() => handleNavigation('about')}
-                className="block w-full text-left text-gray-700 hover:text-[#126DFB] font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
-              >
-                About
-              </button>
-              <button
-                onClick={() => handleNavigation('hooks-offer')}
-                className="block w-full text-left text-gray-700 hover:text-[#126DFB] font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
-              >
-                Free Templates
-              </button>
-              <Link
-                href="/cac-reduction-guide"
-                className="block text-gray-700 hover:text-[#126DFB] font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
-                onClick={() => setIsOpen(false)}
-              >
-                CAC Reduction Guide
-              </Link>
-              <Link
-                href="/revenue-growth-benchmarking"
-                className="block text-gray-700 hover:text-[#126DFB] font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
-                onClick={() => setIsOpen(false)}
-              >
-                Benchmarking Tool
-              </Link>
-              <Link
-                href="/saas-creative-strategy-roi-calculator"
-                className="block text-gray-700 hover:text-[#126DFB] font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
-                onClick={() => setIsOpen(false)}
-              >
-                ROI Calculator
-              </Link>
-              
-              {/* Mobile CTA Buttons */}
-              <div className="pt-6 space-y-4 border-t border-gray-100">
-                <button
-                  onClick={() => {
-                    openFreeWeekModal({
-                      title: "Start Your FREE Week Trial",
-                      subtitle: "Get trending creative concepts and custom scripts delivered every Monday",
-                      source: "header-mobile-cta"
-                    });
-                    setIsOpen(false);
-                  }}
-                  className="btn-primary w-full text-lg"
-                >
-                  Start Free Week Trial
-                </button>
-                <button
-                  onClick={() => {
-                    window.location.href = '/free-hooks';
-                    setIsOpen(false);
-                  }}
-                  className="btn-secondary w-full text-lg"
-                >
-                  Get Free Templates
-                </button>
-              </div>
-            </nav>
-          </div>
-        )}
+        {/* Mobile Menu Toggle */}
+        <button
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:text-[#126DFB] lg:hidden"
+          aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
+        >
+          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </div>
+
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <div className="border-t border-gray-100 bg-white/95 backdrop-blur-md shadow-lg lg:hidden">
+          <nav className="space-y-3 px-4 pb-6 pt-4">
+            {NAV_LINKS.map((link) => (
+              <HeaderLink key={link.label} label={link.label} href={link.href} onNavigate={closeMobileMenu} />
+            ))}
+            <div className="pt-4">
+              <button
+                onClick={() => {
+                  handleFreeWeek('header-mobile-cta');
+                  closeMobileMenu();
+                }}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#126DFB] px-5 py-3 text-base font-semibold text-white shadow-lg transition-colors hover:bg-[#0F5AD6]"
+              >
+                Start Free Week Trial
+                <ArrowRight className="h-5 w-5" />
+              </button>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
