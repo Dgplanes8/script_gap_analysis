@@ -7,7 +7,8 @@ interface EmailCaptureFormProps {
   source?: string;
   tier?: string;
   variant?: 'hero' | 'cta' | 'inline';
-  placeholder?: string; // kept for API compatibility
+  placeholder?: string; // legacy compatibility, not used directly
+  onSubmit?: () => void | Promise<void>;
 }
 
 export function EmailCaptureForm({
@@ -15,6 +16,7 @@ export function EmailCaptureForm({
   source = 'email-capture',
   tier,
   variant = 'inline',
+  onSubmit,
 }: EmailCaptureFormProps) {
   const variantClasses = {
     hero: 'w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold text-base sm:text-lg px-6 sm:px-8 py-3 rounded-xl transition-colors shadow-lg',
@@ -28,6 +30,11 @@ export function EmailCaptureForm({
       source={source}
       tier={tier}
       buttonClassName={variantClasses[variant]}
+      onSuccess={() => {
+        if (onSubmit) {
+          Promise.resolve(onSubmit()).catch((err) => console.error('EmailCaptureForm onSubmit error', err));
+        }
+      }}
     />
   );
 }
