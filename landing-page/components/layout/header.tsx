@@ -75,12 +75,6 @@ export function Header({ onOpenApplication }: HeaderProps) {
             >
               About
             </button>
-            <Link
-              href="/blog"
-              className="text-gray-700 hover:text-[#126DFB] font-medium transition-colors"
-            >
-              Blog & Guides
-            </Link>
             <button
               onClick={() => handleNavigation('hooks-offer')}
               className="text-gray-700 hover:text-[#126DFB] font-medium transition-colors"
@@ -94,12 +88,6 @@ export function Header({ onOpenApplication }: HeaderProps) {
               </button>
               <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="py-2">
-                  <Link
-                    href="/tools"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-[#126DFB] transition-colors"
-                  >
-                    Strategy Calculators & Tools
-                  </Link>
                   <Link
                     href="/cac-reduction-guide"
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-[#126DFB] transition-colors"
@@ -162,13 +150,6 @@ export function Header({ onOpenApplication }: HeaderProps) {
               >
                 About
               </button>
-              <Link
-                href="/blog"
-                className="block text-gray-700 hover:text-[#126DFB] font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"
-                onClick={() => setIsOpen(false)}
-              >
-                Blog & Guides
-              </Link>
               <button
                 onClick={() => handleNavigation('hooks-offer')}
                 className="block w-full text-left text-gray-700 hover:text-[#126DFB] font-medium transition-colors py-3 px-2 rounded-lg hover:bg-gray-50 min-h-[44px] flex items-center"

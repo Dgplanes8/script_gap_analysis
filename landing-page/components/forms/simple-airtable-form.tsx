@@ -95,9 +95,9 @@ export function SimpleAirtableForm({
   }
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg border-2 border-orange-200">
+    <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-blue-100">
       <div className="text-center mb-4">
-        <div className="inline-flex items-center bg-gradient-to-r from-orange-600 to-red-600 text-white px-3 py-1 rounded-full text-xs font-semibold mb-3">
+        <div className="inline-flex items-center bg-gradient-to-r from-[#126DFB] to-[#0F5AD6] text-white px-3 py-1 rounded-full text-xs font-semibold mb-3">
           <Mail className="h-3 w-3 mr-1" />
           FREE WEEK TRIAL
         </div>
@@ -116,7 +116,7 @@ export function SimpleAirtableForm({
           <input
             type="text"
             placeholder="Full name"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#126DFB] focus:border-[#126DFB] text-sm"
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
             onFocus={() => trackFormStart('weekly_trial', tier)}
@@ -125,7 +125,7 @@ export function SimpleAirtableForm({
           <input
             type="email"
             placeholder="Work email"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#126DFB] focus:border-[#126DFB] text-sm"
             value={formData.email}
             onChange={(e) => setFormData({...formData, email: e.target.value})}
             required
@@ -135,19 +135,18 @@ export function SimpleAirtableForm({
           <input
             type="text"
             placeholder="Company name"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#126DFB] focus:border-[#126DFB] text-sm"
             value={formData.company}
             onChange={(e) => setFormData({...formData, company: e.target.value})}
             required
           />
           <select
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#126DFB] focus:border-[#126DFB] text-sm"
             value={formData.packageInterest}
             onChange={(e) => setFormData({...formData, packageInterest: e.target.value})}
             required
           >
             <option value="">Package Interest</option>
-            <option value="Creative Starter">Creative Starter</option>
             <option value="Trend Tracker">Trend Tracker</option>
             <option value="Competitive Edge">Competitive Edge</option>
             <option value="Market Intelligence">Market Intelligence</option>
@@ -157,7 +156,7 @@ export function SimpleAirtableForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
+          className="w-full bg-gradient-to-r from-[#126DFB] to-[#0F5AD6] hover:from-[#0F5AD6] hover:to-[#126DFB] text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
         >
           {isSubmitting ? (
             <>

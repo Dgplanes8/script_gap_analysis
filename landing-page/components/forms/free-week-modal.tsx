@@ -84,7 +84,7 @@ export function FreeWeekModal({
           <div className="px-8 pb-8">
             <SimpleAirtableForm
               buttonText="Start My FREE Week Trial"
-              buttonClassName="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
+              buttonClassName="w-full bg-gradient-to-r from-[#126DFB] to-[#0F5AD6] hover:from-[#0F5AD6] hover:to-[#126DFB] text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
               source={source}
               tier={tier}
               onSuccess={() => {

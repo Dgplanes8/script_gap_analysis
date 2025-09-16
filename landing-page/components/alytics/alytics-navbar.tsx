@@ -79,35 +79,6 @@ export function AlyticsNavbar() {
               />
             </motion.a>
             
-            <Link
-              href="/blog"
-              className="text-gray-600 hover:text-gray-900 transition-colors text-base font-medium relative group"
-            >
-              <motion.div
-                whileHover={{ y: -1 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                Blog & Guides
-                <motion.div
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"
-                />
-              </motion.div>
-            </Link>
-            
-            <Link
-              href="/tools"
-              className="text-gray-600 hover:text-gray-900 transition-colors text-base font-medium relative group"
-            >
-              <motion.div
-                whileHover={{ y: -1 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                Tools
-                <motion.div
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"
-                />
-              </motion.div>
-            </Link>
           </motion.div>
 
           {/* CTA Button */}
