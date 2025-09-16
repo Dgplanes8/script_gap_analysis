@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { label: 'Plans & Pricing', href: '/#pricing' },
 ];
 
-const navItemClass = 'text-sm font-medium text-gray-700 transition-colors hover:text-brand-600';
+const navItemClass = 'text-sm font-semibold text-gray-700 transition-colors hover:text-brand-600';
 
 export function SecondaryHeader() {
   const { openModal } = useFreeWeek();
@@ -34,19 +34,19 @@ export function SecondaryHeader() {
   const closeMobileMenu = () => setIsMobileOpen(false);
 
   const headerClass = isScrolled
-    ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100'
-    : 'bg-white/85 backdrop-blur-sm border-b border-transparent';
+    ? 'bg-white shadow-lg border-b border-gray-100'
+    : 'bg-white border-b border-transparent';
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${headerClass}`}>
       <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between px-4 sm:h-20 sm:px-6">
         <Link href="/" className="flex items-center gap-3">
-          <div className="rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 px-3 py-2 text-lg font-semibold text-white shadow-lg sm:text-xl">
+          <div className="rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 px-3 py-2 text-base font-semibold text-white shadow-lg sm:text-lg">
             AM
           </div>
           <div className="hidden flex-col sm:flex">
-            <span className="text-base font-semibold text-gray-900">APSICS Media</span>
-            <span className="text-xs font-medium text-gray-500">Weekly creative intelligence</span>
+            <span className="text-lg font-semibold text-gray-900">APSICS Media</span>
+            <span className="text-xs font-medium text-gray-500 tracking-wide">Weekly creative intelligence</span>
           </div>
           <span className="text-sm font-semibold text-gray-900 sm:hidden">APSICS</span>
         </Link>
@@ -59,10 +59,10 @@ export function SecondaryHeader() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center">
+        <div className="hidden items-center lg:flex">
           <button
             onClick={() => triggerFreeWeek('secondary-header-cta')}
-            className="inline-flex items-center gap-2 rounded-xl bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-brand-600"
+            className="inline-flex items-center gap-2 rounded-xl bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-transform hover:-translate-y-0.5 hover:bg-brand-600"
           >
             Start Free Week Trial
             <ArrowRight className="h-4 w-4" />
@@ -79,7 +79,7 @@ export function SecondaryHeader() {
       </div>
 
       {isMobileOpen && (
-        <div className="border-t border-gray-100 bg-white/95 backdrop-blur-md shadow-lg lg:hidden">
+        <div className="border-t border-gray-100 bg-white shadow-lg lg:hidden">
           <nav className="space-y-3 px-4 pb-6 pt-4">
             {NAV_LINKS.map((link) => (
               <Link
@@ -97,7 +97,7 @@ export function SecondaryHeader() {
                   triggerFreeWeek('secondary-header-mobile-cta');
                   closeMobileMenu();
                 }}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-500 px-5 py-3 text-base font-semibold text-white shadow-lg transition-colors hover:bg-brand-600"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-500 px-5 py-3 text-base font-semibold text-white shadow-lg transition-transform hover:-translate-y-0.5 hover:bg-brand-600"
               >
                 Start Free Week Trial
                 <ArrowRight className="h-5 w-5" />
