@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import { TrendingUp, CheckCircle, Calendar } from 'lucide-react';
 import { Hero } from '@/components/layout/hero';
 import { FreeWeekButton } from '@/components/ui/free-week-button';
-import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Thank You - Apsics Media',
