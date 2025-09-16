@@ -29,7 +29,7 @@ export function HeroEnhanced({
   };
 
   const trustIndicators = [
-    { icon: Users, text: "1,200+ startup founders" },
+    { icon: Users, text: "100+ growing businesses" },
     { icon: TrendingUp, text: "Trending content intelligence" },
     { icon: Zap, text: "Custom UGC + paid ad scripts" }
   ];

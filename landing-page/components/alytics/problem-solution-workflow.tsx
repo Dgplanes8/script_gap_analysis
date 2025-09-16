@@ -8,7 +8,7 @@ import { ProcessAccordion } from './process-accordion';
 export function ProblemSolutionWorkflow() {
 
   return (
-    <section className="py-20 bg-[#F8F8F8] relative">
+    <section id="how-it-works" className="py-20 bg-[#F8F8F8] relative">
       <div className="max-w-4xl mx-auto px-6">
         
         {/* Section Header */}

@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import dynamic from 'next/dynamic';
 import { ConsultationProvider } from '@/components/contexts/consultation-context';
+import { FreeWeekProvider } from '@/components/contexts/free-week-context';
 
 // Dynamically import non-critical components
 const Analytics = dynamic(() => import('@/components/analytics').then(mod => ({ default: mod.Analytics })), {
@@ -18,6 +19,11 @@ const SpeedInsights = dynamic(() => import('@vercel/speed-insights/next').then(m
 });
 
 const ConsultationModal = dynamic(() => import('@/components/modals/consultation-modal').then(mod => ({ default: mod.ConsultationModal })), {
+  ssr: false,
+  loading: () => null
+});
+
+const FreeWeekModalWrapper = dynamic(() => import('@/components/forms/free-week-modal-wrapper').then(mod => ({ default: mod.FreeWeekModalWrapper })), {
   ssr: false,
   loading: () => null
 });
@@ -187,14 +193,17 @@ export default function RootLayout({
         
       </head>
       <body className={`${inter.className} ${inter.variable}`}>
-        <ConsultationProvider>
-          {children}
-          <ConsultationModal />
-          <Analytics />
-          <StructuredData pageType="homepage" />
-          <SpeedInsights />
-          {/* <PerformanceDashboard /> */}
-        </ConsultationProvider>
+        <FreeWeekProvider>
+          <ConsultationProvider>
+            {children}
+            <ConsultationModal />
+            <FreeWeekModalWrapper />
+            <Analytics />
+            <StructuredData pageType="homepage" />
+            <SpeedInsights />
+            {/* <PerformanceDashboard /> */}
+          </ConsultationProvider>
+        </FreeWeekProvider>
       </body>
     </html>
   );

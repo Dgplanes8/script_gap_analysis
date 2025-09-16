@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { CheckCircle, Star, Clock, Zap } from 'lucide-react';
+import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -36,9 +37,10 @@ interface PricingTierProps {
   buttonText: string;
   badge?: string;
   yearlyOffer?: boolean;
+  onButtonClick?: () => void;
 }
 
-function PricingTier({ name, price, originalPrice, description, features, popular, buttonText, badge, yearlyOffer }: PricingTierProps) {
+function PricingTier({ name, price, originalPrice, description, features, popular, buttonText, badge, yearlyOffer, onButtonClick }: PricingTierProps) {
   return (
     <motion.div
       variants={cardVariants}
@@ -96,6 +98,7 @@ function PricingTier({ name, price, originalPrice, description, features, popula
       </ul>
 
       <motion.button
+        onClick={onButtonClick}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-200 ${
@@ -111,6 +114,7 @@ function PricingTier({ name, price, originalPrice, description, features, popula
 }
 
 export function SimplePricingSection() {
+  const { openModal } = useFreeWeek();
   const pricingTiers = [
     {
       name: "Trend Tracker",
@@ -156,7 +160,7 @@ export function SimplePricingSection() {
   ];
 
   return (
-    <section className="py-20 bg-[#F8F8F8] relative">
+    <section id="pricing" className="py-20 bg-[#F8F8F8] relative">
       <div className="max-w-5xl mx-auto px-6">
         
         {/* Section Header */}
@@ -221,6 +225,12 @@ export function SimplePricingSection() {
               features={tier.features}
               popular={tier.popular}
               buttonText={tier.buttonText}
+              onButtonClick={() => openModal({
+                title: "Start Your FREE Week Trial",
+                subtitle: `Get ${tier.name} tier: ${tier.description}`,
+                source: `pricing-${tier.name.toLowerCase().replace(/\s+/g, '-')}`,
+                tier: tier.name
+              })}
             />
           ))}
         </motion.div>

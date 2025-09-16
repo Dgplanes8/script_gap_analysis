@@ -78,7 +78,7 @@ export function SocialProofSection() {
   ];
 
   return (
-    <section className="py-20 bg-gray-50 relative">
+    <section id="social-proof" className="py-20 bg-gray-50 relative">
       <div className="max-w-[1200px] mx-auto px-6">
         
         {/* Section Header */}

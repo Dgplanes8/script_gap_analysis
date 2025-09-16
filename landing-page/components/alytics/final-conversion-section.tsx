@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { CheckCircle, Clock, Shield, ArrowRight, Zap } from 'lucide-react';
+import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -27,6 +28,8 @@ const itemVariants = {
 };
 
 export function FinalConversionSection() {
+  const { openModal } = useFreeWeek();
+  
   const riskReversals = [
     {
       icon: <Shield className="w-5 h-5" />,
@@ -101,6 +104,11 @@ export function FinalConversionSection() {
           {/* Main CTA */}
           <motion.div variants={itemVariants} className="mb-8">
             <motion.button
+              onClick={() => openModal({
+                title: "Start Your FREE Week Trial",
+                subtitle: "Get trending creative concepts and custom scripts delivered every Monday",
+                source: "final-conversion-cta"
+              })}
               whileHover={{ 
                 scale: 1.05, 
                 boxShadow: "0 20px 40px rgba(18, 109, 251, 0.4)" 

@@ -143,7 +143,7 @@ export function EmailCaptureForm({
       </div>
       
       <div className="text-sm text-gray-600 text-center bg-gray-50 rounded-lg p-3">
-        <div className="font-medium">Join 1,200+ startup founders getting weekly templates</div>
+        <div className="font-medium">Join 100+ growing businesses getting weekly templates</div>
         <div className="mt-1">Get your 10 Free Templates PDF instantly • Unsubscribe anytime</div>
       </div>
     </form>

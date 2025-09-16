@@ -339,7 +339,7 @@ export function HookGeneratorDemo() {
               <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl p-6 text-white">
                 <h4 className="text-lg font-bold mb-2">Get 10 Proven High-Converting Hooks</h4>
                 <p className="text-gray-100 mb-4">
-                  Start with our Hook Bank PDF featuring 10 battle-tested hooks that reduce CPA by 25%. Join 100+ startups getting weekly creative intelligence.
+                  Start with our Hook Bank PDF featuring 10 battle-tested hooks that reduce CPA by 25%. Join 100+ growing businesses getting weekly creative intelligence.
                 </p>
                 <button 
                   onClick={() => window.location.href = '/free-hooks'}

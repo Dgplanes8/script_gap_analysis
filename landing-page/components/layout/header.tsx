@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import { useConsultation } from '@/components/contexts/consultation-context';
+import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 interface HeaderProps {
   onOpenApplication?: (variant: 'pilot' | 'full') => void;
@@ -11,6 +12,7 @@ interface HeaderProps {
 
 export function Header({ onOpenApplication }: HeaderProps) {
   const { openModal } = useConsultation();
+  const { openModal: openFreeWeekModal } = useFreeWeek();
 
   const openConsultation = () => {
     openModal();
@@ -87,11 +89,17 @@ export function Header({ onOpenApplication }: HeaderProps) {
             </button>
             <div className="relative group">
               <button className="flex items-center text-gray-700 hover:text-[#126DFB] font-medium transition-colors">
-                Services
+                Resources
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
-              <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="py-2">
+                  <Link
+                    href="/tools"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-[#126DFB] transition-colors"
+                  >
+                    Strategy Calculators & Tools
+                  </Link>
                   <Link
                     href="/cac-reduction-guide"
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-[#126DFB] transition-colors"
@@ -102,13 +110,13 @@ export function Header({ onOpenApplication }: HeaderProps) {
                     href="/revenue-growth-benchmarking"
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-[#126DFB] transition-colors"
                   >
-                    Benchmarking Tool
+                    Revenue Benchmarking
                   </Link>
                   <Link
-                    href="/saas-creative-strategy-roi-calculator"
+                    href="/weekly-creative-intelligence-playbook"
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-[#126DFB] transition-colors"
                   >
-                    ROI Calculator
+                    Creative Intelligence Playbook
                   </Link>
                 </div>
               </div>
@@ -118,14 +126,11 @@ export function Header({ onOpenApplication }: HeaderProps) {
           {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-3">
             <button
-              onClick={() => {
-                const serviceSection = document.getElementById('service-tiers');
-                if (serviceSection) {
-                  serviceSection.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                  window.location.href = '/#service-tiers';
-                }
-              }}
+              onClick={() => openFreeWeekModal({
+                title: "Start Your FREE Week Trial",
+                subtitle: "Get trending creative concepts and custom scripts delivered every Monday",
+                source: "header-cta"
+              })}
               className="btn-primary"
             >
               Start Free Week Trial
@@ -196,12 +201,11 @@ export function Header({ onOpenApplication }: HeaderProps) {
               <div className="pt-6 space-y-4 border-t border-gray-100">
                 <button
                   onClick={() => {
-                    const serviceSection = document.getElementById('service-tiers');
-                    if (serviceSection) {
-                      serviceSection.scrollIntoView({ behavior: 'smooth' });
-                    } else {
-                      window.location.href = '/#service-tiers';
-                    }
+                    openFreeWeekModal({
+                      title: "Start Your FREE Week Trial",
+                      subtitle: "Get trending creative concepts and custom scripts delivered every Monday",
+                      source: "header-mobile-cta"
+                    });
                     setIsOpen(false);
                   }}
                   className="btn-primary w-full text-lg"

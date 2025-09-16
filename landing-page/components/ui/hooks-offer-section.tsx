@@ -143,7 +143,7 @@ export function HooksOfferSection() {
                   <TrendingUp className="h-6 w-6 text-orange-600" />
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">✓ Proven Results</h4>
-                <p className="text-gray-600 text-sm">Used by 1,247+ startup founders who've launched successful ad campaigns.</p>
+                <p className="text-gray-600 text-sm">Used by 100+ growing businesses who've launched successful ad campaigns.</p>
               </div>
             </div>
           </div>
@@ -154,7 +154,7 @@ export function HooksOfferSection() {
               Download MY 10 Templates Now
             </h3>
             <p className="text-xl opacity-90 mb-8">
-              Join 1,247+ startup founders getting templates that actually convert
+              Join 100+ growing businesses getting templates that actually convert
             </p>
             
             <div className="max-w-md mx-auto bg-white rounded-xl p-6">

@@ -23,7 +23,7 @@ interface NewsletterExitPopupProps {
 
 export function NewsletterExitPopup({ 
   title = "Don't Miss Out on Weekly Content Intelligence!",
-  subtitle = "Join 100+ startup founders getting trending content ideas and custom scripts delivered every Monday morning."
+  subtitle = "Join 100+ growing businesses getting trending content ideas and custom scripts delivered every Monday morning."
 }: NewsletterExitPopupProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);

@@ -97,7 +97,7 @@ export function BlogPostLeadCaptureForm({
           <ArrowRight className="ml-2 h-4 w-4" />
         </button>
         <p className="text-sm text-gray-600 mt-2">
-          Instant access • Used by 1,200+ startup founders
+          Instant access • Used by 100+ growing businesses
         </p>
       </div>
     );
@@ -111,7 +111,7 @@ export function BlogPostLeadCaptureForm({
           FREE TEMPLATES
         </div>
         <h3 className="text-lg font-semibold text-gray-900">Get Your Templates Now</h3>
-        <p className="text-sm text-gray-600">Join 1,200+ founders getting strategic guidance</p>
+        <p className="text-sm text-gray-600">Join 100+ growing businesses getting strategic guidance</p>
       </div>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-2 gap-3">

@@ -96,7 +96,7 @@ export function KeyBenefitsSection() {
   ];
 
   return (
-    <section className="py-20 bg-white relative">
+    <section id="benefits" className="py-20 bg-white relative">
       <div className="max-w-4xl mx-auto px-6">
         
         {/* Section Header */}

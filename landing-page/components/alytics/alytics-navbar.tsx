@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 export function AlyticsNavbar() {
+  const { openModal } = useFreeWeek();
+  
   return (
     <motion.nav 
       initial={{ opacity: 0, y: -20 }}
@@ -40,20 +43,71 @@ export function AlyticsNavbar() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="hidden md:flex items-center gap-8"
           >
-            {['Features', 'Benefits', 'Integrations', 'Pricing', 'FAQ'].map((item, index) => (
-              <motion.a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-gray-600 hover:text-gray-900 transition-colors text-base font-medium relative group"
+            <motion.a
+              href="#how-it-works"
+              className="text-gray-600 hover:text-gray-900 transition-colors text-base font-medium relative group"
+              whileHover={{ y: -1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              How It Works
+              <motion.div
+                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"
+              />
+            </motion.a>
+            
+            <motion.a
+              href="#benefits"
+              className="text-gray-600 hover:text-gray-900 transition-colors text-base font-medium relative group"
+              whileHover={{ y: -1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              Benefits
+              <motion.div
+                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"
+              />
+            </motion.a>
+            
+            <motion.a
+              href="#pricing"
+              className="text-gray-600 hover:text-gray-900 transition-colors text-base font-medium relative group"
+              whileHover={{ y: -1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              Pricing
+              <motion.div
+                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"
+              />
+            </motion.a>
+            
+            <Link
+              href="/blog"
+              className="text-gray-600 hover:text-gray-900 transition-colors text-base font-medium relative group"
+            >
+              <motion.div
                 whileHover={{ y: -1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                {item}
+                Blog & Guides
                 <motion.div
                   className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"
                 />
-              </motion.a>
-            ))}
+              </motion.div>
+            </Link>
+            
+            <Link
+              href="/tools"
+              className="text-gray-600 hover:text-gray-900 transition-colors text-base font-medium relative group"
+            >
+              <motion.div
+                whileHover={{ y: -1 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                Tools
+                <motion.div
+                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"
+                />
+              </motion.div>
+            </Link>
           </motion.div>
 
           {/* CTA Button */}
@@ -63,6 +117,11 @@ export function AlyticsNavbar() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <motion.button
+              onClick={() => openModal({
+                title: "Start Your FREE Week Trial",
+                subtitle: "Get trending creative concepts and custom scripts delivered every Monday",
+                source: "navbar-cta"
+              })}
               whileHover={{ scale: 1.02, boxShadow: "0 8px 25px rgba(18, 109, 251, 0.3)" }}
               whileTap={{ scale: 0.98 }}
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-200 shadow-lg"
