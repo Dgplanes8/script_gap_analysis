@@ -1,151 +1,25 @@
 'use client';
 
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { Mail, ArrowRight } from 'lucide-react';
-import { trackEmailSignup, trackFormAbandonment } from '@/components/analytics';
-import { trackFreeTemplateSubmission, trackFormStart } from '@/components/analytics/gtm';
-
-const emailSchema = z.object({
-  email: z.string().email('Please enter a valid email address'),
-});
-
-type EmailFormData = z.infer<typeof emailSchema>;
+import { SimpleAirtableForm } from '@/components/forms/simple-airtable-form';
 
 interface EmailCaptureFormProps {
-  placeholder?: string;
   buttonText?: string;
+  source?: string;
+  tier?: string;
   variant?: 'hero' | 'cta' | 'inline';
-  source?: string; // Track where the signup came from
-  onSubmit?: (data: EmailFormData) => Promise<void>;
 }
 
 export function EmailCaptureForm({
-  placeholder = 'Enter your work email address',
-  buttonText = 'Claim Free Week',
-  variant = 'inline',
-  source = 'unknown',
-  onSubmit,
+  buttonText = 'Start Free Week Trial',
+  source = 'email-capture',
+  tier,
 }: EmailCaptureFormProps) {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<EmailFormData>({
-    resolver: zodResolver(emailSchema),
-  });
-
-  const handleFormSubmit = async (data: EmailFormData) => {
-    setIsSubmitting(true);
-    try {
-      if (onSubmit) {
-        await onSubmit(data);
-      } else {
-        // Default submission logic
-        const response = await fetch('/api/subscribe', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            ...data,
-            source: source,
-          }),
-        });
-        
-        if (!response.ok) {
-          throw new Error('Failed to subscribe');
-        }
-      }
-      
-      // Track successful signup
-      trackEmailSignup(source);
-      trackFreeTemplateSubmission(data.email, source);
-      
-      setIsSubmitted(true);
-      reset();
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      trackFormAbandonment('email_signup', 'submission_error', source);
-      // Handle error (show toast, etc.)
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  if (isSubmitted) {
-    return (
-      <div className="text-center p-6 bg-brand-50 rounded-lg border border-brand-200">
-        <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Mail className="h-8 w-8 text-brand-600" />
-        </div>
-        <h3 className="text-lg font-semibold text-brand-800 mb-2">
-          Your 10 Free Templates Are Coming!
-        </h3>
-        <p className="text-brand-700">
-          Check your email for your Free Templates PDF and weekly creative intelligence newsletter.
-        </p>
-      </div>
-    );
-  }
-
-  const inputClasses = {
-    hero: 'form-input text-gray-900 text-lg min-h-[48px] text-base sm:text-lg',
-    cta: 'form-input text-gray-900 min-h-[44px] text-base',
-    inline: 'form-input text-gray-900 min-h-[44px] text-base',
-  };
-
-  const buttonClasses = {
-    hero: 'btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 min-h-[48px] flex-shrink-0',
-    cta: 'bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg text-base px-4 sm:px-6 py-3 min-h-[44px] flex-shrink-0',
-    inline: 'btn-primary text-base px-4 sm:px-6 py-3 min-h-[44px] flex-shrink-0',
-  };
-
   return (
-    <form
-      onSubmit={handleSubmit(handleFormSubmit)}
-      className="space-y-4"
-    >
-      <div className={`flex ${variant === 'hero' ? 'flex-col sm:flex-row' : 'flex-col sm:flex-row'} gap-3 items-stretch`}>
-        <div className="flex-1">
-          <input
-            type="email"
-            placeholder={placeholder}
-            className={inputClasses[variant]}
-            onFocus={() => trackFormStart('free_template')}
-            {...register('email')}
-          />
-          {errors.email && (
-            <p className="text-brand-500 text-sm mt-1">
-              {errors.email.message}
-            </p>
-          )}
-        </div>
-        
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className={`${buttonClasses[variant]} ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
-        >
-          {isSubmitting ? (
-            'Subscribing...'
-          ) : (
-            <span className="flex items-center justify-center text-center">
-              <span className="truncate">{buttonText}</span>
-              <ArrowRight className="ml-2 h-4 w-4 flex-shrink-0" />
-            </span>
-          )}
-        </button>
-      </div>
-      
-      <div className="text-sm text-gray-600 text-center bg-gray-50 rounded-lg p-3">
-        <div className="font-medium">Join 100+ growing businesses getting weekly templates</div>
-        <div className="mt-1">Get your 10 Free Templates PDF instantly • Unsubscribe anytime</div>
-      </div>
-    </form>
+    <SimpleAirtableForm
+      buttonText={buttonText}
+      source={source}
+      tier={tier}
+      buttonClassName="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 rounded-xl transition-colors"
+    />
   );
 }
