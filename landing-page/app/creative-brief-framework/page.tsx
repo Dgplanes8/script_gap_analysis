@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, FileText, Target, Layers, CheckCircle } from 'lucide-react';
 import { CreativeBriefStructure } from '@/components/creative/creative-brief-structure';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 import { Footer } from '@/components/layout/footer';
 import { ServiceTiers } from '@/components/layout/service-tiers';
 

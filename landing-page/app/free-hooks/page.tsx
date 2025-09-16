@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 import { StructuredData } from '@/components/schema';
 import { Footer } from '@/components/layout/footer';
 import { Download, BookOpen, Zap, Users } from 'lucide-react';

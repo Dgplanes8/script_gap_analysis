@@ -6,7 +6,7 @@ import { ArticleStructuredData } from '@/components/blog/article-structured-data
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation';
 import { RelatedArticles } from '@/components/blog/related-articles';
 import { SocialSharing } from '@/components/blog/social-sharing';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 
 export const metadata: Metadata = {
   title: 'D2C Subscription Marketing Playbook: Growth Strategy Guide 2025 | Strategic Ad Intelligence',

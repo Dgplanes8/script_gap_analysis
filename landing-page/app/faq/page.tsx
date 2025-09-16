@@ -1,7 +1,7 @@
 'use client';
 
 import type { Metadata } from 'next';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 import { Footer } from '@/components/layout/footer';
 import { StructuredData } from '@/components/schema';
 import { HelpCircle, Plus, Minus, ArrowRight, Mail, Calendar } from 'lucide-react';

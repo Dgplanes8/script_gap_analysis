@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { ArrowLeft, Clock, TrendingDown, RefreshCw, AlertTriangle, BarChart3, Users, Mail, Calendar } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 
 export const metadata: Metadata = {
   title: 'Creative Fatigue Solutions for Subscription Companies | Apsics Media',

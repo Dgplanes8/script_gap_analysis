@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, TrendingUp, Target, Database, BarChart3, Users, Zap, Download, Calculator, BookOpen, PlayCircle, Shield, Lock, Eye, FileText, Server, Cloud } from 'lucide-react';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 
 export const metadata: Metadata = {
   title: 'First-Party Data Collection: Weekly Intelligence Framework for Subscription Brands | Apsics Media',

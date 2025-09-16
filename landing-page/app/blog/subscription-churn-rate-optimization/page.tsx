@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Clock, TrendingDown, RefreshCw, AlertTriangle, BarChart3, Users, Mail, Calendar, Target, Zap, ChevronRight, CheckCircle, TrendingUp } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 
 export const metadata: Metadata = {
   title: 'Subscription Churn Rate Optimization: 7 Data-Driven Strategies for Growth Teams | Apsics Media',

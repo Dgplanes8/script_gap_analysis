@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Play, Target, Zap, BarChart3 } from 'lucide-react';
 import { FormatShowcase } from '@/components/creative/format-showcase';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 import { Footer } from '@/components/layout/footer';
 import { ServiceTiers } from '@/components/layout/service-tiers';
 

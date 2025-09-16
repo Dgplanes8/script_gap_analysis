@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Clock, DollarSign, TrendingUp, Calculator, BarChart3, Users, Target, Zap, ChevronRight, CheckCircle, AlertTriangle, RefreshCw } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
 
 const POST_CONFIG = {

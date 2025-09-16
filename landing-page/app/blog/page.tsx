@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 import { Footer } from '@/components/layout/footer';
 import { BookOpen, TrendingUp, Calculator, Target, Users, Zap } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';

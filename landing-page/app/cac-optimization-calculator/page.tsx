@@ -4,7 +4,7 @@ import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { WebApplicationSchema, StructuredData } from '@/components/schema';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 
 export const metadata: Metadata = {
   title: 'CAC Optimization Calculator - Revenue Growth Through Performance Marketing',

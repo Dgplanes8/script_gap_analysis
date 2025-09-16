@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 import { Footer } from '@/components/layout/footer';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { Calendar, TrendingUp, Target, CheckCircle, ArrowRight, Download } from 'lucide-react';

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Target, TrendingUp, Users, Calendar, Mail, BookOpen, ArrowRight } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
 
 const POST_CONFIG = {

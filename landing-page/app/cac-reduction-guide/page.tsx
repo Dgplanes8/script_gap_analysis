@@ -3,7 +3,7 @@ import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { CACReductionCalculator } from '@/components/calculators/cac-reduction-calculator';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 
 export const metadata: Metadata = {
   title: 'Customer Acquisition Cost Reduction: Step-by-Step Implementation Guide | Strategic Ad Intelligence',

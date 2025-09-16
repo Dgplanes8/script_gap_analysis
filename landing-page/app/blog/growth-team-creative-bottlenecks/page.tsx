@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Zap, Building2, AlertCircle, CheckCircle2, ArrowRight, Mail, Calendar } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 
 export const metadata: Metadata = {
   title: 'Growth Team Creative Bottlenecks: Agency Alternative | Apsics Media',

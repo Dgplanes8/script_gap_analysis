@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, TrendingUp, Target, Settings, BarChart3, Users, Zap, Download, Calculator, BookOpen, PlayCircle, Workflow, Bot, Clock, Database, GitBranch, Layers } from 'lucide-react';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 
 export const metadata: Metadata = {
   title: 'Marketing Automation for Weekly Creative Intelligence: Subscription Business Setup Guide | Apsics Media',

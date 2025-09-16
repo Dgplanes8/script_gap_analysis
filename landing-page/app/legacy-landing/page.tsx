@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 import { Footer } from '@/components/layout/footer';
 import { ConversionDashboard } from '@/components/analytics/conversion-dashboard';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';

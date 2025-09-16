@@ -6,7 +6,7 @@ import { ArticleStructuredData } from '@/components/blog/article-structured-data
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation';
 import { RelatedArticles } from '@/components/blog/related-articles';
 import { SocialSharing } from '@/components/blog/social-sharing';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 
 export const metadata: Metadata = {
   title: 'Mobile App CAC Crisis: 2025 Acquisition Cost Reduction Guide | Strategic Ad Intelligence',

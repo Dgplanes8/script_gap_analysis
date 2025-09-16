@@ -8,7 +8,7 @@ import { SocialSharing } from '@/components/blog/social-sharing'
 import { ArticleStructuredData } from '@/components/blog/article-structured-data'
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation'
 import { RelatedArticles } from '@/components/blog/related-articles'
-import { Header } from '@/components/layout/header'
+import { Header } from '@/components/layout/secondary-header'
 import { InteractiveTimeline } from '@/components/blog/interactive-timeline'
 
 export const metadata: Metadata = {

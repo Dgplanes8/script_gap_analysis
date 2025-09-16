@@ -7,7 +7,7 @@ import { SocialSharing } from '@/components/blog/social-sharing'
 import { ArticleSchema } from '@/components/schema'
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation'
 import { RelatedArticles } from '@/components/blog/related-articles'
-import { Header } from '@/components/layout/header'
+import { Header } from '@/components/layout/secondary-header'
 
 export const metadata: Metadata = {
   title: 'Creative Agency vs In-House Marketing: Decision Guide 2025',

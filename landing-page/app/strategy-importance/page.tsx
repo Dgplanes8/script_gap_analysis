@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 import { Footer } from '@/components/layout/footer';
 import { StructuredData } from '@/components/schema';
 import { Target, TrendingUp, Users, Zap, DollarSign, AlertTriangle, CheckCircle, ArrowRight, BarChart3, Brain, Lightbulb } from 'lucide-react';

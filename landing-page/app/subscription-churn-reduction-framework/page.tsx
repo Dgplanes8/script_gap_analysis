@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { ContentNavigation } from '@/components/layout/content-navigation';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 
 const ChurnReductionCalculator = dynamic(
   () => import('@/components/calculators/churn-reduction-calculator').then((mod) => ({ default: mod.ChurnReductionCalculator })),

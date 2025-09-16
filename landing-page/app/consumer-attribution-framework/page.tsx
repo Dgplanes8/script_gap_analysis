@@ -3,7 +3,7 @@ import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { ConsumerAttributionModelingTool } from '@/components/calculators/consumer-attribution-modeling-tool';
-import { Header } from '@/components/layout/header';
+import { Header } from '@/components/layout/secondary-header';
 
 export const metadata: Metadata = {
   title: 'Consumer Subscription Attribution Framework | D2C Marketing Attribution Guide',
