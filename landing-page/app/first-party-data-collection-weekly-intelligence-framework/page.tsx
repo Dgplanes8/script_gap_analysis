@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, TrendingUp, Target, Database, BarChart3, Users, Zap, Download, Calculator, BookOpen, PlayCircle, Shield, Lock, Eye, FileText, Server, Cloud } from 'lucide-react';
 import { Header } from '@/components/layout/secondary-header';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'First-Party Data Collection: Weekly Intelligence Framework for Subscription Brands | Apsics Media',
@@ -271,25 +272,25 @@ export default function FirstPartyDataCollectionWeeklyIntelligenceFramework() {
               </p>
               
               <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div className="bg-red-50 rounded-xl p-6 border border-red-200">
+                <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Third-Party Data Limitations</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Cookie Deprecation Impact</div>
                         <div className="text-gray-600">Chrome cookie elimination affects 60% of subscription business tracking and attribution</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Privacy Compliance Challenges</div>
                         <div className="text-gray-600">GDPR and CCPA requirements create complex compliance obligations for subscription businesses</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Attribution Accuracy Decline</div>
                         <div className="text-gray-600">Third-party tracking limitations reduce subscription marketing attribution accuracy by 40%</div>
@@ -298,25 +299,25 @@ export default function FirstPartyDataCollectionWeeklyIntelligenceFramework() {
                   </div>
                 </div>
                 
-                <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+                <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">First-Party Data Advantages</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Privacy-First Customer Trust</div>
                         <div className="text-gray-600">Transparent data collection builds subscription customer trust with 95% consent rates</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Comprehensive Customer Intelligence</div>
                         <div className="text-gray-600">Direct data collection enables 360-degree subscription customer insights and behavioral analysis</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Accurate Attribution & Measurement</div>
                         <div className="text-gray-600">First-party tracking provides accurate subscription attribution with 40% better targeting precision</div>
@@ -382,8 +383,8 @@ export default function FirstPartyDataCollectionWeeklyIntelligenceFramework() {
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{framework.framework}</h3>
                       <p className="text-gray-700 mb-4">{framework.description}</p>
-                      <div className="bg-green-50 px-3 py-2 rounded-full inline-block">
-                        <span className="text-green-700 font-semibold text-sm">{framework.outcome}</span>
+                      <div className="bg-brand-50 px-3 py-2 rounded-full inline-block">
+                        <span className="text-brand-700 font-semibold text-sm">{framework.outcome}</span>
                       </div>
                     </div>
                   </div>
@@ -393,7 +394,7 @@ export default function FirstPartyDataCollectionWeeklyIntelligenceFramework() {
                     <div className="grid md:grid-cols-2 gap-3">
                       {framework.components.map((component, componentIndex) => (
                         <div key={componentIndex} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                           <span className="text-sm text-gray-700">{component}</span>
                         </div>
                       ))}
@@ -445,9 +446,9 @@ export default function FirstPartyDataCollectionWeeklyIntelligenceFramework() {
                       <div className="text-xs text-blue-700">{type.weekly_intelligence_use}</div>
                     </div>
                     
-                    <div className="bg-green-50 rounded-lg p-3">
-                      <div className="text-sm font-semibold text-green-800 mb-1">Privacy Considerations:</div>
-                      <div className="text-xs text-green-700">{type.privacy_considerations}</div>
+                    <div className="bg-brand-50 rounded-lg p-3">
+                      <div className="text-sm font-semibold text-brand-800 mb-1">Privacy Considerations:</div>
+                      <div className="text-xs text-brand-700">{type.privacy_considerations}</div>
                     </div>
                   </div>
                 </div>
@@ -492,7 +493,7 @@ export default function FirstPartyDataCollectionWeeklyIntelligenceFramework() {
                       <div className="space-y-2">
                         {regulation.key_requirements.map((requirement, reqIndex) => (
                           <div key={reqIndex} className="flex items-start">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-sm text-gray-700">{requirement}</span>
                           </div>
                         ))}
@@ -579,13 +580,7 @@ export default function FirstPartyDataCollectionWeeklyIntelligenceFramework() {
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View Data Intelligence Plans
-                <Database className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="first_party_data_collection_weekly_intelligence_framework-cta" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>

@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import { TrendingUp, CheckCircle, Calendar } from 'lucide-react';
-import Link from 'next/link';
 import { Hero } from '@/components/layout/hero';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Thank You - Apsics Media',
@@ -55,10 +56,8 @@ export default function SuccessPage({
       <Hero
         title={title}
         subtitle={subtitle}
-        ctaText="Get Free Templates"
-        primaryCtaLink="/free-hooks"
-        secondaryCtaText="View Weekly Plans"
-        secondaryCtaLink="/#service-tiers"
+        ctaText="Start Free Week Trial"
+        secondaryCtaText="View Plans"
         background="gradient"
         showEmailCapture={false}
       />
@@ -74,8 +73,8 @@ export default function SuccessPage({
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200">
-              <div className="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Calendar className="h-8 w-8 text-[#126DFB]" />
+              <div className="bg-brand-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Calendar className="h-8 w-8 text-brand-600" />
               </div>
               <h3 className="text-lg font-semibold mb-3 text-gray-900">If You Booked a Call</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -84,8 +83,8 @@ export default function SuccessPage({
             </div>
 
             <div className="text-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200">
-              <div className="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="h-8 w-8 text-[#126DFB]" />
+              <div className="bg-brand-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="h-8 w-8 text-brand-600" />
               </div>
               <h3 className="text-lg font-semibold mb-3 text-gray-900">If You Subscribed</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -94,8 +93,8 @@ export default function SuccessPage({
             </div>
 
             <div className="text-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200">
-              <div className="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="h-8 w-8 text-[#126DFB]" />
+              <div className="bg-brand-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="h-8 w-8 text-brand-600" />
               </div>
               <h3 className="text-lg font-semibold mb-3 text-gray-900">If You Downloaded Free Templates</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -116,7 +115,7 @@ export default function SuccessPage({
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-[#126DFB] transition-colors">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-brand-100 hover:border-brand-300 transition-colors">
               <div className="text-center mb-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Weekly Trend Intelligence</h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -126,7 +125,7 @@ export default function SuccessPage({
 
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#10B981] mt-1 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-brand-500 mt-1 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">1 trending concept every Monday</span>
                 </li>
                 <li className="flex items-start">
@@ -143,16 +142,11 @@ export default function SuccessPage({
                 </li>
               </ul>
 
-              <Link
-                href="/free-hooks"
-                className="w-full bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold py-3 px-6 rounded-xl transition-colors text-center block"
-              >
-                Get 10 Free Templates First
-              </Link>
+              <FreeWeekButton source="success-cta" className="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors text-center block">Start Free Week Trial</FreeWeekButton>
             </div>
 
-            <div className="bg-gradient-to-br from-[#126DFB] to-[#0F5AD6] rounded-2xl p-8 shadow-lg text-white relative">
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+            <div className="bg-gradient-to-br from-brand-600 to-brand-700 rounded-2xl p-8 shadow-lg text-white relative">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-brand-500 to-brand-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
                 Most Popular
               </div>
 
@@ -165,7 +159,7 @@ export default function SuccessPage({
 
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-blue-200 mt-1 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-brand-200 mt-1 mr-3 flex-shrink-0" />
                   <span>Trend Tracker: $5/week - 1 concept weekly</span>
                 </li>
                 <li className="flex items-start">
@@ -182,12 +176,13 @@ export default function SuccessPage({
                 </li>
               </ul>
 
-              <Link
-                href="/#pricing"
-                className="w-full bg-white text-[#126DFB] font-semibold py-3 px-6 rounded-xl hover:bg-gray-50 transition-colors text-center block"
+              <FreeWeekButton
+                source="success-pricing-cta"
+                variant="secondary"
+                className="w-full py-3 text-base"
               >
                 Compare All Weekly Plans
-              </Link>
+              </FreeWeekButton>
             </div>
           </div>
         </div>
@@ -216,12 +211,7 @@ export default function SuccessPage({
               Get proven templates from high-performing campaigns. Perfect way to experience our strategic approach before choosing a weekly plan.
             </p>
 
-            <Link
-              href="/free-hooks"
-              className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold px-8 py-4 text-lg rounded-xl transition-colors inline-block"
-            >
-              Get My 10 Free Templates
-            </Link>
+            <FreeWeekButton source="success-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold px-8 py-4 text-lg rounded-xl transition-colors inline-block">Start Free Week Trial</FreeWeekButton>
 
             <p className="text-sm text-gray-500 mt-4">
               Instant PDF download + weekly trend intelligence newsletter

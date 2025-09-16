@@ -106,7 +106,7 @@ export function GrowthMetrics() {
                 <div className="text-sm font-semibold text-gray-900 mb-2">Key Metrics:</div>
                 <div className="flex flex-wrap gap-2">
                   {channel.keyMetrics.map((metric, metricIndex) => (
-                    <span key={metricIndex} className="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-xs">
+                    <span key={metricIndex} className="bg-brand-100 text-emerald-800 px-2 py-1 rounded text-xs">
                       {metric}
                     </span>
                   ))}

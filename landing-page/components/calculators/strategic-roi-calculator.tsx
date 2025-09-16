@@ -100,7 +100,7 @@ export function StrategyROICalculator() {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-br from-indigo-50 to-purple-50">
+    <section className="py-16 bg-gradient-to-br from-indigo-50 to-brand-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <div className="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-semibold mb-6">
@@ -186,17 +186,17 @@ export function StrategyROICalculator() {
             {/* Results Section */}
             <div className="bg-white rounded-2xl p-8 shadow-lg">
               <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <TrendingUp className="h-6 w-6 text-green-600 mr-2" />
+                <TrendingUp className="h-6 w-6 text-brand-600 mr-2" />
                 Projected Strategic Impact
               </h3>
 
               <div className="space-y-6">
                 {/* Key Metrics */}
-                <div className="bg-green-50 rounded-lg p-4 text-center mb-6">
-                  <div className="text-3xl font-bold text-green-600">
+                <div className="bg-brand-50 rounded-lg p-4 text-center mb-6">
+                  <div className="text-3xl font-bold text-brand-600">
                     {formatPercentage(results.projectedCACReduction)}
                   </div>
-                  <div className="text-sm text-green-800">Strategic CAC Reduction</div>
+                  <div className="text-sm text-brand-800">Strategic CAC Reduction</div>
                 </div>
 
                 {/* Revenue Impact */}
@@ -205,7 +205,7 @@ export function StrategyROICalculator() {
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
                       <span className="text-gray-600">Projected ARR Increase:</span>
-                      <span className="text-xl font-bold text-green-600">
+                      <span className="text-xl font-bold text-brand-600">
                         {formatCurrency(results.projectedARRIncrease)}
                       </span>
                     </div>
@@ -217,7 +217,7 @@ export function StrategyROICalculator() {
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-600">Annual ROI:</span>
-                      <span className="text-lg font-semibold text-purple-600">
+                      <span className="text-lg font-semibold text-brand-600">
                         {formatPercentage(results.annualROI)}
                       </span>
                     </div>
@@ -225,7 +225,7 @@ export function StrategyROICalculator() {
                 </div>
 
                 {/* Recommendation */}
-                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-6">
+                <div className="bg-gradient-to-r from-indigo-50 to-brand-50 rounded-lg p-6">
                   <h4 className="font-semibold text-gray-900 mb-2">Recommended Tier</h4>
                   <div className="text-2xl font-bold text-indigo-600 mb-2">
                     {results.recommendedTier}
@@ -262,7 +262,7 @@ export function StrategyROICalculator() {
 
           {/* CTA Section */}
           <div className="mt-8 text-center">
-            <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white">
+            <div className="bg-gradient-to-r from-indigo-600 to-brand-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
                 Ready to Achieve These Results?
               </h3>

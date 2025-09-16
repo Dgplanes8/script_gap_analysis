@@ -40,7 +40,7 @@ function CaseStudyCard({ client, category, spend, improvement, metric, descripti
           </div>
         </div>
         <div>
-          <div className={`text-2xl font-bold ${highlight ? 'text-white' : 'text-green-600'}`}>
+          <div className={`text-2xl font-bold ${highlight ? 'text-white' : 'text-brand-600'}`}>
             {improvement}
           </div>
           <div className={`text-sm ${highlight ? 'text-brand-100' : 'text-gray-600'}`}>

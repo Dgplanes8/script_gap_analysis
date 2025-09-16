@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, Users, TrendingUp, Target, Zap, CheckCircle, AlertCircle, Clock, Award, Brain, Gift, Lock, Unlock, BarChart3, ArrowUpRight } from 'lucide-react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Freemium to Premium Conversion Optimization: Psychology-Driven Framework | Apsics Media',
@@ -261,7 +262,7 @@ const caseStudies = [
 
 export default function FreemiumToPremiumConversionOptimization() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-brand-50 to-white">
       {/* Schema Markup */}
       <script
         type="application/ld+json"
@@ -286,7 +287,7 @@ export default function FreemiumToPremiumConversionOptimization() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-600 to-brand-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -324,7 +325,7 @@ export default function FreemiumToPremiumConversionOptimization() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#psychology-framework"
-                className="bg-white text-emerald-600 hover:bg-emerald-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-emerald-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 style={{ scrollBehavior: 'smooth' }}
               >
                 Explore Framework
@@ -359,7 +360,7 @@ export default function FreemiumToPremiumConversionOptimization() {
               {psychologyPrinciples.map((principle, index) => (
                 <div key={index} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border shadow-lg">
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full flex items-center justify-center font-bold mr-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-brand-500 to-brand-500 text-white rounded-full flex items-center justify-center font-bold mr-4">
                       {index + 1}
                     </div>
                     <div>
@@ -373,7 +374,7 @@ export default function FreemiumToPremiumConversionOptimization() {
                       <h4 className="font-semibold text-gray-900 mb-3">Implementation Strategy</h4>
                       <p className="text-sm text-gray-700 mb-4">{principle.application}</p>
                       
-                      <div className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
+                      <div className="bg-brand-50 rounded-lg p-4 border border-emerald-200">
                         <div className="flex items-center">
                           <TrendingUp className="h-5 w-5 text-emerald-600 mr-2" />
                           <span className="font-semibold text-emerald-800">Expected Impact: {principle.conversionImpact}</span>
@@ -410,7 +411,7 @@ export default function FreemiumToPremiumConversionOptimization() {
               {conversionMethodology.map((phase, index) => (
                 <div key={index} className="bg-white rounded-2xl shadow-lg p-8 border">
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-full flex items-center justify-center font-bold mr-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-brand-500 to-brand-500 text-white rounded-full flex items-center justify-center font-bold mr-4">
                       {index + 1}
                     </div>
                     <div>
@@ -420,7 +421,7 @@ export default function FreemiumToPremiumConversionOptimization() {
                     </div>
                   </div>
                   
-                  <div className="bg-emerald-50 rounded-lg p-4 mb-6 border border-emerald-200">
+                  <div className="bg-brand-50 rounded-lg p-4 mb-6 border border-emerald-200">
                     <h4 className="font-semibold text-emerald-800 mb-2">Objective</h4>
                     <p className="text-emerald-700 text-sm">{phase.objective}</p>
                   </div>
@@ -431,7 +432,7 @@ export default function FreemiumToPremiumConversionOptimization() {
                       <ul className="space-y-2">
                         {phase.activities.map((activity, actIndex) => (
                           <li key={actIndex} className="flex items-start">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-sm text-gray-700">{activity}</span>
                           </li>
                         ))}
@@ -496,7 +497,7 @@ export default function FreemiumToPremiumConversionOptimization() {
                       <div className="space-y-3">
                         {strategy.implementation.map((step, stepIndex) => (
                           <div key={stepIndex} className="flex items-start">
-                            <div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                            <div className="w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
                               <span className="text-xs font-bold text-emerald-600">{stepIndex + 1}</span>
                             </div>
                             <span className="text-sm text-gray-700">{step}</span>
@@ -513,14 +514,14 @@ export default function FreemiumToPremiumConversionOptimization() {
                           <p className="text-blue-700 text-xs">{strategy.psychology}</p>
                         </div>
                         
-                        <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                          <h5 className="font-semibold text-green-800 text-sm mb-2">Conversion Results</h5>
-                          <p className="text-green-700 text-xs font-medium">{strategy.conversionMetrics}</p>
+                        <div className="bg-brand-50 rounded-lg p-4 border border-brand-200">
+                          <h5 className="font-semibold text-brand-800 text-sm mb-2">Conversion Results</h5>
+                          <p className="text-brand-700 text-xs font-medium">{strategy.conversionMetrics}</p>
                         </div>
                         
-                        <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
-                          <h5 className="font-semibold text-purple-800 text-sm mb-2">Best Applications</h5>
-                          <p className="text-purple-700 text-xs">{strategy.bestFor}</p>
+                        <div className="bg-brand-50 rounded-lg p-4 border border-brand-200">
+                          <h5 className="font-semibold text-brand-800 text-sm mb-2">Best Applications</h5>
+                          <p className="text-brand-700 text-xs">{strategy.bestFor}</p>
                         </div>
                       </div>
                     </div>
@@ -551,7 +552,7 @@ export default function FreemiumToPremiumConversionOptimization() {
                       <ul className="space-y-2">
                         {category.tactics.map((tactic, tacticIndex) => (
                           <li key={tacticIndex} className="flex items-start">
-                            <Zap className="h-4 w-4 text-yellow-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <Zap className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-sm text-gray-700">{tactic}</span>
                           </li>
                         ))}
@@ -564,7 +565,7 @@ export default function FreemiumToPremiumConversionOptimization() {
                         <p className="text-blue-700 text-sm">{category.weeklyIntelligence}</p>
                       </div>
                       
-                      <div className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
+                      <div className="bg-brand-50 rounded-lg p-4 border border-emerald-200">
                         <div className="flex items-center">
                           <TrendingUp className="h-5 w-5 text-emerald-600 mr-2" />
                           <span className="font-semibold text-emerald-800 text-sm">Expected Impact: {category.expectedImpact}</span>
@@ -611,7 +612,7 @@ export default function FreemiumToPremiumConversionOptimization() {
                     <ul className="space-y-1">
                       {study.conversionStrategy.map((strategy, stratIndex) => (
                         <li key={stratIndex} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                           <span className="text-sm text-gray-700">{strategy}</span>
                         </li>
                       ))}
@@ -622,15 +623,15 @@ export default function FreemiumToPremiumConversionOptimization() {
                     <h4 className="font-semibold text-gray-900 mb-3">Results ({study.results.timeframe})</h4>
                     <div className="grid md:grid-cols-2 gap-4">
                       {study.results.metrics.map((metric, metIndex) => (
-                        <div key={metIndex} className="bg-emerald-50 rounded-lg p-3 border border-emerald-200">
+                        <div key={metIndex} className="bg-brand-50 rounded-lg p-3 border border-emerald-200">
                           <span className="text-sm text-emerald-800 font-medium">{metric}</span>
                         </div>
                       ))}
                     </div>
                     
-                    <div className="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
-                      <h5 className="font-semibold text-green-800 mb-2">Revenue Impact</h5>
-                      <p className="text-green-700 text-sm font-medium">{study.results.revenueImpact}</p>
+                    <div className="mt-4 p-4 bg-brand-50 rounded-lg border border-brand-200">
+                      <h5 className="font-semibold text-brand-800 mb-2">Revenue Impact</h5>
+                      <p className="text-brand-700 text-sm font-medium">{study.results.revenueImpact}</p>
                     </div>
                   </div>
                   
@@ -645,7 +646,7 @@ export default function FreemiumToPremiumConversionOptimization() {
       </section>
 
       {/* Conversion Calculator */}
-      <section className="py-16 bg-emerald-50">
+      <section className="py-16 bg-brand-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
@@ -700,12 +701,12 @@ export default function FreemiumToPremiumConversionOptimization() {
               </div>
               
               <div className="text-center mb-6">
-                <button className="bg-emerald-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-emerald-700 transition-colors">
+                <button className="bg-brand-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-brand-700 transition-colors">
                   Calculate Improvement Potential
                 </button>
               </div>
               
-              <div className="p-6 bg-emerald-50 rounded-lg border border-emerald-200">
+              <div className="p-6 bg-brand-50 rounded-lg border border-emerald-200">
                 <h4 className="font-semibold text-gray-900 mb-4">Expected Results (45% Conversion Improvement):</h4>
                 <div className="grid md:grid-cols-3 gap-4 text-center">
                   <div>
@@ -728,7 +729,7 @@ export default function FreemiumToPremiumConversionOptimization() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-emerald-600 to-teal-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-brand-600 to-brand-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -761,20 +762,14 @@ export default function FreemiumToPremiumConversionOptimization() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#email-signup"
-                className="bg-white text-emerald-600 hover:bg-emerald-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-emerald-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 style={{ scrollBehavior: 'smooth' }}
               >
                 Get Freemium Audit
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View Optimization Plans
-                <Gift className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="freemium_to_premium_conversion_optimization-cta" className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>
@@ -793,7 +788,7 @@ export default function FreemiumToPremiumConversionOptimization() {
                 href="/mobile-app-cac-optimization-2025"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-3">
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
                   <Target className="h-5 w-5 text-emerald-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Mobile App CAC</h3>
@@ -806,7 +801,7 @@ export default function FreemiumToPremiumConversionOptimization() {
                 href="/d2c-subscription-marketing-strategy"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-3">
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
                   <Users className="h-5 w-5 text-emerald-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">D2C Marketing</h3>
@@ -819,7 +814,7 @@ export default function FreemiumToPremiumConversionOptimization() {
                 href="/saas-creative-strategy-roi-calculator"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-3">
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
                   <BarChart3 className="h-5 w-5 text-emerald-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">SaaS ROI Calculator</h3>

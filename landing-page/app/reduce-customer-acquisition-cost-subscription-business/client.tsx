@@ -203,17 +203,17 @@ export function CACReductionClient() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-green-50 to-emerald-50">
+        <section className="py-16 bg-gradient-to-br from-brand-50 to-brand-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center px-4 py-2 bg-brand-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
                 <TrendingDown className="h-4 w-4 mr-2" />
                 CAC Optimization Strategy
               </div>
               
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 How to Reduce CAC by 20% 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600"> Without Increasing Ad Spend</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-600"> Without Increasing Ad Spend</span>
               </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
@@ -223,15 +223,15 @@ export function CACReductionClient() {
               
               <div className="flex flex-wrap justify-center items-center gap-6 mb-8 text-sm text-gray-600">
                 <div className="flex items-center">
-                  <Clock className="h-4 w-4 mr-2 text-green-600" />
+                  <Clock className="h-4 w-4 mr-2 text-brand-600" />
                   22-minute read
                 </div>
                 <div className="flex items-center">
-                  <Users className="h-4 w-4 mr-2 text-green-600" />
+                  <Users className="h-4 w-4 mr-2 text-brand-600" />
                   For subscription businesses
                 </div>
                 <div className="flex items-center">
-                  <DollarSign className="h-4 w-4 mr-2 text-green-600" />
+                  <DollarSign className="h-4 w-4 mr-2 text-brand-600" />
                   ROI-focused
                 </div>
               </div>
@@ -252,9 +252,9 @@ export function CACReductionClient() {
                   businesses are experiencing CAC inflation of 20-40% year-over-year.
                 </p>
                 
-                <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-8">
-                  <h3 className="text-lg font-semibold text-red-900 mb-3">The CAC Inflation Reality</h3>
-                  <div className="grid md:grid-cols-2 gap-4 text-red-800">
+                <div className="bg-brand-50 border-l-4 border-brand-500 p-6 mb-8">
+                  <h3 className="text-lg font-semibold text-brand-900 mb-3">The CAC Inflation Reality</h3>
+                  <div className="grid md:grid-cols-2 gap-4 text-brand-800">
                     <div>
                       <p className="font-semibold">B2B SaaS:</p>
                       <p>Average CAC increased 22% in 2023</p>
@@ -280,9 +280,9 @@ export function CACReductionClient() {
                   acquisition system.
                 </p>
                 
-                <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-8">
-                  <h4 className="font-semibold text-yellow-900 mb-2">Common CAC Reduction Mistakes:</h4>
-                  <ul className="text-yellow-800 space-y-1">
+                <div className="bg-brand-50 border-l-4 border-brand-500 p-6 mb-8">
+                  <h4 className="font-semibold text-brand-900 mb-2">Common CAC Reduction Mistakes:</h4>
+                  <ul className="text-brand-800 space-y-1">
                     <li>• Focusing only on top-of-funnel metrics instead of conversion optimization</li>
                     <li>• Making budget allocation decisions without proper attribution data</li>
                     <li>• Ignoring landing page and funnel optimization opportunities</li>
@@ -295,11 +295,11 @@ export function CACReductionClient() {
                   acquisition system to maximize efficiency before scaling spend.
                 </p>
                 
-                <div className="bg-purple-50 border-l-4 border-purple-500 p-6 mb-8">
-                  <h4 className="font-semibold text-purple-900 mb-2">Strategic Implementation Resources:</h4>
-                  <div className="space-y-2 text-purple-800">
-                    <p>• <a href="/facebook-ad-hooks-d2c-subscription-marketing" className="underline hover:text-purple-600">Facebook Ad Hook Optimization</a> - Improve ad performance with proven hook formulas</p>
-                    <p>• <a href="/tiktok-hooks-subscription-business-marketing" className="underline hover:text-purple-600">TikTok Marketing Strategy</a> - 25 hooks that convert for subscription businesses</p>
+                <div className="bg-brand-50 border-l-4 border-brand-500 p-6 mb-8">
+                  <h4 className="font-semibold text-brand-900 mb-2">Strategic Implementation Resources:</h4>
+                  <div className="space-y-2 text-brand-800">
+                    <p>• <a href="/facebook-ad-hooks-d2c-subscription-marketing" className="underline hover:text-brand-600">Facebook Ad Hook Optimization</a> - Improve ad performance with proven hook formulas</p>
+                    <p>• <a href="/tiktok-hooks-subscription-business-marketing" className="underline hover:text-brand-600">TikTok Marketing Strategy</a> - 25 hooks that convert for subscription businesses</p>
                   </div>
                 </div>
               </div>
@@ -363,7 +363,7 @@ export function CACReductionClient() {
                   ranging from $500K to $50M+ ARR, without requiring additional ad spend.
                 </p>
                 
-                <div className="inline-flex items-center px-6 py-3 bg-green-100 text-green-800 rounded-lg">
+                <div className="inline-flex items-center px-6 py-3 bg-brand-100 text-brand-800 rounded-lg">
                   <CheckCircle className="h-5 w-5 mr-2" />
                   <span className="font-semibold">Conservative Target: 20% CAC Reduction</span>
                 </div>
@@ -385,7 +385,7 @@ export function CACReductionClient() {
                   <div key={index} className="bg-white border-2 border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
                     <div className="flex flex-wrap items-start justify-between mb-6">
                       <div className="flex items-start">
-                        <div className="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center text-lg font-bold mr-4">
+                        <div className="w-10 h-10 bg-brand-600 text-white rounded-full flex items-center justify-center text-lg font-bold mr-4">
                           {index + 1}
                         </div>
                         <div>
@@ -396,16 +396,16 @@ export function CACReductionClient() {
                       
                       <div className="flex flex-wrap gap-2 mt-4 lg:mt-0">
                         <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                          lever.impact === 'High' ? 'bg-red-100 text-red-800' :
-                          lever.impact === 'Medium' ? 'bg-yellow-100 text-yellow-800' :
-                          'bg-green-100 text-green-800'
+                          lever.impact === 'High' ? 'bg-brand-100 text-brand-800' :
+                          lever.impact === 'Medium' ? 'bg-brand-100 text-brand-800' :
+                          'bg-brand-100 text-brand-800'
                         }`}>
                           {lever.impact} Impact
                         </span>
                         <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                          lever.difficulty === 'High' ? 'bg-red-100 text-red-800' :
-                          lever.difficulty === 'Medium' ? 'bg-yellow-100 text-yellow-800' :
-                          'bg-green-100 text-green-800'
+                          lever.difficulty === 'High' ? 'bg-brand-100 text-brand-800' :
+                          lever.difficulty === 'Medium' ? 'bg-brand-100 text-brand-800' :
+                          'bg-brand-100 text-brand-800'
                         }`}>
                           {lever.difficulty} Difficulty
                         </span>
@@ -421,7 +421,7 @@ export function CACReductionClient() {
                         <ul className="space-y-2">
                           {lever.tactics.map((tactic, tacticIndex) => (
                             <li key={tacticIndex} className="flex items-start">
-                              <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                              <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                               <span className="text-gray-700 text-sm">{tactic}</span>
                             </li>
                           ))}
@@ -429,9 +429,9 @@ export function CACReductionClient() {
                       </div>
                       
                       <div className="lg:col-span-1">
-                        <div className="bg-green-50 rounded-lg p-4 text-center">
-                          <h4 className="font-semibold text-green-800 mb-2">Expected CAC Reduction</h4>
-                          <div className="text-2xl font-bold text-green-600">{lever.expectedReduction}</div>
+                        <div className="bg-brand-50 rounded-lg p-4 text-center">
+                          <h4 className="font-semibold text-brand-800 mb-2">Expected CAC Reduction</h4>
+                          <div className="text-2xl font-bold text-brand-600">{lever.expectedReduction}</div>
                         </div>
                       </div>
                     </div>
@@ -454,19 +454,19 @@ export function CACReductionClient() {
                 {implementationTimeline.map((phase, index) => (
                   <div key={index} className="bg-white rounded-xl p-6 shadow-lg">
                     <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full flex items-center justify-center font-bold mr-4">
+                      <div className="w-12 h-12 bg-gradient-to-r from-brand-500 to-brand-500 text-white rounded-full flex items-center justify-center font-bold mr-4">
                         {index + 1}
                       </div>
                       <div>
                         <h3 className="text-lg font-bold text-gray-900">{phase.week}</h3>
-                        <p className="text-green-700 font-semibold">{phase.focus}</p>
+                        <p className="text-brand-700 font-semibold">{phase.focus}</p>
                       </div>
                     </div>
                     
                     <div className="grid md:grid-cols-2 gap-4">
                       {phase.activities.map((activity, actIndex) => (
                         <div key={actIndex} className="flex items-start">
-                          <Zap className="h-4 w-4 text-green-500 mt-1 mr-2 flex-shrink-0" />
+                          <Zap className="h-4 w-4 text-brand-500 mt-1 mr-2 flex-shrink-0" />
                           <span className="text-gray-700 text-sm">{activity}</span>
                         </div>
                       ))}
@@ -506,7 +506,7 @@ export function CACReductionClient() {
                         </div>
                         <div>
                           <p className="text-sm text-gray-600">Target:</p>
-                          <p className="text-sm font-semibold text-green-600">{metric.target}</p>
+                          <p className="text-sm font-semibold text-brand-600">{metric.target}</p>
                         </div>
                       </div>
                     </div>
@@ -514,12 +514,12 @@ export function CACReductionClient() {
                 </div>
               </div>
               
-              <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6">
+              <div className="bg-brand-50 border-l-4 border-brand-500 p-6">
                 <div className="flex items-start">
-                  <AlertTriangle className="h-6 w-6 text-yellow-600 mt-0.5 mr-3 flex-shrink-0" />
+                  <AlertTriangle className="h-6 w-6 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-yellow-900 mb-2">Critical Success Factors</h4>
-                    <ul className="text-yellow-800 space-y-1 text-sm">
+                    <h4 className="font-semibold text-brand-900 mb-2">Critical Success Factors</h4>
+                    <ul className="text-brand-800 space-y-1 text-sm">
                       <li>• Establish baseline CAC measurements before implementing changes</li>
                       <li>• Allow sufficient time for statistical significance (minimum 2 weeks per test)</li>
                       <li>• Monitor for external factors that could impact results (seasonality, market changes)</li>
@@ -549,7 +549,7 @@ export function CACReductionClient() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-green-600 to-emerald-600 text-white">
+        <section className="py-16 bg-gradient-to-br from-brand-600 to-brand-600 text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-6">
@@ -578,7 +578,7 @@ export function CACReductionClient() {
                 
                 <button
                   onClick={handleOpenConsultation}
-                  className="bg-white text-green-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors duration-200 inline-flex items-center"
+                  className="bg-white text-brand-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors duration-200 inline-flex items-center"
                 >
                   <Calendar className="h-5 w-5 mr-2" />
                   Get Your Custom CAC Optimization Plan

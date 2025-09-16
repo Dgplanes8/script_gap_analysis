@@ -7,6 +7,7 @@ import { SocialSharing } from '../../../components/blog/social-sharing'
 import { ArticleSchema } from '@/components/schema'
 import { BreadcrumbNavigation } from '../../../components/blog/breadcrumb-navigation'
 import { RelatedArticles } from '../../../components/blog/related-articles'
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Local Creative Agency vs In-House Marketing Team: ROI Calculator for Growing Businesses',
@@ -151,9 +152,9 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                 Our data analysis of 500+ businesses reveals that the optimal choice depends on three key factors: current revenue stage, internal capabilities, and growth timeline. Most businesses can achieve 40-60% better ROI by choosing the model that aligns with their specific situation rather than following industry defaults.
               </p>
 
-              <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
-                <h4 className="font-semibold text-yellow-900 mb-2">Critical Decision Point</h4>
-                <p className="text-yellow-800">
+              <div className="bg-brand-50 border-l-4 border-brand-400 p-6 mb-8">
+                <h4 className="font-semibold text-brand-900 mb-2">Critical Decision Point</h4>
+                <p className="text-brand-800">
                   The break-even point between agency and in-house approaches occurs at approximately $150K annual marketing spend. Below this threshold, agencies typically deliver superior ROI. Above it, in-house teams become increasingly cost-effective.
                 </p>
               </div>
@@ -163,12 +164,12 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
             <section id="roi-calculator-tool" className="mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Interactive ROI Calculator</h2>
               
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-lg p-8 mb-8">
+              <div className="bg-gradient-to-br from-brand-50 to-brand-50 border border-brand-200 rounded-lg p-8 mb-8">
                 <div className="flex items-center mb-6">
-                  <Calculator className="w-8 h-8 text-green-600 mr-4" />
+                  <Calculator className="w-8 h-8 text-brand-600 mr-4" />
                   <div>
-                    <h3 className="text-2xl font-semibold text-green-900">ROI Calculator Tool</h3>
-                    <p className="text-green-700">Get personalized ROI projections for your specific business situation</p>
+                    <h3 className="text-2xl font-semibold text-brand-900">ROI Calculator Tool</h3>
+                    <p className="text-brand-700">Get personalized ROI projections for your specific business situation</p>
                   </div>
                 </div>
                 
@@ -177,32 +178,32 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                   {/* Input Section */}
                   <div className="space-y-6">
                     <div>
-                      <label className="block text-sm font-semibold text-green-900 mb-2">Monthly Marketing Budget</label>
+                      <label className="block text-sm font-semibold text-brand-900 mb-2">Monthly Marketing Budget</label>
                       <div className="relative">
-                        <DollarSign className="w-5 h-5 text-green-600 absolute left-3 top-3" />
+                        <DollarSign className="w-5 h-5 text-brand-600 absolute left-3 top-3" />
                         <input 
                           type="number" 
                           placeholder="5000" 
-                          className="w-full pl-10 pr-4 py-3 border border-green-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                          className="w-full pl-10 pr-4 py-3 border border-brand-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-brand-500"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-green-900 mb-2">Current Monthly Revenue</label>
+                      <label className="block text-sm font-semibold text-brand-900 mb-2">Current Monthly Revenue</label>
                       <div className="relative">
-                        <DollarSign className="w-5 h-5 text-green-600 absolute left-3 top-3" />
+                        <DollarSign className="w-5 h-5 text-brand-600 absolute left-3 top-3" />
                         <input 
                           type="number" 
                           placeholder="50000" 
-                          className="w-full pl-10 pr-4 py-3 border border-green-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                          className="w-full pl-10 pr-4 py-3 border border-brand-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-brand-500"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-green-900 mb-2">Team Size</label>
-                      <select className="w-full px-4 py-3 border border-green-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                      <label className="block text-sm font-semibold text-brand-900 mb-2">Team Size</label>
+                      <select className="w-full px-4 py-3 border border-brand-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-brand-500">
                         <option value="1-5">1-5 employees</option>
                         <option value="6-15">6-15 employees</option>
                         <option value="16-50">16-50 employees</option>
@@ -211,8 +212,8 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-green-900 mb-2">Internal Marketing Experience</label>
-                      <select className="w-full px-4 py-3 border border-green-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                      <label className="block text-sm font-semibold text-brand-900 mb-2">Internal Marketing Experience</label>
+                      <select className="w-full px-4 py-3 border border-brand-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-brand-500">
                         <option value="none">No marketing background</option>
                         <option value="basic">Basic marketing knowledge</option>
                         <option value="experienced">Experienced marketer</option>
@@ -220,19 +221,19 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                       </select>
                     </div>
 
-                    <button className="w-full bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                    <button className="w-full bg-brand-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors">
                       Calculate ROI Projections
                     </button>
                   </div>
 
                   {/* Results Section */}
-                  <div className="bg-white border border-green-200 rounded-lg p-6">
-                    <h4 className="text-lg font-semibold text-green-900 mb-4">ROI Projections</h4>
+                  <div className="bg-white border border-brand-200 rounded-lg p-6">
+                    <h4 className="text-lg font-semibold text-brand-900 mb-4">ROI Projections</h4>
                     
                     <div className="space-y-4">
-                      <div className="flex justify-between items-center p-3 bg-green-50 rounded">
-                        <span className="text-green-800 font-medium">Local Agency ROI (12 months):</span>
-                        <span className="text-green-900 font-bold text-lg">3.2x</span>
+                      <div className="flex justify-between items-center p-3 bg-brand-50 rounded">
+                        <span className="text-brand-800 font-medium">Local Agency ROI (12 months):</span>
+                        <span className="text-brand-900 font-bold text-lg">3.2x</span>
                       </div>
                       
                       <div className="flex justify-between items-center p-3 bg-blue-50 rounded">
@@ -240,9 +241,9 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                         <span className="text-blue-900 font-bold text-lg">1.8x</span>
                       </div>
                       
-                      <div className="flex justify-between items-center p-3 bg-purple-50 rounded">
-                        <span className="text-purple-800 font-medium">Hybrid Approach ROI (12 months):</span>
-                        <span className="text-purple-900 font-bold text-lg">2.7x</span>
+                      <div className="flex justify-between items-center p-3 bg-brand-50 rounded">
+                        <span className="text-brand-800 font-medium">Hybrid Approach ROI (12 months):</span>
+                        <span className="text-brand-900 font-bold text-lg">2.7x</span>
                       </div>
                     </div>
 
@@ -258,7 +259,7 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                 <div className="mt-6 text-center">
                   <Link 
                     href="/roi-calculator" 
-                    className="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+                    className="inline-flex items-center bg-brand-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
                   >
                     Get Detailed ROI Analysis
                     <ArrowRight className="w-5 h-5 ml-2" />
@@ -308,7 +309,7 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                       <td className="px-4 py-3 text-gray-700">Data insights & optimization</td>
                       <td className="px-4 py-3 text-gray-600">Weekly/Monthly</td>
                     </tr>
-                    <tr className="bg-green-50 font-semibold">
+                    <tr className="bg-brand-50 font-semibold">
                       <td className="px-4 py-3 text-gray-900">Total Agency Investment</td>
                       <td className="px-4 py-3 text-gray-900">$5,000-$11,000</td>
                       <td className="px-4 py-3 text-gray-900">Comprehensive solution</td>
@@ -365,12 +366,12 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                 </table>
               </div>
 
-              <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
-                <h4 className="font-semibold text-red-900 mb-2">Hidden Costs Warning</h4>
-                <p className="text-red-800 mb-3">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 mb-8">
+                <h4 className="font-semibold text-brand-900 mb-2">Hidden Costs Warning</h4>
+                <p className="text-brand-800 mb-3">
                   In-house teams incur significant hidden costs often overlooked in initial planning:
                 </p>
-                <ul className="space-y-1 text-red-700 text-sm">
+                <ul className="space-y-1 text-brand-700 text-sm">
                   <li>• Management time: 10-15 hours/week for team coordination</li>
                   <li>• Training & development: $5,000-$10,000 annually per person</li>
                   <li>• Tool licensing: $300-$800/month additional software costs</li>
@@ -384,32 +385,32 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Performance Metrics Comparison</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                <div className="border border-green-200 rounded-lg p-6 bg-green-50">
-                  <h3 className="text-xl font-semibold text-green-900 mb-4">Local Creative Agency Performance</h3>
+                <div className="border border-brand-200 rounded-lg p-6 bg-brand-50">
+                  <h3 className="text-xl font-semibold text-brand-900 mb-4">Local Creative Agency Performance</h3>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">Time to First Campaign:</span>
-                      <span className="font-semibold text-green-900">1-2 weeks</span>
+                      <span className="text-brand-700">Time to First Campaign:</span>
+                      <span className="font-semibold text-brand-900">1-2 weeks</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">Creative Output Volume:</span>
-                      <span className="font-semibold text-green-900">15-25 assets/month</span>
+                      <span className="text-brand-700">Creative Output Volume:</span>
+                      <span className="font-semibold text-brand-900">15-25 assets/month</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">Specialization Depth:</span>
-                      <span className="font-semibold text-green-900">High (focused expertise)</span>
+                      <span className="text-brand-700">Specialization Depth:</span>
+                      <span className="font-semibold text-brand-900">High (focused expertise)</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">Industry Best Practices:</span>
-                      <span className="font-semibold text-green-900">Advanced access</span>
+                      <span className="text-brand-700">Industry Best Practices:</span>
+                      <span className="font-semibold text-brand-900">Advanced access</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">Quality Consistency:</span>
-                      <span className="font-semibold text-green-900">Professional standard</span>
+                      <span className="text-brand-700">Quality Consistency:</span>
+                      <span className="font-semibold text-brand-900">Professional standard</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">Typical ROI (12 months):</span>
-                      <span className="font-semibold text-green-900">3.2x - 4.8x</span>
+                      <span className="text-brand-700">Typical ROI (12 months):</span>
+                      <span className="font-semibold text-brand-900">3.2x - 4.8x</span>
                     </div>
                   </div>
                 </div>
@@ -460,26 +461,26 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                   <tbody className="divide-y divide-gray-200">
                     <tr>
                       <td className="px-4 py-3 text-gray-900">Startup ($0-$500K revenue)</td>
-                      <td className="px-4 py-3 text-center text-green-600 font-semibold">4.2x</td>
-                      <td className="px-4 py-3 text-center text-red-600">1.1x</td>
+                      <td className="px-4 py-3 text-center text-brand-600 font-semibold">4.2x</td>
+                      <td className="px-4 py-3 text-center text-brand-600">1.1x</td>
                       <td className="px-4 py-3 text-gray-700">Agency or Weekly Intelligence</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900">Scale-Up ($500K-$2M revenue)</td>
-                      <td className="px-4 py-3 text-center text-green-600 font-semibold">3.8x</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">2.3x</td>
+                      <td className="px-4 py-3 text-center text-brand-600 font-semibold">3.8x</td>
+                      <td className="px-4 py-3 text-center text-brand-600">2.3x</td>
                       <td className="px-4 py-3 text-gray-700">Agency + Specialist Hires</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900">Growth ($2M-$10M revenue)</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">3.2x</td>
-                      <td className="px-4 py-3 text-center text-green-600 font-semibold">3.7x</td>
+                      <td className="px-4 py-3 text-center text-brand-600">3.2x</td>
+                      <td className="px-4 py-3 text-center text-brand-600 font-semibold">3.7x</td>
                       <td className="px-4 py-3 text-gray-700">Hybrid or In-House</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900">Established ($10M+ revenue)</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">2.8x</td>
-                      <td className="px-4 py-3 text-center text-green-600 font-semibold">4.5x</td>
+                      <td className="px-4 py-3 text-center text-brand-600">2.8x</td>
+                      <td className="px-4 py-3 text-center text-brand-600 font-semibold">4.5x</td>
                       <td className="px-4 py-3 text-gray-700">In-House + Agency Partners</td>
                     </tr>
                   </tbody>
@@ -494,7 +495,7 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="border border-gray-200 rounded-lg p-6">
                   <div className="flex items-center mb-3">
-                    <Zap className="w-6 h-6 text-yellow-500 mr-3" />
+                    <Zap className="w-6 h-6 text-brand-500 mr-3" />
                     <h3 className="text-lg font-semibold text-gray-900">Immediate Expertise Access</h3>
                   </div>
                   <p className="text-gray-700 mb-3">
@@ -510,7 +511,7 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
 
                 <div className="border border-gray-200 rounded-lg p-6">
                   <div className="flex items-center mb-3">
-                    <DollarSign className="w-6 h-6 text-green-500 mr-3" />
+                    <DollarSign className="w-6 h-6 text-brand-500 mr-3" />
                     <h3 className="text-lg font-semibold text-gray-900">Cost Predictability</h3>
                   </div>
                   <p className="text-gray-700 mb-3">
@@ -542,7 +543,7 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
 
                 <div className="border border-gray-200 rounded-lg p-6">
                   <div className="flex items-center mb-3">
-                    <Clock className="w-6 h-6 text-purple-500 mr-3" />
+                    <Clock className="w-6 h-6 text-brand-500 mr-3" />
                     <h3 className="text-lg font-semibold text-gray-900">Faster Implementation</h3>
                   </div>
                   <p className="text-gray-700 mb-3">
@@ -557,12 +558,12 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                 </div>
               </div>
 
-              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-green-900 mb-3">When Local Agency Makes Sense</h3>
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-brand-900 mb-3">When Local Agency Makes Sense</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <h4 className="font-semibold text-green-800 mb-2">Business Situations:</h4>
-                    <ul className="space-y-1 text-green-700 text-sm">
+                    <h4 className="font-semibold text-brand-800 mb-2">Business Situations:</h4>
+                    <ul className="space-y-1 text-brand-700 text-sm">
                       <li>• Monthly marketing budget under $15K</li>
                       <li>• Need results within 1-3 months</li>
                       <li>• Limited internal marketing expertise</li>
@@ -571,8 +572,8 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-green-800 mb-2">Optimal Outcomes:</h4>
-                    <ul className="space-y-1 text-green-700 text-sm">
+                    <h4 className="font-semibold text-brand-800 mb-2">Optimal Outcomes:</h4>
+                    <ul className="space-y-1 text-brand-700 text-sm">
                       <li>• 40-60% faster campaign launch</li>
                       <li>• 25-30% lower initial investment</li>
                       <li>• Access to specialized expertise</li>
@@ -607,7 +608,7 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
 
                 <div className="border border-gray-200 rounded-lg p-6">
                   <div className="flex items-center mb-3">
-                    <Users className="w-6 h-6 text-green-500 mr-3" />
+                    <Users className="w-6 h-6 text-brand-500 mr-3" />
                     <h3 className="text-lg font-semibold text-gray-900">Complete Control</h3>
                   </div>
                   <p className="text-gray-700 mb-3">
@@ -623,7 +624,7 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
 
                 <div className="border border-gray-200 rounded-lg p-6">
                   <div className="flex items-center mb-3">
-                    <BarChart3 className="w-6 h-6 text-purple-500 mr-3" />
+                    <BarChart3 className="w-6 h-6 text-brand-500 mr-3" />
                     <h3 className="text-lg font-semibold text-gray-900">Long-Term ROI</h3>
                   </div>
                   <p className="text-gray-700 mb-3">
@@ -639,7 +640,7 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
 
                 <div className="border border-gray-200 rounded-lg p-6">
                   <div className="flex items-center mb-3">
-                    <Zap className="w-6 h-6 text-orange-500 mr-3" />
+                    <Zap className="w-6 h-6 text-brand-500 mr-3" />
                     <h3 className="text-lg font-semibold text-gray-900">Strategic Integration</h3>
                   </div>
                   <p className="text-gray-700 mb-3">
@@ -689,51 +690,51 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                 Many successful companies adopt hybrid models that combine the best aspects of agency partnerships and in-house capabilities. This approach can optimize both short-term performance and long-term strategic value.
               </p>
 
-              <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 mb-8">
-                <h3 className="text-xl font-semibold text-purple-900 mb-4">Recommended Hybrid Models</h3>
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 mb-8">
+                <h3 className="text-xl font-semibold text-brand-900 mb-4">Recommended Hybrid Models</h3>
                 
                 <div className="space-y-6">
-                  <div className="border-l-4 border-purple-500 pl-4">
-                    <h4 className="font-semibold text-purple-900 mb-2">Model 1: Agency + Strategic Hire</h4>
-                    <p className="text-purple-800 mb-2">Partner with creative agency while hiring internal marketing manager for strategy and coordination.</p>
+                  <div className="border-l-4 border-brand-500 pl-4">
+                    <h4 className="font-semibold text-brand-900 mb-2">Model 1: Agency + Strategic Hire</h4>
+                    <p className="text-brand-800 mb-2">Partner with creative agency while hiring internal marketing manager for strategy and coordination.</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <span className="text-sm font-semibold text-purple-900">Investment:</span>
-                        <p className="text-sm text-purple-700">$8K-$12K monthly total</p>
+                        <span className="text-sm font-semibold text-brand-900">Investment:</span>
+                        <p className="text-sm text-brand-700">$8K-$12K monthly total</p>
                       </div>
                       <div>
-                        <span className="text-sm font-semibold text-purple-900">Expected ROI:</span>
-                        <p className="text-sm text-purple-700">3.5x - 4.2x (12 months)</p>
+                        <span className="text-sm font-semibold text-brand-900">Expected ROI:</span>
+                        <p className="text-sm text-brand-700">3.5x - 4.2x (12 months)</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="border-l-4 border-purple-500 pl-4">
-                    <h4 className="font-semibold text-purple-900 mb-2">Model 2: Weekly Intelligence + In-House Execution</h4>
-                    <p className="text-purple-800 mb-2">Use weekly intelligence service for concepts while building internal team for execution and optimization.</p>
+                  <div className="border-l-4 border-brand-500 pl-4">
+                    <h4 className="font-semibold text-brand-900 mb-2">Model 2: Weekly Intelligence + In-House Execution</h4>
+                    <p className="text-brand-800 mb-2">Use weekly intelligence service for concepts while building internal team for execution and optimization.</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <span className="text-sm font-semibold text-purple-900">Investment:</span>
-                        <p className="text-sm text-purple-700">$4K-$8K monthly total</p>
+                        <span className="text-sm font-semibold text-brand-900">Investment:</span>
+                        <p className="text-sm text-brand-700">$4K-$8K monthly total</p>
                       </div>
                       <div>
-                        <span className="text-sm font-semibold text-purple-900">Expected ROI:</span>
-                        <p className="text-sm text-purple-700">4.1x - 5.8x (12 months)</p>
+                        <span className="text-sm font-semibold text-brand-900">Expected ROI:</span>
+                        <p className="text-sm text-brand-700">4.1x - 5.8x (12 months)</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="border-l-4 border-purple-500 pl-4">
-                    <h4 className="font-semibold text-purple-900 mb-2">Model 3: In-House Core + Agency Specialists</h4>
-                    <p className="text-purple-800 mb-2">Build core internal team while partnering with agencies for specialized campaigns and seasonal needs.</p>
+                  <div className="border-l-4 border-brand-500 pl-4">
+                    <h4 className="font-semibold text-brand-900 mb-2">Model 3: In-House Core + Agency Specialists</h4>
+                    <p className="text-brand-800 mb-2">Build core internal team while partnering with agencies for specialized campaigns and seasonal needs.</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <span className="text-sm font-semibold text-purple-900">Investment:</span>
-                        <p className="text-sm text-purple-700">$12K-$18K monthly total</p>
+                        <span className="text-sm font-semibold text-brand-900">Investment:</span>
+                        <p className="text-sm text-brand-700">$12K-$18K monthly total</p>
                       </div>
                       <div>
-                        <span className="text-sm font-semibold text-purple-900">Expected ROI:</span>
-                        <p className="text-sm text-purple-700">3.8x - 5.2x (18+ months)</p>
+                        <span className="text-sm font-semibold text-brand-900">Expected ROI:</span>
+                        <p className="text-sm text-brand-700">3.8x - 5.2x (18+ months)</p>
                       </div>
                     </div>
                   </div>
@@ -744,7 +745,7 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
               
               <div className="space-y-4">
                 <div className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
-                  <div className="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-semibold text-sm">1</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-brand-500 text-white rounded-full flex items-center justify-center font-semibold text-sm">1</div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Months 1-3: Agency Partnership Start</h4>
                     <p className="text-gray-700 text-sm">Launch with creative agency or weekly intelligence service for immediate creative delivery and market testing.</p>
@@ -752,7 +753,7 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                 </div>
 
                 <div className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
-                  <div className="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-semibold text-sm">2</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-brand-500 text-white rounded-full flex items-center justify-center font-semibold text-sm">2</div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Months 4-6: Strategic Hire</h4>
                     <p className="text-gray-700 text-sm">Hire marketing manager or strategist to coordinate external partnerships and develop internal capabilities.</p>
@@ -760,7 +761,7 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                 </div>
 
                 <div className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
-                  <div className="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-semibold text-sm">3</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-brand-500 text-white rounded-full flex items-center justify-center font-semibold text-sm">3</div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Months 7-12: Selective Expansion</h4>
                     <p className="text-gray-700 text-sm">Add specialized roles or services based on proven ROI and identified gaps in current approach.</p>
@@ -768,7 +769,7 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                 </div>
 
                 <div className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
-                  <div className="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-semibold text-sm">4</div>
+                  <div className="flex-shrink-0 w-8 h-8 bg-brand-500 text-white rounded-full flex items-center justify-center font-semibold text-sm">4</div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Months 13+: Optimization</h4>
                     <p className="text-gray-700 text-sm">Optimize the hybrid model based on performance data, scaling successful elements and adjusting underperforming areas.</p>
@@ -834,30 +835,30 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                         <tbody className="divide-y divide-gray-200">
                           <tr>
                             <td className="px-3 py-2 text-gray-900">Local Agency</td>
-                            <td className="px-3 py-2 text-center text-green-600 font-semibold">2.8x</td>
-                            <td className="px-3 py-2 text-center text-green-600 font-semibold">4.1x</td>
-                            <td className="px-3 py-2 text-center text-green-600">3.9x</td>
+                            <td className="px-3 py-2 text-center text-brand-600 font-semibold">2.8x</td>
+                            <td className="px-3 py-2 text-center text-brand-600 font-semibold">4.1x</td>
+                            <td className="px-3 py-2 text-center text-brand-600">3.9x</td>
                             <td className="px-3 py-2 text-gray-600">Quick results, limited budget</td>
                           </tr>
                           <tr>
                             <td className="px-3 py-2 text-gray-900">In-House Team</td>
-                            <td className="px-3 py-2 text-center text-red-600">0.9x</td>
-                            <td className="px-3 py-2 text-center text-yellow-600">1.8x</td>
-                            <td className="px-3 py-2 text-center text-green-600 font-semibold">5.2x</td>
+                            <td className="px-3 py-2 text-center text-brand-600">0.9x</td>
+                            <td className="px-3 py-2 text-center text-brand-600">1.8x</td>
+                            <td className="px-3 py-2 text-center text-brand-600 font-semibold">5.2x</td>
                             <td className="px-3 py-2 text-gray-600">Long-term investment, control</td>
                           </tr>
                           <tr>
                             <td className="px-3 py-2 text-gray-900">Hybrid Model</td>
-                            <td className="px-3 py-2 text-center text-green-600">2.1x</td>
-                            <td className="px-3 py-2 text-center text-green-600 font-semibold">3.7x</td>
-                            <td className="px-3 py-2 text-center text-green-600 font-semibold">4.8x</td>
+                            <td className="px-3 py-2 text-center text-brand-600">2.1x</td>
+                            <td className="px-3 py-2 text-center text-brand-600 font-semibold">3.7x</td>
+                            <td className="px-3 py-2 text-center text-brand-600 font-semibold">4.8x</td>
                             <td className="px-3 py-2 text-gray-600">Balanced approach, scaling</td>
                           </tr>
                           <tr className="bg-blue-50">
                             <td className="px-3 py-2 text-blue-900 font-semibold">Weekly Intelligence</td>
-                            <td className="px-3 py-2 text-center text-green-600 font-semibold">3.4x</td>
-                            <td className="px-3 py-2 text-center text-green-600 font-semibold">5.1x</td>
-                            <td className="px-3 py-2 text-center text-green-600">4.6x</td>
+                            <td className="px-3 py-2 text-center text-brand-600 font-semibold">3.4x</td>
+                            <td className="px-3 py-2 text-center text-brand-600 font-semibold">5.1x</td>
+                            <td className="px-3 py-2 text-center text-brand-600">4.6x</td>
                             <td className="px-3 py-2 text-blue-700">Low risk, fast results</td>
                           </tr>
                         </tbody>
@@ -868,9 +869,9 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                   <div className="bg-white border border-gray-200 rounded-lg p-6">
                     <h4 className="text-lg font-semibold text-gray-900 mb-4">Step 3: Make Data-Driven Decision</h4>
                     <div className="space-y-4">
-                      <div className="p-4 bg-green-50 border border-green-200 rounded">
-                        <h5 className="font-semibold text-green-900 mb-2">Choose Agency/Weekly Intelligence If:</h5>
-                        <ul className="space-y-1 text-green-800 text-sm">
+                      <div className="p-4 bg-brand-50 border border-brand-200 rounded">
+                        <h5 className="font-semibold text-brand-900 mb-2">Choose Agency/Weekly Intelligence If:</h5>
+                        <ul className="space-y-1 text-brand-800 text-sm">
                           <li>• Monthly budget under $15K</li>
                           <li>• Need results within 3-6 months</li>
                           <li>• Limited internal marketing expertise</li>
@@ -888,9 +889,9 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                         </ul>
                       </div>
 
-                      <div className="p-4 bg-purple-50 border border-purple-200 rounded">
-                        <h5 className="font-semibold text-purple-900 mb-2">Choose Hybrid Approach If:</h5>
-                        <ul className="space-y-1 text-purple-800 text-sm">
+                      <div className="p-4 bg-brand-50 border border-brand-200 rounded">
+                        <h5 className="font-semibold text-brand-900 mb-2">Choose Hybrid Approach If:</h5>
+                        <ul className="space-y-1 text-brand-800 text-sm">
                           <li>• Budget between $8K-$20K monthly</li>
                           <li>• Want balanced risk/reward profile</li>
                           <li>• Planning to scale marketing significantly</li>
@@ -911,38 +912,38 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                 <div className="border border-gray-200 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Tech Startup: $5K Monthly Budget Comparison</h3>
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                      <h4 className="font-semibold text-green-900 mb-3">Agency Partnership Path</h4>
+                    <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
+                      <h4 className="font-semibold text-brand-900 mb-3">Agency Partnership Path</h4>
                       <div className="space-y-2 mb-4">
                         <div><strong>Timeline:</strong> 2 weeks to launch</div>
                         <div><strong>Investment:</strong> $5,000/month</div>
                         <div><strong>6-Month Results:</strong></div>
-                        <ul className="space-y-1 text-sm text-green-800 ml-4">
+                        <ul className="space-y-1 text-sm text-brand-800 ml-4">
                           <li>• 12 campaign variations tested</li>
                           <li>• 340% increase in qualified leads</li>
                           <li>• $67,000 revenue attributed</li>
                           <li>• ROI: 3.7x</li>
                         </ul>
                       </div>
-                      <div className="text-sm text-green-700">
+                      <div className="text-sm text-brand-700">
                         <strong>Outcome:</strong> Fast results, proven ROI, scaled to $8K/month by month 8
                       </div>
                     </div>
 
-                    <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                      <h4 className="font-semibold text-red-900 mb-3">In-House Team Path</h4>
+                    <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
+                      <h4 className="font-semibold text-brand-900 mb-3">In-House Team Path</h4>
                       <div className="space-y-2 mb-4">
                         <div><strong>Timeline:</strong> 4 months to productivity</div>
                         <div><strong>Investment:</strong> $8,500/month average</div>
                         <div><strong>6-Month Results:</strong></div>
-                        <ul className="space-y-1 text-sm text-red-800 ml-4">
+                        <ul className="space-y-1 text-sm text-brand-800 ml-4">
                           <li>• 3 campaign variations tested</li>
                           <li>• 85% increase in qualified leads</li>
                           <li>• $28,000 revenue attributed</li>
                           <li>• ROI: 0.6x</li>
                         </ul>
                       </div>
-                      <div className="text-sm text-red-700">
+                      <div className="text-sm text-brand-700">
                         <strong>Outcome:</strong> Slow start, learning curve costs, team restructure needed
                       </div>
                     </div>
@@ -952,20 +953,20 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                 <div className="border border-gray-200 rounded-lg p-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">E-commerce Scale-Up: $15K Monthly Budget Comparison</h3>
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-                      <h4 className="font-semibold text-purple-900 mb-3">Hybrid Approach Path</h4>
+                    <div className="bg-brand-50 border border-brand-200 rounded-lg p-4">
+                      <h4 className="font-semibold text-brand-900 mb-3">Hybrid Approach Path</h4>
                       <div className="space-y-2 mb-4">
                         <div><strong>Timeline:</strong> 6 weeks to full operation</div>
                         <div><strong>Investment:</strong> $15,000/month (Agency: $9K, Manager: $6K)</div>
                         <div><strong>12-Month Results:</strong></div>
-                        <ul className="space-y-1 text-sm text-purple-800 ml-4">
+                        <ul className="space-y-1 text-sm text-brand-800 ml-4">
                           <li>• 28 campaign variations tested</li>
                           <li>• 520% increase in qualified leads</li>
                           <li>• $890,000 revenue attributed</li>
                           <li>• ROI: 4.1x</li>
                         </ul>
                       </div>
-                      <div className="text-sm text-purple-700">
+                      <div className="text-sm text-brand-700">
                         <strong>Outcome:</strong> Optimal balance, strategic control with execution expertise
                       </div>
                     </div>
@@ -1003,30 +1004,24 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
             <div className="sticky top-8 space-y-6">
               <TableOfContents items={tableOfContentsItems} />
               
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-lg p-6">
-                <h3 className="font-semibold text-green-900 mb-3">Free ROI Tools</h3>
+              <div className="bg-gradient-to-br from-brand-50 to-brand-50 border border-brand-200 rounded-lg p-6">
+                <h3 className="font-semibold text-brand-900 mb-3">Free ROI Tools</h3>
                 <div className="space-y-3">
                   <Link 
                     href="/roi-calculator" 
-                    className="flex items-center text-green-600 hover:text-green-700 text-sm"
+                    className="flex items-center text-brand-600 hover:text-brand-700 text-sm"
                   >
                     <Calculator className="w-4 h-4 mr-2" />
                     Interactive ROI Calculator
                   </Link>
                   <Link 
                     href="/marketing-budget-calculator" 
-                    className="flex items-center text-green-600 hover:text-green-700 text-sm"
+                    className="flex items-center text-brand-600 hover:text-brand-700 text-sm"
                   >
                     <DollarSign className="w-4 h-4 mr-2" />
                     Budget Planning Tool
                   </Link>
-                  <Link 
-                    href="/free-hooks" 
-                    className="flex items-center text-green-600 hover:text-green-700 text-sm"
-                  >
-                    <Target className="w-4 h-4 mr-2" />
-                    52 Free Creative Hooks
-                  </Link>
+                  <FreeWeekButton source="local_creative_agency_vs_in_house_marketing_roi_calculator-cta" className="flex items-center text-brand-600 hover:text-brand-700 text-sm">Start Free Week Trial</FreeWeekButton>
                 </div>
               </div>
 

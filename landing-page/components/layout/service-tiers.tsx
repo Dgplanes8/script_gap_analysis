@@ -30,9 +30,9 @@ export function ServiceTiers() {
         'Community access for questions'
       ],
       badge: 'Perfect for solopreneurs & early stage',
-      badgeColor: 'bg-green-100 text-green-800',
-      borderColor: 'border-green-200 hover:border-green-400',
-      ctaColor: 'bg-green-600 hover:bg-green-700 text-white',
+      badgeColor: 'bg-brand-100 text-brand-800',
+      borderColor: 'border-brand-200 hover:border-brand-400',
+      ctaColor: 'bg-brand-600 hover:bg-brand-700 text-white',
       ideal: 'Solo founders and early-stage startups with $500-$2K monthly ad spend testing creative approaches'
     },
     {
@@ -52,9 +52,9 @@ export function ServiceTiers() {
         'Monthly strategy overview'
       ],
       badge: 'Most Popular - Growing startups',
-      badgeColor: 'bg-orange-100 text-orange-800',
-      borderColor: 'border-orange-200 hover:border-orange-400',
-      ctaColor: 'bg-orange-600 hover:bg-orange-700 text-white',
+      badgeColor: 'bg-brand-100 text-brand-800',
+      borderColor: 'border-brand-200 hover:border-brand-400',
+      ctaColor: 'bg-brand-600 hover:bg-brand-700 text-white',
       popular: true,
       ideal: 'Bootstrap and early-stage startups with $2K-$10K monthly ad spend looking to scale their first successful campaigns'
     },
@@ -75,9 +75,9 @@ export function ServiceTiers() {
         'Monthly strategic consultation call'
       ],
       badge: 'Small marketing teams',
-      badgeColor: 'bg-teal-100 text-teal-800',
+      badgeColor: 'bg-brand-100 text-brand-800',
       borderColor: 'border-teal-300 hover:border-teal-500',
-      ctaColor: 'bg-teal-600 hover:bg-teal-700 text-white',
+      ctaColor: 'bg-brand-600 hover:bg-brand-700 text-white',
       ideal: 'Small marketing teams and growing startups with $10K-$50K monthly ad spend needing competitive intelligence'
     },
     {
@@ -120,9 +120,9 @@ export function ServiceTiers() {
         'Custom reporting and performance dashboards'
       ],
       badge: 'Enterprise - $500K+ spend companies',
-      badgeColor: 'bg-purple-100 text-purple-800',
-      borderColor: 'border-purple-300 hover:border-purple-500',
-      ctaColor: 'bg-purple-600 hover:bg-purple-700 text-white',
+      badgeColor: 'bg-brand-100 text-brand-800',
+      borderColor: 'border-brand-300 hover:border-brand-500',
+      ctaColor: 'bg-brand-600 hover:bg-brand-700 text-white',
       ideal: 'Large subscription companies with $500K+ monthly ad spend requiring comprehensive marketing solutions'
     }
   ];
@@ -132,7 +132,7 @@ export function ServiceTiers() {
     <section id="service-tiers" className="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-brand-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
             <Zap className="h-4 w-4 mr-2" />
             ⚡ EARLY ACCESS: Only 13 Launch-Price Spots Left This Month
           </div>
@@ -145,11 +145,11 @@ export function ServiceTiers() {
           <div className="bg-white rounded-xl p-6 max-w-3xl mx-auto shadow-lg border">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-orange-600">1st Week</div>
+                <div className="text-3xl font-bold text-brand-600">1st Week</div>
                 <div className="text-sm text-gray-600">FREE Trial</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-teal-600">Weekly Billing</div>
+                <div className="text-3xl font-bold text-brand-600">Weekly Billing</div>
                 <div className="text-sm text-gray-600">Cancel Anytime</div>
               </div>
               <div>
@@ -167,7 +167,7 @@ export function ServiceTiers() {
               <div
                 key={tier.id}
                 className={`relative bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl flex flex-col h-full ${
-                  tier.popular ? 'ring-2 ring-orange-500 transform sm:scale-105' : ''
+                  tier.popular ? 'ring-2 ring-brand-500 transform sm:scale-105' : ''
                 } ${tier.borderColor} border-2`}
                 style={{
                   marginTop: tier.popular ? '12px' : '36px'
@@ -175,7 +175,7 @@ export function ServiceTiers() {
               >
                 {tier.popular && (
                   <div className="absolute -top-5 sm:-top-6 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-orange-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold flex items-center shadow-lg whitespace-nowrap">
+                    <div className="bg-brand-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold flex items-center shadow-lg whitespace-nowrap">
                       <Zap className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                       Most Popular
                     </div>
@@ -184,7 +184,7 @@ export function ServiceTiers() {
 
                 <div className="text-center mb-6">
                   {/* FREE Week Badge */}
-                  <div className="bg-green-100 text-green-800 text-xs font-bold px-3 py-2 rounded-full mb-3">
+                  <div className="bg-brand-100 text-brand-800 text-xs font-bold px-3 py-2 rounded-full mb-3">
                     🎉 FIRST WEEK FREE
                   </div>
                   <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mb-3 ${tier.badgeColor}`}>
@@ -208,7 +208,7 @@ export function ServiceTiers() {
                   <ul className="space-y-2">
                     {tier.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
-                        <Check className="h-4 w-4 text-teal-500 mt-0.5 mr-2 flex-shrink-0" />
+                        <Check className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                         <span className={`text-gray-700 text-xs ${feature.startsWith('Everything') ? 'font-semibold text-gray-900' : ''}`}>
                           {feature.includes('25-point framework') ? (
                             <>
@@ -295,7 +295,7 @@ export function ServiceTiers() {
                   });
                   window.location.href = '/free-hooks';
                 }}
-                className="bg-orange-600 hover:bg-orange-700 text-white font-semibold text-lg px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+                className="bg-brand-600 hover:bg-brand-700 text-white font-semibold text-lg px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
               >
                 Get My 10 Free Templates
               </button>

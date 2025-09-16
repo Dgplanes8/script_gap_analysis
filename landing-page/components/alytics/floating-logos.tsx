@@ -77,12 +77,12 @@ function FloatingLogo({ position, platform, size, delay }: FloatingLogoProps) {
   };
 
   const platformConfig = {
-    tiktok: { color: 'text-pink-500', icon: TikTokIcon },
+    tiktok: { color: 'text-brand-500', icon: TikTokIcon },
     facebook: { color: 'text-blue-600', icon: FacebookIcon },
-    instagram: { color: 'text-pink-600', icon: InstagramIcon },
+    instagram: { color: 'text-brand-600', icon: InstagramIcon },
     linkedin: { color: 'text-blue-700', icon: LinkedInIcon },
-    youtube: { color: 'text-red-600', icon: YouTubeIcon },
-    snapchat: { color: 'text-yellow-400', icon: SnapchatIcon }
+    youtube: { color: 'text-brand-600', icon: YouTubeIcon },
+    snapchat: { color: 'text-brand-400', icon: SnapchatIcon }
   };
 
   const config = platformConfig[platform];

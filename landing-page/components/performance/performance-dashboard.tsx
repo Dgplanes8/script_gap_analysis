@@ -97,7 +97,7 @@ function MetricRow({
   }
   
   const isWithinBudget = value <= budget;
-  const colorClass = isWithinBudget ? 'text-green-600' : 'text-red-600';
+  const colorClass = isWithinBudget ? 'text-brand-600' : 'text-brand-600';
   
   return (
     <div className="flex justify-between">
@@ -125,7 +125,7 @@ function BudgetViolations({ monitor }: { monitor: any }) {
   
   if (violations.length === 0) {
     return (
-      <div className="text-green-600 text-xs">
+      <div className="text-brand-600 text-xs">
         ✅ All budgets within limits
       </div>
     );
@@ -133,11 +133,11 @@ function BudgetViolations({ monitor }: { monitor: any }) {
   
   return (
     <div className="space-y-1">
-      <div className="text-red-600 text-xs font-medium">
+      <div className="text-brand-600 text-xs font-medium">
         ⚠️ Budget Violations:
       </div>
       {violations.slice(0, 3).map((violation, index) => (
-        <div key={index} className="text-red-500 text-xs">
+        <div key={index} className="text-brand-500 text-xs">
           • {violation.split(':')[0]}
         </div>
       ))}
@@ -166,9 +166,9 @@ export function PerformanceMeter({
 }) {
   const percentage = Math.min((value / max) * 100, 100);
   
-  let color = 'bg-green-500';
-  if (value > needsImprovement) color = 'bg-yellow-500';
-  if (value > good) color = 'bg-red-500';
+  let color = 'bg-brand-500';
+  if (value > needsImprovement) color = 'bg-brand-500';
+  if (value > good) color = 'bg-brand-500';
   
   return (
     <div className="space-y-1">
@@ -197,13 +197,13 @@ export function CoreWebVitalsSummary({ vitals }: { vitals: WebVitals }) {
         <div className="text-xs text-gray-600">LCP</div>
       </div>
       <div className="text-center">
-        <div className="text-2xl font-bold text-green-600">
+        <div className="text-2xl font-bold text-brand-600">
           {vitals.FID ? `${vitals.FID.toFixed(0)}ms` : '-'}
         </div>
         <div className="text-xs text-gray-600">FID</div>
       </div>
       <div className="text-center">
-        <div className="text-2xl font-bold text-purple-600">
+        <div className="text-2xl font-bold text-brand-600">
           {vitals.CLS ? vitals.CLS.toFixed(3) : '-'}
         </div>
         <div className="text-xs text-gray-600">CLS</div>

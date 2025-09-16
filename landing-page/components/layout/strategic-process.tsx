@@ -118,9 +118,9 @@ export function StrategyProcess() {
 
   const categories = [
     { name: 'Foundation', color: 'bg-blue-100 text-blue-800', phases: [1, 2, 3] },
-    { name: 'Analysis', color: 'bg-green-100 text-green-800', phases: [4, 5] },
-    { name: 'Creative Development', color: 'bg-purple-100 text-purple-800', phases: [6, 7, 8, 9] },
-    { name: 'Finalization', color: 'bg-orange-100 text-orange-800', phases: [10, 11] }
+    { name: 'Analysis', color: 'bg-brand-100 text-brand-800', phases: [4, 5] },
+    { name: 'Creative Development', color: 'bg-brand-100 text-brand-800', phases: [6, 7, 8, 9] },
+    { name: 'Finalization', color: 'bg-brand-100 text-brand-800', phases: [10, 11] }
   ];
 
   return (
@@ -223,7 +223,7 @@ export function StrategyProcess() {
         </div>
 
         {/* Key Differentiators */}
-        <div className="mt-16 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8">
+        <div className="mt-16 bg-gradient-to-r from-indigo-50 to-brand-50 rounded-2xl p-8">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Why This Systematic Approach Works
@@ -246,8 +246,8 @@ export function StrategyProcess() {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <BarChart3 className="h-8 w-8 text-green-600" />
+              <div className="w-16 h-16 bg-brand-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <BarChart3 className="h-8 w-8 text-brand-600" />
               </div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Data-Driven Validation</h4>
               <p className="text-gray-600">
@@ -256,8 +256,8 @@ export function StrategyProcess() {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="h-8 w-8 text-purple-600" />
+              <div className="w-16 h-16 bg-brand-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="h-8 w-8 text-brand-600" />
               </div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Systematic Scaling</h4>
               <p className="text-gray-600">

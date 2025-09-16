@@ -68,7 +68,7 @@ export function ChannelStrategies() {
             return (
               <div key={index} className="bg-white rounded-xl shadow-lg p-8">
                 <div className="flex items-start mb-6">
-                  <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                     <IconComponent className="h-6 w-6 text-emerald-600" />
                   </div>
                   <div>
@@ -80,7 +80,7 @@ export function ChannelStrategies() {
                 <div className="space-y-3">
                   {framework.components.map((component, componentIndex) => (
                     <div key={componentIndex} className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-3 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-500 mr-3 flex-shrink-0" />
                       <span className="text-gray-700">{component}</span>
                     </div>
                   ))}

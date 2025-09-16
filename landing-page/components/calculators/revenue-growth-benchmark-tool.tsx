@@ -200,7 +200,7 @@ export function RevenueGrowthBenchmarkTool() {
     return (
       <div className="bg-white rounded-2xl shadow-xl p-8">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-flex items-center px-4 py-2 bg-brand-100 text-emerald-800 rounded-full text-sm font-semibold mb-4">
             <Award className="h-4 w-4 mr-2" />
             Your Benchmark Results
           </div>
@@ -265,7 +265,7 @@ export function RevenueGrowthBenchmarkTool() {
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div 
-                    className="bg-purple-600 h-2 rounded-full" 
+                    className="bg-brand-600 h-2 rounded-full" 
                     style={{ width: `${results.categoryScores.messaging}%` }}
                   ></div>
                 </div>
@@ -278,7 +278,7 @@ export function RevenueGrowthBenchmarkTool() {
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div 
-                    className="bg-green-600 h-2 rounded-full" 
+                    className="bg-brand-600 h-2 rounded-full" 
                     style={{ width: `${results.categoryScores.velocity}%` }}
                   ></div>
                 </div>
@@ -291,7 +291,7 @@ export function RevenueGrowthBenchmarkTool() {
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div 
-                    className="bg-orange-600 h-2 rounded-full" 
+                    className="bg-brand-600 h-2 rounded-full" 
                     style={{ width: `${results.categoryScores.optimization}%` }}
                   ></div>
                 </div>
@@ -301,7 +301,7 @@ export function RevenueGrowthBenchmarkTool() {
         </div>
 
         {/* Growth Potential */}
-        <div className="bg-emerald-50 rounded-lg p-6 mb-8">
+        <div className="bg-brand-50 rounded-lg p-6 mb-8">
           <h4 className="font-semibold mb-4 text-emerald-800 flex items-center">
             <TrendingUp className="h-5 w-5 mr-2" />
             Revenue Growth Potential
@@ -349,26 +349,26 @@ export function RevenueGrowthBenchmarkTool() {
           <h4 className="font-semibold mb-4 text-gray-800">Industry Comparison</h4>
           <div className="grid md:grid-cols-3 gap-6 text-center">
             <div>
-              <div className="text-lg font-bold text-red-600">Bottom 25%</div>
+              <div className="text-lg font-bold text-brand-600">Bottom 25%</div>
               <div className="text-sm text-gray-600">Score: 0-40</div>
               <div className="text-xs text-gray-500">Ad-hoc approach</div>
             </div>
             <div>
-              <div className="text-lg font-bold text-yellow-600">Average</div>
+              <div className="text-lg font-bold text-brand-600">Average</div>
               <div className="text-sm text-gray-600">Score: 41-65</div>
               <div className="text-xs text-gray-500">Basic optimization</div>
             </div>
             <div>
-              <div className="text-lg font-bold text-green-600">Top 25%</div>
+              <div className="text-lg font-bold text-brand-600">Top 25%</div>
               <div className="text-sm text-gray-600">Score: 66-100</div>
               <div className="text-xs text-gray-500">Systematic approach</div>
             </div>
           </div>
           <div className="mt-4 text-center">
             <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold ${
-              results.overallScore >= 66 ? 'bg-green-100 text-green-800' :
-              results.overallScore >= 41 ? 'bg-yellow-100 text-yellow-800' :
-              'bg-red-100 text-red-800'
+              results.overallScore >= 66 ? 'bg-brand-100 text-brand-800' :
+              results.overallScore >= 41 ? 'bg-brand-100 text-brand-800' :
+              'bg-brand-100 text-brand-800'
             }`}>
               Your Position: {results.benchmarkComparison}
             </div>
@@ -376,7 +376,7 @@ export function RevenueGrowthBenchmarkTool() {
         </div>
 
         {/* CTA */}
-        <div className="bg-gradient-to-r from-emerald-600 to-blue-600 rounded-lg p-6 text-center">
+        <div className="bg-gradient-to-r from-brand-600 to-blue-600 rounded-lg p-6 text-center">
           <h4 className="font-semibold mb-2 text-white">Ready to Optimize Your Creative Strategy?</h4>
           <p className="text-blue-100 text-sm mb-4">
             Claim your free week to implement these personalized recommendations
@@ -403,7 +403,7 @@ export function RevenueGrowthBenchmarkTool() {
   return (
     <div className="bg-white rounded-2xl shadow-xl p-8">
       <div className="text-center mb-8">
-        <div className="inline-flex items-center px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full text-sm font-semibold mb-4">
+        <div className="inline-flex items-center px-4 py-2 bg-brand-100 text-emerald-800 rounded-full text-sm font-semibold mb-4">
           <BarChart3 className="h-4 w-4 mr-2" />
           Creative Strategy Benchmark
         </div>
@@ -414,7 +414,7 @@ export function RevenueGrowthBenchmarkTool() {
         {/* Progress Bar */}
         <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
           <div 
-            className="bg-emerald-600 h-2 rounded-full transition-all duration-300" 
+            className="bg-brand-600 h-2 rounded-full transition-all duration-300" 
             style={{ width: `${(currentStep / totalSteps) * 100}%` }}
           ></div>
         </div>
@@ -431,7 +431,7 @@ export function RevenueGrowthBenchmarkTool() {
               <button
                 key={option.value}
                 onClick={() => handleAnswer(currentQuestion.id, option.value)}
-                className="w-full p-4 text-left bg-gray-50 hover:bg-emerald-50 rounded-lg border border-gray-200 hover:border-emerald-300 transition-all duration-200 flex items-center justify-between"
+                className="w-full p-4 text-left bg-gray-50 hover:bg-brand-50 rounded-lg border border-gray-200 hover:border-emerald-300 transition-all duration-200 flex items-center justify-between"
               >
                 <span className="text-gray-800">{option.label}</span>
                 <ArrowRight className="h-4 w-4 text-gray-400" />

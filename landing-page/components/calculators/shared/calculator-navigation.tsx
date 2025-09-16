@@ -36,7 +36,7 @@ export function CalculatorNavigation({
         <button
           onClick={onCalculate}
           disabled={!canProceed || loading}
-          className="flex items-center px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+          className="flex items-center px-8 py-3 bg-gradient-to-r from-indigo-600 to-brand-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-brand-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
         >
           <Calculator className="h-5 w-5 mr-2" />
           {loading ? 'Calculating...' : 'Calculate Results'}

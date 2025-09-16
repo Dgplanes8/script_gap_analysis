@@ -37,7 +37,7 @@ export function StickyCTA({ text, href, variant = 'pilot' }: StickyCTAProps) {
       case 'newsletter':
         return 'bg-gray-900 text-white hover:bg-gray-800';
       default:
-        return 'bg-green-600 text-white hover:bg-green-700';
+        return 'bg-brand-600 text-white hover:bg-brand-700';
     }
   };
 

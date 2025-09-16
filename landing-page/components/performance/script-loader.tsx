@@ -128,7 +128,7 @@ export function ScriptFacade({
       <div className={className}>
         {isLoading && (
           <div className="flex items-center justify-center p-8">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-600"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-600"></div>
             <span className="ml-2 text-gray-600">{loadingText}</span>
           </div>
         )}

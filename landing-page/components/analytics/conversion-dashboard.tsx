@@ -84,7 +84,7 @@ export function ConversionDashboard({ className = '' }: ConversionDashboardProps
               <div className="text-sm font-semibold text-gray-900">
                 {metric.name.includes('Rate') ? `${metric.value}%` : metric.value}
               </div>
-              <div className={`text-xs ${metric.change > 0 ? 'text-green-600' : 'text-red-600'}`}>
+              <div className={`text-xs ${metric.change > 0 ? 'text-brand-600' : 'text-brand-600'}`}>
                 {metric.change > 0 ? '+' : ''}{metric.change}%
               </div>
             </div>

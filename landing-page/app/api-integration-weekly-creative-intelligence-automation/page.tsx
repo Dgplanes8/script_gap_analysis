@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, TrendingUp, Target, Code, BarChart3, Users, Zap, Download, Calculator, BookOpen, PlayCircle, Globe, Database, Settings, GitBranch, Workflow, Bot, Clock } from 'lucide-react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'API Integration for Weekly Creative Intelligence: Automation Framework Guide | Apsics Media',
@@ -246,7 +247,7 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-orange-600 to-red-600 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-600 to-brand-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -258,40 +259,40 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
               API Integration for Weekly Creative Intelligence
             </h1>
             
-            <p className="text-xl md:text-2xl text-orange-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Complete API integration framework for weekly creative intelligence automation. 
               Marketing API integration, workflow automation, and subscription business optimization.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Clock className="h-8 w-8 text-orange-200 mx-auto mb-2" />
+                <Clock className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">90% Time Saved</div>
-                <div className="text-orange-200 text-sm">Data collection automation</div>
+                <div className="text-brand-200 text-sm">Data collection automation</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Bot className="h-8 w-8 text-orange-200 mx-auto mb-2" />
+                <Bot className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">Automated Analysis</div>
-                <div className="text-orange-200 text-sm">AI-powered insights</div>
+                <div className="text-brand-200 text-sm">AI-powered insights</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Workflow className="h-8 w-8 text-orange-200 mx-auto mb-2" />
+                <Workflow className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">Seamless Integration</div>
-                <div className="text-orange-200 text-sm">Workflow automation</div>
+                <div className="text-brand-200 text-sm">Workflow automation</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#api-frameworks"
-                className="bg-white text-orange-600 hover:bg-orange-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
               >
                 Explore API Framework
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               <Link
                 href="#implementation-guide"
-                className="border-2 border-white text-white hover:bg-white hover:text-orange-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
+                className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
               >
                 View Implementation Guide
                 <Code className="h-5 w-5 ml-2" />
@@ -317,25 +318,25 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
               </p>
               
               <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div className="bg-red-50 rounded-xl p-6 border border-red-200">
+                <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Manual Data Collection Limitations</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Time-Intensive Data Gathering</div>
                         <div className="text-gray-600">Manual data collection from multiple platforms consumes 20+ hours weekly</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Data Inconsistency Issues</div>
                         <div className="text-gray-600">Manual processes introduce errors and inconsistent data formatting</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Delayed Intelligence Delivery</div>
                         <div className="text-gray-600">Manual analysis creates delays in strategic intelligence and optimization</div>
@@ -344,25 +345,25 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
                   </div>
                 </div>
                 
-                <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+                <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">API Integration Advantages</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Real-Time Data Collection</div>
                         <div className="text-gray-600">Automated API integration provides continuous data updates with 90% time savings</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Consistent Data Quality</div>
                         <div className="text-gray-600">API automation ensures consistent data formatting and error reduction</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Automated Intelligence Processing</div>
                         <div className="text-gray-600">API integration enables AI-powered analysis and automated intelligence delivery</div>
@@ -372,7 +373,7 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
                 </div>
               </div>
               
-              <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-8">
+              <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-xl p-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Subscription Business API Integration ROI
                 </h3>
@@ -422,14 +423,14 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
               {apiFrameworks.map((framework, index) => (
                 <div key={index} className="bg-white rounded-2xl p-8 shadow-lg">
                   <div className="flex items-start mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-xl flex items-center justify-center font-bold text-lg mr-6 flex-shrink-0">
+                    <div className="w-16 h-16 bg-gradient-to-r from-brand-500 to-brand-500 text-white rounded-xl flex items-center justify-center font-bold text-lg mr-6 flex-shrink-0">
                       <framework.icon className="h-8 w-8" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{framework.framework}</h3>
                       <p className="text-gray-700 mb-4">{framework.description}</p>
-                      <div className="bg-green-50 px-3 py-2 rounded-full inline-block">
-                        <span className="text-green-700 font-semibold text-sm">{framework.outcome}</span>
+                      <div className="bg-brand-50 px-3 py-2 rounded-full inline-block">
+                        <span className="text-brand-700 font-semibold text-sm">{framework.outcome}</span>
                       </div>
                     </div>
                   </div>
@@ -439,7 +440,7 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
                     <div className="grid md:grid-cols-2 gap-3">
                       {framework.components.map((component, componentIndex) => (
                         <div key={componentIndex} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                           <span className="text-sm text-gray-700">{component}</span>
                         </div>
                       ))}
@@ -488,7 +489,7 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
                             <div className="font-semibold text-gray-900 mb-2">Key Endpoints:</div>
                             <div className="flex flex-wrap gap-1">
                               {api.endpoints.map((endpoint, endpointIndex) => (
-                                <span key={endpointIndex} className="text-xs bg-orange-50 text-orange-700 px-2 py-1 rounded">
+                                <span key={endpointIndex} className="text-xs bg-brand-50 text-brand-700 px-2 py-1 rounded">
                                   {endpoint}
                                 </span>
                               ))}
@@ -501,9 +502,9 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
                           </div>
                         </div>
                         
-                        <div className="bg-orange-50 rounded-lg p-3">
-                          <div className="font-semibold text-orange-800 text-sm mb-1">Implementation:</div>
-                          <div className="text-orange-700 text-xs">{api.implementation_complexity}</div>
+                        <div className="bg-brand-50 rounded-lg p-3">
+                          <div className="font-semibold text-brand-800 text-sm mb-1">Implementation:</div>
+                          <div className="text-brand-700 text-xs">{api.implementation_complexity}</div>
                         </div>
                       </div>
                     ))}
@@ -532,11 +533,11 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
               {implementationGuide.map((phase, index) => (
                 <div key={index} className="bg-white rounded-xl p-6 shadow-lg">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-r from-brand-500 to-brand-500 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       <phase.icon className="h-6 w-6" />
                     </div>
                     <div className="flex-1">
-                      <div className="text-sm font-semibold text-orange-600 mb-1">{phase.phase} - {phase.timeline}</div>
+                      <div className="text-sm font-semibold text-brand-600 mb-1">{phase.phase} - {phase.timeline}</div>
                       <h3 className="text-lg font-bold text-gray-900">{phase.title}</h3>
                     </div>
                   </div>
@@ -545,17 +546,17 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
                     <div className="grid md:grid-cols-2 gap-3 mb-4">
                       {phase.tasks.map((task, taskIndex) => (
                         <div key={taskIndex} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                           <span className="text-sm text-gray-700">{task}</span>
                         </div>
                       ))}
                     </div>
                     
-                    <div className="bg-orange-50 rounded-lg p-3">
-                      <div className="font-semibold text-orange-800 text-sm mb-1">Phase Deliverables:</div>
+                    <div className="bg-brand-50 rounded-lg p-3">
+                      <div className="font-semibold text-brand-800 text-sm mb-1">Phase Deliverables:</div>
                       <div className="flex flex-wrap gap-2">
                         {phase.deliverables.map((deliverable, deliverableIndex) => (
-                          <span key={deliverableIndex} className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">
+                          <span key={deliverableIndex} className="text-xs bg-brand-100 text-brand-700 px-2 py-1 rounded">
                             {deliverable}
                           </span>
                         ))}
@@ -566,7 +567,7 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
               ))}
             </div>
             
-            <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-8 mt-8">
+            <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-xl p-8 mt-8">
               <h3 className="text-xl font-bold text-gray-900 mb-6">Implementation Success Outcomes</h3>
               
               <div className="grid md:grid-cols-2 gap-6">
@@ -596,52 +597,46 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-brand-600 to-brand-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Automate Intelligence with API Integration
             </h2>
             
-            <p className="text-xl text-orange-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Transform manual processes with comprehensive API automation. 
               Access systematic intelligence gathering, automated analysis, and seamless workflow integration.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Clock className="h-8 w-8 text-orange-200 mx-auto mb-2" />
+                <Clock className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">90% Time Saved</div>
-                <div className="text-orange-200 text-sm">Data collection</div>
+                <div className="text-brand-200 text-sm">Data collection</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Bot className="h-8 w-8 text-orange-200 mx-auto mb-2" />
+                <Bot className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">AI Analysis</div>
-                <div className="text-orange-200 text-sm">Automated insights</div>
+                <div className="text-brand-200 text-sm">Automated insights</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Workflow className="h-8 w-8 text-orange-200 mx-auto mb-2" />
+                <Workflow className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Seamless Integration</div>
-                <div className="text-orange-200 text-sm">Workflow automation</div>
+                <div className="text-brand-200 text-sm">Workflow automation</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#email-signup"
-                className="bg-white text-orange-600 hover:bg-orange-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
               >
                 Get API Integration Guide
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-orange-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View Automation Plans
-                <Code className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="api_integration_weekly_creative_intelligence_automation-cta" className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>
@@ -660,8 +655,8 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
                 href="/marketing-automation-weekly-creative-intelligence-setup"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mb-3">
-                  <Settings className="h-5 w-5 text-orange-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Settings className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Marketing Automation Setup</h3>
                 <p className="text-sm text-gray-600">
@@ -673,8 +668,8 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
                 href="/analytics-setup-weekly-creative-intelligence-tracking"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mb-3">
-                  <BarChart3 className="h-5 w-5 text-orange-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <BarChart3 className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Analytics Setup Framework</h3>
                 <p className="text-sm text-gray-600">
@@ -686,8 +681,8 @@ export default function APIIntegrationWeeklyCreativeIntelligenceAutomation() {
                 href="/first-party-data-collection-weekly-intelligence-framework"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mb-3">
-                  <Database className="h-5 w-5 text-orange-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Database className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">First-Party Data Collection</h3>
                 <p className="text-sm text-gray-600">

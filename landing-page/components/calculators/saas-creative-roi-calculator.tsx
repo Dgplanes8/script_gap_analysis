@@ -166,7 +166,7 @@ export function SaaSCreativeROICalculator() {
 
   return (
     <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-      <div className="bg-gradient-to-r from-emerald-600 to-teal-600 p-8 text-white">
+      <div className="bg-gradient-to-r from-brand-600 to-brand-600 p-8 text-white">
         <div className="text-center">
           <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
             <Calculator className="h-8 w-8 text-white" />
@@ -320,7 +320,7 @@ export function SaaSCreativeROICalculator() {
                   key={scenario.name}
                   className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
                     selectedScenario.name === scenario.name
-                      ? 'border-emerald-500 bg-emerald-50'
+                      ? 'border-emerald-500 bg-brand-50'
                       : 'border-gray-200 hover:border-emerald-300'
                   }`}
                   onClick={() => setSelectedScenario(scenario)}
@@ -343,7 +343,7 @@ export function SaaSCreativeROICalculator() {
               disabled={!isFormValid}
               className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors flex items-center justify-center ${
                 isFormValid
-                  ? 'bg-emerald-600 text-white hover:bg-emerald-700'
+                  ? 'bg-brand-600 text-white hover:bg-brand-700'
                   : 'bg-gray-300 text-gray-500 cursor-not-allowed'
               }`}
             >
@@ -387,7 +387,7 @@ export function SaaSCreativeROICalculator() {
                 </div>
               </div>
               
-              <div className="bg-emerald-50 p-6 rounded-lg">
+              <div className="bg-brand-50 p-6 rounded-lg">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                   <TrendingUp className="h-5 w-5 text-emerald-600 mr-2" />
                   Optimized Performance
@@ -414,7 +414,7 @@ export function SaaSCreativeROICalculator() {
             </div>
 
             {/* Key Improvements */}
-            <div className="bg-gradient-to-r from-emerald-600 to-teal-600 p-8 rounded-lg text-white mb-8">
+            <div className="bg-gradient-to-r from-brand-600 to-brand-600 p-8 rounded-lg text-white mb-8">
               <h4 className="text-xl font-bold mb-6 text-center">
                 {selectedScenario.name} Impact
               </h4>
@@ -462,7 +462,7 @@ export function SaaSCreativeROICalculator() {
             </div>
 
             {showLeadCapture && (
-              <div className="bg-emerald-600 p-8 rounded-lg text-white text-center">
+              <div className="bg-brand-600 p-8 rounded-lg text-white text-center">
                 <h4 className="text-xl font-bold mb-4">Ready to Achieve These Results?</h4>
                 <p className="text-emerald-100 mb-6">
                   Book a free strategic consultation to get a personalized implementation roadmap 
@@ -478,7 +478,7 @@ export function SaaSCreativeROICalculator() {
                         window.location.href = '/#service-tiers';
                       }
                     }}
-                    className="bg-white text-green-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-50 transition-colors flex items-center"
+                    className="bg-white text-brand-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-50 transition-colors flex items-center"
                   >
                     Claim Free Week
                     <ArrowRight className="h-4 w-4 ml-2" />
@@ -515,7 +515,7 @@ export function SaaSCreativeROICalculator() {
                   window.location.href = '/#service-tiers';
                 }
               }}
-              className="bg-green-600 text-white hover:bg-green-700 font-semibold px-8 py-3 rounded-lg transition-colors flex items-center justify-center"
+              className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-8 py-3 rounded-lg transition-colors flex items-center justify-center"
             >
               Claim Free Week
               <ArrowRight className="h-5 w-5 ml-2" />

@@ -44,7 +44,7 @@ export default function StartupMarketingBudgetCalculatorPage() {
     <div>
       {/* Interactive Calculator Section */}
       <section className="my-12">
-        <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-8 border-2 border-orange-200">
+        <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-lg p-8 border-2 border-brand-200">
           <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
             Interactive Marketing Budget Calculator
           </h2>
@@ -74,7 +74,7 @@ export default function StartupMarketingBudgetCalculatorPage() {
         <h4 className="text-xl font-semibold text-gray-800 mb-4">Recommended Channel Mix by Stage:</h4>
         
         <div className="space-y-4">
-          <div className="border-l-4 border-green-500 pl-4">
+          <div className="border-l-4 border-brand-500 pl-4">
             <h5 className="font-semibold text-gray-800">Bootstrap/Pre-Revenue (Total: $500-$2,000/month)</h5>
             <ul className="text-gray-700 mt-2 space-y-1">
               <li>• Content Marketing: 40% ($200-$800)</li>
@@ -94,7 +94,7 @@ export default function StartupMarketingBudgetCalculatorPage() {
             </ul>
           </div>
           
-          <div className="border-l-4 border-purple-500 pl-4">
+          <div className="border-l-4 border-brand-500 pl-4">
             <h5 className="font-semibold text-gray-800">Growth Stage (Total: $15,000-$50,000/month)</h5>
             <ul className="text-gray-700 mt-2 space-y-1">
               <li>• Performance Marketing: 60% ($9,000-$30,000)</li>
@@ -136,14 +136,14 @@ export default function StartupMarketingBudgetCalculatorPage() {
       <h3 className="text-2xl font-semibold text-gray-800 mb-4">4. Budget Optimization Tactics</h3>
       
       <div className="space-y-6 mb-8">
-        <div className="border-l-4 border-orange-500 pl-6">
+        <div className="border-l-4 border-brand-500 pl-6">
           <h4 className="text-lg font-semibold text-gray-800 mb-2">Weekly Budget Review Process</h4>
           <p className="text-gray-700">
             Track CAC, ROAS, and conversion rates weekly. Reallocate 20% of underperforming channel budgets to top performers. This prevents budget waste and maximizes growth efficiency.
           </p>
         </div>
         
-        <div className="border-l-4 border-green-500 pl-6">
+        <div className="border-l-4 border-brand-500 pl-6">
           <h4 className="text-lg font-semibold text-gray-800 mb-2">Seasonal Budget Adjustments</h4>
           <p className="text-gray-700">
             Plan for 40% budget increases during peak seasons (Q4, industry events) and 20% decreases during slow periods. This prevents overspending during low-conversion windows.
@@ -160,23 +160,23 @@ export default function StartupMarketingBudgetCalculatorPage() {
 
       <h3 className="text-2xl font-semibold text-gray-800 mb-4">5. Common Budget Allocation Mistakes</h3>
       
-      <div className="bg-red-50 rounded-lg p-6 mb-8">
-        <h4 className="text-lg font-semibold text-red-800 mb-4">Avoid These Critical Errors:</h4>
-        <ul className="space-y-3 text-red-700">
+      <div className="bg-brand-50 rounded-lg p-6 mb-8">
+        <h4 className="text-lg font-semibold text-brand-800 mb-4">Avoid These Critical Errors:</h4>
+        <ul className="space-y-3 text-brand-700">
           <li className="flex items-start">
-            <span className="text-red-500 mr-2">✗</span>
+            <span className="text-brand-500 mr-2">✗</span>
             <span><strong>All-in on one channel:</strong> 80% budget allocation to single channel increases risk and limits scale</span>
           </li>
           <li className="flex items-start">
-            <span className="text-red-500 mr-2">✗</span>
+            <span className="text-brand-500 mr-2">✗</span>
             <span><strong>Ignoring payback periods:</strong> CAC payback {'>'}18 months creates cash flow crisis for startups</span>
           </li>
           <li className="flex items-start">
-            <span className="text-red-500 mr-2">✗</span>
+            <span className="text-brand-500 mr-2">✗</span>
             <span><strong>No experimentation budget:</strong> Zero allocation to new channels prevents growth discovery</span>
           </li>
           <li className="flex items-start">
-            <span className="text-red-500 mr-2">✗</span>
+            <span className="text-brand-500 mr-2">✗</span>
             <span><strong>Static monthly budgets:</strong> Not adjusting for seasonality and performance data</span>
           </li>
         </ul>
@@ -188,9 +188,9 @@ export default function StartupMarketingBudgetCalculatorPage() {
         Effective budget management requires weekly tracking of key metrics and monthly optimization based on performance data. Use the calculator above to establish baseline budgets, then track actual performance against projections.
       </p>
       
-      <div className="bg-green-50 rounded-lg p-6 mb-8">
-        <h4 className="text-lg font-semibold text-green-800 mb-4">Weekly Tracking Metrics:</h4>
-        <div className="grid md:grid-cols-2 gap-4 text-green-700">
+      <div className="bg-brand-50 rounded-lg p-6 mb-8">
+        <h4 className="text-lg font-semibold text-brand-800 mb-4">Weekly Tracking Metrics:</h4>
+        <div className="grid md:grid-cols-2 gap-4 text-brand-700">
           <ul className="space-y-2">
             <li>• CAC by channel and campaign</li>
             <li>• ROAS (Return on Ad Spend)</li>

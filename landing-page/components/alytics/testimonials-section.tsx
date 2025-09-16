@@ -138,7 +138,7 @@ export function TestimonialsSection() {
               {/* Rating */}
               <div className="flex items-center">
                 {[1, 2, 3, 4, 5].map(star => (
-                  <Star key={star} className="w-4 h-4 text-yellow-400 fill-current" />
+                  <Star key={star} className="w-4 h-4 text-brand-400 fill-current" />
                 ))}
               </div>
 

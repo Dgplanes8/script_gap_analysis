@@ -47,7 +47,7 @@ export function ServiceTiersSection() {
       'Priority email support'
     ],
     badge: 'LIMITED - FIRST 100 FOUNDERS',
-    badgeColor: 'bg-red-500',
+    badgeColor: 'bg-brand-500',
     popular: false,
     lifetime: true,
     ideal: 'Early adopters who want lifetime access (normally $1,820/year)'
@@ -89,7 +89,7 @@ export function ServiceTiersSection() {
         '7-day FREE trial'
       ],
       badge: 'MOST POPULAR',
-      badgeColor: 'bg-green-500',
+      badgeColor: 'bg-brand-500',
       popular: true,
       ideal: 'Growing startups ($2K-$10K monthly ad spend)'
     },
@@ -109,7 +109,7 @@ export function ServiceTiersSection() {
         '7-day FREE trial'
       ],
       badge: 'Premium Support',
-      badgeColor: 'bg-purple-500',
+      badgeColor: 'bg-brand-500',
       popular: false,
       ideal: 'Scaling teams ($10K+ monthly ad spend)'
     }
@@ -164,28 +164,28 @@ export function ServiceTiersSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-12"
         >
-          <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-2xl p-8 text-white relative overflow-hidden">
+          <div className="bg-gradient-to-r from-brand-500 to-brand-600 rounded-2xl p-8 text-white relative overflow-hidden">
             <div className="absolute top-4 right-4">
-              <Crown className="w-8 h-8 text-yellow-300" />
+              <Crown className="w-8 h-8 text-brand-300" />
             </div>
             
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <div className="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-4 inline-block">
+                <div className="bg-brand-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-4 inline-block">
                   {lifetimeOffer.badge}
                 </div>
                 <h3 className="text-2xl font-bold mb-2">{lifetimeOffer.name}</h3>
-                <p className="text-red-100 mb-4">{lifetimeOffer.description}</p>
+                <p className="text-brand-100 mb-4">{lifetimeOffer.description}</p>
                 <div className="text-3xl font-bold">{lifetimeOffer.price} <span className="text-lg font-normal">lifetime</span></div>
-                <p className="text-red-200 text-sm">{lifetimeOffer.ideal}</p>
+                <p className="text-brand-200 text-sm">{lifetimeOffer.ideal}</p>
               </div>
               
               <div>
                 <ul className="space-y-2 mb-6">
                   {lifetimeOffer.features.map((feature, index) => (
                     <li key={index} className="flex items-center">
-                      <Check className="w-4 h-4 text-yellow-300 mr-3 flex-shrink-0" />
-                      <span className="text-red-100">{feature}</span>
+                      <Check className="w-4 h-4 text-brand-300 mr-3 flex-shrink-0" />
+                      <span className="text-brand-100">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -194,7 +194,7 @@ export function ServiceTiersSection() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => handleTierSelect(lifetimeOffer)}
-                  className="bg-white text-red-600 font-semibold px-6 py-3 rounded-xl hover:bg-red-50 transition-all duration-200 flex items-center"
+                  className="bg-white text-brand-600 font-semibold px-6 py-3 rounded-xl hover:bg-brand-50 transition-all duration-200 flex items-center"
                 >
                   Claim Lifetime Access
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -250,7 +250,7 @@ export function ServiceTiersSection() {
                 <ul className="space-y-3 mb-8 text-left">
                   {tier.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center">
-                      <Check className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+                      <Check className="w-4 h-4 text-brand-500 mr-3 flex-shrink-0" />
                       <span className="text-gray-600">{feature}</span>
                     </li>
                   ))}

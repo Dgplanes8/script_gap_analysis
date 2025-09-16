@@ -16,9 +16,9 @@ export function ConsultationBookingCTA({
   const baseClasses = 'inline-flex items-center font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
   
   const variantClasses = {
-    primary: 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-500 px-8 py-3 rounded-lg text-lg',
-    secondary: 'bg-white text-green-600 border-2 border-green-600 hover:bg-green-50 focus:ring-green-500 px-6 py-2 rounded-lg',
-    header: 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-500 px-4 py-2 rounded-lg text-sm'
+    primary: 'bg-brand-600 text-white hover:bg-brand-700 focus:ring-green-500 px-8 py-3 rounded-lg text-lg',
+    secondary: 'bg-white text-brand-600 border-2 border-brand-600 hover:bg-brand-50 focus:ring-green-500 px-6 py-2 rounded-lg',
+    header: 'bg-brand-600 text-white hover:bg-brand-700 focus:ring-green-500 px-4 py-2 rounded-lg text-sm'
   };
 
   const handleClick = () => {

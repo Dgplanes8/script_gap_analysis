@@ -85,16 +85,16 @@ export function FinalConversionSection() {
           {/* Urgency Box */}
           <motion.div 
             variants={itemVariants}
-            className="bg-orange-50 border border-orange-200 rounded-xl p-6 mb-8"
+            className="bg-brand-50 border border-brand-200 rounded-xl p-6 mb-8"
           >
             <div className="flex items-center justify-center gap-2 mb-4">
-              <Clock className="w-5 h-5 text-orange-600" />
-              <span className="text-orange-800 font-semibold">Limited Time Offer</span>
+              <Clock className="w-5 h-5 text-brand-600" />
+              <span className="text-brand-800 font-semibold">Limited Time Offer</span>
             </div>
             <ul className="space-y-2">
               {urgencyPoints.map((point, index) => (
-                <li key={index} className="flex items-center justify-center gap-2 text-orange-700">
-                  <div className="w-1.5 h-1.5 bg-orange-600 rounded-full"></div>
+                <li key={index} className="flex items-center justify-center gap-2 text-brand-700">
+                  <div className="w-1.5 h-1.5 bg-brand-600 rounded-full"></div>
                   <span>{point}</span>
                 </li>
               ))}
@@ -128,7 +128,7 @@ export function FinalConversionSection() {
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
               {riskReversals.map((item, index) => (
                 <div key={index} className="flex items-center gap-2 text-gray-600">
-                  <div className="text-green-600">{item.icon}</div>
+                  <div className="text-brand-600">{item.icon}</div>
                   <span className="font-medium">{item.text}</span>
                 </div>
               ))}

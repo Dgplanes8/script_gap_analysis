@@ -139,7 +139,7 @@ export function TestimonialCarousel() {
             <div className="mb-8">
               <div className="flex mb-4">
                 {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  <Star key={i} className="h-5 w-5 text-brand-400 fill-current" />
                 ))}
               </div>
               
@@ -148,15 +148,15 @@ export function TestimonialCarousel() {
               </blockquote>
               
               <div className="grid md:grid-cols-3 gap-4 mb-6">
-                <div className="text-center p-4 bg-red-50 rounded-lg">
-                  <div className="text-sm font-medium text-red-600 mb-1">Before</div>
-                  <div className="text-lg font-bold text-red-700">
+                <div className="text-center p-4 bg-brand-50 rounded-lg">
+                  <div className="text-sm font-medium text-brand-600 mb-1">Before</div>
+                  <div className="text-lg font-bold text-brand-700">
                     {testimonials[currentIndex].metrics.before}
                   </div>
                 </div>
-                <div className="text-center p-4 bg-green-50 rounded-lg">
-                  <div className="text-sm font-medium text-green-600 mb-1">After</div>
-                  <div className="text-lg font-bold text-green-700">
+                <div className="text-center p-4 bg-brand-50 rounded-lg">
+                  <div className="text-sm font-medium text-brand-600 mb-1">After</div>
+                  <div className="text-lg font-bold text-brand-700">
                     {testimonials[currentIndex].metrics.after}
                   </div>
                 </div>
@@ -234,11 +234,11 @@ export function TestimonialCarousel() {
                 <div className="text-sm text-gray-600">Avg CTR Improvement</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-green-600">98.5%</div>
+                <div className="text-2xl font-bold text-brand-600">98.5%</div>
                 <div className="text-sm text-gray-600">On-Time Delivery</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-purple-600">89%</div>
+                <div className="text-2xl font-bold text-brand-600">89%</div>
                 <div className="text-sm text-gray-600">Pilot → Full Upgrade</div>
               </div>
             </div>

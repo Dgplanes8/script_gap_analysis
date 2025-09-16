@@ -67,7 +67,7 @@ export function ImplementationTimeline({
   return (
     <>
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-emerald-600">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-brand-600">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-6">
             Ready to Optimize Your Growth Channels?
@@ -128,7 +128,7 @@ export function ImplementationTimeline({
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div 
-                    className="bg-emerald-600 h-2 rounded-full transition-all duration-300"
+                    className="bg-brand-600 h-2 rounded-full transition-all duration-300"
                     style={{ width: `${((assessmentStep + 1) / assessmentQuestions.length) * 100}%` }}
                   ></div>
                 </div>
@@ -165,7 +165,7 @@ export function ImplementationTimeline({
                     </button>
                     <button
                       onClick={() => setAssessmentStep(assessmentStep + 1)}
-                      className="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
+                      className="px-6 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition-colors"
                     >
                       {assessmentStep === assessmentQuestions.length - 1 ? 'Complete Assessment' : 'Next'}
                     </button>
@@ -173,7 +173,7 @@ export function ImplementationTimeline({
                 </div>
               ) : (
                 <div className="text-center">
-                  <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+                  <CheckCircle className="h-16 w-16 text-brand-500 mx-auto mb-4" />
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     Assessment Complete!
                   </h3>

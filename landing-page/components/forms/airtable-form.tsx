@@ -74,17 +74,17 @@ export function AirtableForm({
 
   if (isSubmitted) {
     return (
-      <div className="text-center p-8 bg-green-50 rounded-lg border border-green-200">
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <CheckCircle className="h-8 w-8 text-green-600" />
+      <div className="text-center p-8 bg-brand-50 rounded-lg border border-brand-200">
+        <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <CheckCircle className="h-8 w-8 text-brand-600" />
         </div>
-        <h3 className="text-2xl font-semibold text-green-800 mb-2">
+        <h3 className="text-2xl font-semibold text-brand-800 mb-2">
           Your Free Templates Are On The Way!
         </h3>
-        <p className="text-green-700 mb-4">
+        <p className="text-brand-700 mb-4">
           Check your inbox for instant access to your free templates and welcome guide.
         </p>
-        <p className="text-sm text-green-600">
+        <p className="text-sm text-brand-600">
           You'll also receive weekly trend intelligence with fresh concepts every Monday.
         </p>
       </div>
@@ -111,7 +111,7 @@ export function AirtableForm({
               {...register('name')}
             />
             {errors.name && (
-              <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+              <p className="text-brand-500 text-sm mt-1">{errors.name.message}</p>
             )}
           </div>
 
@@ -125,7 +125,7 @@ export function AirtableForm({
               {...register('email')}
             />
             {errors.email && (
-              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+              <p className="text-brand-500 text-sm mt-1">{errors.email.message}</p>
             )}
           </div>
         </div>
@@ -141,7 +141,7 @@ export function AirtableForm({
               {...register('company')}
             />
             {errors.company && (
-              <p className="text-red-500 text-sm mt-1">{errors.company.message}</p>
+              <p className="text-brand-500 text-sm mt-1">{errors.company.message}</p>
             )}
           </div>
 
@@ -161,7 +161,7 @@ export function AirtableForm({
               <option value="other">Other</option>
             </select>
             {errors.appType && (
-              <p className="text-red-500 text-sm mt-1">{errors.appType.message}</p>
+              <p className="text-brand-500 text-sm mt-1">{errors.appType.message}</p>
             )}
           </div>
         </div>
@@ -205,7 +205,7 @@ export function AirtableForm({
             {...register('painPoints')}
           />
           {errors.painPoints && (
-            <p className="text-red-500 text-sm mt-1">{errors.painPoints.message}</p>
+            <p className="text-brand-500 text-sm mt-1">{errors.painPoints.message}</p>
           )}
         </div>
 
@@ -220,7 +220,7 @@ export function AirtableForm({
             {...register('goals')}
           />
           {errors.goals && (
-            <p className="text-red-500 text-sm mt-1">{errors.goals.message}</p>
+            <p className="text-brand-500 text-sm mt-1">{errors.goals.message}</p>
           )}
         </div>
 

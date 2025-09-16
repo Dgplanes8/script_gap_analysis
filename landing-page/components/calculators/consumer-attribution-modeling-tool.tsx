@@ -184,7 +184,7 @@ export function ConsumerAttributionModelingTool() {
   return (
     <div className="bg-white rounded-2xl shadow-xl p-8">
       <div className="text-center mb-8">
-        <div className="inline-flex items-center px-4 py-2 bg-pink-100 text-pink-800 rounded-full text-sm font-semibold mb-4">
+        <div className="inline-flex items-center px-4 py-2 bg-brand-100 text-brand-800 rounded-full text-sm font-semibold mb-4">
           <Calculator className="h-4 w-4 mr-2" />
           D2C Attribution Calculator
         </div>
@@ -206,7 +206,7 @@ export function ConsumerAttributionModelingTool() {
             <select
               value={inputs.attributionModel}
               onChange={(e) => setInputs(prev => ({ ...prev, attributionModel: e.target.value }))}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
             >
               <option value="position-based">Position-Based (40/20/40)</option>
               <option value="time-decay">Time-Decay</option>
@@ -216,7 +216,7 @@ export function ConsumerAttributionModelingTool() {
           </div>
 
           {inputs.attributionModel === 'position-based' && (
-            <div className="bg-pink-50 p-4 rounded-lg">
+            <div className="bg-brand-50 p-4 rounded-lg">
               <h4 className="font-semibold mb-3">Position Weights (%)</h4>
               <div className="grid grid-cols-3 gap-3">
                 <div>
@@ -310,7 +310,7 @@ export function ConsumerAttributionModelingTool() {
 
           <button
             onClick={calculateAttribution}
-            className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 transition-colors flex items-center justify-center"
+            className="w-full bg-brand-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-700 transition-colors flex items-center justify-center"
           >
             <BarChart className="h-5 w-5 mr-2" />
             Calculate D2C Attribution Impact
@@ -334,22 +334,22 @@ export function ConsumerAttributionModelingTool() {
                         <span>{channelNames[channel as keyof typeof channelNames]}</span>
                       </div>
                       <div className="grid grid-cols-2 gap-4">
-                        <div className="bg-red-50 p-3 rounded text-center">
-                          <div className="text-lg font-bold text-red-600">
+                        <div className="bg-brand-50 p-3 rounded text-center">
+                          <div className="text-lg font-bold text-brand-600">
                             ${lastClickCAC.toFixed(0)}
                           </div>
-                          <div className="text-xs text-red-700">Last-Click CAC</div>
+                          <div className="text-xs text-brand-700">Last-Click CAC</div>
                         </div>
-                        <div className="bg-green-50 p-3 rounded text-center">
-                          <div className="text-lg font-bold text-green-600">
+                        <div className="bg-brand-50 p-3 rounded text-center">
+                          <div className="text-lg font-bold text-brand-600">
                             ${results.attributedCAC[channel].toFixed(0)}
                           </div>
-                          <div className="text-xs text-green-700">Attributed CAC</div>
+                          <div className="text-xs text-brand-700">Attributed CAC</div>
                         </div>
                       </div>
                       <div className="text-center">
                         <span className={`text-sm font-medium ${
-                          results.attributedCAC[channel] < lastClickCAC ? 'text-green-600' : 'text-red-600'
+                          results.attributedCAC[channel] < lastClickCAC ? 'text-brand-600' : 'text-brand-600'
                         }`}>
                           {results.attributedCAC[channel] < lastClickCAC ? '↓' : '↑'} 
                           {Math.abs(((results.attributedCAC[channel] - lastClickCAC) / lastClickCAC) * 100).toFixed(1)}%
@@ -361,20 +361,20 @@ export function ConsumerAttributionModelingTool() {
               </div>
 
               {/* Improvement Metrics */}
-              <div className="bg-purple-50 rounded-lg p-6">
-                <h4 className="font-semibold mb-4 text-purple-800">Attribution Impact Summary</h4>
+              <div className="bg-brand-50 rounded-lg p-6">
+                <h4 className="font-semibold mb-4 text-brand-800">Attribution Impact Summary</h4>
                 <div className="grid grid-cols-1 gap-4">
                   <div className="bg-white p-4 rounded-lg text-center">
-                    <div className="text-2xl font-bold text-purple-600">
+                    <div className="text-2xl font-bold text-brand-600">
                       {results.improvementMetrics.totalCACImprovement.toFixed(1)}%
                     </div>
-                    <div className="text-sm text-purple-700">CAC Accuracy Improvement</div>
+                    <div className="text-sm text-brand-700">CAC Accuracy Improvement</div>
                   </div>
                   <div className="bg-white p-4 rounded-lg text-center">
-                    <div className="text-2xl font-bold text-green-600">
+                    <div className="text-2xl font-bold text-brand-600">
                       ${results.improvementMetrics.reallocationSavings.toLocaleString()}
                     </div>
-                    <div className="text-sm text-green-700">Potential Monthly Savings</div>
+                    <div className="text-sm text-brand-700">Potential Monthly Savings</div>
                   </div>
                 </div>
               </div>
@@ -396,7 +396,7 @@ export function ConsumerAttributionModelingTool() {
                           <div className="text-sm font-bold">
                             ${current.toLocaleString()} → ${recommended.toFixed(0).toLocaleString()}
                           </div>
-                          <div className={`text-xs ${change > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                          <div className={`text-xs ${change > 0 ? 'text-brand-600' : 'text-brand-600'}`}>
                             {change > 0 ? '+' : ''}{change.toFixed(1)}%
                           </div>
                         </div>
@@ -407,9 +407,9 @@ export function ConsumerAttributionModelingTool() {
               </div>
 
               {/* Implementation CTA */}
-              <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg p-6 text-center">
+              <div className="bg-gradient-to-r from-brand-600 to-brand-600 rounded-lg p-6 text-center">
                 <h4 className="font-semibold mb-2 text-white">Ready to Improve Your Attribution?</h4>
-                <p className="text-purple-100 text-sm mb-4">
+                <p className="text-brand-100 text-sm mb-4">
                   Claim your free week to get expert guidance on implementing D2C attribution
                 </p>
                 <button
@@ -421,7 +421,7 @@ export function ConsumerAttributionModelingTool() {
                       window.location.href = '/#service-tiers';
                     }
                   }}
-                  className="bg-white text-purple-600 hover:bg-gray-50 font-semibold px-6 py-2 rounded-lg transition-colors flex items-center justify-center mx-auto"
+                  className="bg-white text-brand-600 hover:bg-gray-50 font-semibold px-6 py-2 rounded-lg transition-colors flex items-center justify-center mx-auto"
                 >
                   Claim Free Week
                   <ArrowRight className="h-4 w-4 ml-2" />

@@ -135,10 +135,10 @@ export function CreativeBriefStructure() {
                 <div className="mt-6 p-4 bg-white rounded-lg border border-gray-200">
                   <h4 className="font-semibold text-gray-900 mb-2">Complete Package</h4>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    <li className="flex items-center"><CheckCircle className="h-3 w-3 text-green-500 mr-2" />3 Strategic concepts</li>
-                    <li className="flex items-center"><CheckCircle className="h-3 w-3 text-green-500 mr-2" />15 Format variations</li>
-                    <li className="flex items-center"><CheckCircle className="h-3 w-3 text-green-500 mr-2" />Production guidelines</li>
-                    <li className="flex items-center"><CheckCircle className="h-3 w-3 text-green-500 mr-2" />Platform optimization</li>
+                    <li className="flex items-center"><CheckCircle className="h-3 w-3 text-brand-500 mr-2" />3 Strategic concepts</li>
+                    <li className="flex items-center"><CheckCircle className="h-3 w-3 text-brand-500 mr-2" />15 Format variations</li>
+                    <li className="flex items-center"><CheckCircle className="h-3 w-3 text-brand-500 mr-2" />Production guidelines</li>
+                    <li className="flex items-center"><CheckCircle className="h-3 w-3 text-brand-500 mr-2" />Platform optimization</li>
                   </ul>
                 </div>
               </div>
@@ -249,7 +249,7 @@ export function CreativeBriefStructure() {
                         serviceTiersElement.scrollIntoView({ behavior: 'smooth' });
                       }
                     }}
-                    className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors duration-200 flex items-center justify-center"
+                    className="bg-brand-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors duration-200 flex items-center justify-center"
                   >
                     See Weekly Plans
                     <ArrowRight className="h-4 w-4 ml-2" />

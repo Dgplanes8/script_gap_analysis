@@ -4,6 +4,7 @@ import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { AttributionModelingTool } from '@/components/calculators/attribution-modeling-tool';
 import { Header } from '@/components/layout/secondary-header';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Advanced Marketing Attribution Framework for SaaS Companies | Strategic Ad Intelligence',
@@ -49,20 +50,20 @@ export default function MarketingAttributionFrameworkPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       
-      <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100">
+      <div className="min-h-screen bg-gradient-to-br from-brand-50 to-brand-100">
         {/* Header */}
         <Header />
 
         {/* Hero Section */}
         <section className="pt-24 py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center px-4 py-2 bg-brand-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
               🔍 Advanced Analytics Framework
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Advanced Marketing Attribution Framework
               <br />
-              <span className="text-purple-600">for SaaS Companies</span>
+              <span className="text-brand-600">for SaaS Companies</span>
             </h1>
             <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
               Implement sophisticated multi-touch attribution modeling to accurately measure CAC, 
@@ -73,32 +74,22 @@ export default function MarketingAttributionFrameworkPage() {
             {/* Trust Indicators */}
             <div className="flex flex-wrap justify-center items-center gap-8 mb-12 text-sm text-gray-600">
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                 Multi-touch attribution models
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                 Revenue attribution tracking
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                 Implementation templates
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/free-hooks"
-                className="px-8 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors"
-              >
-                Get 10 Free Attribution Hooks
-              </a>
-              <a
-                href="/#service-tiers"
-                className="px-8 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors"
-              >
-                See Weekly Plans
-              </a>
+              <FreeWeekButton source="marketing_attribution_framework-cta" className="px-8 py-3 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition-colors">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="marketing_attribution_framework-cta" className="px-8 py-3 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition-colors">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </section>
@@ -111,21 +102,21 @@ export default function MarketingAttributionFrameworkPage() {
             </h2>
             
             <div className="grid md:grid-cols-5 gap-6">
-              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
                 <div className="text-center mb-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-red-600 font-bold">LC</span>
+                  <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-brand-600 font-bold">LC</span>
                   </div>
-                  <h3 className="font-semibold text-red-800">Last Click</h3>
+                  <h3 className="font-semibold text-brand-800">Last Click</h3>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Accuracy:</span>
-                    <span className="text-red-600">Low</span>
+                    <span className="text-brand-600">Low</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Complexity:</span>
-                    <span className="text-green-600">Simple</span>
+                    <span className="text-brand-600">Simple</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Use Case:</span>
@@ -134,21 +125,21 @@ export default function MarketingAttributionFrameworkPage() {
                 </div>
               </div>
               
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
                 <div className="text-center mb-4">
-                  <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-yellow-600 font-bold">FC</span>
+                  <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-brand-600 font-bold">FC</span>
                   </div>
-                  <h3 className="font-semibold text-yellow-800">First Click</h3>
+                  <h3 className="font-semibold text-brand-800">First Click</h3>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Accuracy:</span>
-                    <span className="text-yellow-600">Low</span>
+                    <span className="text-brand-600">Low</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Complexity:</span>
-                    <span className="text-green-600">Simple</span>
+                    <span className="text-brand-600">Simple</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Use Case:</span>
@@ -157,21 +148,21 @@ export default function MarketingAttributionFrameworkPage() {
                 </div>
               </div>
               
-              <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
                 <div className="text-center mb-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-orange-600 font-bold">LN</span>
+                  <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-brand-600 font-bold">LN</span>
                   </div>
-                  <h3 className="font-semibold text-orange-800">Linear</h3>
+                  <h3 className="font-semibold text-brand-800">Linear</h3>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Accuracy:</span>
-                    <span className="text-orange-600">Medium</span>
+                    <span className="text-brand-600">Medium</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Complexity:</span>
-                    <span className="text-yellow-600">Moderate</span>
+                    <span className="text-brand-600">Moderate</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Use Case:</span>
@@ -180,21 +171,21 @@ export default function MarketingAttributionFrameworkPage() {
                 </div>
               </div>
               
-              <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
                 <div className="text-center mb-4">
-                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-purple-600 font-bold">MT</span>
+                  <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-brand-600 font-bold">MT</span>
                   </div>
-                  <h3 className="font-semibold text-purple-800">Multi-Touch</h3>
+                  <h3 className="font-semibold text-brand-800">Multi-Touch</h3>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Accuracy:</span>
-                    <span className="text-green-600">High</span>
+                    <span className="text-brand-600">High</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Complexity:</span>
-                    <span className="text-red-600">Advanced</span>
+                    <span className="text-brand-600">Advanced</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Use Case:</span>
@@ -203,21 +194,21 @@ export default function MarketingAttributionFrameworkPage() {
                 </div>
               </div>
               
-              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
                 <div className="text-center mb-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-green-600 font-bold">MM</span>
+                  <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-brand-600 font-bold">MM</span>
                   </div>
-                  <h3 className="font-semibold text-green-800">Mixed Media Model</h3>
+                  <h3 className="font-semibold text-brand-800">Mixed Media Model</h3>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Accuracy:</span>
-                    <span className="text-green-600">Very High</span>
+                    <span className="text-brand-600">Very High</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Complexity:</span>
-                    <span className="text-red-600">Expert</span>
+                    <span className="text-brand-600">Expert</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Use Case:</span>
@@ -264,7 +255,7 @@ export default function MarketingAttributionFrameworkPage() {
             {/* Phase 1 */}
             <div className="mb-16">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
                   <span className="text-xl font-bold text-white">1</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Data Foundation & Tracking Setup</h3>
@@ -282,27 +273,27 @@ export default function MarketingAttributionFrameworkPage() {
                     <h5 className="font-semibold mb-3">Essential Touchpoints to Track:</h5>
                     <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Organic search visits and keyword analysis
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Paid advertising clicks (Google, LinkedIn, Facebook)
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Email marketing engagement and clicks
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Content downloads and resource interactions
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Webinar attendance and demo requests
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Social media engagement and referrals
                       </li>
                     </ul>
@@ -311,27 +302,27 @@ export default function MarketingAttributionFrameworkPage() {
                     <h5 className="font-semibold mb-3">Technical Implementation:</h5>
                     <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         UTM parameter standardization across channels
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Cross-domain tracking implementation
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Customer ID linking and deduplication
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Event tracking for micro-conversions
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Revenue and LTV data integration
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Data warehouse setup for attribution modeling
                       </li>
                     </ul>
@@ -343,7 +334,7 @@ export default function MarketingAttributionFrameworkPage() {
             {/* Phase 2 */}
             <div className="mb-16">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
                   <span className="text-xl font-bold text-white">2</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Attribution Model Selection & Configuration</h3>
@@ -358,7 +349,7 @@ export default function MarketingAttributionFrameworkPage() {
                 
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="bg-white p-6 rounded-lg border">
-                    <h5 className="font-semibold mb-3 text-purple-800">Time-Decay Model</h5>
+                    <h5 className="font-semibold mb-3 text-brand-800">Time-Decay Model</h5>
                     <p className="text-sm text-gray-600 mb-4">
                       More credit to touchpoints closer to conversion
                     </p>
@@ -368,7 +359,7 @@ export default function MarketingAttributionFrameworkPage() {
                   </div>
                   
                   <div className="bg-white p-6 rounded-lg border">
-                    <h5 className="font-semibold mb-3 text-purple-800">Position-Based Model</h5>
+                    <h5 className="font-semibold mb-3 text-brand-800">Position-Based Model</h5>
                     <p className="text-sm text-gray-600 mb-4">
                       40% first touch, 40% last touch, 20% middle
                     </p>
@@ -378,7 +369,7 @@ export default function MarketingAttributionFrameworkPage() {
                   </div>
                   
                   <div className="bg-white p-6 rounded-lg border">
-                    <h5 className="font-semibold mb-3 text-purple-800">Data-Driven Model</h5>
+                    <h5 className="font-semibold mb-3 text-brand-800">Data-Driven Model</h5>
                     <p className="text-sm text-gray-600 mb-4">
                       ML-based credit assignment using conversion data
                     </p>
@@ -393,7 +384,7 @@ export default function MarketingAttributionFrameworkPage() {
             {/* Phase 3 */}
             <div className="mb-16">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
                   <span className="text-xl font-bold text-white">3</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Revenue Attribution & CAC Optimization</h3>
@@ -409,7 +400,7 @@ export default function MarketingAttributionFrameworkPage() {
                 <div className="space-y-6">
                   <div className="bg-white p-6 rounded-lg border">
                     <h5 className="font-semibold mb-3">CAC Calculation with Attribution</h5>
-                    <div className="bg-purple-50 p-4 rounded font-mono text-sm mb-4">
+                    <div className="bg-brand-50 p-4 rounded font-mono text-sm mb-4">
                       Channel CAC = (Channel Spend × Attribution Weight) / Attributed Conversions
                     </div>
                     <p className="text-gray-600 text-sm">
@@ -443,7 +434,7 @@ export default function MarketingAttributionFrameworkPage() {
             
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-semibold mb-6 text-purple-600">Technical Setup</h3>
+                <h3 className="text-xl font-semibold mb-6 text-brand-600">Technical Setup</h3>
                 <div className="space-y-4">
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
@@ -473,7 +464,7 @@ export default function MarketingAttributionFrameworkPage() {
               </div>
               
               <div>
-                <h3 className="text-xl font-semibold mb-6 text-purple-600">Business Process</h3>
+                <h3 className="text-xl font-semibold mb-6 text-brand-600">Business Process</h3>
                 <div className="space-y-4">
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
@@ -506,32 +497,22 @@ export default function MarketingAttributionFrameworkPage() {
         </section>
 
         {/* Lead Generation Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-purple-600">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-brand-600">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-6">
               Get Your Complete Attribution Implementation Toolkit
             </h2>
-            <p className="text-xl text-purple-100 mb-8">
+            <p className="text-xl text-brand-100 mb-8">
               Download our comprehensive toolkit including technical specifications, SQL queries, 
               data schema templates, and step-by-step implementation guides.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/free-hooks"
-                className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
-              >
-                Get My 10 Free Attribution Hooks
-              </a>
-              <a
-                href="/#service-tiers"
-                className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
-              >
-                See Weekly Plans
-              </a>
+              <FreeWeekButton source="marketing_attribution_framework-cta" className="bg-white text-brand-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="marketing_attribution_framework-cta" className="bg-white text-brand-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">Start Free Week Trial</FreeWeekButton>
             </div>
             
-            <div className="text-purple-100 mt-6 max-w-md mx-auto">
+            <div className="text-brand-100 mt-6 max-w-md mx-auto">
               <div className="text-sm">
                 ✓ 10 proven attribution hooks<br />
                 ✓ Weekly trend intelligence newsletter<br />
@@ -555,9 +536,7 @@ export default function MarketingAttributionFrameworkPage() {
                 <p className="text-gray-600 mb-4">
                   Use attribution insights to systematically reduce customer acquisition costs.
                 </p>
-                <a href="/free-hooks" className="text-purple-600 font-semibold hover:underline">
-                  Get Free Hooks →
-                </a>
+                <FreeWeekButton source="marketing_attribution_framework-cta" className="text-brand-600 font-semibold hover:underline">Start Free Week Trial</FreeWeekButton>
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg">
@@ -565,9 +544,7 @@ export default function MarketingAttributionFrameworkPage() {
                 <p className="text-gray-600 mb-4">
                   Compare your attribution sophistication against industry leaders.
                 </p>
-                <a href="/free-hooks" className="text-purple-600 font-semibold hover:underline">
-                  Get Free Hooks →
-                </a>
+                <FreeWeekButton source="marketing_attribution_framework-cta" className="text-brand-600 font-semibold hover:underline">Start Free Week Trial</FreeWeekButton>
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg">
@@ -575,9 +552,7 @@ export default function MarketingAttributionFrameworkPage() {
                 <p className="text-gray-600 mb-4">
                   Multi-touch attribution specialized for D2C and consumer subscription brands.
                 </p>
-                <a href="/free-hooks" className="text-purple-600 font-semibold hover:underline">
-                  Get Free Hooks →
-                </a>
+                <FreeWeekButton source="marketing_attribution_framework-cta" className="text-brand-600 font-semibold hover:underline">Start Free Week Trial</FreeWeekButton>
               </div>
             </div>
           </div>

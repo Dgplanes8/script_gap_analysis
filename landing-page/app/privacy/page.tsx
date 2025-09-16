@@ -102,7 +102,7 @@ export default function PrivacyPage() {
                 <li><strong>Object:</strong> Object to certain processing activities</li>
               </ul>
               <p className="text-gray-600 mb-6">
-                To exercise these rights, contact us at <a href="mailto:privacy@apsicsmedia.com" className="text-orange-600 hover:text-orange-700">privacy@apsicsmedia.com</a>
+                To exercise these rights, contact us at <a href="mailto:privacy@apsicsmedia.com" className="text-brand-600 hover:text-brand-700">privacy@apsicsmedia.com</a>
               </p>
             </section>
 
@@ -146,8 +146,8 @@ export default function PrivacyPage() {
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="text-gray-700">
                   <strong>Apsics Media</strong><br />
-                  Email: <a href="mailto:privacy@apsicsmedia.com" className="text-orange-600 hover:text-orange-700">privacy@apsicsmedia.com</a><br />
-                  Website: <a href="https://apsicsmedia.com" className="text-orange-600 hover:text-orange-700">apsicsmedia.com</a>
+                  Email: <a href="mailto:privacy@apsicsmedia.com" className="text-brand-600 hover:text-brand-700">privacy@apsicsmedia.com</a><br />
+                  Website: <a href="https://apsicsmedia.com" className="text-brand-600 hover:text-brand-700">apsicsmedia.com</a>
                 </p>
               </div>
             </section>

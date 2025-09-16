@@ -28,11 +28,11 @@ export function IndustryTrustIndicators({
               <div className="text-sm text-gray-600">Ad Spend Optimized</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-600">127</div>
+              <div className="text-3xl font-bold text-brand-600">127</div>
               <div className="text-sm text-gray-600">Scripts Delivered</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-purple-600">34%</div>
+              <div className="text-3xl font-bold text-brand-600">34%</div>
               <div className="text-sm text-gray-600">Average CTR Improvement</div>
             </div>
           </div>

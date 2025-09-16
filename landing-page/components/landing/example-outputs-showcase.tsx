@@ -79,7 +79,7 @@ export function ExampleOutputsShowcase() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center bg-brand-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <Eye className="h-4 w-4 mr-2" />
               EXAMPLE DELIVERABLES
             </div>
@@ -99,13 +99,13 @@ export function ExampleOutputsShowcase() {
                 onClick={() => setActiveTab(example.id)}
                 className={`flex-1 p-6 rounded-xl border-2 transition-all duration-200 text-left ${
                   activeTab === example.id
-                    ? 'border-green-500 bg-green-50 shadow-lg'
+                    ? 'border-brand-500 bg-brand-50 shadow-lg'
                     : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-md'
                 }`}
               >
                 <div className="flex items-center mb-3">
                   <div className={`w-10 h-10 rounded-lg flex items-center justify-center mr-3 ${
-                    activeTab === example.id ? 'bg-green-500 text-white' : 'bg-gray-100 text-gray-600'
+                    activeTab === example.id ? 'bg-brand-500 text-white' : 'bg-gray-100 text-gray-600'
                   }`}>
                     {example.icon}
                   </div>
@@ -118,11 +118,11 @@ export function ExampleOutputsShowcase() {
 
           {/* Active Tab Content */}
           {activeExample && (
-            <div className="bg-gradient-to-br from-gray-50 to-green-50 rounded-2xl p-8 shadow-xl border border-green-100">
+            <div className="bg-gradient-to-br from-gray-50 to-brand-50 rounded-2xl p-8 shadow-xl border border-brand-100">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-2xl font-bold text-gray-900">{activeExample.preview.title}</h3>
                 {activeExample.preview.score && (
-                  <div className="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+                  <div className="bg-brand-600 text-white px-4 py-2 rounded-full text-sm font-bold">
                     Performance Score: {activeExample.preview.score}
                   </div>
                 )}
@@ -132,8 +132,8 @@ export function ExampleOutputsShowcase() {
                 <ul className="space-y-3">
                   {activeExample.preview.content.map((item, index) => (
                     <li key={index} className="flex items-start">
-                      <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
-                        <ArrowRight className="h-3 w-3 text-green-600" />
+                      <div className="w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
+                        <ArrowRight className="h-3 w-3 text-brand-600" />
                       </div>
                       <span className="text-gray-700 leading-relaxed">{item}</span>
                     </li>
@@ -145,7 +145,7 @@ export function ExampleOutputsShowcase() {
 
           {/* Bottom Section */}
           <div className="mt-12 text-center">
-            <div className="bg-gradient-to-r from-green-600 to-teal-600 rounded-2xl p-8 text-white">
+            <div className="bg-gradient-to-r from-brand-600 to-brand-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
                 This Level of Strategy Takes Agencies Weeks
               </h3>
@@ -172,7 +172,7 @@ export function ExampleOutputsShowcase() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={() => window.location.href = '/free-hooks'}
-                  className="bg-white text-green-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                  className="bg-white text-brand-600 font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200"
                 >
                   Get Free Sample Templates
                 </button>
@@ -183,7 +183,7 @@ export function ExampleOutputsShowcase() {
                       serviceSection.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="border-2 border-white text-white hover:bg-white hover:text-green-600 font-semibold px-6 py-3 rounded-lg transition-colors duration-200"
+                  className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-semibold px-6 py-3 rounded-lg transition-colors duration-200"
                 >
                   Start Your Free Week
                 </button>

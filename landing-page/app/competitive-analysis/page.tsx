@@ -5,6 +5,7 @@ import { StructuredData } from '@/components/schema';
 import { CompetitorComparison } from '@/components/landing/competitor-comparison';
 import { Building2, Users, Zap, Clock, DollarSign, ArrowRight, CheckCircle, X } from 'lucide-react';
 import Link from 'next/link';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Marketing Agency vs Freelancer vs In-House | Complete Cost Comparison | APSICS Media',
@@ -84,10 +85,10 @@ export default function CompetitiveAnalysisPage() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-orange-50 to-red-50">
+        <section className="py-16 bg-gradient-to-br from-brand-50 to-brand-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center bg-gradient-to-r from-orange-600 to-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center bg-gradient-to-r from-brand-600 to-brand-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Building2 className="h-4 w-4 mr-2" />
                 MARKETING OPTIONS ANALYSIS
               </div>
@@ -107,7 +108,7 @@ export default function CompetitiveAnalysisPage() {
                     <h4 className="font-semibold text-gray-900 mb-3">If You Have...</h4>
                     <div className="space-y-2 text-gray-600">
                       <div className="flex items-start">
-                        <DollarSign className="h-4 w-4 text-green-600 mt-1 mr-2 flex-shrink-0" />
+                        <DollarSign className="h-4 w-4 text-brand-600 mt-1 mr-2 flex-shrink-0" />
                         <span><strong>$10K+/month budget:</strong> Traditional agency might work</span>
                       </div>
                       <div className="flex items-start">
@@ -115,11 +116,11 @@ export default function CompetitiveAnalysisPage() {
                         <span><strong>One-off project:</strong> Consider freelancer</span>
                       </div>
                       <div className="flex items-start">
-                        <Clock className="h-4 w-4 text-orange-600 mt-1 mr-2 flex-shrink-0" />
+                        <Clock className="h-4 w-4 text-brand-600 mt-1 mr-2 flex-shrink-0" />
                         <span><strong>6+ months to hire:</strong> Build in-house team</span>
                       </div>
                       <div className="flex items-start">
-                        <Zap className="h-4 w-4 text-red-600 mt-1 mr-2 flex-shrink-0" />
+                        <Zap className="h-4 w-4 text-brand-600 mt-1 mr-2 flex-shrink-0" />
                         <span><strong>$500-5K/month:</strong> Weekly templates + DIY</span>
                       </div>
                     </div>
@@ -128,19 +129,19 @@ export default function CompetitiveAnalysisPage() {
                     <h4 className="font-semibold text-gray-900 mb-3">You Should Avoid...</h4>
                     <div className="space-y-2 text-gray-600">
                       <div className="flex items-start">
-                        <X className="h-4 w-4 text-red-600 mt-1 mr-2 flex-shrink-0" />
+                        <X className="h-4 w-4 text-brand-600 mt-1 mr-2 flex-shrink-0" />
                         <span>Agencies if budget &lt; $5K/month</span>
                       </div>
                       <div className="flex items-start">
-                        <X className="h-4 w-4 text-red-600 mt-1 mr-2 flex-shrink-0" />
+                        <X className="h-4 w-4 text-brand-600 mt-1 mr-2 flex-shrink-0" />
                         <span>Freelancers for ongoing strategy</span>
                       </div>
                       <div className="flex items-start">
-                        <X className="h-4 w-4 text-red-600 mt-1 mr-2 flex-shrink-0" />
+                        <X className="h-4 w-4 text-brand-600 mt-1 mr-2 flex-shrink-0" />
                         <span>AI tools as primary strategy</span>
                       </div>
                       <div className="flex items-start">
-                        <X className="h-4 w-4 text-red-600 mt-1 mr-2 flex-shrink-0" />
+                        <X className="h-4 w-4 text-brand-600 mt-1 mr-2 flex-shrink-0" />
                         <span>In-house if budget &lt; $15K/month</span>
                       </div>
                     </div>
@@ -165,27 +166,27 @@ export default function CompetitiveAnalysisPage() {
               </div>
 
               <div className="grid md:grid-cols-2 gap-8 mb-12">
-                <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-8 border border-red-100">
+                <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-xl p-8 border border-brand-100">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">What You Need</h3>
                   <ul className="space-y-3 text-gray-600">
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Professional creative strategy</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Fast turnaround times</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Budget flexibility ($500-5K/month)</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>No long-term contracts</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Strategic guidance from experience</span>
                     </li>
                   </ul>
@@ -195,30 +196,30 @@ export default function CompetitiveAnalysisPage() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">What's Available</h3>
                   <ul className="space-y-3 text-gray-600">
                     <li className="flex items-start">
-                      <X className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <X className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>$10K+/month agency minimums</span>
                     </li>
                     <li className="flex items-start">
-                      <X className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <X className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>6-month contract requirements</span>
                     </li>
                     <li className="flex items-start">
-                      <X className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <X className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Hit-or-miss freelancer quality</span>
                     </li>
                     <li className="flex items-start">
-                      <X className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <X className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Generic AI-generated content</span>
                     </li>
                     <li className="flex items-start">
-                      <X className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <X className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Weeks/months to hire in-house</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-xl p-8 text-center">
+              <div className="bg-gradient-to-r from-brand-600 to-brand-600 text-white rounded-xl p-8 text-center">
                 <h3 className="text-2xl font-bold mb-4">The Gap in the Market</h3>
                 <p className="text-lg opacity-90">
                   There's a massive gap between what growing businesses need and what's available in the market. 
@@ -250,7 +251,7 @@ export default function CompetitiveAnalysisPage() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Step 1: Assess Your Resources</h3>
                   <div className="grid md:grid-cols-3 gap-6">
                     <div>
-                      <h4 className="font-semibold text-orange-600 mb-2">Monthly Budget</h4>
+                      <h4 className="font-semibold text-brand-600 mb-2">Monthly Budget</h4>
                       <ul className="text-sm text-gray-600 space-y-1">
                         <li>&lt; $1K: DIY + templates</li>
                         <li>$1K-5K: Weekly templates</li>
@@ -259,7 +260,7 @@ export default function CompetitiveAnalysisPage() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-teal-600 mb-2">Time Availability</h4>
+                      <h4 className="font-semibold text-brand-600 mb-2">Time Availability</h4>
                       <ul className="text-sm text-gray-600 space-y-1">
                         <li>&lt; 5hrs/week: Full service needed</li>
                         <li>5-15hrs/week: Templates + DIY</li>
@@ -283,7 +284,7 @@ export default function CompetitiveAnalysisPage() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Step 2: Define Your Timeline</h3>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h4 className="font-semibold text-purple-600 mb-2">Need Results In...</h4>
+                      <h4 className="font-semibold text-brand-600 mb-2">Need Results In...</h4>
                       <ul className="text-sm text-gray-600 space-y-2">
                         <li><strong>1-2 weeks:</strong> Weekly templates or freelancer</li>
                         <li><strong>1 month:</strong> Agency onboarding or templates</li>
@@ -292,7 +293,7 @@ export default function CompetitiveAnalysisPage() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-green-600 mb-2">Commitment Level</h4>
+                      <h4 className="font-semibold text-brand-600 mb-2">Commitment Level</h4>
                       <ul className="text-sm text-gray-600 space-y-2">
                         <li><strong>Week-to-week:</strong> Templates ideal</li>
                         <li><strong>Monthly:</strong> Freelancer projects</li>
@@ -306,15 +307,15 @@ export default function CompetitiveAnalysisPage() {
                 <div className="bg-white rounded-xl p-8 shadow-lg">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Step 3: Consider Your Growth Stage</h3>
                   <div className="space-y-4">
-                    <div className="border-l-4 border-red-500 pl-4">
+                    <div className="border-l-4 border-brand-500 pl-4">
                       <h4 className="font-semibold text-gray-900">Pre-Product Market Fit</h4>
                       <p className="text-gray-600 text-sm">Focus on learning and iteration. Templates + DIY gives you flexibility to test and pivot quickly.</p>
                     </div>
-                    <div className="border-l-4 border-orange-500 pl-4">
+                    <div className="border-l-4 border-brand-500 pl-4">
                       <h4 className="font-semibold text-gray-900">Early PMF</h4>
                       <p className="text-gray-600 text-sm">Scale what's working. Weekly templates provide consistent creative refresh without long commitments.</p>
                     </div>
-                    <div className="border-l-4 border-green-500 pl-4">
+                    <div className="border-l-4 border-brand-500 pl-4">
                       <h4 className="font-semibold text-gray-900">Scaling Phase</h4>
                       <p className="text-gray-600 text-sm">Consider agency or in-house team. You need dedicated resources for complex multi-channel strategies.</p>
                     </div>
@@ -337,71 +338,65 @@ export default function CompetitiveAnalysisPage() {
               </p>
               
               <div className="grid md:grid-cols-2 gap-8 mb-12">
-                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-8">
+                <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-xl p-8">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">What You Get</h3>
                   <ul className="space-y-3 text-gray-600 text-left">
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Professional strategic thinking from $250MM+ experience</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Weekly delivery keeps campaigns fresh</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Cancel/restart anytime based on cash flow</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Growth-focused pricing: $5-99/week vs $5K-15K/month</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Ready-to-use scripts, not just concepts</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-8">
+                <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-xl p-8">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">What You Avoid</h3>
                   <ul className="space-y-3 text-gray-600 text-left">
                     <li className="flex items-start">
-                      <X className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <X className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>$10K+/month agency minimums and contracts</span>
                     </li>
                     <li className="flex items-start">
-                      <X className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <X className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Inconsistent freelancer quality and availability</span>
                     </li>
                     <li className="flex items-start">
-                      <X className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <X className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Months of hiring and onboarding in-house talent</span>
                     </li>
                     <li className="flex items-start">
-                      <X className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <X className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Generic AI-generated content that doesn't convert</span>
                     </li>
                     <li className="flex items-start">
-                      <X className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <X className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Spending 15+ hours/week creating campaigns from scratch</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-xl p-8">
+              <div className="bg-gradient-to-r from-brand-600 to-brand-600 text-white rounded-xl p-8">
                 <h3 className="text-2xl font-bold mb-4">The Bottom Line</h3>
                 <p className="text-lg opacity-90 mb-6">
                   Weekly templates bridge the gap between expensive agencies and DIY struggles. You get professional creative strategy at growth-focused pricing with the flexibility to scale up or down based on your needs.
                 </p>
-                <Link
-                  href="/#service-tiers"
-                  className="bg-white text-orange-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl inline-flex items-center text-lg"
-                >
-                  <ArrowRight className="h-5 w-5 mr-2" />
-                  See Our Plans
-                </Link>
+                <FreeWeekButton source="competitive_analysis-cta" className="bg-white text-brand-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl inline-flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
               </div>
             </div>
           </div>
@@ -419,20 +414,8 @@ export default function CompetitiveAnalysisPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link
-                  href="/free-hooks"
-                  className="bg-orange-600 hover:bg-orange-700 text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg"
-                >
-                  <Zap className="h-5 w-5 mr-2" />
-                  Try Free Templates First
-                </Link>
-                <Link
-                  href="/#service-tiers"
-                  className="bg-white border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg"
-                >
-                  <ArrowRight className="h-5 w-5 mr-2" />
-                  Compare Our Plans
-                </Link>
+                <FreeWeekButton source="competitive_analysis-cta" className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="competitive_analysis-cta" className="bg-white border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
               </div>
             </div>
           </div>

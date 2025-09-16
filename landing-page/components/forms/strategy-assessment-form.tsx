@@ -98,7 +98,7 @@ export function StrategyAssessmentForm({ onClose }: StrategyAssessmentFormProps)
   if (isSubmitted) {
     return (
       <div className="text-center p-8">
-        <CheckCircle className="h-16 w-16 text-green-600 mx-auto mb-6" />
+        <CheckCircle className="h-16 w-16 text-brand-600 mx-auto mb-6" />
         <h3 className="text-2xl font-bold text-gray-900 mb-4">
           Assessment Submitted!
         </h3>
@@ -141,7 +141,7 @@ export function StrategyAssessmentForm({ onClose }: StrategyAssessmentFormProps)
             placeholder="Your full name"
           />
           {errors.name && (
-            <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+            <p className="text-brand-500 text-sm mt-1">{errors.name.message}</p>
           )}
         </div>
 
@@ -156,7 +156,7 @@ export function StrategyAssessmentForm({ onClose }: StrategyAssessmentFormProps)
             placeholder="your@company.com"
           />
           {errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+            <p className="text-brand-500 text-sm mt-1">{errors.email.message}</p>
           )}
         </div>
       </div>
@@ -172,7 +172,7 @@ export function StrategyAssessmentForm({ onClose }: StrategyAssessmentFormProps)
           placeholder="Your company name"
         />
         {errors.company && (
-          <p className="text-red-500 text-sm mt-1">{errors.company.message}</p>
+          <p className="text-brand-500 text-sm mt-1">{errors.company.message}</p>
         )}
       </div>
 
@@ -194,7 +194,7 @@ export function StrategyAssessmentForm({ onClose }: StrategyAssessmentFormProps)
             <option value="2.5m+">$2.5M+</option>
           </select>
           {errors.currentARR && (
-            <p className="text-red-500 text-sm mt-1">{errors.currentARR.message}</p>
+            <p className="text-brand-500 text-sm mt-1">{errors.currentARR.message}</p>
           )}
         </div>
 
@@ -214,7 +214,7 @@ export function StrategyAssessmentForm({ onClose }: StrategyAssessmentFormProps)
             <option value="10m+">$10M+</option>
           </select>
           {errors.targetARR && (
-            <p className="text-red-500 text-sm mt-1">{errors.targetARR.message}</p>
+            <p className="text-brand-500 text-sm mt-1">{errors.targetARR.message}</p>
           )}
         </div>
       </div>
@@ -249,7 +249,7 @@ export function StrategyAssessmentForm({ onClose }: StrategyAssessmentFormProps)
           ))}
         </div>
         {errors.currentChannels && (
-          <p className="text-red-500 text-sm mt-1">{errors.currentChannels.message}</p>
+          <p className="text-brand-500 text-sm mt-1">{errors.currentChannels.message}</p>
         )}
       </div>
 
@@ -272,7 +272,7 @@ export function StrategyAssessmentForm({ onClose }: StrategyAssessmentFormProps)
           <option value="other">Other</option>
         </select>
         {errors.primaryChallenge && (
-          <p className="text-red-500 text-sm mt-1">{errors.primaryChallenge.message}</p>
+          <p className="text-brand-500 text-sm mt-1">{errors.primaryChallenge.message}</p>
         )}
       </div>
 
@@ -293,7 +293,7 @@ export function StrategyAssessmentForm({ onClose }: StrategyAssessmentFormProps)
             <option value="36-months+">36+ months</option>
           </select>
           {errors.timeline && (
-            <p className="text-red-500 text-sm mt-1">{errors.timeline.message}</p>
+            <p className="text-brand-500 text-sm mt-1">{errors.timeline.message}</p>
           )}
         </div>
 
@@ -313,7 +313,7 @@ export function StrategyAssessmentForm({ onClose }: StrategyAssessmentFormProps)
             <option value="50k+">$50K+</option>
           </select>
           {errors.budget && (
-            <p className="text-red-500 text-sm mt-1">{errors.budget.message}</p>
+            <p className="text-brand-500 text-sm mt-1">{errors.budget.message}</p>
           )}
         </div>
       </div>

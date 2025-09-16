@@ -216,44 +216,44 @@ export function ContentNavigation({
 
   const colorClasses = {
     orange: {
-      bg: 'bg-orange-50',
-      icon: 'text-orange-600',
-      button: 'bg-orange-600 hover:bg-orange-700 text-white'
+      bg: 'bg-brand-50',
+      icon: 'text-brand-600',
+      button: 'bg-brand-600 hover:bg-brand-700 text-white'
     },
     red: {
-      bg: 'bg-red-50',
-      icon: 'text-red-600',
-      button: 'bg-red-600 hover:bg-red-700 text-white'
+      bg: 'bg-brand-50',
+      icon: 'text-brand-600',
+      button: 'bg-brand-600 hover:bg-brand-700 text-white'
     },
     indigo: {
-      bg: 'bg-red-50',
-      icon: 'text-red-600',
-      button: 'bg-red-600 hover:bg-red-700 text-white'
+      bg: 'bg-brand-50',
+      icon: 'text-brand-600',
+      button: 'bg-brand-600 hover:bg-brand-700 text-white'
     },
     purple: {
-      bg: 'bg-orange-50',
-      icon: 'text-orange-600',
-      button: 'bg-orange-600 hover:bg-orange-700 text-white'
+      bg: 'bg-brand-50',
+      icon: 'text-brand-600',
+      button: 'bg-brand-600 hover:bg-brand-700 text-white'
     },
     emerald: {
-      bg: 'bg-red-50',
-      icon: 'text-red-600',
-      button: 'bg-red-600 hover:bg-red-700 text-white'
+      bg: 'bg-brand-50',
+      icon: 'text-brand-600',
+      button: 'bg-brand-600 hover:bg-brand-700 text-white'
     },
     blue: {
-      bg: 'bg-orange-50',
-      icon: 'text-orange-600',
-      button: 'bg-orange-600 hover:bg-orange-700 text-white'
+      bg: 'bg-brand-50',
+      icon: 'text-brand-600',
+      button: 'bg-brand-600 hover:bg-brand-700 text-white'
     },
     slate: {
-      bg: 'bg-red-50',
-      icon: 'text-red-600',
-      button: 'bg-red-600 hover:bg-red-700 text-white'
+      bg: 'bg-brand-50',
+      icon: 'text-brand-600',
+      button: 'bg-brand-600 hover:bg-brand-700 text-white'
     },
     green: {
-      bg: 'bg-orange-50',
-      icon: 'text-orange-600',
-      button: 'bg-orange-600 hover:bg-orange-700 text-white'
+      bg: 'bg-brand-50',
+      icon: 'text-brand-600',
+      button: 'bg-brand-600 hover:bg-brand-700 text-white'
     }
   };
 

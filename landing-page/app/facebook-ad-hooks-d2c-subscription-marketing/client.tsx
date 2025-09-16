@@ -178,14 +178,14 @@ export function FacebookAdHooksClient() {
         <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center px-4 py-2 bg-brand-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
                 <Facebook className="h-4 w-4 mr-2" />
                 Facebook Ad Strategy
               </div>
               
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 Facebook Ad Creative Strategy: 15 Winning Hooks for 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600"> D2C Subscriptions</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-600"> D2C Subscriptions</span>
               </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
@@ -195,11 +195,11 @@ export function FacebookAdHooksClient() {
               
               <div className="flex flex-wrap justify-center items-center gap-6 mb-8 text-sm text-gray-600">
                 <div className="flex items-center">
-                  <Clock className="h-4 w-4 mr-2 text-orange-600" />
+                  <Clock className="h-4 w-4 mr-2 text-brand-600" />
                   18-minute read
                 </div>
                 <div className="flex items-center">
-                  <Users className="h-4 w-4 mr-2 text-orange-600" />
+                  <Users className="h-4 w-4 mr-2 text-brand-600" />
                   For D2C subscriptions
                 </div>
                 <div className="flex items-center">
@@ -245,9 +245,9 @@ export function FacebookAdHooksClient() {
                   Hooks like "Our monthly snack box delivers 12 premium treats" focus on what you do, not why someone should care.
                 </p>
                 
-                <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-8">
-                  <h4 className="font-semibold text-red-900 mb-2">Common Hook Mistakes:</h4>
-                  <ul className="text-red-800 space-y-1">
+                <div className="bg-brand-50 border-l-4 border-brand-500 p-6 mb-8">
+                  <h4 className="font-semibold text-brand-900 mb-2">Common Hook Mistakes:</h4>
+                  <ul className="text-brand-800 space-y-1">
                     <li>• Leading with product features instead of customer benefits</li>
                     <li>• Using generic claims that could apply to any subscription</li>
                     <li>• Failing to create emotional connection or curiosity</li>
@@ -260,11 +260,11 @@ export function FacebookAdHooksClient() {
                   desire for transformation, social proof, and curiosity gaps that compel immediate attention.
                 </p>
                 
-                <div className="bg-green-50 border-l-4 border-green-500 p-6 mb-8">
-                  <h4 className="font-semibold text-green-900 mb-2">Complementary Strategic Resources:</h4>
-                  <div className="space-y-2 text-green-800">
-                    <p>• <a href="/tiktok-hooks-subscription-business-marketing" className="underline hover:text-green-600">TikTok Hooks for Subscriptions</a> - 25 proven hooks for viral TikTok marketing</p>
-                    <p>• <a href="/reduce-customer-acquisition-cost-subscription-business" className="underline hover:text-green-600">CAC Optimization Framework</a> - Complete methodology to reduce costs by 20%</p>
+                <div className="bg-brand-50 border-l-4 border-brand-500 p-6 mb-8">
+                  <h4 className="font-semibold text-brand-900 mb-2">Complementary Strategic Resources:</h4>
+                  <div className="space-y-2 text-brand-800">
+                    <p>• <a href="/tiktok-hooks-subscription-business-marketing" className="underline hover:text-brand-600">TikTok Hooks for Subscriptions</a> - 25 proven hooks for viral TikTok marketing</p>
+                    <p>• <a href="/reduce-customer-acquisition-cost-subscription-business" className="underline hover:text-brand-600">CAC Optimization Framework</a> - Complete methodology to reduce costs by 20%</p>
                   </div>
                 </div>
               </div>
@@ -298,7 +298,7 @@ export function FacebookAdHooksClient() {
                         </p>
                         
                         <h4 className="font-semibold text-blue-800 mb-2">Example:</h4>
-                        <p className="text-gray-700 bg-green-50 p-4 rounded-lg italic">
+                        <p className="text-gray-700 bg-brand-50 p-4 rounded-lg italic">
                           {hook.example}
                         </p>
                       </div>
@@ -396,16 +396,16 @@ export function FacebookAdHooksClient() {
                   </h3>
                   
                   <div className="grid md:grid-cols-3 gap-6">
-                    <div className="text-center p-4 bg-red-50 rounded-lg">
-                      <div className="text-2xl font-bold text-red-600 mb-2">↓ 25%</div>
+                    <div className="text-center p-4 bg-brand-50 rounded-lg">
+                      <div className="text-2xl font-bold text-brand-600 mb-2">↓ 25%</div>
                       <p className="text-sm text-gray-700">CTR decline from peak performance</p>
                     </div>
-                    <div className="text-center p-4 bg-red-50 rounded-lg">
-                      <div className="text-2xl font-bold text-red-600 mb-2">↑ 15%</div>
+                    <div className="text-center p-4 bg-brand-50 rounded-lg">
+                      <div className="text-2xl font-bold text-brand-600 mb-2">↑ 15%</div>
                       <p className="text-sm text-gray-700">CPC increase over 5-day period</p>
                     </div>
-                    <div className="text-center p-4 bg-red-50 rounded-lg">
-                      <div className="text-2xl font-bold text-red-600 mb-2">&lt; 2%</div>
+                    <div className="text-center p-4 bg-brand-50 rounded-lg">
+                      <div className="text-2xl font-bold text-brand-600 mb-2">&lt; 2%</div>
                       <p className="text-sm text-gray-700">Engagement rate threshold</p>
                     </div>
                   </div>
@@ -423,18 +423,18 @@ export function FacebookAdHooksClient() {
                       <p className="text-gray-700">Keep core message, change hook angle or opening statement</p>
                     </div>
                     
-                    <div className="border-l-4 border-green-500 pl-6">
-                      <h4 className="font-semibold text-green-800 mb-2">Week 3-4: Visual Refresh</h4>
+                    <div className="border-l-4 border-brand-500 pl-6">
+                      <h4 className="font-semibold text-brand-800 mb-2">Week 3-4: Visual Refresh</h4>
                       <p className="text-gray-700">Maintain hook, update imagery, colors, or video scenes</p>
                     </div>
                     
-                    <div className="border-l-4 border-purple-500 pl-6">
-                      <h4 className="font-semibold text-purple-800 mb-2">Week 5-6: Format Variation</h4>
+                    <div className="border-l-4 border-brand-500 pl-6">
+                      <h4 className="font-semibold text-brand-800 mb-2">Week 5-6: Format Variation</h4>
                       <p className="text-gray-700">Test same hook in different formats (video → carousel → single image)</p>
                     </div>
                     
-                    <div className="border-l-4 border-orange-500 pl-6">
-                      <h4 className="font-semibold text-orange-800 mb-2">Week 7+: Complete Refresh</h4>
+                    <div className="border-l-4 border-brand-500 pl-6">
+                      <h4 className="font-semibold text-brand-800 mb-2">Week 7+: Complete Refresh</h4>
                       <p className="text-gray-700">New hook category, messaging angle, and creative treatment</p>
                     </div>
                   </div>
@@ -479,15 +479,15 @@ export function FacebookAdHooksClient() {
                     <div className="space-y-3">
                       <div className="flex justify-between items-center py-2 border-b border-blue-200">
                         <span className="text-gray-700">Landing Page CVR</span>
-                        <span className="font-semibold text-green-600">&gt; 2%</span>
+                        <span className="font-semibold text-brand-600">&gt; 2%</span>
                       </div>
                       <div className="flex justify-between items-center py-2 border-b border-blue-200">
                         <span className="text-gray-700">Cost Per Acquisition</span>
-                        <span className="font-semibold text-green-600">&lt; $50</span>
+                        <span className="font-semibold text-brand-600">&lt; $50</span>
                       </div>
                       <div className="flex justify-between items-center py-2 border-b border-blue-200">
                         <span className="text-gray-700">ROAS (30-day)</span>
-                        <span className="font-semibold text-green-600">&gt; 3:1</span>
+                        <span className="font-semibold text-brand-600">&gt; 3:1</span>
                       </div>
                     </div>
                   </div>
@@ -498,24 +498,24 @@ export function FacebookAdHooksClient() {
                 <h4 className="font-semibold text-blue-800 mb-4">Optimization Decision Framework:</h4>
                 
                 <div className="space-y-4">
-                  <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4">
-                    <p className="text-sm font-semibold text-yellow-800 mb-1">If 3-second view rate &lt; 35%:</p>
-                    <p className="text-yellow-700 text-sm">Hook is not compelling enough → Test stronger opening statements</p>
+                  <div className="bg-brand-50 border-l-4 border-brand-500 p-4">
+                    <p className="text-sm font-semibold text-brand-800 mb-1">If 3-second view rate &lt; 35%:</p>
+                    <p className="text-brand-700 text-sm">Hook is not compelling enough → Test stronger opening statements</p>
                   </div>
                   
-                  <div className="bg-orange-50 border-l-4 border-orange-500 p-4">
-                    <p className="text-sm font-semibold text-orange-800 mb-1">If CTR &lt; 1%:</p>
-                    <p className="text-orange-700 text-sm">Creative lacks visual appeal → Refresh imagery or video content</p>
+                  <div className="bg-brand-50 border-l-4 border-brand-500 p-4">
+                    <p className="text-sm font-semibold text-brand-800 mb-1">If CTR &lt; 1%:</p>
+                    <p className="text-brand-700 text-sm">Creative lacks visual appeal → Refresh imagery or video content</p>
                   </div>
                   
-                  <div className="bg-red-50 border-l-4 border-red-500 p-4">
-                    <p className="text-sm font-semibold text-red-800 mb-1">If Landing Page CVR &lt; 1.5%:</p>
-                    <p className="text-red-700 text-sm">Message-market fit issue → Review hook-to-landing page alignment</p>
+                  <div className="bg-brand-50 border-l-4 border-brand-500 p-4">
+                    <p className="text-sm font-semibold text-brand-800 mb-1">If Landing Page CVR &lt; 1.5%:</p>
+                    <p className="text-brand-700 text-sm">Message-market fit issue → Review hook-to-landing page alignment</p>
                   </div>
                   
-                  <div className="bg-green-50 border-l-4 border-green-500 p-4">
-                    <p className="text-sm font-semibold text-green-800 mb-1">If all metrics performing well:</p>
-                    <p className="text-green-700 text-sm">Scale budget by 25-50% and prepare next hook variation</p>
+                  <div className="bg-brand-50 border-l-4 border-brand-500 p-4">
+                    <p className="text-sm font-semibold text-brand-800 mb-1">If all metrics performing well:</p>
+                    <p className="text-brand-700 text-sm">Scale budget by 25-50% and prepare next hook variation</p>
                   </div>
                 </div>
               </div>

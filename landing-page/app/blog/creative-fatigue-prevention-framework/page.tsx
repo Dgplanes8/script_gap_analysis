@@ -48,27 +48,27 @@ export default function CreativeFatiguePreventionPage() {
         Creative fatigue occurs when your target audience becomes oversaturated with your ad content. The result: declining click-through rates, increasing cost-per-acquisition, and wasted ad spend on burnt-out creatives.
       </p>
 
-      <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
-        <h3 className="text-xl font-semibold text-red-800 mb-4">Warning Signs of Creative Fatigue:</h3>
-        <ul className="space-y-2 text-red-700">
+      <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 mb-8">
+        <h3 className="text-xl font-semibold text-brand-800 mb-4">Warning Signs of Creative Fatigue:</h3>
+        <ul className="space-y-2 text-brand-700">
           <li className="flex items-start">
-            <span className="text-red-500 mr-2">⚠</span>
+            <span className="text-brand-500 mr-2">⚠</span>
             <span>CTR drops {'>'}25% from baseline after 7 days</span>
           </li>
           <li className="flex items-start">
-            <span className="text-red-500 mr-2">⚠</span>
+            <span className="text-brand-500 mr-2">⚠</span>
             <span>CAC increases {'>'}30% while targeting remains constant</span>
           </li>
           <li className="flex items-start">
-            <span className="text-red-500 mr-2">⚠</span>
+            <span className="text-brand-500 mr-2">⚠</span>
             <span>Frequency exceeds 3.5 impressions per user per week</span>
           </li>
           <li className="flex items-start">
-            <span className="text-red-500 mr-2">⚠</span>
+            <span className="text-brand-500 mr-2">⚠</span>
             <span>Engagement quality drops (fewer comments, lower time on site)</span>
           </li>
           <li className="flex items-start">
-            <span className="text-red-500 mr-2">⚠</span>
+            <span className="text-brand-500 mr-2">⚠</span>
             <span>ROAS declines despite stable conversion funnel metrics</span>
           </li>
         </ul>
@@ -78,7 +78,7 @@ export default function CreativeFatiguePreventionPage() {
       
       <div className="space-y-8 mb-8">
         {/* Week 1 */}
-        <div className="border-l-4 border-green-500 pl-6 bg-green-50 rounded-r-lg p-6">
+        <div className="border-l-4 border-brand-500 pl-6 bg-brand-50 rounded-r-lg p-6">
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">Week 1: Baseline Performance Analysis</h3>
           <p className="text-gray-700 mb-4">
             <strong>Objective:</strong> Establish performance benchmarks and identify high-performing creative elements before fatigue sets in.
@@ -94,9 +94,9 @@ export default function CreativeFatiguePreventionPage() {
             </ul>
           </div>
           
-          <div className="bg-green-100 rounded-lg p-4">
-            <h4 className="font-semibold text-green-800 mb-2">Week 1 Deliverables:</h4>
-            <ul className="space-y-1 text-green-700">
+          <div className="bg-brand-100 rounded-lg p-4">
+            <h4 className="font-semibold text-brand-800 mb-2">Week 1 Deliverables:</h4>
+            <ul className="space-y-1 text-brand-700">
               <li>✓ Performance baseline document</li>
               <li>✓ Creative element performance ranking</li>
               <li>✓ Audience engagement pattern analysis</li>
@@ -134,7 +134,7 @@ export default function CreativeFatiguePreventionPage() {
         </div>
 
         {/* Week 3 */}
-        <div className="border-l-4 border-purple-500 pl-6 bg-purple-50 rounded-r-lg p-6">
+        <div className="border-l-4 border-brand-500 pl-6 bg-brand-50 rounded-r-lg p-6">
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">Week 3: Strategic Creative Rotation</h3>
           <p className="text-gray-700 mb-4">
             <strong>Objective:</strong> Implement systematic creative rotation to refresh audience attention while maintaining acquisition momentum.
@@ -150,9 +150,9 @@ export default function CreativeFatiguePreventionPage() {
             </ul>
           </div>
           
-          <div className="bg-purple-100 rounded-lg p-4">
-            <h4 className="font-semibold text-purple-800 mb-2">Performance Monitoring:</h4>
-            <ul className="space-y-1 text-purple-700">
+          <div className="bg-brand-100 rounded-lg p-4">
+            <h4 className="font-semibold text-brand-800 mb-2">Performance Monitoring:</h4>
+            <ul className="space-y-1 text-brand-700">
               <li>✓ Daily performance comparison: old vs. new creatives</li>
               <li>✓ Audience feedback analysis on refreshed content</li>
               <li>✓ CAC trend monitoring during transition period</li>
@@ -162,7 +162,7 @@ export default function CreativeFatiguePreventionPage() {
         </div>
 
         {/* Week 4 */}
-        <div className="border-l-4 border-orange-500 pl-6 bg-orange-50 rounded-r-lg p-6">
+        <div className="border-l-4 border-brand-500 pl-6 bg-brand-50 rounded-r-lg p-6">
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">Week 4: Performance Optimization</h3>
           <p className="text-gray-700 mb-4">
             <strong>Objective:</strong> Optimize the creative mix based on 1-week rotation performance data and prepare next cycle.
@@ -178,9 +178,9 @@ export default function CreativeFatiguePreventionPage() {
             </ul>
           </div>
           
-          <div className="bg-orange-100 rounded-lg p-4">
-            <h4 className="font-semibold text-orange-800 mb-2">Strategic Analysis:</h4>
-            <ul className="space-y-1 text-orange-700">
+          <div className="bg-brand-100 rounded-lg p-4">
+            <h4 className="font-semibold text-brand-800 mb-2">Strategic Analysis:</h4>
+            <ul className="space-y-1 text-brand-700">
               <li>✓ Compare pre-rotation vs. post-rotation CAC</li>
               <li>✓ Analyze audience engagement pattern changes</li>
               <li>✓ Document successful creative refresh formulas</li>
@@ -190,7 +190,7 @@ export default function CreativeFatiguePreventionPage() {
         </div>
 
         {/* Week 5 */}
-        <div className="border-l-4 border-red-500 pl-6 bg-red-50 rounded-r-lg p-6">
+        <div className="border-l-4 border-brand-500 pl-6 bg-brand-50 rounded-r-lg p-6">
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">Week 5: Systematic Framework Implementation</h3>
           <p className="text-gray-700 mb-4">
             <strong>Objective:</strong> Implement ongoing creative refresh system to prevent fatigue cycles and maintain consistent performance.
@@ -206,9 +206,9 @@ export default function CreativeFatiguePreventionPage() {
             </ul>
           </div>
           
-          <div className="bg-red-100 rounded-lg p-4">
-            <h4 className="font-semibold text-red-800 mb-2">Long-term Prevention System:</h4>
-            <ul className="space-y-1 text-red-700">
+          <div className="bg-brand-100 rounded-lg p-4">
+            <h4 className="font-semibold text-brand-800 mb-2">Long-term Prevention System:</h4>
+            <ul className="space-y-1 text-brand-700">
               <li>✓ Weekly creative performance review process</li>
               <li>✓ Bi-weekly creative variation development</li>
               <li>✓ Monthly creative strategy optimization</li>
@@ -232,9 +232,9 @@ export default function CreativeFatiguePreventionPage() {
           </ul>
         </div>
         
-        <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-          <h3 className="text-xl font-semibold text-green-800 mb-4">Google Ads</h3>
-          <ul className="space-y-2 text-green-700">
+        <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+          <h3 className="text-xl font-semibold text-brand-800 mb-4">Google Ads</h3>
+          <ul className="space-y-2 text-brand-700">
             <li>• Refresh headlines every 10-14 days</li>
             <li>• A/B test description variations continuously</li>
             <li>• Update display creative monthly</li>
@@ -243,9 +243,9 @@ export default function CreativeFatiguePreventionPage() {
           </ul>
         </div>
         
-        <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
-          <h3 className="text-xl font-semibold text-purple-800 mb-4">TikTok & YouTube</h3>
-          <ul className="space-y-2 text-purple-700">
+        <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+          <h3 className="text-xl font-semibold text-brand-800 mb-4">TikTok & YouTube</h3>
+          <ul className="space-y-2 text-brand-700">
             <li>• Create new video hooks weekly</li>
             <li>• Trend-jack current popular formats</li>
             <li>• Test different video lengths (15s, 30s, 60s)</li>
@@ -254,9 +254,9 @@ export default function CreativeFatiguePreventionPage() {
           </ul>
         </div>
         
-        <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
-          <h3 className="text-xl font-semibold text-orange-800 mb-4">LinkedIn</h3>
-          <ul className="space-y-2 text-orange-700">
+        <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+          <h3 className="text-xl font-semibold text-brand-800 mb-4">LinkedIn</h3>
+          <ul className="space-y-2 text-brand-700">
             <li>• Rotate professional imagery every 2 weeks</li>
             <li>• Test industry-specific messaging angles</li>
             <li>• Update value proposition positioning</li>
@@ -277,7 +277,7 @@ export default function CreativeFatiguePreventionPage() {
             <ul className="space-y-2 text-gray-700">
               <li className="flex justify-between">
                 <span>Click-Through Rate (CTR)</span>
-                <span className="text-green-600">Target: {'>'}2% (social), {'>'}3% (search)</span>
+                <span className="text-brand-600">Target: {'>'}2% (social), {'>'}3% (search)</span>
               </li>
               <li className="flex justify-between">
                 <span>Cost Per Click (CPC)</span>
@@ -285,11 +285,11 @@ export default function CreativeFatiguePreventionPage() {
               </li>
               <li className="flex justify-between">
                 <span>Frequency</span>
-                <span className="text-orange-600">Alert at 3.5+ impressions/user</span>
+                <span className="text-brand-600">Alert at 3.5+ impressions/user</span>
               </li>
               <li className="flex justify-between">
                 <span>Conversion Rate</span>
-                <span className="text-purple-600">Monitor for 20%+ declines</span>
+                <span className="text-brand-600">Monitor for 20%+ declines</span>
               </li>
             </ul>
           </div>
@@ -299,7 +299,7 @@ export default function CreativeFatiguePreventionPage() {
             <ul className="space-y-2 text-gray-700">
               <li className="flex justify-between">
                 <span>Return on Ad Spend (ROAS)</span>
-                <span className="text-green-600">Target: 3:1+ minimum</span>
+                <span className="text-brand-600">Target: 3:1+ minimum</span>
               </li>
               <li className="flex justify-between">
                 <span>Customer Acquisition Cost</span>
@@ -307,11 +307,11 @@ export default function CreativeFatiguePreventionPage() {
               </li>
               <li className="flex justify-between">
                 <span>Engagement Quality</span>
-                <span className="text-orange-600">Comments, shares, time on site</span>
+                <span className="text-brand-600">Comments, shares, time on site</span>
               </li>
               <li className="flex justify-between">
                 <span>Brand Sentiment</span>
-                <span className="text-purple-600">Social listening scores</span>
+                <span className="text-brand-600">Social listening scores</span>
               </li>
             </ul>
           </div>
@@ -320,8 +320,8 @@ export default function CreativeFatiguePreventionPage() {
 
       <h2 className="text-3xl font-bold text-gray-900 mb-6">Emergency Creative Refresh Protocol</h2>
 
-      <div className="bg-red-50 border-2 border-red-200 rounded-lg p-6 mb-8">
-        <h3 className="text-xl font-semibold text-red-800 mb-4">When Fatigue Strikes Suddenly:</h3>
+      <div className="bg-brand-50 border-2 border-brand-200 rounded-lg p-6 mb-8">
+        <h3 className="text-xl font-semibold text-brand-800 mb-4">When Fatigue Strikes Suddenly:</h3>
         
         <div className="space-y-4">
           <div className="bg-white rounded-lg p-4">

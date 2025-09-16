@@ -7,7 +7,7 @@ export function GoalsTimelineSection({ formData, handleInputChange }: FormSectio
   return (
     <div>
       <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-        <Clock className="h-5 w-5 mr-2 text-orange-600" />
+        <Clock className="h-5 w-5 mr-2 text-brand-600" />
         Goals & Timeline
       </h3>
       <div className="space-y-4">

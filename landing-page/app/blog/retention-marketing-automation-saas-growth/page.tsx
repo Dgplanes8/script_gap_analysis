@@ -95,11 +95,11 @@ export default function RetentionMarketingAutomationPage() {
                   <div className="text-sm text-gray-600">Churn Reduction</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">25-35%</div>
+                  <div className="text-2xl font-bold text-brand-600">25-35%</div>
                   <div className="text-sm text-gray-600">Expansion Revenue Increase</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-600">3x</div>
+                  <div className="text-2xl font-bold text-brand-600">3x</div>
                   <div className="text-sm text-gray-600">ROI vs Basic Email</div>
                 </div>
               </div>
@@ -168,12 +168,12 @@ export default function RetentionMarketingAutomationPage() {
               </div>
             </div>
 
-            <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-8">
+            <div className="bg-brand-50 border-l-4 border-brand-500 p-6 my-8">
               <div className="flex items-start">
-                <AlertTriangle className="h-6 w-6 text-yellow-500 mt-1 mr-3 flex-shrink-0" />
+                <AlertTriangle className="h-6 w-6 text-brand-500 mt-1 mr-3 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-yellow-900 mb-2">Implementation Foundation</h4>
-                  <p className="text-yellow-800">
+                  <h4 className="font-semibold text-brand-900 mb-2">Implementation Foundation</h4>
+                  <p className="text-brand-800">
                     Behavioral automation requires robust event tracking and customer data platform integration. 
                     Ensure you can capture, segment, and act on user actions in real-time before building complex automation flows.
                   </p>
@@ -195,7 +195,7 @@ export default function RetentionMarketingAutomationPage() {
               improving relevance and engagement.
             </p>
 
-            <div className="bg-emerald-50 rounded-lg p-6 my-8">
+            <div className="bg-brand-50 rounded-lg p-6 my-8">
               <h4 className="font-semibold text-emerald-900 mb-4">The Progressive Value Framework</h4>
               
               <div className="space-y-6">
@@ -262,16 +262,16 @@ export default function RetentionMarketingAutomationPage() {
               before cancellation and automatically deploy targeted retention campaigns based on the specific churn risk factors.
             </p>
 
-            <div className="bg-red-50 rounded-lg p-6 my-8">
-              <h4 className="font-semibold text-red-900 mb-4">Multi-Stage Predictive Intervention Framework</h4>
+            <div className="bg-brand-50 rounded-lg p-6 my-8">
+              <h4 className="font-semibold text-brand-900 mb-4">Multi-Stage Predictive Intervention Framework</h4>
               
               <div className="space-y-6">
-                <div className="bg-white rounded p-4 border-l-4 border-red-500">
-                  <h5 className="font-semibold text-red-900 mb-3">Stage 1: Early Warning (60+ Days Out)</h5>
+                <div className="bg-white rounded p-4 border-l-4 border-brand-500">
+                  <h5 className="font-semibold text-brand-900 mb-3">Stage 1: Early Warning (60+ Days Out)</h5>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <h6 className="font-semibold text-red-900 text-sm mb-2">Risk Indicators:</h6>
-                      <ul className="text-red-800 text-sm space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">Risk Indicators:</h6>
+                      <ul className="text-brand-800 text-sm space-y-1">
                         <li>• Declining daily active usage</li>
                         <li>• Feature adoption stagnation</li>
                         <li>• Reduced team collaboration</li>
@@ -279,8 +279,8 @@ export default function RetentionMarketingAutomationPage() {
                       </ul>
                     </div>
                     <div>
-                      <h6 className="font-semibold text-red-900 text-sm mb-2">Automated Interventions:</h6>
-                      <ul className="text-red-800 text-sm space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">Automated Interventions:</h6>
+                      <ul className="text-brand-800 text-sm space-y-1">
                         <li>• Proactive success manager outreach</li>
                         <li>• Value realization workshops invitation</li>
                         <li>• Advanced training sequence activation</li>
@@ -290,12 +290,12 @@ export default function RetentionMarketingAutomationPage() {
                   </div>
                 </div>
                 
-                <div className="bg-white rounded p-4 border-l-4 border-orange-500">
-                  <h5 className="font-semibold text-orange-900 mb-3">Stage 2: Active Risk (30-60 Days Out)</h5>
+                <div className="bg-white rounded p-4 border-l-4 border-brand-500">
+                  <h5 className="font-semibold text-brand-900 mb-3">Stage 2: Active Risk (30-60 Days Out)</h5>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <h6 className="font-semibold text-orange-900 text-sm mb-2">Risk Indicators:</h6>
-                      <ul className="text-orange-800 text-sm space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">Risk Indicators:</h6>
+                      <ul className="text-brand-800 text-sm space-y-1">
                         <li>• 50%+ usage decrease from baseline</li>
                         <li>• Multiple support escalations</li>
                         <li>• Billing/pricing page visits</li>
@@ -303,8 +303,8 @@ export default function RetentionMarketingAutomationPage() {
                       </ul>
                     </div>
                     <div>
-                      <h6 className="font-semibold text-orange-900 text-sm mb-2">Automated Interventions:</h6>
-                      <ul className="text-orange-800 text-sm space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">Automated Interventions:</h6>
+                      <ul className="text-brand-800 text-sm space-y-1">
                         <li>• Executive relationship building</li>
                         <li>• Custom ROI analysis delivery</li>
                         <li>• Feature gap solutions presentation</li>
@@ -314,12 +314,12 @@ export default function RetentionMarketingAutomationPage() {
                   </div>
                 </div>
                 
-                <div className="bg-white rounded p-4 border-l-4 border-yellow-500">
-                  <h5 className="font-semibold text-yellow-900 mb-3">Stage 3: Critical Risk (0-30 Days Out)</h5>
+                <div className="bg-white rounded p-4 border-l-4 border-brand-500">
+                  <h5 className="font-semibold text-brand-900 mb-3">Stage 3: Critical Risk (0-30 Days Out)</h5>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <h6 className="font-semibold text-yellow-900 text-sm mb-2">Risk Indicators:</h6>
-                      <ul className="text-yellow-800 text-sm space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">Risk Indicators:</h6>
+                      <ul className="text-brand-800 text-sm space-y-1">
                         <li>• Cancellation flow initiation</li>
                         <li>• Data export requests</li>
                         <li>• Team member removals</li>
@@ -327,8 +327,8 @@ export default function RetentionMarketingAutomationPage() {
                       </ul>
                     </div>
                     <div>
-                      <h6 className="font-semibold text-yellow-900 text-sm mb-2">Automated Interventions:</h6>
-                      <ul className="text-yellow-800 text-sm space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">Automated Interventions:</h6>
+                      <ul className="text-brand-800 text-sm space-y-1">
                         <li>• C-level executive intervention</li>
                         <li>• Strategic account pause options</li>
                         <li>• Custom solution development offers</li>
@@ -340,34 +340,34 @@ export default function RetentionMarketingAutomationPage() {
               </div>
             </div>
 
-            <div className="bg-purple-50 rounded-lg p-6 my-8">
-              <h4 className="font-semibold text-purple-900 mb-4">Churn Reason-Specific Automation</h4>
+            <div className="bg-brand-50 rounded-lg p-6 my-8">
+              <h4 className="font-semibold text-brand-900 mb-4">Churn Reason-Specific Automation</h4>
               
-              <p className="text-purple-800 mb-4">
+              <p className="text-brand-800 mb-4">
                 Different churn reasons require different intervention strategies. Build automation flows that respond 
                 to specific churn risk factors rather than generic retention campaigns.
               </p>
               
               <div className="grid md:grid-cols-3 gap-4">
                 <div>
-                  <h5 className="font-semibold text-purple-900 mb-2 text-sm">Low Usage/Engagement</h5>
-                  <ul className="text-purple-800 text-xs space-y-1">
+                  <h5 className="font-semibold text-brand-900 mb-2 text-sm">Low Usage/Engagement</h5>
+                  <ul className="text-brand-800 text-xs space-y-1">
                     <li>• Simplified workflow training</li>
                     <li>• Implementation consulting</li>
                     <li>• Success milestone gamification</li>
                   </ul>
                 </div>
                 <div>
-                  <h5 className="font-semibold text-purple-900 mb-2 text-sm">Feature/Integration Gaps</h5>
-                  <ul className="text-purple-800 text-xs space-y-1">
+                  <h5 className="font-semibold text-brand-900 mb-2 text-sm">Feature/Integration Gaps</h5>
+                  <ul className="text-brand-800 text-xs space-y-1">
                     <li>• Product roadmap previews</li>
                     <li>• Workaround solution guides</li>
                     <li>• Beta program invitations</li>
                   </ul>
                 </div>
                 <div>
-                  <h5 className="font-semibold text-purple-900 mb-2 text-sm">Cost/Value Concerns</h5>
-                  <ul className="text-purple-800 text-xs space-y-1">
+                  <h5 className="font-semibold text-brand-900 mb-2 text-sm">Cost/Value Concerns</h5>
+                  <ul className="text-brand-800 text-xs space-y-1">
                     <li>• ROI demonstration workshops</li>
                     <li>• Plan optimization consultations</li>
                     <li>• Value realization reporting</li>
@@ -390,20 +390,20 @@ export default function RetentionMarketingAutomationPage() {
               based on actual usage patterns and business outcomes.
             </p>
 
-            <div className="bg-green-50 rounded-lg p-6 my-8">
-              <h4 className="font-semibold text-green-900 mb-4">Usage-Triggered Expansion Framework</h4>
+            <div className="bg-brand-50 rounded-lg p-6 my-8">
+              <h4 className="font-semibold text-brand-900 mb-4">Usage-Triggered Expansion Framework</h4>
               
               <div className="space-y-6">
-                <div className="bg-white rounded p-4 border-l-4 border-green-500">
-                  <h5 className="font-semibold text-green-900 mb-3">Capacity-Based Expansion</h5>
-                  <p className="text-green-800 mb-3 text-sm">
+                <div className="bg-white rounded p-4 border-l-4 border-brand-500">
+                  <h5 className="font-semibold text-brand-900 mb-3">Capacity-Based Expansion</h5>
+                  <p className="text-brand-800 mb-3 text-sm">
                     Automatically identify customers approaching usage limits and proactively offer capacity increases 
                     before they hit restrictions.
                   </p>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <h6 className="font-semibold text-green-900 text-sm mb-1">Trigger Conditions:</h6>
-                      <ul className="text-green-800 text-xs space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-1">Trigger Conditions:</h6>
+                      <ul className="text-brand-800 text-xs space-y-1">
                         <li>• 80% of plan limits reached</li>
                         <li>• Consistent month-over-month growth</li>
                         <li>• High engagement score (90%+ usage)</li>
@@ -411,8 +411,8 @@ export default function RetentionMarketingAutomationPage() {
                       </ul>
                     </div>
                     <div>
-                      <h6 className="font-semibold text-green-900 text-sm mb-1">Automation Sequence:</h6>
-                      <ul className="text-green-800 text-xs space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-1">Automation Sequence:</h6>
+                      <ul className="text-brand-800 text-xs space-y-1">
                         <li>• Proactive capacity planning email</li>
                         <li>• In-app upgrade notifications</li>
                         <li>• Customer success check-in call</li>
@@ -450,16 +450,16 @@ export default function RetentionMarketingAutomationPage() {
                   </div>
                 </div>
                 
-                <div className="bg-white rounded p-4 border-l-4 border-purple-500">
-                  <h5 className="font-semibold text-purple-900 mb-3">Team-Based Expansion</h5>
-                  <p className="text-purple-800 mb-3 text-sm">
+                <div className="bg-white rounded p-4 border-l-4 border-brand-500">
+                  <h5 className="font-semibold text-brand-900 mb-3">Team-Based Expansion</h5>
+                  <p className="text-brand-800 mb-3 text-sm">
                     Identify expansion opportunities based on team growth, collaboration patterns, and 
                     cross-departmental usage indicators.
                   </p>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <h6 className="font-semibold text-purple-900 text-sm mb-1">Trigger Conditions:</h6>
-                      <ul className="text-purple-800 text-xs space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-1">Trigger Conditions:</h6>
+                      <ul className="text-brand-800 text-xs space-y-1">
                         <li>• New team member invitations</li>
                         <li>• Cross-department sharing</li>
                         <li>• Administrative role requests</li>
@@ -467,8 +467,8 @@ export default function RetentionMarketingAutomationPage() {
                       </ul>
                     </div>
                     <div>
-                      <h6 className="font-semibold text-purple-900 text-sm mb-1">Automation Sequence:</h6>
-                      <ul className="text-purple-800 text-xs space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-1">Automation Sequence:</h6>
+                      <ul className="text-brand-800 text-xs space-y-1">
                         <li>• Team onboarding optimization</li>
                         <li>• Administrative feature introduction</li>
                         <li>• Department-specific workflows</li>
@@ -536,28 +536,28 @@ export default function RetentionMarketingAutomationPage() {
               </div>
             </div>
 
-            <div className="bg-orange-50 rounded-lg p-6 my-8">
-              <h4 className="font-semibold text-orange-900 mb-4">Intelligent Channel Selection Algorithm</h4>
+            <div className="bg-brand-50 rounded-lg p-6 my-8">
+              <h4 className="font-semibold text-brand-900 mb-4">Intelligent Channel Selection Algorithm</h4>
               
-              <p className="text-orange-800 mb-4">
+              <p className="text-brand-800 mb-4">
                 Use customer data to automatically select the most effective communication channel for each individual, 
                 improving engagement rates by 40-60% compared to one-size-fits-all approaches.
               </p>
               
               <div className="bg-white rounded p-4">
-                <h5 className="font-semibold text-orange-900 mb-3">Channel Preference Scoring</h5>
+                <h5 className="font-semibold text-brand-900 mb-3">Channel Preference Scoring</h5>
                 <div className="space-y-3">
                   <div>
-                    <h6 className="font-semibold text-orange-900 text-sm">Email Preference Indicators:</h6>
-                    <p className="text-orange-800 text-xs">High open rates, click-through engagement, email domain preferences, communication style</p>
+                    <h6 className="font-semibold text-brand-900 text-sm">Email Preference Indicators:</h6>
+                    <p className="text-brand-800 text-xs">High open rates, click-through engagement, email domain preferences, communication style</p>
                   </div>
                   <div>
-                    <h6 className="font-semibold text-orange-900 text-sm">In-App Preference Indicators:</h6>
-                    <p className="text-orange-800 text-xs">Daily active usage, feature exploration, help content consumption, settings engagement</p>
+                    <h6 className="font-semibold text-brand-900 text-sm">In-App Preference Indicators:</h6>
+                    <p className="text-brand-800 text-xs">Daily active usage, feature exploration, help content consumption, settings engagement</p>
                   </div>
                   <div>
-                    <h6 className="font-semibold text-orange-900 text-sm">Direct Contact Preference Indicators:</h6>
-                    <p className="text-orange-800 text-xs">Support ticket patterns, meeting acceptance rates, response times, communication complexity</p>
+                    <h6 className="font-semibold text-brand-900 text-sm">Direct Contact Preference Indicators:</h6>
+                    <p className="text-brand-800 text-xs">Support ticket patterns, meeting acceptance rates, response times, communication complexity</p>
                   </div>
                 </div>
               </div>
@@ -576,16 +576,16 @@ export default function RetentionMarketingAutomationPage() {
               proactive value, identify expansion opportunities, and prevent churn through systematic relationship building.
             </p>
 
-            <div className="bg-teal-50 rounded-lg p-6 my-8">
-              <h4 className="font-semibold text-teal-900 mb-4">The Automated Success Journey Framework</h4>
+            <div className="bg-brand-50 rounded-lg p-6 my-8">
+              <h4 className="font-semibold text-brand-900 mb-4">The Automated Success Journey Framework</h4>
               
               <div className="space-y-6">
                 <div className="border-l-4 border-teal-500 pl-6">
-                  <h5 className="font-semibold text-teal-900 mb-2">Phase 1: Success Foundation (Days 0-30)</h5>
+                  <h5 className="font-semibold text-brand-900 mb-2">Phase 1: Success Foundation (Days 0-30)</h5>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <h6 className="font-semibold text-teal-900 text-sm mb-2">Automated Touchpoints:</h6>
-                      <ul className="text-teal-800 text-sm space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">Automated Touchpoints:</h6>
+                      <ul className="text-brand-800 text-sm space-y-1">
                         <li>• Welcome & goal-setting survey</li>
                         <li>• Personalized onboarding roadmap</li>
                         <li>• Success milestone tracking</li>
@@ -593,8 +593,8 @@ export default function RetentionMarketingAutomationPage() {
                       </ul>
                     </div>
                     <div>
-                      <h6 className="font-semibold text-teal-900 text-sm mb-2">Success Metrics:</h6>
-                      <ul className="text-teal-800 text-sm space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">Success Metrics:</h6>
+                      <ul className="text-brand-800 text-sm space-y-1">
                         <li>• Time to first value achievement</li>
                         <li>• Core feature adoption rate</li>
                         <li>• Engagement consistency score</li>
@@ -605,11 +605,11 @@ export default function RetentionMarketingAutomationPage() {
                 </div>
                 
                 <div className="border-l-4 border-teal-500 pl-6">
-                  <h5 className="font-semibold text-teal-900 mb-2">Phase 2: Value Expansion (Days 31-90)</h5>
+                  <h5 className="font-semibold text-brand-900 mb-2">Phase 2: Value Expansion (Days 31-90)</h5>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <h6 className="font-semibold text-teal-900 text-sm mb-2">Automated Touchpoints:</h6>
-                      <ul className="text-teal-800 text-sm space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">Automated Touchpoints:</h6>
+                      <ul className="text-brand-800 text-sm space-y-1">
                         <li>• Advanced feature introduction</li>
                         <li>• ROI measurement & reporting</li>
                         <li>• Best practice sharing</li>
@@ -617,8 +617,8 @@ export default function RetentionMarketingAutomationPage() {
                       </ul>
                     </div>
                     <div>
-                      <h6 className="font-semibold text-teal-900 text-sm mb-2">Success Metrics:</h6>
-                      <ul className="text-teal-800 text-sm space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">Success Metrics:</h6>
+                      <ul className="text-brand-800 text-sm space-y-1">
                         <li>• Feature depth utilization</li>
                         <li>• Business outcome achievement</li>
                         <li>• Integration completions</li>
@@ -629,11 +629,11 @@ export default function RetentionMarketingAutomationPage() {
                 </div>
                 
                 <div className="border-l-4 border-teal-500 pl-6">
-                  <h5 className="font-semibold text-teal-900 mb-2">Phase 3: Strategic Partnership (Days 90+)</h5>
+                  <h5 className="font-semibold text-brand-900 mb-2">Phase 3: Strategic Partnership (Days 90+)</h5>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <h6 className="font-semibold text-teal-900 text-sm mb-2">Automated Touchpoints:</h6>
-                      <ul className="text-teal-800 text-sm space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">Automated Touchpoints:</h6>
+                      <ul className="text-brand-800 text-sm space-y-1">
                         <li>• Quarterly business reviews</li>
                         <li>• Strategic roadmap discussions</li>
                         <li>• Executive relationship building</li>
@@ -641,8 +641,8 @@ export default function RetentionMarketingAutomationPage() {
                       </ul>
                     </div>
                     <div>
-                      <h6 className="font-semibold text-teal-900 text-sm mb-2">Success Metrics:</h6>
-                      <ul className="text-teal-800 text-sm space-y-1">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">Success Metrics:</h6>
+                      <ul className="text-brand-800 text-sm space-y-1">
                         <li>• Net revenue retention rate</li>
                         <li>• Executive engagement levels</li>
                         <li>• Strategic initiative alignment</li>
@@ -680,16 +680,16 @@ export default function RetentionMarketingAutomationPage() {
                       <p className="text-blue-700 text-xs">Tools: Segment, Amplitude, Mixpanel, or custom</p>
                     </div>
                     
-                    <div className="bg-white rounded p-4 border-l-4 border-green-500">
-                      <h6 className="font-semibold text-green-900 text-sm mb-2">Marketing Automation Platform</h6>
-                      <p className="text-green-800 text-sm mb-2">Multi-channel campaign orchestration</p>
-                      <p className="text-green-700 text-xs">Tools: HubSpot, Marketo, Pardot, or Klaviyo</p>
+                    <div className="bg-white rounded p-4 border-l-4 border-brand-500">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">Marketing Automation Platform</h6>
+                      <p className="text-brand-800 text-sm mb-2">Multi-channel campaign orchestration</p>
+                      <p className="text-brand-700 text-xs">Tools: HubSpot, Marketo, Pardot, or Klaviyo</p>
                     </div>
                     
-                    <div className="bg-white rounded p-4 border-l-4 border-purple-500">
-                      <h6 className="font-semibold text-purple-900 text-sm mb-2">In-App Messaging System</h6>
-                      <p className="text-purple-800 text-sm mb-2">Contextual user guidance and engagement</p>
-                      <p className="text-purple-700 text-xs">Tools: Intercom, Pendo, Appcues, or Hotjar</p>
+                    <div className="bg-white rounded p-4 border-l-4 border-brand-500">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">In-App Messaging System</h6>
+                      <p className="text-brand-800 text-sm mb-2">Contextual user guidance and engagement</p>
+                      <p className="text-brand-700 text-xs">Tools: Intercom, Pendo, Appcues, or Hotjar</p>
                     </div>
                   </div>
                 </div>
@@ -697,16 +697,16 @@ export default function RetentionMarketingAutomationPage() {
                 <div>
                   <h5 className="font-semibold text-gray-900 mb-4">Advanced Capabilities</h5>
                   <div className="space-y-4">
-                    <div className="bg-white rounded p-4 border-l-4 border-orange-500">
-                      <h6 className="font-semibold text-orange-900 text-sm mb-2">Predictive Analytics Engine</h6>
-                      <p className="text-orange-800 text-sm mb-2">Churn prediction and opportunity scoring</p>
-                      <p className="text-orange-700 text-xs">Tools: ChurnZero, Gainsight, or custom ML models</p>
+                    <div className="bg-white rounded p-4 border-l-4 border-brand-500">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">Predictive Analytics Engine</h6>
+                      <p className="text-brand-800 text-sm mb-2">Churn prediction and opportunity scoring</p>
+                      <p className="text-brand-700 text-xs">Tools: ChurnZero, Gainsight, or custom ML models</p>
                     </div>
                     
-                    <div className="bg-white rounded p-4 border-l-4 border-red-500">
-                      <h6 className="font-semibold text-red-900 text-sm mb-2">Customer Success Platform</h6>
-                      <p className="text-red-800 text-sm mb-2">Health scoring and success program management</p>
-                      <p className="text-red-700 text-xs">Tools: Totango, ClientSuccess, or Planhat</p>
+                    <div className="bg-white rounded p-4 border-l-4 border-brand-500">
+                      <h6 className="font-semibold text-brand-900 text-sm mb-2">Customer Success Platform</h6>
+                      <p className="text-brand-800 text-sm mb-2">Health scoring and success program management</p>
+                      <p className="text-brand-700 text-xs">Tools: Totango, ClientSuccess, or Planhat</p>
                     </div>
                     
                     <div className="bg-white rounded p-4 border-l-4 border-indigo-500">
@@ -719,12 +719,12 @@ export default function RetentionMarketingAutomationPage() {
               </div>
             </div>
 
-            <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-8">
+            <div className="bg-brand-50 border-l-4 border-brand-500 p-6 my-8">
               <div className="flex items-start">
-                <AlertTriangle className="h-6 w-6 text-yellow-500 mt-1 mr-3 flex-shrink-0" />
+                <AlertTriangle className="h-6 w-6 text-brand-500 mt-1 mr-3 flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold text-yellow-900 mb-2">Implementation Priority</h4>
-                  <p className="text-yellow-800">
+                  <h4 className="font-semibold text-brand-900 mb-2">Implementation Priority</h4>
+                  <p className="text-brand-800">
                     Start with robust event tracking and customer data unification before building complex automation. 
                     Poor data quality will undermine even the most sophisticated retention strategies.
                   </p>
@@ -736,7 +736,7 @@ export default function RetentionMarketingAutomationPage() {
           {/* Measurement & Optimization */}
           <section className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-              <BarChart3 className="h-8 w-8 mr-3 text-green-600" />
+              <BarChart3 className="h-8 w-8 mr-3 text-brand-600" />
               Measuring & Optimizing Retention Automation
             </h2>
             
@@ -745,7 +745,7 @@ export default function RetentionMarketingAutomationPage() {
               Track leading indicators, automation performance, and customer journey progression to continuously improve results.
             </p>
 
-            <div className="bg-emerald-50 rounded-lg p-6 my-8">
+            <div className="bg-brand-50 rounded-lg p-6 my-8">
               <h4 className="font-semibold text-emerald-900 mb-4">Key Performance Indicators (KPIs)</h4>
               
               <div className="grid md:grid-cols-3 gap-6">
@@ -903,7 +903,7 @@ export default function RetentionMarketingAutomationPage() {
               investment in technology and data infrastructure, but the ROI is transformational.
             </p>
 
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 my-8">
+            <div className="bg-gradient-to-r from-blue-50 to-brand-50 rounded-lg p-6 my-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
                 <Zap className="h-5 w-5 mr-2 text-blue-600" />
                 Your Next Action Step

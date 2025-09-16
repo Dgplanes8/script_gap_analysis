@@ -31,19 +31,19 @@ export default function AdFormatsGuidePage() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-orange-50 to-red-50">
+        <section className="py-16 bg-gradient-to-br from-brand-50 to-brand-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <Link 
                 href="/"
-                className="inline-flex items-center text-orange-600 hover:text-orange-700 mb-8 transition-colors"
+                className="inline-flex items-center text-brand-600 hover:text-brand-700 mb-8 transition-colors"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Home
               </Link>
               
               <div className="text-center mb-12">
-                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-100 to-red-100 text-orange-800 rounded-full text-sm font-semibold mb-6">
+                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand-100 to-brand-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
                   <Play className="h-4 w-4 mr-2" />
                   High-Converting Ad Formats
                 </div>
@@ -57,17 +57,17 @@ export default function AdFormatsGuidePage() {
 
               <div className="grid md:grid-cols-3 gap-6 mb-12">
                 <div className="bg-white rounded-xl p-6 shadow-lg border">
-                  <Target className="h-8 w-8 text-orange-600 mb-4" />
+                  <Target className="h-8 w-8 text-brand-600 mb-4" />
                   <h3 className="text-lg font-semibold mb-2">Audience-Specific</h3>
                   <p className="text-gray-600 text-sm">Each format targets different awareness levels, from cold audiences to warm prospects ready to convert.</p>
                 </div>
                 <div className="bg-white rounded-xl p-6 shadow-lg border">
-                  <Zap className="h-8 w-8 text-red-600 mb-4" />
+                  <Zap className="h-8 w-8 text-brand-600 mb-4" />
                   <h3 className="text-lg font-semibold mb-2">Platform-Optimized</h3>
                   <p className="text-gray-600 text-sm">Formats adapted for each platform's unique behavior patterns and algorithm preferences.</p>
                 </div>
                 <div className="bg-white rounded-xl p-6 shadow-lg border">
-                  <BarChart3 className="h-8 w-8 text-orange-600 mb-4" />
+                  <BarChart3 className="h-8 w-8 text-brand-600 mb-4" />
                   <h3 className="text-lg font-semibold mb-2">Performance-Tested</h3>
                   <p className="text-gray-600 text-sm">Every format backed by real campaign data and conversion optimization best practices.</p>
                 </div>
@@ -120,15 +120,15 @@ export default function AdFormatsGuidePage() {
                   <h3 className="text-xl font-semibold mb-4">Performance Optimization Tips</h3>
                   
                   <div className="grid md:grid-cols-3 gap-6">
-                    <div className="p-4 bg-orange-50 rounded-lg">
-                      <h4 className="font-semibold text-orange-900 mb-2">First 3 Seconds</h4>
-                      <p className="text-sm text-orange-800">
+                    <div className="p-4 bg-brand-50 rounded-lg">
+                      <h4 className="font-semibold text-brand-900 mb-2">First 3 Seconds</h4>
+                      <p className="text-sm text-brand-800">
                         Hook must create pattern interrupt and promise clear value within the first 3 seconds to stop the scroll.
                       </p>
                     </div>
-                    <div className="p-4 bg-teal-50 rounded-lg">
-                      <h4 className="font-semibold text-teal-900 mb-2">Value Proposition</h4>
-                      <p className="text-sm text-teal-800">
+                    <div className="p-4 bg-brand-50 rounded-lg">
+                      <h4 className="font-semibold text-brand-900 mb-2">Value Proposition</h4>
+                      <p className="text-sm text-brand-800">
                         Focus on transformation outcomes, not features. Show the end result your audience wants to achieve.
                       </p>
                     </div>
@@ -149,21 +149,21 @@ export default function AdFormatsGuidePage() {
                   
                   <div className="space-y-4">
                     <div className="flex items-start">
-                      <div className="w-8 h-8 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">1</div>
+                      <div className="w-8 h-8 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">1</div>
                       <div>
                         <h4 className="font-semibold text-gray-900">Start with 3-4 formats</h4>
                         <p className="text-sm text-gray-600">Test different awareness levels and angles to identify your best-performing format category.</p>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-8 h-8 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">2</div>
+                      <div className="w-8 h-8 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">2</div>
                       <div>
                         <h4 className="font-semibold text-gray-900">Optimize winning formats</h4>
                         <p className="text-sm text-gray-600">Create 3-5 variations of your top-performing format with different hooks and CTAs.</p>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-8 h-8 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">3</div>
+                      <div className="w-8 h-8 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">3</div>
                       <div>
                         <h4 className="font-semibold text-gray-900">Scale and iterate</h4>
                         <p className="text-sm text-gray-600">Once you find winners, create new formats targeting different segments or platforms.</p>

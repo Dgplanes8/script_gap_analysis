@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, Download, Star, Filter, Search, BarChart3, Target, TrendingUp, Eye, Heart, Zap, CheckCircle } from 'lucide-react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: '52 High-Converting Ad Hooks Library: Performance-Scored Creative Intelligence | Apsics Media',
@@ -274,7 +275,7 @@ export default function HighConvertingAdHooksLibrary() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-orange-600 to-red-600 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-600 to-brand-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -286,33 +287,33 @@ export default function HighConvertingAdHooksLibrary() {
               52 High-Converting Ad Hooks Library
             </h1>
             
-            <p className="text-xl md:text-2xl text-orange-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Curated collection of top-performing hooks with detailed performance analysis. 
               Average score: 21.7/25. Ready for immediate testing across all platforms.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <BarChart3 className="h-8 w-8 text-orange-200 mx-auto mb-2" />
+                <BarChart3 className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">21.7/25</div>
-                <div className="text-orange-200 text-sm">Average performance score</div>
+                <div className="text-brand-200 text-sm">Average performance score</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Target className="h-8 w-8 text-orange-200 mx-auto mb-2" />
+                <Target className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">6 Categories</div>
-                <div className="text-orange-200 text-sm">Strategic hook frameworks</div>
+                <div className="text-brand-200 text-sm">Strategic hook frameworks</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <TrendingUp className="h-8 w-8 text-orange-200 mx-auto mb-2" />
+                <TrendingUp className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">3 Platforms</div>
-                <div className="text-orange-200 text-sm">TikTok, Facebook, LinkedIn</div>
+                <div className="text-brand-200 text-sm">TikTok, Facebook, LinkedIn</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#hook-library"
-                className="bg-white text-orange-600 hover:bg-orange-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 style={{ scrollBehavior: 'smooth' }}
               >
                 Explore Complete Library
@@ -320,7 +321,7 @@ export default function HighConvertingAdHooksLibrary() {
               </Link>
               <Link
                 href="/weekly-creative-intelligence-playbook"
-                className="border-2 border-white text-white hover:bg-white hover:text-orange-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
+                className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
               >
                 Learn the Framework
                 <BarChart3 className="h-5 w-5 ml-2" />
@@ -339,19 +340,19 @@ export default function HighConvertingAdHooksLibrary() {
             </h2>
             
             <p className="text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto">
-              Every hook is evaluated using our <Link href="/25-point-performance-scoring-system" className="text-orange-600 hover:text-orange-700 underline">25-point performance scoring system</Link>, 
+              Every hook is evaluated using our <Link href="/25-point-performance-scoring-system" className="text-brand-600 hover:text-brand-700 underline">25-point performance scoring system</Link>, 
               based on conversion psychology research and analysis of thousands of high-performing campaigns.
             </p>
             
             <div className="grid md:grid-cols-5 gap-4 mb-8">
-              <div className="bg-orange-50 rounded-lg p-4 text-center">
-                <Eye className="h-6 w-6 text-orange-600 mx-auto mb-2" />
+              <div className="bg-brand-50 rounded-lg p-4 text-center">
+                <Eye className="h-6 w-6 text-brand-600 mx-auto mb-2" />
                 <div className="font-semibold text-gray-900">Attention</div>
                 <div className="text-sm text-gray-600">Stop-the-scroll power</div>
               </div>
               
-              <div className="bg-red-50 rounded-lg p-4 text-center">
-                <Heart className="h-6 w-6 text-red-600 mx-auto mb-2" />
+              <div className="bg-brand-50 rounded-lg p-4 text-center">
+                <Heart className="h-6 w-6 text-brand-600 mx-auto mb-2" />
                 <div className="font-semibold text-gray-900">Emotion</div>
                 <div className="text-sm text-gray-600">Emotional resonance</div>
               </div>
@@ -362,20 +363,20 @@ export default function HighConvertingAdHooksLibrary() {
                 <div className="text-sm text-gray-600">Benefit clarity</div>
               </div>
               
-              <div className="bg-green-50 rounded-lg p-4 text-center">
-                <Zap className="h-6 w-6 text-green-600 mx-auto mb-2" />
+              <div className="bg-brand-50 rounded-lg p-4 text-center">
+                <Zap className="h-6 w-6 text-brand-600 mx-auto mb-2" />
                 <div className="font-semibold text-gray-900">CTA</div>
                 <div className="text-sm text-gray-600">Action strength</div>
               </div>
               
-              <div className="bg-purple-50 rounded-lg p-4 text-center">
-                <Star className="h-6 w-6 text-purple-600 mx-auto mb-2" />
+              <div className="bg-brand-50 rounded-lg p-4 text-center">
+                <Star className="h-6 w-6 text-brand-600 mx-auto mb-2" />
                 <div className="font-semibold text-gray-900">Memorable</div>
                 <div className="text-sm text-gray-600">Sticky elements</div>
               </div>
             </div>
             
-            <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-6">
+            <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-xl p-6">
               <h3 className="font-semibold text-gray-900 mb-3">How to Use This Library</h3>
               <div className="grid md:grid-cols-3 gap-4 text-sm">
                 <div>
@@ -413,7 +414,7 @@ export default function HighConvertingAdHooksLibrary() {
                       <p className="text-gray-600">{category.description}</p>
                     </div>
                     <div className="text-right">
-                      <div className="text-2xl font-bold text-orange-600">{category.count}</div>
+                      <div className="text-2xl font-bold text-brand-600">{category.count}</div>
                       <div className="text-sm text-gray-500">hooks</div>
                     </div>
                   </div>
@@ -428,15 +429,15 @@ export default function HighConvertingAdHooksLibrary() {
                             </div>
                             <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
                               <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded">{hook.industry}</span>
-                              <span className="bg-green-100 text-green-800 px-2 py-1 rounded">{hook.platform}</span>
-                              <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded font-semibold">
+                              <span className="bg-brand-100 text-brand-800 px-2 py-1 rounded">{hook.platform}</span>
+                              <span className="bg-brand-100 text-brand-800 px-2 py-1 rounded font-semibold">
                                 Score: {hook.score}/25
                               </span>
                             </div>
                           </div>
                           
                           <div className="ml-6">
-                            <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
                               {hook.score}
                             </div>
                           </div>
@@ -448,14 +449,14 @@ export default function HighConvertingAdHooksLibrary() {
                             <div className="space-y-2">
                               <div className="flex items-center justify-between text-sm">
                                 <span className="flex items-center">
-                                  <Eye className="h-4 w-4 text-orange-600 mr-2" />
+                                  <Eye className="h-4 w-4 text-brand-600 mr-2" />
                                   Attention Capture
                                 </span>
                                 <span className="font-semibold">{hook.attention}/5</span>
                               </div>
                               <div className="flex items-center justify-between text-sm">
                                 <span className="flex items-center">
-                                  <Heart className="h-4 w-4 text-red-600 mr-2" />
+                                  <Heart className="h-4 w-4 text-brand-600 mr-2" />
                                   Emotional Resonance
                                 </span>
                                 <span className="font-semibold">{hook.emotion}/5</span>
@@ -469,14 +470,14 @@ export default function HighConvertingAdHooksLibrary() {
                               </div>
                               <div className="flex items-center justify-between text-sm">
                                 <span className="flex items-center">
-                                  <Zap className="h-4 w-4 text-green-600 mr-2" />
+                                  <Zap className="h-4 w-4 text-brand-600 mr-2" />
                                   CTA Strength
                                 </span>
                                 <span className="font-semibold">{hook.cta}/5</span>
                               </div>
                               <div className="flex items-center justify-between text-sm">
                                 <span className="flex items-center">
-                                  <Star className="h-4 w-4 text-purple-600 mr-2" />
+                                  <Star className="h-4 w-4 text-brand-600 mr-2" />
                                   Memorability
                                 </span>
                                 <span className="font-semibold">{hook.memorability}/5</span>
@@ -517,9 +518,9 @@ export default function HighConvertingAdHooksLibrary() {
             </h2>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-orange-50 rounded-xl p-6">
-                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                  <Search className="h-6 w-6 text-orange-600" />
+              <div className="bg-brand-50 rounded-xl p-6">
+                <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4">
+                  <Search className="h-6 w-6 text-brand-600" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">1. Strategic Selection</h3>
                 <p className="text-gray-600 text-sm">
@@ -539,9 +540,9 @@ export default function HighConvertingAdHooksLibrary() {
                 </p>
               </div>
               
-              <div className="bg-green-50 rounded-xl p-6">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <BarChart3 className="h-6 w-6 text-green-600" />
+              <div className="bg-brand-50 rounded-xl p-6">
+                <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4">
+                  <BarChart3 className="h-6 w-6 text-brand-600" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">3. Performance Testing</h3>
                 <p className="text-gray-600 text-sm">
@@ -588,53 +589,47 @@ export default function HighConvertingAdHooksLibrary() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-brand-600 to-brand-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Get Fresh Hooks Every Monday
             </h2>
             
-            <p className="text-xl text-orange-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Access our complete weekly creative intelligence system. New performance-scored hooks, 
               competitive analysis, and trend intelligence delivered every Monday.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <TrendingUp className="h-8 w-8 text-orange-200 mx-auto mb-2" />
+                <TrendingUp className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Weekly Delivery</div>
-                <div className="text-orange-200 text-sm">Fresh hooks every Monday</div>
+                <div className="text-brand-200 text-sm">Fresh hooks every Monday</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <BarChart3 className="h-8 w-8 text-orange-200 mx-auto mb-2" />
+                <BarChart3 className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Performance Scored</div>
-                <div className="text-orange-200 text-sm">25-point evaluation system</div>
+                <div className="text-brand-200 text-sm">25-point evaluation system</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <CheckCircle className="h-8 w-8 text-orange-200 mx-auto mb-2" />
+                <CheckCircle className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Ready to Test</div>
-                <div className="text-orange-200 text-sm">Immediate implementation</div>
+                <div className="text-brand-200 text-sm">Immediate implementation</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#email-signup"
-                className="bg-white text-orange-600 hover:bg-orange-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 style={{ scrollBehavior: 'smooth' }}
               >
                 Start Your Free Week Trial
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-orange-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View Weekly Plans
-                <BarChart3 className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="52_high_converting_ad_hooks_library-cta" className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>
@@ -653,8 +648,8 @@ export default function HighConvertingAdHooksLibrary() {
                 href="/weekly-creative-intelligence-playbook"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mb-3">
-                  <BarChart3 className="h-5 w-5 text-orange-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <BarChart3 className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Weekly Intelligence Playbook</h3>
                 <p className="text-sm text-gray-600">
@@ -666,8 +661,8 @@ export default function HighConvertingAdHooksLibrary() {
                 href="/25-point-performance-scoring-system"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mb-3">
-                  <Target className="h-5 w-5 text-orange-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Target className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">25-Point Scoring System</h3>
                 <p className="text-sm text-gray-600">
@@ -679,8 +674,8 @@ export default function HighConvertingAdHooksLibrary() {
                 href="/hook-generator"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mb-3">
-                  <Zap className="h-5 w-5 text-orange-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Zap className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Hook Generator Tool</h3>
                 <p className="text-sm text-gray-600">

@@ -84,7 +84,7 @@ export function StrategicConsultationForm({ isOpen = true, onClose, defaultPacka
                 value={formData.fullName}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                 placeholder="Enter your full name"
               />
             </div>
@@ -101,7 +101,7 @@ export function StrategicConsultationForm({ isOpen = true, onClose, defaultPacka
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                 placeholder="Enter your email"
               />
             </div>
@@ -118,7 +118,7 @@ export function StrategicConsultationForm({ isOpen = true, onClose, defaultPacka
                 value={formData.company}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                 placeholder="Enter your company name"
               />
             </div>
@@ -134,7 +134,7 @@ export function StrategicConsultationForm({ isOpen = true, onClose, defaultPacka
                 value={formData.monthlyAdSpend}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
               >
                 <option value="">Select your ad spend range</option>
                 <option value="<$10K">Less than $10K/month</option>
@@ -155,7 +155,7 @@ export function StrategicConsultationForm({ isOpen = true, onClose, defaultPacka
                 value={formData.packageInterest}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
               >
                 <option value="">Select package interest</option>
                 <option value="Creative Starter ($5/week)">Creative Starter - $5/week</option>
@@ -169,9 +169,9 @@ export function StrategicConsultationForm({ isOpen = true, onClose, defaultPacka
 
             {/* Submit Button */}
             <div className="pt-4">
-              <div className="bg-orange-50 rounded-lg p-4 mb-6">
-                <h4 className="font-semibold text-orange-900 mb-2">What Happens Next:</h4>
-                <ul className="text-sm text-orange-800 space-y-1">
+              <div className="bg-brand-50 rounded-lg p-4 mb-6">
+                <h4 className="font-semibold text-brand-900 mb-2">What Happens Next:</h4>
+                <ul className="text-sm text-brand-800 space-y-1">
                   <li>1. We'll reach out within 24 hours</li>
                   <li>2. Get your 10 free hooks immediately</li>
                   <li>3. Setup your weekly creative intelligence delivery</li>
@@ -181,7 +181,7 @@ export function StrategicConsultationForm({ isOpen = true, onClose, defaultPacka
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-orange-700 hover:to-red-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                className="w-full bg-gradient-to-r from-brand-600 to-brand-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-brand-700 hover:to-brand-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
               >
                 <Calendar className="h-5 w-5 mr-2" />
                 {isSubmitting ? 'Submitting Request...' : 'Get My Strategy Consultation'}

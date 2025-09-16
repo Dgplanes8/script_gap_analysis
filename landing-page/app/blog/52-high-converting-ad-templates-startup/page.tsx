@@ -68,7 +68,7 @@ export default function AdTemplatesStartupPage() {
 
       <div className="space-y-8 mb-8">
         {/* Unaware Audience Templates */}
-        <div className="border-l-4 border-red-500 pl-6 bg-red-50 rounded-r-lg p-6">
+        <div className="border-l-4 border-brand-500 pl-6 bg-brand-50 rounded-r-lg p-6">
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">Unaware Audience (Templates 1-13)</h3>
           <p className="text-gray-700 mb-4">
             <strong>Target:</strong> Prospects who don't know they have the problem your product solves.
@@ -117,7 +117,7 @@ export default function AdTemplatesStartupPage() {
         </div>
 
         {/* Problem Aware Templates */}
-        <div className="border-l-4 border-orange-500 pl-6 bg-orange-50 rounded-r-lg p-6">
+        <div className="border-l-4 border-brand-500 pl-6 bg-brand-50 rounded-r-lg p-6">
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">Problem Aware (Templates 14-26)</h3>
           <p className="text-gray-700 mb-4">
             <strong>Target:</strong> Prospects who know they have the problem but aren't actively seeking solutions.
@@ -166,7 +166,7 @@ export default function AdTemplatesStartupPage() {
         </div>
 
         {/* Solution Aware Templates */}
-        <div className="border-l-4 border-yellow-500 pl-6 bg-yellow-50 rounded-r-lg p-6">
+        <div className="border-l-4 border-brand-500 pl-6 bg-brand-50 rounded-r-lg p-6">
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">Solution Aware (Templates 27-39)</h3>
           <p className="text-gray-700 mb-4">
             <strong>Target:</strong> Prospects who know solutions exist but aren't sure which one to choose.
@@ -216,7 +216,7 @@ export default function AdTemplatesStartupPage() {
         </div>
 
         {/* Product Aware Templates */}
-        <div className="border-l-4 border-green-500 pl-6 bg-green-50 rounded-r-lg p-6">
+        <div className="border-l-4 border-brand-500 pl-6 bg-brand-50 rounded-r-lg p-6">
           <h3 className="text-2xl font-semibold text-gray-800 mb-4">Product Aware (Templates 40-52)</h3>
           <p className="text-gray-700 mb-4">
             <strong>Target:</strong> Prospects who know about your product but need final conversion push.
@@ -295,27 +295,27 @@ export default function AdTemplatesStartupPage() {
           </ol>
         </div>
         
-        <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-          <h3 className="text-xl font-semibold text-green-800 mb-4">Optimization Strategy</h3>
-          <ul className="space-y-3 text-green-700">
+        <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+          <h3 className="text-xl font-semibold text-brand-800 mb-4">Optimization Strategy</h3>
+          <ul className="space-y-3 text-brand-700">
             <li className="flex items-start">
-              <span className="text-green-500 mr-3">✓</span>
+              <span className="text-brand-500 mr-3">✓</span>
               <span><strong>Weekly Reviews:</strong> Analyze performance of active templates and pause low-performers</span>
             </li>
             <li className="flex items-start">
-              <span className="text-green-500 mr-3">✓</span>
+              <span className="text-brand-500 mr-3">✓</span>
               <span><strong>Creative Rotation:</strong> Refresh 30% of templates every 2 weeks to prevent fatigue</span>
             </li>
             <li className="flex items-start">
-              <span className="text-green-500 mr-3">✓</span>
+              <span className="text-brand-500 mr-3">✓</span>
               <span><strong>Seasonal Updates:</strong> Modify templates for holidays, events, and market changes</span>
             </li>
             <li className="flex items-start">
-              <span className="text-green-500 mr-3">✓</span>
+              <span className="text-brand-500 mr-3">✓</span>
               <span><strong>Performance Library:</strong> Document winning variations for future campaigns</span>
             </li>
             <li className="flex items-start">
-              <span className="text-green-500 mr-3">✓</span>
+              <span className="text-brand-500 mr-3">✓</span>
               <span><strong>Cross-Channel Adaptation:</strong> Adapt winning templates across platforms</span>
             </li>
           </ul>
@@ -335,9 +335,9 @@ export default function AdTemplatesStartupPage() {
           </ul>
         </div>
         
-        <div className="bg-green-50 border-l-4 border-green-500 p-6">
-          <h4 className="text-lg font-semibold text-green-800 mb-3">Google Ads</h4>
-          <ul className="space-y-2 text-green-700 text-sm">
+        <div className="bg-brand-50 border-l-4 border-brand-500 p-6">
+          <h4 className="text-lg font-semibold text-brand-800 mb-3">Google Ads</h4>
+          <ul className="space-y-2 text-brand-700 text-sm">
             <li>• <strong>Keyword Integration:</strong> Include target keywords naturally in template structure</li>
             <li>• <strong>Character Limits:</strong> Adapt templates to headline (30 chars) and description (90 chars) limits</li>
             <li>• <strong>Intent Matching:</strong> Align template awareness level with search intent</li>
@@ -345,9 +345,9 @@ export default function AdTemplatesStartupPage() {
           </ul>
         </div>
         
-        <div className="bg-purple-50 border-l-4 border-purple-500 p-6">
-          <h4 className="text-lg font-semibold text-purple-800 mb-3">LinkedIn</h4>
-          <ul className="space-y-2 text-purple-700 text-sm">
+        <div className="bg-brand-50 border-l-4 border-brand-500 p-6">
+          <h4 className="text-lg font-semibold text-brand-800 mb-3">LinkedIn</h4>
+          <ul className="space-y-2 text-brand-700 text-sm">
             <li>• <strong>Professional Tone:</strong> Adjust language to business-appropriate level</li>
             <li>• <strong>Industry Specificity:</strong> Customize examples for target industries</li>
             <li>• <strong>Thought Leadership:</strong> Position templates as insights rather than sales pitches</li>
@@ -367,7 +367,7 @@ export default function AdTemplatesStartupPage() {
             <ul className="space-y-2 text-gray-700">
               <li className="flex justify-between">
                 <span>Click-Through Rate (CTR)</span>
-                <span className="text-green-600">Target: {'>'}2% social, {'>'}3% search</span>
+                <span className="text-brand-600">Target: {'>'}2% social, {'>'}3% search</span>
               </li>
               <li className="flex justify-between">
                 <span>Cost Per Click (CPC)</span>
@@ -375,11 +375,11 @@ export default function AdTemplatesStartupPage() {
               </li>
               <li className="flex justify-between">
                 <span>Conversion Rate</span>
-                <span className="text-purple-600">Target: {'>'}3% for all traffic</span>
+                <span className="text-brand-600">Target: {'>'}3% for all traffic</span>
               </li>
               <li className="flex justify-between">
                 <span>Cost Per Acquisition (CAC)</span>
-                <span className="text-orange-600">Must be {'<'}1/3 of LTV</span>
+                <span className="text-brand-600">Must be {'<'}1/3 of LTV</span>
               </li>
             </ul>
           </div>
@@ -389,7 +389,7 @@ export default function AdTemplatesStartupPage() {
             <ul className="space-y-2 text-gray-700">
               <li className="flex justify-between">
                 <span>Template Fatigue Rate</span>
-                <span className="text-green-600">Monitor CTR decline {'>'}25%</span>
+                <span className="text-brand-600">Monitor CTR decline {'>'}25%</span>
               </li>
               <li className="flex justify-between">
                 <span>Audience Quality Score</span>
@@ -397,23 +397,23 @@ export default function AdTemplatesStartupPage() {
               </li>
               <li className="flex justify-between">
                 <span>Creative Production Time</span>
-                <span className="text-purple-600">Target: {'<'}2 hours per template</span>
+                <span className="text-brand-600">Target: {'<'}2 hours per template</span>
               </li>
               <li className="flex justify-between">
                 <span>Cross-Platform Performance</span>
-                <span className="text-orange-600">Identify platform winners</span>
+                <span className="text-brand-600">Identify platform winners</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 mb-8">
-        <h3 className="text-xl font-semibold text-orange-800 mb-4">Template Library Management</h3>
-        <p className="text-orange-700 mb-4">
+      <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 mb-8">
+        <h3 className="text-xl font-semibold text-brand-800 mb-4">Template Library Management</h3>
+        <p className="text-brand-700 mb-4">
           Successful template implementation requires systematic organization and continuous optimization:
         </p>
-        <ul className="space-y-2 text-orange-700">
+        <ul className="space-y-2 text-brand-700">
           <li>• <strong>Version Control:</strong> Track template variations and performance history</li>
           <li>• <strong>Seasonal Calendars:</strong> Plan template updates around industry cycles and holidays</li>
           <li>• <strong>Performance Archives:</strong> Maintain library of winning templates for future reference</li>

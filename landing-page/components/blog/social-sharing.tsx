@@ -73,7 +73,7 @@ export function SocialSharing({ title, url, description = '', className = '' }: 
           onClick={copyToClipboard}
           className={`p-2 rounded-full transition-colors ${
             copied 
-              ? 'bg-green-500 text-white' 
+              ? 'bg-brand-500 text-white' 
               : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
           }`}
           aria-label="Copy link"

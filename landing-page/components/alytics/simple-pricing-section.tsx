@@ -64,7 +64,7 @@ function PricingTier({ name, price, originalPrice, description, features, popula
 
       {popular && (
         <div className="absolute -top-4 right-6">
-          <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-semibold px-3 py-1 rounded-full flex items-center gap-1">
+          <div className="bg-gradient-to-r from-brand-500 to-brand-500 text-white text-sm font-semibold px-3 py-1 rounded-full flex items-center gap-1">
             <Star className="w-3 h-3" />
             Most Popular
           </div>
@@ -200,10 +200,10 @@ export function SimplePricingSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="inline-flex items-center gap-3 px-6 py-3 bg-green-50 border border-green-200 rounded-full"
+            className="inline-flex items-center gap-3 px-6 py-3 bg-brand-50 border border-brand-200 rounded-full"
           >
-            <CheckCircle className="w-5 h-5 text-green-600" />
-            <span className="text-green-800 font-medium">FREE Week Trial • No Risk • Cancel Anytime</span>
+            <CheckCircle className="w-5 h-5 text-brand-600" />
+            <span className="text-brand-800 font-medium">FREE Week Trial • No Risk • Cancel Anytime</span>
           </motion.div>
         </motion.div>
 

@@ -89,9 +89,9 @@ export function ImplementationTimeline({
         
         <div className="space-y-8 mb-16">
           {implementationPhases.map((phase, index) => (
-            <div key={index} className="bg-white rounded-xl p-8 shadow-lg border-l-4 border-purple-500">
+            <div key={index} className="bg-white rounded-xl p-8 shadow-lg border-l-4 border-brand-500">
               <div className="flex items-center mb-6">
-                <div className="bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-sm font-bold mr-4">
+                <div className="bg-brand-100 text-brand-600 px-4 py-2 rounded-full text-sm font-bold mr-4">
                   {phase.phase}
                 </div>
                 <div>
@@ -103,7 +103,7 @@ export function ImplementationTimeline({
               <div className="grid md:grid-cols-2 gap-4">
                 {phase.tasks.map((task, taskIndex) => (
                   <div key={taskIndex} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-brand-500 mr-3 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700">{task}</span>
                   </div>
                 ))}
@@ -113,7 +113,7 @@ export function ImplementationTimeline({
         </div>
         
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white text-center">
+        <div className="bg-gradient-to-r from-brand-600 to-brand-600 rounded-2xl p-8 text-white text-center">
           <h3 className="text-3xl font-bold mb-4">
             Ready to Optimize Your Consumer Subscription Marketing?
           </h3>
@@ -131,7 +131,7 @@ export function ImplementationTimeline({
                   window.location.href = '/#service-tiers';
                 }
               }}
-              className="bg-green-600 text-white hover:bg-green-700 font-semibold py-4 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center"
+              className="bg-brand-600 text-white hover:bg-brand-700 font-semibold py-4 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center"
             >
               <ArrowRight className="h-5 w-5 mr-2" />
               Claim Free Week

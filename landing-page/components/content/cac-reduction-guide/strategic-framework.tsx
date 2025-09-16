@@ -10,11 +10,11 @@ export function StrategicFramework() {
         Customer Acquisition Cost (CAC) is the most critical metric for subscription business growth. With the average B2B SaaS CAC increasing by 60% over the past five years, systematic CAC reduction has become essential for sustainable growth and profitability.
       </p>
       
-      <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
+      <div className="bg-brand-50 border-l-4 border-brand-400 p-6 mb-8">
         <div className="flex">
           <div className="ml-3">
-            <h3 className="text-lg font-medium text-yellow-800 mb-2">Industry Benchmark Alert</h3>
-            <p className="text-yellow-700">
+            <h3 className="text-lg font-medium text-brand-800 mb-2">Industry Benchmark Alert</h3>
+            <p className="text-brand-700">
               Fortune 100 companies achieve CAC reduction of 25-45% through systematic optimization. 
               Companies that don't optimize CAC see 15-20% annual increases due to increased competition and rising ad costs.
             </p>
@@ -37,24 +37,24 @@ export function StrategicFramework() {
         </div>
         
         <div className="bg-white border border-gray-200 rounded-lg p-6">
-          <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-            <TrendingDown className="h-6 w-6 text-green-600" />
+          <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4">
+            <TrendingDown className="h-6 w-6 text-brand-600" />
           </div>
           <h4 className="text-lg font-semibold mb-2">Attribution Accuracy</h4>
           <p className="text-gray-600 text-sm">Multi-touch attribution modeling to accurately measure and optimize CAC across all touchpoints.</p>
         </div>
         
         <div className="bg-white border border-gray-200 rounded-lg p-6">
-          <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-            <Users className="h-6 w-6 text-purple-600" />
+          <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4">
+            <Users className="h-6 w-6 text-brand-600" />
           </div>
           <h4 className="text-lg font-semibold mb-2">Creative Intelligence</h4>
           <p className="text-gray-600 text-sm">Data-driven creative optimization using customer language analysis and performance scoring.</p>
         </div>
         
         <div className="bg-white border border-gray-200 rounded-lg p-6">
-          <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-            <DollarSign className="h-6 w-6 text-orange-600" />
+          <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4">
+            <DollarSign className="h-6 w-6 text-brand-600" />
           </div>
           <h4 className="text-lg font-semibold mb-2">Channel Optimization</h4>
           <p className="text-gray-600 text-sm">Systematic budget allocation and channel mix optimization based on true CAC performance.</p>

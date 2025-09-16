@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, TrendingUp, Target, Layers, BarChart3, Users, Zap, Download, Calculator, BookOpen, PlayCircle, Globe, Database, Settings, GitBranch, Workflow, Bot, Clock } from 'lucide-react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Marketing Technology Stack: Weekly Intelligence Optimization for Subscription Businesses | Apsics Media',
@@ -339,25 +340,25 @@ export default function MarketingTechnologyStackWeeklyIntelligenceOptimization()
               </p>
               
               <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div className="bg-red-50 rounded-xl p-6 border border-red-200">
+                <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Fragmented Technology Challenges</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Data Silos & Inconsistency</div>
                         <div className="text-gray-600">Fragmented tools create data silos preventing comprehensive subscription intelligence</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Manual Integration Overhead</div>
                         <div className="text-gray-600">Disconnected systems require manual data transfer and correlation processes</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Limited Scalability</div>
                         <div className="text-gray-600">Fragmented technology stacks cannot scale with subscription business growth</div>
@@ -366,25 +367,25 @@ export default function MarketingTechnologyStackWeeklyIntelligenceOptimization()
                   </div>
                 </div>
                 
-                <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+                <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Integrated Stack Advantages</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Unified Customer Intelligence</div>
                         <div className="text-gray-600">Integrated stack provides comprehensive subscription customer insights across platforms</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Automated Workflow Optimization</div>
                         <div className="text-gray-600">Seamless integration enables automated intelligence delivery with 50% efficiency gains</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Scalable Growth Infrastructure</div>
                         <div className="text-gray-600">Optimized MarTech stack scales with subscription business growth and complexity</div>
@@ -450,8 +451,8 @@ export default function MarketingTechnologyStackWeeklyIntelligenceOptimization()
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{framework.framework}</h3>
                       <p className="text-gray-700 mb-4">{framework.description}</p>
-                      <div className="bg-green-50 px-3 py-2 rounded-full inline-block">
-                        <span className="text-green-700 font-semibold text-sm">{framework.outcome}</span>
+                      <div className="bg-brand-50 px-3 py-2 rounded-full inline-block">
+                        <span className="text-brand-700 font-semibold text-sm">{framework.outcome}</span>
                       </div>
                     </div>
                   </div>
@@ -461,7 +462,7 @@ export default function MarketingTechnologyStackWeeklyIntelligenceOptimization()
                     <div className="grid md:grid-cols-2 gap-3">
                       {framework.components.map((component, componentIndex) => (
                         <div key={componentIndex} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                           <span className="text-sm text-gray-700">{component}</span>
                         </div>
                       ))}
@@ -620,7 +621,7 @@ export default function MarketingTechnologyStackWeeklyIntelligenceOptimization()
                   </div>
                 </div>
                 
-                <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+                <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Expected ROI Outcomes</h3>
                   <div className="space-y-4 text-sm">
                     <div>
@@ -709,13 +710,7 @@ export default function MarketingTechnologyStackWeeklyIntelligenceOptimization()
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-slate-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View Technology Plans
-                <Layers className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="marketing_technology_stack_weekly_intelligence_optimization-cta" className="border-2 border-white text-white hover:bg-white hover:text-slate-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>

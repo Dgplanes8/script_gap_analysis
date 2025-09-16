@@ -10,16 +10,16 @@ export function AboutSection() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center px-4 py-2 bg-brand-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
               <Building2 className="h-4 w-4 mr-2" />
               Performance Marketing Expertise
             </div>
             
             <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+              <div className="bg-brand-600 text-white px-4 py-2 rounded-full text-sm font-bold">
                 ✓ STARTUP FOCUSED
               </div>
-              <div className="bg-teal-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+              <div className="bg-brand-600 text-white px-4 py-2 rounded-full text-sm font-bold">
                 ✓ SUBSCRIPTION FOCUS
               </div>
               <div className="bg-navy-600 text-white px-4 py-2 rounded-full text-sm font-bold">
@@ -38,34 +38,34 @@ export function AboutSection() {
 
           {/* Stats Grid */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6">
-              <div className="bg-orange-600 rounded-full p-3 w-fit mx-auto mb-4">
+            <div className="text-center bg-gradient-to-br from-brand-50 to-brand-100 rounded-xl p-6">
+              <div className="bg-brand-600 rounded-full p-3 w-fit mx-auto mb-4">
                 <Target className="h-8 w-8 text-white" />
               </div>
-              <div className="text-3xl font-bold text-orange-600 mb-2">Weekly</div>
+              <div className="text-3xl font-bold text-brand-600 mb-2">Weekly</div>
               <div className="text-sm text-gray-600">Creative Delivery</div>
             </div>
             
-            <div className="text-center bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-6">
-              <div className="bg-teal-600 rounded-full p-3 w-fit mx-auto mb-4">
+            <div className="text-center bg-gradient-to-br from-brand-50 to-brand-100 rounded-xl p-6">
+              <div className="bg-brand-600 rounded-full p-3 w-fit mx-auto mb-4">
                 <TrendingUp className="h-8 w-8 text-white" />
               </div>
-              <div className="text-3xl font-bold text-teal-600 mb-2">10+</div>
+              <div className="text-3xl font-bold text-brand-600 mb-2">10+</div>
               <div className="text-sm text-gray-600">Years Experience</div>
             </div>
             
-            <div className="text-center bg-gradient-to-br from-red-50 to-orange-100 rounded-xl p-6">
-              <div className="bg-red-600 rounded-full p-3 w-fit mx-auto mb-4">
+            <div className="text-center bg-gradient-to-br from-brand-50 to-brand-100 rounded-xl p-6">
+              <div className="bg-brand-600 rounded-full p-3 w-fit mx-auto mb-4">
                 <Building2 className="h-8 w-8 text-white" />
               </div>
-              <div className="text-3xl font-bold text-red-600 mb-2">$250MM+</div>
+              <div className="text-3xl font-bold text-brand-600 mb-2">$250MM+</div>
               <div className="text-sm text-gray-600">Media Spend Managed</div>
             </div>
           </div>
 
 
           {/* Strategic Advantage */}
-          <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8">
+          <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-2xl p-8">
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Why Startup Founders Choose Weekly Ad Strategy
@@ -78,15 +78,15 @@ export function AboutSection() {
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="text-center bg-white rounded-xl p-6">
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Target className="h-6 w-6 text-orange-600" />
+                <div className="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Target className="h-6 w-6 text-brand-600" />
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Save Time & Money</h4>
                 <p className="text-sm text-gray-600">Weekly delivery vs expensive agencies or DIY guesswork</p>
               </div>
               <div className="text-center bg-white rounded-xl p-6">
-                <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="h-6 w-6 text-teal-600" />
+                <div className="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="h-6 w-6 text-brand-600" />
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Startup Focus</h4>
                 <p className="text-sm text-gray-600">Built specifically for early-stage startup budgets and needs</p>
@@ -101,7 +101,7 @@ export function AboutSection() {
             </div>
             
             {/* Strategic Methodology Showcase */}
-            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 mb-12 border border-orange-200">
+            <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-2xl p-8 mb-12 border border-brand-200">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Systematic Proven Methodology
@@ -114,23 +114,23 @@ export function AboutSection() {
               <div className="grid md:grid-cols-2 gap-6">
                 <Link href="/weekly-creative-intelligence-playbook" className="group">
                   <div className="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-all">
-                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
-                      <TrendingUp className="h-6 w-6 text-orange-600" />
+                    <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-200 transition-colors">
+                      <TrendingUp className="h-6 w-6 text-brand-600" />
                     </div>
                     <h4 className="font-semibold text-gray-900 mb-2">Weekly Intelligence Playbook</h4>
                     <p className="text-sm text-gray-600 mb-3">Complete proven methodology for systematic creative development and strategic implementation</p>
-                    <span className="text-orange-600 text-sm font-medium group-hover:text-orange-700">Learn the Complete Framework →</span>
+                    <span className="text-brand-600 text-sm font-medium group-hover:text-brand-700">Learn the Complete Framework →</span>
                   </div>
                 </Link>
                 
                 <Link href="/25-point-performance-scoring-system" className="group">
                   <div className="bg-white rounded-xl p-6 shadow-sm border hover:shadow-md transition-all">
-                    <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-teal-200 transition-colors">
-                      <Target className="h-6 w-6 text-teal-600" />
+                    <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-brand-200 transition-colors">
+                      <Target className="h-6 w-6 text-brand-600" />
                     </div>
                     <h4 className="font-semibold text-gray-900 mb-2">25-Point Performance Scoring</h4>
                     <p className="text-sm text-gray-600 mb-3">Research-backed framework for predicting creative performance before testing, saving time and budget</p>
-                    <span className="text-orange-600 text-sm font-medium group-hover:text-orange-700">See the Scoring System →</span>
+                    <span className="text-brand-600 text-sm font-medium group-hover:text-brand-700">See the Scoring System →</span>
                   </div>
                 </Link>
               </div>
@@ -146,7 +146,7 @@ export function AboutSection() {
                     window.location.href = '/#service-tiers';
                   }
                 }}
-                className="bg-gradient-to-r from-orange-600 to-red-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-orange-700 hover:to-red-700 transition-all duration-200 inline-flex items-center"
+                className="bg-gradient-to-r from-brand-600 to-brand-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-brand-700 hover:to-brand-700 transition-all duration-200 inline-flex items-center"
               >
                 Book Growth Assessment
                 <ArrowRight className="h-5 w-5 ml-2" />

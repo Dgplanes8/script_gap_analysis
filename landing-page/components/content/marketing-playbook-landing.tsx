@@ -112,7 +112,7 @@ export function MarketingPlaybookLanding() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-brand-50 to-indigo-100">
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -129,7 +129,7 @@ export function MarketingPlaybookLanding() {
                   window.location.href = '/#service-tiers';
                 }
               }}
-              className="bg-green-600 text-white hover:bg-green-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
+              className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
             >
               Claim Free Week
               <ArrowRight className="h-4 w-4 ml-2" />
@@ -143,13 +143,13 @@ export function MarketingPlaybookLanding() {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center bg-brand-100 text-brand-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <BookOpen className="h-4 w-4 mr-2" />
                 Complete Marketing Playbook
               </div>
               
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                The <span className="text-purple-600">$1M ARR</span>
+                The <span className="text-brand-600">$1M ARR</span>
                 <br />Marketing Playbook
               </h1>
               
@@ -162,7 +162,7 @@ export function MarketingPlaybookLanding() {
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <button
                   onClick={handleDownloadRequest}
-                  className="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors flex items-center justify-center"
+                  className="bg-brand-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors flex items-center justify-center"
                 >
                   <Download className="h-5 w-5 mr-2" />
                   Get Strategic Newsletter
@@ -177,7 +177,7 @@ export function MarketingPlaybookLanding() {
                       window.location.href = '/#service-tiers';
                     }
                   }}
-                  className="bg-green-600 text-white hover:bg-green-700 font-semibold px-8 py-3 rounded-lg transition-colors flex items-center justify-center"
+                  className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-8 py-3 rounded-lg transition-colors flex items-center justify-center"
                 >
                   <ArrowRight className="h-5 w-5 mr-2" />
                   Claim Free Week
@@ -186,15 +186,15 @@ export function MarketingPlaybookLanding() {
               
               <div className="flex items-center space-x-6 text-sm text-gray-600">
                 <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-1" />
+                  <CheckCircle className="h-4 w-4 text-brand-500 mr-1" />
                   120+ page guide
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-1" />
+                  <CheckCircle className="h-4 w-4 text-brand-500 mr-1" />
                   Video training series
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-1" />
+                  <CheckCircle className="h-4 w-4 text-brand-500 mr-1" />
                   Implementation templates
                 </div>
               </div>
@@ -202,7 +202,7 @@ export function MarketingPlaybookLanding() {
             
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-8">
-                <div className="w-full h-64 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-lg mb-6 flex items-center justify-center">
+                <div className="w-full h-64 bg-gradient-to-br from-brand-400 to-indigo-500 rounded-lg mb-6 flex items-center justify-center">
                   <BookOpen className="h-16 w-16 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -212,7 +212,7 @@ export function MarketingPlaybookLanding() {
                   Everything you need to scale from startup to $1M ARR, 
                   including Fortune 100 frameworks and proven strategies.
                 </p>
-                <div className="flex items-center text-sm text-purple-600 font-semibold">
+                <div className="flex items-center text-sm text-brand-600 font-semibold">
                   <Play className="h-4 w-4 mr-2" />
                   Includes 8-hour video series
                 </div>
@@ -237,7 +237,7 @@ export function MarketingPlaybookLanding() {
           <div className="grid md:grid-cols-4 gap-8">
             {successMetrics.map((metric, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-purple-600 mb-2">
+                <div className="text-4xl font-bold text-brand-600 mb-2">
                   {metric.value}
                 </div>
                 <div className="text-lg font-semibold text-gray-900 mb-1">
@@ -269,12 +269,12 @@ export function MarketingPlaybookLanding() {
               <div key={index} className="bg-white rounded-xl shadow-lg p-8">
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center">
-                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                      <span className="text-xl font-bold text-purple-600">{index + 1}</span>
+                    <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-xl font-bold text-brand-600">{index + 1}</span>
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">{module.title}</h3>
-                      <p className="text-purple-600 font-semibold">{module.duration}</p>
+                      <p className="text-brand-600 font-semibold">{module.duration}</p>
                     </div>
                   </div>
                 </div>
@@ -284,7 +284,7 @@ export function MarketingPlaybookLanding() {
                 <div className="grid md:grid-cols-2 gap-4">
                   {module.topics.map((topic, topicIndex) => (
                     <div key={topicIndex} className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-500 mr-2 flex-shrink-0" />
                       <span className="text-gray-700 text-sm">{topic}</span>
                     </div>
                   ))}
@@ -312,7 +312,7 @@ export function MarketingPlaybookLanding() {
               <div key={index} className="bg-white rounded-xl shadow-lg p-8">
                 <div className="mb-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{study.company}</h3>
-                  <p className="text-purple-600 font-semibold">{study.industry}</p>
+                  <p className="text-brand-600 font-semibold">{study.industry}</p>
                 </div>
                 
                 <div className="mb-6">
@@ -330,7 +330,7 @@ export function MarketingPlaybookLanding() {
                   <ul className="space-y-2">
                     {study.results.map((result, resultIndex) => (
                       <li key={resultIndex} className="flex items-start">
-                        <TrendingUp className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <TrendingUp className="h-4 w-4 text-brand-500 mr-2 mt-0.5 flex-shrink-0" />
                         <span className="text-gray-700 text-sm">{result}</span>
                       </li>
                     ))}
@@ -343,12 +343,12 @@ export function MarketingPlaybookLanding() {
       </section>
 
       {/* Download CTA */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-purple-600">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-brand-600">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-6">
             Ready to Scale to $1M ARR?
           </h2>
-          <p className="text-xl text-purple-100 mb-8">
+          <p className="text-xl text-brand-100 mb-8">
             Download the complete playbook and get instant access to all frameworks, 
             templates, and the 8-hour video training series.
           </p>
@@ -365,7 +365,7 @@ export function MarketingPlaybookLanding() {
           ) : (
             <button
               onClick={handleDownloadRequest}
-              className="bg-white text-purple-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-50 transition-colors inline-flex items-center"
+              className="bg-white text-brand-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-50 transition-colors inline-flex items-center"
             >
               <Download className="h-6 w-6 mr-3" />
               Get Free Playbook + Video Series
@@ -382,7 +382,7 @@ export function MarketingPlaybookLanding() {
                   window.location.href = '/#service-tiers';
                 }
               }}
-              className="bg-green-600 text-white hover:bg-green-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
+              className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
             >
               Claim Free Week
               <ArrowRight className="h-4 w-4 ml-2" />

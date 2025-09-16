@@ -10,6 +10,7 @@ import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation'
 import { RelatedArticles } from '@/components/blog/related-articles'
 import { Header } from '@/components/layout/secondary-header'
 import { InteractiveTimeline } from '@/components/blog/interactive-timeline'
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Marketing Services Timeline: First 90 Days Guide',
@@ -282,7 +283,7 @@ export default function SmallBusinessMarketingServicesTimeline() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="mailto:brian@apsicsmedia.com"
-              className="bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors"
+              className="bg-brand-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors"
             >
               Get Your Timeline Guide
             </Link>
@@ -317,27 +318,27 @@ export default function SmallBusinessMarketingServicesTimeline() {
                   <p className="text-sm text-gray-600 mt-1">From contract signing to campaign launch</p>
                 </div>
                 
-                <div className="text-center p-6 bg-green-50 rounded-lg">
-                  <TrendingUp className="h-10 w-10 text-green-600 mx-auto mb-3" />
+                <div className="text-center p-6 bg-brand-50 rounded-lg">
+                  <TrendingUp className="h-10 w-10 text-brand-600 mx-auto mb-3" />
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">First Results</h3>
-                  <p className="text-2xl font-bold text-green-600">30-45 days</p>
+                  <p className="text-2xl font-bold text-brand-600">30-45 days</p>
                   <p className="text-sm text-gray-600 mt-1">Initial performance data and insights</p>
                 </div>
                 
-                <div className="text-center p-6 bg-purple-50 rounded-lg">
-                  <Target className="h-10 w-10 text-purple-600 mx-auto mb-3" />
+                <div className="text-center p-6 bg-brand-50 rounded-lg">
+                  <Target className="h-10 w-10 text-brand-600 mx-auto mb-3" />
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Full Optimization</h3>
-                  <p className="text-2xl font-bold text-purple-600">60-90 days</p>
+                  <p className="text-2xl font-bold text-brand-600">60-90 days</p>
                   <p className="text-sm text-gray-600 mt-1">Complete strategy implementation and optimization</p>
                 </div>
               </div>
 
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
                 <div className="flex items-start">
-                  <AlertCircle className="h-6 w-6 text-yellow-600 mt-0.5 mr-3 flex-shrink-0" />
+                  <AlertCircle className="h-6 w-6 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-yellow-900 mb-2">Important Timeline Considerations</h3>
-                    <ul className="text-sm text-yellow-800 space-y-1">
+                    <h3 className="font-semibold text-brand-900 mb-2">Important Timeline Considerations</h3>
+                    <ul className="text-sm text-brand-800 space-y-1">
                       <li>• Timelines vary based on business complexity and marketing maturity</li>
                       <li>• Some deliverables may overlap or be delivered in phases</li>
                       <li>• External factors (seasonality, industry changes) can affect timing</li>
@@ -393,25 +394,25 @@ export default function SmallBusinessMarketingServicesTimeline() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Weeks 5-12: Implementation & Optimization</h3>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start">
-                      <span className="bg-green-100 text-green-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">5-6</span>
+                      <span className="bg-brand-100 text-brand-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">5-6</span>
                       <div>
                         <strong>Weeks 5-6:</strong> Paid advertising campaigns launch, initial A/B testing
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <span className="bg-green-100 text-green-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">7-8</span>
+                      <span className="bg-brand-100 text-brand-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">7-8</span>
                       <div>
                         <strong>Weeks 7-8:</strong> SEO optimization, local search setup, content optimization
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <span className="bg-green-100 text-green-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">9-10</span>
+                      <span className="bg-brand-100 text-brand-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">9-10</span>
                       <div>
                         <strong>Weeks 9-10:</strong> Social media campaigns, community building, influencer outreach
                       </div>
                     </li>
                     <li className="flex items-start">
-                      <span className="bg-green-100 text-green-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">11-12</span>
+                      <span className="bg-brand-100 text-brand-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">11-12</span>
                       <div>
                         <strong>Weeks 11-12:</strong> Performance analysis, optimization, next quarter planning
                       </div>
@@ -442,8 +443,8 @@ export default function SmallBusinessMarketingServicesTimeline() {
                   </ul>
                 </div>
 
-                <div className="bg-green-50 rounded-lg p-6">
-                  <TrendingUp className="h-8 w-8 text-green-600 mb-4" />
+                <div className="bg-brand-50 rounded-lg p-6">
+                  <TrendingUp className="h-8 w-8 text-brand-600 mb-4" />
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">Days 31-60: Growth Metrics</h3>
                   <ul className="text-sm text-gray-700 space-y-2">
                     <li>• Lead generation volume (25-40% increase)</li>
@@ -454,8 +455,8 @@ export default function SmallBusinessMarketingServicesTimeline() {
                   </ul>
                 </div>
 
-                <div className="bg-purple-50 rounded-lg p-6">
-                  <Target className="h-8 w-8 text-purple-600 mb-4" />
+                <div className="bg-brand-50 rounded-lg p-6">
+                  <Target className="h-8 w-8 text-brand-600 mb-4" />
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">Days 61-90: Performance Metrics</h3>
                   <ul className="text-sm text-gray-700 space-y-2">
                     <li>• Revenue attribution and ROI</li>
@@ -501,16 +502,16 @@ export default function SmallBusinessMarketingServicesTimeline() {
               </p>
 
               <div className="space-y-6">
-                <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
                   <div className="flex items-start">
-                    <AlertCircle className="h-6 w-6 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
+                    <AlertCircle className="h-6 w-6 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                     <div>
-                      <h3 className="font-semibold text-red-900 mb-2">Week 1-2: Discovery Phase Delays</h3>
-                      <p className="text-red-800 mb-3">
+                      <h3 className="font-semibold text-brand-900 mb-2">Week 1-2: Discovery Phase Delays</h3>
+                      <p className="text-brand-800 mb-3">
                         <strong>Common Issues:</strong> Incomplete business information, stakeholder availability, competitor access restrictions
                       </p>
-                      <p className="text-red-800 mb-2"><strong>How to Avoid:</strong></p>
-                      <ul className="text-sm text-red-700 space-y-1">
+                      <p className="text-brand-800 mb-2"><strong>How to Avoid:</strong></p>
+                      <ul className="text-sm text-brand-700 space-y-1">
                         <li>• Prepare comprehensive business overview documents in advance</li>
                         <li>• Schedule dedicated stakeholder interview time blocks</li>
                         <li>• Provide existing marketing materials and performance data upfront</li>
@@ -520,16 +521,16 @@ export default function SmallBusinessMarketingServicesTimeline() {
                   </div>
                 </div>
 
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
                   <div className="flex items-start">
-                    <AlertCircle className="h-6 w-6 text-yellow-600 mt-0.5 mr-3 flex-shrink-0" />
+                    <AlertCircle className="h-6 w-6 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                     <div>
-                      <h3 className="font-semibold text-yellow-900 mb-2">Week 3-4: Technical Implementation Delays</h3>
-                      <p className="text-yellow-800 mb-3">
+                      <h3 className="font-semibold text-brand-900 mb-2">Week 3-4: Technical Implementation Delays</h3>
+                      <p className="text-brand-800 mb-3">
                         <strong>Common Issues:</strong> Website access restrictions, technical limitations, integration challenges
                       </p>
-                      <p className="text-yellow-800 mb-2"><strong>How to Avoid:</strong></p>
-                      <ul className="text-sm text-yellow-700 space-y-1">
+                      <p className="text-brand-800 mb-2"><strong>How to Avoid:</strong></p>
+                      <ul className="text-sm text-brand-700 space-y-1">
                         <li>• Provide full website and system access credentials early</li>
                         <li>• Discuss technical limitations during initial discovery</li>
                         <li>• Have IT resources available for integration support</li>
@@ -579,9 +580,7 @@ export default function SmallBusinessMarketingServicesTimeline() {
                   <div className="text-center p-6 bg-blue-50 rounded-lg">
                     <h3 className="font-semibold text-blue-900 mb-2">Get Your Personalized Timeline</h3>
                     <p className="text-blue-700 mb-4">Receive customized timeline expectations based on your business type and marketing goals.</p>
-                    <Link href="/#service-tiers" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
-                      Get Started
-                    </Link>
+                    <FreeWeekButton source="small_business_marketing_services_timeline_first_90_days-cta" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">Start Free Week Trial</FreeWeekButton>
                   </div>
                 </div>
                 
@@ -591,13 +590,7 @@ export default function SmallBusinessMarketingServicesTimeline() {
                   <p className="text-blue-100 text-sm mb-4">
                     Skip the 90-day ramp-up with proven creative strategies and competitive intelligence delivered weekly.
                   </p>
-                  <Link
-                    href="/#service-tiers"
-                    className="bg-white text-indigo-600 hover:bg-gray-50 font-semibold px-6 py-2 rounded-lg transition-colors text-sm flex items-center"
-                  >
-                    Start Free Week
-                    <ArrowRight className="h-4 w-4 ml-2" />
-                  </Link>
+                  <FreeWeekButton source="small_business_marketing_services_timeline_first_90_days-cta" className="bg-white text-indigo-600 hover:bg-gray-50 font-semibold px-6 py-2 rounded-lg transition-colors text-sm flex items-center">Start Free Week Trial</FreeWeekButton>
                 </div>
               </div>
             </section>

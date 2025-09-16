@@ -96,7 +96,7 @@ export function ROICalculator() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center bg-brand-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <Calculator className="h-4 w-4 mr-2" />
               ROI CALCULATOR
             </div>
@@ -176,11 +176,11 @@ export function ROICalculator() {
                       step="5"
                       value={inputs.expectedImprovement}
                       onChange={(e) => setInputs(prev => ({ ...prev, expectedImprovement: parseInt(e.target.value) }))}
-                      className="w-full h-2 bg-green-200 rounded-lg appearance-none cursor-pointer slider"
+                      className="w-full h-2 bg-brand-200 rounded-lg appearance-none cursor-pointer slider"
                     />
                     <div className="flex justify-between text-sm text-gray-500 mt-1">
                       <span>5%</span>
-                      <span className="font-semibold text-green-600">+{formatPercentage(inputs.expectedImprovement)}</span>
+                      <span className="font-semibold text-brand-600">+{formatPercentage(inputs.expectedImprovement)}</span>
                       <span>75%</span>
                     </div>
                   </div>
@@ -214,48 +214,48 @@ export function ROICalculator() {
             </div>
 
             {/* Results Display */}
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 lg:p-8 border border-green-200">
+            <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-2xl p-6 lg:p-8 border border-brand-200">
               <h3 className="text-xl font-bold text-gray-900 mb-6">Your ROI Projection</h3>
               
               <div className="space-y-6">
                 {/* Key Metrics */}
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 border border-green-200">
-                    <div className="text-2xl font-bold text-green-600">{formatCurrency(results.monthlySavings)}</div>
+                  <div className="bg-white rounded-lg p-4 border border-brand-200">
+                    <div className="text-2xl font-bold text-brand-600">{formatCurrency(results.monthlySavings)}</div>
                     <div className="text-sm text-gray-600">Monthly Savings</div>
                   </div>
-                  <div className="bg-white rounded-lg p-4 border border-green-200">
-                    <div className="text-2xl font-bold text-green-600">{formatCurrency(results.annualSavings)}</div>
+                  <div className="bg-white rounded-lg p-4 border border-brand-200">
+                    <div className="text-2xl font-bold text-brand-600">{formatCurrency(results.annualSavings)}</div>
                     <div className="text-sm text-gray-600">Annual Savings</div>
                   </div>
                 </div>
 
                 {/* ROI Highlight */}
-                <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl p-6 text-white text-center">
+                <div className="bg-gradient-to-r from-brand-600 to-brand-600 rounded-xl p-6 text-white text-center">
                   <div className="text-4xl font-bold mb-2">{formatPercentage(results.roi)}</div>
-                  <div className="text-green-100">Annual ROI</div>
-                  <div className="mt-4 pt-4 border-t border-green-400 text-sm">
+                  <div className="text-brand-100">Annual ROI</div>
+                  <div className="mt-4 pt-4 border-t border-brand-400 text-sm">
                     <strong>Payback Period: {results.paybackWeeks.toFixed(1)} weeks</strong>
                   </div>
                 </div>
 
                 {/* Detailed Breakdown */}
                 <div className="space-y-3">
-                  <div className="flex justify-between items-center py-2 border-b border-green-200">
+                  <div className="flex justify-between items-center py-2 border-b border-brand-200">
                     <span className="text-gray-600">Current CPA:</span>
                     <span className="font-semibold text-gray-900">{formatCurrency(results.currentCPA)}</span>
                   </div>
-                  <div className="flex justify-between items-center py-2 border-b border-green-200">
+                  <div className="flex justify-between items-center py-2 border-b border-brand-200">
                     <span className="text-gray-600">Improved CPA:</span>
-                    <span className="font-semibold text-green-600">{formatCurrency(results.improvedCPA)}</span>
+                    <span className="font-semibold text-brand-600">{formatCurrency(results.improvedCPA)}</span>
                   </div>
-                  <div className="flex justify-between items-center py-2 border-b border-green-200">
+                  <div className="flex justify-between items-center py-2 border-b border-brand-200">
                     <span className="text-gray-600">Service Cost (Annual):</span>
                     <span className="font-semibold text-gray-900">{formatCurrency(results.serviceCost)}</span>
                   </div>
                   <div className="flex justify-between items-center py-2">
                     <span className="font-semibold text-gray-900">Net Profit:</span>
-                    <span className="font-bold text-green-600">{formatCurrency(results.annualSavings - results.serviceCost)}</span>
+                    <span className="font-bold text-brand-600">{formatCurrency(results.annualSavings - results.serviceCost)}</span>
                   </div>
                 </div>
               </div>
@@ -264,7 +264,7 @@ export function ROICalculator() {
 
           {/* Bottom Section */}
           <div className="mt-12 text-center">
-            <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 border border-orange-200">
+            <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-2xl p-8 border border-brand-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Start Your Free Week Trial Today
               </h3>
@@ -277,7 +277,7 @@ export function ROICalculator() {
                       emailSection.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center"
+                  className="bg-gradient-to-r from-brand-600 to-brand-600 hover:from-brand-700 hover:to-brand-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center"
                 >
                   Start My Free Week Trial
                   <ArrowRight className="h-5 w-5 ml-2" />
@@ -290,7 +290,7 @@ export function ROICalculator() {
                       serviceSection.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="text-orange-600 hover:text-orange-700 font-semibold underline transition-colors"
+                  className="text-brand-600 hover:text-brand-700 font-semibold underline transition-colors"
                 >
                   View Weekly Plans
                 </button>

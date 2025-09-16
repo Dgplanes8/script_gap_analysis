@@ -50,7 +50,7 @@ export default function AICreativeDevelopmentPage() {
         />
 
         {/* Article Header */}
-      <header className="bg-gradient-to-br from-indigo-50 to-purple-50 py-16">
+      <header className="bg-gradient-to-br from-indigo-50 to-brand-50 py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-semibold mb-6">
@@ -147,36 +147,36 @@ export default function AICreativeDevelopmentPage() {
               <section className="mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">AI-Powered Creative Development Process</h2>
                 
-                <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg p-8 mb-8">
-                  <h3 className="text-2xl font-semibold text-purple-900 mb-6">The 4-Stage AI Creative Pipeline</h3>
+                <div className="bg-gradient-to-r from-brand-50 to-indigo-50 rounded-lg p-8 mb-8">
+                  <h3 className="text-2xl font-semibold text-brand-900 mb-6">The 4-Stage AI Creative Pipeline</h3>
                   <div className="grid md:grid-cols-4 gap-6">
                     <div className="text-center">
-                      <div className="bg-purple-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                      <div className="bg-brand-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
                         <span className="text-white font-bold">1</span>
                       </div>
-                      <h4 className="font-semibold text-purple-900 mb-2">Data Ingestion</h4>
-                      <p className="text-sm text-purple-800">Competitor analysis, audience insights, and performance data collection</p>
+                      <h4 className="font-semibold text-brand-900 mb-2">Data Ingestion</h4>
+                      <p className="text-sm text-brand-800">Competitor analysis, audience insights, and performance data collection</p>
                     </div>
                     <div className="text-center">
-                      <div className="bg-purple-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                      <div className="bg-brand-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
                         <span className="text-white font-bold">2</span>
                       </div>
-                      <h4 className="font-semibold text-purple-900 mb-2">AI Generation</h4>
-                      <p className="text-sm text-purple-800">Automated creative concept and asset generation based on data insights</p>
+                      <h4 className="font-semibold text-brand-900 mb-2">AI Generation</h4>
+                      <p className="text-sm text-brand-800">Automated creative concept and asset generation based on data insights</p>
                     </div>
                     <div className="text-center">
-                      <div className="bg-purple-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                      <div className="bg-brand-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
                         <span className="text-white font-bold">3</span>
                       </div>
-                      <h4 className="font-semibold text-purple-900 mb-2">Predictive Scoring</h4>
-                      <p className="text-sm text-purple-800">Machine learning performance prediction and ranking</p>
+                      <h4 className="font-semibold text-brand-900 mb-2">Predictive Scoring</h4>
+                      <p className="text-sm text-brand-800">Machine learning performance prediction and ranking</p>
                     </div>
                     <div className="text-center">
-                      <div className="bg-purple-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                      <div className="bg-brand-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
                         <span className="text-white font-bold">4</span>
                       </div>
-                      <h4 className="font-semibold text-purple-900 mb-2">Automated Optimization</h4>
-                      <p className="text-sm text-purple-800">Real-time performance monitoring and creative iteration</p>
+                      <h4 className="font-semibold text-brand-900 mb-2">Automated Optimization</h4>
+                      <p className="text-sm text-brand-800">Real-time performance monitoring and creative iteration</p>
                     </div>
                   </div>
                 </div>
@@ -225,10 +225,10 @@ export default function AICreativeDevelopmentPage() {
                     </ul>
                   </div>
                   
-                  <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-lg p-6">
-                    <Brain className="h-8 w-8 text-green-600 mb-4" />
-                    <h4 className="text-lg font-semibold text-green-900 mb-3">Copy Intelligence</h4>
-                    <ul className="space-y-2 text-green-800 text-sm">
+                  <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-lg p-6">
+                    <Brain className="h-8 w-8 text-brand-600 mb-4" />
+                    <h4 className="text-lg font-semibold text-brand-900 mb-3">Copy Intelligence</h4>
+                    <ul className="space-y-2 text-brand-800 text-sm">
                       <li>• Hook generation and optimization</li>
                       <li>• Audience-specific messaging</li>
                       <li>• Call-to-action optimization</li>
@@ -236,10 +236,10 @@ export default function AICreativeDevelopmentPage() {
                     </ul>
                   </div>
                   
-                  <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6">
-                    <Target className="h-8 w-8 text-purple-600 mb-4" />
-                    <h4 className="text-lg font-semibold text-purple-900 mb-3">Interactive Elements</h4>
-                    <ul className="space-y-2 text-purple-800 text-sm">
+                  <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-lg p-6">
+                    <Target className="h-8 w-8 text-brand-600 mb-4" />
+                    <h4 className="text-lg font-semibold text-brand-900 mb-3">Interactive Elements</h4>
+                    <ul className="space-y-2 text-brand-800 text-sm">
                       <li>• Video sequence optimization</li>
                       <li>• Animation timing and pacing</li>
                       <li>• Interactive demo creation</li>
@@ -253,12 +253,12 @@ export default function AICreativeDevelopmentPage() {
                   Before any creative asset goes live, AI prediction models analyze multiple performance indicators to forecast success probability. This predictive capability allows teams to invest resources in high-potential creatives while avoiding costly underperformers.
                 </p>
 
-                <div className="bg-yellow-50 rounded-lg p-6 mb-8">
-                  <h4 className="text-lg font-semibold text-yellow-900 mb-4">Key Performance Predictors</h4>
+                <div className="bg-brand-50 rounded-lg p-6 mb-8">
+                  <h4 className="text-lg font-semibold text-brand-900 mb-4">Key Performance Predictors</h4>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h5 className="font-semibold text-yellow-800 mb-2">Engagement Predictors:</h5>
-                      <ul className="space-y-1 text-yellow-700 text-sm">
+                      <h5 className="font-semibold text-brand-800 mb-2">Engagement Predictors:</h5>
+                      <ul className="space-y-1 text-brand-700 text-sm">
                         <li>• Visual attention mapping and heat analysis</li>
                         <li>• Cognitive load assessment</li>
                         <li>• Emotional response prediction</li>
@@ -266,8 +266,8 @@ export default function AICreativeDevelopmentPage() {
                       </ul>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-yellow-800 mb-2">Conversion Predictors:</h5>
-                      <ul className="space-y-1 text-yellow-700 text-sm">
+                      <h5 className="font-semibold text-brand-800 mb-2">Conversion Predictors:</h5>
+                      <ul className="space-y-1 text-brand-700 text-sm">
                         <li>• Call-to-action effectiveness modeling</li>
                         <li>• Trust signal integration analysis</li>
                         <li>• Value proposition clarity scoring</li>
@@ -288,29 +288,29 @@ export default function AICreativeDevelopmentPage() {
                 </p>
 
                 <div className="space-y-6">
-                  <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-6">
-                    <h4 className="text-lg font-semibold text-orange-900 mb-3">Real-Time Performance Adaptation</h4>
-                    <p className="text-orange-800 mb-4">AI systems monitor campaign performance in real-time, automatically adjusting creative elements to optimize for changing audience behavior and platform algorithm updates.</p>
+                  <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-lg p-6">
+                    <h4 className="text-lg font-semibold text-brand-900 mb-3">Real-Time Performance Adaptation</h4>
+                    <p className="text-brand-800 mb-4">AI systems monitor campaign performance in real-time, automatically adjusting creative elements to optimize for changing audience behavior and platform algorithm updates.</p>
                     <div className="grid md:grid-cols-3 gap-4">
                       <div className="bg-white rounded-lg p-4">
-                        <h5 className="font-semibold text-orange-800 mb-2">Dynamic Creative Optimization</h5>
-                        <p className="text-orange-700 text-sm">Automatic element swapping based on performance thresholds</p>
+                        <h5 className="font-semibold text-brand-800 mb-2">Dynamic Creative Optimization</h5>
+                        <p className="text-brand-700 text-sm">Automatic element swapping based on performance thresholds</p>
                       </div>
                       <div className="bg-white rounded-lg p-4">
-                        <h5 className="font-semibold text-orange-800 mb-2">Budget Reallocation</h5>
-                        <p className="text-orange-700 text-sm">Intelligent spend shifting toward high-performing variants</p>
+                        <h5 className="font-semibold text-brand-800 mb-2">Budget Reallocation</h5>
+                        <p className="text-brand-700 text-sm">Intelligent spend shifting toward high-performing variants</p>
                       </div>
                       <div className="bg-white rounded-lg p-4">
-                        <h5 className="font-semibold text-orange-800 mb-2">Audience Refinement</h5>
-                        <p className="text-orange-700 text-sm">Continuous targeting optimization based on engagement data</p>
+                        <h5 className="font-semibold text-brand-800 mb-2">Audience Refinement</h5>
+                        <p className="text-brand-700 text-sm">Continuous targeting optimization based on engagement data</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-teal-50 to-blue-50 rounded-lg p-6">
-                    <h4 className="text-lg font-semibold text-teal-900 mb-3">Multivariate Testing at Scale</h4>
-                    <p className="text-teal-800 mb-4">AI enables simultaneous testing of hundreds of creative variations across multiple dimensions, identifying optimal combinations far beyond human testing capabilities.</p>
-                    <ul className="space-y-1 text-teal-700">
+                  <div className="bg-gradient-to-r from-brand-50 to-blue-50 rounded-lg p-6">
+                    <h4 className="text-lg font-semibold text-brand-900 mb-3">Multivariate Testing at Scale</h4>
+                    <p className="text-brand-800 mb-4">AI enables simultaneous testing of hundreds of creative variations across multiple dimensions, identifying optimal combinations far beyond human testing capabilities.</p>
+                    <ul className="space-y-1 text-brand-700">
                       <li>• Simultaneous testing of 50+ creative variations</li>
                       <li>• Multi-dimensional optimization (visual, copy, format, targeting)</li>
                       <li>• Statistical significance acceleration through smart sampling</li>
@@ -330,7 +330,7 @@ export default function AICreativeDevelopmentPage() {
                 </p>
 
                 <div className="space-y-6">
-                  <div className="border-l-4 border-purple-500 pl-6">
+                  <div className="border-l-4 border-brand-500 pl-6">
                     <h4 className="text-xl font-semibold text-gray-800 mb-2">Phase 1: Foundation (Weeks 1-4)</h4>
                     <p className="text-gray-700 mb-3">Establish AI creative infrastructure, team training, and baseline performance measurement.</p>
                     <div className="grid md:grid-cols-2 gap-4">
@@ -353,7 +353,7 @@ export default function AICreativeDevelopmentPage() {
                     </div>
                   </div>
                   
-                  <div className="border-l-4 border-purple-500 pl-6">
+                  <div className="border-l-4 border-brand-500 pl-6">
                     <h4 className="text-xl font-semibold text-gray-800 mb-2">Phase 2: Pilot Testing (Weeks 5-8)</h4>
                     <p className="text-gray-700 mb-3">Limited deployment of AI creative generation for controlled testing and optimization.</p>
                     <ul className="text-sm text-gray-600 space-y-1">
@@ -364,7 +364,7 @@ export default function AICreativeDevelopmentPage() {
                     </ul>
                   </div>
                   
-                  <div className="border-l-4 border-purple-500 pl-6">
+                  <div className="border-l-4 border-brand-500 pl-6">
                     <h4 className="text-xl font-semibold text-gray-800 mb-2">Phase 3: Scale and Optimize (Weeks 9-12)</h4>
                     <p className="text-gray-700 mb-3">Full-scale AI creative implementation with continuous optimization and performance monitoring.</p>
                     <ul className="text-sm text-gray-600 space-y-1">
@@ -387,9 +387,9 @@ export default function AICreativeDevelopmentPage() {
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  <div className="bg-green-50 rounded-lg p-6">
-                    <h4 className="text-lg font-semibold text-green-900 mb-4">Efficiency Gains</h4>
-                    <ul className="space-y-2 text-green-800">
+                  <div className="bg-brand-50 rounded-lg p-6">
+                    <h4 className="text-lg font-semibold text-brand-900 mb-4">Efficiency Gains</h4>
+                    <ul className="space-y-2 text-brand-800">
                       <li><strong>Creative Production Speed:</strong> 75% faster asset creation</li>
                       <li><strong>Testing Velocity:</strong> 10x more variations tested simultaneously</li>
                       <li><strong>Time to Market:</strong> 60% reduction in campaign launch time</li>
@@ -455,7 +455,7 @@ export default function AICreativeDevelopmentPage() {
               </section>
 
               {/* CTA Section */}
-              <section className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-8 text-center mt-8">
+              <section className="bg-gradient-to-r from-indigo-50 to-brand-50 rounded-lg p-8 text-center mt-8">
                 <div className="max-w-2xl mx-auto">
                   <Zap className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
                   <h2 className="text-3xl font-bold text-gray-900 mb-4">

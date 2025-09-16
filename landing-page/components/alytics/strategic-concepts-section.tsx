@@ -48,9 +48,9 @@ const conceptCards = [
     trigger: "Dread at a calendar full of meetings",
     positioning: "Make meetings so efficient you'll need fewer of them",
     formats: ["Meme Ad", "Statistics Ad", "Reels (quick cuts)"],
-    color: "bg-purple-500",
-    bgColor: "bg-purple-50",
-    borderColor: "border-purple-200"
+    color: "bg-brand-500",
+    bgColor: "bg-brand-50",
+    borderColor: "border-brand-200"
   },
   {
     icon: Brain,
@@ -60,9 +60,9 @@ const conceptCards = [
     trigger: "Forgetting a brilliant insight from a call",
     positioning: "SyncUp is the infallible second brain for you and your business",
     formats: ["Founder Video", "Press-style Ad", "Testimonial Ad"],
-    color: "bg-green-500",
-    bgColor: "bg-green-50",
-    borderColor: "border-green-200"
+    color: "bg-brand-500",
+    bgColor: "bg-brand-50",
+    borderColor: "border-brand-200"
   }
 ];
 
@@ -82,7 +82,7 @@ export function StrategicConceptsSection() {
           {/* Section Header */}
           <div className="text-center">
             <motion.div variants={itemVariants}>
-              <div className="inline-flex items-center bg-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center bg-brand-100 text-brand-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <Lightbulb className="w-4 h-4 mr-2" />
                 Strategic Concept Development
               </div>
@@ -196,7 +196,7 @@ export function StrategicConceptsSection() {
           {/* Strategic Benefits */}
           <motion.div
             variants={itemVariants}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 md:p-12 text-white text-center"
+            className="bg-gradient-to-r from-blue-600 to-brand-600 rounded-2xl p-8 md:p-12 text-white text-center"
           >
             <h3 className="text-2xl md:text-3xl font-bold mb-6">
               Why Strategic Concepts Work

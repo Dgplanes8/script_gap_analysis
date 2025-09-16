@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/secondary-header';
 import { Footer } from '@/components/layout/footer';
 import { BookOpen, TrendingUp, Calculator, Target, Users, Zap } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Blog & Resources - Revenue Growth Through Creative Intelligence | Apsics Media',
@@ -53,7 +54,7 @@ const articles = [
   {
     category: 'CAC & Attribution',
     icon: Target,
-    color: 'bg-green-50 border-green-200 text-green-800',
+    color: 'bg-brand-50 border-brand-200 text-brand-800',
     articles: [
       {
         title: 'CAC Reduction Guide',
@@ -82,7 +83,7 @@ const articles = [
   {
     category: 'Creative Strategy',
     icon: Zap,
-    color: 'bg-purple-50 border-purple-200 text-purple-800',
+    color: 'bg-brand-50 border-brand-200 text-brand-800',
     articles: [
       {
         title: 'Weekly Creative Intelligence for Subscription Marketing',
@@ -136,7 +137,7 @@ const articles = [
   {
     category: 'Competitive Intelligence',
     icon: TrendingUp,
-    color: 'bg-orange-50 border-orange-200 text-orange-800',
+    color: 'bg-brand-50 border-brand-200 text-brand-800',
     articles: [
       {
         title: 'Enterprise vs Agency Strategies',
@@ -199,18 +200,8 @@ export default function BlogPage() {
             </p>
               
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/#service-tiers"
-                className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
-                Get 10 Free Hooks First
-              </Link>
-              <Link
-                href="/#service-tiers"
-                className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
-                See Weekly Plans
-              </Link>
+              <FreeWeekButton source="blog-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="blog-cta" className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </section>
@@ -284,18 +275,8 @@ export default function BlogPage() {
             </p>
               
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/#service-tiers"
-                className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
-                Get My 10 Free Hooks
-              </Link>
-              <Link
-                href="/#service-tiers"
-                className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
-                See Weekly Plans
-              </Link>
+              <FreeWeekButton source="blog-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="blog-cta" className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </section>

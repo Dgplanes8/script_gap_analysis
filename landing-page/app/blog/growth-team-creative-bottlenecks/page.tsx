@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, Clock, Zap, Building2, AlertCircle, CheckCircle2, ArrowRight, Mail, Calendar } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
 import { Header } from '@/components/layout/secondary-header';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Growth Team Creative Bottlenecks: Agency Alternative | Apsics Media',
@@ -31,7 +32,7 @@ export default function GrowthTeamCreativeBottlenecksPage() {
         {/* Article Header */}
         <article className="max-w-4xl mx-auto">
           <header className="mb-12">
-            <div className="inline-flex items-center px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center px-3 py-1 bg-brand-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
               <AlertCircle className="h-4 w-4 mr-2" />
               Growth Team Challenge
             </div>
@@ -63,9 +64,9 @@ export default function GrowthTeamCreativeBottlenecksPage() {
               The bottleneck isn't lack of creative talent or insufficient budget—it's the structural mismatch between how creative agencies operate and how growth teams need to execute. While agencies optimize for comprehensive creative strategy, growth teams need testing fuel that matches algorithm preferences for fresh content.
             </p>
 
-            <div className="bg-red-50 rounded-xl p-8 mb-12">
+            <div className="bg-brand-50 rounded-xl p-8 mb-12">
               <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <AlertCircle className="h-6 w-6 text-red-600 mr-3" />
+                <AlertCircle className="h-6 w-6 text-brand-600 mr-3" />
                 The Growth Team Creative Crisis
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
@@ -105,7 +106,7 @@ export default function GrowthTeamCreativeBottlenecksPage() {
             <div className="space-y-8 mb-12">
               <div className="bg-gray-50 rounded-xl p-6">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <Building2 className="h-5 w-5 text-orange-600 mr-3" />
+                  <Building2 className="h-5 w-5 text-brand-600 mr-3" />
                   Bottleneck 1: Strategic Development Process
                 </h4>
                 <p className="text-gray-700 mb-4">
@@ -135,7 +136,7 @@ export default function GrowthTeamCreativeBottlenecksPage() {
               
               <div className="bg-gray-50 rounded-xl p-6">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <AlertCircle className="h-5 w-5 text-teal-600 mr-3" />
+                  <AlertCircle className="h-5 w-5 text-brand-600 mr-3" />
                   Bottleneck 2: Approval and Revision Cycles
                 </h4>
                 <p className="text-gray-700 mb-4">
@@ -144,13 +145,13 @@ export default function GrowthTeamCreativeBottlenecksPage() {
                 <div className="bg-white rounded-lg p-4">
                   <h5 className="font-semibold text-gray-900 mb-3">Typical Agency Approval Process:</h5>
                   <div className="flex items-center space-x-4 text-sm text-gray-700">
-                    <span className="bg-orange-100 px-3 py-1 rounded">Initial Concepts</span>
+                    <span className="bg-brand-100 px-3 py-1 rounded">Initial Concepts</span>
                     <ArrowRight className="h-4 w-4" />
-                    <span className="bg-yellow-100 px-3 py-1 rounded">Client Review</span>
+                    <span className="bg-brand-100 px-3 py-1 rounded">Client Review</span>
                     <ArrowRight className="h-4 w-4" />
                     <span className="bg-blue-100 px-3 py-1 rounded">Revisions</span>
                     <ArrowRight className="h-4 w-4" />
-                    <span className="bg-green-100 px-3 py-1 rounded">Final Approval</span>
+                    <span className="bg-brand-100 px-3 py-1 rounded">Final Approval</span>
                   </div>
                   <p className="text-gray-700 mt-4">Total timeline: 2-3 weeks for concept delivery</p>
                 </div>
@@ -257,9 +258,9 @@ export default function GrowthTeamCreativeBottlenecksPage() {
             <h3 className="text-2xl font-semibold text-gray-900 mb-6">How Weekly Delivery Eliminates Each Bottleneck</h3>
             
             <div className="space-y-8 mb-12">
-              <div className="bg-green-50 rounded-xl p-6 border-l-4 border-green-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <CheckCircle2 className="h-5 w-5 text-green-600 mr-3" />
+                  <CheckCircle2 className="h-5 w-5 text-brand-600 mr-3" />
                   Solution 1: Streamlined Concept Development
                 </h4>
                 <p className="text-gray-700 mb-4">
@@ -287,9 +288,9 @@ export default function GrowthTeamCreativeBottlenecksPage() {
                 </div>
               </div>
               
-              <div className="bg-green-50 rounded-xl p-6 border-l-4 border-green-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <CheckCircle2 className="h-5 w-5 text-green-600 mr-3" />
+                  <CheckCircle2 className="h-5 w-5 text-brand-600 mr-3" />
                   Solution 2: No Approval Cycles
                 </h4>
                 <p className="text-gray-700 mb-4">
@@ -300,17 +301,17 @@ export default function GrowthTeamCreativeBottlenecksPage() {
                   <div className="flex items-center space-x-4 text-sm text-gray-700">
                     <span className="bg-blue-100 px-3 py-1 rounded">Concept Development</span>
                     <ArrowRight className="h-4 w-4" />
-                    <span className="bg-green-100 px-3 py-1 rounded">Monday Delivery</span>
+                    <span className="bg-brand-100 px-3 py-1 rounded">Monday Delivery</span>
                     <ArrowRight className="h-4 w-4" />
-                    <span className="bg-purple-100 px-3 py-1 rounded">Testing Implementation</span>
+                    <span className="bg-brand-100 px-3 py-1 rounded">Testing Implementation</span>
                   </div>
                   <p className="text-gray-700 mt-4">Total timeline: 4-5 days from analysis to delivery</p>
                 </div>
               </div>
               
-              <div className="bg-green-50 rounded-xl p-6 border-l-4 border-green-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <CheckCircle2 className="h-5 w-5 text-green-600 mr-3" />
+                  <CheckCircle2 className="h-5 w-5 text-brand-600 mr-3" />
                   Solution 3: Dedicated Weekly Capacity
                 </h4>
                 <p className="text-gray-700 mb-4">
@@ -331,7 +332,7 @@ export default function GrowthTeamCreativeBottlenecksPage() {
               Beyond replacing agency relationships, growth teams can build internal systems that maintain creative velocity while leveraging external concept generation. This hybrid approach maximizes speed while maintaining strategic control.
             </p>
 
-            <div className="bg-orange-50 rounded-xl p-8 mb-12">
+            <div className="bg-brand-50 rounded-xl p-8 mb-12">
               <h3 className="text-xl font-semibold text-gray-900 mb-6">The High-Velocity Creative System</h3>
               
               <div className="grid md:grid-cols-3 gap-6">
@@ -385,7 +386,7 @@ export default function GrowthTeamCreativeBottlenecksPage() {
             <div className="overflow-x-auto mb-12">
               <table className="w-full border-collapse bg-white shadow-lg rounded-xl overflow-hidden">
                 <thead>
-                  <tr className="bg-orange-600 text-white">
+                  <tr className="bg-brand-600 text-white">
                     <th className="p-4 text-left">Resource Type</th>
                     <th className="p-4 text-left">Traditional Agency Model</th>
                     <th className="p-4 text-left">High-Velocity Alternative</th>
@@ -397,31 +398,31 @@ export default function GrowthTeamCreativeBottlenecksPage() {
                     <td className="p-4 font-semibold">Concept Development</td>
                     <td className="p-4 text-gray-700">$5,000-10,000/month agency retainer</td>
                     <td className="p-4 text-gray-700">$5-99/week creative intelligence</td>
-                    <td className="p-4 text-green-600">10x faster delivery</td>
+                    <td className="p-4 text-brand-600">10x faster delivery</td>
                   </tr>
                   <tr className="bg-gray-50 border-b border-gray-200">
                     <td className="p-4 font-semibold">Creative Production</td>
                     <td className="p-4 text-gray-700">Built into agency service</td>
                     <td className="p-4 text-gray-700">$500-1,500/month freelance pool</td>
-                    <td className="p-4 text-green-600">3-5x faster turnaround</td>
+                    <td className="p-4 text-brand-600">3-5x faster turnaround</td>
                   </tr>
                   <tr className="border-b border-gray-200">
                     <td className="p-4 font-semibold">Strategic Oversight</td>
                     <td className="p-4 text-gray-700">Agency account management</td>
                     <td className="p-4 text-gray-700">Internal growth team lead</td>
-                    <td className="p-4 text-green-600">No communication delays</td>
+                    <td className="p-4 text-brand-600">No communication delays</td>
                   </tr>
                   <tr className="bg-gray-50 border-b border-gray-200">
                     <td className="p-4 font-semibold">Performance Analysis</td>
                     <td className="p-4 text-gray-700">Monthly agency reporting</td>
                     <td className="p-4 text-gray-700">Real-time internal analysis</td>
-                    <td className="p-4 text-green-600">Daily optimization</td>
+                    <td className="p-4 text-brand-600">Daily optimization</td>
                   </tr>
                   <tr>
                     <td className="p-4 font-semibold">Total Monthly Cost</td>
                     <td className="p-4 text-gray-700">$5,000-15,000+</td>
                     <td className="p-4 text-gray-700">$1,000-3,000</td>
-                    <td className="p-4 text-green-600">3-5x cost efficiency</td>
+                    <td className="p-4 text-brand-600">3-5x cost efficiency</td>
                   </tr>
                 </tbody>
               </table>
@@ -458,7 +459,7 @@ export default function GrowthTeamCreativeBottlenecksPage() {
                 </div>
               </div>
               
-              <div className="bg-green-50 rounded-xl p-6 border-l-4 border-green-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Phase 2: Testing and Optimization (Week 3-4)</h4>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -482,7 +483,7 @@ export default function GrowthTeamCreativeBottlenecksPage() {
                 </div>
               </div>
               
-              <div className="bg-purple-50 rounded-xl p-6 border-l-4 border-purple-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Phase 3: Full Transition and Scale (Week 5-8)</h4>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -514,45 +515,45 @@ export default function GrowthTeamCreativeBottlenecksPage() {
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-orange-50 rounded-lg p-6">
+              <div className="bg-brand-50 rounded-lg p-6">
                 <h4 className="font-semibold text-gray-900 mb-3">Velocity Metrics</h4>
                 <ul className="text-gray-700 space-y-3">
                   <li className="flex items-center">
-                    <div className="w-3 h-3 bg-orange-500 rounded-full mr-3"></div>
+                    <div className="w-3 h-3 bg-brand-500 rounded-full mr-3"></div>
                     <span>Concept-to-test timeline reduction</span>
                   </li>
                   <li className="flex items-center">
-                    <div className="w-3 h-3 bg-orange-500 rounded-full mr-3"></div>
+                    <div className="w-3 h-3 bg-brand-500 rounded-full mr-3"></div>
                     <span>Weekly concepts tested increase</span>
                   </li>
                   <li className="flex items-center">
-                    <div className="w-3 h-3 bg-orange-500 rounded-full mr-3"></div>
+                    <div className="w-3 h-3 bg-brand-500 rounded-full mr-3"></div>
                     <span>Creative iteration speed improvement</span>
                   </li>
                   <li className="flex items-center">
-                    <div className="w-3 h-3 bg-orange-500 rounded-full mr-3"></div>
+                    <div className="w-3 h-3 bg-brand-500 rounded-full mr-3"></div>
                     <span>Testing pipeline consistency</span>
                   </li>
                 </ul>
               </div>
               
-              <div className="bg-teal-50 rounded-lg p-6">
+              <div className="bg-brand-50 rounded-lg p-6">
                 <h4 className="font-semibold text-gray-900 mb-3">Efficiency Metrics</h4>
                 <ul className="text-gray-700 space-y-3">
                   <li className="flex items-center">
-                    <div className="w-3 h-3 bg-teal-500 rounded-full mr-3"></div>
+                    <div className="w-3 h-3 bg-brand-500 rounded-full mr-3"></div>
                     <span>Cost per creative concept reduction</span>
                   </li>
                   <li className="flex items-center">
-                    <div className="w-3 h-3 bg-teal-500 rounded-full mr-3"></div>
+                    <div className="w-3 h-3 bg-brand-500 rounded-full mr-3"></div>
                     <span>Creative development budget optimization</span>
                   </li>
                   <li className="flex items-center">
-                    <div className="w-3 h-3 bg-teal-500 rounded-full mr-3"></div>
+                    <div className="w-3 h-3 bg-brand-500 rounded-full mr-3"></div>
                     <span>Resource allocation improvement</span>
                   </li>
                   <li className="flex items-center">
-                    <div className="w-3 h-3 bg-teal-500 rounded-full mr-3"></div>
+                    <div className="w-3 h-3 bg-brand-500 rounded-full mr-3"></div>
                     <span>Internal team productivity gains</span>
                   </li>
                 </ul>
@@ -582,7 +583,7 @@ export default function GrowthTeamCreativeBottlenecksPage() {
             </div>
 
             {/* CTA Section */}
-            <div className="bg-gradient-to-br from-orange-600 to-orange-700 text-white rounded-2xl p-8 text-center mb-12">
+            <div className="bg-gradient-to-br from-brand-600 to-brand-700 text-white rounded-2xl p-8 text-center mb-12">
               <h3 className="text-2xl font-bold mb-4">
                 Eliminate Creative Bottlenecks This Week
               </h3>
@@ -591,20 +592,8 @@ export default function GrowthTeamCreativeBottlenecksPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link
-                  href="/#service-tiers"
-                  className="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
-                >
-                  <Mail className="h-5 w-5 mr-2" />
-                  Get My 10 Free Hooks
-                </Link>
-                <Link 
-                  href="/#service-tiers"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition-colors inline-flex items-center"
-                >
-                  <Calendar className="h-5 w-5 mr-2" />
-                  End Bottlenecks with Weekly Concepts
-                </Link>
+                <FreeWeekButton source="growth_team_creative_bottlenecks-cta" className="bg-white text-brand-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="growth_team_creative_bottlenecks-cta" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-brand-600 transition-colors inline-flex items-center">Start Free Week Trial</FreeWeekButton>
               </div>
               
               <p className="text-sm mt-4 opacity-80">

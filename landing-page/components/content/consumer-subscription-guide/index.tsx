@@ -38,13 +38,13 @@ export function ConsumerSubscriptionMarketingGuide() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100">
+    <div className="min-h-screen bg-gradient-to-br from-brand-50 to-brand-100">
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <nav className="flex justify-between items-center">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-purple-600">Strategic Ad Intelligence</span>
+              <span className="text-2xl font-bold text-brand-600">Strategic Ad Intelligence</span>
             </div>
             <button
               onClick={() => {
@@ -55,7 +55,7 @@ export function ConsumerSubscriptionMarketingGuide() {
                   window.location.href = '/#service-tiers';
                 }
               }}
-              className="bg-green-600 text-white hover:bg-green-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
+              className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
             >
               Claim Free Week
               <ArrowRight className="h-4 w-4 ml-2" />

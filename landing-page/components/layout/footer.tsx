@@ -9,7 +9,7 @@ export function Footer() {
           {/* Brand Section */}
           <div className="md:col-span-1">
             <div className="flex items-center mb-4">
-              <Building2 className="h-8 w-8 text-orange-400 mr-2" aria-label="Apsics Media" />
+              <Building2 className="h-8 w-8 text-brand-400 mr-2" aria-label="Apsics Media" />
               <span className="text-xl font-bold">Apsics Media</span>
             </div>
             <p className="text-gray-400 mb-6">
@@ -18,15 +18,15 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-orange-400">Weekly</div>
+                <div className="font-semibold text-brand-400">Weekly</div>
                 <div>Not 2 Weeks</div>
               </div>
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-red-400">Startup Focus</div>
+                <div className="font-semibold text-brand-400">Startup Focus</div>
                 <div>Bootstrap-Friendly</div>
               </div>
               <div className="text-sm text-gray-400">
-                <div className="font-semibold text-orange-400">10+ Years</div>
+                <div className="font-semibold text-brand-400">10+ Years</div>
                 <div>Experience</div>
               </div>
             </div>
@@ -169,7 +169,7 @@ export function Footer() {
               <h4 className="text-sm font-semibold mb-3 text-gray-300">Get Started</h4>
               <Link
                 href="/free-hooks"
-                className="inline-flex items-center px-4 py-2 bg-orange-600 text-white text-sm font-semibold rounded-lg hover:bg-orange-700 transition-colors"
+                className="inline-flex items-center px-4 py-2 bg-brand-600 text-white text-sm font-semibold rounded-lg hover:bg-brand-700 transition-colors"
               >
                 Get 10 Free Templates
               </Link>

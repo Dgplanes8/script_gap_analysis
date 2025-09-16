@@ -18,7 +18,7 @@ export function CalculatorQuestion({ question, value, onChange, error }: Calcula
             value={value || ''}
             onChange={(e) => onChange(e.target.value)}
             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent ${
-              error ? 'border-red-300' : 'border-gray-300'
+              error ? 'border-brand-300' : 'border-gray-300'
             }`}
           >
             <option value="">Select an option...</option>
@@ -65,7 +65,7 @@ export function CalculatorQuestion({ question, value, onChange, error }: Calcula
             max={question.max}
             step={question.step}
             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent ${
-              error ? 'border-red-300' : 'border-gray-300'
+              error ? 'border-brand-300' : 'border-gray-300'
             }`}
           />
         );
@@ -111,7 +111,7 @@ export function CalculatorQuestion({ question, value, onChange, error }: Calcula
       <div className="space-y-2">
         {renderInput()}
         {error && (
-          <p className="text-sm text-red-600">{error}</p>
+          <p className="text-sm text-brand-600">{error}</p>
         )}
         {question.unit && question.type === 'input' && (
           <p className="text-sm text-gray-500">Value in {question.unit}</p>

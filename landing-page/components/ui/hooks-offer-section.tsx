@@ -55,9 +55,9 @@ export function HooksOfferSection() {
               </p>
             </div>
             
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-purple-100">
-              <div className="bg-purple-100 rounded-lg p-3 w-fit mb-4">
-                <Mail className="h-6 w-6 text-purple-600" />
+            <div className="bg-white rounded-xl p-6 shadow-lg border border-brand-100">
+              <div className="bg-brand-100 rounded-lg p-3 w-fit mb-4">
+                <Mail className="h-6 w-6 text-brand-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Founder Support</h3>
               <p className="text-gray-600">
@@ -75,19 +75,19 @@ export function HooksOfferSection() {
             <div className="grid md:grid-cols-2 gap-6">
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-brand-500 mt-0.5 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
                     <strong>10 Copy-Paste Templates</strong> - Ready-to-use ad formats that work for startups
                   </span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-brand-500 mt-0.5 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
                     <strong>Why It Works Explanations</strong> - Simple guides on when and how to use each template
                   </span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-brand-500 mt-0.5 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
                     <strong>Implementation Guides</strong> - Step-by-step instructions for launching your first ads
                   </span>
@@ -96,19 +96,19 @@ export function HooksOfferSection() {
               
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-brand-500 mt-0.5 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
                     <strong>Customization Guide</strong> - How to adapt each template for your startup and audience
                   </span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-brand-500 mt-0.5 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
                     <strong>Platform Variations</strong> - Specific formats for TikTok, Facebook, Instagram, and YouTube
                   </span>
                 </li>
                 <li className="flex items-start">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-brand-500 mt-0.5 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
                     <strong>Bonus: Testing Guide</strong> - Simple A/B testing framework to find what works for your startup
                   </span>
@@ -125,8 +125,8 @@ export function HooksOfferSection() {
             
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="h-6 w-6 text-green-600" />
+                <div className="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="h-6 w-6 text-brand-600" />
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">✓ Zero Risk</h4>
                 <p className="text-gray-600 text-sm">Free download, no strings attached. If they don't help, you've lost nothing.</p>
@@ -139,8 +139,8 @@ export function HooksOfferSection() {
                 <p className="text-gray-600 text-sm">Created specifically for early-stage teams with small budgets and big goals.</p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="h-6 w-6 text-orange-600" />
+                <div className="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="h-6 w-6 text-brand-600" />
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">✓ Proven Results</h4>
                 <p className="text-gray-600 text-sm">Used by 100+ growing businesses who've launched successful ad campaigns.</p>

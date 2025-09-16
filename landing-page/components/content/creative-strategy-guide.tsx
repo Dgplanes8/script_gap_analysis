@@ -133,14 +133,14 @@ export function CreativeStrategyGuide() {
                 key={index}
                 className={`p-6 rounded-lg cursor-pointer transition-all ${
                   activeFramework === index
-                    ? 'bg-emerald-50 border-2 border-emerald-500'
+                    ? 'bg-brand-50 border-2 border-emerald-500'
                     : 'bg-gray-50 border-2 border-gray-200 hover:border-emerald-300'
                 }`}
                 onClick={() => setActiveFramework(index)}
               >
                 <div className="flex items-start">
                   <div className={`p-3 rounded-lg mr-4 ${
-                    activeFramework === index ? 'bg-emerald-100' : 'bg-gray-100'
+                    activeFramework === index ? 'bg-brand-100' : 'bg-gray-100'
                   }`}>
                     <IconComponent className={`h-6 w-6 ${
                       activeFramework === index ? 'text-emerald-600' : 'text-gray-600'
@@ -188,7 +188,7 @@ export function CreativeStrategyGuide() {
             <ol className="space-y-3">
               {creativeFrameworks[activeFramework].implementation.map((step, index) => (
                 <li key={index} className="flex items-start">
-                  <div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                  <div className="w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
                     <span className="text-sm font-semibold text-emerald-600">{index + 1}</span>
                   </div>
                   <span className="text-gray-700">{step}</span>
@@ -200,7 +200,7 @@ export function CreativeStrategyGuide() {
       </div>
 
       {/* Performance Metrics */}
-      <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl p-8 text-white mb-16">
+      <div className="bg-gradient-to-r from-brand-600 to-brand-600 rounded-2xl p-8 text-white mb-16">
         <div className="text-center mb-8">
           <h3 className="text-2xl font-bold mb-3">
             Proven Performance Results
@@ -241,7 +241,7 @@ export function CreativeStrategyGuide() {
 
         <div className="grid md:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Brain className="h-8 w-8 text-emerald-600" />
             </div>
             <h4 className="text-lg font-semibold text-gray-900 mb-2">Analysis</h4>
@@ -251,7 +251,7 @@ export function CreativeStrategyGuide() {
           </div>
           
           <div className="text-center">
-            <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Lightbulb className="h-8 w-8 text-emerald-600" />
             </div>
             <h4 className="text-lg font-semibold text-gray-900 mb-2">Strategy</h4>
@@ -261,7 +261,7 @@ export function CreativeStrategyGuide() {
           </div>
           
           <div className="text-center">
-            <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Video className="h-8 w-8 text-emerald-600" />
             </div>
             <h4 className="text-lg font-semibold text-gray-900 mb-2">Execution</h4>
@@ -271,7 +271,7 @@ export function CreativeStrategyGuide() {
           </div>
           
           <div className="text-center">
-            <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <BarChart3 className="h-8 w-8 text-emerald-600" />
             </div>
             <h4 className="text-lg font-semibold text-gray-900 mb-2">Optimization</h4>
@@ -303,7 +303,7 @@ export function CreativeStrategyGuide() {
           ) : (
             <button
               onClick={() => setShowDownload(true)}
-              className="bg-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors inline-flex items-center"
+              className="bg-brand-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-brand-700 transition-colors inline-flex items-center"
             >
               <Lightbulb className="h-5 w-5 mr-2" />
               Get Free Framework Guide

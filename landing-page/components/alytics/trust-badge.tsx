@@ -19,10 +19,10 @@ export function TrustBadge() {
   // Sample user avatar data
   const avatars = [
     { bg: "bg-blue-500", text: "S" },
-    { bg: "bg-green-500", text: "M" },
-    { bg: "bg-purple-500", text: "J" },
-    { bg: "bg-orange-500", text: "A" },
-    { bg: "bg-pink-500", text: "L" }
+    { bg: "bg-brand-500", text: "M" },
+    { bg: "bg-brand-500", text: "J" },
+    { bg: "bg-brand-500", text: "A" },
+    { bg: "bg-brand-500", text: "L" }
   ];
 
   return (

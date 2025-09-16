@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/secondary-header';
 import { Footer } from '@/components/layout/footer';
-import { EmailCaptureForm } from '@/components/forms/email-capture-form';
-import { Building2, TrendingUp, Target, Users, ArrowRight, CheckCircle, X, DollarSign } from 'lucide-react';
+import { Building2, TrendingUp, Target, Users, CheckCircle, X, DollarSign } from 'lucide-react';
 import Link from 'next/link';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Fortune 100 vs Agency Creative Strategies: What Subscription Businesses Should Know',
@@ -29,12 +29,12 @@ export default function Fortune100VsAgencyPage() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+        <section className="py-16 bg-gradient-to-br from-brand-900 to-brand-700 text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center bg-gradient-to-r from-yellow-500 to-orange-500 text-gray-900 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                <Building2 className="h-4 w-4 mr-2" />
-                ENTERPRISE VS AGENCY ANALYSIS
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2 text-sm font-semibold text-white shadow-sm backdrop-blur">
+                <Building2 className="h-4 w-4" />
+                Enterprise vs Agency Analysis
               </div>
               
               <h1 className="text-4xl lg:text-5xl font-bold mb-6">
@@ -45,14 +45,15 @@ export default function Fortune100VsAgencyPage() {
                 Based on $100M+ ad spend analysis across Fortune 100 companies and agency partnerships.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="#comparison" className="btn bg-yellow-500 text-gray-900 font-semibold py-4 px-8 rounded-lg hover:bg-yellow-400 transition-colors">
-                  <Target className="h-5 w-5 mr-2" />
+              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <Link
+                  href="#comparison"
+                  className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20"
+                >
+                  <Target className="h-5 w-5" />
                   See Complete Comparison
                 </Link>
-                <Link href="/#service-tiers" className="btn btn-primary bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg">
-                  Start Weekly Intelligence
-                </Link>
+                <FreeWeekButton source="fortune-hero" className="px-8 py-4 text-base" />
               </div>
             </div>
           </div>
@@ -74,86 +75,86 @@ export default function Fortune100VsAgencyPage() {
 
               <div className="grid lg:grid-cols-2 gap-12">
                 {/* Traditional Agency Approach */}
-                <div className="bg-red-50 rounded-2xl p-8 border border-red-200">
+                <div className="bg-brand-50 rounded-2xl p-8 border border-brand-200">
                   <div className="flex items-center mb-6">
-                    <div className="bg-red-500 rounded-full p-3 mr-4">
+                    <div className="bg-brand-500 rounded-full p-3 mr-4">
                       <X className="h-6 w-6 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-red-900">Traditional Agency Approach</h3>
+                    <h3 className="text-2xl font-bold text-brand-900">Traditional Agency Approach</h3>
                   </div>
                   
-                  <div className="space-y-4 text-red-800">
+                  <div className="space-y-4 text-brand-800">
                     <div className="flex items-start">
-                      <X className="h-5 w-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <X className="h-5 w-5 text-brand-500 mr-3 mt-0.5 flex-shrink-0" />
                       <div>
                         <strong>Reactive Creative:</strong> Wait for client requests, then brainstorm ideas based on limited brief information.
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <X className="h-5 w-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <X className="h-5 w-5 text-brand-500 mr-3 mt-0.5 flex-shrink-0" />
                       <div>
                         <strong>Inconsistent Delivery:</strong> 2-4 week turnaround times with variable quality depending on account team availability.
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <X className="h-5 w-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <X className="h-5 w-5 text-brand-500 mr-3 mt-0.5 flex-shrink-0" />
                       <div>
                         <strong>Limited Strategic Context:</strong> Focus on individual campaigns rather than systematic business growth.
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <X className="h-5 w-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <X className="h-5 w-5 text-brand-500 mr-3 mt-0.5 flex-shrink-0" />
                       <div>
                         <strong>Generic Solutions:</strong> Apply similar creative approaches across different industries and business models.
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-8 p-4 bg-red-100 rounded-lg">
-                    <p className="text-red-800 font-semibold text-center">
+                  <div className="mt-8 p-4 bg-brand-100 rounded-lg">
+                    <p className="text-brand-800 font-semibold text-center">
                       Result: Creative guesswork with inconsistent performance and no systematic improvement.
                     </p>
                   </div>
                 </div>
 
                 {/* Fortune 100 Approach */}
-                <div className="bg-green-50 rounded-2xl p-8 border border-green-200">
+                <div className="bg-brand-50 rounded-2xl p-8 border border-brand-200">
                   <div className="flex items-center mb-6">
-                    <div className="bg-green-600 rounded-full p-3 mr-4">
+                    <div className="bg-brand-600 rounded-full p-3 mr-4">
                       <CheckCircle className="h-6 w-6 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-green-900">Fortune 100 Systematic Approach</h3>
+                    <h3 className="text-2xl font-bold text-brand-900">Fortune 100 Systematic Approach</h3>
                   </div>
                   
-                  <div className="space-y-4 text-green-800">
+                  <div className="space-y-4 text-brand-800">
                     <div className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mr-3 mt-0.5 flex-shrink-0" />
                       <div>
                         <strong>Proactive Intelligence:</strong> Continuous market analysis, trend monitoring, and strategic planning before creative needs arise.
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mr-3 mt-0.5 flex-shrink-0" />
                       <div>
                         <strong>Weekly Systematic Delivery:</strong> Consistent Monday delivery schedule with standardized quality and strategic alignment.
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mr-3 mt-0.5 flex-shrink-0" />
                       <div>
                         <strong>Business Transformation Focus:</strong> Every creative decision aligns with long-term subscription business objectives.
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mr-3 mt-0.5 flex-shrink-0" />
                       <div>
                         <strong>Subscription-Specific Methodology:</strong> 11-phase system designed specifically for recurring revenue models.
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-8 p-4 bg-green-100 rounded-lg">
-                    <p className="text-green-800 font-semibold text-center">
+                  <div className="mt-8 p-4 bg-brand-100 rounded-lg">
+                    <p className="text-brand-800 font-semibold text-center">
                       Result: Strategic creative intelligence with measurable business impact and continuous improvement.
                     </p>
                   </div>
@@ -182,50 +183,50 @@ export default function Fortune100VsAgencyPage() {
                     <thead className="bg-gray-100">
                       <tr>
                         <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Key Factor</th>
-                        <th className="px-6 py-4 text-center text-sm font-semibold text-red-600">Traditional Agency</th>
-                        <th className="px-6 py-4 text-center text-sm font-semibold text-green-600">Fortune 100 Method</th>
+                        <th className="px-6 py-4 text-center text-sm font-semibold text-brand-600">Traditional Agency</th>
+                        <th className="px-6 py-4 text-center text-sm font-semibold text-brand-600">Fortune 100 Method</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
                       <tr>
                         <td className="px-6 py-4 font-medium text-gray-900">Delivery Timeline</td>
-                        <td className="px-6 py-4 text-center text-red-600">2-4 weeks</td>
-                        <td className="px-6 py-4 text-center text-green-600">Every Monday (weekly)</td>
+                        <td className="px-6 py-4 text-center text-brand-600">2-4 weeks</td>
+                        <td className="px-6 py-4 text-center text-brand-600">Every Monday (weekly)</td>
                       </tr>
                       <tr className="bg-gray-50">
                         <td className="px-6 py-4 font-medium text-gray-900">Creative Concepts per Month</td>
-                        <td className="px-6 py-4 text-center text-red-600">2-4 concepts</td>
-                        <td className="px-6 py-4 text-center text-green-600">4-16 concepts</td>
+                        <td className="px-6 py-4 text-center text-brand-600">2-4 concepts</td>
+                        <td className="px-6 py-4 text-center text-brand-600">4-16 concepts</td>
                       </tr>
                       <tr>
                         <td className="px-6 py-4 font-medium text-gray-900">Monthly Investment</td>
-                        <td className="px-6 py-4 text-center text-red-600">$5,000-15,000</td>
-                        <td className="px-6 py-4 text-center text-green-600">$67-497</td>
+                        <td className="px-6 py-4 text-center text-brand-600">$5,000-15,000</td>
+                        <td className="px-6 py-4 text-center text-brand-600">$67-497</td>
                       </tr>
                       <tr className="bg-gray-50">
                         <td className="px-6 py-4 font-medium text-gray-900">Strategic Planning</td>
-                        <td className="px-6 py-4 text-center text-red-600">Quarterly reviews</td>
-                        <td className="px-6 py-4 text-center text-green-600">Weekly intelligence</td>
+                        <td className="px-6 py-4 text-center text-brand-600">Quarterly reviews</td>
+                        <td className="px-6 py-4 text-center text-brand-600">Weekly intelligence</td>
                       </tr>
                       <tr>
                         <td className="px-6 py-4 font-medium text-gray-900">Competitor Analysis</td>
-                        <td className="px-6 py-4 text-center text-red-600">On request basis</td>
-                        <td className="px-6 py-4 text-center text-green-600">Integrated weekly</td>
+                        <td className="px-6 py-4 text-center text-brand-600">On request basis</td>
+                        <td className="px-6 py-4 text-center text-brand-600">Integrated weekly</td>
                       </tr>
                       <tr className="bg-gray-50">
                         <td className="px-6 py-4 font-medium text-gray-900">Trend Intelligence</td>
-                        <td className="px-6 py-4 text-center text-red-600">Reactive to trends</td>
-                        <td className="px-6 py-4 text-center text-green-600">Proactive trend capture</td>
+                        <td className="px-6 py-4 text-center text-brand-600">Reactive to trends</td>
+                        <td className="px-6 py-4 text-center text-brand-600">Proactive trend capture</td>
                       </tr>
                       <tr>
                         <td className="px-6 py-4 font-medium text-gray-900">Subscription Focus</td>
-                        <td className="px-6 py-4 text-center text-red-600">Generic approach</td>
-                        <td className="px-6 py-4 text-center text-green-600">Subscription-specific</td>
+                        <td className="px-6 py-4 text-center text-brand-600">Generic approach</td>
+                        <td className="px-6 py-4 text-center text-brand-600">Subscription-specific</td>
                       </tr>
                       <tr className="bg-gray-50">
                         <td className="px-6 py-4 font-medium text-gray-900">Performance Tracking</td>
-                        <td className="px-6 py-4 text-center text-red-600">Campaign-level</td>
-                        <td className="px-6 py-4 text-center text-green-600">Business transformation</td>
+                        <td className="px-6 py-4 text-center text-brand-600">Campaign-level</td>
+                        <td className="px-6 py-4 text-center text-brand-600">Business transformation</td>
                       </tr>
                     </tbody>
                   </table>
@@ -251,7 +252,7 @@ export default function Fortune100VsAgencyPage() {
 
               <div className="space-y-8">
                 <div className="flex items-start">
-                  <div className="bg-yellow-500 rounded-full p-3 mr-6 flex-shrink-0">
+                  <div className="bg-brand-500 rounded-full p-3 mr-6 flex-shrink-0">
                     <DollarSign className="h-6 w-6 text-gray-900" />
                   </div>
                   <div>
@@ -265,7 +266,7 @@ export default function Fortune100VsAgencyPage() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="bg-green-500 rounded-full p-3 mr-6 flex-shrink-0">
+                  <div className="bg-brand-500 rounded-full p-3 mr-6 flex-shrink-0">
                     <TrendingUp className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -293,7 +294,7 @@ export default function Fortune100VsAgencyPage() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="bg-purple-500 rounded-full p-3 mr-6 flex-shrink-0">
+                  <div className="bg-brand-500 rounded-full p-3 mr-6 flex-shrink-0">
                     <Building2 className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -311,7 +312,7 @@ export default function Fortune100VsAgencyPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-indigo-600 to-purple-700 text-white">
+        <section className="py-16 bg-gradient-to-br from-indigo-600 to-brand-700 text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-6">
@@ -335,7 +336,7 @@ export default function Fortune100VsAgencyPage() {
                   </div>
                   <div className="text-center border-l border-white/20">
                     <div className="text-3xl font-bold mb-2">Fortune 100 Method</div>
-                    <div className="space-y-2 text-green-200">
+                    <div className="space-y-2 text-brand-200">
                       <div>$67-497/month</div>
                       <div>Weekly Monday delivery</div>
                       <div>4-16 concepts/month</div>
@@ -345,34 +346,25 @@ export default function Fortune100VsAgencyPage() {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="/#service-tiers" className="btn bg-white text-red-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">
-                  Get 10 Free Hooks First
-                </Link>
-                <Link href="/#service-tiers" className="btn btn-primary bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg">
-                  Start Weekly Intelligence
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </Link>
+              <div className="flex justify-center">
+                <FreeWeekButton source="fortune-cta" className="px-8 py-4 text-base" />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Newsletter Signup */}
-        <section className="py-16 bg-gray-50">
+        <section className="bg-white py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Get Fortune 100 Strategy Insights
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl font-bold text-gray-900">
+                Ready to Apply Fortune 100 Systems to Your Growth?
               </h2>
-              <p className="text-gray-600 mb-8">
-                Subscribe to receive weekly Fortune 100 strategy insights and systematic approaches for subscription business growth.
+              <p className="mt-4 text-lg text-gray-600">
+                Claim your free week to see the weekly creative intelligence playbooks Fortune 100 teams use—customized for subscription businesses.
               </p>
-              <EmailCaptureForm
-                placeholder="Enter your work email"
-                buttonText="Get Strategy Insights"
-                variant="cta"
-              />
+              <div className="mt-8 flex justify-center">
+                <FreeWeekButton source="fortune-content-cta" className="px-8 py-4 text-base" />
+              </div>
             </div>
           </div>
         </section>

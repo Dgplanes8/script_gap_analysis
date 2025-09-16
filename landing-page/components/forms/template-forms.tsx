@@ -71,14 +71,14 @@ export function BlogPostLeadCaptureForm({
 
   if (isSubmitted) {
     return (
-      <div className={`text-center p-6 bg-green-50 rounded-lg border-2 border-green-200 ${className}`}>
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Download className="h-8 w-8 text-green-600" />
+      <div className={`text-center p-6 bg-brand-50 rounded-lg border-2 border-brand-200 ${className}`}>
+        <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Download className="h-8 w-8 text-brand-600" />
         </div>
-        <h3 className="text-lg font-semibold text-green-800 mb-2">
+        <h3 className="text-lg font-semibold text-brand-800 mb-2">
           Your Templates Are On The Way!
         </h3>
-        <p className="text-green-700">
+        <p className="text-brand-700">
           Check your email for instant access to your FREE templates and weekly strategic insights.
         </p>
       </div>
@@ -90,7 +90,7 @@ export function BlogPostLeadCaptureForm({
       <div className={`text-center ${className}`}>
         <button
           onClick={() => setShowForm(true)}
-          className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-600 to-red-600 text-white font-semibold rounded-lg hover:from-orange-700 hover:to-red-700 transition-colors shadow-lg hover:shadow-xl"
+          className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand-600 to-brand-600 text-white font-semibold rounded-lg hover:from-brand-700 hover:to-brand-700 transition-colors shadow-lg hover:shadow-xl"
         >
           <FileText className="h-5 w-5 mr-2" />
           Get FREE Templates
@@ -104,9 +104,9 @@ export function BlogPostLeadCaptureForm({
   }
 
   return (
-    <div className={`bg-white p-6 rounded-lg shadow-lg border-2 border-orange-200 ${className}`}>
+    <div className={`bg-white p-6 rounded-lg shadow-lg border-2 border-brand-200 ${className}`}>
       <div className="text-center mb-4">
-        <div className="inline-flex items-center bg-gradient-to-r from-orange-600 to-red-600 text-white px-3 py-1 rounded-full text-xs font-semibold mb-3">
+        <div className="inline-flex items-center bg-gradient-to-r from-brand-600 to-brand-600 text-white px-3 py-1 rounded-full text-xs font-semibold mb-3">
           <Download className="h-3 w-3 mr-1" />
           FREE TEMPLATES
         </div>
@@ -118,7 +118,7 @@ export function BlogPostLeadCaptureForm({
           <input
             type="text"
             placeholder="Full name"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
             required
@@ -126,7 +126,7 @@ export function BlogPostLeadCaptureForm({
           <input
             type="email"
             placeholder="Work email"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
             value={formData.email}
             onChange={(e) => setFormData({...formData, email: e.target.value})}
             required
@@ -136,13 +136,13 @@ export function BlogPostLeadCaptureForm({
           <input
             type="text"
             placeholder="Company name"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
             value={formData.company}
             onChange={(e) => setFormData({...formData, company: e.target.value})}
             required
           />
           <select
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
             value={formData.monthlyBudget}
             onChange={(e) => setFormData({...formData, monthlyBudget: e.target.value})}
             required
@@ -157,7 +157,7 @@ export function BlogPostLeadCaptureForm({
         </div>
         <textarea
           placeholder="What content topics interest you most? (e.g., ad creative, growth strategy, conversion optimization)"
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
           rows={2}
           value={formData.goals}
           onChange={(e) => setFormData({...formData, goals: e.target.value})}
@@ -165,7 +165,7 @@ export function BlogPostLeadCaptureForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
+          className="w-full bg-gradient-to-r from-brand-600 to-brand-600 hover:from-brand-700 hover:to-brand-700 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
         >
           {isSubmitting ? (
             <>
@@ -230,14 +230,14 @@ export function CalculatorResultsForm({
 
   if (isSubmitted) {
     return (
-      <div className={`text-center p-6 bg-green-50 rounded-lg border-2 border-green-200 ${className}`}>
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Mail className="h-8 w-8 text-green-600" />
+      <div className={`text-center p-6 bg-brand-50 rounded-lg border-2 border-brand-200 ${className}`}>
+        <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Mail className="h-8 w-8 text-brand-600" />
         </div>
-        <h3 className="text-lg font-semibold text-green-800 mb-2">
+        <h3 className="text-lg font-semibold text-brand-800 mb-2">
           Detailed Analysis Coming Your Way!
         </h3>
-        <p className="text-green-700">
+        <p className="text-brand-700">
           Check your email for your personalized analysis and strategic recommendations.
         </p>
       </div>
@@ -245,9 +245,9 @@ export function CalculatorResultsForm({
   }
 
   return (
-    <div className={`bg-white p-6 rounded-lg border-2 border-green-300 ${className}`}>
+    <div className={`bg-white p-6 rounded-lg border-2 border-brand-300 ${className}`}>
       <div className="text-center mb-4">
-        <Calculator className="h-8 w-8 text-green-600 mx-auto mb-2" />
+        <Calculator className="h-8 w-8 text-brand-600 mx-auto mb-2" />
         <h3 className="text-lg font-semibold text-gray-900">Get Detailed Analysis</h3>
         <p className="text-sm text-gray-600">
           Enter your email for personalized recommendations and next steps
@@ -257,7 +257,7 @@ export function CalculatorResultsForm({
         <input
           type="email"
           placeholder="Enter your work email"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-brand-500"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -265,7 +265,7 @@ export function CalculatorResultsForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
+          className="w-full bg-brand-600 hover:bg-brand-700 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
         >
           {isSubmitting ? (
             <>
@@ -330,14 +330,14 @@ export function PlaybookDownloadForm({
 
   if (isSubmitted) {
     return (
-      <div className={`text-center p-6 bg-green-50 rounded-lg border-2 border-green-200 ${className}`}>
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <BookOpen className="h-8 w-8 text-green-600" />
+      <div className={`text-center p-6 bg-brand-50 rounded-lg border-2 border-brand-200 ${className}`}>
+        <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <BookOpen className="h-8 w-8 text-brand-600" />
         </div>
-        <h3 className="text-lg font-semibold text-green-800 mb-2">
+        <h3 className="text-lg font-semibold text-brand-800 mb-2">
           Your Complete Playbook Is Ready!
         </h3>
-        <p className="text-green-700">
+        <p className="text-brand-700">
           Check your email for full access to the playbook and weekly strategic insights.
         </p>
       </div>
@@ -349,7 +349,7 @@ export function PlaybookDownloadForm({
       <div className={`text-center ${className}`}>
         <button
           onClick={() => setShowForm(true)}
-          className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-600 to-red-600 text-white font-semibold rounded-lg hover:from-orange-700 hover:to-red-700 transition-colors shadow-lg hover:shadow-xl"
+          className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brand-600 to-brand-600 text-white font-semibold rounded-lg hover:from-brand-700 hover:to-brand-700 transition-colors shadow-lg hover:shadow-xl"
         >
           <BookOpen className="h-5 w-5 mr-2" />
           Get Complete Playbook
@@ -363,9 +363,9 @@ export function PlaybookDownloadForm({
   }
 
   return (
-    <div className={`bg-white p-6 rounded-lg shadow-lg border-2 border-orange-200 ${className}`}>
+    <div className={`bg-white p-6 rounded-lg shadow-lg border-2 border-brand-200 ${className}`}>
       <div className="text-center mb-4">
-        <div className="inline-flex items-center bg-gradient-to-r from-orange-600 to-red-600 text-white px-3 py-1 rounded-full text-xs font-semibold mb-3">
+        <div className="inline-flex items-center bg-gradient-to-r from-brand-600 to-brand-600 text-white px-3 py-1 rounded-full text-xs font-semibold mb-3">
           <BookOpen className="h-3 w-3 mr-1" />
           FREE PLAYBOOK
         </div>
@@ -377,7 +377,7 @@ export function PlaybookDownloadForm({
           <input
             type="text"
             placeholder="Full name"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
             required
@@ -385,7 +385,7 @@ export function PlaybookDownloadForm({
           <input
             type="email"
             placeholder="Work email"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
             value={formData.email}
             onChange={(e) => setFormData({...formData, email: e.target.value})}
             required
@@ -395,13 +395,13 @@ export function PlaybookDownloadForm({
           <input
             type="text"
             placeholder="Company name"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
             value={formData.company}
             onChange={(e) => setFormData({...formData, company: e.target.value})}
             required
           />
           <select
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
             value={formData.monthlyBudget}
             onChange={(e) => setFormData({...formData, monthlyBudget: e.target.value})}
             required
@@ -415,7 +415,7 @@ export function PlaybookDownloadForm({
         </div>
         <textarea
           placeholder="What's your biggest marketing challenge right now?"
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
           rows={2}
           value={formData.goals}
           onChange={(e) => setFormData({...formData, goals: e.target.value})}
@@ -423,7 +423,7 @@ export function PlaybookDownloadForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
+          className="w-full bg-gradient-to-r from-brand-600 to-brand-600 hover:from-brand-700 hover:to-brand-700 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
         >
           {isSubmitting ? (
             <>
@@ -507,17 +507,17 @@ export function ServiceTierForm({
 
   if (isSubmitted) {
     return (
-      <div className={`text-center p-6 bg-green-50 rounded-lg border-2 border-green-200 ${className}`}>
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Play className="h-8 w-8 text-green-600" />
+      <div className={`text-center p-6 bg-brand-50 rounded-lg border-2 border-brand-200 ${className}`}>
+        <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <Play className="h-8 w-8 text-brand-600" />
         </div>
-        <h3 className="text-lg font-semibold text-green-800 mb-2">
+        <h3 className="text-lg font-semibold text-brand-800 mb-2">
           Your FREE Week Starts Monday!
         </h3>
-        <p className="text-green-700 mb-2">
+        <p className="text-brand-700 mb-2">
           <strong>{currentTier.name}</strong> tier activated successfully.
         </p>
-        <p className="text-green-600 text-sm">
+        <p className="text-brand-600 text-sm">
           Check your email for your welcome guide and first set of templates.
         </p>
       </div>
@@ -529,7 +529,7 @@ export function ServiceTierForm({
       <div className={`text-center ${className}`}>
         <button
           onClick={() => setShowForm(true)}
-          className="inline-flex items-center px-6 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-lg hover:from-green-700 hover:to-emerald-700 transition-colors shadow-lg hover:shadow-xl text-lg"
+          className="inline-flex items-center px-6 py-4 bg-gradient-to-r from-brand-600 to-brand-600 text-white font-bold rounded-lg hover:from-brand-700 hover:to-brand-700 transition-colors shadow-lg hover:shadow-xl text-lg"
         >
           <Play className="h-5 w-5 mr-2" />
           Start Your FREE Week
@@ -543,9 +543,9 @@ export function ServiceTierForm({
   }
 
   return (
-    <div className={`bg-white p-6 rounded-lg shadow-lg border-2 border-green-200 ${className}`}>
+    <div className={`bg-white p-6 rounded-lg shadow-lg border-2 border-brand-200 ${className}`}>
       <div className="text-center mb-4">
-        <div className="inline-flex items-center bg-gradient-to-r from-green-600 to-emerald-600 text-white px-3 py-1 rounded-full text-xs font-semibold mb-3">
+        <div className="inline-flex items-center bg-gradient-to-r from-brand-600 to-brand-600 text-white px-3 py-1 rounded-full text-xs font-semibold mb-3">
           <TierIcon className="h-3 w-3 mr-1" />
           FREE WEEK TRIAL
         </div>
@@ -557,7 +557,7 @@ export function ServiceTierForm({
           <input
             type="text"
             placeholder="Full name"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-brand-500 text-sm"
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
             required
@@ -565,7 +565,7 @@ export function ServiceTierForm({
           <input
             type="email"
             placeholder="Work email"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-brand-500 text-sm"
             value={formData.email}
             onChange={(e) => setFormData({...formData, email: e.target.value})}
             required
@@ -575,13 +575,13 @@ export function ServiceTierForm({
           <input
             type="text"
             placeholder="Company name"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-brand-500 text-sm"
             value={formData.company}
             onChange={(e) => setFormData({...formData, company: e.target.value})}
             required
           />
           <select
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-brand-500 text-sm"
             value={formData.monthlyBudget}
             onChange={(e) => setFormData({...formData, monthlyBudget: e.target.value})}
             required
@@ -597,7 +597,7 @@ export function ServiceTierForm({
         </div>
         <textarea
           placeholder="What are your main marketing goals? (e.g., increase app downloads, grow subscriptions, improve conversion rates)"
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-brand-500 text-sm"
           rows={3}
           value={formData.goals}
           onChange={(e) => setFormData({...formData, goals: e.target.value})}
@@ -606,7 +606,7 @@ export function ServiceTierForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
+          className="w-full bg-gradient-to-r from-brand-600 to-brand-600 hover:from-brand-700 hover:to-brand-700 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
         >
           {isSubmitting ? (
             <>

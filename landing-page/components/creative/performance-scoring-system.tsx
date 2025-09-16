@@ -56,28 +56,28 @@ const scoringCriteria = [
   {
     icon: <Heart className="h-5 w-5" />,
     name: "Emotional Resonance", 
-    color: "text-red-500",
+    color: "text-brand-500",
     description: "Triggers specific emotions?",
     details: ["Life Force 8 connection", "Emotional identification", "Powerful feeling"]
   },
   {
     icon: <Target className="h-5 w-5" />,
     name: "Benefit Clarity",
-    color: "text-green-500", 
+    color: "text-brand-500", 
     description: "Core promise clear?",
     details: ["Immediate understanding", "Unique mechanisms", "What's in it for me"]
   },
   {
     icon: <Zap className="h-5 w-5" />,
     name: "Call-to-Action",
-    color: "text-orange-500",
+    color: "text-brand-500",
     description: "Creates urgency to act?",
     details: ["Clear next step", "Urgency/desire", "Overcomes objections"]
   },
   {
     icon: <Brain className="h-5 w-5" />,
     name: "Memorability",
-    color: "text-purple-500",
+    color: "text-brand-500",
     description: "Contains sticky elements?",
     details: ["Conversation worthy", "Shareable component", "Brand association"]
   }
@@ -85,22 +85,22 @@ const scoringCriteria = [
 
 const verdictConfig = {
   green: {
-    color: "text-green-600",
-    bg: "bg-green-50 border-green-200",
+    color: "text-brand-600",
+    bg: "bg-brand-50 border-brand-200",
     icon: <CheckCircle className="h-5 w-5" />,
     label: "Green Light",
     description: "Exceptional potential - proceed immediately"
   },
   yellow: {
-    color: "text-yellow-600", 
-    bg: "bg-yellow-50 border-yellow-200",
+    color: "text-brand-600", 
+    bg: "bg-brand-50 border-brand-200",
     icon: <AlertCircle className="h-5 w-5" />,
     label: "Optimize",
     description: "Good foundation - improve weaker areas"
   },
   red: {
-    color: "text-red-600",
-    bg: "bg-red-50 border-red-200", 
+    color: "text-brand-600",
+    bg: "bg-brand-50 border-brand-200", 
     icon: <AlertCircle className="h-5 w-5" />,
     label: "Rework",
     description: "Unlikely to perform - needs major changes"
@@ -126,7 +126,7 @@ export function PerformanceScoringSystem() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-100 to-blue-100 text-green-800 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand-100 to-blue-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
               <Star className="h-4 w-4 mr-2" />
               Performance Prediction Framework
             </div>
@@ -215,8 +215,8 @@ export function PerformanceScoringSystem() {
                         <div className="w-full bg-gray-200 rounded-full h-2">
                           <div 
                             className={`h-2 rounded-full transition-all duration-1000 ${
-                              score >= 4 ? 'bg-green-500' : 
-                              score >= 3 ? 'bg-yellow-500' : 'bg-red-500'
+                              score >= 4 ? 'bg-brand-500' : 
+                              score >= 3 ? 'bg-brand-500' : 'bg-brand-500'
                             }`}
                             style={{ width: `${(score / 5) * 100}%` }}
                           ></div>
@@ -246,8 +246,8 @@ export function PerformanceScoringSystem() {
                     <h4 className="text-lg font-bold text-gray-900">Total Score</h4>
                     <div className="text-right">
                       <div className={`text-3xl font-bold ${
-                        example.total >= 21 ? 'text-green-600' :
-                        example.total >= 16 ? 'text-yellow-600' : 'text-red-600'
+                        example.total >= 21 ? 'text-brand-600' :
+                        example.total >= 16 ? 'text-brand-600' : 'text-brand-600'
                       } ${animateScores ? 'animate-pulse' : ''}`}>
                         {example.total}
                       </div>
@@ -265,18 +265,18 @@ export function PerformanceScoringSystem() {
                 </h4>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center">
-                    <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
-                    <span className="text-green-400 font-semibold mr-2">21-25:</span>
+                    <div className="w-3 h-3 bg-brand-500 rounded-full mr-3"></div>
+                    <span className="text-brand-400 font-semibold mr-2">21-25:</span>
                     <span className="text-gray-300">Green light - exceptional potential</span>
                   </div>
                   <div className="flex items-center">
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
-                    <span className="text-yellow-400 font-semibold mr-2">16-20:</span>
+                    <div className="w-3 h-3 bg-brand-500 rounded-full mr-3"></div>
+                    <span className="text-brand-400 font-semibold mr-2">16-20:</span>
                     <span className="text-gray-300">Proceed with optimizations</span>
                   </div>
                   <div className="flex items-center">
-                    <div className="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
-                    <span className="text-red-400 font-semibold mr-2">Below 16:</span>
+                    <div className="w-3 h-3 bg-brand-500 rounded-full mr-3"></div>
+                    <span className="text-brand-400 font-semibold mr-2">Below 16:</span>
                     <span className="text-gray-300">Rework - unlikely to perform</span>
                   </div>
                 </div>

@@ -7,7 +7,7 @@ export function BusinessInfoSection({ formData, handleInputChange }: FormSection
   return (
     <div>
       <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-        <Building2 className="h-5 w-5 mr-2 text-green-600" />
+        <Building2 className="h-5 w-5 mr-2 text-brand-600" />
         Business Information
       </h3>
       <div className="space-y-4">

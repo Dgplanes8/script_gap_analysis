@@ -4,6 +4,7 @@ import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { CACReductionCalculator } from '@/components/calculators/cac-reduction-calculator';
 import { Header } from '@/components/layout/secondary-header';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Customer Acquisition Cost Reduction: Step-by-Step Implementation Guide | Strategic Ad Intelligence',
@@ -52,7 +53,7 @@ export default function CACReductionGuidePage() {
       {/* Header Navigation */}
       <Header />
       
-      <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100 pt-16 lg:pt-20">
+      <div className="min-h-screen bg-gradient-to-br from-brand-50 to-brand-100 pt-16 lg:pt-20">
 
         {/* Hero Section */}
         <section className="relative pt-24 pb-20 px-6 overflow-hidden bg-white">
@@ -74,32 +75,22 @@ export default function CACReductionGuidePage() {
             {/* Trust Indicators */}
             <div className="flex flex-wrap justify-center items-center gap-8 mb-12 text-sm text-gray-600">
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                 11-Phase systematic approach
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                 $100M+ ad spend managed
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                 Implementation templates included
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/free-hooks"
-                className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
-                Get 10 Free Hooks + CAC Guide
-              </a>
-              <a
-                href="/#service-tiers"
-                className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
-                See Weekly Plans
-              </a>
+              <FreeWeekButton source="cac_reduction_guide-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="cac_reduction_guide-cta" className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </section>
@@ -345,19 +336,19 @@ export default function CACReductionGuidePage() {
                   <h4 className="font-semibold mb-4">Strategic Approach:</h4>
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">✓</span>
+                      <span className="text-brand-500 mr-2">✓</span>
                       Identified 3 high-LTV customer micro-segments
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">✓</span>
+                      <span className="text-brand-500 mr-2">✓</span>
                       Optimized channel mix based on segment preferences
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">✓</span>
+                      <span className="text-brand-500 mr-2">✓</span>
                       Developed segment-specific creative strategies
                     </li>
                     <li className="flex items-start">
-                      <span className="text-green-500 mr-2">✓</span>
+                      <span className="text-brand-500 mr-2">✓</span>
                       Implemented attribution modeling for accurate measurement
                     </li>
                   </ul>
@@ -369,8 +360,8 @@ export default function CACReductionGuidePage() {
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">Blended CAC</span>
                         <div className="text-right">
-                          <div className="text-red-600 line-through">$340</div>
-                          <div className="text-green-600 font-bold">$195</div>
+                          <div className="text-brand-600 line-through">$340</div>
+                          <div className="text-brand-600 font-bold">$195</div>
                         </div>
                       </div>
                     </div>
@@ -378,21 +369,21 @@ export default function CACReductionGuidePage() {
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">LTV:CAC Ratio</span>
                         <div className="text-right">
-                          <div className="text-red-600 line-through">3.5:1</div>
-                          <div className="text-green-600 font-bold">6.2:1</div>
+                          <div className="text-brand-600 line-through">3.5:1</div>
+                          <div className="text-brand-600 font-bold">6.2:1</div>
                         </div>
                       </div>
                     </div>
                     <div className="bg-white p-4 rounded-lg">
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">Monthly Savings</span>
-                        <div className="text-green-600 font-bold">$87,000</div>
+                        <div className="text-brand-600 font-bold">$87,000</div>
                       </div>
                     </div>
                     <div className="bg-white p-4 rounded-lg">
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">CAC Reduction</span>
-                        <div className="text-green-600 font-bold">42.6%</div>
+                        <div className="text-brand-600 font-bold">42.6%</div>
                       </div>
                     </div>
                   </div>
@@ -503,18 +494,8 @@ export default function CACReductionGuidePage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/free-hooks"
-                className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
-                Get My 10 Free Hooks + CAC Guide
-              </a>
-              <a
-                href="/#service-tiers"
-                className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
-                See Weekly Plans
-              </a>
+              <FreeWeekButton source="cac_reduction_guide-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="cac_reduction_guide-cta" className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg">Start Free Week Trial</FreeWeekButton>
             </div>
             
             <div className="text-gray-600 mt-8 max-w-md mx-auto">
@@ -541,9 +522,7 @@ export default function CACReductionGuidePage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Interactive calculator to estimate your CAC reduction potential and ROI.
                 </p>
-                <a href="/free-hooks" className="text-[#126DFB] font-semibold hover:underline mt-auto">
-                  Get Free Hooks →
-                </a>
+                <FreeWeekButton source="cac_reduction_guide-cta" className="text-[#126DFB] font-semibold hover:underline mt-auto">Start Free Week Trial</FreeWeekButton>
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
@@ -551,9 +530,7 @@ export default function CACReductionGuidePage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Advanced tools for automated creative analysis and strategic optimization.
                 </p>
-                <a href="/free-hooks" className="text-indigo-600 font-semibold hover:underline mt-auto">
-                  Get Free Hooks →
-                </a>
+                <FreeWeekButton source="cac_reduction_guide-cta" className="text-indigo-600 font-semibold hover:underline mt-auto">Start Free Week Trial</FreeWeekButton>
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
@@ -561,9 +538,7 @@ export default function CACReductionGuidePage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Advanced attribution modeling for accurate CAC measurement and optimization.
                 </p>
-                <a href="/free-hooks" className="text-indigo-600 font-semibold hover:underline mt-auto">
-                  Get Free Hooks →
-                </a>
+                <FreeWeekButton source="cac_reduction_guide-cta" className="text-indigo-600 font-semibold hover:underline mt-auto">Start Free Week Trial</FreeWeekButton>
               </div>
             </div>
           </div>

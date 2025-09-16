@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, TrendingUp, Target, Linkedin, BarChart3, Users, Zap, Download, Calculator, BookOpen, PlayCircle, Building, UserCheck, MessageCircle, Award, Briefcase, Network } from 'lucide-react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'LinkedIn Creative Intelligence Framework: B2B Subscription Marketing Weekly Framework | Apsics Media',
@@ -356,8 +357,8 @@ export default function LinkedInCreativeIntelligenceFramework() {
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{framework.framework}</h3>
                       <p className="text-gray-700 mb-4">{framework.description}</p>
-                      <div className="bg-green-50 px-3 py-2 rounded-full inline-block">
-                        <span className="text-green-700 font-semibold text-sm">{framework.outcome}</span>
+                      <div className="bg-brand-50 px-3 py-2 rounded-full inline-block">
+                        <span className="text-brand-700 font-semibold text-sm">{framework.outcome}</span>
                       </div>
                     </div>
                   </div>
@@ -367,7 +368,7 @@ export default function LinkedInCreativeIntelligenceFramework() {
                     <div className="grid md:grid-cols-2 gap-3">
                       {framework.components.map((component, componentIndex) => (
                         <div key={componentIndex} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                           <span className="text-sm text-gray-700">{component}</span>
                         </div>
                       ))}
@@ -423,9 +424,9 @@ export default function LinkedInCreativeIntelligenceFramework() {
                       <div className="text-xs text-gray-700">{tactic.b2bFocus}</div>
                     </div>
                     
-                    <div className="bg-green-50 rounded-lg p-3">
-                      <div className="text-sm font-semibold text-green-800">Performance Impact:</div>
-                      <div className="text-xs text-green-700">{tactic.performance}</div>
+                    <div className="bg-brand-50 rounded-lg p-3">
+                      <div className="text-sm font-semibold text-brand-800">Performance Impact:</div>
+                      <div className="text-xs text-brand-700">{tactic.performance}</div>
                     </div>
                   </div>
                 </div>
@@ -462,9 +463,9 @@ export default function LinkedInCreativeIntelligenceFramework() {
                     <div className="text-xs text-gray-700">{linkedinTactics[4].b2bFocus}</div>
                   </div>
                   
-                  <div className="bg-green-50 rounded-lg p-3">
-                    <div className="text-sm font-semibold text-green-800">Performance Impact:</div>
-                    <div className="text-xs text-green-700">{linkedinTactics[4].performance}</div>
+                  <div className="bg-brand-50 rounded-lg p-3">
+                    <div className="text-sm font-semibold text-brand-800">Performance Impact:</div>
+                    <div className="text-xs text-brand-700">{linkedinTactics[4].performance}</div>
                   </div>
                 </div>
               </div>
@@ -504,7 +505,7 @@ export default function LinkedInCreativeIntelligenceFramework() {
                       <div className="grid md:grid-cols-2 gap-3">
                         {day.activities.map((activity, activityIndex) => (
                           <div key={activityIndex} className="flex items-start">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-sm text-gray-700">{activity}</span>
                           </div>
                         ))}
@@ -645,13 +646,7 @@ export default function LinkedInCreativeIntelligenceFramework() {
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-700 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View B2B Intelligence Plans
-                <Linkedin className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="linkedin_creative_intelligence_framework-cta" className="border-2 border-white text-white hover:bg-white hover:text-blue-700 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>

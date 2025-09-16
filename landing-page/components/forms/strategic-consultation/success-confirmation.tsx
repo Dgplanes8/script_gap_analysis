@@ -22,7 +22,7 @@ export function SuccessConfirmation({ onClose, handleOverlayClick }: SuccessConf
         </button>
         
         <div className="text-center">
-          <CheckCircle className="h-16 w-16 text-green-600 mx-auto mb-6" />
+          <CheckCircle className="h-16 w-16 text-brand-600 mx-auto mb-6" />
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Strategic Consultation Booked!
           </h2>

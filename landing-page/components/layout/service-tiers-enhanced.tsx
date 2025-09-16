@@ -121,13 +121,13 @@ export function ServiceTiersEnhanced() {
             Choose your plan or grab our limited-time lifetime offer. All plans include fresh custom content + scripts delivered every Monday morning.
           </p>
           <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
-            <Check className="h-4 w-4 text-green-600" />
+            <Check className="h-4 w-4 text-brand-600" />
             <span>7-day FREE trial</span>
             <span>•</span>
-            <Check className="h-4 w-4 text-green-600" />
+            <Check className="h-4 w-4 text-brand-600" />
             <span>No commitment</span>
             <span>•</span>
-            <Check className="h-4 w-4 text-green-600" />
+            <Check className="h-4 w-4 text-brand-600" />
             <span>Cancel anytime</span>
           </div>
         </div>
@@ -135,16 +135,16 @@ export function ServiceTiersEnhanced() {
         {/* Lifetime Offer - Special Highlight */}
         <div className="mb-12">
           <div className="max-w-2xl mx-auto">
-            <div className="framer-card relative overflow-hidden border-2 border-red-500 transform hover:scale-105 transition-all duration-300 shadow-2xl">
+            <div className="framer-card relative overflow-hidden border-2 border-brand-500 transform hover:scale-105 transition-all duration-300 shadow-2xl">
               {/* Urgent Badge */}
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                <div className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full shadow-lg">
+                <div className="bg-gradient-to-r from-brand-500 to-brand-600 text-white px-6 py-2 rounded-full shadow-lg">
                   <span className="framer-body-small font-bold">⚡ LIMITED TIME - FIRST 100 FOUNDERS</span>
                 </div>
               </div>
               
               <div className="pt-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-xl flex items-center justify-center bg-gradient-to-br from-red-500 to-red-600">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-xl flex items-center justify-center bg-gradient-to-br from-brand-500 to-brand-600">
                   <Crown className="h-8 w-8 text-white" />
                 </div>
                 
@@ -166,7 +166,7 @@ export function ServiceTiersEnhanced() {
                 <ul className="space-y-3 mb-6 text-left">
                   {lifetimeOffer.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
-                      <Check className="h-4 w-4 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                      <Check className="h-4 w-4 text-brand-500 mr-3 mt-1 flex-shrink-0" />
                       <span className="body-small brand-text-secondary">{feature}</span>
                     </li>
                   ))}
@@ -257,7 +257,7 @@ export function ServiceTiersEnhanced() {
                   <ul className="space-y-3 mb-6">
                     {tier.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
-                        <Check className="h-4 w-4 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                        <Check className="h-4 w-4 text-brand-500 mr-3 mt-1 flex-shrink-0" />
                         <span className="framer-body-small framer-text">{feature}</span>
                       </li>
                     ))}
@@ -292,7 +292,7 @@ export function ServiceTiersEnhanced() {
         <div className="mt-16 text-center">
           <div className="max-w-xl mx-auto framer-card bg-gradient-to-r from-gray-900 to-gray-800 text-white">
             <div className="flex items-center justify-center mb-4">
-              <Building2 className="h-6 w-6 text-orange-400 mr-2" />
+              <Building2 className="h-6 w-6 text-brand-400 mr-2" />
               <h3 className="framer-heading-4 text-white">Enterprise</h3>
             </div>
             
@@ -302,7 +302,7 @@ export function ServiceTiersEnhanced() {
             
             <button 
               onClick={() => openConsultation()}
-              className="bg-orange-500 hover:bg-orange-600 text-white btn-framer border-0"
+              className="bg-brand-500 hover:bg-brand-600 text-white btn-framer border-0"
             >
               <Calendar className="mr-2 h-4 w-4" />
               <span className="framer-body-bold">Book Strategy Call</span>
@@ -361,7 +361,7 @@ export function ServiceTiersEnhanced() {
         
         {/* Money Back Guarantee - Framer Style */}
         <div className="mt-12 text-center">
-          <div className="inline-flex items-center bg-green-50 text-green-800 px-6 py-3 rounded-full">
+          <div className="inline-flex items-center bg-brand-50 text-brand-800 px-6 py-3 rounded-full">
             <Check className="h-5 w-5 mr-2" />
             <span className="framer-body-small font-medium">7-day free trial • Cancel anytime • No long-term contracts</span>
           </div>

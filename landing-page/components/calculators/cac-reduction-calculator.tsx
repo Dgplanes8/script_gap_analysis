@@ -213,16 +213,16 @@ export function CACReductionCalculator() {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Current CAC</span>
-                    <span className="text-red-600 font-semibold">${inputs.currentCAC}</span>
+                    <span className="text-brand-600 font-semibold">${inputs.currentCAC}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Optimized CAC</span>
-                    <span className="text-green-600 font-bold">${results.optimizedMetrics.reducedCAC.toFixed(0)}</span>
+                    <span className="text-brand-600 font-bold">${results.optimizedMetrics.reducedCAC.toFixed(0)}</span>
                   </div>
                   <div className="flex justify-between items-center border-t pt-2">
                     <span className="font-semibold">Reduction</span>
                     <div className="text-right">
-                      <div className="text-green-600 font-bold">
+                      <div className="text-brand-600 font-bold">
                         {results.optimizedMetrics.reductionPercentage.toFixed(1)}%
                       </div>
                     </div>
@@ -231,20 +231,20 @@ export function CACReductionCalculator() {
               </div>
 
               {/* Savings Projection */}
-              <div className="bg-green-50 rounded-lg p-6">
-                <h5 className="font-semibold mb-4 text-green-800">Projected Savings</h5>
+              <div className="bg-brand-50 rounded-lg p-6">
+                <h5 className="font-semibold mb-4 text-brand-800">Projected Savings</h5>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600">
+                    <div className="text-2xl font-bold text-brand-600">
                       ${results.optimizedMetrics.monthlySavings.toLocaleString()}
                     </div>
-                    <div className="text-sm text-green-700">Monthly Savings</div>
+                    <div className="text-sm text-brand-700">Monthly Savings</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600">
+                    <div className="text-2xl font-bold text-brand-600">
                       ${results.optimizedMetrics.annualSavings.toLocaleString()}
                     </div>
-                    <div className="text-sm text-green-700">Annual Savings</div>
+                    <div className="text-sm text-brand-700">Annual Savings</div>
                   </div>
                 </div>
               </div>
@@ -269,14 +269,14 @@ export function CACReductionCalculator() {
               </div>
 
               {/* Recommendations */}
-              <div className="bg-yellow-50 rounded-lg p-6">
-                <h5 className="font-semibold mb-4 text-yellow-800 flex items-center">
+              <div className="bg-brand-50 rounded-lg p-6">
+                <h5 className="font-semibold mb-4 text-brand-800 flex items-center">
                   <Target className="h-5 w-5 mr-2" />
                   Strategic Recommendations
                 </h5>
                 <ul className="space-y-2">
                   {results.recommendations.map((rec, index) => (
-                    <li key={index} className="flex items-start text-sm text-yellow-800">
+                    <li key={index} className="flex items-start text-sm text-brand-800">
                       <TrendingDown className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
                       {rec}
                     </li>

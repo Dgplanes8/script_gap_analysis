@@ -19,7 +19,7 @@ export function CalculatorProgress({ currentStep, totalSteps, progress }: Calcul
       </div>
       <div className="w-full bg-gray-200 rounded-full h-2">
         <div 
-          className="bg-gradient-to-r from-indigo-500 to-purple-600 h-2 rounded-full transition-all duration-500 ease-out"
+          className="bg-gradient-to-r from-indigo-500 to-brand-600 h-2 rounded-full transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}
         />
       </div>

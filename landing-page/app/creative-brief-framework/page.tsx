@@ -31,19 +31,19 @@ export default function CreativeBriefFrameworkPage() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-teal-50 to-blue-50">
+        <section className="py-16 bg-gradient-to-br from-brand-50 to-blue-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <Link 
                 href="/"
-                className="inline-flex items-center text-teal-600 hover:text-teal-700 mb-8 transition-colors"
+                className="inline-flex items-center text-brand-600 hover:text-brand-700 mb-8 transition-colors"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Home
               </Link>
               
               <div className="text-center mb-12">
-                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-teal-100 to-blue-100 text-teal-800 rounded-full text-sm font-semibold mb-6">
+                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand-100 to-blue-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
                   <FileText className="h-4 w-4 mr-2" />
                   Creative Brief Framework
                 </div>
@@ -57,7 +57,7 @@ export default function CreativeBriefFrameworkPage() {
 
               <div className="grid md:grid-cols-3 gap-6 mb-12">
                 <div className="bg-white rounded-xl p-6 shadow-lg border">
-                  <Target className="h-8 w-8 text-teal-600 mb-4" />
+                  <Target className="h-8 w-8 text-brand-600 mb-4" />
                   <h3 className="text-lg font-semibold mb-2">Strategic Focus</h3>
                   <p className="text-gray-600 text-sm">Every brief aligns creative execution with business objectives and audience psychology.</p>
                 </div>
@@ -67,7 +67,7 @@ export default function CreativeBriefFrameworkPage() {
                   <p className="text-gray-600 text-sm">Repeatable framework that ensures consistency across all creative development projects.</p>
                 </div>
                 <div className="bg-white rounded-xl p-6 shadow-lg border">
-                  <CheckCircle className="h-8 w-8 text-green-600 mb-4" />
+                  <CheckCircle className="h-8 w-8 text-brand-600 mb-4" />
                   <h3 className="text-lg font-semibold mb-2">Production-Ready</h3>
                   <p className="text-gray-600 text-sm">Briefs include all technical specifications and performance requirements for immediate execution.</p>
                 </div>
@@ -95,9 +95,9 @@ export default function CreativeBriefFrameworkPage() {
                   </p>
                   
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div className="p-4 bg-teal-50 rounded-lg">
-                      <h4 className="font-semibold text-teal-900 mb-2">Business Objectives</h4>
-                      <ul className="text-sm text-teal-800 space-y-1">
+                    <div className="p-4 bg-brand-50 rounded-lg">
+                      <h4 className="font-semibold text-brand-900 mb-2">Business Objectives</h4>
+                      <ul className="text-sm text-brand-800 space-y-1">
                         <li>• Primary conversion goal</li>
                         <li>• Target cost per acquisition</li>
                         <li>• Attribution window requirements</li>
@@ -124,21 +124,21 @@ export default function CreativeBriefFrameworkPage() {
                   
                   <div className="space-y-4">
                     <div className="flex items-start">
-                      <div className="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">1</div>
+                      <div className="w-8 h-8 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">1</div>
                       <div>
                         <h4 className="font-semibold text-gray-900">Concept Generation</h4>
                         <p className="text-sm text-gray-600">Develop 3-5 strategic concepts based on audience insights and competitive analysis.</p>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">2</div>
+                      <div className="w-8 h-8 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">2</div>
                       <div>
                         <h4 className="font-semibold text-gray-900">Hook Development</h4>
                         <p className="text-sm text-gray-600">Create platform-specific hooks that align with each concept's strategic positioning.</p>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">3</div>
+                      <div className="w-8 h-8 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">3</div>
                       <div>
                         <h4 className="font-semibold text-gray-900">Performance Scoring</h4>
                         <p className="text-sm text-gray-600">Evaluate each concept using our 25-point performance prediction framework.</p>
@@ -187,16 +187,16 @@ export default function CreativeBriefFrameworkPage() {
                     Ensure successful creative execution with clear implementation and testing protocols.
                   </p>
                   
-                  <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-                    <h4 className="font-semibold text-yellow-900 mb-3">Best Practices Checklist</h4>
+                  <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                    <h4 className="font-semibold text-brand-900 mb-3">Best Practices Checklist</h4>
                     <div className="grid md:grid-cols-2 gap-4">
-                      <ul className="text-sm text-yellow-800 space-y-2">
+                      <ul className="text-sm text-brand-800 space-y-2">
                         <li>✓ Hook tested within first 3 seconds</li>
                         <li>✓ Clear value proposition communicated</li>
                         <li>✓ Single, specific call-to-action</li>
                         <li>✓ Brand assets properly integrated</li>
                       </ul>
-                      <ul className="text-sm text-yellow-800 space-y-2">
+                      <ul className="text-sm text-brand-800 space-y-2">
                         <li>✓ Platform optimization verified</li>
                         <li>✓ Performance benchmarks established</li>
                         <li>✓ A/B testing variations prepared</li>

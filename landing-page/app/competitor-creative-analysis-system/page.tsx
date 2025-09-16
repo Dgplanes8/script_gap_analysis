@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, TrendingUp, Target, Eye, BarChart3, Users, Zap, Download, Calculator, BookOpen, PlayCircle, Search, Layers, Filter, Activity, AlertCircle, Brain } from 'lucide-react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Competitor Creative Analysis System: Weekly Intelligence for SaaS Growth Teams | Apsics Media',
@@ -146,7 +147,7 @@ export default function CompetitorCreativeAnalysisSystem() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-teal-600 text-white py-16">
+      <section className="bg-gradient-to-r from-blue-600 to-brand-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -218,8 +219,8 @@ export default function CompetitorCreativeAnalysisSystem() {
               
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <AlertCircle className="h-8 w-8 text-red-600" />
+                  <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <AlertCircle className="h-8 w-8 text-brand-600" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-3">Reactive Analysis</h3>
                   <p className="text-gray-600 text-sm">
@@ -229,8 +230,8 @@ export default function CompetitorCreativeAnalysisSystem() {
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Filter className="h-8 w-8 text-yellow-600" />
+                  <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Filter className="h-8 w-8 text-brand-600" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-3">Surface-Level Insights</h3>
                   <p className="text-gray-600 text-sm">
@@ -251,7 +252,7 @@ export default function CompetitorCreativeAnalysisSystem() {
                 </div>
               </div>
               
-              <div className="bg-gradient-to-r from-blue-50 to-teal-50 rounded-xl p-8">
+              <div className="bg-gradient-to-r from-blue-50 to-brand-50 rounded-xl p-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   The SaaS Competitive Analysis Problem
                 </h3>
@@ -298,7 +299,7 @@ export default function CompetitorCreativeAnalysisSystem() {
               {analysisModules.map((module, index) => (
                 <div key={index} className="bg-white rounded-2xl p-8 shadow-lg">
                   <div className="flex items-start mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-teal-500 text-white rounded-xl flex items-center justify-center font-bold text-lg mr-6 flex-shrink-0">
+                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-brand-500 text-white rounded-xl flex items-center justify-center font-bold text-lg mr-6 flex-shrink-0">
                       <module.icon className="h-8 w-8" />
                     </div>
                     <div className="flex-1">
@@ -308,8 +309,8 @@ export default function CompetitorCreativeAnalysisSystem() {
                         <div className="bg-blue-50 px-3 py-1 rounded-full">
                           <span className="text-blue-700 font-semibold">{module.frequency}</span>
                         </div>
-                        <div className="bg-green-50 px-3 py-1 rounded-full">
-                          <span className="text-green-700 font-semibold">{module.output}</span>
+                        <div className="bg-brand-50 px-3 py-1 rounded-full">
+                          <span className="text-brand-700 font-semibold">{module.output}</span>
                         </div>
                       </div>
                     </div>
@@ -320,7 +321,7 @@ export default function CompetitorCreativeAnalysisSystem() {
                     <div className="grid md:grid-cols-2 gap-3">
                       {module.capabilities.map((capability, capabilityIndex) => (
                         <div key={capabilityIndex} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                           <span className="text-sm text-gray-700">{capability}</span>
                         </div>
                       ))}
@@ -352,7 +353,7 @@ export default function CompetitorCreativeAnalysisSystem() {
                   <div className="grid md:grid-cols-3 gap-8">
                     <div>
                       <div className="flex items-center mb-4">
-                        <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
+                        <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-brand-500 text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
                           {index + 1}
                         </div>
                         <div>
@@ -373,7 +374,7 @@ export default function CompetitorCreativeAnalysisSystem() {
                     </div>
                     
                     <div className="md:col-span-2">
-                      <div className="bg-gradient-to-r from-blue-50 to-teal-50 rounded-lg p-6 border border-blue-200">
+                      <div className="bg-gradient-to-r from-blue-50 to-brand-50 rounded-lg p-6 border border-blue-200">
                         <div className="text-sm font-semibold text-gray-900 mb-3">Key Metrics & Analysis Tools:</div>
                         
                         <div className="grid md:grid-cols-2 gap-4">
@@ -394,7 +395,7 @@ export default function CompetitorCreativeAnalysisSystem() {
                             <div className="space-y-1 text-xs">
                               {framework.metrics.slice(2, 4).map((metric, metricIndex) => (
                                 <div key={metricIndex} className="flex items-center">
-                                  <Activity className="h-3 w-3 text-teal-500 mr-2" />
+                                  <Activity className="h-3 w-3 text-brand-500 mr-2" />
                                   {metric}
                                 </div>
                               ))}
@@ -459,7 +460,7 @@ export default function CompetitorCreativeAnalysisSystem() {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       WED
                     </div>
                     <div className="flex-1">
@@ -472,7 +473,7 @@ export default function CompetitorCreativeAnalysisSystem() {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="w-12 h-12 bg-teal-500 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="w-12 h-12 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       THU
                     </div>
                     <div className="flex-1">
@@ -485,7 +486,7 @@ export default function CompetitorCreativeAnalysisSystem() {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       FRI
                     </div>
                     <div className="flex-1">
@@ -499,7 +500,7 @@ export default function CompetitorCreativeAnalysisSystem() {
                 </div>
               </div>
               
-              <div className="bg-gradient-to-r from-blue-50 to-teal-50 rounded-xl p-8">
+              <div className="bg-gradient-to-r from-blue-50 to-brand-50 rounded-xl p-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-6">Weekly Intelligence Deliverables</h3>
                 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -567,14 +568,14 @@ export default function CompetitorCreativeAnalysisSystem() {
               
               <div className="bg-white rounded-xl p-6 shadow-lg border">
                 <div className="flex items-center mb-4">
-                  <Brain className="h-6 w-6 text-teal-600 mr-3" />
+                  <Brain className="h-6 w-6 text-brand-600 mr-3" />
                   <h3 className="text-lg font-bold text-gray-900">Strategic Analysis Resources</h3>
                 </div>
                 
                 <div className="space-y-3">
                   <Link 
                     href="/ai-enhanced-creative-intelligence-framework"
-                    className="block p-3 bg-teal-50 rounded-lg hover:bg-teal-100 transition-colors"
+                    className="block p-3 bg-brand-50 rounded-lg hover:bg-brand-100 transition-colors"
                   >
                     <h4 className="font-semibold text-gray-900 text-sm">AI-Enhanced Analysis Framework</h4>
                     <p className="text-xs text-gray-600">AI-powered competitive intelligence and pattern recognition system</p>
@@ -597,7 +598,7 @@ export default function CompetitorCreativeAnalysisSystem() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-teal-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-brand-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -636,13 +637,7 @@ export default function CompetitorCreativeAnalysisSystem() {
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View Intelligence Plans
-                <BarChart3 className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="competitor_creative_analysis_system-cta" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>

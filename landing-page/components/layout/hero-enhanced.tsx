@@ -58,7 +58,7 @@ export function HeroEnhanced({
             transform: `rotate(${logo.rotation})`,
           }}
         >
-          <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-xl flex items-center justify-center">
+          <div className="w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-500 rounded-xl flex items-center justify-center">
             <Zap className="h-8 w-8 text-white" />
           </div>
         </div>
@@ -110,7 +110,7 @@ export function HeroEnhanced({
                 const Icon = indicator.icon;
                 return (
                   <div key={index} className="flex items-center gap-2">
-                    <Icon className="h-4 w-4 text-orange-500" />
+                    <Icon className="h-4 w-4 text-brand-500" />
                     <span>{indicator.text}</span>
                   </div>
                 );
@@ -121,7 +121,7 @@ export function HeroEnhanced({
             <div className="mt-8 flex items-center gap-2 justify-center lg:justify-start">
               <div className="flex">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  <Star key={star} className="h-5 w-5 fill-brand-400 text-brand-400" />
                 ))}
               </div>
               <span className="framer-body framer-text font-medium">4.9/5 from 200+ reviews</span>
@@ -145,7 +145,7 @@ export function HeroEnhanced({
                     </div>
                     
                     {/* Placeholder text for missing asset */}
-                    <div className="absolute bottom-4 left-4 bg-yellow-100 text-yellow-800 px-3 py-1 rounded text-sm">
+                    <div className="absolute bottom-4 left-4 bg-brand-100 text-brand-800 px-3 py-1 rounded text-sm">
                       [ASSET NEEDED: Demo Video/Screenshot]
                     </div>
                   </div>
@@ -165,11 +165,11 @@ export function HeroEnhanced({
             {/* Quick Stats - Framer Style */}
             <div className="mt-6 grid grid-cols-3 gap-4 text-center">
               <div>
-                <div className="framer-heading-3 text-orange-600">3x</div>
+                <div className="framer-heading-3 text-brand-600">3x</div>
                 <div className="framer-body-small framer-text">Higher CTR</div>
               </div>
               <div>
-                <div className="framer-heading-3 text-green-600">47%</div>
+                <div className="framer-heading-3 text-brand-600">47%</div>
                 <div className="framer-body-small framer-text">Lower CAC</div>
               </div>
               <div>
@@ -181,12 +181,12 @@ export function HeroEnhanced({
             {/* Floating Elements - Framer Style */}
             <div className="absolute -top-4 -right-4 framer-bg-white p-4 rounded-xl shadow-lg z-20">
               <div className="flex items-center gap-2">
-                <Check className="h-5 w-5 text-green-500" />
+                <Check className="h-5 w-5 text-brand-500" />
                 <span className="framer-body-small font-semibold">First Week FREE</span>
               </div>
             </div>
             
-            <div className="absolute -bottom-4 -left-4 bg-orange-500 text-white p-4 rounded-xl shadow-lg z-20">
+            <div className="absolute -bottom-4 -left-4 bg-brand-500 text-white p-4 rounded-xl shadow-lg z-20">
               <div className="framer-body-small font-semibold">Weekly Delivery</div>
               <div className="text-xs opacity-90">Every Monday</div>
             </div>

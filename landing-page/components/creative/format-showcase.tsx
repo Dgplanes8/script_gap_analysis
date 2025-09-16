@@ -218,7 +218,7 @@ export function FormatShowcase() {
                     <div className="flex-1">
                       <h3 className="font-semibold text-gray-900">{format.name}</h3>
                       <div className="flex items-center mt-1">
-                        <Star className="h-3 w-3 text-yellow-500 mr-1" />
+                        <Star className="h-3 w-3 text-brand-500 mr-1" />
                         <span className="text-xs text-gray-600">{format.conversionStrength}/10 conversion</span>
                       </div>
                     </div>

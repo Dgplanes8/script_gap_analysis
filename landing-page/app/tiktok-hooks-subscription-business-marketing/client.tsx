@@ -245,17 +245,17 @@ export function TikTokHooksClient() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-pink-50">
+        <section className="py-16 bg-gradient-to-br from-brand-50 to-brand-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center px-4 py-2 bg-brand-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
                 <Play className="h-4 w-4 mr-2" />
                 TikTok Marketing Strategy
               </div>
               
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 25 TikTok Hooks That Convert for 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600"> Subscription Businesses</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-600"> Subscription Businesses</span>
               </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
@@ -265,15 +265,15 @@ export function TikTokHooksClient() {
               
               <div className="flex flex-wrap justify-center items-center gap-6 mb-8 text-sm text-gray-600">
                 <div className="flex items-center">
-                  <Clock className="h-4 w-4 mr-2 text-purple-600" />
+                  <Clock className="h-4 w-4 mr-2 text-brand-600" />
                   15-minute read
                 </div>
                 <div className="flex items-center">
-                  <Users className="h-4 w-4 mr-2 text-purple-600" />
+                  <Users className="h-4 w-4 mr-2 text-brand-600" />
                   For subscription businesses
                 </div>
                 <div className="flex items-center">
-                  <TrendingUp className="h-4 w-4 mr-2 text-purple-600" />
+                  <TrendingUp className="h-4 w-4 mr-2 text-brand-600" />
                   Viral optimization
                 </div>
               </div>
@@ -294,9 +294,9 @@ export function TikTokHooksClient() {
                   achieve 3.8x higher engagement rates and 67% lower customer acquisition costs compared to traditional advertising.
                 </p>
                 
-                <div className="bg-purple-50 border-l-4 border-purple-500 p-6 mb-8">
-                  <h3 className="text-lg font-semibold text-purple-900 mb-3">The TikTok Advantage for Subscriptions</h3>
-                  <p className="text-purple-800">
+                <div className="bg-brand-50 border-l-4 border-brand-500 p-6 mb-8">
+                  <h3 className="text-lg font-semibold text-brand-900 mb-3">The TikTok Advantage for Subscriptions</h3>
+                  <p className="text-brand-800">
                     TikTok's algorithm favors authentic, educational content that provides immediate value—exactly what subscription 
                     businesses need to build trust and demonstrate expertise before asking for a recurring commitment.
                   </p>
@@ -315,9 +315,9 @@ export function TikTokHooksClient() {
                   TikTok users expect authentic, unpolished content that feels native to the platform, not scripted promotional videos.
                 </p>
                 
-                <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-8">
-                  <h4 className="font-semibold text-red-900 mb-2">Common TikTok Mistakes for Subscription Businesses:</h4>
-                  <ul className="text-red-800 space-y-1">
+                <div className="bg-brand-50 border-l-4 border-brand-500 p-6 mb-8">
+                  <h4 className="font-semibold text-brand-900 mb-2">Common TikTok Mistakes for Subscription Businesses:</h4>
+                  <ul className="text-brand-800 space-y-1">
                     <li>• Using overly produced, "marketing-y" content that feels inauthentic</li>
                     <li>• Leading with product features instead of customer problems</li>
                     <li>• Ignoring TikTok's unique cultural language and trends</li>
@@ -330,11 +330,11 @@ export function TikTokHooksClient() {
                   entertains, or inspires—while subtly demonstrating their value proposition through storytelling.
                 </p>
                 
-                <div className="bg-green-50 border-l-4 border-green-500 p-6 mb-8">
-                  <h4 className="font-semibold text-green-900 mb-2">Complementary Marketing Resources:</h4>
-                  <div className="space-y-2 text-green-800">
-                    <p>• <a href="/facebook-ad-hooks-d2c-subscription-marketing" className="underline hover:text-green-600">Facebook Ad Hook Strategy</a> - 15 winning hooks for Facebook advertising</p>
-                    <p>• <a href="/reduce-customer-acquisition-cost-subscription-business" className="underline hover:text-green-600">CAC Reduction Framework</a> - Reduce customer acquisition cost by 20%</p>
+                <div className="bg-brand-50 border-l-4 border-brand-500 p-6 mb-8">
+                  <h4 className="font-semibold text-brand-900 mb-2">Complementary Marketing Resources:</h4>
+                  <div className="space-y-2 text-brand-800">
+                    <p>• <a href="/facebook-ad-hooks-d2c-subscription-marketing" className="underline hover:text-brand-600">Facebook Ad Hook Strategy</a> - 15 winning hooks for Facebook advertising</p>
+                    <p>• <a href="/reduce-customer-acquisition-cost-subscription-business" className="underline hover:text-brand-600">CAC Reduction Framework</a> - Reduce customer acquisition cost by 20%</p>
                   </div>
                 </div>
               </div>
@@ -355,27 +355,27 @@ export function TikTokHooksClient() {
                   <div key={index} className="bg-white rounded-2xl p-8 shadow-lg">
                     <div className="flex items-start justify-between mb-4">
                       <h3 className="text-xl font-bold text-gray-900">{hook.title}</h3>
-                      <div className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">
+                      <div className="bg-brand-100 text-brand-800 px-3 py-1 rounded-full text-sm font-semibold">
                         #{index + 1}
                       </div>
                     </div>
                     
                     <div className="grid lg:grid-cols-2 gap-6">
                       <div>
-                        <h4 className="font-semibold text-purple-800 mb-2">Hook Example:</h4>
-                        <p className="text-gray-700 bg-purple-50 p-4 rounded-lg mb-4 italic text-lg">
+                        <h4 className="font-semibold text-brand-800 mb-2">Hook Example:</h4>
+                        <p className="text-gray-700 bg-brand-50 p-4 rounded-lg mb-4 italic text-lg">
                           {hook.hook}
                         </p>
                         
-                        <h4 className="font-semibold text-purple-800 mb-2">Psychology:</h4>
+                        <h4 className="font-semibold text-brand-800 mb-2">Psychology:</h4>
                         <p className="text-gray-700">{hook.psychology}</p>
                       </div>
                       
                       <div>
-                        <h4 className="font-semibold text-purple-800 mb-2">Engagement Potential:</h4>
+                        <h4 className="font-semibold text-brand-800 mb-2">Engagement Potential:</h4>
                         <p className="text-gray-700 mb-4">{hook.engagement}</p>
                         
-                        <h4 className="font-semibold text-purple-800 mb-2">Best For:</h4>
+                        <h4 className="font-semibold text-brand-800 mb-2">Best For:</h4>
                         <p className="text-gray-700">{hook.bestFor}</p>
                       </div>
                     </div>
@@ -394,12 +394,12 @@ export function TikTokHooksClient() {
                 TikTok Hook Testing Framework
               </h2>
               
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 mb-12">
+              <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-2xl p-8 mb-12">
                 <h3 className="text-xl font-bold text-gray-900 mb-6">Strategic Testing Approach</h3>
                 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <h4 className="font-semibold text-purple-800 mb-4">Success Metrics:</h4>
+                    <h4 className="font-semibold text-brand-800 mb-4">Success Metrics:</h4>
                     <ul className="space-y-2 text-gray-700">
                       <li>• Completion rate &gt; 65%</li>
                       <li>• Like rate &gt; 5% of views</li>
@@ -409,7 +409,7 @@ export function TikTokHooksClient() {
                   </div>
                   
                   <div>
-                    <h4 className="font-semibold text-purple-800 mb-4">Testing Variables:</h4>
+                    <h4 className="font-semibold text-brand-800 mb-4">Testing Variables:</h4>
                     <ul className="space-y-2 text-gray-700">
                       <li>• Hook psychological category</li>
                       <li>• Opening 3-second visual</li>
@@ -422,9 +422,9 @@ export function TikTokHooksClient() {
               
               <div className="grid lg:grid-cols-2 gap-8">
                 {testingFramework.map((phase, index) => (
-                  <div key={index} className="bg-white border-2 border-purple-200 rounded-xl p-6">
+                  <div key={index} className="bg-white border-2 border-brand-200 rounded-xl p-6">
                     <div className="flex items-center mb-4">
-                      <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">
+                      <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">
                         {index + 1}
                       </div>
                       <div>
@@ -436,7 +436,7 @@ export function TikTokHooksClient() {
                     <ul className="space-y-2 text-gray-700">
                       {phase.activities.map((activity, actIndex) => (
                         <li key={actIndex} className="flex items-start">
-                          <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                          <div className="w-2 h-2 bg-brand-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                           <span className="text-sm">{activity}</span>
                         </li>
                       ))}
@@ -449,7 +449,7 @@ export function TikTokHooksClient() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-600 to-pink-600 text-white">
+        <section className="py-16 bg-gradient-to-br from-brand-600 to-brand-600 text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-6">
@@ -478,7 +478,7 @@ export function TikTokHooksClient() {
                 
                 <button
                   onClick={handleOpenConsultation}
-                  className="bg-white text-purple-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors duration-200 inline-flex items-center"
+                  className="bg-white text-brand-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors duration-200 inline-flex items-center"
                 >
                   <Calendar className="h-5 w-5 mr-2" />
                   Get Your Custom TikTok Strategy

@@ -8,7 +8,7 @@ export function CaseStudySection() {
     <>
       {/* Implementation Templates & Resources */}
       <section className="mb-16">
-        <div className="bg-purple-50 rounded-xl p-8 mb-8">
+        <div className="bg-brand-50 rounded-xl p-8 mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Implementation Templates & Resources</h2>
           <p className="text-lg text-gray-700">
             Download the complete toolkit used by Fortune 100 companies to systematically reduce CAC.
@@ -22,11 +22,11 @@ export function CaseStudySection() {
             </div>
             <h3 className="text-xl font-semibold mb-4">CAC Optimization Toolkit</h3>
             <ul className="space-y-2 text-gray-700 mb-6">
-              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Excel CAC Calculator with Attribution Models</li>
-              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Audience Segmentation Analysis Template</li>
-              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Creative Performance Tracking Spreadsheet</li>
-              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />90-Day Implementation Checklist</li>
-              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-2" />Customer Language Analysis Framework</li>
+              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-brand-500 mr-2" />Excel CAC Calculator with Attribution Models</li>
+              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-brand-500 mr-2" />Audience Segmentation Analysis Template</li>
+              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-brand-500 mr-2" />Creative Performance Tracking Spreadsheet</li>
+              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-brand-500 mr-2" />90-Day Implementation Checklist</li>
+              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-brand-500 mr-2" />Customer Language Analysis Framework</li>
             </ul>
             <EmailCaptureForm
               placeholder="Enter your work email"
@@ -46,10 +46,10 @@ export function CaseStudySection() {
               Experience our proven methodology and see the results for yourself.
             </p>
             <ul className="space-y-2 text-indigo-100 mb-6">
-              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-2" />Weekly creative concepts and scripts</li>
-              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-2" />Complete competitive intelligence</li>
-              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-2" />Strategic analysis and insights</li>
-              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-2" />No commitment required</li>
+              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-brand-400 mr-2" />Weekly creative concepts and scripts</li>
+              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-brand-400 mr-2" />Complete competitive intelligence</li>
+              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-brand-400 mr-2" />Strategic analysis and insights</li>
+              <li className="flex items-center"><CheckCircle className="h-4 w-4 text-brand-400 mr-2" />No commitment required</li>
             </ul>
             <button
               onClick={() => {
@@ -60,7 +60,7 @@ export function CaseStudySection() {
                   window.location.href = '/#service-tiers';
                 }
               }}
-              className="bg-green-600 text-white hover:bg-green-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
+              className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
             >
               Claim Free Week
               <ArrowRight className="h-4 w-4 ml-2" />
@@ -78,7 +78,7 @@ export function CaseStudySection() {
           not a side project.
         </p>
         
-        <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-8">
+        <div className="bg-gradient-to-r from-indigo-50 to-brand-50 rounded-xl p-8">
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">Your Next Steps (Start Today):</h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-lg">
@@ -94,8 +94,8 @@ export function CaseStudySection() {
             </div>
             
             <div className="bg-white p-6 rounded-lg">
-              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-green-600 font-bold">2</span>
+              <div className="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center mb-4">
+                <span className="text-brand-600 font-bold">2</span>
               </div>
               <h4 className="font-semibold text-gray-900 mb-2">Weeks 2-4: Analysis</h4>
               <ul className="text-sm text-gray-700 space-y-1">
@@ -106,8 +106,8 @@ export function CaseStudySection() {
             </div>
             
             <div className="bg-white p-6 rounded-lg">
-              <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-purple-600 font-bold">3</span>
+              <div className="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center mb-4">
+                <span className="text-brand-600 font-bold">3</span>
               </div>
               <h4 className="font-semibold text-gray-900 mb-2">Weeks 5-12: Implementation</h4>
               <ul className="text-sm text-gray-700 space-y-1">

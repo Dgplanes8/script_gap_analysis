@@ -34,9 +34,9 @@ const templatePreviewCards = [
     title: 'Viral Hook Templates',
     description: 'Ready-to-use TikTok scripts with trending hooks and performance scores',
     icon: Play,
-    color: 'bg-pink-500',
-    bgColor: 'bg-pink-50',
-    textColor: 'text-pink-700',
+    color: 'bg-brand-500',
+    bgColor: 'bg-brand-50',
+    textColor: 'text-brand-700',
     example: 'You\'ve been creating content wrong... Hook Score: 24/25',
     placeholder: '[TikTok Video Template Preview]'
   },
@@ -58,9 +58,9 @@ const templatePreviewCards = [
     title: 'Story Templates',
     description: 'Engaging Instagram content with swipe-up optimization',
     icon: Zap,
-    color: 'bg-purple-500',
-    bgColor: 'bg-purple-50',
-    textColor: 'text-purple-700',
+    color: 'bg-brand-500',
+    bgColor: 'bg-brand-50',
+    textColor: 'text-brand-700',
     example: 'Visual storytelling with trend-based hooks',
     placeholder: '[Instagram Story Template Preview]'
   },
@@ -94,8 +94,8 @@ const deliverySteps = [
     title: 'Quick Implementation',
     description: 'Copy the highest-scoring scripts and customize them for your brand voice. Each script includes hook variations and CTA options.',
     icon: FileText,
-    color: 'text-green-600',
-    bgColor: 'bg-green-50'
+    color: 'text-brand-600',
+    bgColor: 'bg-brand-50'
   },
   {
     step: '03',
@@ -103,8 +103,8 @@ const deliverySteps = [
     title: 'Track Performance',
     description: 'Launch your campaigns and track performance. Use our scoring methodology to optimize and scale winning content.',
     icon: TrendingUp,
-    color: 'text-orange-600',
-    bgColor: 'bg-orange-50'
+    color: 'text-brand-600',
+    bgColor: 'bg-brand-50'
   }
 ];
 
@@ -204,7 +204,7 @@ export function WeeklyDeliveryShowcase() {
             className="max-w-6xl mx-auto"
           >
             <div className="text-center mb-12">
-              <div className="inline-flex items-center bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center bg-brand-100 text-brand-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <BarChart3 className="w-4 h-4 mr-2" />
                 Performance Prediction
               </div>
@@ -242,9 +242,9 @@ export function WeeklyDeliveryShowcase() {
             >
               
               {/* High Performance - 92% */}
-              <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 border border-green-200">
+              <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl p-6 border border-brand-200">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 bg-brand-500 rounded-full flex items-center justify-center mr-4">
                     <span className="text-white font-bold">92%</span>
                   </div>
                   <div>
@@ -257,15 +257,15 @@ export function WeeklyDeliveryShowcase() {
                 </p>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                    <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                     <span>Strong target persona match</span>
                   </div>
                   <div className="flex items-center">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                    <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                     <span>Clear problem-solution fit</span>
                   </div>
                   <div className="flex items-center">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                    <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                     <span>UGC format ready</span>
                   </div>
                 </div>
@@ -302,9 +302,9 @@ export function WeeklyDeliveryShowcase() {
               </div>
 
               {/* Lower Performance - 76% */}
-              <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-6 border border-orange-200">
+              <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl p-6 border border-brand-200">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 bg-brand-500 rounded-full flex items-center justify-center mr-4">
                     <span className="text-white font-bold">76%</span>
                   </div>
                   <div>
@@ -317,15 +317,15 @@ export function WeeklyDeliveryShowcase() {
                 </p>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
+                    <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                     <span>Niche but powerful positioning</span>
                   </div>
                   <div className="flex items-center">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
+                    <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                     <span>High-value audience</span>
                   </div>
                   <div className="flex items-center">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
+                    <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                     <span>Premium positioning ready</span>
                   </div>
                 </div>
@@ -394,7 +394,7 @@ export function WeeklyDeliveryShowcase() {
             className="max-w-6xl mx-auto"
           >
             <div className="text-center mb-12">
-              <div className="inline-flex items-center bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center bg-brand-100 text-brand-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <FileText className="w-4 h-4 mr-2" />
                 Scripts & Headlines
               </div>
@@ -443,8 +443,8 @@ export function WeeklyDeliveryShowcase() {
               </div>
 
               {/* Problem/Solution */}
-              <div className="text-center p-6 bg-gradient-to-br from-red-50 to-red-100 rounded-2xl border border-red-200">
-                <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="text-center p-6 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl border border-brand-200">
+                <div className="w-12 h-12 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="w-6 h-6 text-white" />
                 </div>
                 <h4 className="font-bold text-gray-900 mb-2">Problem-Solution</h4>
@@ -454,8 +454,8 @@ export function WeeklyDeliveryShowcase() {
               </div>
 
               {/* Social Proof */}
-              <div className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl border border-green-200">
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="text-center p-6 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl border border-brand-200">
+                <div className="w-12 h-12 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BarChart3 className="w-6 h-6 text-white" />
                 </div>
                 <h4 className="font-bold text-gray-900 mb-2">Social Proof</h4>
@@ -465,8 +465,8 @@ export function WeeklyDeliveryShowcase() {
               </div>
 
               {/* CTA */}
-              <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl border border-purple-200">
-                <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="text-center p-6 bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl border border-brand-200">
+                <div className="w-12 h-12 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Zap className="w-6 h-6 text-white" />
                 </div>
                 <h4 className="font-bold text-gray-900 mb-2">CTA</h4>
@@ -499,8 +499,8 @@ export function WeeklyDeliveryShowcase() {
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <div className="w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                        <div className="w-2 h-2 bg-brand-500 rounded-full"></div>
                       </div>
                       <div>
                         <p className="font-medium text-gray-900">Platform-specific formatting</p>
@@ -508,8 +508,8 @@ export function WeeklyDeliveryShowcase() {
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                        <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                      <div className="w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                        <div className="w-2 h-2 bg-brand-500 rounded-full"></div>
                       </div>
                       <div>
                         <p className="font-medium text-gray-900">Performance scoring</p>
@@ -540,7 +540,7 @@ export function WeeklyDeliveryShowcase() {
                     <div className="pt-2 border-t">
                       <div className="flex justify-between items-center font-semibold">
                         <span className="text-gray-900">Total Score</span>
-                        <span className="text-green-600">23/25</span>
+                        <span className="text-brand-600">23/25</span>
                       </div>
                     </div>
                   </div>

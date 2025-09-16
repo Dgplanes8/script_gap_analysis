@@ -32,9 +32,9 @@ export function ObjectionPreemptionSection() {
     {
       icon: DollarSign,
       title: "I Can't Afford to Waste Money",
-      iconBg: "bg-red-100",
-      iconColor: "text-red-600",
-      borderColor: "border-red-200",
+      iconBg: "bg-brand-100",
+      iconColor: "text-brand-600",
+      borderColor: "border-brand-200",
       concerns: [
         {
           point: "$15/week starting price",
@@ -53,9 +53,9 @@ export function ObjectionPreemptionSection() {
     {
       icon: Clock,
       title: "I Don't Have Time to Learn",
-      iconBg: "bg-orange-100", 
-      iconColor: "text-orange-600",
-      borderColor: "border-orange-200",
+      iconBg: "bg-brand-100", 
+      iconColor: "text-brand-600",
+      borderColor: "border-brand-200",
       concerns: [
         {
           point: "Ready-to-use content ideas",
@@ -160,7 +160,7 @@ export function ObjectionPreemptionSection() {
               <div className="space-y-4">
                 {objection.concerns.map((concern, concernIndex) => (
                   <div key={concernIndex} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-brand-600 mr-3 flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="text-gray-900 font-semibold text-sm mb-1">
                         {concern.point}
@@ -182,7 +182,7 @@ export function ObjectionPreemptionSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="bg-gradient-to-r from-green-600 to-teal-600 rounded-2xl p-8 text-white"
+          className="bg-gradient-to-r from-brand-600 to-brand-600 rounded-2xl p-8 text-white"
         >
           <div className="text-center mb-8">
             <TrendingUp className="h-16 w-16 mx-auto mb-4 opacity-80" />
@@ -231,7 +231,7 @@ export function ObjectionPreemptionSection() {
                     serviceSection.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="bg-white text-green-600 font-semibold px-8 py-4 rounded-xl hover:bg-gray-100 transition-colors duration-200 shadow-lg"
+                className="bg-white text-brand-600 font-semibold px-8 py-4 rounded-xl hover:bg-gray-100 transition-colors duration-200 shadow-lg"
               >
                 Start My FREE Week Today
               </motion.button>
@@ -239,7 +239,7 @@ export function ObjectionPreemptionSection() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="border-2 border-white text-white hover:bg-white hover:text-green-600 font-semibold px-8 py-4 rounded-xl transition-colors duration-200"
+                  className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-semibold px-8 py-4 rounded-xl transition-colors duration-200"
                 >
                   Get Free Templates First
                 </motion.button>

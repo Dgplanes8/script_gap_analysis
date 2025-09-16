@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, TrendingUp, Target, BarChart3, Users, Zap, Download, Calculator, BookOpen, PlayCircle, Activity, PieChart, LineChart, Settings, Database, Monitor } from 'lucide-react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Analytics Setup for Weekly Creative Intelligence: Subscription Business Tracking Guide | Apsics Media',
@@ -267,7 +268,7 @@ export default function AnalyticsSetupWeeklyCreativeIntelligenceTracking() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-600 to-blue-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -279,40 +280,40 @@ export default function AnalyticsSetupWeeklyCreativeIntelligenceTracking() {
               Analytics Setup for Weekly Creative Intelligence
             </h1>
             
-            <p className="text-xl md:text-2xl text-purple-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Complete analytics platform configuration for subscription businesses. 
               Measure weekly creative intelligence performance, optimize subscription metrics, and track business growth.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Activity className="h-8 w-8 text-purple-200 mx-auto mb-2" />
+                <Activity className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">Real-Time</div>
-                <div className="text-purple-200 text-sm">Performance tracking</div>
+                <div className="text-brand-200 text-sm">Performance tracking</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <TrendingUp className="h-8 w-8 text-purple-200 mx-auto mb-2" />
+                <TrendingUp className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">360° Insights</div>
-                <div className="text-purple-200 text-sm">Comprehensive analytics</div>
+                <div className="text-brand-200 text-sm">Comprehensive analytics</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Target className="h-8 w-8 text-purple-200 mx-auto mb-2" />
+                <Target className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">40% Better</div>
-                <div className="text-purple-200 text-sm">Optimization accuracy</div>
+                <div className="text-brand-200 text-sm">Optimization accuracy</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#analytics-frameworks"
-                className="bg-white text-purple-600 hover:bg-purple-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
               >
                 Explore Analytics Framework
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               <Link
                 href="#kpi-tracking"
-                className="border-2 border-white text-white hover:bg-white hover:text-purple-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
+                className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
               >
                 View KPI Framework
                 <BarChart3 className="h-5 w-5 ml-2" />
@@ -338,25 +339,25 @@ export default function AnalyticsSetupWeeklyCreativeIntelligenceTracking() {
               </p>
               
               <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div className="bg-red-50 rounded-xl p-6 border border-red-200">
+                <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Basic Analytics Limitations</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Surface-Level Insights</div>
                         <div className="text-gray-600">Basic analytics miss critical subscription business metrics and customer behavior patterns</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Reactive Decision Making</div>
                         <div className="text-gray-600">Limited analytics lead to reactive strategies instead of proactive optimization</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Attribution Gaps</div>
                         <div className="text-gray-600">Incomplete tracking misses creative performance attribution and optimization opportunities</div>
@@ -365,25 +366,25 @@ export default function AnalyticsSetupWeeklyCreativeIntelligenceTracking() {
                   </div>
                 </div>
                 
-                <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+                <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Advanced Analytics Advantages</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Comprehensive Intelligence</div>
                         <div className="text-gray-600">Deep analytics provide complete subscription customer journey and behavior insights</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Predictive Optimization</div>
                         <div className="text-gray-600">Advanced analytics enable predictive insights and proactive subscription business optimization</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Creative Intelligence Integration</div>
                         <div className="text-gray-600">Sophisticated tracking connects creative performance to subscription business outcomes</div>
@@ -393,7 +394,7 @@ export default function AnalyticsSetupWeeklyCreativeIntelligenceTracking() {
                 </div>
               </div>
               
-              <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-8">
+              <div className="bg-gradient-to-r from-brand-50 to-blue-50 rounded-xl p-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Subscription Business Analytics ROI
                 </h3>
@@ -443,14 +444,14 @@ export default function AnalyticsSetupWeeklyCreativeIntelligenceTracking() {
               {analyticsFrameworks.map((framework, index) => (
                 <div key={index} className="bg-white rounded-2xl p-8 shadow-lg">
                   <div className="flex items-start mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl flex items-center justify-center font-bold text-lg mr-6 flex-shrink-0">
+                    <div className="w-16 h-16 bg-gradient-to-r from-brand-500 to-blue-500 text-white rounded-xl flex items-center justify-center font-bold text-lg mr-6 flex-shrink-0">
                       <framework.icon className="h-8 w-8" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{framework.framework}</h3>
                       <p className="text-gray-700 mb-4">{framework.description}</p>
-                      <div className="bg-green-50 px-3 py-2 rounded-full inline-block">
-                        <span className="text-green-700 font-semibold text-sm">{framework.outcome}</span>
+                      <div className="bg-brand-50 px-3 py-2 rounded-full inline-block">
+                        <span className="text-brand-700 font-semibold text-sm">{framework.outcome}</span>
                       </div>
                     </div>
                   </div>
@@ -460,7 +461,7 @@ export default function AnalyticsSetupWeeklyCreativeIntelligenceTracking() {
                     <div className="grid md:grid-cols-2 gap-3">
                       {framework.components.map((component, componentIndex) => (
                         <div key={componentIndex} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                           <span className="text-sm text-gray-700">{component}</span>
                         </div>
                       ))}
@@ -507,7 +508,7 @@ export default function AnalyticsSetupWeeklyCreativeIntelligenceTracking() {
                             <div className="space-y-1">
                               {tool.subscription_features.map((feature, featureIndex) => (
                                 <div key={featureIndex} className="flex items-start">
-                                  <CheckCircle className="h-3 w-3 text-purple-500 mt-0.5 mr-2 flex-shrink-0" />
+                                  <CheckCircle className="h-3 w-3 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                                   <span className="text-gray-600">{feature}</span>
                                 </div>
                               ))}
@@ -519,9 +520,9 @@ export default function AnalyticsSetupWeeklyCreativeIntelligenceTracking() {
                             <div className="text-gray-600">{tool.creative_intelligence}</div>
                           </div>
                           
-                          <div className="bg-purple-50 rounded-lg p-3">
-                            <div className="font-semibold text-purple-800 text-xs mb-1">Implementation:</div>
-                            <div className="text-purple-700 text-xs">{tool.implementation_complexity}</div>
+                          <div className="bg-brand-50 rounded-lg p-3">
+                            <div className="font-semibold text-brand-800 text-xs mb-1">Implementation:</div>
+                            <div className="text-brand-700 text-xs">{tool.implementation_complexity}</div>
                           </div>
                         </div>
                       </div>
@@ -583,7 +584,7 @@ export default function AnalyticsSetupWeeklyCreativeIntelligenceTracking() {
               ))}
             </div>
             
-            <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-8 mt-8">
+            <div className="bg-gradient-to-r from-brand-50 to-blue-50 rounded-xl p-8 mt-8">
               <h3 className="text-xl font-bold text-gray-900 mb-6">Weekly Analytics Intelligence Process</h3>
               
               <div className="grid md:grid-cols-2 gap-6">
@@ -613,52 +614,46 @@ export default function AnalyticsSetupWeeklyCreativeIntelligenceTracking() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-brand-600 to-blue-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Transform Data into Subscription Business Intelligence
             </h2>
             
-            <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Build comprehensive analytics infrastructure for subscription growth optimization. 
               Access advanced tracking, creative intelligence measurement, and strategic insights.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Activity className="h-8 w-8 text-purple-200 mx-auto mb-2" />
+                <Activity className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Real-Time Tracking</div>
-                <div className="text-purple-200 text-sm">Performance insights</div>
+                <div className="text-brand-200 text-sm">Performance insights</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <TrendingUp className="h-8 w-8 text-purple-200 mx-auto mb-2" />
+                <TrendingUp className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">360° Intelligence</div>
-                <div className="text-purple-200 text-sm">Comprehensive analytics</div>
+                <div className="text-brand-200 text-sm">Comprehensive analytics</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Target className="h-8 w-8 text-purple-200 mx-auto mb-2" />
+                <Target className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">40% Better</div>
-                <div className="text-purple-200 text-sm">Optimization accuracy</div>
+                <div className="text-brand-200 text-sm">Optimization accuracy</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#email-signup"
-                className="bg-white text-purple-600 hover:bg-purple-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
               >
                 Get Analytics Framework
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-purple-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View Analytics Intelligence Plans
-                <BarChart3 className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="analytics_setup_weekly_creative_intelligence_tracking-cta" className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>
@@ -677,8 +672,8 @@ export default function AnalyticsSetupWeeklyCreativeIntelligenceTracking() {
                 href="/first-party-data-collection-weekly-intelligence-framework"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-3">
-                  <Database className="h-5 w-5 text-purple-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Database className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">First-Party Data Collection</h3>
                 <p className="text-sm text-gray-600">
@@ -690,8 +685,8 @@ export default function AnalyticsSetupWeeklyCreativeIntelligenceTracking() {
                 href="/multi-touch-attribution-framework"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-3">
-                  <Activity className="h-5 w-5 text-purple-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Activity className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Multi-Touch Attribution Framework</h3>
                 <p className="text-sm text-gray-600">
@@ -703,8 +698,8 @@ export default function AnalyticsSetupWeeklyCreativeIntelligenceTracking() {
                 href="/marketing-automation-weekly-creative-intelligence-setup"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-3">
-                  <Settings className="h-5 w-5 text-purple-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Settings className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Marketing Automation Setup</h3>
                 <p className="text-sm text-gray-600">

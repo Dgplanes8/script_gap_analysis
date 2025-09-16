@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, Calendar, Users, Target, BarChart3, FileText, Settings, Clock, Zap, Brain, TrendingUp, Download, BookOpen, PlayCircle } from 'lucide-react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Creative Intelligence Implementation Guide: Step-by-Step Setup for Subscription Businesses | Apsics Media',
@@ -261,7 +262,7 @@ export default function CreativeIntelligenceImplementationGuide() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-green-600 to-teal-600 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-600 to-brand-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -273,33 +274,33 @@ export default function CreativeIntelligenceImplementationGuide() {
               Creative Intelligence Implementation Guide
             </h1>
             
-            <p className="text-xl md:text-2xl text-green-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Complete step-by-step guide for implementing weekly creative intelligence methodology. 
               Templates, workflows, and systems for systematic performance improvement.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Calendar className="h-8 w-8 text-green-200 mx-auto mb-2" />
+                <Calendar className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">8 Weeks</div>
-                <div className="text-green-200 text-sm">Complete implementation</div>
+                <div className="text-brand-200 text-sm">Complete implementation</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Users className="h-8 w-8 text-green-200 mx-auto mb-2" />
+                <Users className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">4 Roles</div>
-                <div className="text-green-200 text-sm">Team structure</div>
+                <div className="text-brand-200 text-sm">Team structure</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <TrendingUp className="h-8 w-8 text-green-200 mx-auto mb-2" />
+                <TrendingUp className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">25-40%</div>
-                <div className="text-green-200 text-sm">Performance improvement</div>
+                <div className="text-brand-200 text-sm">Performance improvement</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#implementation-phases"
-                className="bg-white text-green-600 hover:bg-green-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 style={{ scrollBehavior: 'smooth' }}
               >
                 Start Implementation
@@ -307,7 +308,7 @@ export default function CreativeIntelligenceImplementationGuide() {
               </Link>
               <Link
                 href="/weekly-creative-intelligence-playbook"
-                className="border-2 border-white text-white hover:bg-white hover:text-green-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
+                className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
               >
                 Learn Methodology
                 <BookOpen className="h-5 w-5 ml-2" />
@@ -366,7 +367,7 @@ export default function CreativeIntelligenceImplementationGuide() {
                   </div>
                 </div>
                 
-                <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+                <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Success Metrics Definition</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between items-center p-2 bg-white rounded border">
@@ -393,7 +394,7 @@ export default function CreativeIntelligenceImplementationGuide() {
                 </div>
               </div>
               
-              <div className="bg-orange-50 rounded-xl p-6 border border-orange-200">
+              <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Common Implementation Challenges & Solutions
                 </h3>
@@ -404,7 +405,7 @@ export default function CreativeIntelligenceImplementationGuide() {
                       Creative teams may resist framework-based approach, preferring intuitive creative development.
                     </div>
                     <div className="text-sm">
-                      <span className="font-semibold text-orange-800">Solution:</span> Start with pilot project showcasing performance improvements, 
+                      <span className="font-semibold text-brand-800">Solution:</span> Start with pilot project showcasing performance improvements, 
                       emphasize frameworks enhance rather than replace creativity.
                     </div>
                   </div>
@@ -414,7 +415,7 @@ export default function CreativeIntelligenceImplementationGuide() {
                       Limited historical data makes it difficult to establish baselines and measure improvement.
                     </div>
                     <div className="text-sm">
-                      <span className="font-semibold text-orange-800">Solution:</span> Implement tracking systems immediately, 
+                      <span className="font-semibold text-brand-800">Solution:</span> Implement tracking systems immediately, 
                       use industry benchmarks as initial comparison points, focus on relative improvements.
                     </div>
                   </div>
@@ -442,13 +443,13 @@ export default function CreativeIntelligenceImplementationGuide() {
               {implementationPhases.map((phase, index) => (
                 <div key={index} className="bg-white rounded-2xl shadow-lg p-8">
                   <div className="flex items-start mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-r from-brand-500 to-brand-500 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       {index + 1}
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between mb-2">
                         <div>
-                          <div className="text-sm font-semibold text-green-600 mb-1">{phase.phase}</div>
+                          <div className="text-sm font-semibold text-brand-600 mb-1">{phase.phase}</div>
                           <h3 className="text-xl font-bold text-gray-900">{phase.title}</h3>
                           <p className="text-gray-600">{phase.description}</p>
                         </div>
@@ -466,7 +467,7 @@ export default function CreativeIntelligenceImplementationGuide() {
                       <ul className="space-y-2">
                         {phase.tasks.map((task, taskIndex) => (
                           <li key={taskIndex} className="flex items-start text-sm">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-gray-700">{task}</span>
                           </li>
                         ))}
@@ -490,7 +491,7 @@ export default function CreativeIntelligenceImplementationGuide() {
                       <ul className="space-y-2">
                         {phase.tools.map((tool, toolIndex) => (
                           <li key={toolIndex} className="flex items-start text-sm">
-                            <Settings className="h-4 w-4 text-purple-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <Settings className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-gray-700">{tool}</span>
                           </li>
                         ))}
@@ -523,7 +524,7 @@ export default function CreativeIntelligenceImplementationGuide() {
                   <div className="grid md:grid-cols-4 gap-6">
                     <div>
                       <div className="flex items-center mb-2">
-                        <div className="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center font-bold text-sm mr-3">
+                        <div className="w-8 h-8 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center font-bold text-sm mr-3">
                           {index + 1}
                         </div>
                         <h3 className="font-bold text-gray-900">{day.day}</h3>
@@ -550,7 +551,7 @@ export default function CreativeIntelligenceImplementationGuide() {
                       <ul className="space-y-1">
                         {day.deliverables.map((deliverable, deliverableIndex) => (
                           <li key={deliverableIndex} className="text-xs text-gray-600 flex items-start">
-                            <CheckCircle className="h-3 w-3 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <CheckCircle className="h-3 w-3 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             {deliverable}
                           </li>
                         ))}
@@ -558,12 +559,12 @@ export default function CreativeIntelligenceImplementationGuide() {
                     </div>
                     
                     <div className="flex items-center justify-center">
-                      <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-teal-100 rounded-full flex items-center justify-center">
-                        {index === 0 && <Brain className="h-8 w-8 text-green-600" />}
-                        {index === 1 && <Zap className="h-8 w-8 text-green-600" />}
-                        {index === 2 && <PlayCircle className="h-8 w-8 text-green-600" />}
-                        {index === 3 && <BarChart3 className="h-8 w-8 text-green-600" />}
-                        {index === 4 && <TrendingUp className="h-8 w-8 text-green-600" />}
+                      <div className="w-16 h-16 bg-gradient-to-br from-brand-100 to-brand-100 rounded-full flex items-center justify-center">
+                        {index === 0 && <Brain className="h-8 w-8 text-brand-600" />}
+                        {index === 1 && <Zap className="h-8 w-8 text-brand-600" />}
+                        {index === 2 && <PlayCircle className="h-8 w-8 text-brand-600" />}
+                        {index === 3 && <BarChart3 className="h-8 w-8 text-brand-600" />}
+                        {index === 4 && <TrendingUp className="h-8 w-8 text-brand-600" />}
                       </div>
                     </div>
                   </div>
@@ -591,8 +592,8 @@ export default function CreativeIntelligenceImplementationGuide() {
               {teamRoles.map((role, index) => (
                 <div key={index} className="bg-white rounded-xl p-6 shadow-lg">
                   <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
-                      <Users className="h-5 w-5 text-green-600" />
+                    <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mr-3">
+                      <Users className="h-5 w-5 text-brand-600" />
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-900">{role.role}</h3>
@@ -620,7 +621,7 @@ export default function CreativeIntelligenceImplementationGuide() {
                     <h4 className="font-semibold text-gray-900 mb-2 text-sm">Required Skills</h4>
                     <div className="flex flex-wrap gap-2">
                       {role.skills.map((skill, skillIndex) => (
-                        <span key={skillIndex} className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">
+                        <span key={skillIndex} className="px-2 py-1 bg-brand-100 text-brand-800 text-xs rounded">
                           {skill}
                         </span>
                       ))}
@@ -644,7 +645,7 @@ export default function CreativeIntelligenceImplementationGuide() {
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="bg-gray-50 rounded-xl p-6">
                 <div className="flex items-center mb-4">
-                  <Download className="h-6 w-6 text-green-600 mr-3" />
+                  <Download className="h-6 w-6 text-brand-600 mr-3" />
                   <h3 className="text-lg font-bold text-gray-900">Setup Templates</h3>
                 </div>
                 
@@ -661,7 +662,7 @@ export default function CreativeIntelligenceImplementationGuide() {
                   
                   <Link 
                     href="/creative-brief-framework"
-                    className="block p-3 bg-white rounded-lg border hover:border-green-300 transition-colors"
+                    className="block p-3 bg-white rounded-lg border hover:border-brand-300 transition-colors"
                   >
                     <h4 className="font-semibold text-gray-900 text-sm">Creative Brief Templates</h4>
                     <p className="text-xs text-gray-600">Strategic frameworks for consistent briefing</p>
@@ -714,53 +715,47 @@ export default function CreativeIntelligenceImplementationGuide() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-green-600 to-teal-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-brand-600 to-brand-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Start Your Creative Intelligence Implementation
             </h2>
             
-            <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Transform your creative development process with systematic methodology. 
               Complete templates, workflows, and support for 25-40% performance improvement.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Settings className="h-8 w-8 text-green-200 mx-auto mb-2" />
+                <Settings className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Complete Framework</div>
-                <div className="text-green-200 text-sm">8-week implementation</div>
+                <div className="text-brand-200 text-sm">8-week implementation</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <FileText className="h-8 w-8 text-green-200 mx-auto mb-2" />
+                <FileText className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Ready Templates</div>
-                <div className="text-green-200 text-sm">All documents included</div>
+                <div className="text-brand-200 text-sm">All documents included</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <TrendingUp className="h-8 w-8 text-green-200 mx-auto mb-2" />
+                <TrendingUp className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Proven Results</div>
-                <div className="text-green-200 text-sm">25-40% improvement</div>
+                <div className="text-brand-200 text-sm">25-40% improvement</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#email-signup"
-                className="bg-white text-green-600 hover:bg-green-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 style={{ scrollBehavior: 'smooth' }}
               >
                 Get Implementation Package
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-green-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View Weekly Intelligence
-                <Calendar className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="creative_intelligence_implementation_guide-cta" className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>
@@ -779,8 +774,8 @@ export default function CreativeIntelligenceImplementationGuide() {
                 href="/weekly-creative-intelligence-playbook"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3">
-                  <BookOpen className="h-5 w-5 text-green-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <BookOpen className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Weekly Intelligence Playbook</h3>
                 <p className="text-sm text-gray-600">
@@ -792,8 +787,8 @@ export default function CreativeIntelligenceImplementationGuide() {
                 href="/creative-fatigue-prevention-framework"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3">
-                  <Clock className="h-5 w-5 text-green-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Clock className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Creative Fatigue Prevention</h3>
                 <p className="text-sm text-gray-600">
@@ -805,8 +800,8 @@ export default function CreativeIntelligenceImplementationGuide() {
                 href="/52-high-converting-ad-hooks-library"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3">
-                  <Zap className="h-5 w-5 text-green-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Zap className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">High-Converting Hooks Library</h3>
                 <p className="text-sm text-gray-600">

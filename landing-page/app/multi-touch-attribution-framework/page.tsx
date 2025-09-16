@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, TrendingUp, Target, BarChart3, Users, Zap, Calculator, BookOpen, PlayCircle, Activity, Network, GitBranch, PieChart, LineChart, Filter } from 'lucide-react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 const AttributionCalculator = dynamic(
   () => import('@/components/calculators/attribution-calculator').then((mod) => ({ default: mod.AttributionCalculator })),
@@ -179,7 +180,7 @@ export default function MultiTouchAttributionFramework() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-teal-600 to-green-600 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-600 to-brand-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -191,40 +192,40 @@ export default function MultiTouchAttributionFramework() {
               Multi-Touch Attribution Framework
             </h1>
             
-            <p className="text-xl md:text-2xl text-teal-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Advanced attribution modeling for subscription businesses with weekly intelligence tracking. 
               ROI measurement across touchpoints, strategic attribution optimization, and performance-driven budget allocation.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <GitBranch className="h-8 w-8 text-teal-200 mx-auto mb-2" />
+                <GitBranch className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">6 Models</div>
-                <div className="text-teal-200 text-sm">Attribution methodologies</div>
+                <div className="text-brand-200 text-sm">Attribution methodologies</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Activity className="h-8 w-8 text-teal-200 mx-auto mb-2" />
+                <Activity className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">Weekly Tracking</div>
-                <div className="text-teal-200 text-sm">Performance intelligence</div>
+                <div className="text-brand-200 text-sm">Performance intelligence</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <BarChart3 className="h-8 w-8 text-teal-200 mx-auto mb-2" />
+                <BarChart3 className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">ROI Optimization</div>
-                <div className="text-teal-200 text-sm">Cross-touchpoint measurement</div>
+                <div className="text-brand-200 text-sm">Cross-touchpoint measurement</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#attribution-models"
-                className="bg-white text-teal-600 hover:bg-teal-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
               >
                 Explore Attribution Models
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               <Link
                 href="#implementation"
-                className="border-2 border-white text-white hover:bg-white hover:text-teal-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
+                className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
               >
                 Start Implementation
                 <PlayCircle className="h-5 w-5 ml-2" />
@@ -251,8 +252,8 @@ export default function MultiTouchAttributionFramework() {
               
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Filter className="h-8 w-8 text-red-600" />
+                  <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Filter className="h-8 w-8 text-brand-600" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-3">Attribution Blind Spots</h3>
                   <p className="text-gray-600 text-sm">
@@ -262,8 +263,8 @@ export default function MultiTouchAttributionFramework() {
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <PieChart className="h-8 w-8 text-yellow-600" />
+                  <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <PieChart className="h-8 w-8 text-brand-600" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-3">Complex Journey Mapping</h3>
                   <p className="text-gray-600 text-sm">
@@ -273,8 +274,8 @@ export default function MultiTouchAttributionFramework() {
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <LineChart className="h-8 w-8 text-green-600" />
+                  <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <LineChart className="h-8 w-8 text-brand-600" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-3">ROI Measurement Challenge</h3>
                   <p className="text-gray-600 text-sm">
@@ -284,7 +285,7 @@ export default function MultiTouchAttributionFramework() {
                 </div>
               </div>
               
-              <div className="bg-gradient-to-r from-teal-50 to-green-50 rounded-xl p-8">
+              <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-xl p-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Subscription Business Attribution Requirements
                 </h3>
@@ -331,7 +332,7 @@ export default function MultiTouchAttributionFramework() {
               {attributionModels.map((model, index) => (
                 <div key={index} className="bg-white rounded-2xl shadow-lg p-6">
                   <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 bg-gradient-to-r from-teal-500 to-green-500 text-white rounded-full flex items-center justify-center font-bold text-sm mr-4">
+                    <div className="w-10 h-10 bg-gradient-to-r from-brand-500 to-brand-500 text-white rounded-full flex items-center justify-center font-bold text-sm mr-4">
                       {index + 1}
                     </div>
                     <div>
@@ -351,7 +352,7 @@ export default function MultiTouchAttributionFramework() {
                       <div className="space-y-1">
                         {model.pros.map((pro, proIndex) => (
                           <div key={proIndex} className="flex items-center text-xs">
-                            <CheckCircle className="h-3 w-3 text-green-500 mr-1" />
+                            <CheckCircle className="h-3 w-3 text-brand-500 mr-1" />
                             <span className="text-gray-600">{pro}</span>
                           </div>
                         ))}
@@ -363,7 +364,7 @@ export default function MultiTouchAttributionFramework() {
                       <div className="space-y-1">
                         {model.cons.map((con, conIndex) => (
                           <div key={conIndex} className="flex items-center text-xs">
-                            <div className="w-3 h-3 bg-red-500 rounded-full mr-1 flex-shrink-0"></div>
+                            <div className="w-3 h-3 bg-brand-500 rounded-full mr-1 flex-shrink-0"></div>
                             <span className="text-gray-600">{con}</span>
                           </div>
                         ))}
@@ -371,9 +372,9 @@ export default function MultiTouchAttributionFramework() {
                     </div>
                   </div>
                   
-                  <div className="bg-teal-50 rounded-lg p-3">
-                    <div className="text-sm font-semibold text-teal-800">Best For:</div>
-                    <div className="text-xs text-teal-700 mt-1">{model.bestFor}</div>
+                  <div className="bg-brand-50 rounded-lg p-3">
+                    <div className="text-sm font-semibold text-brand-800">Best For:</div>
+                    <div className="text-xs text-brand-700 mt-1">{model.bestFor}</div>
                   </div>
                 </div>
               ))}
@@ -417,19 +418,19 @@ export default function MultiTouchAttributionFramework() {
               {implementationSteps.map((step, index) => (
                 <div key={index} className="bg-white rounded-2xl p-8 shadow-lg">
                   <div className="flex items-start mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-green-500 text-white rounded-xl flex items-center justify-center font-bold text-lg mr-6 flex-shrink-0">
+                    <div className="w-16 h-16 bg-gradient-to-r from-brand-500 to-brand-500 text-white rounded-xl flex items-center justify-center font-bold text-lg mr-6 flex-shrink-0">
                       <step.icon className="h-8 w-8" />
                     </div>
                     <div className="flex-1">
-                      <div className="text-sm font-semibold text-teal-600 mb-1">{step.phase}</div>
+                      <div className="text-sm font-semibold text-brand-600 mb-1">{step.phase}</div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{step.title}</h3>
                       <p className="text-gray-700 mb-4">{step.description}</p>
                       <div className="flex items-center gap-4 text-sm">
-                        <div className="bg-teal-50 px-3 py-1 rounded-full">
-                          <span className="text-teal-700 font-semibold">{step.timeline}</span>
+                        <div className="bg-brand-50 px-3 py-1 rounded-full">
+                          <span className="text-brand-700 font-semibold">{step.timeline}</span>
                         </div>
-                        <div className="bg-green-50 px-3 py-1 rounded-full">
-                          <span className="text-green-700 font-semibold">{step.deliverables}</span>
+                        <div className="bg-brand-50 px-3 py-1 rounded-full">
+                          <span className="text-brand-700 font-semibold">{step.deliverables}</span>
                         </div>
                       </div>
                     </div>
@@ -440,7 +441,7 @@ export default function MultiTouchAttributionFramework() {
                     <div className="grid md:grid-cols-2 gap-3">
                       {step.components.map((component, componentIndex) => (
                         <div key={componentIndex} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                           <span className="text-sm text-gray-700">{component}</span>
                         </div>
                       ))}
@@ -470,7 +471,7 @@ export default function MultiTouchAttributionFramework() {
               <div className="timeline-container mb-8">
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <div className="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       MON
                     </div>
                     <div className="flex-1">
@@ -483,7 +484,7 @@ export default function MultiTouchAttributionFramework() {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="w-12 h-12 bg-teal-500 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="w-12 h-12 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       TUE
                     </div>
                     <div className="flex-1">
@@ -496,7 +497,7 @@ export default function MultiTouchAttributionFramework() {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       WED
                     </div>
                     <div className="flex-1">
@@ -509,7 +510,7 @@ export default function MultiTouchAttributionFramework() {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    <div className="w-12 h-12 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                       THU
                     </div>
                     <div className="flex-1">
@@ -536,7 +537,7 @@ export default function MultiTouchAttributionFramework() {
                 </div>
               </div>
               
-              <div className="bg-gradient-to-r from-teal-50 to-green-50 rounded-xl p-8">
+              <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-xl p-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-6">Weekly Attribution Deliverables</h3>
                 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -567,52 +568,46 @@ export default function MultiTouchAttributionFramework() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-teal-600 to-green-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-brand-600 to-brand-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Master Multi-Touch Attribution for Subscription Growth
             </h2>
             
-            <p className="text-xl text-teal-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Transform budget allocation with accurate attribution measurement. 
               Access advanced attribution modeling, weekly intelligence integration, and strategic optimization.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <GitBranch className="h-8 w-8 text-teal-200 mx-auto mb-2" />
+                <GitBranch className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">6 Attribution Models</div>
-                <div className="text-teal-200 text-sm">Complete methodology</div>
+                <div className="text-brand-200 text-sm">Complete methodology</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Activity className="h-8 w-8 text-teal-200 mx-auto mb-2" />
+                <Activity className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Weekly Intelligence</div>
-                <div className="text-teal-200 text-sm">Performance tracking</div>
+                <div className="text-brand-200 text-sm">Performance tracking</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <BarChart3 className="h-8 w-8 text-teal-200 mx-auto mb-2" />
+                <BarChart3 className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">ROI Optimization</div>
-                <div className="text-teal-200 text-sm">Strategic insights</div>
+                <div className="text-brand-200 text-sm">Strategic insights</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#email-signup"
-                className="bg-white text-teal-600 hover:bg-teal-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
               >
                 Get Attribution Framework
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-teal-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View Intelligence Plans
-                <Calculator className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="multi_touch_attribution_framework-cta" className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>
@@ -631,8 +626,8 @@ export default function MultiTouchAttributionFramework() {
                 href="/fortune-100-creative-intelligence-framework"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-3">
-                  <Network className="h-5 w-5 text-teal-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Network className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Fortune 100 Creative Intelligence</h3>
                 <p className="text-sm text-gray-600">
@@ -644,8 +639,8 @@ export default function MultiTouchAttributionFramework() {
                 href="/saas-creative-strategy-roi-calculator"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-3">
-                  <Calculator className="h-5 w-5 text-teal-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Calculator className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">SaaS Creative ROI Calculator</h3>
                 <p className="text-sm text-gray-600">
@@ -657,8 +652,8 @@ export default function MultiTouchAttributionFramework() {
                 href="/weekly-creative-intelligence-playbook"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mb-3">
-                  <BookOpen className="h-5 w-5 text-teal-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <BookOpen className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Weekly Creative Intelligence Playbook</h3>
                 <p className="text-sm text-gray-600">

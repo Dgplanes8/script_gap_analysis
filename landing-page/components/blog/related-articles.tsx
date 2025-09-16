@@ -200,7 +200,7 @@ export function RelatedArticles({
                 </div>
                 
                 {index === 0 && (
-                  <div className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs px-2 py-1 rounded-full">
+                  <div className="absolute -top-2 -right-2 bg-brand-500 text-white text-xs px-2 py-1 rounded-full">
                     <TrendingUp className="h-3 w-3 inline mr-1" />
                     Popular
                   </div>
@@ -210,7 +210,7 @@ export function RelatedArticles({
           </div>
           
           {/* Strategic CTA with Internal Links */}
-          <div className="mt-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg p-8 text-center text-white">
+          <div className="mt-12 bg-gradient-to-r from-brand-500 to-brand-600 rounded-lg p-8 text-center text-white">
             <h3 className="text-2xl font-bold mb-4">
               Ready to Transform Your Marketing Strategy?
             </h3>
@@ -220,13 +220,13 @@ export function RelatedArticles({
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/blog/startup-marketing-budget-calculator-2025"
-                className="inline-block bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                className="inline-block bg-white text-brand-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
               >
                 Try Budget Calculator
               </Link>
               <Link
                 href="/blog/52-high-converting-ad-templates-startup"
-                className="inline-block border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-orange-600 transition-colors"
+                className="inline-block border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-brand-600 transition-colors"
               >
                 Get Ad Templates
               </Link>

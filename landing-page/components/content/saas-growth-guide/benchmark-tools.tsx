@@ -11,13 +11,13 @@ export function BenchmarkTools({ handleDownloadRequest }: BenchmarkToolsProps) {
     <section className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+          <div className="inline-flex items-center bg-brand-100 text-brand-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <TrendingUp className="h-4 w-4 mr-2" />
             Subscription Growth Marketing Guide
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            <span className="text-red-600">Subscription Growth Marketing</span>
+            <span className="text-brand-600">Subscription Growth Marketing</span>
             <br />Weekly Creative Intelligence Guide
           </h1>
           
@@ -36,7 +36,7 @@ export function BenchmarkTools({ handleDownloadRequest }: BenchmarkToolsProps) {
                   window.location.href = '/#service-tiers';
                 }
               }}
-              className="bg-green-600 text-white hover:bg-green-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
+              className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
             >
               Claim Free Week
               <ArrowRight className="h-4 w-4 ml-2" />
@@ -44,7 +44,7 @@ export function BenchmarkTools({ handleDownloadRequest }: BenchmarkToolsProps) {
             
             <button
               onClick={handleDownloadRequest}
-              className="bg-red-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-red-700 transition-colors flex items-center justify-center"
+              className="bg-brand-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-brand-700 transition-colors flex items-center justify-center"
             >
               <Download className="h-5 w-5 mr-2" />
               Get Weekly Creative Intelligence
@@ -53,19 +53,19 @@ export function BenchmarkTools({ handleDownloadRequest }: BenchmarkToolsProps) {
           
           <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-600">
             <div className="flex items-center">
-              <CheckCircle className="h-4 w-4 text-red-500 mr-2" />
+              <CheckCircle className="h-4 w-4 text-brand-500 mr-2" />
               Weekly creative concepts
             </div>
             <div className="flex items-center">
-              <CheckCircle className="h-4 w-4 text-red-500 mr-2" />
+              <CheckCircle className="h-4 w-4 text-brand-500 mr-2" />
               Trend intelligence system
             </div>
             <div className="flex items-center">
-              <CheckCircle className="h-4 w-4 text-red-500 mr-2" />
+              <CheckCircle className="h-4 w-4 text-brand-500 mr-2" />
               Subscription-focused strategies
             </div>
             <div className="flex items-center">
-              <CheckCircle className="h-4 w-4 text-red-500 mr-2" />
+              <CheckCircle className="h-4 w-4 text-brand-500 mr-2" />
               Performance optimization
             </div>
           </div>

@@ -127,8 +127,8 @@ const hookExamples: HookExample[] = [
 const platformStyles = {
   tiktok: {
     bg: 'bg-black text-white',
-    accent: 'text-pink-400',
-    border: 'border-pink-500'
+    accent: 'text-brand-400',
+    border: 'border-brand-500'
   },
   facebook: {
     bg: 'bg-blue-600 text-white', 
@@ -136,9 +136,9 @@ const platformStyles = {
     border: 'border-blue-400'
   },
   instagram: {
-    bg: 'bg-gradient-to-br from-purple-600 to-pink-600 text-white',
-    accent: 'text-purple-200', 
-    border: 'border-purple-400'
+    bg: 'bg-gradient-to-br from-brand-600 to-brand-600 text-white',
+    accent: 'text-brand-200', 
+    border: 'border-brand-400'
   }
 };
 
@@ -190,7 +190,7 @@ export function HookGeneratorDemo() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-brand-100 text-blue-800 rounded-full text-sm font-semibold mb-6">
               <Zap className="h-4 w-4 mr-2" />
               Hook Generation System
             </div>
@@ -248,7 +248,7 @@ export function HookGeneratorDemo() {
                 <button
                   onClick={generateHook}
                   disabled={isGenerating}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200 flex items-center justify-center disabled:opacity-50"
+                  className="w-full bg-gradient-to-r from-blue-600 to-brand-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-brand-700 transition-all duration-200 flex items-center justify-center disabled:opacity-50"
                 >
                   {isGenerating ? (
                     <>
@@ -276,14 +276,14 @@ export function HookGeneratorDemo() {
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <Users className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                    <Users className="h-5 w-5 text-brand-500 mt-0.5 mr-3 flex-shrink-0" />
                     <div>
                       <div className="font-medium text-gray-900">Platform Native</div>
                       <div className="text-sm text-gray-600">Matches each platform's unique behavior</div>
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <TrendingUp className="h-5 w-5 text-purple-500 mt-0.5 mr-3 flex-shrink-0" />
+                    <TrendingUp className="h-5 w-5 text-brand-500 mt-0.5 mr-3 flex-shrink-0" />
                     <div>
                       <div className="font-medium text-gray-900">Awareness Optimized</div>
                       <div className="text-sm text-gray-600">Adapted for audience's knowledge level</div>
@@ -336,14 +336,14 @@ export function HookGeneratorDemo() {
               </div>
 
               {/* CTA */}
-              <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl p-6 text-white">
+              <div className="bg-gradient-to-r from-brand-600 to-brand-600 rounded-xl p-6 text-white">
                 <h4 className="text-lg font-bold mb-2">Get 10 Proven High-Converting Hooks</h4>
                 <p className="text-gray-100 mb-4">
                   Start with our Hook Bank PDF featuring 10 battle-tested hooks that reduce CPA by 25%. Join 100+ growing businesses getting weekly creative intelligence.
                 </p>
                 <button 
                   onClick={() => window.location.href = '/free-hooks'}
-                  className="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 flex items-center"
+                  className="bg-white text-brand-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 flex items-center"
                 >
                   Get My 10 Free Hooks
                   <ArrowRight className="h-4 w-4 ml-2" />

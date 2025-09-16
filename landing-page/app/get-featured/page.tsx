@@ -24,7 +24,7 @@ export default function GetFeaturedPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-8 text-sm">
               <div className="flex items-center">
-                <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                <span className="w-2 h-2 bg-brand-400 rounded-full mr-2"></span>
                 Get featured in our case studies
               </div>
               <div className="flex items-center">
@@ -32,7 +32,7 @@ export default function GetFeaturedPage() {
                 Help other apps with similar challenges
               </div>
               <div className="flex items-center">
-                <span className="w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                <span className="w-2 h-2 bg-brand-400 rounded-full mr-2"></span>
                 Potential co-marketing opportunities
               </div>
             </div>
@@ -54,8 +54,8 @@ export default function GetFeaturedPage() {
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <div className="text-center p-6">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-green-600">📈</span>
+              <div className="bg-brand-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-brand-600">📈</span>
               </div>
               <h3 className="text-xl font-semibold mb-3">Measurable Results</h3>
               <p className="text-gray-600">
@@ -74,8 +74,8 @@ export default function GetFeaturedPage() {
             </div>
 
             <div className="text-center p-6">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-purple-600">✨</span>
+              <div className="bg-brand-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-brand-600">✨</span>
               </div>
               <h3 className="text-xl font-semibold mb-3">Unique Insights</h3>
               <p className="text-gray-600">

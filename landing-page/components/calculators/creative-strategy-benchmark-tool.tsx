@@ -182,21 +182,21 @@ export function CreativeStrategyBenchmarkTool() {
   };
 
   const getScoreColor = (score: number) => {
-    if (score >= 85) return 'text-green-600';
+    if (score >= 85) return 'text-brand-600';
     if (score >= 70) return 'text-blue-600';
-    if (score >= 50) return 'text-yellow-600';
-    return 'text-red-600';
+    if (score >= 50) return 'text-brand-600';
+    return 'text-brand-600';
   };
 
   const getPercentileColor = (percentile: number) => {
-    if (percentile >= 80) return 'bg-green-100 text-green-800';
+    if (percentile >= 80) return 'bg-brand-100 text-brand-800';
     if (percentile >= 65) return 'bg-blue-100 text-blue-800';
-    if (percentile >= 45) return 'bg-yellow-100 text-yellow-800';
-    return 'bg-red-100 text-red-800';
+    if (percentile >= 45) return 'bg-brand-100 text-brand-800';
+    return 'bg-brand-100 text-brand-800';
   };
 
   return (
-    <section className="py-16 bg-gradient-to-br from-indigo-50 to-purple-50">
+    <section className="py-16 bg-gradient-to-br from-indigo-50 to-brand-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <div className="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-semibold mb-6">
@@ -313,13 +313,13 @@ export function CreativeStrategyBenchmarkTool() {
             {/* Results Section */}
             <div className="bg-white rounded-2xl p-8 shadow-lg">
               <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                <TrendingUp className="h-6 w-6 text-green-600 mr-2" />
+                <TrendingUp className="h-6 w-6 text-brand-600 mr-2" />
                 Your Benchmark Results
               </h3>
 
               <div className="space-y-6">
                 {/* Maturity Score */}
-                <div className="text-center bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-6">
+                <div className="text-center bg-gradient-to-r from-indigo-50 to-brand-50 rounded-lg p-6">
                   <div className={`text-4xl font-bold ${getScoreColor(results.maturityScore)} mb-2`}>
                     {results.maturityScore}/100
                   </div>
@@ -332,10 +332,10 @@ export function CreativeStrategyBenchmarkTool() {
                 {/* Competitive Advantage Level */}
                 <div className="border-t border-gray-200 pt-6">
                   <h4 className="font-semibold text-gray-900 mb-4 flex items-center">
-                    <Award className="h-5 w-5 text-purple-600 mr-2" />
+                    <Award className="h-5 w-5 text-brand-600 mr-2" />
                     Competitive Advantage Level
                   </h4>
-                  <div className="text-2xl font-bold text-purple-600 mb-2">
+                  <div className="text-2xl font-bold text-brand-600 mb-2">
                     {results.competitiveAdvantage}
                   </div>
                   <div className="text-sm text-gray-600">
@@ -350,7 +350,7 @@ export function CreativeStrategyBenchmarkTool() {
                     <ul className="space-y-2">
                       {results.gapAnalysis.map((gap, index) => (
                         <li key={index} className="flex items-start text-sm text-gray-700">
-                          <span className="text-red-500 mr-2">•</span>
+                          <span className="text-brand-500 mr-2">•</span>
                           {gap}
                         </li>
                       ))}
@@ -374,7 +374,7 @@ export function CreativeStrategyBenchmarkTool() {
                 )}
 
                 {/* Recommendation */}
-                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-6">
+                <div className="bg-gradient-to-r from-indigo-50 to-brand-50 rounded-lg p-6">
                   <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
                     <Lightbulb className="h-5 w-5 text-indigo-600 mr-2" />
                     Recommended Apsics Media Tier
@@ -409,7 +409,7 @@ export function CreativeStrategyBenchmarkTool() {
 
           {/* CTA Section */}
           <div className="mt-8 text-center">
-            <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white">
+            <div className="bg-gradient-to-r from-indigo-600 to-brand-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">
                 Ready to Accelerate Your Creative Strategy?
               </h3>

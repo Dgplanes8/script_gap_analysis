@@ -4,6 +4,7 @@ import { Footer } from '@/components/layout/footer';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { Zap, TrendingUp, Target, Users, ArrowRight, CheckCircle, Calendar, Bot } from 'lucide-react';
 import Link from 'next/link';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'AI-Enhanced Creative Intelligence System: Weekly Workflow for Subscription Brands',
@@ -28,10 +29,10 @@ export default function AIEnhancedCreativeIntelligencePage() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-900 to-indigo-900 text-white">
+        <section className="py-16 bg-gradient-to-br from-brand-900 to-indigo-900 text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center bg-gradient-to-r from-brand-500 to-brand-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Bot className="h-4 w-4 mr-2" />
                 AI-ENHANCED INTELLIGENCE SYSTEM
               </div>
@@ -39,13 +40,13 @@ export default function AIEnhancedCreativeIntelligencePage() {
               <h1 className="text-4xl lg:text-5xl font-bold mb-6">
                 AI-Enhanced Creative Intelligence System
               </h1>
-              <p className="text-xl text-purple-100 mb-8 leading-relaxed">
+              <p className="text-xl text-brand-100 mb-8 leading-relaxed">
                 How Fortune 100 companies use AI to generate 15 scripts in 15 minutes while maintaining strategic quality. 
                 Complete weekly workflow system for subscription businesses seeking systematic creative intelligence.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="#workflow" className="btn bg-purple-500 text-white font-semibold py-4 px-8 rounded-lg hover:bg-purple-400 transition-colors">
+                <Link href="#workflow" className="btn bg-brand-500 text-white font-semibold py-4 px-8 rounded-lg hover:bg-brand-400 transition-colors">
                   <Zap className="h-5 w-5 mr-2" />
                   See AI Workflow
                 </Link>
@@ -57,15 +58,15 @@ export default function AIEnhancedCreativeIntelligencePage() {
               <div className="mt-12 grid md:grid-cols-3 gap-6">
                 <div className="bg-white/10 backdrop-blur rounded-xl p-6">
                   <div className="text-3xl font-bold mb-2">15 Scripts</div>
-                  <div className="text-purple-200">In 15 Minutes</div>
+                  <div className="text-brand-200">In 15 Minutes</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur rounded-xl p-6">
                   <div className="text-3xl font-bold mb-2">Fortune 100</div>
-                  <div className="text-purple-200">Proven Method</div>
+                  <div className="text-brand-200">Proven Method</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur rounded-xl p-6">
                   <div className="text-3xl font-bold mb-2">Weekly</div>
-                  <div className="text-purple-200">Automated Delivery</div>
+                  <div className="text-brand-200">Automated Delivery</div>
                 </div>
               </div>
             </div>
@@ -87,7 +88,7 @@ export default function AIEnhancedCreativeIntelligencePage() {
                 </p>
               </div>
 
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 mb-12">
+              <div className="bg-gradient-to-r from-blue-50 to-brand-50 rounded-2xl p-8 mb-12">
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -101,13 +102,13 @@ export default function AIEnhancedCreativeIntelligencePage() {
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <CheckCircle className="h-6 w-6 text-purple-600 mr-3 mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="h-6 w-6 text-brand-600 mr-3 mt-0.5 flex-shrink-0" />
                         <div>
                           <strong className="text-gray-900">Speed at Scale:</strong> Generate multiple concept variations in minutes, allowing more strategic time for optimization and testing.
                         </div>
                       </div>
                       <div className="flex items-start">
-                        <CheckCircle className="h-6 w-6 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
+                        <CheckCircle className="h-6 w-6 text-brand-600 mr-3 mt-0.5 flex-shrink-0" />
                         <div>
                           <strong className="text-gray-900">Consistency:</strong> Maintain brand voice and strategic alignment across all creative outputs without human fatigue or variation.
                         </div>
@@ -120,25 +121,25 @@ export default function AIEnhancedCreativeIntelligencePage() {
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">Scripts per week:</span>
                         <div className="flex items-center gap-4">
-                          <span className="text-red-600">2-3</span>
+                          <span className="text-brand-600">2-3</span>
                           <span className="text-gray-400">→</span>
-                          <span className="text-green-600 font-bold">15+</span>
+                          <span className="text-brand-600 font-bold">15+</span>
                         </div>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">Strategic analysis time:</span>
                         <div className="flex items-center gap-4">
-                          <span className="text-red-600">20%</span>
+                          <span className="text-brand-600">20%</span>
                           <span className="text-gray-400">→</span>
-                          <span className="text-green-600 font-bold">80%</span>
+                          <span className="text-brand-600 font-bold">80%</span>
                         </div>
                       </div>
                       <div className="flex justify-between items-center">
                         <span className="text-gray-600">Quality consistency:</span>
                         <div className="flex items-center gap-4">
-                          <span className="text-red-600">Variable</span>
+                          <span className="text-brand-600">Variable</span>
                           <span className="text-gray-400">→</span>
-                          <span className="text-green-600 font-bold">Systematic</span>
+                          <span className="text-brand-600 font-bold">Systematic</span>
                         </div>
                       </div>
                     </div>
@@ -200,7 +201,7 @@ export default function AIEnhancedCreativeIntelligencePage() {
                 {/* Phase 2 */}
                 <div className="bg-white rounded-2xl p-8 shadow-lg">
                   <div className="flex items-center mb-6">
-                    <div className="bg-green-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">
+                    <div className="bg-brand-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">
                       2
                     </div>
                     <div>
@@ -209,10 +210,10 @@ export default function AIEnhancedCreativeIntelligencePage() {
                     </div>
                   </div>
                   
-                  <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6">
+                  <div className="bg-gradient-to-r from-brand-50 to-blue-50 rounded-xl p-6">
                     <div className="grid md:grid-cols-3 gap-4">
                       <div className="text-center">
-                        <TrendingUp className="h-8 w-8 text-green-600 mx-auto mb-2" />
+                        <TrendingUp className="h-8 w-8 text-brand-600 mx-auto mb-2" />
                         <div className="font-semibold text-gray-900">Performance Tracking</div>
                         <div className="text-xs text-gray-600">Competitor engagement metrics</div>
                       </div>
@@ -222,7 +223,7 @@ export default function AIEnhancedCreativeIntelligencePage() {
                         <div className="text-xs text-gray-600">Unused trend opportunities</div>
                       </div>
                       <div className="text-center">
-                        <Users className="h-8 w-8 text-purple-600 mx-auto mb-2" />
+                        <Users className="h-8 w-8 text-brand-600 mx-auto mb-2" />
                         <div className="font-semibold text-gray-900">Audience Overlap</div>
                         <div className="text-xs text-gray-600">Target market analysis</div>
                       </div>
@@ -233,7 +234,7 @@ export default function AIEnhancedCreativeIntelligencePage() {
                 {/* Phase 3 */}
                 <div className="bg-white rounded-2xl p-8 shadow-lg">
                   <div className="flex items-center mb-6">
-                    <div className="bg-purple-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">
+                    <div className="bg-brand-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">
                       3
                     </div>
                     <div>
@@ -243,9 +244,9 @@ export default function AIEnhancedCreativeIntelligencePage() {
                   </div>
                   
                   <div className="space-y-4">
-                    <div className="bg-purple-50 rounded-lg p-4">
-                      <h4 className="font-semibold text-purple-900 mb-2">Concept Ideation Process</h4>
-                      <p className="text-purple-800 text-sm mb-3">
+                    <div className="bg-brand-50 rounded-lg p-4">
+                      <h4 className="font-semibold text-brand-900 mb-2">Concept Ideation Process</h4>
+                      <p className="text-brand-800 text-sm mb-3">
                         AI generates multiple concept variations based on trending patterns, brand guidelines, 
                         and subscription business optimization principles.
                       </p>
@@ -270,7 +271,7 @@ export default function AIEnhancedCreativeIntelligencePage() {
                 {/* Phase 4 */}
                 <div className="bg-white rounded-2xl p-8 shadow-lg">
                   <div className="flex items-center mb-6">
-                    <div className="bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">
+                    <div className="bg-brand-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4">
                       4
                     </div>
                     <div>
@@ -280,9 +281,9 @@ export default function AIEnhancedCreativeIntelligencePage() {
                   </div>
                   
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-orange-50 rounded-xl p-6">
-                      <h4 className="font-semibold text-orange-900 mb-3">Strategic Refinement</h4>
-                      <ul className="space-y-2 text-orange-800 text-sm">
+                    <div className="bg-brand-50 rounded-xl p-6">
+                      <h4 className="font-semibold text-brand-900 mb-3">Strategic Refinement</h4>
+                      <ul className="space-y-2 text-brand-800 text-sm">
                         <li>• Brand voice alignment check</li>
                         <li>• Customer journey optimization</li>
                         <li>• A/B testing variant creation</li>
@@ -300,7 +301,7 @@ export default function AIEnhancedCreativeIntelligencePage() {
                     </div>
                   </div>
 
-                  <div className="mt-6 p-4 bg-gradient-to-r from-orange-100 to-blue-100 rounded-lg">
+                  <div className="mt-6 p-4 bg-gradient-to-r from-brand-100 to-blue-100 rounded-lg">
                     <div className="text-center">
                       <div className="text-2xl font-bold text-gray-900 mb-2">Final Output: 15 Strategic Scripts</div>
                       <div className="text-gray-600">Ready for production, testing, and optimization</div>
@@ -345,39 +346,39 @@ export default function AIEnhancedCreativeIntelligencePage() {
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8">
-                  <TrendingUp className="h-12 w-12 text-green-600 mb-6" />
-                  <h3 className="text-xl font-bold text-green-900 mb-4">Trend Analysis Systems</h3>
-                  <ul className="space-y-3 text-green-800">
+                <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl p-8">
+                  <TrendingUp className="h-12 w-12 text-brand-600 mb-6" />
+                  <h3 className="text-xl font-bold text-brand-900 mb-4">Trend Analysis Systems</h3>
+                  <ul className="space-y-3 text-brand-800">
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mr-2 mt-0.5 flex-shrink-0" />
                       <span className="text-sm">Real-time social media API monitoring</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mr-2 mt-0.5 flex-shrink-0" />
                       <span className="text-sm">Machine learning trend prediction</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mr-2 mt-0.5 flex-shrink-0" />
                       <span className="text-sm">Automated competitive intelligence</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8">
-                  <Target className="h-12 w-12 text-purple-600 mb-6" />
-                  <h3 className="text-xl font-bold text-purple-900 mb-4">Performance Optimization</h3>
-                  <ul className="space-y-3 text-purple-800">
+                <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-2xl p-8">
+                  <Target className="h-12 w-12 text-brand-600 mb-6" />
+                  <h3 className="text-xl font-bold text-brand-900 mb-4">Performance Optimization</h3>
+                  <ul className="space-y-3 text-brand-800">
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-purple-600 mr-2 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mr-2 mt-0.5 flex-shrink-0" />
                       <span className="text-sm">Predictive performance modeling</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-purple-600 mr-2 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mr-2 mt-0.5 flex-shrink-0" />
                       <span className="text-sm">A/B testing variant generation</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-purple-600 mr-2 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-600 mr-2 mt-0.5 flex-shrink-0" />
                       <span className="text-sm">ROI optimization algorithms</span>
                     </li>
                   </ul>
@@ -395,7 +396,7 @@ export default function AIEnhancedCreativeIntelligencePage() {
                 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <h4 className="text-yellow-400 font-semibold mb-4">AI Responsibilities</h4>
+                    <h4 className="text-brand-400 font-semibold mb-4">AI Responsibilities</h4>
                     <ul className="space-y-2 text-gray-300 text-sm">
                       <li>• Trend pattern identification</li>
                       <li>• Content variation generation</li>
@@ -404,7 +405,7 @@ export default function AIEnhancedCreativeIntelligencePage() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="text-yellow-400 font-semibold mb-4">Human Strategic Oversight</h4>
+                    <h4 className="text-brand-400 font-semibold mb-4">Human Strategic Oversight</h4>
                     <ul className="space-y-2 text-gray-300 text-sm">
                       <li>• Brand voice and alignment</li>
                       <li>• Business strategy integration</li>
@@ -419,7 +420,7 @@ export default function AIEnhancedCreativeIntelligencePage() {
         </section>
 
         {/* Implementation Guide */}
-        <section id="implementation" className="py-16 bg-gradient-to-br from-indigo-50 to-purple-50">
+        <section id="implementation" className="py-16 bg-gradient-to-br from-indigo-50 to-brand-50">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
@@ -455,9 +456,9 @@ export default function AIEnhancedCreativeIntelligencePage() {
                         <li>• Performance tracking alignment</li>
                       </ul>
                     </div>
-                    <div className="bg-purple-50 rounded-lg p-6">
-                      <h4 className="font-semibold text-purple-900 mb-3">Team Training</h4>
-                      <ul className="space-y-2 text-purple-800 text-sm">
+                    <div className="bg-brand-50 rounded-lg p-6">
+                      <h4 className="font-semibold text-brand-900 mb-3">Team Training</h4>
+                      <ul className="space-y-2 text-brand-800 text-sm">
                         <li>• Workflow process training</li>
                         <li>• Quality assurance protocols</li>
                         <li>• Strategic oversight methods</li>
@@ -468,22 +469,22 @@ export default function AIEnhancedCreativeIntelligencePage() {
 
                 <div className="bg-white rounded-2xl p-8 shadow-lg">
                   <div className="flex items-center mb-6">
-                    <TrendingUp className="h-8 w-8 text-green-600 mr-4" />
+                    <TrendingUp className="h-8 w-8 text-brand-600 mr-4" />
                     <h3 className="text-2xl font-bold text-gray-900">Week 3-4: System Optimization</h3>
                   </div>
                   
-                  <div className="bg-green-50 rounded-xl p-6">
+                  <div className="bg-brand-50 rounded-xl p-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <h4 className="font-semibold text-green-900 mb-3">Performance Tuning</h4>
-                        <p className="text-green-800 text-sm mb-3">
+                        <h4 className="font-semibold text-brand-900 mb-3">Performance Tuning</h4>
+                        <p className="text-brand-800 text-sm mb-3">
                           Fine-tune AI outputs based on initial results and brand feedback. Optimize for your 
                           specific subscription business model and target audience preferences.
                         </p>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-green-900 mb-3">Quality Benchmarking</h4>
-                        <p className="text-green-800 text-sm mb-3">
+                        <h4 className="font-semibold text-brand-900 mb-3">Quality Benchmarking</h4>
+                        <p className="text-brand-800 text-sm mb-3">
                           Establish quality standards and measurement criteria. Create feedback loops for 
                           continuous improvement and strategic alignment optimization.
                         </p>
@@ -492,20 +493,15 @@ export default function AIEnhancedCreativeIntelligencePage() {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-8 text-white">
+                <div className="bg-gradient-to-r from-brand-600 to-indigo-600 rounded-2xl p-8 text-white">
                   <div className="text-center">
                     <h3 className="text-2xl font-bold mb-4">Ready to Scale Creative Intelligence?</h3>
-                    <p className="text-purple-100 mb-6">
+                    <p className="text-brand-100 mb-6">
                       Get the same AI-enhanced system used by Fortune 100 companies, delivered weekly with human strategic oversight.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                      <Link href="/free-hooks" className="btn bg-white text-purple-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors">
-                        Start with 10 Free Hooks
-                      </Link>
-                      <Link href="/#service-tiers" className="btn border-white text-white hover:bg-white/10">
-                        See AI-Enhanced Plans
-                        <ArrowRight className="h-5 w-5 ml-2" />
-                      </Link>
+                      <FreeWeekButton source="ai_enhanced_creative_intelligence-cta" className="btn bg-white text-brand-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors">Start Free Week Trial</FreeWeekButton>
+                      <FreeWeekButton source="ai_enhanced_creative_intelligence-cta" className="btn border-white text-white hover:bg-white/10">Start Free Week Trial</FreeWeekButton>
                     </div>
                   </div>
                 </div>

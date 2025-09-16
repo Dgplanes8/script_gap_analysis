@@ -24,9 +24,9 @@ interface ProviderComparison {
 function TimelineCard({ milestone, isExpanded, onToggle }: { milestone: TimelineMilestone; isExpanded: boolean; onToggle: () => void }) {
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case 'high': return 'bg-red-100 text-red-800 border-red-200';
-      case 'medium': return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-      case 'low': return 'bg-green-100 text-green-800 border-green-200';
+      case 'high': return 'bg-brand-100 text-brand-800 border-brand-200';
+      case 'medium': return 'bg-brand-100 text-brand-800 border-brand-200';
+      case 'low': return 'bg-brand-100 text-brand-800 border-brand-200';
       default: return 'bg-gray-100 text-gray-800 border-gray-200';
     }
   };
@@ -34,8 +34,8 @@ function TimelineCard({ milestone, isExpanded, onToggle }: { milestone: Timeline
   const getProviderColor = (provider: string) => {
     switch (provider) {
       case 'agency': return 'bg-blue-100 text-blue-800';
-      case 'consultant': return 'bg-purple-100 text-purple-800';
-      case 'freelancer': return 'bg-green-100 text-green-800';
+      case 'consultant': return 'bg-brand-100 text-brand-800';
+      case 'freelancer': return 'bg-brand-100 text-brand-800';
       default: return 'bg-gray-100 text-gray-800';
     }
   };
@@ -78,7 +78,7 @@ function TimelineCard({ milestone, isExpanded, onToggle }: { milestone: Timeline
           <ul className="space-y-2">
             {milestone.deliverables.map((deliverable, index) => (
               <li key={index} className="flex items-start">
-                <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="h-4 w-4 text-brand-500 mr-2 mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-gray-700">{deliverable}</span>
               </li>
             ))}
@@ -100,28 +100,28 @@ function ProviderComparisonCard({ provider }: { provider: ProviderComparison }) 
           <div className="text-sm font-medium text-blue-900">Setup Time</div>
           <div className="text-xs text-blue-700">{provider.setupTime}</div>
         </div>
-        <div className="bg-green-50 p-3 rounded-lg">
-          <TrendingUp className="h-5 w-5 text-green-600 mx-auto mb-1" />
-          <div className="text-sm font-medium text-green-900">First Results</div>
-          <div className="text-xs text-green-700">{provider.firstResults}</div>
+        <div className="bg-brand-50 p-3 rounded-lg">
+          <TrendingUp className="h-5 w-5 text-brand-600 mx-auto mb-1" />
+          <div className="text-sm font-medium text-brand-900">First Results</div>
+          <div className="text-xs text-brand-700">{provider.firstResults}</div>
         </div>
-        <div className="bg-purple-50 p-3 rounded-lg">
-          <Target className="h-5 w-5 text-purple-600 mx-auto mb-1" />
-          <div className="text-sm font-medium text-purple-900">Full Implementation</div>
-          <div className="text-xs text-purple-700">{provider.fullImplementation}</div>
+        <div className="bg-brand-50 p-3 rounded-lg">
+          <Target className="h-5 w-5 text-brand-600 mx-auto mb-1" />
+          <div className="text-sm font-medium text-brand-900">Full Implementation</div>
+          <div className="text-xs text-brand-700">{provider.fullImplementation}</div>
         </div>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <h4 className="font-medium text-green-900 mb-2 flex items-center">
-            <CheckCircle className="h-4 w-4 text-green-600 mr-1" />
+          <h4 className="font-medium text-brand-900 mb-2 flex items-center">
+            <CheckCircle className="h-4 w-4 text-brand-600 mr-1" />
             Key Strengths
           </h4>
           <ul className="space-y-1">
             {provider.strengths.map((strength, index) => (
               <li key={index} className="text-sm text-gray-700 flex items-start">
-                <span className="text-green-600 mr-2">•</span>
+                <span className="text-brand-600 mr-2">•</span>
                 {strength}
               </li>
             ))}
@@ -129,14 +129,14 @@ function ProviderComparisonCard({ provider }: { provider: ProviderComparison }) 
         </div>
         
         <div>
-          <h4 className="font-medium text-orange-900 mb-2 flex items-center">
-            <AlertCircle className="h-4 w-4 text-orange-600 mr-1" />
+          <h4 className="font-medium text-brand-900 mb-2 flex items-center">
+            <AlertCircle className="h-4 w-4 text-brand-600 mr-1" />
             Considerations
           </h4>
           <ul className="space-y-1">
             {provider.considerations.map((consideration, index) => (
               <li key={index} className="text-sm text-gray-700 flex items-start">
-                <span className="text-orange-600 mr-2">•</span>
+                <span className="text-brand-600 mr-2">•</span>
                 {consideration}
               </li>
             ))}
@@ -200,8 +200,8 @@ export function InteractiveTimeline({ timelineMilestones, providerComparisons }:
             {[
               { value: 'all', label: 'All Providers', color: 'bg-gray-100 text-gray-800' },
               { value: 'agency', label: 'Agencies', color: 'bg-blue-100 text-blue-800' },
-              { value: 'consultant', label: 'Consultants', color: 'bg-purple-100 text-purple-800' },
-              { value: 'freelancer', label: 'Freelancers', color: 'bg-green-100 text-green-800' }
+              { value: 'consultant', label: 'Consultants', color: 'bg-brand-100 text-brand-800' },
+              { value: 'freelancer', label: 'Freelancers', color: 'bg-brand-100 text-brand-800' }
             ].map((option) => (
               <button
                 key={option.value}

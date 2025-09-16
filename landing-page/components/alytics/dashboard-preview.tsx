@@ -42,14 +42,14 @@ function DashboardCard({ title, metric, trend, trendValue, index }: DashboardCar
         {/* Card Header */}
         <div className="flex items-center justify-between">
           <h3 className="text-gray-600 text-sm font-medium">{title}</h3>
-          <div className={`w-2 h-2 rounded-full ${trend === 'up' ? 'bg-green-400' : 'bg-red-400'} animate-pulse`} />
+          <div className={`w-2 h-2 rounded-full ${trend === 'up' ? 'bg-brand-400' : 'bg-brand-400'} animate-pulse`} />
         </div>
 
         {/* Main Metric */}
         <div className="space-y-2">
           <div className="text-2xl font-bold text-gray-900">{metric}</div>
           <div className={`flex items-center gap-1 text-xs ${
-            trend === 'up' ? 'text-green-600' : 'text-red-600'
+            trend === 'up' ? 'text-brand-600' : 'text-brand-600'
           }`}>
             <svg 
               className={`w-3 h-3 ${trend === 'down' ? 'rotate-180' : ''}`} 

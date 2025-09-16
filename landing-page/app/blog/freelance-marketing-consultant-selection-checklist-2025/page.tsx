@@ -8,6 +8,7 @@ import { ArticleSchema } from '@/components/schema'
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation'
 import { RelatedArticles } from '@/components/blog/related-articles'
 import { Header } from '@/components/layout/secondary-header'
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Freelance Marketing Consultant Selection Checklist 2025',
@@ -137,21 +138,21 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
               </div>
 
               <div className="space-y-8">
-                <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-green-900 mb-6">Category 1: Experience & Expertise (Questions 1-5)</h3>
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-brand-900 mb-6">Category 1: Experience & Expertise (Questions 1-5)</h3>
                   
                   <div className="space-y-6">
-                    <div className="bg-white rounded-lg p-6 border border-green-200">
+                    <div className="bg-white rounded-lg p-6 border border-brand-200">
                       <div className="flex items-start mb-4">
-                        <div className="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">1</div>
+                        <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">1</div>
                         <div className="flex-1">
-                          <h4 className="text-lg font-semibold text-green-900 mb-2">What specific experience do you have with businesses similar to mine?</h4>
-                          <p className="text-green-800 mb-3">
+                          <h4 className="text-lg font-semibold text-brand-900 mb-2">What specific experience do you have with businesses similar to mine?</h4>
+                          <p className="text-brand-800 mb-3">
                             <strong>Why this matters:</strong> Relevant industry experience significantly impacts campaign effectiveness and reduces learning curve time.
                           </p>
-                          <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                            <h5 className="font-medium text-green-900 mb-2">Look for in their response:</h5>
-                            <ul className="text-sm text-green-800 space-y-1">
+                          <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                            <h5 className="font-medium text-brand-900 mb-2">Look for in their response:</h5>
+                            <ul className="text-sm text-brand-800 space-y-1">
                               <li>• Specific examples from your industry or similar business models</li>
                               <li>• Understanding of your target audience and market dynamics</li>
                               <li>• Familiarity with industry-specific challenges and regulations</li>
@@ -162,17 +163,17 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
                       </div>
                     </div>
 
-                    <div className="bg-white rounded-lg p-6 border border-green-200">
+                    <div className="bg-white rounded-lg p-6 border border-brand-200">
                       <div className="flex items-start mb-4">
-                        <div className="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">2</div>
+                        <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">2</div>
                         <div className="flex-1">
-                          <h4 className="text-lg font-semibold text-green-900 mb-2">Can you show me 3 case studies with measurable results?</h4>
-                          <p className="text-green-800 mb-3">
+                          <h4 className="text-lg font-semibold text-brand-900 mb-2">Can you show me 3 case studies with measurable results?</h4>
+                          <p className="text-brand-800 mb-3">
                             <strong>Why this matters:</strong> Case studies demonstrate their ability to deliver measurable outcomes and track performance effectively.
                           </p>
-                          <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                            <h5 className="font-medium text-green-900 mb-2">What to evaluate:</h5>
-                            <ul className="text-sm text-green-800 space-y-1">
+                          <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                            <h5 className="font-medium text-brand-900 mb-2">What to evaluate:</h5>
+                            <ul className="text-sm text-brand-800 space-y-1">
                               <li>• Specific metrics and percentage improvements</li>
                               <li>• Timeline from start to results achievement</li>
                               <li>• Budget size and ROI calculations</li>
@@ -183,17 +184,17 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
                       </div>
                     </div>
 
-                    <div className="bg-white rounded-lg p-6 border border-green-200">
+                    <div className="bg-white rounded-lg p-6 border border-brand-200">
                       <div className="flex items-start mb-4">
-                        <div className="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">3</div>
+                        <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">3</div>
                         <div className="flex-1">
-                          <h4 className="text-lg font-semibold text-green-900 mb-2">What marketing channels and strategies are you most experienced with?</h4>
-                          <p className="text-green-800 mb-3">
+                          <h4 className="text-lg font-semibold text-brand-900 mb-2">What marketing channels and strategies are you most experienced with?</h4>
+                          <p className="text-brand-800 mb-3">
                             <strong>Why this matters:</strong> Ensures their expertise aligns with your marketing needs and preferred channels.
                           </p>
-                          <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                            <h5 className="font-medium text-green-900 mb-2">Channel expertise to assess:</h5>
-                            <div className="grid grid-cols-2 gap-2 text-sm text-green-800">
+                          <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                            <h5 className="font-medium text-brand-900 mb-2">Channel expertise to assess:</h5>
+                            <div className="grid grid-cols-2 gap-2 text-sm text-brand-800">
                               <div>
                                 <strong>Digital Channels:</strong>
                                 <ul className="mt-1 space-y-0.5">
@@ -218,17 +219,17 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
                       </div>
                     </div>
 
-                    <div className="bg-white rounded-lg p-6 border border-green-200">
+                    <div className="bg-white rounded-lg p-6 border border-brand-200">
                       <div className="flex items-start mb-4">
-                        <div className="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">4</div>
+                        <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">4</div>
                         <div className="flex-1">
-                          <h4 className="text-lg font-semibold text-green-900 mb-2">How do you stay current with marketing trends and best practices?</h4>
-                          <p className="text-green-800 mb-3">
+                          <h4 className="text-lg font-semibold text-brand-900 mb-2">How do you stay current with marketing trends and best practices?</h4>
+                          <p className="text-brand-800 mb-3">
                             <strong>Why this matters:</strong> Marketing evolves rapidly; ongoing learning ensures they bring current strategies to your business.
                           </p>
-                          <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                            <h5 className="font-medium text-green-900 mb-2">Signs of commitment to learning:</h5>
-                            <ul className="text-sm text-green-800 space-y-1">
+                          <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                            <h5 className="font-medium text-brand-900 mb-2">Signs of commitment to learning:</h5>
+                            <ul className="text-sm text-brand-800 space-y-1">
                               <li>• Active participation in industry conferences and webinars</li>
                               <li>• Continuous education through courses and certifications</li>
                               <li>• Following thought leaders and industry publications</li>
@@ -239,17 +240,17 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
                       </div>
                     </div>
 
-                    <div className="bg-white rounded-lg p-6 border border-green-200">
+                    <div className="bg-white rounded-lg p-6 border border-brand-200">
                       <div className="flex items-start mb-4">
-                        <div className="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">5</div>
+                        <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">5</div>
                         <div className="flex-1">
-                          <h4 className="text-lg font-semibold text-green-900 mb-2">What certifications or credentials do you hold in marketing?</h4>
-                          <p className="text-green-800 mb-3">
+                          <h4 className="text-lg font-semibold text-brand-900 mb-2">What certifications or credentials do you hold in marketing?</h4>
+                          <p className="text-brand-800 mb-3">
                             <strong>Why this matters:</strong> Professional certifications indicate commitment to expertise and staying current with platform changes.
                           </p>
-                          <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                            <h5 className="font-medium text-green-900 mb-2">Valuable certifications to look for:</h5>
-                            <div className="grid grid-cols-2 gap-2 text-sm text-green-800">
+                          <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                            <h5 className="font-medium text-brand-900 mb-2">Valuable certifications to look for:</h5>
+                            <div className="grid grid-cols-2 gap-2 text-sm text-brand-800">
                               <div>
                                 <strong>Platform Certifications:</strong>
                                 <ul className="mt-1 space-y-0.5">
@@ -406,21 +407,21 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
                   </div>
                 </div>
 
-                <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-purple-900 mb-6">Category 3: Communication & Project Management (Questions 11-15)</h3>
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-brand-900 mb-6">Category 3: Communication & Project Management (Questions 11-15)</h3>
                   
                   <div className="space-y-6">
-                    <div className="bg-white rounded-lg p-6 border border-purple-200">
+                    <div className="bg-white rounded-lg p-6 border border-brand-200">
                       <div className="flex items-start mb-4">
-                        <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">11</div>
+                        <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">11</div>
                         <div className="flex-1">
-                          <h4 className="text-lg font-semibold text-purple-900 mb-2">How do you typically communicate with clients and how often?</h4>
-                          <p className="text-purple-800 mb-3">
+                          <h4 className="text-lg font-semibold text-brand-900 mb-2">How do you typically communicate with clients and how often?</h4>
+                          <p className="text-brand-800 mb-3">
                             <strong>Why this matters:</strong> Clear communication prevents misunderstandings and ensures projects stay on track.
                           </p>
-                          <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
-                            <h5 className="font-medium text-purple-900 mb-2">Communication standards to expect:</h5>
-                            <ul className="text-sm text-purple-800 space-y-1">
+                          <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                            <h5 className="font-medium text-brand-900 mb-2">Communication standards to expect:</h5>
+                            <ul className="text-sm text-brand-800 space-y-1">
                               <li>• Regular check-in schedule (weekly/bi-weekly)</li>
                               <li>• Preferred communication channels and response times</li>
                               <li>• Project updates and milestone reporting</li>
@@ -432,17 +433,17 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
                       </div>
                     </div>
 
-                    <div className="bg-white rounded-lg p-6 border border-purple-200">
+                    <div className="bg-white rounded-lg p-6 border border-brand-200">
                       <div className="flex items-start mb-4">
-                        <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">12</div>
+                        <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">12</div>
                         <div className="flex-1">
-                          <h4 className="text-lg font-semibold text-purple-900 mb-2">What is your availability and how do you manage multiple clients?</h4>
-                          <p className="text-purple-800 mb-3">
+                          <h4 className="text-lg font-semibold text-brand-900 mb-2">What is your availability and how do you manage multiple clients?</h4>
+                          <p className="text-brand-800 mb-3">
                             <strong>Why this matters:</strong> Understanding capacity ensures your projects receive adequate attention and resources.
                           </p>
-                          <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
-                            <h5 className="font-medium text-purple-900 mb-2">Capacity management factors:</h5>
-                            <ul className="text-sm text-purple-800 space-y-1">
+                          <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                            <h5 className="font-medium text-brand-900 mb-2">Capacity management factors:</h5>
+                            <ul className="text-sm text-brand-800 space-y-1">
                               <li>• Current client load and time allocation</li>
                               <li>• Working hours and time zone considerations</li>
                               <li>• Project prioritization methodology</li>
@@ -454,17 +455,17 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
                       </div>
                     </div>
 
-                    <div className="bg-white rounded-lg p-6 border border-purple-200">
+                    <div className="bg-white rounded-lg p-6 border border-brand-200">
                       <div className="flex items-start mb-4">
-                        <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">13</div>
+                        <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">13</div>
                         <div className="flex-1">
-                          <h4 className="text-lg font-semibold text-purple-900 mb-2">What are your rates and how do you structure pricing?</h4>
-                          <p className="text-purple-800 mb-3">
+                          <h4 className="text-lg font-semibold text-brand-900 mb-2">What are your rates and how do you structure pricing?</h4>
+                          <p className="text-brand-800 mb-3">
                             <strong>Why this matters:</strong> Understanding pricing structure helps budget planning and prevents scope creep issues.
                           </p>
-                          <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
-                            <h5 className="font-medium text-purple-900 mb-2">Pricing structure options:</h5>
-                            <ul className="text-sm text-purple-800 space-y-1">
+                          <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                            <h5 className="font-medium text-brand-900 mb-2">Pricing structure options:</h5>
+                            <ul className="text-sm text-brand-800 space-y-1">
                               <li>• Hourly rates for ongoing consulting work</li>
                               <li>• Project-based pricing for defined deliverables</li>
                               <li>• Monthly retainer for ongoing services</li>
@@ -476,17 +477,17 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
                       </div>
                     </div>
 
-                    <div className="bg-white rounded-lg p-6 border border-purple-200">
+                    <div className="bg-white rounded-lg p-6 border border-brand-200">
                       <div className="flex items-start mb-4">
-                        <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">14</div>
+                        <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">14</div>
                         <div className="flex-1">
-                          <h4 className="text-lg font-semibold text-purple-900 mb-2">Can you provide references from recent clients in my industry?</h4>
-                          <p className="text-purple-800 mb-3">
+                          <h4 className="text-lg font-semibold text-brand-900 mb-2">Can you provide references from recent clients in my industry?</h4>
+                          <p className="text-brand-800 mb-3">
                             <strong>Why this matters:</strong> Direct client feedback provides insights into working style, results delivery, and potential challenges.
                           </p>
-                          <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
-                            <h5 className="font-medium text-purple-900 mb-2">Reference check questions to ask:</h5>
-                            <ul className="text-sm text-purple-800 space-y-1">
+                          <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                            <h5 className="font-medium text-brand-900 mb-2">Reference check questions to ask:</h5>
+                            <ul className="text-sm text-brand-800 space-y-1">
                               <li>• What specific results did they achieve for you?</li>
                               <li>• How was their communication and project management?</li>
                               <li>• What challenges did you encounter together?</li>
@@ -498,17 +499,17 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
                       </div>
                     </div>
 
-                    <div className="bg-white rounded-lg p-6 border border-purple-200">
+                    <div className="bg-white rounded-lg p-6 border border-brand-200">
                       <div className="flex items-start mb-4">
-                        <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">15</div>
+                        <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center font-semibold mr-4 flex-shrink-0">15</div>
                         <div className="flex-1">
-                          <h4 className="text-lg font-semibold text-purple-900 mb-2">What would success look like for our partnership after 6 months?</h4>
-                          <p className="text-purple-800 mb-3">
+                          <h4 className="text-lg font-semibold text-brand-900 mb-2">What would success look like for our partnership after 6 months?</h4>
+                          <p className="text-brand-800 mb-3">
                             <strong>Why this matters:</strong> Their response reveals strategic thinking and alignment with your business objectives.
                           </p>
-                          <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
-                            <h5 className="font-medium text-purple-900 mb-2">Success indicators to discuss:</h5>
-                            <ul className="text-sm text-purple-800 space-y-1">
+                          <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                            <h5 className="font-medium text-brand-900 mb-2">Success indicators to discuss:</h5>
+                            <ul className="text-sm text-brand-800 space-y-1">
                               <li>• Specific, measurable business outcomes</li>
                               <li>• Marketing performance improvements</li>
                               <li>• Process improvements and efficiency gains</li>
@@ -532,76 +533,76 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
                 Use this systematic scoring framework to objectively compare freelance marketing consultants and make data-driven hiring decisions.
               </p>
 
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8 mb-8">
-                <h3 className="text-xl font-semibold text-yellow-900 mb-6">Comprehensive Scoring Matrix</h3>
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-8 mb-8">
+                <h3 className="text-xl font-semibold text-brand-900 mb-6">Comprehensive Scoring Matrix</h3>
                 
                 <div className="overflow-x-auto">
-                  <table className="w-full border border-yellow-300">
-                    <thead className="bg-yellow-100">
+                  <table className="w-full border border-brand-300">
+                    <thead className="bg-brand-100">
                       <tr>
-                        <th className="px-4 py-3 text-left font-semibold text-yellow-900">Evaluation Criteria</th>
-                        <th className="px-4 py-3 text-center font-semibold text-yellow-900">Weight (%)</th>
-                        <th className="px-4 py-3 text-center font-semibold text-yellow-900">Consultant A</th>
-                        <th className="px-4 py-3 text-center font-semibold text-yellow-900">Consultant B</th>
-                        <th className="px-4 py-3 text-center font-semibold text-yellow-900">Consultant C</th>
+                        <th className="px-4 py-3 text-left font-semibold text-brand-900">Evaluation Criteria</th>
+                        <th className="px-4 py-3 text-center font-semibold text-brand-900">Weight (%)</th>
+                        <th className="px-4 py-3 text-center font-semibold text-brand-900">Consultant A</th>
+                        <th className="px-4 py-3 text-center font-semibold text-brand-900">Consultant B</th>
+                        <th className="px-4 py-3 text-center font-semibold text-brand-900">Consultant C</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-yellow-200">
+                    <tbody className="divide-y divide-brand-200">
                       <tr>
-                        <td className="px-4 py-3 font-medium text-yellow-900">Industry Experience & Relevance</td>
-                        <td className="px-4 py-3 text-center text-yellow-800">20%</td>
+                        <td className="px-4 py-3 font-medium text-brand-900">Industry Experience & Relevance</td>
+                        <td className="px-4 py-3 text-center text-brand-800">20%</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                       </tr>
                       <tr>
-                        <td className="px-4 py-3 font-medium text-yellow-900">Portfolio Quality & Results</td>
-                        <td className="px-4 py-3 text-center text-yellow-800">20%</td>
+                        <td className="px-4 py-3 font-medium text-brand-900">Portfolio Quality & Results</td>
+                        <td className="px-4 py-3 text-center text-brand-800">20%</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                       </tr>
                       <tr>
-                        <td className="px-4 py-3 font-medium text-yellow-900">Strategic Approach & Methodology</td>
-                        <td className="px-4 py-3 text-center text-yellow-800">15%</td>
+                        <td className="px-4 py-3 font-medium text-brand-900">Strategic Approach & Methodology</td>
+                        <td className="px-4 py-3 text-center text-brand-800">15%</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                       </tr>
                       <tr>
-                        <td className="px-4 py-3 font-medium text-yellow-900">Communication & Project Management</td>
-                        <td className="px-4 py-3 text-center text-yellow-800">15%</td>
+                        <td className="px-4 py-3 font-medium text-brand-900">Communication & Project Management</td>
+                        <td className="px-4 py-3 text-center text-brand-800">15%</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                       </tr>
                       <tr>
-                        <td className="px-4 py-3 font-medium text-yellow-900">Technical Skills & Tools</td>
-                        <td className="px-4 py-3 text-center text-yellow-800">10%</td>
+                        <td className="px-4 py-3 font-medium text-brand-900">Technical Skills & Tools</td>
+                        <td className="px-4 py-3 text-center text-brand-800">10%</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                       </tr>
                       <tr>
-                        <td className="px-4 py-3 font-medium text-yellow-900">Pricing & Value Proposition</td>
-                        <td className="px-4 py-3 text-center text-yellow-800">10%</td>
+                        <td className="px-4 py-3 font-medium text-brand-900">Pricing & Value Proposition</td>
+                        <td className="px-4 py-3 text-center text-brand-800">10%</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                       </tr>
                       <tr>
-                        <td className="px-4 py-3 font-medium text-yellow-900">References & Client Feedback</td>
-                        <td className="px-4 py-3 text-center text-yellow-800">10%</td>
+                        <td className="px-4 py-3 font-medium text-brand-900">References & Client Feedback</td>
+                        <td className="px-4 py-3 text-center text-brand-800">10%</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                         <td className="px-4 py-3 text-center text-gray-600">__/10</td>
                       </tr>
-                      <tr className="bg-yellow-100 font-semibold">
-                        <td className="px-4 py-3 text-yellow-900">Total Weighted Score</td>
-                        <td className="px-4 py-3 text-center text-yellow-900">100%</td>
-                        <td className="px-4 py-3 text-center text-yellow-900">__/10</td>
-                        <td className="px-4 py-3 text-center text-yellow-900">__/10</td>
-                        <td className="px-4 py-3 text-center text-yellow-900">__/10</td>
+                      <tr className="bg-brand-100 font-semibold">
+                        <td className="px-4 py-3 text-brand-900">Total Weighted Score</td>
+                        <td className="px-4 py-3 text-center text-brand-900">100%</td>
+                        <td className="px-4 py-3 text-center text-brand-900">__/10</td>
+                        <td className="px-4 py-3 text-center text-brand-900">__/10</td>
+                        <td className="px-4 py-3 text-center text-brand-900">__/10</td>
                       </tr>
                     </tbody>
                   </table>
@@ -609,8 +610,8 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
                 
                 <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   <div>
-                    <h4 className="font-semibold text-yellow-900 mb-2">Scoring Guide:</h4>
-                    <ul className="text-yellow-800 space-y-1">
+                    <h4 className="font-semibold text-brand-900 mb-2">Scoring Guide:</h4>
+                    <ul className="text-brand-800 space-y-1">
                       <li>• 9-10: Exceptional - Exceeds expectations</li>
                       <li>• 7-8: Strong - Meets requirements well</li>
                       <li>• 5-6: Adequate - Meets basic requirements</li>
@@ -619,8 +620,8 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-yellow-900 mb-2">Decision Thresholds:</h4>
-                    <ul className="text-yellow-800 space-y-1">
+                    <h4 className="font-semibold text-brand-900 mb-2">Decision Thresholds:</h4>
+                    <ul className="text-brand-800 space-y-1">
                       <li>• 8.5-10: Strong hire - Proceed with contract</li>
                       <li>• 7.0-8.4: Good candidate - Consider hiring</li>
                       <li>• 6.0-6.9: Marginal - Additional evaluation needed</li>
@@ -668,13 +669,7 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
                     <DollarSign className="w-4 h-4 mr-2" />
                     Contract Template
                   </Link>
-                  <Link 
-                    href="/free-hooks" 
-                    className="flex items-center text-blue-600 hover:text-blue-700 text-sm"
-                  >
-                    <Target className="w-4 h-4 mr-2" />
-                    52 Free Ad Hooks
-                  </Link>
+                  <FreeWeekButton source="freelance_marketing_consultant_selection_checklist_2025-cta" className="flex items-center text-blue-600 hover:text-blue-700 text-sm">Start Free Week Trial</FreeWeekButton>
                 </div>
               </div>
 

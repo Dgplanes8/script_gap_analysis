@@ -45,7 +45,7 @@
     --gradient-primary: linear-gradient(135deg, rgb(var(--primary-blue)) 0%, rgb(var(--primary-blue-light)) 100%);
     --gradient-success: linear-gradient(135deg, rgb(var(--success-green)) 0%, rgb(16 152 105) 100%);
     --gradient-warning: linear-gradient(135deg, rgb(var(--warning-orange)) 0%, rgb(217 119 6) 100%);
-    --gradient-cta: linear-gradient(135deg, rgb(var(--warning-orange)) 0%, rgb(var(--error-red)) 100%);
+    --gradient-cta: linear-gradient(135deg, rgb(var(--primary-blue)) 0%, rgb(var(--primary-blue-dark)) 100%);
     
     /* Updated shadcn/ui colors to match APSICS Brand */
     --background: var(--background-gray);

@@ -224,12 +224,12 @@ export default function ASOROICalculatorPage() {
                   Understanding your ASO ROI performance relative to competitors provides crucial context for strategy development. Our framework includes competitive intelligence gathering and benchmarking methodologies.
                 </p>
 
-                <div className="bg-purple-50 rounded-lg p-6 mb-8">
-                  <h4 className="text-lg font-semibold text-purple-900 mb-4">ROI Optimization Checklist</h4>
+                <div className="bg-brand-50 rounded-lg p-6 mb-8">
+                  <h4 className="text-lg font-semibold text-brand-900 mb-4">ROI Optimization Checklist</h4>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <h5 className="font-semibold text-purple-800 mb-2">Monthly Reviews:</h5>
-                      <ul className="space-y-1 text-purple-700 text-sm">
+                      <h5 className="font-semibold text-brand-800 mb-2">Monthly Reviews:</h5>
+                      <ul className="space-y-1 text-brand-700 text-sm">
                         <li>• Keyword ranking performance</li>
                         <li>• Conversion rate changes</li>
                         <li>• Revenue attribution analysis</li>
@@ -237,8 +237,8 @@ export default function ASOROICalculatorPage() {
                       </ul>
                     </div>
                     <div>
-                      <h5 className="font-semibold text-purple-800 mb-2">Quarterly Strategy:</h5>
-                      <ul className="space-y-1 text-purple-700 text-sm">
+                      <h5 className="font-semibold text-brand-800 mb-2">Quarterly Strategy:</h5>
+                      <ul className="space-y-1 text-brand-700 text-sm">
                         <li>• Competitive landscape shifts</li>
                         <li>• Market opportunity assessment</li>
                         <li>• Resource allocation optimization</li>

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ArrowLeft, Clock, TrendingDown, RefreshCw, AlertTriangle, BarChart3, Users, Mail, Calendar } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
 import { Header } from '@/components/layout/secondary-header';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Creative Fatigue Solutions for Subscription Companies | Apsics Media',
@@ -33,7 +34,7 @@ export default function CreativeFatiguePage() {
         {/* Article Header */}
         <article className="max-w-4xl mx-auto">
           <header className="mb-12">
-            <div className="inline-flex items-center px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center px-3 py-1 bg-brand-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
               <TrendingDown className="h-4 w-4 mr-2" />
               Creative Performance Issue
             </div>
@@ -65,9 +66,9 @@ export default function CreativeFatiguePage() {
               Unlike e-commerce businesses with broad audience appeal, subscription companies often target specific professional or lifestyle segments, making audience saturation a constant risk. The recurring revenue model demands consistent acquisition velocity, but creative fatigue makes maintaining performance increasingly expensive over time.
             </p>
 
-            <div className="bg-red-50 rounded-xl p-8 mb-12">
+            <div className="bg-brand-50 rounded-xl p-8 mb-12">
               <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <AlertTriangle className="h-6 w-6 text-red-600 mr-3" />
+                <AlertTriangle className="h-6 w-6 text-brand-600 mr-3" />
                 Creative Fatigue Impact on Subscription Metrics
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
@@ -108,8 +109,8 @@ export default function CreativeFatiguePage() {
               <div className="space-y-8">
                 <div className="bg-white rounded-lg p-6 shadow-sm border">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
-                      <BarChart3 className="h-6 w-6 text-orange-600" />
+                    <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mr-4">
+                      <BarChart3 className="h-6 w-6 text-brand-600" />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900">Broad Audience Campaigns</h4>
@@ -118,19 +119,19 @@ export default function CreativeFatiguePage() {
                   </div>
                   <div className="grid md:grid-cols-4 gap-4">
                     <div className="text-center">
-                      <div className="font-bold text-2xl text-green-600">Days 1-7</div>
+                      <div className="font-bold text-2xl text-brand-600">Days 1-7</div>
                       <div className="text-sm text-gray-700">Peak Performance</div>
                     </div>
                     <div className="text-center">
-                      <div className="font-bold text-2xl text-yellow-600">Days 8-14</div>
+                      <div className="font-bold text-2xl text-brand-600">Days 8-14</div>
                       <div className="text-sm text-gray-700">Performance Maintenance</div>
                     </div>
                     <div className="text-center">
-                      <div className="font-bold text-2xl text-orange-600">Days 15-21</div>
+                      <div className="font-bold text-2xl text-brand-600">Days 15-21</div>
                       <div className="text-sm text-gray-700">Decline Begins</div>
                     </div>
                     <div className="text-center">
-                      <div className="font-bold text-2xl text-red-600">Days 22+</div>
+                      <div className="font-bold text-2xl text-brand-600">Days 22+</div>
                       <div className="text-sm text-gray-700">Significant Fatigue</div>
                     </div>
                   </div>
@@ -138,8 +139,8 @@ export default function CreativeFatiguePage() {
                 
                 <div className="bg-white rounded-lg p-6 shadow-sm border">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mr-4">
-                      <Users className="h-6 w-6 text-teal-600" />
+                    <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mr-4">
+                      <Users className="h-6 w-6 text-brand-600" />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900">Niche Audience Campaigns</h4>
@@ -148,19 +149,19 @@ export default function CreativeFatiguePage() {
                   </div>
                   <div className="grid md:grid-cols-4 gap-4">
                     <div className="text-center">
-                      <div className="font-bold text-2xl text-green-600">Days 1-4</div>
+                      <div className="font-bold text-2xl text-brand-600">Days 1-4</div>
                       <div className="text-sm text-gray-700">Peak Performance</div>
                     </div>
                     <div className="text-center">
-                      <div className="font-bold text-2xl text-yellow-600">Days 5-10</div>
+                      <div className="font-bold text-2xl text-brand-600">Days 5-10</div>
                       <div className="text-sm text-gray-700">Performance Maintenance</div>
                     </div>
                     <div className="text-center">
-                      <div className="font-bold text-2xl text-orange-600">Days 11-14</div>
+                      <div className="font-bold text-2xl text-brand-600">Days 11-14</div>
                       <div className="text-sm text-gray-700">Decline Begins</div>
                     </div>
                     <div className="text-center">
-                      <div className="font-bold text-2xl text-red-600">Days 15+</div>
+                      <div className="font-bold text-2xl text-brand-600">Days 15+</div>
                       <div className="text-sm text-gray-700">Significant Fatigue</div>
                     </div>
                   </div>
@@ -178,19 +179,19 @@ export default function CreativeFatiguePage() {
                   </div>
                   <div className="grid md:grid-cols-4 gap-4">
                     <div className="text-center">
-                      <div className="font-bold text-2xl text-green-600">Days 1-2</div>
+                      <div className="font-bold text-2xl text-brand-600">Days 1-2</div>
                       <div className="text-sm text-gray-700">Peak Performance</div>
                     </div>
                     <div className="text-center">
-                      <div className="font-bold text-2xl text-yellow-600">Days 3-5</div>
+                      <div className="font-bold text-2xl text-brand-600">Days 3-5</div>
                       <div className="text-sm text-gray-700">Performance Maintenance</div>
                     </div>
                     <div className="text-center">
-                      <div className="font-bold text-2xl text-orange-600">Days 6-10</div>
+                      <div className="font-bold text-2xl text-brand-600">Days 6-10</div>
                       <div className="text-sm text-gray-700">Decline Begins</div>
                     </div>
                     <div className="text-center">
-                      <div className="font-bold text-2xl text-red-600">Days 10+</div>
+                      <div className="font-bold text-2xl text-brand-600">Days 10+</div>
                       <div className="text-sm text-gray-700">Significant Fatigue</div>
                     </div>
                   </div>
@@ -228,9 +229,9 @@ export default function CreativeFatiguePage() {
             <h3 className="text-2xl font-semibold text-gray-900 mb-6">The Three-Tier Creative Refresh System</h3>
             
             <div className="space-y-8 mb-12">
-              <div className="bg-green-50 rounded-xl p-6 border-l-4 border-green-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <RefreshCw className="h-5 w-5 text-green-600 mr-3" />
+                  <RefreshCw className="h-5 w-5 text-brand-600 mr-3" />
                   Tier 1: Creative Variation (Weekly Implementation)
                 </h4>
                 <p className="text-gray-700 mb-4">
@@ -264,9 +265,9 @@ export default function CreativeFatiguePage() {
                 </div>
               </div>
               
-              <div className="bg-orange-50 rounded-xl p-6 border-l-4 border-orange-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <TrendingDown className="h-5 w-5 text-orange-600 mr-3" />
+                  <TrendingDown className="h-5 w-5 text-brand-600 mr-3" />
                   Tier 2: Concept Rotation (Bi-weekly Implementation)
                 </h4>
                 <p className="text-gray-700 mb-4">
@@ -294,9 +295,9 @@ export default function CreativeFatiguePage() {
                 </div>
               </div>
               
-              <div className="bg-red-50 rounded-xl p-6 border-l-4 border-red-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <Users className="h-5 w-5 text-red-600 mr-3" />
+                  <Users className="h-5 w-5 text-brand-600 mr-3" />
                   Tier 3: Audience Expansion (Monthly Implementation)
                 </h4>
                 <p className="text-gray-700 mb-4">
@@ -336,7 +337,7 @@ export default function CreativeFatiguePage() {
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="space-y-6">
-                <div className="bg-teal-50 rounded-lg p-6">
+                <div className="bg-brand-50 rounded-lg p-6">
                   <h4 className="font-semibold text-gray-900 mb-3">Trial-Focused Creative Rotation</h4>
                   <p className="text-gray-700 mb-4">
                     Develop multiple creative concepts around trial positioning, risk reduction, and value demonstration to combat subscription-specific objections.
@@ -364,7 +365,7 @@ export default function CreativeFatiguePage() {
               </div>
               
               <div className="space-y-6">
-                <div className="bg-orange-50 rounded-lg p-6">
+                <div className="bg-brand-50 rounded-lg p-6">
                   <h4 className="font-semibold text-gray-900 mb-3">Value Proposition Rotation</h4>
                   <p className="text-gray-700 mb-4">
                     Systematically rotate primary value propositions to maintain audience interest while preserving brand positioning consistency.
@@ -450,15 +451,15 @@ export default function CreativeFatiguePage() {
                   <h4 className="font-semibold text-gray-900 mb-4">Early Warning Signs</h4>
                   <div className="space-y-3">
                     <div className="flex items-center">
-                      <div className="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
+                      <div className="w-3 h-3 bg-brand-500 rounded-full mr-3"></div>
                       <span className="text-gray-700">CTR drops 20%+ week-over-week</span>
                     </div>
                     <div className="flex items-center">
-                      <div className="w-3 h-3 bg-orange-500 rounded-full mr-3"></div>
+                      <div className="w-3 h-3 bg-brand-500 rounded-full mr-3"></div>
                       <span className="text-gray-700">CPC increases 15%+ consistently</span>
                     </div>
                     <div className="flex items-center">
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
+                      <div className="w-3 h-3 bg-brand-500 rounded-full mr-3"></div>
                       <span className="text-gray-700">Frequency exceeds 3.0 average</span>
                     </div>
                     <div className="flex items-center">
@@ -479,7 +480,7 @@ export default function CreativeFatiguePage() {
             <div className="overflow-x-auto mb-12">
               <table className="w-full border-collapse bg-white shadow-lg rounded-xl overflow-hidden">
                 <thead>
-                  <tr className="bg-red-600 text-white">
+                  <tr className="bg-brand-600 text-white">
                     <th className="p-4 text-left">Trigger Condition</th>
                     <th className="p-4 text-left">Response Action</th>
                     <th className="p-4 text-left">Timeline</th>
@@ -528,7 +529,7 @@ export default function CreativeFatiguePage() {
             </p>
 
             <div className="space-y-8 mb-12">
-              <div className="bg-green-50 rounded-xl p-6 border-l-4 border-green-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Month 1: Foundation Building</h4>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -552,7 +553,7 @@ export default function CreativeFatiguePage() {
                 </div>
               </div>
               
-              <div className="bg-orange-50 rounded-xl p-6 border-l-4 border-orange-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Month 2: System Implementation</h4>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -576,7 +577,7 @@ export default function CreativeFatiguePage() {
                 </div>
               </div>
               
-              <div className="bg-teal-50 rounded-xl p-6 border-l-4 border-teal-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-teal-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Month 3: Advanced Integration</h4>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -602,7 +603,7 @@ export default function CreativeFatiguePage() {
             </div>
 
             {/* CTA Section */}
-            <div className="bg-gradient-to-br from-red-600 to-red-700 text-white rounded-2xl p-8 text-center mb-12">
+            <div className="bg-gradient-to-br from-brand-600 to-brand-700 text-white rounded-2xl p-8 text-center mb-12">
               <h3 className="text-2xl font-bold mb-4">
                 Solve Creative Fatigue Before It Kills Your Growth
               </h3>
@@ -611,20 +612,8 @@ export default function CreativeFatiguePage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link
-                  href="/#service-tiers"
-                  className="bg-white text-red-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
-                >
-                  <Mail className="h-5 w-5 mr-2" />
-                  Get My 10 Free Hooks
-                </Link>
-                <Link 
-                  href="/#service-tiers"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-colors inline-flex items-center"
-                >
-                  <Calendar className="h-5 w-5 mr-2" />
-                  Stop Creative Fatigue with Weekly Plans
-                </Link>
+                <FreeWeekButton source="creative_fatigue_subscription_companies-cta" className="bg-white text-brand-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="creative_fatigue_subscription_companies-cta" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-brand-600 transition-colors inline-flex items-center">Start Free Week Trial</FreeWeekButton>
               </div>
               
               <p className="text-sm mt-4 opacity-80">

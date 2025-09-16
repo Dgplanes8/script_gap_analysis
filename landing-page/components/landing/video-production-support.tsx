@@ -110,12 +110,12 @@ export function VideoProductionSupport() {
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             {supportTiers.map((tier, index) => {
               const Icon = tier.icon;
-              const borderColor = tier.tier === 'diy' ? 'border-green-200' : 
-                                 tier.tier === 'partner' ? 'border-blue-200' : 'border-purple-200';
-              const iconColor = tier.tier === 'diy' ? 'text-green-600 bg-green-100' : 
-                               tier.tier === 'partner' ? 'text-blue-600 bg-blue-100' : 'text-purple-600 bg-purple-100';
-              const badgeColor = tier.tier === 'diy' ? 'bg-green-600' : 
-                                 tier.tier === 'partner' ? 'bg-blue-600' : 'bg-purple-600';
+              const borderColor = tier.tier === 'diy' ? 'border-brand-200' : 
+                                 tier.tier === 'partner' ? 'border-blue-200' : 'border-brand-200';
+              const iconColor = tier.tier === 'diy' ? 'text-brand-600 bg-brand-100' : 
+                               tier.tier === 'partner' ? 'text-blue-600 bg-blue-100' : 'text-brand-600 bg-brand-100';
+              const badgeColor = tier.tier === 'diy' ? 'bg-brand-600' : 
+                                 tier.tier === 'partner' ? 'bg-blue-600' : 'bg-brand-600';
 
               return (
                 <div key={tier.name} className={`bg-white rounded-2xl shadow-lg border-2 ${borderColor} p-6 hover:shadow-xl transition-shadow relative`}>
@@ -140,7 +140,7 @@ export function VideoProductionSupport() {
                   <div className="space-y-3">
                     {tier.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" />
+                        <CheckCircle className="h-5 w-5 text-brand-500 mt-0.5 mr-3 flex-shrink-0" />
                         <span className="text-sm text-gray-700">{feature}</span>
                       </div>
                     ))}
@@ -162,9 +162,9 @@ export function VideoProductionSupport() {
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="font-semibold text-gray-900">{type.name}</h4>
                     <span className={`text-xs px-2 py-1 rounded-full ${
-                      type.difficulty === 'Beginner' ? 'bg-green-100 text-green-700' :
-                      type.difficulty === 'Intermediate' ? 'bg-yellow-100 text-yellow-700' :
-                      'bg-red-100 text-red-700'
+                      type.difficulty === 'Beginner' ? 'bg-brand-100 text-brand-700' :
+                      type.difficulty === 'Intermediate' ? 'bg-brand-100 text-brand-700' :
+                      'bg-brand-100 text-brand-700'
                     }`}>
                       {type.difficulty}
                     </span>
@@ -188,7 +188,7 @@ export function VideoProductionSupport() {
           </div>
 
           {/* Getting Started */}
-          <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 border border-orange-200">
+          <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-2xl p-8 border border-brand-200">
             <div className="text-center">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Ready to Turn Scripts Into Videos?
@@ -207,7 +207,7 @@ export function VideoProductionSupport() {
                       serviceSection.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center"
+                  className="bg-gradient-to-r from-brand-600 to-brand-600 hover:from-brand-700 hover:to-brand-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center"
                 >
                   Get Started With Weekly Templates
                   <ArrowRight className="h-5 w-5 ml-2" />
@@ -215,7 +215,7 @@ export function VideoProductionSupport() {
                 
                 <button
                   onClick={() => window.location.href = '/free-hooks'}
-                  className="text-orange-600 hover:text-orange-700 font-semibold underline transition-colors"
+                  className="text-brand-600 hover:text-brand-700 font-semibold underline transition-colors"
                 >
                   Download Free Templates First
                 </button>

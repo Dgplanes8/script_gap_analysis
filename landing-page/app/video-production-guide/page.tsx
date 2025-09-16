@@ -4,6 +4,7 @@ import { Footer } from '@/components/layout/footer';
 import { StructuredData } from '@/components/schema';
 import { Play, Camera, Edit, Smartphone, Monitor, Mic, Lightbulb, CheckCircle, ArrowRight, Target, Clock, DollarSign } from 'lucide-react';
 import Link from 'next/link';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Video Production Guide for Business Growth | DIY Video Creation Tips | APSICS Media',
@@ -78,10 +79,10 @@ export default function VideoProductionGuidePage() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
+        <section className="py-16 bg-gradient-to-br from-brand-50 to-blue-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center bg-gradient-to-r from-brand-600 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Play className="h-4 w-4 mr-2" />
                 VIDEO PRODUCTION GUIDE
               </div>
@@ -97,7 +98,7 @@ export default function VideoProductionGuidePage() {
               <div className="bg-white rounded-xl shadow-xl p-8 mb-8">
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-purple-600 mb-2">$200-800</div>
+                    <div className="text-2xl font-bold text-brand-600 mb-2">$200-800</div>
                     <div className="text-sm text-gray-600">Total equipment cost</div>
                   </div>
                   <div className="text-center">
@@ -105,7 +106,7 @@ export default function VideoProductionGuidePage() {
                     <div className="text-sm text-gray-600">Per video (including editing)</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600 mb-2">90%+</div>
+                    <div className="text-2xl font-bold text-brand-600 mb-2">90%+</div>
                     <div className="text-sm text-gray-600">Quality vs. $5K+ production</div>
                   </div>
                 </div>
@@ -128,31 +129,31 @@ export default function VideoProductionGuidePage() {
               </div>
 
               <div className="grid md:grid-cols-3 gap-8 mb-12">
-                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-8">
-                  <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-xl p-8">
+                  <div className="w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <DollarSign className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-center mb-4">Budget Setup</h3>
                   <p className="text-gray-600 text-center mb-6">$200-400 total investment</p>
                   <ul className="space-y-3 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       <span><strong>Camera:</strong> iPhone 12+ or Android equivalent</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       <span><strong>Audio:</strong> Lavalier mic ($30-50)</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       <span><strong>Lighting:</strong> Ring light or softbox ($40-80)</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       <span><strong>Tripod:</strong> Smartphone tripod ($20-40)</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       <span><strong>Editing:</strong> CapCut (free) or DaVinci Resolve (free)</span>
                     </li>
                   </ul>
@@ -188,38 +189,38 @@ export default function VideoProductionGuidePage() {
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-8">
-                  <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-xl p-8">
+                  <div className="w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Camera className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-center mb-4">Pro Setup</h3>
                   <p className="text-gray-600 text-center mb-6">$600-800 total investment</p>
                   <ul className="space-y-3 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-purple-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       <span><strong>Camera:</strong> Professional mirrorless + lens ($500-600)</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-purple-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       <span><strong>Audio:</strong> Shotgun mic + recorder ($150-200)</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-purple-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       <span><strong>Lighting:</strong> LED panel kit ($120-180)</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-purple-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       <span><strong>Tripod:</strong> Fluid head tripod ($100-150)</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-purple-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       <span><strong>Editing:</strong> Professional software + plugins</span>
                     </li>
                   </ul>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-8">
+              <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-xl p-8">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">💡 Pro Tip: Start Small, Upgrade Smart</h3>
                 <p className="text-gray-600 mb-4">
                   Begin with the Budget Setup and reinvest your ad revenue into better equipment. Many successful business video ads are shot entirely on smartphones with good lighting and audio.
@@ -292,16 +293,16 @@ export default function VideoProductionGuidePage() {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-8 shadow-lg border-l-4 border-green-600">
+                <div className="bg-white rounded-xl p-8 shadow-lg border-l-4 border-brand-600">
                   <div className="flex items-start mb-4">
-                    <div className="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center mr-4 font-bold">
+                    <div className="w-10 h-10 bg-brand-600 text-white rounded-full flex items-center justify-center mr-4 font-bold">
                       2
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-semibold text-gray-900 mb-2">Equipment Setup & Recording</h3>
                       <p className="text-gray-600 mb-4">Time investment: 60-90 minutes</p>
                     </div>
-                    <Camera className="h-6 w-6 text-green-600" />
+                    <Camera className="h-6 w-6 text-brand-600" />
                   </div>
                   <div className="ml-14">
                     <div className="grid md:grid-cols-2 gap-6">
@@ -327,16 +328,16 @@ export default function VideoProductionGuidePage() {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-8 shadow-lg border-l-4 border-purple-600">
+                <div className="bg-white rounded-xl p-8 shadow-lg border-l-4 border-brand-600">
                   <div className="flex items-start mb-4">
-                    <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center mr-4 font-bold">
+                    <div className="w-10 h-10 bg-brand-600 text-white rounded-full flex items-center justify-center mr-4 font-bold">
                       3
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-semibold text-gray-900 mb-2">Editing & Post-Production</h3>
                       <p className="text-gray-600 mb-4">Time investment: 45-90 minutes</p>
                     </div>
-                    <Edit className="h-6 w-6 text-purple-600" />
+                    <Edit className="h-6 w-6 text-brand-600" />
                   </div>
                   <div className="ml-14">
                     <div className="grid md:grid-cols-2 gap-6">
@@ -362,16 +363,16 @@ export default function VideoProductionGuidePage() {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-8 shadow-lg border-l-4 border-orange-600">
+                <div className="bg-white rounded-xl p-8 shadow-lg border-l-4 border-brand-600">
                   <div className="flex items-start mb-4">
-                    <div className="w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center mr-4 font-bold">
+                    <div className="w-10 h-10 bg-brand-600 text-white rounded-full flex items-center justify-center mr-4 font-bold">
                       4
                     </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-semibold text-gray-900 mb-2">Export & Platform Upload</h3>
                       <p className="text-gray-600 mb-4">Time investment: 15-30 minutes</p>
                     </div>
-                    <Monitor className="h-6 w-6 text-orange-600" />
+                    <Monitor className="h-6 w-6 text-brand-600" />
                   </div>
                   <div className="ml-14">
                     <div className="grid md:grid-cols-2 gap-6">
@@ -429,8 +430,8 @@ export default function VideoProductionGuidePage() {
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6">
-                  <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mb-4">
+                <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-xl p-6">
+                  <div className="w-12 h-12 bg-brand-600 rounded-xl flex items-center justify-center mb-4">
                     <Lightbulb className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">Lighting Setup</h3>
@@ -443,8 +444,8 @@ export default function VideoProductionGuidePage() {
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6">
-                  <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
+                <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-xl p-6">
+                  <div className="w-12 h-12 bg-brand-600 rounded-xl flex items-center justify-center mb-4">
                     <Mic className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">Audio Quality</h3>
@@ -457,8 +458,8 @@ export default function VideoProductionGuidePage() {
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-6">
-                  <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center mb-4">
+                <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-xl p-6">
+                  <div className="w-12 h-12 bg-brand-600 rounded-xl flex items-center justify-center mb-4">
                     <Play className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">Performance Tips</h3>
@@ -471,8 +472,8 @@ export default function VideoProductionGuidePage() {
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6">
-                  <div className="w-12 h-12 bg-teal-600 rounded-xl flex items-center justify-center mb-4">
+                <div className="bg-gradient-to-br from-brand-50 to-blue-50 rounded-xl p-6">
+                  <div className="w-12 h-12 bg-brand-600 rounded-xl flex items-center justify-center mb-4">
                     <Edit className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">Editing Best Practices</h3>
@@ -485,8 +486,8 @@ export default function VideoProductionGuidePage() {
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-pink-50 to-red-50 rounded-xl p-6">
-                  <div className="w-12 h-12 bg-pink-600 rounded-xl flex items-center justify-center mb-4">
+                <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-xl p-6">
+                  <div className="w-12 h-12 bg-brand-600 rounded-xl flex items-center justify-center mb-4">
                     <Target className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">Platform Optimization</h3>
@@ -518,12 +519,12 @@ export default function VideoProductionGuidePage() {
 
               <div className="space-y-6">
                 <div className="bg-white rounded-xl p-8 shadow-lg">
-                  <h3 className="text-xl font-semibold text-red-600 mb-4">❌ Poor Audio Quality</h3>
+                  <h3 className="text-xl font-semibold text-brand-600 mb-4">❌ Poor Audio Quality</h3>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">The Problem:</h4>
                       <p className="text-gray-600 text-sm mb-4">Using camera's built-in microphone, recording in noisy environments, inconsistent audio levels.</p>
-                      <p className="text-red-600 text-sm"><strong>Impact:</strong> 67% of viewers skip videos with poor audio within 5 seconds.</p>
+                      <p className="text-brand-600 text-sm"><strong>Impact:</strong> 67% of viewers skip videos with poor audio within 5 seconds.</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">The Solution:</h4>
@@ -533,12 +534,12 @@ export default function VideoProductionGuidePage() {
                 </div>
 
                 <div className="bg-white rounded-xl p-8 shadow-lg">
-                  <h3 className="text-xl font-semibold text-red-600 mb-4">❌ Weak Opening Hook</h3>
+                  <h3 className="text-xl font-semibold text-brand-600 mb-4">❌ Weak Opening Hook</h3>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">The Problem:</h4>
                       <p className="text-gray-600 text-sm mb-4">Starting with "Hi, I'm..." or company introduction instead of addressing viewer pain point immediately.</p>
-                      <p className="text-red-600 text-sm"><strong>Impact:</strong> 73% of viewers decide to skip within first 3 seconds.</p>
+                      <p className="text-brand-600 text-sm"><strong>Impact:</strong> 73% of viewers decide to skip within first 3 seconds.</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">The Solution:</h4>
@@ -548,12 +549,12 @@ export default function VideoProductionGuidePage() {
                 </div>
 
                 <div className="bg-white rounded-xl p-8 shadow-lg">
-                  <h3 className="text-xl font-semibold text-red-600 mb-4">❌ Over-Editing and Effects</h3>
+                  <h3 className="text-xl font-semibold text-brand-600 mb-4">❌ Over-Editing and Effects</h3>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">The Problem:</h4>
                       <p className="text-gray-600 text-sm mb-4">Using too many transitions, effects, text animations that distract from the message and look amateurish.</p>
-                      <p className="text-red-600 text-sm"><strong>Impact:</strong> Viewers focus on effects instead of message, reducing conversion rates.</p>
+                      <p className="text-brand-600 text-sm"><strong>Impact:</strong> Viewers focus on effects instead of message, reducing conversion rates.</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">The Solution:</h4>
@@ -563,12 +564,12 @@ export default function VideoProductionGuidePage() {
                 </div>
 
                 <div className="bg-white rounded-xl p-8 shadow-lg">
-                  <h3 className="text-xl font-semibold text-red-600 mb-4">❌ Wrong Aspect Ratio for Platform</h3>
+                  <h3 className="text-xl font-semibold text-brand-600 mb-4">❌ Wrong Aspect Ratio for Platform</h3>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">The Problem:</h4>
                       <p className="text-gray-600 text-sm mb-4">Using same horizontal video across all platforms instead of optimizing for each platform's native format.</p>
-                      <p className="text-red-600 text-sm"><strong>Impact:</strong> Up to 60% reduction in engagement and reach on mobile-first platforms.</p>
+                      <p className="text-brand-600 text-sm"><strong>Impact:</strong> Up to 60% reduction in engagement and reach on mobile-first platforms.</p>
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">The Solution:</h4>
@@ -582,7 +583,7 @@ export default function VideoProductionGuidePage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-600 to-blue-700 text-white">
+        <section className="py-16 bg-gradient-to-br from-brand-600 to-blue-700 text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4">
@@ -593,20 +594,8 @@ export default function VideoProductionGuidePage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                <Link
-                  href="/free-hooks"
-                  className="bg-white text-purple-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg"
-                >
-                  <Play className="h-5 w-5 mr-2" />
-                  Get Video Scripts Free
-                </Link>
-                <Link
-                  href="/#service-tiers"
-                  className="bg-purple-800 hover:bg-purple-900 text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg"
-                >
-                  <ArrowRight className="h-5 w-5 mr-2" />
-                  See Weekly Plans
-                </Link>
+                <FreeWeekButton source="video_production_guide-cta" className="bg-white text-brand-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="video_production_guide-cta" className="bg-brand-800 hover:bg-brand-900 text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
               </div>
 
               <div className="bg-white/10 backdrop-blur rounded-xl p-6">

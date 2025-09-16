@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, BarChart3, Target, Eye, Heart, Zap, Star, Calculator, CheckCircle, TrendingUp, Brain, Award, ClipboardCheck } from 'lucide-react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: '25-Point Performance Scoring System: Creative Intelligence Framework | Apsics Media',
@@ -301,7 +302,7 @@ export default function PerformanceScoringSystem() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+      <section className="bg-gradient-to-r from-blue-600 to-brand-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -405,32 +406,32 @@ export default function PerformanceScoringSystem() {
                   </div>
                 </div>
                 
-                <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+                <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Validation Methodology</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       <span>
                         <strong>10,000+ Campaign Analysis:</strong> Performance data from subscription 
                         businesses across multiple industries
                       </span>
                     </div>
                     <div className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       <span>
                         <strong>Facebook Creative Research:</strong> Best practices data from 
                         Meta's extensive creative performance studies
                       </span>
                     </div>
                     <div className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       <span>
                         <strong>TikTok Creative Center Insights:</strong> Viral content analysis 
                         and engagement pattern research
                       </span>
                     </div>
                     <div className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       <span>
                         <strong>Continuous Optimization:</strong> System refinement based on 
                         real-world performance correlation
@@ -440,7 +441,7 @@ export default function PerformanceScoringSystem() {
                 </div>
               </div>
               
-              <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-6 border border-orange-200">
+              <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-xl p-6 border border-brand-200">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Why 25 Points? The Psychology of Comprehensive Evaluation
                 </h3>
@@ -471,11 +472,11 @@ export default function PerformanceScoringSystem() {
               {scoringCriteria.map((criteria, index) => {
                 const Icon = criteria.icon;
                 const colorClasses = {
-                  orange: 'from-orange-500 to-red-500 border-orange-200 bg-orange-50',
-                  red: 'from-red-500 to-pink-500 border-red-200 bg-red-50',
+                  orange: 'from-brand-500 to-brand-500 border-brand-200 bg-brand-50',
+                  red: 'from-brand-500 to-brand-500 border-brand-200 bg-brand-50',
                   blue: 'from-blue-500 to-indigo-500 border-blue-200 bg-blue-50',
-                  green: 'from-green-500 to-emerald-500 border-green-200 bg-green-50',
-                  purple: 'from-purple-500 to-violet-500 border-purple-200 bg-purple-50'
+                  green: 'from-brand-500 to-brand-500 border-brand-200 bg-brand-50',
+                  purple: 'from-brand-500 to-violet-500 border-brand-200 bg-brand-50'
                 };
                 
                 return (
@@ -489,7 +490,7 @@ export default function PerformanceScoringSystem() {
                         <p className="text-gray-600">{criteria.description}</p>
                         <div className="flex items-center mt-2">
                           <span className="text-sm font-semibold text-gray-900">Maximum Points: </span>
-                          <span className="text-lg font-bold text-orange-600 ml-2">{criteria.maxPoints}/5</span>
+                          <span className="text-lg font-bold text-brand-600 ml-2">{criteria.maxPoints}/5</span>
                         </div>
                       </div>
                     </div>
@@ -540,10 +541,10 @@ export default function PerformanceScoringSystem() {
             <div className="space-y-6">
               {scoringGuidelines.map((guideline, index) => {
                 const colorClasses = {
-                  green: 'from-green-500 to-emerald-500 bg-green-50 border-green-200 text-green-800',
-                  orange: 'from-orange-500 to-red-500 bg-orange-50 border-orange-200 text-orange-800',
-                  yellow: 'from-yellow-500 to-orange-500 bg-yellow-50 border-yellow-200 text-yellow-800',
-                  red: 'from-red-500 to-pink-500 bg-red-50 border-red-200 text-red-800'
+                  green: 'from-brand-500 to-brand-500 bg-brand-50 border-brand-200 text-brand-800',
+                  orange: 'from-brand-500 to-brand-500 bg-brand-50 border-brand-200 text-brand-800',
+                  yellow: 'from-brand-500 to-brand-500 bg-brand-50 border-brand-200 text-brand-800',
+                  red: 'from-brand-500 to-brand-500 bg-brand-50 border-brand-200 text-brand-800'
                 };
                 
                 return (
@@ -625,8 +626,8 @@ export default function PerformanceScoringSystem() {
               </div>
               
               <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <BarChart3 className="h-6 w-6 text-green-600" />
+                <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4">
+                  <BarChart3 className="h-6 w-6 text-brand-600" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">2. Development Optimization</h3>
                 <p className="text-gray-600 text-sm mb-4">
@@ -639,8 +640,8 @@ export default function PerformanceScoringSystem() {
               </div>
               
               <div className="bg-white rounded-xl p-6 shadow-lg">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                  <TrendingUp className="h-6 w-6 text-purple-600" />
+                <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4">
+                  <TrendingUp className="h-6 w-6 text-brand-600" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">3. Performance Validation</h3>
                 <p className="text-gray-600 text-sm mb-4">
@@ -653,7 +654,7 @@ export default function PerformanceScoringSystem() {
               </div>
             </div>
             
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-8 border border-blue-200">
+            <div className="bg-gradient-to-r from-blue-50 to-brand-50 rounded-xl p-8 border border-blue-200">
               <h3 className="text-xl font-bold text-gray-900 mb-6">
                 Weekly Intelligence Integration
               </h3>
@@ -693,7 +694,7 @@ export default function PerformanceScoringSystem() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-brand-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -732,13 +733,7 @@ export default function PerformanceScoringSystem() {
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View Weekly Plans
-                <Calculator className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="25_point_performance_scoring_system-cta" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>

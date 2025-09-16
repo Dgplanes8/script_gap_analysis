@@ -75,7 +75,7 @@ export function TikTokAnalysisShowcase() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-100 to-red-100 text-orange-800 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand-100 to-brand-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
               <TrendingUp className="h-4 w-4 mr-2" />
               TikTok Intelligence Framework
             </div>
@@ -97,11 +97,11 @@ export function TikTokAnalysisShowcase() {
                   <span>Target: Audiences who relate to 'life choice consequences'</span>
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
-                  <TrendingUp className="h-4 w-4 mr-2 text-green-500" />
+                  <TrendingUp className="h-4 w-4 mr-2 text-brand-500" />
                   <span>Trend Score: 3/5 - Durable 'list reaction' format</span>
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
-                  <Target className="h-4 w-4 mr-2 text-orange-500" />
+                  <Target className="h-4 w-4 mr-2 text-brand-500" />
                   <span>Conversion Potential: Problem-solution brands with humor</span>
                 </div>
               </div>
@@ -117,13 +117,13 @@ export function TikTokAnalysisShowcase() {
                     onClick={() => setActiveStep(step.id)}
                     className={`p-4 rounded-xl border-2 transition-all duration-200 text-left ${
                       activeStep === step.id
-                        ? 'border-orange-500 bg-orange-50 shadow-lg'
+                        ? 'border-brand-500 bg-brand-50 shadow-lg'
                         : 'border-gray-200 bg-white hover:border-gray-300'
                     }`}
                   >
                     <div className="flex items-center mb-2">
                       <div className={`p-2 rounded-lg mr-3 ${
-                        activeStep === step.id ? 'bg-orange-100 text-orange-600' : 'bg-gray-100 text-gray-600'
+                        activeStep === step.id ? 'bg-brand-100 text-brand-600' : 'bg-gray-100 text-gray-600'
                       }`}>
                         {step.icon}
                       </div>
@@ -136,9 +136,9 @@ export function TikTokAnalysisShowcase() {
 
               {/* Active Step Details */}
               {currentStep && (
-                <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-orange-100">
+                <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-brand-100">
                   <div className="flex items-center mb-4">
-                    <div className="p-3 bg-orange-100 text-orange-600 rounded-lg mr-4">
+                    <div className="p-3 bg-brand-100 text-brand-600 rounded-lg mr-4">
                       {currentStep.icon}
                     </div>
                     <div>
@@ -158,7 +158,7 @@ export function TikTokAnalysisShowcase() {
                       <ul className="space-y-2">
                         {currentStep.insights.map((insight, index) => (
                           <li key={index} className="flex items-start">
-                            <ArrowRight className="h-4 w-4 text-orange-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <ArrowRight className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-gray-700 text-sm">{insight}</span>
                           </li>
                         ))}
@@ -169,9 +169,9 @@ export function TikTokAnalysisShowcase() {
               )}
 
               {/* Call to Action */}
-              <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl p-6 text-white">
+              <div className="bg-gradient-to-r from-brand-600 to-brand-600 rounded-xl p-6 text-white">
                 <h4 className="text-lg font-bold mb-2">Ready to Turn Trends Into Revenue?</h4>
-                <p className="text-orange-100 mb-4">
+                <p className="text-brand-100 mb-4">
                   Get weekly trend analyses with ready-to-use script templates delivered every Monday.
                 </p>
                 <button 
@@ -181,7 +181,7 @@ export function TikTokAnalysisShowcase() {
                       serviceTiersElement.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="bg-white text-orange-600 px-6 py-3 rounded-lg font-semibold hover:bg-orange-50 transition-colors duration-200 flex items-center"
+                  className="bg-white text-brand-600 px-6 py-3 rounded-lg font-semibold hover:bg-brand-50 transition-colors duration-200 flex items-center"
                 >
                   See Weekly Plans
                   <ArrowRight className="h-4 w-4 ml-2" />

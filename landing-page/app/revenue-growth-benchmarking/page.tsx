@@ -4,6 +4,7 @@ import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta
 import { ContentNavigation } from '@/components/layout/content-navigation';
 import { RevenueGrowthBenchmarkTool } from '@/components/calculators/revenue-growth-benchmark-tool';
 import { Header } from '@/components/layout/secondary-header';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Subscription Revenue Growth: Creative Strategy Benchmarking Tool | Strategic Ad Intelligence',
@@ -52,7 +53,7 @@ export default function RevenueGrowthBenchmarkingPage() {
       {/* Header Navigation */}
       <Header />
       
-      <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100 pt-16 lg:pt-20">
+      <div className="min-h-screen bg-gradient-to-br from-brand-50 to-brand-100 pt-16 lg:pt-20">
 
         {/* Hero Section */}
         <section className="relative pt-24 pb-20 px-6 overflow-hidden bg-white">
@@ -74,32 +75,22 @@ export default function RevenueGrowthBenchmarkingPage() {
             {/* Trust Indicators */}
             <div className="flex flex-wrap justify-center items-center gap-8 mb-12 text-sm text-gray-600">
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                 500+ companies benchmarked
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                 Enterprise-proven creative frameworks
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                 Personalized growth recommendations
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/free-hooks"
-                className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
-                Get 10 Free Growth Hooks
-              </a>
-              <a
-                href="/#service-tiers"
-                className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
-                See Weekly Plans
-              </a>
+              <FreeWeekButton source="revenue_growth_benchmarking-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="revenue_growth_benchmarking-cta" className="bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </section>
@@ -123,7 +114,7 @@ export default function RevenueGrowthBenchmarkingPage() {
               </div>
               
               <div className="text-center p-6 bg-gray-50 rounded-lg">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">📝</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-3">Message Resonance</h3>
@@ -133,7 +124,7 @@ export default function RevenueGrowthBenchmarkingPage() {
               </div>
               
               <div className="text-center p-6 bg-gray-50 rounded-lg">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">🔄</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-3">Creative Velocity</h3>
@@ -143,7 +134,7 @@ export default function RevenueGrowthBenchmarkingPage() {
               </div>
               
               <div className="text-center p-6 bg-gray-50 rounded-lg">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">📈</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-3">Performance Optimization</h3>
@@ -182,7 +173,7 @@ export default function RevenueGrowthBenchmarkingPage() {
               <div>
                 <h3 className="text-2xl font-semibold mb-6">Top Performers vs. Average Companies</h3>
                 <div className="space-y-6">
-                  <div className="bg-emerald-50 p-6 rounded-lg">
+                  <div className="bg-brand-50 p-6 rounded-lg">
                     <h4 className="font-semibold mb-3 text-emerald-800">Creative Testing Velocity</h4>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-700">Top 20%:</span>
@@ -206,11 +197,11 @@ export default function RevenueGrowthBenchmarkingPage() {
                     </div>
                   </div>
                   
-                  <div className="bg-purple-50 p-6 rounded-lg">
-                    <h4 className="font-semibold mb-3 text-purple-800">Attribution Sophistication</h4>
+                  <div className="bg-brand-50 p-6 rounded-lg">
+                    <h4 className="font-semibold mb-3 text-brand-800">Attribution Sophistication</h4>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-700">Top 20%:</span>
-                      <span className="font-bold text-purple-600">Multi-touch modeling</span>
+                      <span className="font-bold text-brand-600">Multi-touch modeling</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-700">Average:</span>
@@ -223,7 +214,7 @@ export default function RevenueGrowthBenchmarkingPage() {
               <div>
                 <h3 className="text-2xl font-semibold mb-6">Strategic Creative Approach Benefits</h3>
                 <div className="space-y-6">
-                  <div className="bg-emerald-50 p-6 rounded-lg">
+                  <div className="bg-brand-50 p-6 rounded-lg">
                     <h4 className="font-semibold mb-4 text-emerald-800">Systematic Creative Strategy Advantages</h4>
                     <div className="space-y-3 text-gray-700">
                       <div className="flex items-start">
@@ -271,41 +262,41 @@ export default function RevenueGrowthBenchmarkingPage() {
             </div>
 
             {/* Key Success Factors */}
-            <div className="bg-gradient-to-r from-emerald-50 to-blue-50 p-8 rounded-lg">
+            <div className="bg-gradient-to-r from-brand-50 to-blue-50 p-8 rounded-lg">
               <h3 className="text-2xl font-semibold mb-6 text-center">
                 5 Key Success Factors for High-Growth Creative Strategy
               </h3>
               <div className="grid md:grid-cols-5 gap-6">
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
+                  <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
                     1
                   </div>
                   <h4 className="font-semibold mb-2">Systematic Testing</h4>
                   <p className="text-sm text-gray-600">Structured A/B testing with statistical significance</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
+                  <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
                     2
                   </div>
                   <h4 className="font-semibold mb-2">Customer Language</h4>
                   <p className="text-sm text-gray-600">Voice-of-customer research driving creative development</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
+                  <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
                     3
                   </div>
                   <h4 className="font-semibold mb-2">Creative Velocity</h4>
                   <p className="text-sm text-gray-600">Rapid iteration and optimization cycles</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
+                  <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
                     4
                   </div>
                   <h4 className="font-semibold mb-2">Attribution Modeling</h4>
                   <p className="text-sm text-gray-600">Accurate measurement of creative performance</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
+                  <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
                     5
                   </div>
                   <h4 className="font-semibold mb-2">Strategic Integration</h4>
@@ -318,7 +309,7 @@ export default function RevenueGrowthBenchmarkingPage() {
 
 
         {/* Lead Generation Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-emerald-600">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-brand-600">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-6">
               Get Your Personalized Creative Strategy Benchmark Report
@@ -329,18 +320,8 @@ export default function RevenueGrowthBenchmarkingPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/free-hooks"
-                className="bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
-              >
-                Get My 10 Free Growth Hooks
-              </a>
-              <a
-                href="/#service-tiers"
-                className="bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
-              >
-                See Weekly Plans
-              </a>
+              <FreeWeekButton source="revenue_growth_benchmarking-cta" className="bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="revenue_growth_benchmarking-cta" className="bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">Start Free Week Trial</FreeWeekButton>
             </div>
             
             <div className="text-emerald-100 mt-6 max-w-md mx-auto">
@@ -367,9 +348,7 @@ export default function RevenueGrowthBenchmarkingPage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Step-by-step framework to reduce customer acquisition costs by 30-50%.
                 </p>
-                <a href="/free-hooks" className="text-emerald-600 font-semibold hover:underline mt-auto">
-                  Get Free Hooks →
-                </a>
+                <FreeWeekButton source="revenue_growth_benchmarking-cta" className="text-emerald-600 font-semibold hover:underline mt-auto">Start Free Week Trial</FreeWeekButton>
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
@@ -377,9 +356,7 @@ export default function RevenueGrowthBenchmarkingPage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Automated creative analysis and competitor intelligence for strategic advantage.
                 </p>
-                <a href="/free-hooks" className="text-emerald-600 font-semibold hover:underline mt-auto">
-                  Get Free Hooks →
-                </a>
+                <FreeWeekButton source="revenue_growth_benchmarking-cta" className="text-emerald-600 font-semibold hover:underline mt-auto">Start Free Week Trial</FreeWeekButton>
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
@@ -387,9 +364,7 @@ export default function RevenueGrowthBenchmarkingPage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Calculate the potential ROI of implementing systematic creative strategy.
                 </p>
-                <a href="/free-hooks" className="text-emerald-600 font-semibold hover:underline mt-auto">
-                  Get Free Hooks →
-                </a>
+                <FreeWeekButton source="revenue_growth_benchmarking-cta" className="text-emerald-600 font-semibold hover:underline mt-auto">Start Free Week Trial</FreeWeekButton>
               </div>
             </div>
           </div>

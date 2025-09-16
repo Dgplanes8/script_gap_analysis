@@ -115,12 +115,12 @@ const alternatives = [
 
 function StatusIcon({ status }: { status: 'good' | 'bad' | 'neutral' }) {
   if (status === 'good') {
-    return <Check className="h-5 w-5 text-green-600" aria-label="Good" />;
+    return <Check className="h-5 w-5 text-brand-600" aria-label="Good" />;
   }
   if (status === 'bad') {
-    return <X className="h-5 w-5 text-red-600" aria-label="Poor" />;
+    return <X className="h-5 w-5 text-brand-600" aria-label="Poor" />;
   }
-  return <div className="h-5 w-5 rounded-full bg-yellow-400" aria-label="Neutral" />;
+  return <div className="h-5 w-5 rounded-full bg-brand-400" aria-label="Neutral" />;
 }
 
 export function CompetitorComparison() {
@@ -132,7 +132,7 @@ export function CompetitorComparison() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center bg-brand-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <Zap className="h-4 w-4 mr-2" />
               COMPETITIVE ADVANTAGE
             </div>
@@ -149,7 +149,7 @@ export function CompetitorComparison() {
 
           {/* Mobile View - Cards */}
           <div className="block lg:hidden space-y-6">
-            <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl p-6 text-white">
+            <div className="bg-gradient-to-r from-brand-600 to-brand-600 rounded-xl p-6 text-white">
               <div className="flex items-center mb-4">
                 <Zap className="h-6 w-6 mr-3" />
                 <h3 className="text-xl font-bold">Weekly Creative Intelligence</h3>
@@ -238,9 +238,9 @@ export function CompetitorComparison() {
                     <div className="font-semibold text-gray-900">In-House</div>
                     <div className="text-sm text-gray-500">Teams</div>
                   </div>
-                  <div className="text-center bg-gradient-to-r from-orange-100 to-red-100 rounded-lg p-2 -m-2">
-                    <div className="font-bold text-orange-900">Weekly Creative</div>
-                    <div className="text-sm text-orange-700">Intelligence</div>
+                  <div className="text-center bg-gradient-to-r from-brand-100 to-brand-100 rounded-lg p-2 -m-2">
+                    <div className="font-bold text-brand-900">Weekly Creative</div>
+                    <div className="text-sm text-brand-700">Intelligence</div>
                   </div>
                 </div>
               </div>
@@ -280,11 +280,11 @@ export function CompetitorComparison() {
                         <div className="text-sm text-gray-600">{feature.inHouse.value}</div>
                       </div>
                       
-                      <div className="text-center bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-2 -m-2">
+                      <div className="text-center bg-gradient-to-r from-brand-50 to-brand-50 rounded-lg p-2 -m-2">
                         <div className="flex items-center justify-center mb-1">
                           <StatusIcon status={feature.apsics.status} />
                         </div>
-                        <div className="text-sm font-medium text-orange-900">{feature.apsics.value}</div>
+                        <div className="text-sm font-medium text-brand-900">{feature.apsics.value}</div>
                       </div>
                     </div>
                   </div>
@@ -295,7 +295,7 @@ export function CompetitorComparison() {
 
           {/* Bottom CTA */}
           <div className="text-center mt-12">
-            <div className="bg-white rounded-xl p-8 shadow-lg border border-orange-200 max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl p-8 shadow-lg border border-brand-200 max-w-4xl mx-auto">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 The Clear Choice for Growth Marketing Teams
               </h3>
@@ -306,10 +306,10 @@ export function CompetitorComparison() {
               
               <div className="grid md:grid-cols-3 gap-6 mb-8">
                 <div className="text-center">
-                  <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Clock className="h-8 w-8 text-green-600" />
+                  <div className="bg-brand-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Clock className="h-8 w-8 text-brand-600" />
                   </div>
-                  <div className="font-semibold text-green-600">8x Faster</div>
+                  <div className="font-semibold text-brand-600">8x Faster</div>
                   <div className="text-sm text-gray-600">Monday delivery vs 2+ weeks</div>
                 </div>
                 
@@ -322,10 +322,10 @@ export function CompetitorComparison() {
                 </div>
                 
                 <div className="text-center">
-                  <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Zap className="h-8 w-8 text-purple-600" />
+                  <div className="bg-brand-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Zap className="h-8 w-8 text-brand-600" />
                   </div>
-                  <div className="font-semibold text-purple-600">Zero Risk</div>
+                  <div className="font-semibold text-brand-600">Zero Risk</div>
                   <div className="text-sm text-gray-600">Cancel anytime vs long contracts</div>
                 </div>
               </div>
@@ -337,7 +337,7 @@ export function CompetitorComparison() {
                     emailSection.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="bg-gradient-to-r from-brand-600 to-brand-600 hover:from-brand-700 hover:to-brand-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
               >
                 Start My Free Week Trial
               </button>

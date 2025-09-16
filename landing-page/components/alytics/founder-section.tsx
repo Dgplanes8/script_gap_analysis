@@ -57,7 +57,7 @@ export function FounderSection() {
               {/* Left: Offer Details */}
               <div className="flex-1 text-left">
                 <div className="flex items-center justify-start gap-2 mb-3">
-                  <Star className="w-6 h-6 text-yellow-400" />
+                  <Star className="w-6 h-6 text-brand-400" />
                   <h3 className="text-2xl font-bold">Founding Member</h3>
                 </div>
                 
@@ -68,15 +68,15 @@ export function FounderSection() {
 
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0 text-green-400" />
+                    <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0 text-brand-400" />
                     <span className="leading-relaxed text-left">Competitive Edge Package</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0 text-green-400" />
+                    <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0 text-brand-400" />
                     <span className="leading-relaxed text-left">Direct access to founder for any questions about media buying or creative strategy</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0 text-green-400" />
+                    <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0 text-brand-400" />
                     <span className="leading-relaxed text-left">Lock in price for a year</span>
                   </li>
                 </ul>

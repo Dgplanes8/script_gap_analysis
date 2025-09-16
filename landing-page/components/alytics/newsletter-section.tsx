@@ -207,7 +207,7 @@ export function NewsletterSection() {
                     {...register('name')}
                   />
                   {errors.name && (
-                    <p className="text-red-500 text-sm">
+                    <p className="text-brand-500 text-sm">
                       {errors.name.message}
                     </p>
                   )}
@@ -229,7 +229,7 @@ export function NewsletterSection() {
                     {...register('email')}
                   />
                   {errors.email && (
-                    <p className="text-red-500 text-sm">
+                    <p className="text-brand-500 text-sm">
                       {errors.email.message}
                     </p>
                   )}

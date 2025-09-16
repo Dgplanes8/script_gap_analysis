@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { label: 'Plans & Pricing', href: '/#pricing' },
 ];
 
-const navItemClass = 'text-sm font-medium text-gray-700 transition-colors hover:text-[#126DFB]';
+const navItemClass = 'text-sm font-medium text-gray-700 transition-colors hover:text-brand-600';
 
 export function SecondaryHeader() {
   const { openModal } = useFreeWeek();
@@ -41,7 +41,7 @@ export function SecondaryHeader() {
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${headerClass}`}>
       <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between px-4 sm:h-20 sm:px-6">
         <Link href="/" className="flex items-center gap-3">
-          <div className="rounded-xl bg-gradient-to-br from-[#126DFB] to-[#0F5AD6] px-3 py-2 text-lg font-semibold text-white shadow-lg sm:text-xl">
+          <div className="rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 px-3 py-2 text-lg font-semibold text-white shadow-lg sm:text-xl">
             AM
           </div>
           <div className="hidden flex-col sm:flex">
@@ -62,7 +62,7 @@ export function SecondaryHeader() {
         <div className="hidden lg:flex items-center">
           <button
             onClick={() => triggerFreeWeek('secondary-header-cta')}
-            className="inline-flex items-center gap-2 rounded-xl bg-[#126DFB] px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#0F5AD6]"
+            className="inline-flex items-center gap-2 rounded-xl bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-brand-600"
           >
             Start Free Week Trial
             <ArrowRight className="h-4 w-4" />
@@ -71,7 +71,7 @@ export function SecondaryHeader() {
 
         <button
           onClick={() => setIsMobileOpen((prev) => !prev)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:text-[#126DFB] lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 shadow-sm transition-colors hover:text-brand-600 lg:hidden"
           aria-label={isMobileOpen ? 'Close navigation' : 'Open navigation'}
         >
           {isMobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -85,7 +85,7 @@ export function SecondaryHeader() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="block rounded-lg px-3 py-3 text-base font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-[#126DFB]"
+                className="block rounded-lg px-3 py-3 text-base font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-brand-600"
                 onClick={closeMobileMenu}
               >
                 {link.label}
@@ -97,7 +97,7 @@ export function SecondaryHeader() {
                   triggerFreeWeek('secondary-header-mobile-cta');
                   closeMobileMenu();
                 }}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#126DFB] px-5 py-3 text-base font-semibold text-white shadow-lg transition-colors hover:bg-[#0F5AD6]"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-500 px-5 py-3 text-base font-semibold text-white shadow-lg transition-colors hover:bg-brand-600"
               >
                 Start Free Week Trial
                 <ArrowRight className="h-5 w-5" />

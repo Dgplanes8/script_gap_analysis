@@ -7,6 +7,7 @@ import { StructuredData } from '@/components/schema';
 import { HelpCircle, Plus, Minus, ArrowRight, Mail, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 // Metadata for this page is handled by Next.js App Router
 // Since this is a client component, we'll add metadata via Head component if needed
@@ -278,7 +279,7 @@ export default function FAQPage() {
         ))}
 
         {/* Still Have Questions */}
-        <section className="py-16 bg-gradient-to-br from-orange-50 to-red-50">
+        <section className="py-16 bg-gradient-to-br from-brand-50 to-brand-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -290,7 +291,7 @@ export default function FAQPage() {
               
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 <div className="bg-white rounded-xl p-8 shadow-lg">
-                  <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Mail className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">Email Support</h3>
@@ -299,7 +300,7 @@ export default function FAQPage() {
                   </p>
                   <a
                     href="mailto:brian@apsicsmedia.com"
-                    className="bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors duration-200 inline-flex items-center"
+                    className="bg-brand-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-brand-700 transition-colors duration-200 inline-flex items-center"
                   >
                     <Mail className="h-5 w-5 mr-2" />
                     brian@apsicsmedia.com
@@ -332,20 +333,8 @@ export default function FAQPage() {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <Link
-                    href="/free-hooks"
-                    className="bg-orange-600 text-white hover:bg-orange-700 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg"
-                  >
-                    <HelpCircle className="h-5 w-5 mr-2" />
-                    Try Free Templates
-                  </Link>
-                  <Link
-                    href="/#service-tiers"
-                    className="bg-white border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg"
-                  >
-                    <ArrowRight className="h-5 w-5 mr-2" />
-                    See Weekly Plans
-                  </Link>
+                  <FreeWeekButton source="faq-cta" className="bg-brand-600 text-white hover:bg-brand-700 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
+                  <FreeWeekButton source="faq-cta" className="bg-white border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
                 </div>
               </div>
             </div>

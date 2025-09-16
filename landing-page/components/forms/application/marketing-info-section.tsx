@@ -11,7 +11,7 @@ export function MarketingInfoSection({ formData, handleInputChange, handleChanne
   return (
     <div>
       <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-        <Target className="h-5 w-5 mr-2 text-purple-600" />
+        <Target className="h-5 w-5 mr-2 text-brand-600" />
         Current Marketing
       </h3>
       <div className="space-y-4">

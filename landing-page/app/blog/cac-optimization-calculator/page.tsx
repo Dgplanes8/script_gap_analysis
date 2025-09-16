@@ -45,7 +45,7 @@ export default function CACOptimizationCalculatorPage() {
     <div>
       {/* Interactive Calculator Section */}
       <section className="my-12">
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8 border-2 border-blue-200">
+        <div className="bg-gradient-to-r from-blue-50 to-brand-50 rounded-lg p-8 border-2 border-blue-200">
           <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
             CAC Optimization Calculator
           </h2>
@@ -99,7 +99,7 @@ export default function CACOptimizationCalculatorPage() {
             </li>
             <li className="flex justify-between border-t pt-2">
               <span>Target LTV:CAC Ratio</span>
-              <span className="font-semibold text-green-600">3:1 minimum</span>
+              <span className="font-semibold text-brand-600">3:1 minimum</span>
             </li>
           </ul>
         </div>
@@ -121,7 +121,7 @@ export default function CACOptimizationCalculatorPage() {
             </li>
             <li className="flex justify-between border-t pt-2">
               <span>Target LTV:CAC Ratio</span>
-              <span className="font-semibold text-green-600">4:1 minimum</span>
+              <span className="font-semibold text-brand-600">4:1 minimum</span>
             </li>
           </ul>
         </div>
@@ -145,7 +145,7 @@ export default function CACOptimizationCalculatorPage() {
           </div>
         </div>
         
-        <div className="border-l-4 border-green-500 pl-6">
+        <div className="border-l-4 border-brand-500 pl-6">
           <h4 className="text-lg font-semibold text-gray-800 mb-2">Search Engine Marketing (Google, Bing)</h4>
           <div className="space-y-2 text-gray-700">
             <p><strong>Optimization Levers:</strong></p>
@@ -156,11 +156,11 @@ export default function CACOptimizationCalculatorPage() {
               <li>• Negative keyword optimization</li>
               <li>• Geographic and temporal targeting</li>
             </ul>
-            <p className="text-sm text-green-600 mt-2">Average CAC reduction potential: 30-50%</p>
+            <p className="text-sm text-brand-600 mt-2">Average CAC reduction potential: 30-50%</p>
           </div>
         </div>
         
-        <div className="border-l-4 border-purple-500 pl-6">
+        <div className="border-l-4 border-brand-500 pl-6">
           <h4 className="text-lg font-semibold text-gray-800 mb-2">Content Marketing & SEO</h4>
           <div className="space-y-2 text-gray-700">
             <p><strong>Optimization Levers:</strong></p>
@@ -171,11 +171,11 @@ export default function CACOptimizationCalculatorPage() {
               <li>• Lead magnet conversion optimization</li>
               <li>• Email nurture sequence improvements</li>
             </ul>
-            <p className="text-sm text-purple-600 mt-2">Average CAC reduction potential: 40-60%</p>
+            <p className="text-sm text-brand-600 mt-2">Average CAC reduction potential: 40-60%</p>
           </div>
         </div>
         
-        <div className="border-l-4 border-orange-500 pl-6">
+        <div className="border-l-4 border-brand-500 pl-6">
           <h4 className="text-lg font-semibold text-gray-800 mb-2">Email Marketing & Automation</h4>
           <div className="space-y-2 text-gray-700">
             <p><strong>Optimization Levers:</strong></p>
@@ -186,15 +186,15 @@ export default function CACOptimizationCalculatorPage() {
               <li>• Automation workflow improvements</li>
               <li>• Re-engagement campaign optimization</li>
             </ul>
-            <p className="text-sm text-orange-600 mt-2">Average CAC reduction potential: 20-35%</p>
+            <p className="text-sm text-brand-600 mt-2">Average CAC reduction potential: 20-35%</p>
           </div>
         </div>
       </div>
 
       <h3 className="text-2xl font-semibold text-gray-800 mb-4">4. The 40% CAC Reduction Framework</h3>
 
-      <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
-        <h4 className="text-lg font-semibold text-green-800 mb-4">Systematic Optimization Approach:</h4>
+      <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 mb-8">
+        <h4 className="text-lg font-semibold text-brand-800 mb-4">Systematic Optimization Approach:</h4>
         
         <div className="space-y-4">
           <div className="bg-white rounded-lg p-4">
@@ -206,7 +206,7 @@ export default function CACOptimizationCalculatorPage() {
               <li>• Map customer journey conversion points and friction</li>
               <li>• Document current attribution model and tracking setup</li>
             </ul>
-            <div className="mt-2 text-xs text-green-700 bg-green-100 rounded p-2">
+            <div className="mt-2 text-xs text-brand-700 bg-brand-100 rounded p-2">
               Target: Complete visibility into CAC drivers and customer quality by channel
             </div>
           </div>
@@ -220,7 +220,7 @@ export default function CACOptimizationCalculatorPage() {
               <li>• Add negative keywords and audience exclusions</li>
               <li>• Test new creative formats on best-performing channels</li>
             </ul>
-            <div className="mt-2 text-xs text-green-700 bg-green-100 rounded p-2">
+            <div className="mt-2 text-xs text-brand-700 bg-brand-100 rounded p-2">
               Target: 10-15% CAC reduction through low-effort optimizations
             </div>
           </div>
@@ -234,7 +234,7 @@ export default function CACOptimizationCalculatorPage() {
               <li>• Create automated bidding and budget rules</li>
               <li>• Build predictive CAC modeling system</li>
             </ul>
-            <div className="mt-2 text-xs text-green-700 bg-green-100 rounded p-2">
+            <div className="mt-2 text-xs text-brand-700 bg-brand-100 rounded p-2">
               Target: Additional 15-20% CAC reduction through systematic improvements
             </div>
           </div>
@@ -248,7 +248,7 @@ export default function CACOptimizationCalculatorPage() {
               <li>• Create cross-channel attribution system</li>
               <li>• Build automated optimization workflows</li>
             </ul>
-            <div className="mt-2 text-xs text-green-700 bg-green-100 rounded p-2">
+            <div className="mt-2 text-xs text-brand-700 bg-brand-100 rounded p-2">
               Target: Final 10-15% CAC reduction through advanced strategies
             </div>
           </div>
@@ -257,38 +257,38 @@ export default function CACOptimizationCalculatorPage() {
 
       <h3 className="text-2xl font-semibold text-gray-800 mb-4">5. Common CAC Optimization Mistakes</h3>
 
-      <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
-        <h4 className="text-lg font-semibold text-red-800 mb-4">Avoid These Critical Errors:</h4>
+      <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 mb-8">
+        <h4 className="text-lg font-semibold text-brand-800 mb-4">Avoid These Critical Errors:</h4>
         <div className="space-y-3">
           <div className="flex items-start">
-            <span className="text-red-500 mr-3 text-lg">✗</span>
+            <span className="text-brand-500 mr-3 text-lg">✗</span>
             <div>
-              <h5 className="font-semibold text-red-800">Optimizing for CAC Instead of Unit Economics</h5>
-              <p className="text-red-700 text-sm">Low CAC with poor customer quality destroys long-term value. Focus on CAC:LTV ratio optimization.</p>
+              <h5 className="font-semibold text-brand-800">Optimizing for CAC Instead of Unit Economics</h5>
+              <p className="text-brand-700 text-sm">Low CAC with poor customer quality destroys long-term value. Focus on CAC:LTV ratio optimization.</p>
             </div>
           </div>
           
           <div className="flex items-start">
-            <span className="text-red-500 mr-3 text-lg">✗</span>
+            <span className="text-brand-500 mr-3 text-lg">✗</span>
             <div>
-              <h5 className="font-semibold text-red-800">Making Changes Without Statistical Significance</h5>
-              <p className="text-red-700 text-sm">Require 95% confidence and 2+ weeks data before making optimization decisions.</p>
+              <h5 className="font-semibold text-brand-800">Making Changes Without Statistical Significance</h5>
+              <p className="text-brand-700 text-sm">Require 95% confidence and 2+ weeks data before making optimization decisions.</p>
             </div>
           </div>
           
           <div className="flex items-start">
-            <span className="text-red-500 mr-3 text-lg">✗</span>
+            <span className="text-brand-500 mr-3 text-lg">✗</span>
             <div>
-              <h5 className="font-semibold text-red-800">Ignoring Customer Journey Attribution</h5>
-              <p className="text-red-700 text-sm">Last-click attribution misallocates credit. Use multi-touch attribution for accurate CAC calculation.</p>
+              <h5 className="font-semibold text-brand-800">Ignoring Customer Journey Attribution</h5>
+              <p className="text-brand-700 text-sm">Last-click attribution misallocates credit. Use multi-touch attribution for accurate CAC calculation.</p>
             </div>
           </div>
           
           <div className="flex items-start">
-            <span className="text-red-500 mr-3 text-lg">✗</span>
+            <span className="text-brand-500 mr-3 text-lg">✗</span>
             <div>
-              <h5 className="font-semibold text-red-800">Cutting Budget on Learning Channels</h5>
-              <p className="text-red-700 text-sm">New channels need 90+ days to optimize. Premature budget cuts prevent finding scalable channels.</p>
+              <h5 className="font-semibold text-brand-800">Cutting Budget on Learning Channels</h5>
+              <p className="text-brand-700 text-sm">New channels need 90+ days to optimize. Premature budget cuts prevent finding scalable channels.</p>
             </div>
           </div>
         </div>
@@ -310,12 +310,12 @@ export default function CACOptimizationCalculatorPage() {
           </ul>
         </div>
         
-        <div className="bg-purple-50 rounded-lg p-6">
-          <h3 className="text-xl font-semibold text-purple-800 mb-4">Predictive CAC Modeling</h3>
-          <p className="text-purple-700 mb-4">
+        <div className="bg-brand-50 rounded-lg p-6">
+          <h3 className="text-xl font-semibold text-brand-800 mb-4">Predictive CAC Modeling</h3>
+          <p className="text-brand-700 mb-4">
             Use historical data to predict future CAC trends and optimize budget allocation proactively.
           </p>
-          <ul className="space-y-1 text-purple-700">
+          <ul className="space-y-1 text-brand-700">
             <li>• Seasonal adjustment factors</li>
             <li>• Competitive impact modeling</li>
             <li>• Budget scaling efficiency curves</li>
@@ -323,12 +323,12 @@ export default function CACOptimizationCalculatorPage() {
           </ul>
         </div>
         
-        <div className="bg-green-50 rounded-lg p-6">
-          <h3 className="text-xl font-semibold text-green-800 mb-4">Cross-Channel Attribution Optimization</h3>
-          <p className="text-green-700 mb-4">
+        <div className="bg-brand-50 rounded-lg p-6">
+          <h3 className="text-xl font-semibold text-brand-800 mb-4">Cross-Channel Attribution Optimization</h3>
+          <p className="text-brand-700 mb-4">
             Optimize budget allocation based on true multi-touch customer journeys rather than last-click attribution.
           </p>
-          <ul className="space-y-1 text-green-700">
+          <ul className="space-y-1 text-brand-700">
             <li>• Implement data-driven attribution models</li>
             <li>• Track assisted conversions and view-through impacts</li>
             <li>• Optimize for customer journey efficiency</li>

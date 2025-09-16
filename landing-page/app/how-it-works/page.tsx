@@ -5,6 +5,7 @@ import { StructuredData } from '@/components/schema';
 import { StrategyProcess } from '@/components/layout/strategic-process';
 import { Calendar, Target, TrendingUp, Building2, ArrowRight, CheckCircle, Clock, Mail } from 'lucide-react';
 import Link from 'next/link';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'How Weekly Ad Templates Work | Monday Delivery Process | APSICS Media',
@@ -90,10 +91,10 @@ export default function HowItWorksPage() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-orange-50 to-red-50">
+        <section className="py-16 bg-gradient-to-br from-brand-50 to-brand-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center bg-gradient-to-r from-orange-600 to-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center bg-gradient-to-r from-brand-600 to-brand-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Calendar className="h-4 w-4 mr-2" />
                 MONDAY DELIVERY GUARANTEE
               </div>
@@ -110,12 +111,12 @@ export default function HowItWorksPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Your Weekly Schedule</h3>
                 <div className="grid md:grid-cols-5 gap-4">
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 font-bold">M</div>
+                    <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 font-bold">M</div>
                     <div className="font-semibold text-sm">Templates Arrive</div>
                     <div className="text-xs text-gray-500">Fresh concepts delivered</div>
                   </div>
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 font-bold">T</div>
+                    <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 font-bold">T</div>
                     <div className="font-semibold text-sm">Customize</div>
                     <div className="text-xs text-gray-500">Adapt to your brand</div>
                   </div>
@@ -125,12 +126,12 @@ export default function HowItWorksPage() {
                     <div className="text-xs text-gray-500">Produce visuals</div>
                   </div>
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 font-bold">T</div>
+                    <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 font-bold">T</div>
                     <div className="font-semibold text-sm">Set Up Campaigns</div>
                     <div className="text-xs text-gray-500">Upload to platforms</div>
                   </div>
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 font-bold">F</div>
+                    <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 font-bold">F</div>
                     <div className="font-semibold text-sm">Launch & Test</div>
                     <div className="text-xs text-gray-500">Go live and measure</div>
                   </div>
@@ -154,8 +155,8 @@ export default function HowItWorksPage() {
               </div>
 
               <div className="grid md:grid-cols-3 gap-8">
-                <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-8 border border-orange-100">
-                  <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-xl p-8 border border-brand-100">
+                  <div className="w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Target className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-center mb-4">Launch Winning Campaigns</h3>
@@ -164,22 +165,22 @@ export default function HowItWorksPage() {
                   </p>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       Strategic concept development
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       Platform-specific optimization
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       Performance scoring included
                     </li>
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-8 border border-teal-100">
-                  <div className="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="bg-gradient-to-br from-brand-50 to-blue-50 rounded-xl p-8 border border-teal-100">
+                  <div className="w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <TrendingUp className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-center mb-4">Step-by-Step Setup</h3>
@@ -188,22 +189,22 @@ export default function HowItWorksPage() {
                   </p>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       Campaign setup walkthrough
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       Budget allocation guidance
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       Performance tracking tips
                     </li>
                   </ul>
                 </div>
 
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-8 border border-purple-100">
-                  <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-xl p-8 border border-brand-100">
+                  <div className="w-16 h-16 bg-brand-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Building2 className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-center mb-4">Startup-Budget Friendly</h3>
@@ -212,15 +213,15 @@ export default function HowItWorksPage() {
                   </p>
                   <ul className="space-y-2 text-sm text-gray-600">
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       No long-term contracts
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       Weekly billing flexibility
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" />
+                      <CheckCircle className="h-4 w-4 text-brand-600 mt-0.5 mr-2 flex-shrink-0" />
                       Cancel or restart anytime
                     </li>
                   </ul>
@@ -261,11 +262,11 @@ export default function HowItWorksPage() {
               </div>
 
               <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-8">
+                <div className="bg-gradient-to-br from-brand-50 to-brand-50 rounded-xl p-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">Creative Assets</h3>
                   <div className="space-y-4">
                     <div className="flex items-start">
-                      <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                      <div className="w-6 h-6 bg-brand-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
                         <span className="text-white text-xs font-bold">1</span>
                       </div>
                       <div>
@@ -274,7 +275,7 @@ export default function HowItWorksPage() {
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                      <div className="w-6 h-6 bg-brand-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
                         <span className="text-white text-xs font-bold">2</span>
                       </div>
                       <div>
@@ -283,7 +284,7 @@ export default function HowItWorksPage() {
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-6 h-6 bg-orange-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                      <div className="w-6 h-6 bg-brand-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
                         <span className="text-white text-xs font-bold">3</span>
                       </div>
                       <div>
@@ -294,11 +295,11 @@ export default function HowItWorksPage() {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-8">
+                <div className="bg-gradient-to-br from-brand-50 to-blue-50 rounded-xl p-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">Implementation Guide</h3>
                   <div className="space-y-4">
                     <div className="flex items-start">
-                      <div className="w-6 h-6 bg-teal-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                      <div className="w-6 h-6 bg-brand-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
                         <span className="text-white text-xs font-bold">1</span>
                       </div>
                       <div>
@@ -307,7 +308,7 @@ export default function HowItWorksPage() {
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-6 h-6 bg-teal-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                      <div className="w-6 h-6 bg-brand-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
                         <span className="text-white text-xs font-bold">2</span>
                       </div>
                       <div>
@@ -316,7 +317,7 @@ export default function HowItWorksPage() {
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-6 h-6 bg-teal-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                      <div className="w-6 h-6 bg-brand-600 rounded-full flex items-center justify-center mr-3 mt-0.5">
                         <span className="text-white text-xs font-bold">3</span>
                       </div>
                       <div>
@@ -345,9 +346,9 @@ export default function HowItWorksPage() {
               </div>
 
               <div className="space-y-6">
-                <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-orange-600">
+                <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-brand-600">
                   <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center mr-3 font-bold text-sm">
+                    <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center mr-3 font-bold text-sm">
                       1
                     </div>
                     <div className="flex-1">
@@ -363,7 +364,7 @@ export default function HowItWorksPage() {
 
                 <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-teal-600">
                   <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center mr-3 font-bold text-sm">
+                    <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center mr-3 font-bold text-sm">
                       2
                     </div>
                     <div className="flex-1">
@@ -393,9 +394,9 @@ export default function HowItWorksPage() {
                   </p>
                 </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-purple-600">
+                <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-brand-600">
                   <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 bg-purple-600 text-white rounded-full flex items-center justify-center mr-3 font-bold text-sm">
+                    <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center mr-3 font-bold text-sm">
                       4
                     </div>
                     <div className="flex-1">
@@ -409,9 +410,9 @@ export default function HowItWorksPage() {
                   </p>
                 </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-green-600">
+                <div className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-brand-600">
                   <div className="flex items-center mb-3">
-                    <div className="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center mr-3 font-bold text-sm">
+                    <div className="w-8 h-8 bg-brand-600 text-white rounded-full flex items-center justify-center mr-3 font-bold text-sm">
                       5
                     </div>
                     <div className="flex-1">
@@ -426,7 +427,7 @@ export default function HowItWorksPage() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-8 mt-8 border border-green-200">
+              <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-xl p-8 mt-8 border border-brand-200">
                 <div className="text-center">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Total Time Investment: 5-9 Hours Per Week</h3>
                   <p className="text-gray-600">
@@ -439,7 +440,7 @@ export default function HowItWorksPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-orange-600 to-red-700 text-white">
+        <section className="py-16 bg-gradient-to-br from-brand-600 to-brand-700 text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4">
@@ -450,16 +451,10 @@ export default function HowItWorksPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                <Link
-                  href="/#service-tiers"
-                  className="bg-white text-orange-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg"
-                >
-                  <Calendar className="h-5 w-5 mr-2" />
-                  Start Free Week
-                </Link>
+                <FreeWeekButton source="how_it_works-cta" className="bg-white text-brand-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
                 <Link
                   href="/examples"
-                  className="bg-orange-800 hover:bg-orange-900 text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg"
+                  className="bg-brand-800 hover:bg-brand-900 text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg"
                 >
                   <ArrowRight className="h-5 w-5 mr-2" />
                   See Examples
@@ -470,7 +465,7 @@ export default function HowItWorksPage() {
                 <p className="text-lg opacity-90 mb-2">Questions about the process?</p>
                 <a 
                   href="mailto:brian@apsicsmedia.com" 
-                  className="text-orange-300 hover:text-orange-200 font-semibold text-xl inline-flex items-center"
+                  className="text-brand-300 hover:text-brand-200 font-semibold text-xl inline-flex items-center"
                 >
                   <Mail className="h-5 w-5 mr-2" />
                   brian@apsicsmedia.com

@@ -4,6 +4,7 @@ import { ArrowLeft, Clock, Target, TrendingUp, Users, Calendar, Mail, BookOpen, 
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
 import { Header } from '@/components/layout/secondary-header';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 const POST_CONFIG = {
   title: 'Weekly Creative Intelligence for Subscription Marketing',
@@ -41,7 +42,7 @@ export default function WeeklyCreativeIntelligencePage() {
         {/* Article Header */}
         <article className="max-w-4xl mx-auto">
           <header className="mb-12">
-            <div className="inline-flex items-center px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center px-3 py-1 bg-brand-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
               <Calendar className="h-4 w-4 mr-2" />
               Weekly Creative Intelligence
             </div>
@@ -73,7 +74,7 @@ export default function WeeklyCreativeIntelligencePage() {
               This timing mismatch creates performance gaps where your cost per acquisition climbs while you wait for fresh creative assets. Growth teams need creative concepts that match the pace of platform algorithms and audience attention spans.
             </p>
 
-            <div className="bg-orange-50 rounded-xl p-8 mb-12">
+            <div className="bg-brand-50 rounded-xl p-8 mb-12">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">The Agency Timing Problem:</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -111,7 +112,7 @@ export default function WeeklyCreativeIntelligencePage() {
             
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="bg-gray-50 rounded-xl p-6">
-                <TrendingUp className="h-8 w-8 text-orange-600 mb-4" />
+                <TrendingUp className="h-8 w-8 text-brand-600 mb-4" />
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Trend Analysis</h4>
                 <p className="text-gray-700">
                   Weekly monitoring of social media trends, viral content patterns, and emerging creative formats across TikTok, Instagram, and Facebook.
@@ -119,7 +120,7 @@ export default function WeeklyCreativeIntelligencePage() {
               </div>
               
               <div className="bg-gray-50 rounded-xl p-6">
-                <Target className="h-8 w-8 text-teal-600 mb-4" />
+                <Target className="h-8 w-8 text-brand-600 mb-4" />
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Competitive Intelligence</h4>
                 <p className="text-gray-700">
                   Systematic analysis of competitor creative strategies, messaging approaches, and audience targeting within subscription business categories.
@@ -186,10 +187,10 @@ export default function WeeklyCreativeIntelligencePage() {
               Implementing weekly creative intelligence requires structured integration with your existing performance marketing workflows. The framework below outlines how growth teams can maximize the value of weekly concept delivery.
             </p>
 
-            <div className="bg-orange-50 rounded-xl p-6 border border-orange-200 mb-8">
+            <div className="bg-brand-50 rounded-xl p-6 border border-brand-200 mb-8">
               <div className="flex items-start">
-                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                  <BookOpen className="h-5 w-5 text-orange-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <BookOpen className="h-5 w-5 text-brand-600" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Complete Implementation Methodology</h4>
@@ -198,7 +199,7 @@ export default function WeeklyCreativeIntelligencePage() {
                   </p>
                   <Link 
                     href="/weekly-creative-intelligence-playbook"
-                    className="inline-flex items-center text-orange-600 hover:text-orange-700 font-semibold text-sm"
+                    className="inline-flex items-center text-brand-600 hover:text-brand-700 font-semibold text-sm"
                   >
                     Access Complete Methodology & Implementation Guide
                     <ArrowRight className="h-4 w-4 ml-1" />
@@ -210,7 +211,7 @@ export default function WeeklyCreativeIntelligencePage() {
             <h3 className="text-2xl font-semibold text-gray-900 mb-6">Monday Creative Intelligence Workflow</h3>
             
             <div className="space-y-8 mb-12">
-              <div className="bg-orange-50 rounded-xl p-6 border-l-4 border-orange-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Monday Morning (Concept Delivery)</h4>
                 <p className="text-gray-700 mb-4">
                   Receive 1-3 creative concepts with ready-to-develop scripts, trend attribution, and strategic rationale for each concept direction.
@@ -222,7 +223,7 @@ export default function WeeklyCreativeIntelligencePage() {
                 </ul>
               </div>
               
-              <div className="bg-teal-50 rounded-xl p-6 border-l-4 border-teal-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-teal-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Tuesday-Wednesday (Production Integration)</h4>
                 <p className="text-gray-700 mb-4">
                   Integrate weekly concepts with your existing creative production process, whether internal team or freelance creators.
@@ -307,7 +308,7 @@ export default function WeeklyCreativeIntelligencePage() {
             
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="space-y-6">
-                <div className="bg-orange-50 rounded-lg p-6">
+                <div className="bg-brand-50 rounded-lg p-6">
                   <h4 className="font-semibold text-gray-900 mb-3">Testing Velocity Metrics</h4>
                   <ul className="text-gray-700 space-y-2">
                     <li>• New concepts tested per month</li>
@@ -317,7 +318,7 @@ export default function WeeklyCreativeIntelligencePage() {
                   </ul>
                 </div>
                 
-                <div className="bg-teal-50 rounded-lg p-6">
+                <div className="bg-brand-50 rounded-lg p-6">
                   <h4 className="font-semibold text-gray-900 mb-3">Performance Stability</h4>
                   <ul className="text-gray-700 space-y-2">
                     <li>• Average cost per acquisition trends</li>
@@ -357,12 +358,12 @@ export default function WeeklyCreativeIntelligencePage() {
               Implementing weekly creative intelligence requires evaluating your current creative development process, testing capacity, and growth objectives. The transition from monthly or bi-weekly concept delivery to weekly intelligence should align with your team's production capabilities.
             </p>
 
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-8 mb-12">
+            <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-xl p-8 mb-12">
               <h3 className="text-xl font-semibold text-gray-900 mb-6">Implementation Readiness Assessment</h3>
               
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <div className="w-6 h-6 bg-orange-600 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">1</div>
+                  <div className="w-6 h-6 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">1</div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Creative Production Capacity</h4>
                     <p className="text-gray-700">Assess your ability to produce 1-3 new creative assets weekly through internal team or freelance resources.</p>
@@ -370,7 +371,7 @@ export default function WeeklyCreativeIntelligencePage() {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-6 h-6 bg-orange-600 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">2</div>
+                  <div className="w-6 h-6 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">2</div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Testing Infrastructure</h4>
                     <p className="text-gray-700">Ensure testing budget allocation and performance tracking systems can handle increased concept velocity.</p>
@@ -378,7 +379,7 @@ export default function WeeklyCreativeIntelligencePage() {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-6 h-6 bg-orange-600 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">3</div>
+                  <div className="w-6 h-6 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-4 mt-1">3</div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Strategic Alignment</h4>
                     <p className="text-gray-700">Confirm weekly creative intelligence supports current growth objectives and campaign optimization priorities.</p>
@@ -388,7 +389,7 @@ export default function WeeklyCreativeIntelligencePage() {
             </div>
 
             {/* CTA Section */}
-            <div className="bg-gradient-to-br from-orange-600 to-red-700 text-white rounded-2xl p-8 text-center mb-12">
+            <div className="bg-gradient-to-br from-brand-600 to-brand-700 text-white rounded-2xl p-8 text-center mb-12">
               <h3 className="text-2xl font-bold mb-4">
                 Stop Waiting Weeks for Creative Concepts
               </h3>
@@ -397,20 +398,8 @@ export default function WeeklyCreativeIntelligencePage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link
-                  href="/#service-tiers"
-                  className="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
-                >
-                  <Mail className="h-5 w-5 mr-2" />
-                  Get My 10 Free Hooks
-                </Link>
-                <Link 
-                  href="/#service-tiers"
-                  className="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
-                >
-                  <Calendar className="h-5 w-5 mr-2" />
-                  See Weekly Plans
-                </Link>
+                <FreeWeekButton source="weekly_creative_intelligence_subscription_marketing-cta" className="bg-white text-brand-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="weekly_creative_intelligence_subscription_marketing-cta" className="bg-white text-brand-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center">Start Free Week Trial</FreeWeekButton>
               </div>
               
               <p className="text-sm mt-4 opacity-80">

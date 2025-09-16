@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 // Lazy load EmailCaptureForm as it's not critical for LCP
 const EmailCaptureForm = dynamic(
@@ -43,8 +43,8 @@ export function Hero({
 }: HeroProps) {
   const bgClasses =
     background === 'gradient'
-      ? 'bg-gradient-to-br from-red-600 via-red-700 to-orange-800'
-      : 'bg-gradient-to-br from-orange-600 via-red-700 to-red-800';
+      ? 'bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900'
+      : 'bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900';
 
   return (
     <section className={`${bgClasses} text-white py-24 lg:py-32 hero-section`}>
@@ -93,23 +93,20 @@ export function Hero({
             ) : (
               <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
                 {primaryCtaLink ? (
-                  <Link 
-                    href={primaryCtaLink}
-                    className="btn btn-primary text-lg px-8 py-4"
-                  >
-                    {ctaText}
-                  </Link>
+                  <FreeWeekButton
+                    source="hero-primary"
+                    className="text-lg px-8 py-4"
+                    label={ctaText}
+                  />
                 ) : onPrimaryClick ? (
-                  <button 
+                  <button
                     onClick={onPrimaryClick}
                     className="btn btn-primary text-lg px-8 py-4"
                   >
                     {ctaText}
                   </button>
                 ) : (
-                  <Link href="/#service-tiers" className="btn btn-primary text-lg px-8 py-4">
-                    {ctaText}
-                  </Link>
+                  <FreeWeekButton source="hero-primary" className="text-lg px-8 py-4" label={ctaText} />
                 )}
                 
                 {secondaryCtaText && (
@@ -121,12 +118,13 @@ export function Hero({
                       {secondaryCtaText}
                     </button>
                   ) : secondaryCtaLink ? (
-                    <Link
-                      href={secondaryCtaLink}
-                      className="text-gray-200 hover:text-white underline transition-colors text-lg"
+                    <FreeWeekButton
+                      source="hero-secondary"
+                      variant="link"
+                      className="text-lg"
                     >
                       {secondaryCtaText}
-                    </Link>
+                    </FreeWeekButton>
                   ) : null
                 )}
               </div>
@@ -136,15 +134,15 @@ export function Hero({
           {/* Strategic Credibility */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-gray-300">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-orange-400 mr-2">$250MM+</span>
+              <span className="text-2xl font-bold text-brand-400 mr-2">$250MM+</span>
               <span>Media Spend Managed</span>
             </div>
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-orange-400 mr-2">Campaign</span>
+              <span className="text-2xl font-bold text-brand-400 mr-2">Campaign</span>
               <span>Launch Specialist</span>
             </div>
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-orange-400 mr-2">10+</span>
+              <span className="text-2xl font-bold text-brand-400 mr-2">10+</span>
               <span>Years Experience</span>
             </div>
           </div>

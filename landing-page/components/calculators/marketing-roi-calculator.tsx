@@ -227,27 +227,27 @@ export function MarketingROICalculator() {
   };
 
   const getROIColor = (roi: number) => {
-    if (roi >= 400) return 'text-green-600';
+    if (roi >= 400) return 'text-brand-600';
     if (roi >= 200) return 'text-blue-600';
-    if (roi >= 100) return 'text-yellow-600';
-    return 'text-red-600';
+    if (roi >= 100) return 'text-brand-600';
+    return 'text-brand-600';
   };
 
   const getTrajectoryColor = (trajectory: string) => {
     switch (trajectory) {
-      case 'High Growth': return 'bg-green-100 text-green-800';
+      case 'High Growth': return 'bg-brand-100 text-brand-800';
       case 'Growth': return 'bg-blue-100 text-blue-800';
-      case 'Stable': return 'bg-yellow-100 text-yellow-800';
-      default: return 'bg-red-100 text-red-800';
+      case 'Stable': return 'bg-brand-100 text-brand-800';
+      default: return 'bg-brand-100 text-brand-800';
     }
   };
 
   return (
     <div className="max-w-6xl mx-auto">
       {/* Input Form */}
-      <div className="bg-white rounded-lg border-2 border-green-200 p-6 mb-8">
+      <div className="bg-white rounded-lg border-2 border-brand-200 p-6 mb-8">
         <div className="flex items-center mb-6">
-          <Calculator className="h-6 w-6 text-green-600 mr-3" />
+          <Calculator className="h-6 w-6 text-brand-600 mr-3" />
           <h3 className="text-xl font-semibold text-gray-800">Marketing ROI Analysis Inputs</h3>
         </div>
 
@@ -487,7 +487,7 @@ export function MarketingROICalculator() {
 
         <button
           onClick={calculateROI}
-          className="w-full mt-8 bg-green-600 text-white font-bold py-4 px-6 rounded-lg hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl flex items-center justify-center"
+          className="w-full mt-8 bg-brand-600 text-white font-bold py-4 px-6 rounded-lg hover:bg-brand-700 transition-colors shadow-lg hover:shadow-xl flex items-center justify-center"
         >
           <TrendingUp className="h-5 w-5 mr-2" />
           Calculate Marketing ROI Analysis
@@ -499,10 +499,10 @@ export function MarketingROICalculator() {
         <div className="space-y-8">
           {/* Key Metrics Overview */}
           <div className="grid md:grid-cols-4 gap-4">
-            <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
-              <TrendingUp className="h-8 w-8 text-green-600 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-green-800">{formatPercent(results.overallROI)}</div>
-              <div className="text-sm text-green-600">Overall ROI</div>
+            <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 text-center">
+              <TrendingUp className="h-8 w-8 text-brand-600 mx-auto mb-3" />
+              <div className="text-2xl font-bold text-brand-800">{formatPercent(results.overallROI)}</div>
+              <div className="text-sm text-brand-600">Overall ROI</div>
             </div>
             
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
@@ -511,18 +511,18 @@ export function MarketingROICalculator() {
               <div className="text-sm text-blue-600">Customer LTV</div>
             </div>
             
-            <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 text-center">
-              <BarChart className="h-8 w-8 text-purple-600 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-purple-800">{results.keyInsights.paybackPeriod.toFixed(1)}mo</div>
-              <div className="text-sm text-purple-600">Payback Period</div>
+            <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 text-center">
+              <BarChart className="h-8 w-8 text-brand-600 mx-auto mb-3" />
+              <div className="text-2xl font-bold text-brand-800">{results.keyInsights.paybackPeriod.toFixed(1)}mo</div>
+              <div className="text-sm text-brand-600">Payback Period</div>
             </div>
             
-            <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 text-center">
-              <AlertCircle className="h-8 w-8 text-orange-600 mx-auto mb-3" />
+            <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 text-center">
+              <AlertCircle className="h-8 w-8 text-brand-600 mx-auto mb-3" />
               <div className={`text-sm font-semibold px-3 py-1 rounded-full ${getTrajectoryColor(results.keyInsights.growthTrajectory)}`}>
                 {results.keyInsights.growthTrajectory}
               </div>
-              <div className="text-sm text-orange-600 mt-2">Growth Trajectory</div>
+              <div className="text-sm text-brand-600 mt-2">Growth Trajectory</div>
             </div>
           </div>
 
@@ -613,46 +613,46 @@ export function MarketingROICalculator() {
 
           {/* Insights and Recommendations */}
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-              <h4 className="text-xl font-semibold text-green-800 mb-4">Strategic Recommendations</h4>
+            <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+              <h4 className="text-xl font-semibold text-brand-800 mb-4">Strategic Recommendations</h4>
               <ul className="space-y-2">
                 {results.recommendations.map((rec, index) => (
-                  <li key={index} className="flex items-start text-green-700">
-                    <span className="text-green-500 mr-3 font-bold">{index + 1}.</span>
+                  <li key={index} className="flex items-start text-brand-700">
+                    <span className="text-brand-500 mr-3 font-bold">{index + 1}.</span>
                     <span className="text-sm">{rec}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-              <h4 className="text-xl font-semibold text-red-800 mb-4">Risk Factors</h4>
+            <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+              <h4 className="text-xl font-semibold text-brand-800 mb-4">Risk Factors</h4>
               {results.riskFactors.length > 0 ? (
                 <ul className="space-y-2">
                   {results.riskFactors.map((risk, index) => (
-                    <li key={index} className="flex items-start text-red-700">
-                      <span className="text-red-500 mr-3">⚠</span>
+                    <li key={index} className="flex items-start text-brand-700">
+                      <span className="text-brand-500 mr-3">⚠</span>
                       <span className="text-sm">{risk}</span>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-green-700 text-sm">No significant risk factors detected. Strong ROI performance across channels.</p>
+                <p className="text-brand-700 text-sm">No significant risk factors detected. Strong ROI performance across channels.</p>
               )}
             </div>
           </div>
 
           {/* Performance Summary */}
-          <div className="bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-lg p-6">
+          <div className="bg-gradient-to-r from-blue-50 to-brand-50 border border-blue-200 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-gray-800 mb-4">ROI Performance Summary</h4>
             <div className="grid md:grid-cols-3 gap-4 text-center">
               <div>
                 <div className="text-sm text-gray-600">Best Performing Channel</div>
-                <div className="text-lg font-bold text-green-600">{results.keyInsights.bestChannel}</div>
+                <div className="text-lg font-bold text-brand-600">{results.keyInsights.bestChannel}</div>
               </div>
               <div>
                 <div className="text-sm text-gray-600">Optimization Opportunity</div>
-                <div className="text-lg font-bold text-orange-600">{results.keyInsights.worstChannel}</div>
+                <div className="text-lg font-bold text-brand-600">{results.keyInsights.worstChannel}</div>
               </div>
               <div>
                 <div className="text-sm text-gray-600">Growth Stage</div>

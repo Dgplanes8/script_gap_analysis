@@ -87,13 +87,13 @@ export default function CACOptimizationCalculatorPage() {
       {/* Header Navigation */}
       <Header />
       
-      <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-100 pt-16 lg:pt-20">
+      <div className="min-h-screen bg-gradient-to-br from-brand-50 to-brand-100 pt-16 lg:pt-20">
 
         {/* Hero Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Reduce Your CAC by <span className="text-red-600">40%</span> with Our
+              Reduce Your CAC by <span className="text-brand-600">40%</span> with Our
               <br />Fortune 100 Optimization Framework
             </h1>
             <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
@@ -105,15 +105,15 @@ export default function CACOptimizationCalculatorPage() {
             {/* Trust Indicators */}
             <div className="flex flex-wrap justify-center items-center gap-8 mb-12 text-sm text-gray-600">
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                 Used by Fortune 100 companies
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                 Average 40% CAC reduction
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                 Free strategic consultation
               </div>
             </div>

@@ -4,12 +4,12 @@ import { Building2, Users, DollarSign, TrendingUp, AlertTriangle, ArrowRight } f
 
 export function CreativeStrategyGap() {
   return (
-    <section className="py-16 bg-gradient-to-br from-red-50 to-orange-50">
+    <section className="py-16 bg-gradient-to-br from-brand-50 to-brand-50">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center bg-brand-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <AlertTriangle className="h-4 w-4 mr-2" />
               THE CREATIVE ADVANTAGE GAP
             </div>
@@ -35,8 +35,8 @@ export function CreativeStrategyGap() {
               
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
-                    <DollarSign className="h-3 w-3 text-green-600" />
+                  <div className="w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
+                    <DollarSign className="h-3 w-3 text-brand-600" />
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">$150K+ Creative Strategists</div>
@@ -45,8 +45,8 @@ export function CreativeStrategyGap() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
-                    <Users className="h-3 w-3 text-green-600" />
+                  <div className="w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
+                    <Users className="h-3 w-3 text-brand-600" />
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">Dedicated Creative Teams</div>
@@ -55,8 +55,8 @@ export function CreativeStrategyGap() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
-                    <TrendingUp className="h-3 w-3 text-green-600" />
+                  <div className="w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
+                    <TrendingUp className="h-3 w-3 text-brand-600" />
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">Systematic Creative Testing</div>
@@ -65,8 +65,8 @@ export function CreativeStrategyGap() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
-                    <Building2 className="h-3 w-3 text-green-600" />
+                  <div className="w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
+                    <Building2 className="h-3 w-3 text-brand-600" />
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">Agency Relationships</div>
@@ -77,18 +77,18 @@ export function CreativeStrategyGap() {
             </div>
 
             {/* Startups */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-red-200">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-brand-200">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mr-4">
-                  <Users className="h-6 w-6 text-red-600" />
+                <div className="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mr-4">
+                  <Users className="h-6 w-6 text-brand-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Early-Stage Startups</h3>
               </div>
               
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
-                    <AlertTriangle className="h-3 w-3 text-red-600" />
+                  <div className="w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
+                    <AlertTriangle className="h-3 w-3 text-brand-600" />
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">Founder Wears All Hats</div>
@@ -97,8 +97,8 @@ export function CreativeStrategyGap() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
-                    <DollarSign className="h-3 w-3 text-red-600" />
+                  <div className="w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
+                    <DollarSign className="h-3 w-3 text-brand-600" />
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">Bootstrap Budget Constraints</div>
@@ -107,8 +107,8 @@ export function CreativeStrategyGap() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
-                    <AlertTriangle className="h-3 w-3 text-red-600" />
+                  <div className="w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
+                    <AlertTriangle className="h-3 w-3 text-brand-600" />
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">Random Creative Testing</div>
@@ -117,8 +117,8 @@ export function CreativeStrategyGap() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
-                    <Users className="h-3 w-3 text-red-600" />
+                  <div className="w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-1">
+                    <Users className="h-3 w-3 text-brand-600" />
                   </div>
                   <div>
                     <div className="font-semibold text-gray-900">DIY Everything</div>
@@ -137,7 +137,7 @@ export function CreativeStrategyGap() {
             
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-white">98%</span>
                 </div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">Startups Launch Without Strategy</h4>
@@ -147,7 +147,7 @@ export function CreativeStrategyGap() {
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-brand-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-white">$150K</span>
                 </div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">Creative Strategist Salary</h4>
@@ -157,7 +157,7 @@ export function CreativeStrategyGap() {
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-white">$5</span>
                 </div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">Weekly Creative Strategy</h4>
@@ -169,7 +169,7 @@ export function CreativeStrategyGap() {
           </div>
 
           {/* Solution */}
-          <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 text-white text-center">
+          <div className="bg-gradient-to-r from-brand-600 to-blue-600 rounded-2xl p-8 text-white text-center">
             <h3 className="text-3xl font-bold mb-4">
               Level the Playing Field
             </h3>

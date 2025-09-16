@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, Clock, TrendingUp, Zap, Target, Eye, Users, Mail, Calendar } from 'lucide-react';
 import { BlogCTASection } from '@/components/blog/blog-cta-section';
 import { Header } from '@/components/layout/secondary-header';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Trend-Based Creative Development for Subscription Business | Apsics Media',
@@ -31,7 +32,7 @@ export default function TrendBasedCreativeDevelopmentPage() {
         {/* Article Header */}
         <article className="max-w-4xl mx-auto">
           <header className="mb-12">
-            <div className="inline-flex items-center px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center px-3 py-1 bg-brand-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
               <TrendingUp className="h-4 w-4 mr-2" />
               Trend Intelligence
             </div>
@@ -63,7 +64,7 @@ export default function TrendBasedCreativeDevelopmentPage() {
               The challenge isn't recognizing trends—it's systematically translating trending formats, sounds, and concepts into subscription-specific creative assets that maintain brand positioning while capturing cultural momentum.
             </p>
 
-            <div className="bg-purple-50 rounded-xl p-8 mb-12">
+            <div className="bg-brand-50 rounded-xl p-8 mb-12">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">The Trend Opportunity Gap</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -100,9 +101,9 @@ export default function TrendBasedCreativeDevelopmentPage() {
             <h3 className="text-2xl font-semibold text-gray-900 mb-6">The Five-Phase Trend Development Cycle</h3>
             
             <div className="space-y-8 mb-12">
-              <div className="bg-green-50 rounded-xl p-6 border-l-4 border-green-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <Eye className="h-5 w-5 text-green-600 mr-3" />
+                  <Eye className="h-5 w-5 text-brand-600 mr-3" />
                   Phase 1: Trend Emergence (Days 1-3)
                 </h4>
                 <p className="text-gray-700 mb-4">
@@ -130,9 +131,9 @@ export default function TrendBasedCreativeDevelopmentPage() {
                 </div>
               </div>
               
-              <div className="bg-yellow-50 rounded-xl p-6 border-l-4 border-yellow-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <TrendingUp className="h-5 w-5 text-yellow-600 mr-3" />
+                  <TrendingUp className="h-5 w-5 text-brand-600 mr-3" />
                   Phase 2: Rapid Growth (Days 4-10)
                 </h4>
                 <p className="text-gray-700 mb-4">
@@ -142,24 +143,24 @@ export default function TrendBasedCreativeDevelopmentPage() {
                   <h5 className="font-semibold text-gray-900 mb-3">Optimal Creative Development Window</h5>
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="text-center">
-                      <div className="font-bold text-2xl text-yellow-600">Days 4-5</div>
+                      <div className="font-bold text-2xl text-brand-600">Days 4-5</div>
                       <div className="text-sm text-gray-700">Concept Development</div>
                     </div>
                     <div className="text-center">
-                      <div className="font-bold text-2xl text-orange-600">Days 6-8</div>
+                      <div className="font-bold text-2xl text-brand-600">Days 6-8</div>
                       <div className="text-sm text-gray-700">Creative Production</div>
                     </div>
                     <div className="text-center">
-                      <div className="font-bold text-2xl text-green-600">Days 9-10</div>
+                      <div className="font-bold text-2xl text-brand-600">Days 9-10</div>
                       <div className="text-sm text-gray-700">Launch and Optimization</div>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <div className="bg-orange-50 rounded-xl p-6 border-l-4 border-orange-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <Zap className="h-5 w-5 text-orange-600 mr-3" />
+                  <Zap className="h-5 w-5 text-brand-600 mr-3" />
                   Phase 3: Peak Saturation (Days 11-20)
                 </h4>
                 <p className="text-gray-700 mb-4">
@@ -187,7 +188,7 @@ export default function TrendBasedCreativeDevelopmentPage() {
                 </div>
               </div>
               
-              <div className="bg-red-50 rounded-xl p-6 border-l-4 border-red-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4">Phase 4-5: Decline and Evolution (Days 21+)</h4>
                 <p className="text-gray-700 mb-4">
                   Trend engagement continues declining while new variations or completely different trends emerge. Late adopters enter the trend cycle with diminishing returns.
@@ -207,14 +208,14 @@ export default function TrendBasedCreativeDevelopmentPage() {
               Converting trending concepts into subscription business creative assets requires systematic translation that maintains trend appeal while emphasizing subscription value propositions. The framework below provides structured approaches to trend adaptation.
             </p>
 
-            <div className="bg-teal-50 rounded-xl p-8 mb-12">
+            <div className="bg-brand-50 rounded-xl p-8 mb-12">
               <h3 className="text-xl font-semibold text-gray-900 mb-6">The Four-Layer Trend Translation Model</h3>
               
               <div className="space-y-6">
                 <div className="bg-white rounded-lg p-6 shadow-sm border">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mr-4">
-                      <Target className="h-6 w-6 text-teal-600" />
+                    <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mr-4">
+                      <Target className="h-6 w-6 text-brand-600" />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900">Layer 1: Format Mechanics</h4>
@@ -251,8 +252,8 @@ export default function TrendBasedCreativeDevelopmentPage() {
                 
                 <div className="bg-white rounded-lg p-6 shadow-sm border">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
-                      <Users className="h-6 w-6 text-orange-600" />
+                    <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mr-4">
+                      <Users className="h-6 w-6 text-brand-600" />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900">Layer 2: Narrative Structure</h4>
@@ -283,8 +284,8 @@ export default function TrendBasedCreativeDevelopmentPage() {
                 
                 <div className="bg-white rounded-lg p-6 shadow-sm border">
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
-                      <TrendingUp className="h-6 w-6 text-purple-600" />
+                    <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mr-4">
+                      <TrendingUp className="h-6 w-6 text-brand-600" />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900">Layer 3: Cultural Context</h4>
@@ -479,7 +480,7 @@ export default function TrendBasedCreativeDevelopmentPage() {
                 </div>
               </div>
               
-              <div className="bg-green-50 rounded-xl p-6 border-l-4 border-green-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Tuesday-Wednesday: Concept Development</h4>
                 <p className="text-gray-700 mb-4">
                   Translation of selected trends into subscription-specific creative concepts with strategic positioning and performance optimization.
@@ -489,9 +490,9 @@ export default function TrendBasedCreativeDevelopmentPage() {
                     <h5 className="font-semibold text-gray-900 mb-2">Concept Adaptation Process</h5>
                     <div className="grid md:grid-cols-4 gap-2 text-sm text-gray-700">
                       <span className="bg-blue-100 px-2 py-1 rounded">Trend Analysis</span>
-                      <span className="bg-purple-100 px-2 py-1 rounded">Format Translation</span>
-                      <span className="bg-orange-100 px-2 py-1 rounded">Brand Integration</span>
-                      <span className="bg-green-100 px-2 py-1 rounded">Script Development</span>
+                      <span className="bg-brand-100 px-2 py-1 rounded">Format Translation</span>
+                      <span className="bg-brand-100 px-2 py-1 rounded">Brand Integration</span>
+                      <span className="bg-brand-100 px-2 py-1 rounded">Script Development</span>
                     </div>
                   </div>
                   <div className="grid md:grid-cols-2 gap-4">
@@ -517,7 +518,7 @@ export default function TrendBasedCreativeDevelopmentPage() {
                 </div>
               </div>
               
-              <div className="bg-purple-50 rounded-xl p-6 border-l-4 border-purple-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Thursday: Performance Planning</h4>
                 <p className="text-gray-700 mb-4">
                   Strategic planning for trend-based creative testing, audience targeting, and performance optimization during optimal trend lifecycle phases.
@@ -553,7 +554,7 @@ export default function TrendBasedCreativeDevelopmentPage() {
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="space-y-6">
-                <div className="bg-purple-50 rounded-lg p-6">
+                <div className="bg-brand-50 rounded-lg p-6">
                   <h4 className="font-semibold text-gray-900 mb-3">Cultural Impact Metrics</h4>
                   <p className="text-gray-700 mb-4">
                     Measure authentic trend participation and cultural resonance beyond traditional advertising metrics.
@@ -566,7 +567,7 @@ export default function TrendBasedCreativeDevelopmentPage() {
                   </ul>
                 </div>
                 
-                <div className="bg-orange-50 rounded-lg p-6">
+                <div className="bg-brand-50 rounded-lg p-6">
                   <h4 className="font-semibold text-gray-900 mb-3">Audience Expansion Metrics</h4>
                   <p className="text-gray-700 mb-4">
                     Track how trend-based creative concepts expose your subscription business to new audience segments.
@@ -581,7 +582,7 @@ export default function TrendBasedCreativeDevelopmentPage() {
               </div>
               
               <div className="space-y-6">
-                <div className="bg-teal-50 rounded-lg p-6">
+                <div className="bg-brand-50 rounded-lg p-6">
                   <h4 className="font-semibold text-gray-900 mb-3">Performance Optimization Metrics</h4>
                   <p className="text-gray-700 mb-4">
                     Standard performance metrics enhanced with trend-specific success indicators and timing analysis.
@@ -616,7 +617,7 @@ export default function TrendBasedCreativeDevelopmentPage() {
             </p>
 
             <div className="space-y-8 mb-12">
-              <div className="bg-green-50 rounded-xl p-6 border-l-4 border-green-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Month 1: Foundation and Monitoring</h4>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -640,7 +641,7 @@ export default function TrendBasedCreativeDevelopmentPage() {
                 </div>
               </div>
               
-              <div className="bg-orange-50 rounded-xl p-6 border-l-4 border-orange-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Month 2: Implementation and Testing</h4>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -664,7 +665,7 @@ export default function TrendBasedCreativeDevelopmentPage() {
                 </div>
               </div>
               
-              <div className="bg-purple-50 rounded-xl p-6 border-l-4 border-purple-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Month 3: Scaling and Optimization</h4>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -690,7 +691,7 @@ export default function TrendBasedCreativeDevelopmentPage() {
             </div>
 
             {/* CTA Section */}
-            <div className="bg-gradient-to-br from-purple-600 to-purple-700 text-white rounded-2xl p-8 text-center mb-12">
+            <div className="bg-gradient-to-br from-brand-600 to-brand-700 text-white rounded-2xl p-8 text-center mb-12">
               <h3 className="text-2xl font-bold mb-4">
                 Ride the Next Wave Before Your Competitors
               </h3>
@@ -699,20 +700,8 @@ export default function TrendBasedCreativeDevelopmentPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link
-                  href="/#service-tiers"
-                  className="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
-                >
-                  <Mail className="h-5 w-5 mr-2" />
-                  Get My 10 Free Hooks
-                </Link>
-                <Link 
-                  href="/#service-tiers"
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition-colors inline-flex items-center"
-                >
-                  <Calendar className="h-5 w-5 mr-2" />
-                  Get Trending Concepts Weekly
-                </Link>
+                <FreeWeekButton source="trend_based_creative_development-cta" className="bg-white text-brand-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="trend_based_creative_development-cta" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-brand-600 transition-colors inline-flex items-center">Start Free Week Trial</FreeWeekButton>
               </div>
               
               <p className="text-sm mt-4 opacity-80">

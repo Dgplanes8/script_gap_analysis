@@ -8,6 +8,7 @@ import { ArticleSchema } from '@/components/schema'
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation'
 import { RelatedArticles } from '@/components/blog/related-articles'
 import { Header } from '@/components/layout/secondary-header'
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Marketing Budget Calculator: Agency vs DIY ROI 2025',
@@ -224,7 +225,7 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                             <span className="font-semibold">$960 (30%)</span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-2">
-                            <div className="bg-green-600 h-2 rounded-full" style={{width: '30%'}}></div>
+                            <div className="bg-brand-600 h-2 rounded-full" style={{width: '30%'}}></div>
                           </div>
                         </div>
                         
@@ -234,7 +235,7 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                             <span className="font-semibold">$640 (20%)</span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-2">
-                            <div className="bg-yellow-600 h-2 rounded-full" style={{width: '20%'}}></div>
+                            <div className="bg-brand-600 h-2 rounded-full" style={{width: '20%'}}></div>
                           </div>
                         </div>
                         
@@ -244,15 +245,15 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                             <span className="font-semibold">$320 (10%)</span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-2">
-                            <div className="bg-purple-600 h-2 rounded-full" style={{width: '10%'}}></div>
+                            <div className="bg-brand-600 h-2 rounded-full" style={{width: '10%'}}></div>
                           </div>
                         </div>
                       </div>
                       
-                      <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                        <h5 className="font-semibold text-green-900 mb-2">Projected ROI</h5>
-                        <div className="text-2xl font-bold text-green-600 mb-1">285%</div>
-                        <div className="text-sm text-green-700">Expected return on marketing investment</div>
+                      <div className="bg-brand-50 rounded-lg p-4 border border-brand-200">
+                        <h5 className="font-semibold text-brand-900 mb-2">Projected ROI</h5>
+                        <div className="text-2xl font-bold text-brand-600 mb-1">285%</div>
+                        <div className="text-sm text-brand-700">Expected return on marketing investment</div>
                       </div>
                     </div>
                   </div>
@@ -275,30 +276,30 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                 Understanding marketing ROI requires more than just tracking revenue. Our comprehensive framework considers customer lifetime value, acquisition costs, and long-term business impact.
               </p>
 
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8 mb-8">
-                <h3 className="text-xl font-semibold text-yellow-900 mb-4">Marketing ROI Calculation Methods</h3>
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-8 mb-8">
+                <h3 className="text-xl font-semibold text-brand-900 mb-4">Marketing ROI Calculation Methods</h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-white rounded-lg p-6 border border-yellow-200">
-                    <h4 className="font-semibold text-yellow-900 mb-3">Simple ROI Formula</h4>
+                  <div className="bg-white rounded-lg p-6 border border-brand-200">
+                    <h4 className="font-semibold text-brand-900 mb-3">Simple ROI Formula</h4>
                     <div className="text-center mb-4">
-                      <div className="text-xl font-bold text-yellow-900 bg-yellow-100 rounded-lg p-3">
+                      <div className="text-xl font-bold text-brand-900 bg-brand-100 rounded-lg p-3">
                         ROI = (Revenue - Marketing Cost) ÷ Marketing Cost × 100
                       </div>
                     </div>
-                    <div className="text-sm text-yellow-800">
+                    <div className="text-sm text-brand-800">
                       <strong>Best for:</strong> Short-term campaigns and immediate results tracking
                     </div>
                   </div>
                   
-                  <div className="bg-white rounded-lg p-6 border border-yellow-200">
-                    <h4 className="font-semibold text-yellow-900 mb-3">Customer Lifetime Value ROI</h4>
+                  <div className="bg-white rounded-lg p-6 border border-brand-200">
+                    <h4 className="font-semibold text-brand-900 mb-3">Customer Lifetime Value ROI</h4>
                     <div className="text-center mb-4">
-                      <div className="text-xl font-bold text-yellow-900 bg-yellow-100 rounded-lg p-3">
+                      <div className="text-xl font-bold text-brand-900 bg-brand-100 rounded-lg p-3">
                         CLVR = (CLV × New Customers - Total Cost) ÷ Total Cost × 100
                       </div>
                     </div>
-                    <div className="text-sm text-yellow-800">
+                    <div className="text-sm text-brand-800">
                       <strong>Best for:</strong> Long-term strategy and sustainable growth analysis
                     </div>
                   </div>
@@ -358,27 +359,27 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                   </ul>
                 </div>
 
-                <div className="bg-green-50 rounded-lg p-6 border border-green-200">
-                  <h3 className="text-lg font-semibold text-green-900 mb-4">Lagging Indicators</h3>
-                  <ul className="space-y-2 text-green-800">
+                <div className="bg-brand-50 rounded-lg p-6 border border-brand-200">
+                  <h3 className="text-lg font-semibold text-brand-900 mb-4">Lagging Indicators</h3>
+                  <ul className="space-y-2 text-brand-800">
                     <li className="flex items-center">
-                      <DollarSign className="w-4 h-4 text-green-600 mr-2" />
+                      <DollarSign className="w-4 h-4 text-brand-600 mr-2" />
                       Revenue growth
                     </li>
                     <li className="flex items-center">
-                      <DollarSign className="w-4 h-4 text-green-600 mr-2" />
+                      <DollarSign className="w-4 h-4 text-brand-600 mr-2" />
                       Customer lifetime value
                     </li>
                     <li className="flex items-center">
-                      <DollarSign className="w-4 h-4 text-green-600 mr-2" />
+                      <DollarSign className="w-4 h-4 text-brand-600 mr-2" />
                       Market share changes
                     </li>
                     <li className="flex items-center">
-                      <DollarSign className="w-4 h-4 text-green-600 mr-2" />
+                      <DollarSign className="w-4 h-4 text-brand-600 mr-2" />
                       Customer retention rates
                     </li>
                     <li className="flex items-center">
-                      <DollarSign className="w-4 h-4 text-green-600 mr-2" />
+                      <DollarSign className="w-4 h-4 text-brand-600 mr-2" />
                       Profit margin improvements
                     </li>
                   </ul>
@@ -478,103 +479,103 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                   </div>
                 </div>
 
-                <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-green-900 mb-4">E-commerce Business</h3>
-                  <p className="text-green-800 mb-4">Revenue: $500K-$2M | National/global customers</p>
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-brand-900 mb-4">E-commerce Business</h3>
+                  <p className="text-brand-800 mb-4">Revenue: $500K-$2M | National/global customers</p>
                   
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">Paid Advertising (Google/FB):</span>
-                      <span className="font-semibold text-green-900">40%</span>
+                      <span className="text-brand-700">Paid Advertising (Google/FB):</span>
+                      <span className="font-semibold text-brand-900">40%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">Email Marketing:</span>
-                      <span className="font-semibold text-green-900">20%</span>
+                      <span className="text-brand-700">Email Marketing:</span>
+                      <span className="font-semibold text-brand-900">20%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">SEO & Content:</span>
-                      <span className="font-semibold text-green-900">20%</span>
+                      <span className="text-brand-700">SEO & Content:</span>
+                      <span className="font-semibold text-brand-900">20%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">Influencer Partnerships:</span>
-                      <span className="font-semibold text-green-900">10%</span>
+                      <span className="text-brand-700">Influencer Partnerships:</span>
+                      <span className="font-semibold text-brand-900">10%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">Tools & Analytics:</span>
-                      <span className="font-semibold text-green-900">10%</span>
+                      <span className="text-brand-700">Tools & Analytics:</span>
+                      <span className="font-semibold text-brand-900">10%</span>
                     </div>
                   </div>
                   
-                  <div className="mt-4 p-3 bg-white rounded border border-green-200">
-                    <div className="text-sm text-green-800">
+                  <div className="mt-4 p-3 bg-white rounded border border-brand-200">
+                    <div className="text-sm text-brand-800">
                       <strong>Recommended Monthly Budget:</strong> $3,000-$8,000
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-purple-900 mb-4">Professional Services</h3>
-                  <p className="text-purple-800 mb-4">Revenue: $300K-$1M | High-value B2B clients</p>
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-brand-900 mb-4">Professional Services</h3>
+                  <p className="text-brand-800 mb-4">Revenue: $300K-$1M | High-value B2B clients</p>
                   
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-purple-700">Content Marketing & SEO:</span>
-                      <span className="font-semibold text-purple-900">30%</span>
+                      <span className="text-brand-700">Content Marketing & SEO:</span>
+                      <span className="font-semibold text-brand-900">30%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-purple-700">LinkedIn Advertising:</span>
-                      <span className="font-semibold text-purple-900">25%</span>
+                      <span className="text-brand-700">LinkedIn Advertising:</span>
+                      <span className="font-semibold text-brand-900">25%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-purple-700">Email Nurture Campaigns:</span>
-                      <span className="font-semibold text-purple-900">20%</span>
+                      <span className="text-brand-700">Email Nurture Campaigns:</span>
+                      <span className="font-semibold text-brand-900">20%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-purple-700">Speaking & Events:</span>
-                      <span className="font-semibold text-purple-900">15%</span>
+                      <span className="text-brand-700">Speaking & Events:</span>
+                      <span className="font-semibold text-brand-900">15%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-purple-700">Tools & Analytics:</span>
-                      <span className="font-semibold text-purple-900">10%</span>
+                      <span className="text-brand-700">Tools & Analytics:</span>
+                      <span className="font-semibold text-brand-900">10%</span>
                     </div>
                   </div>
                   
-                  <div className="mt-4 p-3 bg-white rounded border border-purple-200">
-                    <div className="text-sm text-purple-800">
+                  <div className="mt-4 p-3 bg-white rounded border border-brand-200">
+                    <div className="text-sm text-brand-800">
                       <strong>Recommended Monthly Budget:</strong> $2,000-$5,000
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-orange-900 mb-4">SaaS Startup</h3>
-                  <p className="text-orange-800 mb-4">Revenue: $100K-$1M | Rapid growth phase</p>
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-brand-900 mb-4">SaaS Startup</h3>
+                  <p className="text-brand-800 mb-4">Revenue: $100K-$1M | Rapid growth phase</p>
                   
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-orange-700">Product-Led Growth:</span>
-                      <span className="font-semibold text-orange-900">35%</span>
+                      <span className="text-brand-700">Product-Led Growth:</span>
+                      <span className="font-semibold text-brand-900">35%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-orange-700">Content Marketing:</span>
-                      <span className="font-semibold text-orange-900">25%</span>
+                      <span className="text-brand-700">Content Marketing:</span>
+                      <span className="font-semibold text-brand-900">25%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-orange-700">Paid Search & Social:</span>
-                      <span className="font-semibold text-orange-900">20%</span>
+                      <span className="text-brand-700">Paid Search & Social:</span>
+                      <span className="font-semibold text-brand-900">20%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-orange-700">Community Building:</span>
-                      <span className="font-semibold text-orange-900">10%</span>
+                      <span className="text-brand-700">Community Building:</span>
+                      <span className="font-semibold text-brand-900">10%</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-orange-700">Tools & Analytics:</span>
-                      <span className="font-semibold text-orange-900">10%</span>
+                      <span className="text-brand-700">Tools & Analytics:</span>
+                      <span className="font-semibold text-brand-900">10%</span>
                     </div>
                   </div>
                   
-                  <div className="mt-4 p-3 bg-white rounded border border-orange-200">
-                    <div className="text-sm text-orange-800">
+                  <div className="mt-4 p-3 bg-white rounded border border-brand-200">
+                    <div className="text-sm text-brand-800">
                       <strong>Recommended Monthly Budget:</strong> $1,500-$4,000
                     </div>
                   </div>
@@ -630,42 +631,42 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                   <tbody className="divide-y divide-gray-200">
                     <tr>
                       <td className="px-4 py-3 font-medium text-gray-900">Full-Service Agency</td>
-                      <td className="px-4 py-3 text-red-600">High ($5K-10K)</td>
+                      <td className="px-4 py-3 text-brand-600">High ($5K-10K)</td>
                       <td className="px-4 py-3 text-gray-700">$8K-15K</td>
-                      <td className="px-4 py-3 text-yellow-600">200-400%</td>
-                      <td className="px-4 py-3 text-red-600">6-12 months</td>
+                      <td className="px-4 py-3 text-brand-600">200-400%</td>
+                      <td className="px-4 py-3 text-brand-600">6-12 months</td>
                       <td className="px-4 py-3 text-gray-700">$2M+ revenue</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 font-medium text-gray-900">In-House Marketing Team</td>
-                      <td className="px-4 py-3 text-red-600">Very High ($15K-25K)</td>
+                      <td className="px-4 py-3 text-brand-600">Very High ($15K-25K)</td>
                       <td className="px-4 py-3 text-gray-700">$12K-20K</td>
-                      <td className="px-4 py-3 text-yellow-600">150-350%</td>
-                      <td className="px-4 py-3 text-red-600">9-15 months</td>
+                      <td className="px-4 py-3 text-brand-600">150-350%</td>
+                      <td className="px-4 py-3 text-brand-600">9-15 months</td>
                       <td className="px-4 py-3 text-gray-700">$5M+ revenue</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 font-medium text-gray-900">Freelancer Network</td>
-                      <td className="px-4 py-3 text-yellow-600">Medium ($2K-5K)</td>
+                      <td className="px-4 py-3 text-brand-600">Medium ($2K-5K)</td>
                       <td className="px-4 py-3 text-gray-700">$3K-6K</td>
-                      <td className="px-4 py-3 text-green-600">250-500%</td>
-                      <td className="px-4 py-3 text-yellow-600">3-6 months</td>
+                      <td className="px-4 py-3 text-brand-600">250-500%</td>
+                      <td className="px-4 py-3 text-brand-600">3-6 months</td>
                       <td className="px-4 py-3 text-gray-700">$500K-2M revenue</td>
                     </tr>
                     <tr className="bg-blue-50">
                       <td className="px-4 py-3 font-medium text-blue-900">Weekly Intelligence Service</td>
-                      <td className="px-4 py-3 text-green-600">Low ($0-500)</td>
+                      <td className="px-4 py-3 text-brand-600">Low ($0-500)</td>
                       <td className="px-4 py-3 text-blue-700">$60-400</td>
-                      <td className="px-4 py-3 text-green-600">300-600%</td>
-                      <td className="px-4 py-3 text-green-600">1-3 months</td>
+                      <td className="px-4 py-3 text-brand-600">300-600%</td>
+                      <td className="px-4 py-3 text-brand-600">1-3 months</td>
                       <td className="px-4 py-3 text-blue-700">$100K-1M revenue</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 font-medium text-gray-900">DIY + Marketing Tools</td>
-                      <td className="px-4 py-3 text-green-600">Low ($200-1K)</td>
+                      <td className="px-4 py-3 text-brand-600">Low ($200-1K)</td>
                       <td className="px-4 py-3 text-gray-700">$300-1K</td>
-                      <td className="px-4 py-3 text-yellow-600">100-250%</td>
-                      <td className="px-4 py-3 text-yellow-600">2-4 months</td>
+                      <td className="px-4 py-3 text-brand-600">100-250%</td>
+                      <td className="px-4 py-3 text-brand-600">2-4 months</td>
                       <td className="px-4 py-3 text-gray-700">Under $250K revenue</td>
                     </tr>
                   </tbody>
@@ -673,12 +674,12 @@ export default function SmallBusinessMarketingBudgetCalculator() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-red-900 mb-4">High-Investment Models</h3>
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-brand-900 mb-4">High-Investment Models</h3>
                   <div className="space-y-4">
                     <div>
-                      <h4 className="font-medium text-red-900 mb-2">Full-Service Agency</h4>
-                      <ul className="text-sm text-red-800 space-y-1">
+                      <h4 className="font-medium text-brand-900 mb-2">Full-Service Agency</h4>
+                      <ul className="text-sm text-brand-800 space-y-1">
                         <li>✓ Comprehensive strategy and execution</li>
                         <li>✓ Proven processes and expertise</li>
                         <li>✗ High monthly costs ($8K-15K)</li>
@@ -686,8 +687,8 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-medium text-red-900 mb-2">In-House Team</h4>
-                      <ul className="text-sm text-red-800 space-y-1">
+                      <h4 className="font-medium text-brand-900 mb-2">In-House Team</h4>
+                      <ul className="text-sm text-brand-800 space-y-1">
                         <li>✓ Complete control and alignment</li>
                         <li>✓ Long-term asset building</li>
                         <li>✗ Very high total costs ($12K-20K)</li>
@@ -697,12 +698,12 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                   </div>
                 </div>
 
-                <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-green-900 mb-4">High-ROI Models</h3>
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-brand-900 mb-4">High-ROI Models</h3>
                   <div className="space-y-4">
                     <div>
-                      <h4 className="font-medium text-green-900 mb-2">Weekly Intelligence Service</h4>
-                      <ul className="text-sm text-green-800 space-y-1">
+                      <h4 className="font-medium text-brand-900 mb-2">Weekly Intelligence Service</h4>
+                      <ul className="text-sm text-brand-800 space-y-1">
                         <li>✓ Exceptional ROI (300-600%)</li>
                         <li>✓ Fast implementation (1-3 months)</li>
                         <li>✓ Low risk and high flexibility</li>
@@ -710,8 +711,8 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-medium text-green-900 mb-2">Freelancer Network</h4>
-                      <ul className="text-sm text-green-800 space-y-1">
+                      <h4 className="font-medium text-brand-900 mb-2">Freelancer Network</h4>
+                      <ul className="text-sm text-brand-800 space-y-1">
                         <li>✓ Strong ROI (250-500%)</li>
                         <li>✓ Specialized expertise access</li>
                         <li>✗ Requires active management</li>
@@ -763,146 +764,146 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                   </div>
                 </div>
 
-                <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-green-900 mb-4">Average Customer Acquisition Cost</h3>
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-brand-900 mb-4">Average Customer Acquisition Cost</h3>
                   
                   <div className="space-y-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">SaaS (B2B):</span>
-                      <span className="font-semibold text-green-900">$395</span>
+                      <span className="text-brand-700">SaaS (B2B):</span>
+                      <span className="font-semibold text-brand-900">$395</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">E-commerce:</span>
-                      <span className="font-semibold text-green-900">$87</span>
+                      <span className="text-brand-700">E-commerce:</span>
+                      <span className="font-semibold text-brand-900">$87</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">Financial Services:</span>
-                      <span className="font-semibold text-green-900">$536</span>
+                      <span className="text-brand-700">Financial Services:</span>
+                      <span className="font-semibold text-brand-900">$536</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">Healthcare:</span>
-                      <span className="font-semibold text-green-900">$412</span>
+                      <span className="text-brand-700">Healthcare:</span>
+                      <span className="font-semibold text-brand-900">$412</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">Real Estate:</span>
-                      <span className="font-semibold text-green-900">$213</span>
+                      <span className="text-brand-700">Real Estate:</span>
+                      <span className="font-semibold text-brand-900">$213</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-green-700">Local Services:</span>
-                      <span className="font-semibold text-green-900">$156</span>
+                      <span className="text-brand-700">Local Services:</span>
+                      <span className="font-semibold text-brand-900">$156</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8">
-                <h3 className="text-xl font-semibold text-yellow-900 mb-6">Channel Performance Benchmarks</h3>
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-8">
+                <h3 className="text-xl font-semibold text-brand-900 mb-6">Channel Performance Benchmarks</h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <div className="bg-white rounded-lg p-4 border border-yellow-200">
-                    <h4 className="font-semibold text-yellow-900 mb-3">Search Engine Marketing</h4>
+                  <div className="bg-white rounded-lg p-4 border border-brand-200">
+                    <h4 className="font-semibold text-brand-900 mb-3">Search Engine Marketing</h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Average ROI:</span>
-                        <span className="font-semibold text-yellow-900">400%</span>
+                        <span className="text-brand-700">Average ROI:</span>
+                        <span className="font-semibold text-brand-900">400%</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Click-through Rate:</span>
-                        <span className="font-semibold text-yellow-900">3.17%</span>
+                        <span className="text-brand-700">Click-through Rate:</span>
+                        <span className="font-semibold text-brand-900">3.17%</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Conversion Rate:</span>
-                        <span className="font-semibold text-yellow-900">4.40%</span>
+                        <span className="text-brand-700">Conversion Rate:</span>
+                        <span className="font-semibold text-brand-900">4.40%</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-lg p-4 border border-yellow-200">
-                    <h4 className="font-semibold text-yellow-900 mb-3">Email Marketing</h4>
+                  <div className="bg-white rounded-lg p-4 border border-brand-200">
+                    <h4 className="font-semibold text-brand-900 mb-3">Email Marketing</h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Average ROI:</span>
-                        <span className="font-semibold text-yellow-900">4,400%</span>
+                        <span className="text-brand-700">Average ROI:</span>
+                        <span className="font-semibold text-brand-900">4,400%</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Open Rate:</span>
-                        <span className="font-semibold text-yellow-900">21.33%</span>
+                        <span className="text-brand-700">Open Rate:</span>
+                        <span className="font-semibold text-brand-900">21.33%</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Click Rate:</span>
-                        <span className="font-semibold text-yellow-900">2.62%</span>
+                        <span className="text-brand-700">Click Rate:</span>
+                        <span className="font-semibold text-brand-900">2.62%</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-lg p-4 border border-yellow-200">
-                    <h4 className="font-semibold text-yellow-900 mb-3">Social Media Advertising</h4>
+                  <div className="bg-white rounded-lg p-4 border border-brand-200">
+                    <h4 className="font-semibold text-brand-900 mb-3">Social Media Advertising</h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Average ROI:</span>
-                        <span className="font-semibold text-yellow-900">250%</span>
+                        <span className="text-brand-700">Average ROI:</span>
+                        <span className="font-semibold text-brand-900">250%</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Engagement Rate:</span>
-                        <span className="font-semibold text-yellow-900">1.22%</span>
+                        <span className="text-brand-700">Engagement Rate:</span>
+                        <span className="font-semibold text-brand-900">1.22%</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Conversion Rate:</span>
-                        <span className="font-semibold text-yellow-900">1.85%</span>
+                        <span className="text-brand-700">Conversion Rate:</span>
+                        <span className="font-semibold text-brand-900">1.85%</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-lg p-4 border border-yellow-200">
-                    <h4 className="font-semibold text-yellow-900 mb-3">Content Marketing</h4>
+                  <div className="bg-white rounded-lg p-4 border border-brand-200">
+                    <h4 className="font-semibold text-brand-900 mb-3">Content Marketing</h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Cost vs Traditional:</span>
-                        <span className="font-semibold text-yellow-900">62% less</span>
+                        <span className="text-brand-700">Cost vs Traditional:</span>
+                        <span className="font-semibold text-brand-900">62% less</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Lead Generation:</span>
-                        <span className="font-semibold text-yellow-900">3x more</span>
+                        <span className="text-brand-700">Lead Generation:</span>
+                        <span className="font-semibold text-brand-900">3x more</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Brand Awareness:</span>
-                        <span className="font-semibold text-yellow-900">80% lift</span>
+                        <span className="text-brand-700">Brand Awareness:</span>
+                        <span className="font-semibold text-brand-900">80% lift</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-lg p-4 border border-yellow-200">
-                    <h4 className="font-semibold text-yellow-900 mb-3">SEO & Organic Search</h4>
+                  <div className="bg-white rounded-lg p-4 border border-brand-200">
+                    <h4 className="font-semibold text-brand-900 mb-3">SEO & Organic Search</h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Average ROI:</span>
-                        <span className="font-semibold text-yellow-900">500%</span>
+                        <span className="text-brand-700">Average ROI:</span>
+                        <span className="font-semibold text-brand-900">500%</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Organic CTR:</span>
-                        <span className="font-semibold text-yellow-900">31.7%</span>
+                        <span className="text-brand-700">Organic CTR:</span>
+                        <span className="font-semibold text-brand-900">31.7%</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Time to Results:</span>
-                        <span className="font-semibold text-yellow-900">4-6 months</span>
+                        <span className="text-brand-700">Time to Results:</span>
+                        <span className="font-semibold text-brand-900">4-6 months</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-lg p-4 border border-yellow-200">
-                    <h4 className="font-semibold text-yellow-900 mb-3">Local Marketing</h4>
+                  <div className="bg-white rounded-lg p-4 border border-brand-200">
+                    <h4 className="font-semibold text-brand-900 mb-3">Local Marketing</h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Mobile Searches:</span>
-                        <span className="font-semibold text-yellow-900">46%</span>
+                        <span className="text-brand-700">Mobile Searches:</span>
+                        <span className="font-semibold text-brand-900">46%</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Visit Rate:</span>
-                        <span className="font-semibold text-yellow-900">28%</span>
+                        <span className="text-brand-700">Visit Rate:</span>
+                        <span className="font-semibold text-brand-900">28%</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-yellow-700">Purchase Rate:</span>
-                        <span className="font-semibold text-yellow-900">18%</span>
+                        <span className="text-brand-700">Purchase Rate:</span>
+                        <span className="font-semibold text-brand-900">18%</span>
                       </div>
                     </div>
                   </div>
@@ -945,13 +946,13 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                   </div>
                 </div>
 
-                <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-green-900 mb-4">Cost Efficiency Tactics</h3>
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-brand-900 mb-4">Cost Efficiency Tactics</h3>
                   
                   <div className="space-y-4">
                     <div>
-                      <h4 className="font-medium text-green-900 mb-2">Immediate Cost Reductions</h4>
-                      <ul className="text-sm text-green-800 space-y-1">
+                      <h4 className="font-medium text-brand-900 mb-2">Immediate Cost Reductions</h4>
+                      <ul className="text-sm text-brand-800 space-y-1">
                         <li>• Negotiate volume discounts with vendors</li>
                         <li>• Consolidate similar tools and subscriptions</li>
                         <li>• Implement automated bidding strategies</li>
@@ -960,8 +961,8 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                     </div>
                     
                     <div>
-                      <h4 className="font-medium text-green-900 mb-2">Long-term Efficiency Gains</h4>
-                      <ul className="text-sm text-green-800 space-y-1">
+                      <h4 className="font-medium text-brand-900 mb-2">Long-term Efficiency Gains</h4>
+                      <ul className="text-sm text-brand-800 space-y-1">
                         <li>• Build owned media assets (email list, content)</li>
                         <li>• Develop referral and loyalty programs</li>
                         <li>• Create evergreen content for organic traffic</li>
@@ -972,58 +973,58 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                 </div>
               </div>
 
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8">
-                <h3 className="text-xl font-semibold text-yellow-900 mb-6">Strategic Budget Planning Framework</h3>
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-8">
+                <h3 className="text-xl font-semibold text-brand-900 mb-6">Strategic Budget Planning Framework</h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="bg-white rounded-lg p-6 border border-yellow-200">
-                    <h4 className="font-semibold text-yellow-900 mb-3">Q1: Foundation Building</h4>
-                    <div className="space-y-2 text-sm text-yellow-800">
+                  <div className="bg-white rounded-lg p-6 border border-brand-200">
+                    <h4 className="font-semibold text-brand-900 mb-3">Q1: Foundation Building</h4>
+                    <div className="space-y-2 text-sm text-brand-800">
                       <div>• Establish baseline metrics</div>
                       <div>• Launch core campaigns</div>
                       <div>• Set up tracking systems</div>
                       <div>• Focus on 2-3 primary channels</div>
                     </div>
-                    <div className="mt-3 p-2 bg-yellow-100 rounded text-xs text-yellow-900">
+                    <div className="mt-3 p-2 bg-brand-100 rounded text-xs text-brand-900">
                       <strong>Budget Split:</strong> 80% proven channels, 20% testing
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-lg p-6 border border-yellow-200">
-                    <h4 className="font-semibold text-yellow-900 mb-3">Q2-Q3: Optimization Phase</h4>
-                    <div className="space-y-2 text-sm text-yellow-800">
+                  <div className="bg-white rounded-lg p-6 border border-brand-200">
+                    <h4 className="font-semibold text-brand-900 mb-3">Q2-Q3: Optimization Phase</h4>
+                    <div className="space-y-2 text-sm text-brand-800">
                       <div>• Scale successful campaigns</div>
                       <div>• Test adjacent channels</div>
                       <div>• Optimize conversion funnels</div>
                       <div>• Expand to 4-5 channels</div>
                     </div>
-                    <div className="mt-3 p-2 bg-yellow-100 rounded text-xs text-yellow-900">
+                    <div className="mt-3 p-2 bg-brand-100 rounded text-xs text-brand-900">
                       <strong>Budget Split:</strong> 70% proven, 25% scaling, 5% testing
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-lg p-6 border border-yellow-200">
-                    <h4 className="font-semibold text-yellow-900 mb-3">Q4: Scale & Innovation</h4>
-                    <div className="space-y-2 text-sm text-yellow-800">
+                  <div className="bg-white rounded-lg p-6 border border-brand-200">
+                    <h4 className="font-semibold text-brand-900 mb-3">Q4: Scale & Innovation</h4>
+                    <div className="space-y-2 text-sm text-brand-800">
                       <div>• Maximum budget on winners</div>
                       <div>• Launch innovative campaigns</div>
                       <div>• Prepare for seasonal peaks</div>
                       <div>• Plan next year's strategy</div>
                     </div>
-                    <div className="mt-3 p-2 bg-yellow-100 rounded text-xs text-yellow-900">
+                    <div className="mt-3 p-2 bg-brand-100 rounded text-xs text-brand-900">
                       <strong>Budget Split:</strong> 60% core, 30% scale, 10% innovation
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-8 bg-red-50 border border-red-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-red-900 mb-4">Common Budget Optimization Mistakes</h3>
+              <div className="mt-8 bg-brand-50 border border-brand-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-brand-900 mb-4">Common Budget Optimization Mistakes</h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h4 className="font-medium text-red-900 mb-2">Strategic Mistakes:</h4>
-                    <ul className="text-sm text-red-800 space-y-1">
+                    <h4 className="font-medium text-brand-900 mb-2">Strategic Mistakes:</h4>
+                    <ul className="text-sm text-brand-800 space-y-1">
                       <li>• Spreading budget too thin across many channels</li>
                       <li>• Not giving new campaigns enough time to optimize</li>
                       <li>• Focusing on vanity metrics instead of ROI</li>
@@ -1032,8 +1033,8 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                   </div>
                   
                   <div>
-                    <h4 className="font-medium text-red-900 mb-2">Tactical Mistakes:</h4>
-                    <ul className="text-sm text-red-800 space-y-1">
+                    <h4 className="font-medium text-brand-900 mb-2">Tactical Mistakes:</h4>
+                    <ul className="text-sm text-brand-800 space-y-1">
                       <li>• Not tracking attribution across touchpoints</li>
                       <li>• Pausing campaigns during temporary dips</li>
                       <li>• Optimizing for short-term results only</li>
@@ -1075,7 +1076,7 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                           <td className="py-3 px-4 text-blue-800">150-200%</td>
                           <td className="py-3 px-4 text-blue-800">300-400%</td>
                           <td className="py-3 px-4 text-blue-800">$120K</td>
-                          <td className="py-3 px-4 text-green-600">$360K</td>
+                          <td className="py-3 px-4 text-brand-600">$360K</td>
                         </tr>
                         <tr>
                           <td className="py-3 px-4 font-medium text-blue-900">In-House Team</td>
@@ -1083,7 +1084,7 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                           <td className="py-3 px-4 text-blue-800">50-100%</td>
                           <td className="py-3 px-4 text-blue-800">200-300%</td>
                           <td className="py-3 px-4 text-blue-800">$180K</td>
-                          <td className="py-3 px-4 text-green-600">$360K</td>
+                          <td className="py-3 px-4 text-brand-600">$360K</td>
                         </tr>
                         <tr>
                           <td className="py-3 px-4 font-medium text-blue-900">Freelancer Network</td>
@@ -1091,7 +1092,7 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                           <td className="py-3 px-4 text-blue-800">250-350%</td>
                           <td className="py-3 px-4 text-blue-800">400-500%</td>
                           <td className="py-3 px-4 text-blue-800">$48K</td>
-                          <td className="py-3 px-4 text-green-600">$240K</td>
+                          <td className="py-3 px-4 text-brand-600">$240K</td>
                         </tr>
                         <tr className="bg-blue-100">
                           <td className="py-3 px-4 font-medium text-blue-900">Weekly Intelligence</td>
@@ -1099,7 +1100,7 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                           <td className="py-3 px-4 text-blue-800">400-500%</td>
                           <td className="py-3 px-4 text-blue-800">500-600%</td>
                           <td className="py-3 px-4 text-blue-800">$3.6K</td>
-                          <td className="py-3 px-4 text-green-600">$21.6K</td>
+                          <td className="py-3 px-4 text-brand-600">$21.6K</td>
                         </tr>
                         <tr>
                           <td className="py-3 px-4 font-medium text-blue-900">DIY + Tools</td>
@@ -1107,7 +1108,7 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                           <td className="py-3 px-4 text-blue-800">150-200%</td>
                           <td className="py-3 px-4 text-blue-800">200-250%</td>
                           <td className="py-3 px-4 text-blue-800">$6K</td>
-                          <td className="py-3 px-4 text-green-600">$15K</td>
+                          <td className="py-3 px-4 text-brand-600">$15K</td>
                         </tr>
                       </tbody>
                     </table>
@@ -1115,13 +1116,13 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-green-900 mb-4">High-ROI Scenarios</h3>
+                  <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-brand-900 mb-4">High-ROI Scenarios</h3>
                     
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-medium text-green-900 mb-2">Weekly Intelligence Service</h4>
-                        <div className="text-sm text-green-800 space-y-1">
+                        <h4 className="font-medium text-brand-900 mb-2">Weekly Intelligence Service</h4>
+                        <div className="text-sm text-brand-800 space-y-1">
                           <div>• <strong>Best for:</strong> Startups with $500K-1M revenue</div>
                           <div>• <strong>Time to positive ROI:</strong> 1-2 months</div>
                           <div>• <strong>Peak ROI:</strong> 600% by month 12</div>
@@ -1130,8 +1131,8 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                       </div>
                       
                       <div>
-                        <h4 className="font-medium text-green-900 mb-2">Freelancer Network</h4>
-                        <div className="text-sm text-green-800 space-y-1">
+                        <h4 className="font-medium text-brand-900 mb-2">Freelancer Network</h4>
+                        <div className="text-sm text-brand-800 space-y-1">
                           <div>• <strong>Best for:</strong> Growing businesses $500K-2M</div>
                           <div>• <strong>Time to positive ROI:</strong> 2-3 months</div>
                           <div>• <strong>Peak ROI:</strong> 500% by month 12</div>
@@ -1141,13 +1142,13 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                     </div>
                   </div>
 
-                  <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-yellow-900 mb-4">High-Investment Scenarios</h3>
+                  <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-brand-900 mb-4">High-Investment Scenarios</h3>
                     
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-medium text-yellow-900 mb-2">Full-Service Agency</h4>
-                        <div className="text-sm text-yellow-800 space-y-1">
+                        <h4 className="font-medium text-brand-900 mb-2">Full-Service Agency</h4>
+                        <div className="text-sm text-brand-800 space-y-1">
                           <div>• <strong>Best for:</strong> Established businesses $2M+ revenue</div>
                           <div>• <strong>Time to positive ROI:</strong> 4-6 months</div>
                           <div>• <strong>Peak ROI:</strong> 400% by month 12</div>
@@ -1156,8 +1157,8 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                       </div>
                       
                       <div>
-                        <h4 className="font-medium text-yellow-900 mb-2">In-House Team</h4>
-                        <div className="text-sm text-yellow-800 space-y-1">
+                        <h4 className="font-medium text-brand-900 mb-2">In-House Team</h4>
+                        <div className="text-sm text-brand-800 space-y-1">
                           <div>• <strong>Best for:</strong> Large businesses $5M+ revenue</div>
                           <div>• <strong>Time to positive ROI:</strong> 6-9 months</div>
                           <div>• <strong>Peak ROI:</strong> 300% by month 12</div>
@@ -1303,13 +1304,13 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-green-900 mb-4">Key Performance Milestones</h3>
+                  <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-brand-900 mb-4">Key Performance Milestones</h3>
                     
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-medium text-green-900 mb-2">Month 1 Targets</h4>
-                        <ul className="text-sm text-green-800 space-y-1">
+                        <h4 className="font-medium text-brand-900 mb-2">Month 1 Targets</h4>
+                        <ul className="text-sm text-brand-800 space-y-1">
                           <li>• Baseline metrics established</li>
                           <li>• First campaigns launched</li>
                           <li>• Initial lead generation started</li>
@@ -1318,8 +1319,8 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                       </div>
                       
                       <div>
-                        <h4 className="font-medium text-green-900 mb-2">Month 3 Targets</h4>
-                        <ul className="text-sm text-green-800 space-y-1">
+                        <h4 className="font-medium text-brand-900 mb-2">Month 3 Targets</h4>
+                        <ul className="text-sm text-brand-800 space-y-1">
                           <li>• 150-300% ROI achieved</li>
                           <li>• 2-3 channels optimized</li>
                           <li>• Customer acquisition cost reduced</li>
@@ -1328,8 +1329,8 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                       </div>
                       
                       <div>
-                        <h4 className="font-medium text-green-900 mb-2">Month 6 Targets</h4>
-                        <ul className="text-sm text-green-800 space-y-1">
+                        <h4 className="font-medium text-brand-900 mb-2">Month 6 Targets</h4>
+                        <ul className="text-sm text-brand-800 space-y-1">
                           <li>• 300-500% ROI achieved</li>
                           <li>• 4-5 channels active</li>
                           <li>• Automated optimization in place</li>
@@ -1339,13 +1340,13 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                     </div>
                   </div>
 
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-red-900 mb-4">Warning Signs & Course Correction</h3>
+                  <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-brand-900 mb-4">Warning Signs & Course Correction</h3>
                     
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-medium text-red-900 mb-2">Month 1 Red Flags</h4>
-                        <ul className="text-sm text-red-800 space-y-1">
+                        <h4 className="font-medium text-brand-900 mb-2">Month 1 Red Flags</h4>
+                        <ul className="text-sm text-brand-800 space-y-1">
                           <li>• No leads generated within 2 weeks</li>
                           <li>• Extremely high cost per click</li>
                           <li>• Zero website traffic increase</li>
@@ -1354,8 +1355,8 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                       </div>
                       
                       <div>
-                        <h4 className="font-medium text-red-900 mb-2">Month 3 Concerns</h4>
-                        <ul className="text-sm text-red-800 space-y-1">
+                        <h4 className="font-medium text-brand-900 mb-2">Month 3 Concerns</h4>
+                        <ul className="text-sm text-brand-800 space-y-1">
                           <li>• ROI below 100% consistently</li>
                           <li>• No improvement in key metrics</li>
                           <li>• High customer acquisition costs</li>
@@ -1364,8 +1365,8 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                       </div>
                       
                       <div>
-                        <h4 className="font-medium text-red-900 mb-2">Corrective Actions</h4>
-                        <ul className="text-sm text-red-800 space-y-1">
+                        <h4 className="font-medium text-brand-900 mb-2">Corrective Actions</h4>
+                        <ul className="text-sm text-brand-800 space-y-1">
                           <li>• Pause underperforming campaigns</li>
                           <li>• Audit tracking and attribution</li>
                           <li>• Refine target audience definition</li>
@@ -1413,13 +1414,7 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                     <PieChart className="w-4 h-4 mr-2" />
                     CAC Optimization Calculator
                   </Link>
-                  <Link 
-                    href="/free-hooks" 
-                    className="flex items-center text-blue-600 hover:text-blue-700 text-sm"
-                  >
-                    <Target className="w-4 h-4 mr-2" />
-                    52 Free Ad Hooks
-                  </Link>
+                  <FreeWeekButton source="small_business_marketing_budget_calculator_roi_analysis-cta" className="flex items-center text-blue-600 hover:text-blue-700 text-sm">Start Free Week Trial</FreeWeekButton>
                 </div>
               </div>
 

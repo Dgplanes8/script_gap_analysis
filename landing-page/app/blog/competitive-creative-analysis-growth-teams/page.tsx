@@ -41,7 +41,7 @@ export default function CompetitiveCreativeAnalysisPage() {
         {/* Article Header */}
         <article className="max-w-4xl mx-auto">
           <header className="mb-12">
-            <div className="inline-flex items-center px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center px-3 py-1 bg-brand-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
               <Eye className="h-4 w-4 mr-2" />
               Competitive Intelligence
             </div>
@@ -73,7 +73,7 @@ export default function CompetitiveCreativeAnalysisPage() {
               Competitive creative analysis isn't about copying competitors—it's about understanding market-level creative patterns, identifying untapped positioning opportunities, and accelerating your testing roadmap with validated concept directions.
             </p>
 
-            <div className="bg-teal-50 rounded-xl p-8 mb-12">
+            <div className="bg-brand-50 rounded-xl p-8 mb-12">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">The Competitive Blind Spot:</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -112,7 +112,7 @@ export default function CompetitiveCreativeAnalysisPage() {
             <div className="space-y-8 mb-12">
               <div className="bg-gray-50 rounded-xl p-6">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <Search className="h-5 w-5 text-teal-600 mr-3" />
+                  <Search className="h-5 w-5 text-brand-600 mr-3" />
                   Direct Competitors Identification
                 </h4>
                 <p className="text-gray-700 mb-4">
@@ -140,7 +140,7 @@ export default function CompetitiveCreativeAnalysisPage() {
               
               <div className="bg-gray-50 rounded-xl p-6">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-                  <Target className="h-5 w-5 text-orange-600 mr-3" />
+                  <Target className="h-5 w-5 text-brand-600 mr-3" />
                   Platform-Specific Analysis Setup
                 </h4>
                 <p className="text-gray-700 mb-4">
@@ -183,7 +183,7 @@ export default function CompetitiveCreativeAnalysisPage() {
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="space-y-6">
-                <div className="bg-orange-50 rounded-lg p-6">
+                <div className="bg-brand-50 rounded-lg p-6">
                   <h4 className="font-semibold text-gray-900 mb-3">Message Angle Analysis</h4>
                   <p className="text-gray-700 mb-4">Track how competitors position their value proposition and address customer objections across different creative concepts.</p>
                   <ul className="text-gray-700 space-y-2">
@@ -194,7 +194,7 @@ export default function CompetitiveCreativeAnalysisPage() {
                   </ul>
                 </div>
                 
-                <div className="bg-teal-50 rounded-lg p-6">
+                <div className="bg-brand-50 rounded-lg p-6">
                   <h4 className="font-semibold text-gray-900 mb-3">Visual Format Trends</h4>
                   <p className="text-gray-700 mb-4">Monitor creative format preferences and production style evolution across your competitive landscape.</p>
                   <ul className="text-gray-700 space-y-2">
@@ -237,7 +237,7 @@ export default function CompetitiveCreativeAnalysisPage() {
               The most valuable competitive analysis translates observations into testable creative concepts for your own campaigns. This translation process requires strategic adaptation rather than direct copying, ensuring concepts align with your brand positioning and audience needs.
             </p>
 
-            <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-8 mb-12">
+            <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-xl p-8 mb-12">
               <h3 className="text-xl font-semibold text-gray-900 mb-6">Creative Adaptation Framework</h3>
               
               <div className="space-y-6">
@@ -303,7 +303,7 @@ export default function CompetitiveCreativeAnalysisPage() {
             <div className="overflow-x-auto mb-12">
               <table className="w-full border-collapse bg-white shadow-lg rounded-xl overflow-hidden">
                 <thead>
-                  <tr className="bg-teal-600 text-white">
+                  <tr className="bg-brand-600 text-white">
                     <th className="p-4 text-left">Analysis Focus</th>
                     <th className="p-4 text-left">Subscription Considerations</th>
                     <th className="p-4 text-left">Key Questions</th>
@@ -348,7 +348,7 @@ export default function CompetitiveCreativeAnalysisPage() {
             <h3 className="text-2xl font-semibold text-gray-900 mb-6">Weekly Competitive Intelligence Workflow</h3>
             
             <div className="space-y-8 mb-12">
-              <div className="bg-orange-50 rounded-xl p-6 border-l-4 border-orange-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Monday: Competitive Scan</h4>
                 <p className="text-gray-700 mb-4">
                   Systematic review of competitor creative activity from the previous week, identifying new campaigns and creative format experiments.
@@ -361,7 +361,7 @@ export default function CompetitiveCreativeAnalysisPage() {
                 </ul>
               </div>
               
-              <div className="bg-teal-50 rounded-xl p-6 border-l-4 border-teal-500">
+              <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-teal-500">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3">Wednesday: Pattern Analysis</h4>
                 <p className="text-gray-700 mb-4">
                   Deep analysis of competitive creative patterns, identifying emerging trends and strategic shifts across your competitive landscape.
@@ -402,14 +402,14 @@ export default function CompetitiveCreativeAnalysisPage() {
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-start">
-                    <div className="w-6 h-6 bg-orange-600 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-1">1</div>
+                    <div className="w-6 h-6 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-1">1</div>
                     <div>
                       <h5 className="font-semibold text-gray-900">High Priority</h5>
                       <p className="text-sm text-gray-700">Patterns appearing across multiple competitors</p>
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-6 h-6 bg-teal-600 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-1">2</div>
+                    <div className="w-6 h-6 bg-brand-600 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-1">2</div>
                     <div>
                       <h5 className="font-semibold text-gray-900">Medium Priority</h5>
                       <p className="text-sm text-gray-700">Emerging trends from leading competitors</p>
@@ -445,7 +445,7 @@ export default function CompetitiveCreativeAnalysisPage() {
               Implementing competitive creative analysis requires establishing monitoring systems, analysis frameworks, and integration with your existing creative development processes. Start with focused competitor selection and systematic documentation approaches.
             </p>
 
-            <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-xl p-8 mb-12">
+            <div className="bg-gradient-to-br from-brand-50 to-brand-100 rounded-xl p-8 mb-12">
               <h3 className="text-xl font-semibold text-gray-900 mb-6">Implementation Checklist</h3>
               
               <div className="grid md:grid-cols-2 gap-8">
@@ -453,19 +453,19 @@ export default function CompetitiveCreativeAnalysisPage() {
                   <h4 className="font-semibold text-gray-900">Week 1: Setup Phase</h4>
                   <div className="space-y-2">
                     <label className="flex items-center">
-                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-teal-600" />
+                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-brand-600" />
                       <span className="text-gray-700">Identify 5-8 primary competitors for monitoring</span>
                     </label>
                     <label className="flex items-center">
-                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-teal-600" />
+                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-brand-600" />
                       <span className="text-gray-700">Create competitor monitoring spreadsheet or system</span>
                     </label>
                     <label className="flex items-center">
-                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-teal-600" />
+                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-brand-600" />
                       <span className="text-gray-700">Set up Facebook Ad Library bookmark system</span>
                     </label>
                     <label className="flex items-center">
-                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-teal-600" />
+                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-brand-600" />
                       <span className="text-gray-700">Define creative categorization framework</span>
                     </label>
                   </div>
@@ -475,19 +475,19 @@ export default function CompetitiveCreativeAnalysisPage() {
                   <h4 className="font-semibold text-gray-900">Week 2: Process Integration</h4>
                   <div className="space-y-2">
                     <label className="flex items-center">
-                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-teal-600" />
+                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-brand-600" />
                       <span className="text-gray-700">Establish weekly monitoring schedule</span>
                     </label>
                     <label className="flex items-center">
-                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-teal-600" />
+                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-brand-600" />
                       <span className="text-gray-700">Create first competitive analysis report</span>
                     </label>
                     <label className="flex items-center">
-                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-teal-600" />
+                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-brand-600" />
                       <span className="text-gray-700">Develop 2-3 concepts from competitive insights</span>
                     </label>
                     <label className="flex items-center">
-                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-teal-600" />
+                      <input type="checkbox" className="mr-3 rounded border-teal-300 text-brand-600" />
                       <span className="text-gray-700">Begin testing competitive-inspired concepts</span>
                     </label>
                   </div>

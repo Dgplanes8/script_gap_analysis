@@ -19,7 +19,7 @@ interface CTABannerProps extends BaseComponentProps {
 }
 
 const backgroundClasses = {
-  gradient: 'bg-gradient-to-r from-indigo-600 to-purple-600',
+  gradient: 'bg-gradient-to-r from-indigo-600 to-brand-600',
   solid: 'bg-indigo-600',
   pattern: 'bg-indigo-600 bg-opacity-90 relative overflow-hidden'
 };
@@ -57,7 +57,7 @@ export function CTABanner({
     <section className={`${backgroundClasses[background]} ${classes.container} ${className}`}>
       {background === 'pattern' && (
         <div className="absolute inset-0 bg-indigo-600 bg-opacity-90">
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800 opacity-90" />
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-brand-600 to-indigo-800 opacity-90" />
         </div>
       )}
       

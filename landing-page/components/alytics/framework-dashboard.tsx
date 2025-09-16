@@ -31,7 +31,7 @@ const frameworks: Framework[] = [
     subtitle: 'Pain & Dream Outcomes',
     description: 'Deep dive into your target audience\'s pain points and dream outcomes.',
     icon: <Target className="w-6 h-6" />,
-    color: 'from-orange-500 to-orange-600',
+    color: 'from-brand-500 to-brand-600',
     image: '/images/Gemini_Generated_Image_lic7h2lic7h2lic7.webp',
     sections: [
       {
@@ -108,7 +108,7 @@ const frameworks: Framework[] = [
     subtitle: 'Messaging Analysis',
     description: 'Score and validate concepts using proven frameworks.',
     icon: <BarChart3 className="w-6 h-6" />,
-    color: 'from-green-500 to-green-600',
+    color: 'from-brand-500 to-brand-600',
     image: '/images/Gemini_Generated_Image_av63zqav63zqav63.webp',
     sections: [
       {
@@ -140,7 +140,7 @@ const frameworks: Framework[] = [
     subtitle: 'Bringing Concepts to Life',
     description: 'Complete, tested scripts across multiple ad formats.',
     icon: <FileText className="w-6 h-6" />,
-    color: 'from-purple-500 to-purple-600',
+    color: 'from-brand-500 to-brand-600',
     image: '/images/Gemini_Generated_Image_8iqfh58iqfh58iqf.webp',
     sections: [
       {

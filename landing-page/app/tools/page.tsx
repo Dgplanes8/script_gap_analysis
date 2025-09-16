@@ -7,6 +7,7 @@ import { CreativeStrategyBenchmarkTool } from '@/components/calculators/creative
 import { HookGeneratorDemo } from '@/components/creative/hook-generator-demo';
 import { Calculator, Target, Zap, BarChart3, ArrowRight, Lightbulb } from 'lucide-react';
 import Link from 'next/link';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Free Revenue Optimization Tools | ROI Calculator, Creative Assessment & Hook Generator | APSICS Media',
@@ -101,10 +102,10 @@ export default function ToolsPage() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-orange-50 to-red-50">
+        <section className="py-16 bg-gradient-to-br from-brand-50 to-brand-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center bg-gradient-to-r from-orange-600 to-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center bg-gradient-to-r from-brand-600 to-brand-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Calculator className="h-4 w-4 mr-2" />
                 FREE MARKETING TOOLS
               </div>
@@ -118,17 +119,17 @@ export default function ToolsPage() {
               
               {/* Tool Categories */}
               <div className="grid md:grid-cols-3 gap-6 mb-12">
-                <div className="bg-white rounded-xl p-6 shadow-lg border border-orange-100">
-                  <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <Calculator className="h-6 w-6 text-orange-600" />
+                <div className="bg-white rounded-xl p-6 shadow-lg border border-brand-100">
+                  <div className="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <Calculator className="h-6 w-6 text-brand-600" />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-2">ROI Calculator</h3>
                   <p className="text-gray-600 text-sm">Calculate potential returns and optimize budget allocation</p>
                 </div>
                 
                 <div className="bg-white rounded-xl p-6 shadow-lg border border-teal-100">
-                  <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <BarChart3 className="h-6 w-6 text-teal-600" />
+                  <div className="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <BarChart3 className="h-6 w-6 text-brand-600" />
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-2">Creative Benchmark</h3>
                   <p className="text-gray-600 text-sm">Assess your creative strategy against industry standards</p>
@@ -150,7 +151,7 @@ export default function ToolsPage() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center mb-12">
-              <div className="inline-flex items-center bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center bg-brand-100 text-brand-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Calculator className="h-4 w-4 mr-2" />
                 TOOL #1
               </div>
@@ -171,7 +172,7 @@ export default function ToolsPage() {
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center mb-12">
-              <div className="inline-flex items-center bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center bg-brand-100 text-brand-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <BarChart3 className="h-4 w-4 mr-2" />
                 TOOL #2
               </div>
@@ -211,7 +212,7 @@ export default function ToolsPage() {
 
 
         {/* Tool Benefits */}
-        <section className="py-16 bg-gradient-to-r from-orange-50 to-red-50">
+        <section className="py-16 bg-gradient-to-r from-brand-50 to-brand-50">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
@@ -228,19 +229,19 @@ export default function ToolsPage() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Data-Driven Insights</h3>
                   <ul className="space-y-3 text-gray-600">
                     <li className="flex items-start">
-                      <Target className="h-5 w-5 text-orange-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <Target className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Based on $250MM+ in real ad spend data</span>
                     </li>
                     <li className="flex items-start">
-                      <Target className="h-5 w-5 text-orange-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <Target className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Validated frameworks from Fortune 100 campaigns</span>
                     </li>
                     <li className="flex items-start">
-                      <Target className="h-5 w-5 text-orange-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <Target className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Industry benchmarks from 500+ launched campaigns</span>
                     </li>
                     <li className="flex items-start">
-                      <Target className="h-5 w-5 text-orange-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <Target className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Performance scoring system used by top agencies</span>
                     </li>
                   </ul>
@@ -250,19 +251,19 @@ export default function ToolsPage() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Startup-Focused</h3>
                   <ul className="space-y-3 text-gray-600">
                     <li className="flex items-start">
-                      <Zap className="h-5 w-5 text-teal-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <Zap className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Designed for limited budgets ($500-$5K/month)</span>
                     </li>
                     <li className="flex items-start">
-                      <Zap className="h-5 w-5 text-teal-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <Zap className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Quick results for fast-moving startup teams</span>
                     </li>
                     <li className="flex items-start">
-                      <Zap className="h-5 w-5 text-teal-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <Zap className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>No complex setup or onboarding required</span>
                     </li>
                     <li className="flex items-start">
-                      <Zap className="h-5 w-5 text-teal-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <Zap className="h-5 w-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
                       <span>Practical recommendations you can implement today</span>
                     </li>
                   </ul>
@@ -286,7 +287,7 @@ export default function ToolsPage() {
               </div>
 
               <div className="space-y-8">
-                <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-8">
+                <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-xl p-8">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">1. Start with ROI Planning</h3>
                   <p className="text-gray-600 mb-4">
                     Before launching any campaigns, use the ROI Calculator to understand your expected returns and optimal budget allocation. This helps you set realistic expectations and avoid overspending.
@@ -307,7 +308,7 @@ export default function ToolsPage() {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-teal-50 to-blue-50 rounded-xl p-8">
+                <div className="bg-gradient-to-r from-brand-50 to-blue-50 rounded-xl p-8">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">2. Benchmark Your Creative Strategy</h3>
                   <p className="text-gray-600 mb-4">
                     Use the Creative Benchmark Tool to evaluate your current ad creative against proven performance standards. Identify gaps and improvement opportunities.
@@ -328,7 +329,7 @@ export default function ToolsPage() {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-8">
+                <div className="bg-gradient-to-r from-blue-50 to-brand-50 rounded-xl p-8">
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">3. Generate High-Converting Hooks</h3>
                   <p className="text-gray-600 mb-4">
                     Use the Hook Generator to create attention-grabbing ad hooks and headlines. Test multiple variations to find what resonates with your audience.
@@ -354,7 +355,7 @@ export default function ToolsPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-orange-600 to-red-700 text-white">
+        <section className="py-16 bg-gradient-to-br from-brand-600 to-brand-700 text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4">
@@ -365,20 +366,8 @@ export default function ToolsPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                <Link
-                  href="/free-hooks"
-                  className="bg-white text-orange-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg"
-                >
-                  <Target className="h-5 w-5 mr-2" />
-                  Get Free Templates
-                </Link>
-                <Link
-                  href="/#service-tiers"
-                  className="bg-orange-800 hover:bg-orange-900 text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg"
-                >
-                  <ArrowRight className="h-5 w-5 mr-2" />
-                  See Weekly Plans
-                </Link>
+                <FreeWeekButton source="tools-cta" className="bg-white text-brand-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="tools-cta" className="bg-brand-800 hover:bg-brand-900 text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
               </div>
 
               <div className="bg-white/10 backdrop-blur rounded-xl p-6">

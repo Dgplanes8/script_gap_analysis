@@ -49,20 +49,20 @@ export default function ConsumerAttributionFrameworkPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       
-      <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-100">
+      <div className="min-h-screen bg-gradient-to-br from-brand-50 to-brand-100">
         {/* Header */}
         <Header />
 
         {/* Hero Section */}
         <section className="pt-24 py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-pink-100 text-pink-800 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center px-4 py-2 bg-brand-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
               🎯 D2C Attribution Framework
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Consumer Subscription Attribution Framework
               <br />
-              <span className="text-purple-600">for D2C Brands</span>
+              <span className="text-brand-600">for D2C Brands</span>
             </h1>
             <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
               Implement sophisticated multi-touch attribution modeling to accurately measure CAC, 
@@ -73,15 +73,15 @@ export default function ConsumerAttributionFrameworkPage() {
             {/* Trust Indicators */}
             <div className="flex flex-wrap justify-center items-center gap-8 mb-12 text-sm text-gray-600">
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                 Cross-platform attribution models
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                 Customer lifetime value tracking
               </div>
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-brand-500 rounded-full mr-2"></div>
                 D2C implementation templates
               </div>
             </div>
@@ -91,7 +91,7 @@ export default function ConsumerAttributionFrameworkPage() {
                 text="Get Free D2C Attribution Audit"
                 variant="primary"
               />
-              <button className="px-8 py-3 border-2 border-purple-600 text-purple-600 rounded-lg font-semibold hover:bg-purple-50">
+              <button className="px-8 py-3 border-2 border-brand-600 text-brand-600 rounded-lg font-semibold hover:bg-brand-50">
                 Get Weekly D2C Insights
               </button>
             </div>
@@ -106,21 +106,21 @@ export default function ConsumerAttributionFrameworkPage() {
             </h2>
             
             <div className="grid md:grid-cols-5 gap-6">
-              <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
                 <div className="text-center mb-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-red-600 font-bold">LC</span>
+                  <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-brand-600 font-bold">LC</span>
                   </div>
-                  <h3 className="font-semibold text-red-800">Last Click</h3>
+                  <h3 className="font-semibold text-brand-800">Last Click</h3>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Accuracy:</span>
-                    <span className="text-red-600">Low</span>
+                    <span className="text-brand-600">Low</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Complexity:</span>
-                    <span className="text-green-600">Simple</span>
+                    <span className="text-brand-600">Simple</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Use Case:</span>
@@ -129,21 +129,21 @@ export default function ConsumerAttributionFrameworkPage() {
                 </div>
               </div>
               
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
                 <div className="text-center mb-4">
-                  <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-yellow-600 font-bold">FC</span>
+                  <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-brand-600 font-bold">FC</span>
                   </div>
-                  <h3 className="font-semibold text-yellow-800">First Click</h3>
+                  <h3 className="font-semibold text-brand-800">First Click</h3>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Accuracy:</span>
-                    <span className="text-yellow-600">Low</span>
+                    <span className="text-brand-600">Low</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Complexity:</span>
-                    <span className="text-green-600">Simple</span>
+                    <span className="text-brand-600">Simple</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Use Case:</span>
@@ -166,7 +166,7 @@ export default function ConsumerAttributionFrameworkPage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Complexity:</span>
-                    <span className="text-yellow-600">Moderate</span>
+                    <span className="text-brand-600">Moderate</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Use Case:</span>
@@ -175,21 +175,21 @@ export default function ConsumerAttributionFrameworkPage() {
                 </div>
               </div>
               
-              <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
                 <div className="text-center mb-4">
-                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-purple-600 font-bold">MT</span>
+                  <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-brand-600 font-bold">MT</span>
                   </div>
-                  <h3 className="font-semibold text-purple-800">Multi-Touch</h3>
+                  <h3 className="font-semibold text-brand-800">Multi-Touch</h3>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Accuracy:</span>
-                    <span className="text-green-600">High</span>
+                    <span className="text-brand-600">High</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Complexity:</span>
-                    <span className="text-red-600">Advanced</span>
+                    <span className="text-brand-600">Advanced</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Use Case:</span>
@@ -198,21 +198,21 @@ export default function ConsumerAttributionFrameworkPage() {
                 </div>
               </div>
               
-              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
                 <div className="text-center mb-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-green-600 font-bold">MM</span>
+                  <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <span className="text-brand-600 font-bold">MM</span>
                   </div>
-                  <h3 className="font-semibold text-green-800">Mixed Media Model</h3>
+                  <h3 className="font-semibold text-brand-800">Mixed Media Model</h3>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Accuracy:</span>
-                    <span className="text-green-600">Very High</span>
+                    <span className="text-brand-600">Very High</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Complexity:</span>
-                    <span className="text-red-600">Expert</span>
+                    <span className="text-brand-600">Expert</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600">Use Case:</span>
@@ -259,7 +259,7 @@ export default function ConsumerAttributionFrameworkPage() {
             {/* Phase 1 */}
             <div className="mb-16">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
                   <span className="text-xl font-bold text-white">1</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Cross-Platform Tracking Setup</h3>
@@ -277,27 +277,27 @@ export default function ConsumerAttributionFrameworkPage() {
                     <h5 className="font-semibold mb-3">Essential D2C Touchpoints:</h5>
                     <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Social media discovery (Instagram, TikTok, Facebook)
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Influencer content and recommendations
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Paid social advertising clicks and engagement
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Email marketing and SMS campaigns
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Referral program interactions
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Content consumption and reviews
                       </li>
                     </ul>
@@ -306,27 +306,27 @@ export default function ConsumerAttributionFrameworkPage() {
                     <h5 className="font-semibold mb-3">Technical Implementation:</h5>
                     <ul className="space-y-2 text-gray-700">
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Cross-platform pixel implementation
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         UTM parameter standardization
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Customer ID linking across touchpoints
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         Subscription lifecycle event tracking
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         LTV and retention data integration
                       </li>
                       <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">•</span>
+                        <span className="text-brand-600 mr-2">•</span>
                         First-party data collection setup
                       </li>
                     </ul>
@@ -338,7 +338,7 @@ export default function ConsumerAttributionFrameworkPage() {
             {/* Phase 2 */}
             <div className="mb-16">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
                   <span className="text-xl font-bold text-white">2</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Consumer-Focused Attribution Model Selection</h3>
@@ -353,7 +353,7 @@ export default function ConsumerAttributionFrameworkPage() {
                 
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="bg-white p-6 rounded-lg border">
-                    <h5 className="font-semibold mb-3 text-purple-800">Time-Decay Model</h5>
+                    <h5 className="font-semibold mb-3 text-brand-800">Time-Decay Model</h5>
                     <p className="text-sm text-gray-600 mb-4">
                       More credit to touchpoints closer to subscription
                     </p>
@@ -363,7 +363,7 @@ export default function ConsumerAttributionFrameworkPage() {
                   </div>
                   
                   <div className="bg-white p-6 rounded-lg border">
-                    <h5 className="font-semibold mb-3 text-purple-800">Position-Based Model</h5>
+                    <h5 className="font-semibold mb-3 text-brand-800">Position-Based Model</h5>
                     <p className="text-sm text-gray-600 mb-4">
                       40% discovery, 40% conversion, 20% consideration
                     </p>
@@ -373,7 +373,7 @@ export default function ConsumerAttributionFrameworkPage() {
                   </div>
                   
                   <div className="bg-white p-6 rounded-lg border">
-                    <h5 className="font-semibold mb-3 text-purple-800">Data-Driven Model</h5>
+                    <h5 className="font-semibold mb-3 text-brand-800">Data-Driven Model</h5>
                     <p className="text-sm text-gray-600 mb-4">
                       ML-based credit using consumer behavior data
                     </p>
@@ -388,7 +388,7 @@ export default function ConsumerAttributionFrameworkPage() {
             {/* Phase 3 */}
             <div className="mb-16">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-brand-600 rounded-full flex items-center justify-center mr-4">
                   <span className="text-xl font-bold text-white">3</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">LTV Attribution & Retention Optimization</h3>
@@ -404,7 +404,7 @@ export default function ConsumerAttributionFrameworkPage() {
                 <div className="space-y-6">
                   <div className="bg-white p-6 rounded-lg border">
                     <h5 className="font-semibold mb-3">LTV-Based CAC Calculation</h5>
-                    <div className="bg-purple-50 p-4 rounded font-mono text-sm mb-4">
+                    <div className="bg-brand-50 p-4 rounded font-mono text-sm mb-4">
                       Channel LTV CAC = (Channel Spend × Attribution Weight) / (Attributed Subscribers × Avg LTV)
                     </div>
                     <p className="text-gray-600 text-sm">
@@ -437,7 +437,7 @@ export default function ConsumerAttributionFrameworkPage() {
             
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-semibold mb-6 text-purple-600">Technical Setup</h3>
+                <h3 className="text-xl font-semibold mb-6 text-brand-600">Technical Setup</h3>
                 <div className="space-y-4">
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
@@ -467,7 +467,7 @@ export default function ConsumerAttributionFrameworkPage() {
               </div>
               
               <div>
-                <h3 className="text-xl font-semibold mb-6 text-purple-600">Business Process</h3>
+                <h3 className="text-xl font-semibold mb-6 text-brand-600">Business Process</h3>
                 <div className="space-y-4">
                   <label className="flex items-start space-x-3">
                     <input type="checkbox" className="mt-1" />
@@ -500,12 +500,12 @@ export default function ConsumerAttributionFrameworkPage() {
         </section>
 
         {/* Lead Generation Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-purple-600">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-brand-600">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-6">
               Get Your D2C Attribution Implementation Toolkit
             </h2>
-            <p className="text-xl text-purple-100 mb-8">
+            <p className="text-xl text-brand-100 mb-8">
               Download our comprehensive toolkit including platform setup guides, tracking templates, 
               and consumer-focused attribution strategies.
             </p>
@@ -547,7 +547,7 @@ export default function ConsumerAttributionFrameworkPage() {
                 <p className="text-gray-600 mb-4">
                   Complete channel optimization guide for D2C subscription businesses.
                 </p>
-                <a href="/consumer-subscription-marketing-guide" className="text-purple-600 font-semibold hover:underline">
+                <a href="/consumer-subscription-marketing-guide" className="text-brand-600 font-semibold hover:underline">
                   Read Guide →
                 </a>
               </div>
@@ -557,7 +557,7 @@ export default function ConsumerAttributionFrameworkPage() {
                 <p className="text-gray-600 mb-4">
                   Compare your D2C attribution sophistication against industry leaders.
                 </p>
-                <a href="/revenue-growth-benchmarking" className="text-purple-600 font-semibold hover:underline">
+                <a href="/revenue-growth-benchmarking" className="text-brand-600 font-semibold hover:underline">
                   Take Assessment →
                 </a>
               </div>
@@ -567,7 +567,7 @@ export default function ConsumerAttributionFrameworkPage() {
                 <p className="text-gray-600 mb-4">
                   Multi-touch attribution framework designed for B2B SaaS companies.
                 </p>
-                <a href="/marketing-attribution-framework" className="text-purple-600 font-semibold hover:underline">
+                <a href="/marketing-attribution-framework" className="text-brand-600 font-semibold hover:underline">
                   View SaaS Framework →
                 </a>
               </div>

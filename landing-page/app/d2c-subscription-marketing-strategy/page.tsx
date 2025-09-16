@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, Users, Heart, Brain, ShoppingCart, TrendingUp, Target, Zap, CheckCircle, AlertTriangle, Clock, Award, Eye, ArrowUpRight, Smartphone } from 'lucide-react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'D2C Subscription Marketing Strategy: Consumer Psychology & Weekly Intelligence Framework | Apsics Media',
@@ -300,7 +301,7 @@ const caseStudies = [
 
 export default function D2CSubscriptionMarketingStrategy() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-brand-50 to-white">
       {/* Schema Markup */}
       <script
         type="application/ld+json"
@@ -325,7 +326,7 @@ export default function D2CSubscriptionMarketingStrategy() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-600 to-brand-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -337,33 +338,33 @@ export default function D2CSubscriptionMarketingStrategy() {
               D2C Subscription Marketing Strategy
             </h1>
             
-            <p className="text-xl md:text-2xl text-purple-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Master direct-to-consumer subscription marketing with consumer psychology insights 
               and weekly creative intelligence. Strategic framework for lifestyle-driven growth.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Brain className="h-8 w-8 text-purple-200 mx-auto mb-2" />
+                <Brain className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">Psychology-Driven</div>
-                <div className="text-purple-200 text-sm">Consumer behavior focus</div>
+                <div className="text-brand-200 text-sm">Consumer behavior focus</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Users className="h-8 w-8 text-purple-200 mx-auto mb-2" />
+                <Users className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">Community-Centric</div>
-                <div className="text-purple-200 text-sm">Social validation strategy</div>
+                <div className="text-brand-200 text-sm">Social validation strategy</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Smartphone className="h-8 w-8 text-purple-200 mx-auto mb-2" />
+                <Smartphone className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">Mobile-First</div>
-                <div className="text-purple-200 text-sm">Social commerce optimization</div>
+                <div className="text-brand-200 text-sm">Social commerce optimization</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#d2c-framework"
-                className="bg-white text-purple-600 hover:bg-purple-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 style={{ scrollBehavior: 'smooth' }}
               >
                 Explore D2C Strategy
@@ -371,7 +372,7 @@ export default function D2CSubscriptionMarketingStrategy() {
               </Link>
               <Link
                 href="/subscription-business-cac-reduction-framework"
-                className="border-2 border-white text-white hover:bg-white hover:text-purple-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
+                className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
               >
                 CAC Optimization
                 <Target className="h-5 w-5 ml-2" />
@@ -402,9 +403,9 @@ export default function D2CSubscriptionMarketingStrategy() {
                       <h3 className="font-bold text-gray-900">{comparison.dimension}</h3>
                     </div>
                     
-                    <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
-                      <div className="font-semibold text-purple-800 text-sm mb-1">D2C Approach</div>
-                      <div className="text-purple-700 text-xs">{comparison.d2c}</div>
+                    <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                      <div className="font-semibold text-brand-800 text-sm mb-1">D2C Approach</div>
+                      <div className="text-brand-700 text-xs">{comparison.d2c}</div>
                     </div>
                     
                     <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
@@ -412,16 +413,16 @@ export default function D2CSubscriptionMarketingStrategy() {
                       <div className="text-blue-700 text-xs">{comparison.b2b}</div>
                     </div>
                     
-                    <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                      <div className="font-semibold text-green-800 text-sm mb-1">Strategic Implication</div>
-                      <div className="text-green-700 text-xs">{comparison.implication}</div>
+                    <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                      <div className="font-semibold text-brand-800 text-sm mb-1">Strategic Implication</div>
+                      <div className="text-brand-700 text-xs">{comparison.implication}</div>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
             
-            <div className="mt-8 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-200">
+            <div className="mt-8 bg-gradient-to-r from-brand-50 to-brand-50 rounded-xl p-6 border border-brand-200">
               <h3 className="text-xl font-bold text-gray-900 mb-4">
                 Key Takeaway: Emotional vs Rational Decision Making
               </h3>
@@ -459,16 +460,16 @@ export default function D2CSubscriptionMarketingStrategy() {
                   {framework.levels && (
                     <div className="space-y-4">
                       {framework.levels.map((level, levelIndex) => (
-                        <div key={levelIndex} className="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                        <div key={levelIndex} className="bg-brand-50 rounded-lg p-4 border border-brand-200">
                           <div className="grid md:grid-cols-3 gap-4">
                             <div>
-                              <h4 className="font-semibold text-purple-800">{level.need}</h4>
+                              <h4 className="font-semibold text-brand-800">{level.need}</h4>
                             </div>
                             <div>
                               <span className="text-sm text-gray-700">{level.example}</span>
                             </div>
                             <div>
-                              <span className="text-sm font-medium text-purple-700">"{level.message}"</span>
+                              <span className="text-sm font-medium text-brand-700">"{level.message}"</span>
                             </div>
                           </div>
                         </div>
@@ -517,10 +518,10 @@ export default function D2CSubscriptionMarketingStrategy() {
                   <div className="flex items-center justify-between mb-6">
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900">{strategy.category}</h3>
-                      <p className="text-purple-600 font-medium">{strategy.focus}</p>
+                      <p className="text-brand-600 font-medium">{strategy.focus}</p>
                     </div>
                     <div className="text-right">
-                      <div className="text-2xl font-bold text-purple-600">{strategy.expectedImpact.split(' ')[0]}</div>
+                      <div className="text-2xl font-bold text-brand-600">{strategy.expectedImpact.split(' ')[0]}</div>
                       <div className="text-sm text-gray-500">Expected Impact</div>
                     </div>
                   </div>
@@ -531,7 +532,7 @@ export default function D2CSubscriptionMarketingStrategy() {
                       <ul className="space-y-2">
                         {strategy.strategies.map((item, itemIndex) => (
                           <li key={itemIndex} className="flex items-start">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-sm text-gray-700">{item}</span>
                           </li>
                         ))}
@@ -551,10 +552,10 @@ export default function D2CSubscriptionMarketingStrategy() {
                     </div>
                   </div>
                   
-                  <div className="mt-6 p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-200">
+                  <div className="mt-6 p-4 bg-gradient-to-r from-brand-50 to-brand-50 rounded-lg border border-brand-200">
                     <div className="flex items-center">
-                      <TrendingUp className="h-5 w-5 text-purple-600 mr-2" />
-                      <span className="font-semibold text-purple-800">Expected Impact: {strategy.expectedImpact}</span>
+                      <TrendingUp className="h-5 w-5 text-brand-600 mr-2" />
+                      <span className="font-semibold text-brand-800">Expected Impact: {strategy.expectedImpact}</span>
                     </div>
                   </div>
                 </div>
@@ -579,10 +580,10 @@ export default function D2CSubscriptionMarketingStrategy() {
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900">{platform.platform}</h3>
                       <p className="text-gray-600">Target: {platform.audience}</p>
-                      <p className="text-purple-600 font-medium">Strengths: {platform.strengths}</p>
+                      <p className="text-brand-600 font-medium">Strengths: {platform.strengths}</p>
                     </div>
                     <div className="text-right">
-                      <div className="text-lg font-bold text-green-600">{platform.expectedResults.split(',')[0]}</div>
+                      <div className="text-lg font-bold text-brand-600">{platform.expectedResults.split(',')[0]}</div>
                       <div className="text-sm text-gray-500">Key Results</div>
                     </div>
                   </div>
@@ -592,11 +593,11 @@ export default function D2CSubscriptionMarketingStrategy() {
                       <h4 className="font-semibold text-gray-900 mb-4">D2C Approach</h4>
                       <div className="space-y-4">
                         {Object.entries(platform.d2cApproach).map(([key, value], approachIndex) => (
-                          <div key={approachIndex} className="bg-purple-50 rounded-lg p-3 border border-purple-200">
-                            <h5 className="font-semibold text-purple-800 text-sm mb-1 capitalize">
+                          <div key={approachIndex} className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                            <h5 className="font-semibold text-brand-800 text-sm mb-1 capitalize">
                               {key.replace(/([A-Z])/g, ' $1').trim()}
                             </h5>
-                            <p className="text-purple-700 text-xs">{value}</p>
+                            <p className="text-brand-700 text-xs">{value}</p>
                           </div>
                         ))}
                       </div>
@@ -609,8 +610,8 @@ export default function D2CSubscriptionMarketingStrategy() {
                       </div>
                       
                       <h4 className="font-semibold text-gray-900 mb-4">Expected Results</h4>
-                      <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                        <p className="text-green-700 text-sm font-medium">{platform.expectedResults}</p>
+                      <div className="bg-brand-50 rounded-lg p-4 border border-brand-200">
+                        <p className="text-brand-700 text-sm font-medium">{platform.expectedResults}</p>
                       </div>
                     </div>
                   </div>
@@ -638,7 +639,7 @@ export default function D2CSubscriptionMarketingStrategy() {
               {lifecycleOptimization.map((stage, index) => (
                 <div key={index} className="bg-gradient-to-r from-gray-50 to-white rounded-xl p-6 border">
                   <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold mr-4">
+                    <div className="w-10 h-10 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold mr-4">
                       {index + 1}
                     </div>
                     <div>
@@ -653,7 +654,7 @@ export default function D2CSubscriptionMarketingStrategy() {
                       <ul className="space-y-2">
                         {stage.d2cTactics.map((tactic, tacticIndex) => (
                           <li key={tacticIndex} className="flex items-start">
-                            <Zap className="h-4 w-4 text-yellow-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <Zap className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-sm text-gray-700">{tactic}</span>
                           </li>
                         ))}
@@ -670,15 +671,15 @@ export default function D2CSubscriptionMarketingStrategy() {
                       <div className="space-y-2 mb-4">
                         {stage.kpis.map((kpi, kpiIndex) => (
                           <div key={kpiIndex} className="flex items-center">
-                            <Target className="h-4 w-4 text-green-500 mr-2" />
+                            <Target className="h-4 w-4 text-brand-500 mr-2" />
                             <span className="text-sm text-gray-700">{kpi}</span>
                           </div>
                         ))}
                       </div>
                       
-                      <div className="p-3 bg-green-50 rounded-lg border border-green-200">
-                        <h5 className="font-semibold text-green-800 text-sm mb-1">Optimization Target</h5>
-                        <p className="text-green-700 text-xs font-medium">{stage.optimizationTarget}</p>
+                      <div className="p-3 bg-brand-50 rounded-lg border border-brand-200">
+                        <h5 className="font-semibold text-brand-800 text-sm mb-1">Optimization Target</h5>
+                        <p className="text-brand-700 text-xs font-medium">{stage.optimizationTarget}</p>
                       </div>
                     </div>
                   </div>
@@ -703,7 +704,7 @@ export default function D2CSubscriptionMarketingStrategy() {
                   <div className="flex items-center justify-between mb-6">
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">{study.brand}</h3>
-                      <span className="text-purple-600 font-medium">{study.category}</span>
+                      <span className="text-brand-600 font-medium">{study.category}</span>
                     </div>
                     <div className="text-right">
                       <div className="text-sm text-gray-500">Results in {study.results.timeframe}</div>
@@ -720,7 +721,7 @@ export default function D2CSubscriptionMarketingStrategy() {
                     <ul className="space-y-1">
                       {study.d2cStrategy.map((strategy, stratIndex) => (
                         <li key={stratIndex} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                           <span className="text-sm text-gray-700">{strategy}</span>
                         </li>
                       ))}
@@ -732,8 +733,8 @@ export default function D2CSubscriptionMarketingStrategy() {
                       <h4 className="font-semibold text-gray-900 mb-3">Marketing Metrics</h4>
                       <div className="space-y-2">
                         {study.results.metrics.map((metric, metIndex) => (
-                          <div key={metIndex} className="p-2 bg-purple-50 rounded border border-purple-200">
-                            <span className="text-sm text-purple-800 font-medium">{metric}</span>
+                          <div key={metIndex} className="p-2 bg-brand-50 rounded border border-brand-200">
+                            <span className="text-sm text-brand-800 font-medium">{metric}</span>
                           </div>
                         ))}
                       </div>
@@ -743,15 +744,15 @@ export default function D2CSubscriptionMarketingStrategy() {
                       <h4 className="font-semibold text-gray-900 mb-3">Business Impact</h4>
                       <div className="space-y-2">
                         {study.results.businessImpact.map((impact, impactIndex) => (
-                          <div key={impactIndex} className="p-2 bg-green-50 rounded border border-green-200">
-                            <span className="text-sm text-green-800 font-medium">{impact}</span>
+                          <div key={impactIndex} className="p-2 bg-brand-50 rounded border border-brand-200">
+                            <span className="text-sm text-brand-800 font-medium">{impact}</span>
                           </div>
                         ))}
                       </div>
                     </div>
                   </div>
                   
-                  <div className="p-4 bg-gray-100 rounded-lg border-l-4 border-purple-500">
+                  <div className="p-4 bg-gray-100 rounded-lg border-l-4 border-brand-500">
                     <p className="text-gray-700 italic">"{study.quote}"</p>
                   </div>
                 </div>
@@ -762,53 +763,47 @@ export default function D2CSubscriptionMarketingStrategy() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-brand-600 to-brand-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Master D2C Subscription Marketing with Consumer Psychology
             </h2>
             
-            <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Transform your direct-to-consumer subscription business with psychology-driven strategies 
               and weekly creative intelligence for sustainable growth.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Heart className="h-8 w-8 text-purple-200 mx-auto mb-2" />
+                <Heart className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Emotional Connection</div>
-                <div className="text-purple-200 text-sm">Identity-based positioning</div>
+                <div className="text-brand-200 text-sm">Identity-based positioning</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Users className="h-8 w-8 text-purple-200 mx-auto mb-2" />
+                <Users className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Social Validation</div>
-                <div className="text-purple-200 text-sm">Community-driven growth</div>
+                <div className="text-brand-200 text-sm">Community-driven growth</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <TrendingUp className="h-8 w-8 text-purple-200 mx-auto mb-2" />
+                <TrendingUp className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Proven Results</div>
-                <div className="text-purple-200 text-sm">Psychology-driven optimization</div>
+                <div className="text-brand-200 text-sm">Psychology-driven optimization</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#email-signup"
-                className="bg-white text-purple-600 hover:bg-purple-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 style={{ scrollBehavior: 'smooth' }}
               >
                 Get D2C Strategy Consultation
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-purple-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View D2C Plans
-                <ShoppingCart className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="d2c_subscription_marketing_strategy-cta" className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>
@@ -827,8 +822,8 @@ export default function D2CSubscriptionMarketingStrategy() {
                 href="/freemium-to-premium-conversion-optimization"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-3">
-                  <ArrowUpRight className="h-5 w-5 text-purple-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <ArrowUpRight className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Freemium Conversion</h3>
                 <p className="text-sm text-gray-600">
@@ -840,8 +835,8 @@ export default function D2CSubscriptionMarketingStrategy() {
                 href="/mobile-app-cac-optimization-2025"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-3">
-                  <Smartphone className="h-5 w-5 text-purple-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Smartphone className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Mobile App CAC</h3>
                 <p className="text-sm text-gray-600">
@@ -853,8 +848,8 @@ export default function D2CSubscriptionMarketingStrategy() {
                 href="/weekly-creative-intelligence-playbook"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-3">
-                  <Brain className="h-5 w-5 text-purple-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Brain className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Intelligence Playbook</h3>
                 <p className="text-sm text-gray-600">

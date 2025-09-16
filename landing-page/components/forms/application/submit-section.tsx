@@ -13,8 +13,8 @@ export function SubmitSection({ submitMessage, isSubmitting, variant, onClose }:
       {submitMessage && (
         <div className={`mb-4 p-4 rounded-lg ${
           submitMessage.includes('successfully') 
-            ? 'bg-green-50 text-green-800 border border-green-200' 
-            : 'bg-red-50 text-red-800 border border-red-200'
+            ? 'bg-brand-50 text-brand-800 border border-brand-200' 
+            : 'bg-brand-50 text-brand-800 border border-brand-200'
         }`}>
           {submitMessage}
         </div>

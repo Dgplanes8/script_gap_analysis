@@ -243,22 +243,22 @@ export function CACOptimizationCalculator() {
               
               {/* Key Metrics */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-red-50 p-4 rounded-lg">
+                <div className="bg-brand-50 p-4 rounded-lg">
                   <div className="flex items-center mb-2">
-                    <TrendingDown className="h-5 w-5 text-red-600 mr-2" />
-                    <span className="text-sm font-medium text-red-800">Current CAC</span>
+                    <TrendingDown className="h-5 w-5 text-brand-600 mr-2" />
+                    <span className="text-sm font-medium text-brand-800">Current CAC</span>
                   </div>
-                  <div className="text-2xl font-bold text-red-600">
+                  <div className="text-2xl font-bold text-brand-600">
                     ${formData.currentCAC.toLocaleString()}
                   </div>
                 </div>
                 
-                <div className="bg-green-50 p-4 rounded-lg">
+                <div className="bg-brand-50 p-4 rounded-lg">
                   <div className="flex items-center mb-2">
-                    <Target className="h-5 w-5 text-green-600 mr-2" />
-                    <span className="text-sm font-medium text-green-800">Potential CAC</span>
+                    <Target className="h-5 w-5 text-brand-600 mr-2" />
+                    <span className="text-sm font-medium text-brand-800">Potential CAC</span>
                   </div>
-                  <div className="text-2xl font-bold text-green-600">
+                  <div className="text-2xl font-bold text-brand-600">
                     ${Math.round(formData.currentCAC * (1 - results.potentialCACReduction / 100)).toLocaleString()}
                   </div>
                 </div>
@@ -370,7 +370,7 @@ export function CACOptimizationCalculator() {
                 window.location.href = '/#service-tiers';
               }
             }}
-            className="bg-green-600 text-white hover:bg-green-700 font-semibold px-8 py-3 rounded-lg transition-colors flex items-center justify-center"
+            className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-8 py-3 rounded-lg transition-colors flex items-center justify-center"
           >
             Claim Free Week
             <ArrowRight className="h-5 w-5 ml-2" />

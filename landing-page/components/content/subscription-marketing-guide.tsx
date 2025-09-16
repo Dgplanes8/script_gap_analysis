@@ -156,7 +156,7 @@ export function SubscriptionMarketingGuide() {
                   window.location.href = '/#service-tiers';
                 }
               }}
-              className="bg-green-600 text-white hover:bg-green-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
+              className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
             >
               Claim Free Week
               <ArrowRight className="h-4 w-4 ml-2" />
@@ -186,7 +186,7 @@ export function SubscriptionMarketingGuide() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <button
                 onClick={handleHookBankRequest}
-                className="bg-red-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-red-700 transition-colors flex items-center justify-center"
+                className="bg-brand-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-brand-700 transition-colors flex items-center justify-center"
               >
                 <Mail className="h-5 w-5 mr-2" />
                 Get My 10 Free Hooks
@@ -194,7 +194,7 @@ export function SubscriptionMarketingGuide() {
               
               <button
                 onClick={() => setShowAssessment(true)}
-                className="border-2 border-red-600 text-red-600 px-8 py-4 rounded-lg font-semibold hover:bg-red-50 transition-colors flex items-center justify-center"
+                className="border-2 border-brand-600 text-brand-600 px-8 py-4 rounded-lg font-semibold hover:bg-brand-50 transition-colors flex items-center justify-center"
               >
                 <ArrowRight className="h-5 w-5 mr-2" />
                 Claim Free Week
@@ -203,19 +203,19 @@ export function SubscriptionMarketingGuide() {
             
             <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-600">
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                <CheckCircle className="h-4 w-4 text-brand-500 mr-2" />
                 8,000+ word comprehensive guide
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                <CheckCircle className="h-4 w-4 text-brand-500 mr-2" />
                 Strategic framework templates
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                <CheckCircle className="h-4 w-4 text-brand-500 mr-2" />
                 Implementation checklist
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                <CheckCircle className="h-4 w-4 text-brand-500 mr-2" />
                 Strategic implementation guides
               </div>
             </div>
@@ -253,7 +253,7 @@ export function SubscriptionMarketingGuide() {
                   <div className="space-y-3">
                     {framework.components.map((component, componentIndex) => (
                       <div key={componentIndex} className="flex items-center">
-                        <CheckCircle className="h-4 w-4 text-green-500 mr-3 flex-shrink-0" />
+                        <CheckCircle className="h-4 w-4 text-brand-500 mr-3 flex-shrink-0" />
                         <span className="text-gray-700">{component}</span>
                       </div>
                     ))}
@@ -290,7 +290,7 @@ export function SubscriptionMarketingGuide() {
                 <div className="grid md:grid-cols-2 gap-4">
                   {phase.tasks.map((task, taskIndex) => (
                     <div key={taskIndex} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-brand-500 mr-3 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-700">{task}</span>
                     </div>
                   ))}
@@ -326,7 +326,7 @@ export function SubscriptionMarketingGuide() {
             ) : (
               <button
                 onClick={handleHookBankRequest}
-                className="bg-white text-red-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-50 transition-colors inline-flex items-center"
+                className="bg-white text-brand-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-50 transition-colors inline-flex items-center"
               >
                 <Mail className="h-6 w-6 mr-3" />
                 Get My 10 Free Hooks
@@ -343,7 +343,7 @@ export function SubscriptionMarketingGuide() {
                     window.location.href = '/#service-tiers';
                   }
                 }}
-                className="bg-green-600 text-white hover:bg-green-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
+                className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
               >
                 Claim Free Week
                 <ArrowRight className="h-4 w-4 ml-2" />

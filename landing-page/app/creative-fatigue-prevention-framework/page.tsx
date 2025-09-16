@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, AlertTriangle, TrendingDown, RefreshCw, BarChart3, Clock, Target, CheckCircle, TrendingUp, Zap, Users, Calendar } from 'lucide-react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Creative Fatigue Prevention Framework: Weekly Intelligence Solution | Apsics Media',
@@ -116,7 +117,7 @@ export default function CreativeFatiguePreventionFramework() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-red-600 to-orange-600 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-600 to-brand-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -128,33 +129,33 @@ export default function CreativeFatiguePreventionFramework() {
               Creative Fatigue Prevention Framework
             </h1>
             
-            <p className="text-xl md:text-2xl text-red-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Systematic approach to preventing audience saturation and creative performance plateau. 
               Maintain high-converting campaigns with weekly intelligence-driven optimization.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <AlertTriangle className="h-8 w-8 text-red-200 mx-auto mb-2" />
+                <AlertTriangle className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">5 Indicators</div>
-                <div className="text-red-200 text-sm">Early warning signals</div>
+                <div className="text-brand-200 text-sm">Early warning signals</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Clock className="h-8 w-8 text-red-200 mx-auto mb-2" />
+                <Clock className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">3-Week Cycles</div>
-                <div className="text-red-200 text-sm">Proactive refresh schedule</div>
+                <div className="text-brand-200 text-sm">Proactive refresh schedule</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <TrendingUp className="h-8 w-8 text-red-200 mx-auto mb-2" />
+                <TrendingUp className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">40% Recovery</div>
-                <div className="text-red-200 text-sm">Average performance boost</div>
+                <div className="text-brand-200 text-sm">Average performance boost</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#prevention-framework"
-                className="bg-white text-red-600 hover:bg-red-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 style={{ scrollBehavior: 'smooth' }}
               >
                 Explore the Framework
@@ -162,7 +163,7 @@ export default function CreativeFatiguePreventionFramework() {
               </Link>
               <Link
                 href="/weekly-creative-intelligence-playbook"
-                className="border-2 border-white text-white hover:bg-white hover:text-red-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
+                className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
               >
                 Learn Full Methodology
                 <BarChart3 className="h-5 w-5 ml-2" />
@@ -188,59 +189,59 @@ export default function CreativeFatiguePreventionFramework() {
               </p>
               
               <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div className="bg-red-50 rounded-xl p-6 border border-red-200">
+                <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                   <div className="flex items-center mb-4">
-                    <TrendingDown className="h-6 w-6 text-red-600 mr-3" />
+                    <TrendingDown className="h-6 w-6 text-brand-600 mr-3" />
                     <h3 className="text-xl font-bold text-gray-900">The Cost of Creative Fatigue</h3>
                   </div>
                   
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between items-center">
                       <span className="text-gray-700">Average CAC increase:</span>
-                      <span className="font-bold text-red-600">50-75%</span>
+                      <span className="font-bold text-brand-600">50-75%</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-700">CTR performance drop:</span>
-                      <span className="font-bold text-red-600">60-80%</span>
+                      <span className="font-bold text-brand-600">60-80%</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-700">Conversion rate decline:</span>
-                      <span className="font-bold text-red-600">30-50%</span>
+                      <span className="font-bold text-brand-600">30-50%</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-700">Time to recovery:</span>
-                      <span className="font-bold text-red-600">4-8 weeks</span>
+                      <span className="font-bold text-brand-600">4-8 weeks</span>
                     </div>
                   </div>
                   
                   <p className="text-gray-600 text-sm mt-4">
                     <em>Data compiled from analysis of 500+ subscription business campaigns experiencing creative fatigue 
-                    (Source: <a href="https://blog.facebook.com/business/creative-fatigue-insights" className="text-red-600 underline" target="_blank" rel="noopener noreferrer">Facebook Business Creative Research</a>)</em>
+                    (Source: <a href="https://blog.facebook.com/business/creative-fatigue-insights" className="text-brand-600 underline" target="_blank" rel="noopener noreferrer">Facebook Business Creative Research</a>)</em>
                   </p>
                 </div>
                 
-                <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+                <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                   <div className="flex items-center mb-4">
-                    <TrendingUp className="h-6 w-6 text-green-600 mr-3" />
+                    <TrendingUp className="h-6 w-6 text-brand-600 mr-3" />
                     <h3 className="text-xl font-bold text-gray-900">Prevention Framework Benefits</h3>
                   </div>
                   
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between items-center">
                       <span className="text-gray-700">CAC stability maintenance:</span>
-                      <span className="font-bold text-green-600">85-95%</span>
+                      <span className="font-bold text-brand-600">85-95%</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-700">Performance consistency:</span>
-                      <span className="font-bold text-green-600">90%+</span>
+                      <span className="font-bold text-brand-600">90%+</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-700">Recovery time reduction:</span>
-                      <span className="font-bold text-green-600">75%</span>
+                      <span className="font-bold text-brand-600">75%</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-700">Campaign longevity:</span>
-                      <span className="font-bold text-green-600">3x longer</span>
+                      <span className="font-bold text-brand-600">3x longer</span>
                     </div>
                   </div>
                   
@@ -251,7 +252,7 @@ export default function CreativeFatiguePreventionFramework() {
                 </div>
               </div>
               
-              <div className="bg-orange-50 rounded-xl p-6 border border-orange-200">
+              <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Why Traditional Creative Cycles Fail Subscription Businesses
                 </h3>
@@ -306,19 +307,19 @@ export default function CreativeFatiguePreventionFramework() {
                       <p className="text-sm text-gray-600">Primary performance indicator</p>
                     </div>
                     
-                    <div className="bg-yellow-50 rounded-lg p-3 border border-yellow-200">
-                      <div className="font-semibold text-yellow-800 text-sm mb-1">⚠️ Warning Level</div>
-                      <div className="text-yellow-700 text-xs">{indicator.warning}</div>
+                    <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                      <div className="font-semibold text-brand-800 text-sm mb-1">⚠️ Warning Level</div>
+                      <div className="text-brand-700 text-xs">{indicator.warning}</div>
                     </div>
                     
-                    <div className="bg-red-50 rounded-lg p-3 border border-red-200">
-                      <div className="font-semibold text-red-800 text-sm mb-1">🚨 Critical Level</div>
-                      <div className="text-red-700 text-xs">{indicator.critical}</div>
+                    <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                      <div className="font-semibold text-brand-800 text-sm mb-1">🚨 Critical Level</div>
+                      <div className="text-brand-700 text-xs">{indicator.critical}</div>
                     </div>
                     
-                    <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                      <div className="font-semibold text-green-800 text-sm mb-1">✅ Action Plan</div>
-                      <div className="text-green-700 text-xs">{indicator.solution}</div>
+                    <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                      <div className="font-semibold text-brand-800 text-sm mb-1">✅ Action Plan</div>
+                      <div className="text-brand-700 text-xs">{indicator.solution}</div>
                     </div>
                   </div>
                 </div>
@@ -372,11 +373,11 @@ export default function CreativeFatiguePreventionFramework() {
               {preventionStrategies.map((strategy, index) => (
                 <div key={index} className="bg-gray-50 rounded-2xl p-8 border">
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full flex items-center justify-center font-bold mr-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-brand-500 to-brand-500 text-white rounded-full flex items-center justify-center font-bold mr-4">
                       {index + 1}
                     </div>
                     <div>
-                      <div className="text-sm font-semibold text-orange-600 mb-1">{strategy.phase}</div>
+                      <div className="text-sm font-semibold text-brand-600 mb-1">{strategy.phase}</div>
                       <h3 className="text-xl font-bold text-gray-900">{strategy.title}</h3>
                       <p className="text-gray-600">{strategy.focus}</p>
                     </div>
@@ -388,7 +389,7 @@ export default function CreativeFatiguePreventionFramework() {
                       <ul className="space-y-2">
                         {strategy.actions.map((action, actionIndex) => (
                           <li key={actionIndex} className="flex items-start">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-sm text-gray-700">{action}</span>
                           </li>
                         ))}
@@ -429,12 +430,12 @@ export default function CreativeFatiguePreventionFramework() {
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <div className="flex items-center mb-4">
-                  <RefreshCw className="h-6 w-6 text-orange-600 mr-3" />
+                  <RefreshCw className="h-6 w-6 text-brand-600 mr-3" />
                   <h3 className="text-xl font-bold text-gray-900">Immediate Recovery (Week 1)</h3>
                 </div>
                 
                 <div className="space-y-3 text-sm">
-                  <div className="border-l-4 border-orange-500 pl-3">
+                  <div className="border-l-4 border-brand-500 pl-3">
                     <div className="font-semibold text-gray-900">Creative Angle Pivot</div>
                     <div className="text-gray-600">
                       Complete messaging framework change. Move from current value proposition 
@@ -442,7 +443,7 @@ export default function CreativeFatiguePreventionFramework() {
                     </div>
                   </div>
                   
-                  <div className="border-l-4 border-orange-500 pl-3">
+                  <div className="border-l-4 border-brand-500 pl-3">
                     <div className="font-semibold text-gray-900">Audience Expansion</div>
                     <div className="text-gray-600">
                       Broaden targeting to fresh audience segments while maintaining conversion quality. 
@@ -450,7 +451,7 @@ export default function CreativeFatiguePreventionFramework() {
                     </div>
                   </div>
                   
-                  <div className="border-l-4 border-orange-500 pl-3">
+                  <div className="border-l-4 border-brand-500 pl-3">
                     <div className="font-semibold text-gray-900">Platform Diversification</div>
                     <div className="text-gray-600">
                       Deploy successful creative concepts on new platforms to access 
@@ -462,12 +463,12 @@ export default function CreativeFatiguePreventionFramework() {
               
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <div className="flex items-center mb-4">
-                  <TrendingUp className="h-6 w-6 text-green-600 mr-3" />
+                  <TrendingUp className="h-6 w-6 text-brand-600 mr-3" />
                   <h3 className="text-xl font-bold text-gray-900">Strategic Rebuild (Week 2-4)</h3>
                 </div>
                 
                 <div className="space-y-3 text-sm">
-                  <div className="border-l-4 border-green-500 pl-3">
+                  <div className="border-l-4 border-brand-500 pl-3">
                     <div className="font-semibold text-gray-900">Competitive Intelligence Integration</div>
                     <div className="text-gray-600">
                       Analyze successful competitor campaigns for fresh angle inspiration. 
@@ -475,7 +476,7 @@ export default function CreativeFatiguePreventionFramework() {
                     </div>
                   </div>
                   
-                  <div className="border-l-4 border-green-500 pl-3">
+                  <div className="border-l-4 border-brand-500 pl-3">
                     <div className="font-semibold text-gray-900">Trend-Based Creative Development</div>
                     <div className="text-gray-600">
                       Integrate current social media trends and cultural moments into 
@@ -483,7 +484,7 @@ export default function CreativeFatiguePreventionFramework() {
                     </div>
                   </div>
                   
-                  <div className="border-l-4 border-green-500 pl-3">
+                  <div className="border-l-4 border-brand-500 pl-3">
                     <div className="font-semibold text-gray-900">Performance-Based Optimization</div>
                     <div className="text-gray-600">
                       Use early recovery data to optimize and scale winning creative variations. 
@@ -494,14 +495,14 @@ export default function CreativeFatiguePreventionFramework() {
               </div>
             </div>
             
-            <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-8 border border-orange-200">
+            <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-xl p-8 border border-brand-200">
               <h3 className="text-xl font-bold text-gray-900 mb-6">
                 Expected Recovery Timeline & Milestones
               </h3>
               
               <div className="grid md:grid-cols-4 gap-4">
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-2">
+                  <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-2">
                     3
                   </div>
                   <div className="font-semibold text-gray-900 text-sm">Days</div>
@@ -509,7 +510,7 @@ export default function CreativeFatiguePreventionFramework() {
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-2">
+                  <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-2">
                     1
                   </div>
                   <div className="font-semibold text-gray-900 text-sm">Week</div>
@@ -517,7 +518,7 @@ export default function CreativeFatiguePreventionFramework() {
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-2">
+                  <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-2">
                     2
                   </div>
                   <div className="font-semibold text-gray-900 text-sm">Weeks</div>
@@ -525,7 +526,7 @@ export default function CreativeFatiguePreventionFramework() {
                 </div>
                 
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-2">
+                  <div className="w-12 h-12 bg-brand-600 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-2">
                     4
                   </div>
                   <div className="font-semibold text-gray-900 text-sm">Weeks</div>
@@ -548,14 +549,14 @@ export default function CreativeFatiguePreventionFramework() {
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="bg-gray-50 rounded-xl p-6 border">
                 <div className="flex items-center mb-4">
-                  <BarChart3 className="h-6 w-6 text-orange-600 mr-3" />
+                  <BarChart3 className="h-6 w-6 text-brand-600 mr-3" />
                   <h3 className="text-lg font-bold text-gray-900">Monitoring Templates</h3>
                 </div>
                 
                 <div className="space-y-3">
                   <Link 
                     href="/creative-fatigue-assessment"
-                    className="block p-3 bg-white rounded-lg border hover:border-orange-300 transition-colors"
+                    className="block p-3 bg-white rounded-lg border hover:border-brand-300 transition-colors"
                   >
                     <h4 className="font-semibold text-gray-900 text-sm">Creative Fatigue Assessment Tool</h4>
                     <p className="text-xs text-gray-600">Automated scoring system for fatigue risk evaluation</p>
@@ -575,14 +576,14 @@ export default function CreativeFatiguePreventionFramework() {
               
               <div className="bg-gray-50 rounded-xl p-6 border">
                 <div className="flex items-center mb-4">
-                  <RefreshCw className="h-6 w-6 text-green-600 mr-3" />
+                  <RefreshCw className="h-6 w-6 text-brand-600 mr-3" />
                   <h3 className="text-lg font-bold text-gray-900">Prevention Tools</h3>
                 </div>
                 
                 <div className="space-y-3">
                   <Link 
                     href="/52-high-converting-ad-hooks-library"
-                    className="block p-3 bg-white rounded-lg border hover:border-green-300 transition-colors"
+                    className="block p-3 bg-white rounded-lg border hover:border-brand-300 transition-colors"
                   >
                     <h4 className="font-semibold text-gray-900 text-sm">52 Hook Rotation Library</h4>
                     <p className="text-xs text-gray-600">Pre-tested hooks organized by framework and performance score</p>
@@ -590,7 +591,7 @@ export default function CreativeFatiguePreventionFramework() {
                   
                   <Link 
                     href="/creative-brief-framework"
-                    className="block p-3 bg-white rounded-lg border hover:border-green-300 transition-colors"
+                    className="block p-3 bg-white rounded-lg border hover:border-brand-300 transition-colors"
                   >
                     <h4 className="font-semibold text-gray-900 text-sm">Creative Brief Template</h4>
                     <p className="text-xs text-gray-600">Systematic brief development for consistent quality</p>
@@ -608,53 +609,47 @@ export default function CreativeFatiguePreventionFramework() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-brand-600 to-brand-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Prevent Creative Fatigue with Weekly Intelligence
             </h2>
             
-            <p className="text-xl text-orange-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Access systematic creative rotation with weekly intelligence delivery. 
               Maintain peak performance and avoid costly audience saturation.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Calendar className="h-8 w-8 text-orange-200 mx-auto mb-2" />
+                <Calendar className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Weekly Refresh</div>
-                <div className="text-orange-200 text-sm">Proactive creative rotation</div>
+                <div className="text-brand-200 text-sm">Proactive creative rotation</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Target className="h-8 w-8 text-orange-200 mx-auto mb-2" />
+                <Target className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Performance Monitoring</div>
-                <div className="text-orange-200 text-sm">Early warning detection</div>
+                <div className="text-brand-200 text-sm">Early warning detection</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <TrendingUp className="h-8 w-8 text-orange-200 mx-auto mb-2" />
+                <TrendingUp className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Recovery Protocols</div>
-                <div className="text-orange-200 text-sm">Systematic optimization</div>
+                <div className="text-brand-200 text-sm">Systematic optimization</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#email-signup"
-                className="bg-white text-orange-600 hover:bg-orange-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 style={{ scrollBehavior: 'smooth' }}
               >
                 Start Prevention Framework
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-orange-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View Weekly Plans
-                <Users className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="creative_fatigue_prevention_framework-cta" className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>
@@ -673,8 +668,8 @@ export default function CreativeFatiguePreventionFramework() {
                 href="/weekly-creative-intelligence-playbook"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mb-3">
-                  <BarChart3 className="h-5 w-5 text-orange-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <BarChart3 className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Weekly Intelligence Playbook</h3>
                 <p className="text-sm text-gray-600">
@@ -686,8 +681,8 @@ export default function CreativeFatiguePreventionFramework() {
                 href="/25-point-performance-scoring-system"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mb-3">
-                  <Target className="h-5 w-5 text-orange-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Target className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Performance Scoring System</h3>
                 <p className="text-sm text-gray-600">
@@ -699,8 +694,8 @@ export default function CreativeFatiguePreventionFramework() {
                 href="/competitor-analysis-weekly-workflow"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mb-3">
-                  <Users className="h-5 w-5 text-orange-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Users className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Competitive Intelligence</h3>
                 <p className="text-sm text-gray-600">

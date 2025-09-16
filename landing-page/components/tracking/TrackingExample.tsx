@@ -70,7 +70,7 @@ export function TrackingExample() {
 
           <button
             onClick={handleCTAClick}
-            className="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700"
+            className="bg-brand-600 text-white px-6 py-3 rounded-lg hover:bg-brand-700"
           >
             Hero CTA Button
           </button>
@@ -120,7 +120,7 @@ export function TrackingExample() {
             pageSection="newsletter_form"
             buttonValue="newsletter_signup"
             type="submit"
-            className="w-full bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700"
+            className="w-full bg-brand-600 text-white px-6 py-3 rounded-lg hover:bg-brand-700"
           >
             Subscribe to Newsletter
           </TrackedButton>
@@ -281,7 +281,7 @@ export function TrackingExample() {
             buttonType="purchase_button"
             pageSection="pricing"
             buttonValue={99}
-            className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700"
+            className="bg-brand-600 text-white px-6 py-3 rounded-lg hover:bg-brand-700"
             onClick={() => {
               trackConversion('product_purchase', 99, 'USD');
               console.log('Purchase conversion tracked');
@@ -295,7 +295,7 @@ export function TrackingExample() {
             buttonType="demo_button"
             pageSection="hero"
             buttonValue="demo_request"
-            className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700"
+            className="bg-brand-600 text-white px-6 py-3 rounded-lg hover:bg-brand-700"
             onClick={() => {
               trackConversion('demo_request', 0, 'USD');
               console.log('Demo request conversion tracked');

@@ -100,7 +100,7 @@ export function ContextualLinks({
   }
 
   return (
-    <div className={`bg-gray-50 border-l-4 border-orange-500 p-4 my-6 ${className}`}>
+    <div className={`bg-gray-50 border-l-4 border-brand-500 p-4 my-6 ${className}`}>
       <div className="space-y-2">
         {suggestions.map((link, index) => (
           <p key={link.slug} className="text-gray-700">
@@ -126,11 +126,11 @@ export function CategoryNavigation({
 }) {
   
   const categories = [
-    { name: 'Marketing Tools', slug: '/blog?category=tools', color: 'bg-green-100 text-green-800', count: 3 },
-    { name: 'Creative Strategy', slug: '/blog?category=creative', color: 'bg-purple-100 text-purple-800', count: 4 },
+    { name: 'Marketing Tools', slug: '/blog?category=tools', color: 'bg-brand-100 text-brand-800', count: 3 },
+    { name: 'Creative Strategy', slug: '/blog?category=creative', color: 'bg-brand-100 text-brand-800', count: 4 },
     { name: 'Strategy Guides', slug: '/blog?category=strategy', color: 'bg-blue-100 text-blue-800', count: 6 },
-    { name: 'Analytics & Measurement', slug: '/blog?category=analytics', color: 'bg-orange-100 text-orange-800', count: 2 },
-    { name: 'Budget Planning', slug: '/blog?category=budget', color: 'bg-teal-100 text-teal-800', count: 2 }
+    { name: 'Analytics & Measurement', slug: '/blog?category=analytics', color: 'bg-brand-100 text-brand-800', count: 2 },
+    { name: 'Budget Planning', slug: '/blog?category=budget', color: 'bg-brand-100 text-brand-800', count: 2 }
   ];
 
   return (
@@ -195,7 +195,7 @@ export function PopularArticles({
   return (
     <section className={`${className}`}>
       <h4 className="font-semibold text-gray-900 mb-4 flex items-center">
-        <TrendingUp className="h-4 w-4 mr-2 text-orange-500" />
+        <TrendingUp className="h-4 w-4 mr-2 text-brand-500" />
         Most Popular Resources
       </h4>
       <div className="space-y-3">
@@ -213,7 +213,7 @@ export function PopularArticles({
                 <p className="text-xs text-gray-600 mt-1">{article.description}</p>
                 <div className="flex items-center justify-between mt-2">
                   <span className="text-xs text-gray-500">{article.category}</span>
-                  <span className="text-xs text-orange-600 font-medium">{article.views} views</span>
+                  <span className="text-xs text-brand-600 font-medium">{article.views} views</span>
                 </div>
               </div>
             </div>

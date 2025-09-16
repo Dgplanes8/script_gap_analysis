@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, TrendingDown, Users, DollarSign, BarChart3, Target, Zap, CheckCircle, AlertTriangle, Clock, Award, Calculator, TrendingUp, Brain } from 'lucide-react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Subscription Business CAC Reduction Framework: 25% Cost Optimization with Weekly Intelligence | Apsics Media',
@@ -264,7 +265,7 @@ const caseStudies = [
 
 export default function SubscriptionBusinessCACReductionFramework() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-brand-50 to-white">
       {/* Schema Markup */}
       <script
         type="application/ld+json"
@@ -289,7 +290,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-green-600 to-teal-600 text-white py-16">
+      <section className="bg-gradient-to-r from-brand-600 to-brand-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -301,33 +302,33 @@ export default function SubscriptionBusinessCACReductionFramework() {
               Subscription Business CAC Reduction Framework
             </h1>
             
-            <p className="text-xl md:text-2xl text-green-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Systematic 3-phase framework for reducing customer acquisition costs by 25%+ in subscription businesses. 
               Based on analysis of 500+ subscription company optimizations.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <TrendingDown className="h-8 w-8 text-green-200 mx-auto mb-2" />
+                <TrendingDown className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">25%+ Reduction</div>
-                <div className="text-green-200 text-sm">Average CAC improvement</div>
+                <div className="text-brand-200 text-sm">Average CAC improvement</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Clock className="h-8 w-8 text-green-200 mx-auto mb-2" />
+                <Clock className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">8-12 Weeks</div>
-                <div className="text-green-200 text-sm">Implementation timeframe</div>
+                <div className="text-brand-200 text-sm">Implementation timeframe</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <AlertTriangle className="h-8 w-8 text-green-200 mx-auto mb-2" />
+                <AlertTriangle className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="text-2xl font-bold">50% Crisis</div>
-                <div className="text-green-200 text-sm">Industry CAC increase since 2016</div>
+                <div className="text-brand-200 text-sm">Industry CAC increase since 2016</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#framework-overview"
-                className="bg-white text-green-600 hover:bg-green-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 style={{ scrollBehavior: 'smooth' }}
               >
                 Explore Framework
@@ -335,7 +336,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
               </Link>
               <Link
                 href="/mobile-app-cac-optimization-2025"
-                className="border-2 border-white text-white hover:bg-white hover:text-green-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
+                className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
               >
                 Mobile App Focus
                 <Target className="h-5 w-5 ml-2" />
@@ -359,9 +360,9 @@ export default function SubscriptionBusinessCACReductionFramework() {
             </p>
             
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-red-50 rounded-xl p-6 border border-red-200">
+              <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                 <div className="flex items-center mb-4">
-                  <AlertTriangle className="h-6 w-6 text-red-600 mr-3" />
+                  <AlertTriangle className="h-6 w-6 text-brand-600 mr-3" />
                   <h3 className="text-xl font-bold text-gray-900">Industry CAC Benchmarks</h3>
                 </div>
                 
@@ -372,7 +373,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
                         <span className="font-semibold text-gray-900 capitalize">
                           {category.replace(/([A-Z])/g, ' $1').trim()}
                         </span>
-                        <span className="text-red-600 font-bold text-lg">{cac}</span>
+                        <span className="text-brand-600 font-bold text-lg">{cac}</span>
                       </div>
                     </div>
                   ))}
@@ -380,7 +381,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
                 
                 <p className="text-gray-600 text-sm mt-4">
                   <em>Average CAC by subscription business category in 2024 
-                  (Source: <a href="https://blog.hubspot.com/service/what-does-cac-cost" className="text-red-600 underline" target="_blank" rel="noopener noreferrer">HubSpot CAC Benchmark Study 2024</a>)</em>
+                  (Source: <a href="https://blog.hubspot.com/service/what-does-cac-cost" className="text-brand-600 underline" target="_blank" rel="noopener noreferrer">HubSpot CAC Benchmark Study 2024</a>)</em>
                 </p>
               </div>
               
@@ -396,15 +397,15 @@ export default function SubscriptionBusinessCACReductionFramework() {
                       <div className="font-semibold text-gray-900 mb-2">{range.revenue}</div>
                       <div className="grid grid-cols-3 gap-2 text-xs">
                         <div className="text-center">
-                          <div className="bg-green-100 text-green-800 rounded px-2 py-1 mb-1">Healthy</div>
+                          <div className="bg-brand-100 text-brand-800 rounded px-2 py-1 mb-1">Healthy</div>
                           <div>{range.healthyCAC}</div>
                         </div>
                         <div className="text-center">
-                          <div className="bg-yellow-100 text-yellow-800 rounded px-2 py-1 mb-1">Warning</div>
+                          <div className="bg-brand-100 text-brand-800 rounded px-2 py-1 mb-1">Warning</div>
                           <div>{range.warningCAC}</div>
                         </div>
                         <div className="text-center">
-                          <div className="bg-red-100 text-red-800 rounded px-2 py-1 mb-1">Critical</div>
+                          <div className="bg-brand-100 text-brand-800 rounded px-2 py-1 mb-1">Critical</div>
                           <div>{range.criticalCAC}</div>
                         </div>
                       </div>
@@ -418,7 +419,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
               </div>
             </div>
             
-            <div className="bg-orange-50 rounded-xl p-6 border border-orange-200">
+            <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
               <h3 className="text-xl font-bold text-gray-900 mb-4">
                 Why Traditional CAC Optimization Fails Subscription Businesses
               </h3>
@@ -467,19 +468,19 @@ export default function SubscriptionBusinessCACReductionFramework() {
               {cacReductionFramework.map((phase, index) => (
                 <div key={index} className="bg-white rounded-2xl shadow-lg p-8 border">
                   <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-full flex items-center justify-center font-bold mr-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-brand-500 to-brand-500 text-white rounded-full flex items-center justify-center font-bold mr-4">
                       {index + 1}
                     </div>
                     <div>
-                      <div className="text-sm font-semibold text-green-600 mb-1">{phase.phase} • {phase.duration}</div>
+                      <div className="text-sm font-semibold text-brand-600 mb-1">{phase.phase} • {phase.duration}</div>
                       <h3 className="text-xl font-bold text-gray-900">{phase.title}</h3>
                       <p className="text-gray-600">{phase.focus}</p>
                     </div>
                   </div>
                   
-                  <div className="bg-green-50 rounded-lg p-4 mb-6 border border-green-200">
-                    <h4 className="font-semibold text-green-800 mb-2">Objective</h4>
-                    <p className="text-green-700 text-sm">{phase.objective}</p>
+                  <div className="bg-brand-50 rounded-lg p-4 mb-6 border border-brand-200">
+                    <h4 className="font-semibold text-brand-800 mb-2">Objective</h4>
+                    <p className="text-brand-700 text-sm">{phase.objective}</p>
                   </div>
                   
                   <div className="grid md:grid-cols-2 gap-6">
@@ -488,7 +489,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
                       <ul className="space-y-2">
                         {phase.keyActivities.map((activity, actIndex) => (
                           <li key={actIndex} className="flex items-start">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-sm text-gray-700">{activity}</span>
                           </li>
                         ))}
@@ -518,9 +519,9 @@ export default function SubscriptionBusinessCACReductionFramework() {
                     </div>
                   </div>
                   
-                  <div className="mt-6 p-4 bg-gray-100 rounded-lg border-l-4 border-green-500">
+                  <div className="mt-6 p-4 bg-gray-100 rounded-lg border-l-4 border-brand-500">
                     <div className="flex items-center">
-                      <Award className="h-5 w-5 text-green-600 mr-2" />
+                      <Award className="h-5 w-5 text-brand-600 mr-2" />
                       <span className="font-semibold text-gray-900">Expected Outcome: </span>
                       <span className="text-gray-700">{phase.expectedOutcome}</span>
                     </div>
@@ -554,7 +555,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
                       <p className="text-blue-600 font-medium">{channel.optimization}</p>
                     </div>
                     <div className="text-right">
-                      <div className="text-2xl font-bold text-green-600">{channel.averageCAC}</div>
+                      <div className="text-2xl font-bold text-brand-600">{channel.averageCAC}</div>
                       <div className="text-sm text-gray-500">Average CAC</div>
                     </div>
                   </div>
@@ -565,7 +566,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
                       <ul className="space-y-2">
                         {channel.strategies.map((strategy, stratIndex) => (
                           <li key={stratIndex} className="flex items-start">
-                            <Zap className="h-4 w-4 text-yellow-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <Zap className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-sm text-gray-700">{strategy}</span>
                           </li>
                         ))}
@@ -574,7 +575,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
                     
                     <div className="flex items-center justify-center">
                       <div className="text-center">
-                        <div className="text-3xl font-bold text-green-600 mb-2">
+                        <div className="text-3xl font-bold text-brand-600 mb-2">
                           {channel.expectedReduction}
                         </div>
                         <div className="text-sm text-gray-600">Expected CAC Reduction</div>
@@ -634,10 +635,10 @@ export default function SubscriptionBusinessCACReductionFramework() {
                   <div className="flex items-center justify-between mb-6">
                     <div>
                       <h3 className="text-xl font-bold text-gray-900">{study.companyType}</h3>
-                      <span className="text-green-600 font-medium">{study.revenue}</span>
+                      <span className="text-brand-600 font-medium">{study.revenue}</span>
                     </div>
                     <div className="text-right">
-                      <div className="text-3xl font-bold text-green-600">{study.results.cacReduction}</div>
+                      <div className="text-3xl font-bold text-brand-600">{study.results.cacReduction}</div>
                       <div className="text-sm text-gray-500">CAC Reduction</div>
                     </div>
                   </div>
@@ -652,7 +653,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
                     <ul className="space-y-1">
                       {study.implementation.map((item, itemIndex) => (
                         <li key={itemIndex} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                           <span className="text-sm text-gray-700">{item}</span>
                         </li>
                       ))}
@@ -663,14 +664,14 @@ export default function SubscriptionBusinessCACReductionFramework() {
                     <h4 className="font-semibold text-gray-900 mb-3">Additional Results</h4>
                     <div className="grid md:grid-cols-2 gap-4">
                       {study.results.additionalResults.map((result, resIndex) => (
-                        <div key={resIndex} className="bg-green-50 rounded-lg p-3 border border-green-200">
-                          <span className="text-sm text-green-800 font-medium">{result}</span>
+                        <div key={resIndex} className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                          <span className="text-sm text-brand-800 font-medium">{result}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                   
-                  <div className="p-4 bg-gray-100 rounded-lg border-l-4 border-green-500">
+                  <div className="p-4 bg-gray-100 rounded-lg border-l-4 border-brand-500">
                     <p className="text-gray-700 italic">"{study.quote}"</p>
                   </div>
                 </div>
@@ -681,7 +682,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
       </section>
 
       {/* CAC Assessment Calculator */}
-      <section className="py-16 bg-green-50">
+      <section className="py-16 bg-brand-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
@@ -690,7 +691,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
             
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <div className="text-center mb-8">
-                <Calculator className="h-12 w-12 text-green-600 mx-auto mb-4" />
+                <Calculator className="h-12 w-12 text-brand-600 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   Calculate Your CAC Optimization Potential
                 </h3>
@@ -704,7 +705,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Annual Recurring Revenue (ARR)
                   </label>
-                  <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                  <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-brand-500">
                     <option value="">Select ARR Range</option>
                     <option value="0-1M">$0 - $1M</option>
                     <option value="1M-5M">$1M - $5M</option>
@@ -721,7 +722,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
                     <DollarSign className="h-4 w-4 text-gray-400 absolute left-3 top-3" />
                     <input
                       type="number"
-                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-brand-500"
                       placeholder="195"
                     />
                   </div>
@@ -731,7 +732,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Business Type
                   </label>
-                  <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                  <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-brand-500">
                     <option value="b2b-saas">B2B SaaS</option>
                     <option value="consumer-app">Consumer App</option>
                     <option value="ecommerce">E-commerce Subscription</option>
@@ -741,16 +742,16 @@ export default function SubscriptionBusinessCACReductionFramework() {
               </div>
               
               <div className="text-center">
-                <button className="bg-green-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-700 transition-colors">
+                <button className="bg-brand-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-brand-700 transition-colors">
                   Get CAC Assessment
                 </button>
               </div>
               
-              <div className="mt-8 p-6 bg-green-50 rounded-lg border border-green-200">
+              <div className="mt-8 p-6 bg-brand-50 rounded-lg border border-brand-200">
                 <h4 className="font-semibold text-gray-900 mb-4">Sample Assessment Results:</h4>
                 <div className="grid md:grid-cols-3 gap-4 text-center">
                   <div>
-                    <div className="text-2xl font-bold text-green-600">$48,750</div>
+                    <div className="text-2xl font-bold text-brand-600">$48,750</div>
                     <div className="text-sm text-gray-600">Annual Savings Potential</div>
                   </div>
                   <div>
@@ -758,7 +759,7 @@ export default function SubscriptionBusinessCACReductionFramework() {
                     <div className="text-sm text-gray-600">Optimized Target CAC</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-purple-600">12 weeks</div>
+                    <div className="text-2xl font-bold text-brand-600">12 weeks</div>
                     <div className="text-sm text-gray-600">Implementation Timeframe</div>
                   </div>
                 </div>
@@ -769,53 +770,47 @@ export default function SubscriptionBusinessCACReductionFramework() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-green-600 to-teal-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-brand-600 to-brand-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Reduce Your Subscription CAC by 25%+ in 12 Weeks
             </h2>
             
-            <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-brand-100 mb-8 max-w-3xl mx-auto">
               Join subscription businesses using systematic weekly intelligence to achieve 
               sustainable CAC reduction and accelerate growth.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Brain className="h-8 w-8 text-green-200 mx-auto mb-2" />
+                <Brain className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Weekly Intelligence</div>
-                <div className="text-green-200 text-sm">Data-driven optimization</div>
+                <div className="text-brand-200 text-sm">Data-driven optimization</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <Target className="h-8 w-8 text-green-200 mx-auto mb-2" />
+                <Target className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">3-Phase Framework</div>
-                <div className="text-green-200 text-sm">Systematic implementation</div>
+                <div className="text-brand-200 text-sm">Systematic implementation</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <TrendingUp className="h-8 w-8 text-green-200 mx-auto mb-2" />
+                <TrendingUp className="h-8 w-8 text-brand-200 mx-auto mb-2" />
                 <div className="font-semibold">Proven Results</div>
-                <div className="text-green-200 text-sm">25%+ average reduction</div>
+                <div className="text-brand-200 text-sm">25%+ average reduction</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="#email-signup"
-                className="bg-white text-green-600 hover:bg-green-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 style={{ scrollBehavior: 'smooth' }}
               >
                 Get CAC Assessment
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-green-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View Framework Plans
-                <Users className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="subscription_business_cac_reduction_framework-cta" className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>
@@ -834,8 +829,8 @@ export default function SubscriptionBusinessCACReductionFramework() {
                 href="/mobile-app-cac-optimization-2025"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3">
-                  <Target className="h-5 w-5 text-green-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Target className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Mobile App CAC Crisis</h3>
                 <p className="text-sm text-gray-600">
@@ -847,8 +842,8 @@ export default function SubscriptionBusinessCACReductionFramework() {
                 href="/weekly-creative-intelligence-playbook"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3">
-                  <BarChart3 className="h-5 w-5 text-green-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <BarChart3 className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Weekly Intelligence Playbook</h3>
                 <p className="text-sm text-gray-600">
@@ -860,8 +855,8 @@ export default function SubscriptionBusinessCACReductionFramework() {
                 href="/d2c-subscription-marketing-strategy"
                 className="block bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors"
               >
-                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3">
-                  <Users className="h-5 w-5 text-green-600" />
+                <div className="w-10 h-10 bg-brand-100 rounded-lg flex items-center justify-center mb-3">
+                  <Users className="h-5 w-5 text-brand-600" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">D2C Marketing Strategy</h3>
                 <p className="text-sm text-gray-600">

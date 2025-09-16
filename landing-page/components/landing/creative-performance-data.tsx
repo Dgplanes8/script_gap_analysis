@@ -36,12 +36,12 @@ export function CreativePerformanceData() {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl p-8 shadow-lg border border-orange-200">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mx-auto mb-6">
+            <div className="bg-white rounded-xl p-8 shadow-lg border border-brand-200">
+              <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-500 rounded-xl flex items-center justify-center mx-auto mb-6">
                 <Target className="h-8 w-8 text-white" />
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-orange-600 mb-2">5-10</div>
+                <div className="text-4xl font-bold text-brand-600 mb-2">5-10</div>
                 <div className="text-lg font-semibold text-gray-900 mb-3">Creative Variations</div>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   Successful campaigns require 5-10 creative variations per week to combat creative fatigue and maintain performance.
@@ -49,12 +49,12 @@ export function CreativePerformanceData() {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl p-8 shadow-lg border border-green-200">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-6">
+            <div className="bg-white rounded-xl p-8 shadow-lg border border-brand-200">
+              <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-500 rounded-xl flex items-center justify-center mx-auto mb-6">
                 <DollarSign className="h-8 w-8 text-white" />
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-green-600 mb-2">5x</div>
+                <div className="text-4xl font-bold text-brand-600 mb-2">5x</div>
                 <div className="text-lg font-semibold text-gray-900 mb-3">Better Results</div>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   Same budget, strategic creative gets 5x better results than random creative testing. Strategy beats guesswork.
@@ -72,8 +72,8 @@ export function CreativePerformanceData() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
-                    <BarChart3 className="h-4 w-4 text-red-600" />
+                  <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                    <BarChart3 className="h-4 w-4 text-brand-600" />
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-2">Creative Fatigue Kills Campaigns</h4>
@@ -98,8 +98,8 @@ export function CreativePerformanceData() {
 
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
-                    <Building2 className="h-4 w-4 text-purple-600" />
+                  <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                    <Building2 className="h-4 w-4 text-brand-600" />
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-2">Big Companies Have Creative Teams</h4>
@@ -110,8 +110,8 @@ export function CreativePerformanceData() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
-                    <DollarSign className="h-4 w-4 text-green-600" />
+                  <div className="w-8 h-8 bg-brand-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                    <DollarSign className="h-4 w-4 text-brand-600" />
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-2">Budget Efficiency Through Strategy</h4>

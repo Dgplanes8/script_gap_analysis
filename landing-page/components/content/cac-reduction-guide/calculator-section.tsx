@@ -116,16 +116,16 @@ export function CalculatorSection({
           <div className="space-y-6">
             {showCalculatorResults ? (
               <>
-                <div className="bg-green-50 p-6 rounded-lg">
-                  <h4 className="text-lg font-semibold text-green-900 mb-3">Optimization Potential</h4>
+                <div className="bg-brand-50 p-6 rounded-lg">
+                  <h4 className="text-lg font-semibold text-brand-900 mb-3">Optimization Potential</h4>
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div>
-                      <div className="text-2xl font-bold text-green-600">35%</div>
-                      <div className="text-sm text-green-700">Average CAC Reduction</div>
+                      <div className="text-2xl font-bold text-brand-600">35%</div>
+                      <div className="text-sm text-brand-700">Average CAC Reduction</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-green-600">${potentialSavings.toLocaleString()}</div>
-                      <div className="text-sm text-green-700">Annual Savings Potential</div>
+                      <div className="text-2xl font-bold text-brand-600">${potentialSavings.toLocaleString()}</div>
+                      <div className="text-sm text-brand-700">Annual Savings Potential</div>
                     </div>
                   </div>
                 </div>

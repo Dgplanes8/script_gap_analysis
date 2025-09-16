@@ -35,7 +35,7 @@ export function SocialProofClean() {
         {/* Section Header */}
         <div className="text-center mb-10">
           <div className="mb-3">
-            <span className="bg-green-50 text-green-600 px-3 py-1 rounded-full text-sm font-medium">
+            <span className="bg-brand-50 text-brand-600 px-3 py-1 rounded-full text-sm font-medium">
               Success Stories
             </span>
           </div>
@@ -61,7 +61,7 @@ export function SocialProofClean() {
               {/* Rating */}
               <div className="flex mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                  <Star key={i} className="h-4 w-4 text-brand-400 fill-current" />
                 ))}
               </div>
               
@@ -97,7 +97,7 @@ export function SocialProofClean() {
           </p>
           <div className="flex justify-center items-center space-x-8 opacity-60">
             <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <div className="w-2 h-2 bg-brand-500 rounded-full"></div>
               <span className="text-sm text-gray-600">Weekly Delivery</span>
             </div>
             <div className="flex items-center space-x-2">
@@ -105,7 +105,7 @@ export function SocialProofClean() {
               <span className="text-sm text-gray-600">No Contracts</span>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+              <div className="w-2 h-2 bg-brand-500 rounded-full"></div>
               <span className="text-sm text-gray-600">Cancel Anytime</span>
             </div>
           </div>

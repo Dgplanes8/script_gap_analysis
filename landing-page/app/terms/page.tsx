@@ -168,7 +168,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">11. Privacy Policy</h2>
               <p className="text-gray-600 mb-6">
-                Your privacy is important to us. Please review our <a href="/privacy" className="text-orange-600 hover:text-orange-700">Privacy Policy</a>, 
+                Your privacy is important to us. Please review our <a href="/privacy" className="text-brand-600 hover:text-brand-700">Privacy Policy</a>, 
                 which governs how we collect, use, and protect your information.
               </p>
             </section>
@@ -210,8 +210,8 @@ export default function TermsPage() {
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="text-gray-700">
                   <strong>Apsics Media</strong><br />
-                  Email: <a href="mailto:legal@apsicsmedia.com" className="text-orange-600 hover:text-orange-700">legal@apsicsmedia.com</a><br />
-                  Website: <a href="https://apsicsmedia.com" className="text-orange-600 hover:text-orange-700">apsicsmedia.com</a>
+                  Email: <a href="mailto:legal@apsicsmedia.com" className="text-brand-600 hover:text-brand-700">legal@apsicsmedia.com</a><br />
+                  Website: <a href="https://apsicsmedia.com" className="text-brand-600 hover:text-brand-700">apsicsmedia.com</a>
                 </p>
               </div>
             </section>

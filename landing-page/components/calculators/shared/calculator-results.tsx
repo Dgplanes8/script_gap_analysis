@@ -22,7 +22,7 @@ export function CalculatorResults({ results, title = "Your Results", onReset }: 
         </div>
         {change !== undefined && (
           <span className={`text-sm font-medium ${
-            change > 0 ? 'text-green-600' : change < 0 ? 'text-red-600' : 'text-gray-600'
+            change > 0 ? 'text-brand-600' : change < 0 ? 'text-brand-600' : 'text-gray-600'
           }`}>
             {change > 0 ? '+' : ''}{isPercentage ? formatPercentage(change) : formatCurrency(change)}
           </span>
@@ -35,7 +35,7 @@ export function CalculatorResults({ results, title = "Your Results", onReset }: 
   );
 
   return (
-    <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-8">
+    <div className="bg-gradient-to-br from-indigo-50 to-brand-50 rounded-2xl p-8">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-2">{title}</h2>
         <p className="text-gray-600">Based on your inputs, here's your optimization potential</p>
@@ -67,7 +67,7 @@ export function CalculatorResults({ results, title = "Your Results", onReset }: 
               {Object.entries(results.optimizedPerformance).map(([key, value]) => (
                 <div key={key} className="flex justify-between items-center py-2 border-b border-gray-200">
                   <span className="text-gray-600 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</span>
-                  <span className="font-semibold text-green-600">
+                  <span className="font-semibold text-brand-600">
                     {key.includes('Rate') || key.includes('ROAS') || key.includes('CTR') || key.includes('CVR')
                       ? formatPercentage(value)
                       : formatCurrency(value)

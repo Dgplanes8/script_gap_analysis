@@ -8,6 +8,7 @@ import { ArticleSchema } from '@/components/schema'
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation'
 import { RelatedArticles } from '@/components/blog/related-articles'
 import { Header } from '@/components/layout/secondary-header'
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Small Business Marketing Services Cost Analysis 2025',
@@ -291,9 +292,9 @@ export default function SmallBusinessMarketingCostAnalysis() {
 
               <h3 className="text-2xl font-semibold text-gray-900 mb-4">Freelancer Network</h3>
               
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-6">
-                <h4 className="font-semibold text-yellow-900 mb-2">Coordination Overhead Warning</h4>
-                <p className="text-yellow-800">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 mb-6">
+                <h4 className="font-semibold text-brand-900 mb-2">Coordination Overhead Warning</h4>
+                <p className="text-brand-800">
                   Freelancer networks require 15-20 hours per week of internal coordination time. Factor this management cost into your total budget analysis.
                 </p>
               </div>
@@ -550,59 +551,59 @@ export default function SmallBusinessMarketingCostAnalysis() {
                   <tbody className="divide-y divide-gray-200">
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Initial Investment</td>
-                      <td className="px-4 py-3 text-center text-red-600">High</td>
-                      <td className="px-4 py-3 text-center text-red-600">Very High</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">Medium</td>
-                      <td className="px-4 py-3 text-center text-green-600">Low</td>
+                      <td className="px-4 py-3 text-center text-brand-600">High</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Very High</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Medium</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Low</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Time to Results</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">6-12 months</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">3-6 months</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">2-4 months</td>
-                      <td className="px-4 py-3 text-center text-green-600">1-2 months</td>
+                      <td className="px-4 py-3 text-center text-brand-600">6-12 months</td>
+                      <td className="px-4 py-3 text-center text-brand-600">3-6 months</td>
+                      <td className="px-4 py-3 text-center text-brand-600">2-4 months</td>
+                      <td className="px-4 py-3 text-center text-brand-600">1-2 months</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Scalability</td>
-                      <td className="px-4 py-3 text-center text-green-600">High</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">Medium</td>
-                      <td className="px-4 py-3 text-center text-red-600">Low</td>
-                      <td className="px-4 py-3 text-center text-green-600">High</td>
+                      <td className="px-4 py-3 text-center text-brand-600">High</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Medium</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Low</td>
+                      <td className="px-4 py-3 text-center text-brand-600">High</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Control & Flexibility</td>
-                      <td className="px-4 py-3 text-center text-red-600">Low</td>
-                      <td className="px-4 py-3 text-center text-green-600">High</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">Medium</td>
-                      <td className="px-4 py-3 text-center text-green-600">High</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Low</td>
+                      <td className="px-4 py-3 text-center text-brand-600">High</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Medium</td>
+                      <td className="px-4 py-3 text-center text-brand-600">High</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Quality Consistency</td>
-                      <td className="px-4 py-3 text-center text-green-600">High</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">Variable</td>
-                      <td className="px-4 py-3 text-center text-red-600">Low</td>
-                      <td className="px-4 py-3 text-center text-green-600">High</td>
+                      <td className="px-4 py-3 text-center text-brand-600">High</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Variable</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Low</td>
+                      <td className="px-4 py-3 text-center text-brand-600">High</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Management Overhead</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">Medium</td>
-                      <td className="px-4 py-3 text-center text-red-600">High</td>
-                      <td className="px-4 py-3 text-center text-red-600">Very High</td>
-                      <td className="px-4 py-3 text-center text-green-600">Minimal</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Medium</td>
+                      <td className="px-4 py-3 text-center text-brand-600">High</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Very High</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Minimal</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Risk Level</td>
-                      <td className="px-4 py-3 text-center text-red-600">High</td>
-                      <td className="px-4 py-3 text-center text-red-600">High</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">Medium</td>
-                      <td className="px-4 py-3 text-center text-green-600">Low</td>
+                      <td className="px-4 py-3 text-center text-brand-600">High</td>
+                      <td className="px-4 py-3 text-center text-brand-600">High</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Medium</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Low</td>
                     </tr>
                     <tr className="bg-blue-50">
                       <td className="px-4 py-3 text-blue-900 font-semibold">Overall Rating</td>
-                      <td className="px-4 py-3 text-center text-yellow-600 font-semibold">6/10</td>
-                      <td className="px-4 py-3 text-center text-yellow-600 font-semibold">5/10</td>
-                      <td className="px-4 py-3 text-center text-red-600 font-semibold">4/10</td>
-                      <td className="px-4 py-3 text-center text-green-600 font-semibold">9/10</td>
+                      <td className="px-4 py-3 text-center text-brand-600 font-semibold">6/10</td>
+                      <td className="px-4 py-3 text-center text-brand-600 font-semibold">5/10</td>
+                      <td className="px-4 py-3 text-center text-brand-600 font-semibold">4/10</td>
+                      <td className="px-4 py-3 text-center text-brand-600 font-semibold">9/10</td>
                     </tr>
                   </tbody>
                 </table>
@@ -618,7 +619,7 @@ export default function SmallBusinessMarketingCostAnalysis() {
               </p>
 
               <div className="space-y-6 mb-8">
-                <div className="border-l-4 border-red-500 pl-6">
+                <div className="border-l-4 border-brand-500 pl-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Traditional Agency: 6-12 Month Runway</h3>
                   <ul className="space-y-1 text-gray-700">
                     <li>• Months 1-2: Strategy development and approval cycles</li>
@@ -628,7 +629,7 @@ export default function SmallBusinessMarketingCostAnalysis() {
                   </ul>
                 </div>
 
-                <div className="border-l-4 border-yellow-500 pl-6">
+                <div className="border-l-4 border-brand-500 pl-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">In-House Team: 3-9 Month Build-Up</h3>
                   <ul className="space-y-1 text-gray-700">
                     <li>• Months 1-2: Hiring and onboarding process</li>
@@ -638,7 +639,7 @@ export default function SmallBusinessMarketingCostAnalysis() {
                   </ul>
                 </div>
 
-                <div className="border-l-4 border-orange-500 pl-6">
+                <div className="border-l-4 border-brand-500 pl-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Freelancer Network: 2-6 Month Coordination</h3>
                   <ul className="space-y-1 text-gray-700">
                     <li>• Month 1: Freelancer sourcing and vetting</li>
@@ -648,7 +649,7 @@ export default function SmallBusinessMarketingCostAnalysis() {
                   </ul>
                 </div>
 
-                <div className="border-l-4 border-green-500 pl-6">
+                <div className="border-l-4 border-brand-500 pl-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Weekly Intelligence: 1-2 Week Activation</h3>
                   <ul className="space-y-1 text-gray-700">
                     <li>• Week 1: Service activation and first creative delivery</li>
@@ -906,13 +907,7 @@ export default function SmallBusinessMarketingCostAnalysis() {
                     <BarChart3 className="w-4 h-4 mr-2" />
                     ROI Comparison Tool
                   </Link>
-                  <Link 
-                    href="/free-hooks" 
-                    className="flex items-center text-blue-600 hover:text-blue-700 text-sm"
-                  >
-                    <Target className="w-4 h-4 mr-2" />
-                    52 Free Ad Hooks
-                  </Link>
+                  <FreeWeekButton source="small_business_marketing_services_cost_analysis_2025-cta" className="flex items-center text-blue-600 hover:text-blue-700 text-sm">Start Free Week Trial</FreeWeekButton>
                 </div>
               </div>
 

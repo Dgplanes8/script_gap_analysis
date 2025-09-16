@@ -45,10 +45,10 @@ export function ImplementationGuide({ expandedSection, setExpandedSection }: Imp
                 
                 <h4 className="font-semibold text-gray-900 mb-3">Implementation Checklist:</h4>
                 <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start"><CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5" />Set up comprehensive cost tracking across all marketing activities</li>
-                  <li className="flex items-start"><CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5" />Implement customer journey tracking from first touch to conversion</li>
-                  <li className="flex items-start"><CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5" />Configure cohort-based CAC analysis for time-delayed conversions</li>
-                  <li className="flex items-start"><CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5" />Create automated CAC reporting dashboard with 7-day and 30-day windows</li>
+                  <li className="flex items-start"><CheckCircle className="h-5 w-5 text-brand-500 mr-2 mt-0.5" />Set up comprehensive cost tracking across all marketing activities</li>
+                  <li className="flex items-start"><CheckCircle className="h-5 w-5 text-brand-500 mr-2 mt-0.5" />Implement customer journey tracking from first touch to conversion</li>
+                  <li className="flex items-start"><CheckCircle className="h-5 w-5 text-brand-500 mr-2 mt-0.5" />Configure cohort-based CAC analysis for time-delayed conversions</li>
+                  <li className="flex items-start"><CheckCircle className="h-5 w-5 text-brand-500 mr-2 mt-0.5" />Create automated CAC reporting dashboard with 7-day and 30-day windows</li>
                 </ul>
                 
                 <div className="mt-6 bg-blue-50 p-4 rounded-lg">
@@ -79,9 +79,9 @@ export function ImplementationGuide({ expandedSection, setExpandedSection }: Imp
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div className="bg-red-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-red-900 mb-2">❌ Last-Click Attribution Problems</h4>
-                    <ul className="text-sm text-red-800 space-y-1">
+                  <div className="bg-brand-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-brand-900 mb-2">❌ Last-Click Attribution Problems</h4>
+                    <ul className="text-sm text-brand-800 space-y-1">
                       <li>• Over-credits bottom-funnel channels</li>
                       <li>• Under-values awareness-stage touchpoints</li>
                       <li>• Leads to budget misallocation</li>
@@ -89,9 +89,9 @@ export function ImplementationGuide({ expandedSection, setExpandedSection }: Imp
                     </ul>
                   </div>
                   
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-green-900 mb-2">✅ Multi-Touch Attribution Benefits</h4>
-                    <ul className="text-sm text-green-800 space-y-1">
+                  <div className="bg-brand-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-brand-900 mb-2">✅ Multi-Touch Attribution Benefits</h4>
+                    <ul className="text-sm text-brand-800 space-y-1">
                       <li>• Accurate cost allocation across touchpoints</li>
                       <li>• Reveals true channel performance</li>
                       <li>• Enables optimal budget allocation</li>
@@ -160,9 +160,9 @@ export function ImplementationGuide({ expandedSection, setExpandedSection }: Imp
                     </ul>
                   </div>
                   
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-green-900 mb-3">Audience Segments</h4>
-                    <ul className="text-sm text-green-800 space-y-1">
+                  <div className="bg-brand-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-brand-900 mb-3">Audience Segments</h4>
+                    <ul className="text-sm text-brand-800 space-y-1">
                       <li>• Demographic performance</li>
                       <li>• Behavioral segments</li>
                       <li>• Geographic performance</li>
@@ -170,9 +170,9 @@ export function ImplementationGuide({ expandedSection, setExpandedSection }: Imp
                     </ul>
                   </div>
                   
-                  <div className="bg-purple-50 p-4 rounded-lg">
-                    <h4 className="font-semibold text-purple-900 mb-3">Creative Performance</h4>
-                    <ul className="text-sm text-purple-800 space-y-1">
+                  <div className="bg-brand-50 p-4 rounded-lg">
+                    <h4 className="font-semibold text-brand-900 mb-3">Creative Performance</h4>
+                    <ul className="text-sm text-brand-800 space-y-1">
                       <li>• Ad creative CAC performance</li>
                       <li>• Landing page conversion rates</li>
                       <li>• Message-market fit scores</li>
@@ -181,9 +181,9 @@ export function ImplementationGuide({ expandedSection, setExpandedSection }: Imp
                   </div>
                 </div>
 
-                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
-                  <h5 className="font-medium text-yellow-800 mb-2">Audit Discovery Example:</h5>
-                  <p className="text-yellow-700 text-sm">
+                <div className="bg-brand-50 border-l-4 border-brand-400 p-4">
+                  <h5 className="font-medium text-brand-800 mb-2">Audit Discovery Example:</h5>
+                  <p className="text-brand-700 text-sm">
                     A $50M ARR SaaS company discovered that 30% of their ad spend was targeting audiences with CACs 2.5x higher than their best-performing segments. 
                     Reallocating this budget reduced overall CAC by 28% within 60 days.
                   </p>
@@ -196,7 +196,7 @@ export function ImplementationGuide({ expandedSection, setExpandedSection }: Imp
 
       {/* Phase 2: Optimization & Implementation */}
       <section className="mb-16">
-        <div className="bg-green-50 rounded-xl p-8 mb-8">
+        <div className="bg-brand-50 rounded-xl p-8 mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Phase 2: Optimization & Implementation</h2>
           <p className="text-lg text-gray-700">
             Systematic implementation of CAC reduction strategies based on audit findings and industry best practices.
@@ -240,10 +240,10 @@ export function ImplementationGuide({ expandedSection, setExpandedSection }: Imp
                     <h5 className="font-medium text-gray-900 mb-3">Low-Value Segment Elimination</h5>
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <ul className="text-sm text-gray-700 space-y-2">
-                        <li className="flex items-start"><span className="w-2 h-2 bg-red-500 rounded-full mr-2 mt-2"></span>Identify segments with CAC &gt; 60% of LTV</li>
-                        <li className="flex items-start"><span className="w-2 h-2 bg-red-500 rounded-full mr-2 mt-2"></span>Exclude low-converting demographic segments</li>
-                        <li className="flex items-start"><span className="w-2 h-2 bg-red-500 rounded-full mr-2 mt-2"></span>Remove geographic regions with poor performance</li>
-                        <li className="flex items-start"><span className="w-2 h-2 bg-red-500 rounded-full mr-2 mt-2"></span>Filter out devices/platforms with high CAC</li>
+                        <li className="flex items-start"><span className="w-2 h-2 bg-brand-500 rounded-full mr-2 mt-2"></span>Identify segments with CAC &gt; 60% of LTV</li>
+                        <li className="flex items-start"><span className="w-2 h-2 bg-brand-500 rounded-full mr-2 mt-2"></span>Exclude low-converting demographic segments</li>
+                        <li className="flex items-start"><span className="w-2 h-2 bg-brand-500 rounded-full mr-2 mt-2"></span>Remove geographic regions with poor performance</li>
+                        <li className="flex items-start"><span className="w-2 h-2 bg-brand-500 rounded-full mr-2 mt-2"></span>Filter out devices/platforms with high CAC</li>
                       </ul>
                     </div>
                   </div>
@@ -312,7 +312,7 @@ export function ImplementationGuide({ expandedSection, setExpandedSection }: Imp
                         </ul>
                       </div>
                       
-                      <div className="border-l-4 border-green-400 pl-4">
+                      <div className="border-l-4 border-brand-400 pl-4">
                         <h5 className="font-medium text-gray-900 mb-2">Step 2: Language Extraction</h5>
                         <ul className="text-sm text-gray-700 space-y-1">
                           <li>• Pain point identification</li>
@@ -322,7 +322,7 @@ export function ImplementationGuide({ expandedSection, setExpandedSection }: Imp
                         </ul>
                       </div>
                       
-                      <div className="border-l-4 border-purple-400 pl-4">
+                      <div className="border-l-4 border-brand-400 pl-4">
                         <h5 className="font-medium text-gray-900 mb-2">Step 3: Creative Development</h5>
                         <ul className="text-sm text-gray-700 space-y-1">
                           <li>• Hook creation using exact language</li>
@@ -341,11 +341,11 @@ export function ImplementationGuide({ expandedSection, setExpandedSection }: Imp
                         <div>
                           <h5 className="font-medium text-gray-900 mb-2">Headlines That Convert</h5>
                           <div className="text-sm text-gray-700">
-                            <div className="bg-red-50 p-3 rounded mb-2">
-                              <strong className="text-red-800">❌ Generic:</strong> "Best Project Management Software"
+                            <div className="bg-brand-50 p-3 rounded mb-2">
+                              <strong className="text-brand-800">❌ Generic:</strong> "Best Project Management Software"
                             </div>
-                            <div className="bg-green-50 p-3 rounded">
-                              <strong className="text-green-800">✅ Customer Language:</strong> "Finally, Stop Chasing Team Members for Project Updates"
+                            <div className="bg-brand-50 p-3 rounded">
+                              <strong className="text-brand-800">✅ Customer Language:</strong> "Finally, Stop Chasing Team Members for Project Updates"
                             </div>
                           </div>
                         </div>
@@ -364,20 +364,20 @@ export function ImplementationGuide({ expandedSection, setExpandedSection }: Imp
                   </div>
                 </div>
                 
-                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6">
-                  <h5 className="font-medium text-yellow-800 mb-2">Creative Testing Success Story:</h5>
-                  <p className="text-yellow-700 text-sm mb-3">
+                <div className="bg-brand-50 border-l-4 border-brand-400 p-6">
+                  <h5 className="font-medium text-brand-800 mb-2">Creative Testing Success Story:</h5>
+                  <p className="text-brand-700 text-sm mb-3">
                     A B2B SaaS company reduced CAC by 42% by replacing feature-focused ad copy with customer language. 
                     Instead of "Advanced Analytics Dashboard," they used "See Exactly Why Customers Cancel (Before They Do)" 
                     — language extracted directly from customer interviews.
                   </p>
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div className="bg-white p-3 rounded">
-                      <div className="text-lg font-bold text-red-600">$380</div>
+                      <div className="text-lg font-bold text-brand-600">$380</div>
                       <div className="text-xs text-gray-600">Original CAC</div>
                     </div>
                     <div className="bg-white p-3 rounded">
-                      <div className="text-lg font-bold text-green-600">$220</div>
+                      <div className="text-lg font-bold text-brand-600">$220</div>
                       <div className="text-xs text-gray-600">Optimized CAC</div>
                     </div>
                   </div>

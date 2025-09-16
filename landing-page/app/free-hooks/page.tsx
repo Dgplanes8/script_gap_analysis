@@ -118,8 +118,8 @@ export default function FreeHooksPage() {
             <div className="text-center mb-16">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                 <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                    <BookOpen className="h-8 w-8 text-green-600" />
+                  <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mb-4">
+                    <BookOpen className="h-8 w-8 text-brand-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Revenue-Driven Creative Intelligence</h3>
                   <p className="text-sm text-gray-600">
@@ -138,8 +138,8 @@ export default function FreeHooksPage() {
                 </div>
                   
                 <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                    <Users className="h-8 w-8 text-purple-600" />
+                  <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mb-4">
+                    <Users className="h-8 w-8 text-brand-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Business Growth-Optimized</h3>
                   <p className="text-sm text-gray-600">

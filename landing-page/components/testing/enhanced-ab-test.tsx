@@ -277,11 +277,11 @@ export const ABTestConfigs = {
                 <div className="text-xs text-gray-600">Scripts Delivered</div>
               </div>
               <div>
-                <div className="text-xl font-bold text-green-600">98.5%</div>
+                <div className="text-xl font-bold text-brand-600">98.5%</div>
                 <div className="text-xs text-gray-600">On-Time Rate</div>
               </div>
               <div>
-                <div className="text-xl font-bold text-purple-600">89%</div>
+                <div className="text-xl font-bold text-brand-600">89%</div>
                 <div className="text-xs text-gray-600">Upgrade Rate</div>
               </div>
             </div>

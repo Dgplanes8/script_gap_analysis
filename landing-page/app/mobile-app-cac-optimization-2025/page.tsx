@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, Smartphone, TrendingDown, Calculator, Target, BarChart3, Users, DollarSign, Clock, CheckCircle, AlertTriangle, Zap, TrendingUp, PlayCircle, BookOpen } from 'lucide-react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Mobile App CAC Crisis 2025: Reduce Acquisition Costs 25% with Weekly Creative Intelligence | Apsics Media',
@@ -334,9 +335,9 @@ export default function MobileAppCACOptimization2025() {
             </p>
             
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-red-50 rounded-xl p-6 border border-red-200">
+              <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                 <div className="flex items-center mb-4">
-                  <AlertTriangle className="h-6 w-6 text-red-600 mr-3" />
+                  <AlertTriangle className="h-6 w-6 text-brand-600 mr-3" />
                   <h3 className="text-xl font-bold text-gray-900">Industry CAC Increases</h3>
                 </div>
                 
@@ -345,7 +346,7 @@ export default function MobileAppCACOptimization2025() {
                     <div key={index} className="bg-white rounded-lg p-4 border">
                       <div className="flex justify-between items-center mb-2">
                         <span className="font-semibold text-gray-900">{benchmark.category}</span>
-                        <span className="text-red-600 font-bold">{benchmark.increase}</span>
+                        <span className="text-brand-600 font-bold">{benchmark.increase}</span>
                       </div>
                       <div className="flex justify-between text-sm text-gray-600">
                         <span>2023: {benchmark.cac2023}</span>
@@ -357,7 +358,7 @@ export default function MobileAppCACOptimization2025() {
                 
                 <p className="text-gray-600 text-sm mt-4">
                   <em>Data compiled from analysis of 2,500+ mobile app campaigns across major platforms 
-                  (Source: <a href="https://blog.appsflyer.com/performance-index-2024" className="text-red-600 underline" target="_blank" rel="noopener noreferrer">AppsFlyer Performance Index 2024</a>)</em>
+                  (Source: <a href="https://blog.appsflyer.com/performance-index-2024" className="text-brand-600 underline" target="_blank" rel="noopener noreferrer">AppsFlyer Performance Index 2024</a>)</em>
                 </p>
               </div>
               
@@ -377,8 +378,8 @@ export default function MobileAppCACOptimization2025() {
                       <div className="flex justify-between text-sm">
                         <span className="text-gray-600">Competition: {platform.competition}</span>
                         <span className={`font-semibold ${
-                          platform.opportunity === 'High' ? 'text-green-600' : 
-                          platform.opportunity === 'Medium' ? 'text-yellow-600' : 'text-red-600'
+                          platform.opportunity === 'High' ? 'text-brand-600' : 
+                          platform.opportunity === 'Medium' ? 'text-brand-600' : 'text-brand-600'
                         }`}>
                           {platform.opportunity} Opportunity
                         </span>
@@ -470,7 +471,7 @@ export default function MobileAppCACOptimization2025() {
                   <div className="grid md:grid-cols-3 gap-4 text-sm">
                     <div>
                       <span className="text-gray-600">Monthly Savings:</span>
-                      <div className="text-xl font-bold text-green-600">$6,250</div>
+                      <div className="text-xl font-bold text-brand-600">$6,250</div>
                     </div>
                     <div>
                       <span className="text-gray-600">New CAC:</span>
@@ -478,7 +479,7 @@ export default function MobileAppCACOptimization2025() {
                     </div>
                     <div>
                       <span className="text-gray-600">Annual Impact:</span>
-                      <div className="text-xl font-bold text-green-600">$75,000</div>
+                      <div className="text-xl font-bold text-brand-600">$75,000</div>
                     </div>
                   </div>
                 </div>
@@ -521,7 +522,7 @@ export default function MobileAppCACOptimization2025() {
                       <ul className="space-y-2">
                         {phase.actions.map((action, actionIndex) => (
                           <li key={actionIndex} className="flex items-start">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-sm text-gray-700">{action}</span>
                           </li>
                         ))}
@@ -593,7 +594,7 @@ export default function MobileAppCACOptimization2025() {
                       <ul className="space-y-2">
                         {guide.optimizationTactics.map((tactic, tacticIndex) => (
                           <li key={tacticIndex} className="flex items-start">
-                            <Zap className="h-4 w-4 text-yellow-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <Zap className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-sm text-gray-700">{tactic}</span>
                           </li>
                         ))}
@@ -601,10 +602,10 @@ export default function MobileAppCACOptimization2025() {
                     </div>
                   </div>
                   
-                  <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                  <div className="mt-6 p-4 bg-brand-50 rounded-lg border border-brand-200">
                     <div className="flex items-center">
-                      <TrendingUp className="h-5 w-5 text-green-600 mr-2" />
-                      <span className="font-semibold text-green-800">Expected Results: {guide.expectedResults}</span>
+                      <TrendingUp className="h-5 w-5 text-brand-600 mr-2" />
+                      <span className="font-semibold text-brand-800">Expected Results: {guide.expectedResults}</span>
                     </div>
                   </div>
                 </div>
@@ -631,7 +632,7 @@ export default function MobileAppCACOptimization2025() {
                       <span className="text-blue-600 font-medium">{study.category}</span>
                     </div>
                     <div className="text-right">
-                      <div className="text-3xl font-bold text-green-600">{study.results.cacReduction}</div>
+                      <div className="text-3xl font-bold text-brand-600">{study.results.cacReduction}</div>
                       <div className="text-sm text-gray-500">CAC Reduction</div>
                     </div>
                   </div>
@@ -646,7 +647,7 @@ export default function MobileAppCACOptimization2025() {
                     <ul className="space-y-1">
                       {study.solution.map((item, itemIndex) => (
                         <li key={itemIndex} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                           <span className="text-sm text-gray-700">{item}</span>
                         </li>
                       ))}
@@ -658,9 +659,9 @@ export default function MobileAppCACOptimization2025() {
                       <h4 className="font-semibold text-gray-900 mb-3">Platform Results</h4>
                       <div className="space-y-2">
                         {study.results.platformBreakdown.map((platform, platIndex) => (
-                          <div key={platIndex} className="flex justify-between items-center p-2 bg-green-50 rounded border border-green-200">
+                          <div key={platIndex} className="flex justify-between items-center p-2 bg-brand-50 rounded border border-brand-200">
                             <span className="text-sm font-medium text-gray-700">{platform.platform}</span>
-                            <span className="text-sm font-bold text-green-600">{platform.improvement}</span>
+                            <span className="text-sm font-bold text-brand-600">{platform.improvement}</span>
                           </div>
                         ))}
                       </div>
@@ -729,13 +730,7 @@ export default function MobileAppCACOptimization2025() {
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View Mobile Plans
-                <Smartphone className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="mobile_app_cac_optimization_2025-cta" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>

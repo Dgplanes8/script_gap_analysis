@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, TrendingUp, Target, Settings, BarChart3, Users, Zap, Download, Calculator, BookOpen, PlayCircle, Workflow, Bot, Clock, Database, GitBranch, Layers } from 'lucide-react';
 import { Header } from '@/components/layout/secondary-header';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Marketing Automation for Weekly Creative Intelligence: Subscription Business Setup Guide | Apsics Media',
@@ -229,7 +230,7 @@ export default function MarketingAutomationWeeklyCreativeIntelligenceSetup() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16">
+      <section className="bg-gradient-to-r from-indigo-600 to-brand-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -300,25 +301,25 @@ export default function MarketingAutomationWeeklyCreativeIntelligenceSetup() {
               </p>
               
               <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div className="bg-red-50 rounded-xl p-6 border border-red-200">
+                <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Manual Marketing Challenges</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Time-Intensive Intelligence Gathering</div>
                         <div className="text-gray-600">Manual competitive analysis and performance tracking consumes 15-20 hours weekly</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Inconsistent Creative Development</div>
                         <div className="text-gray-600">Manual creative processes produce variable quality and slower iteration cycles</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Reactive Campaign Management</div>
                         <div className="text-gray-600">Manual campaign optimization happens too late, missing performance opportunities</div>
@@ -327,25 +328,25 @@ export default function MarketingAutomationWeeklyCreativeIntelligenceSetup() {
                   </div>
                 </div>
                 
-                <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+                <div className="bg-brand-50 rounded-xl p-6 border border-brand-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Marketing Automation Advantages</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Automated Intelligence Delivery</div>
                         <div className="text-gray-600">Continuous competitive monitoring and weekly intelligence reports with 90% time savings</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Systematic Creative Optimization</div>
                         <div className="text-gray-600">Automated creative development workflows with consistent quality and 3x faster iteration</div>
                       </div>
                     </div>
                     <div className="flex items-start">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <div>
                         <div className="font-semibold text-gray-900">Proactive Campaign Optimization</div>
                         <div className="text-gray-600">Real-time performance monitoring with automated optimization and 40% better results</div>
@@ -355,7 +356,7 @@ export default function MarketingAutomationWeeklyCreativeIntelligenceSetup() {
                 </div>
               </div>
               
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-8">
+              <div className="bg-gradient-to-r from-indigo-50 to-brand-50 rounded-xl p-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Subscription Business Automation ROI
                 </h3>
@@ -405,14 +406,14 @@ export default function MarketingAutomationWeeklyCreativeIntelligenceSetup() {
               {automationFrameworks.map((framework, index) => (
                 <div key={index} className="bg-white rounded-2xl p-8 shadow-lg">
                   <div className="flex items-start mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-xl flex items-center justify-center font-bold text-lg mr-6 flex-shrink-0">
+                    <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-brand-500 text-white rounded-xl flex items-center justify-center font-bold text-lg mr-6 flex-shrink-0">
                       <framework.icon className="h-8 w-8" />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{framework.framework}</h3>
                       <p className="text-gray-700 mb-4">{framework.description}</p>
-                      <div className="bg-green-50 px-3 py-2 rounded-full inline-block">
-                        <span className="text-green-700 font-semibold text-sm">{framework.outcome}</span>
+                      <div className="bg-brand-50 px-3 py-2 rounded-full inline-block">
+                        <span className="text-brand-700 font-semibold text-sm">{framework.outcome}</span>
                       </div>
                     </div>
                   </div>
@@ -422,7 +423,7 @@ export default function MarketingAutomationWeeklyCreativeIntelligenceSetup() {
                     <div className="grid md:grid-cols-2 gap-3">
                       {framework.components.map((component, componentIndex) => (
                         <div key={componentIndex} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                           <span className="text-sm text-gray-700">{component}</span>
                         </div>
                       ))}
@@ -502,7 +503,7 @@ export default function MarketingAutomationWeeklyCreativeIntelligenceSetup() {
                 {implementationTimeline.map((phase, index) => (
                   <div key={index} className="bg-white rounded-xl p-6 shadow-lg">
                     <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                      <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-brand-500 text-white rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
                         <phase.icon className="h-6 w-6" />
                       </div>
                       <div className="flex-1">
@@ -515,7 +516,7 @@ export default function MarketingAutomationWeeklyCreativeIntelligenceSetup() {
                       <div className="grid md:grid-cols-2 gap-3">
                         {phase.activities.map((activity, activityIndex) => (
                           <div key={activityIndex} className="flex items-start">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-sm text-gray-700">{activity}</span>
                           </div>
                         ))}
@@ -525,7 +526,7 @@ export default function MarketingAutomationWeeklyCreativeIntelligenceSetup() {
                 ))}
               </div>
               
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-8 mt-8">
+              <div className="bg-gradient-to-r from-indigo-50 to-brand-50 rounded-xl p-8 mt-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-6">8-Week Implementation Outcomes</h3>
                 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -556,7 +557,7 @@ export default function MarketingAutomationWeeklyCreativeIntelligenceSetup() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-indigo-600 to-brand-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -587,21 +588,9 @@ export default function MarketingAutomationWeeklyCreativeIntelligenceSetup() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/#service-tiers"
-                className="bg-green-600 text-white hover:bg-green-700 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
-              >
-                Start Your FREE Week
-                <ArrowRight className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="marketing_automation_weekly_creative_intelligence_setup-cta" className="bg-brand-600 text-white hover:bg-brand-700 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
               
-              <Link
-                href="/free-hooks"
-                className="border-2 border-white text-white hover:bg-white hover:text-indigo-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                Get Free Hooks
-                <Download className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="marketing_automation_weekly_creative_intelligence_setup-cta" className="border-2 border-white text-white hover:bg-white hover:text-indigo-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>

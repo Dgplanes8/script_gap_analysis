@@ -57,10 +57,10 @@ const conceptExamples: ConceptExample[] = [
 
 const awarenessLevels = [
   { key: 'unaware', label: 'Unaware', color: 'bg-gray-100 text-gray-700', description: 'Story lead (slow reveal)' },
-  { key: 'problem-aware', label: 'Problem-Aware', color: 'bg-red-100 text-red-700', description: 'Proclamation lead' },
-  { key: 'solution-aware', label: 'Solution-Aware', color: 'bg-yellow-100 text-yellow-700', description: 'Problem-solution lead' },
+  { key: 'problem-aware', label: 'Problem-Aware', color: 'bg-brand-100 text-brand-700', description: 'Proclamation lead' },
+  { key: 'solution-aware', label: 'Solution-Aware', color: 'bg-brand-100 text-brand-700', description: 'Problem-solution lead' },
   { key: 'product-aware', label: 'Product-Aware', color: 'bg-blue-100 text-blue-700', description: 'Promise lead' },
-  { key: 'most-aware', label: 'Most-Aware', color: 'bg-green-100 text-green-700', description: 'Offer lead' }
+  { key: 'most-aware', label: 'Most-Aware', color: 'bg-brand-100 text-brand-700', description: 'Offer lead' }
 ];
 
 const formatTypes = [
@@ -76,12 +76,12 @@ export function ConceptIdeationFramework() {
   const concept = conceptExamples[activeConcept];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
+    <section className="py-16 bg-gradient-to-br from-brand-50 to-blue-50">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-brand-100 to-blue-100 text-brand-800 rounded-full text-sm font-semibold mb-6">
               <Brain className="h-4 w-4 mr-2" />
               Concept Ideation System
             </div>
@@ -104,7 +104,7 @@ export function ConceptIdeationFramework() {
                     onClick={() => setActiveConcept(index)}
                     className={`w-full p-4 rounded-xl border-2 text-left transition-all duration-200 ${
                       activeConcept === index
-                        ? 'border-purple-500 bg-purple-50 shadow-lg'
+                        ? 'border-brand-500 bg-brand-50 shadow-lg'
                         : 'border-gray-200 bg-white hover:border-gray-300'
                     }`}
                   >
@@ -117,7 +117,7 @@ export function ConceptIdeationFramework() {
 
             {/* Concept Details */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-xl border-2 border-purple-100 p-6 shadow-lg">
+              <div className="bg-white rounded-xl border-2 border-brand-100 p-6 shadow-lg">
                 <h3 className="text-xl font-bold text-gray-900 mb-6">{concept.name}</h3>
                 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -139,7 +139,7 @@ export function ConceptIdeationFramework() {
                       onClick={() => setSelectedElement('emotion')}
                     >
                       <div className="flex items-center mb-2">
-                        <Heart className="h-5 w-5 text-red-500 mr-2" />
+                        <Heart className="h-5 w-5 text-brand-500 mr-2" />
                         <span className="font-semibold text-gray-900">Core Emotion</span>
                       </div>
                       <p className="text-sm text-gray-700">{concept.emotion}</p>
@@ -150,7 +150,7 @@ export function ConceptIdeationFramework() {
                       onClick={() => setSelectedElement('lifeForce')}
                     >
                       <div className="flex items-center mb-2">
-                        <Target className="h-5 w-5 text-green-500 mr-2" />
+                        <Target className="h-5 w-5 text-brand-500 mr-2" />
                         <span className="font-semibold text-gray-900">Life Force 8</span>
                       </div>
                       <p className="text-sm text-gray-700">{concept.lifeForce}</p>
@@ -164,7 +164,7 @@ export function ConceptIdeationFramework() {
                       onClick={() => setSelectedElement('awareness')}
                     >
                       <div className="flex items-center mb-2">
-                        <Eye className="h-5 w-5 text-purple-500 mr-2" />
+                        <Eye className="h-5 w-5 text-brand-500 mr-2" />
                         <span className="font-semibold text-gray-900">Awareness Level</span>
                       </div>
                       <div className="flex items-center">
@@ -181,7 +181,7 @@ export function ConceptIdeationFramework() {
                       onClick={() => setSelectedElement('moment')}
                     >
                       <div className="flex items-center mb-2">
-                        <Lightbulb className="h-5 w-5 text-yellow-500 mr-2" />
+                        <Lightbulb className="h-5 w-5 text-brand-500 mr-2" />
                         <span className="font-semibold text-gray-900">Target Moment</span>
                       </div>
                       <p className="text-sm text-gray-700">{concept.moment}</p>
@@ -192,7 +192,7 @@ export function ConceptIdeationFramework() {
                       onClick={() => setSelectedElement('positioning')}
                     >
                       <div className="flex items-center mb-2">
-                        <Play className="h-5 w-5 text-orange-500 mr-2" />
+                        <Play className="h-5 w-5 text-brand-500 mr-2" />
                         <span className="font-semibold text-gray-900">Product Positioning</span>
                       </div>
                       <p className="text-sm text-gray-700 italic">"{concept.positioning}"</p>
@@ -217,7 +217,7 @@ export function ConceptIdeationFramework() {
                   className="p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg border border-gray-200 hover:shadow-md transition-all duration-200"
                 >
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-brand-500 to-blue-500 rounded-lg flex items-center justify-center mx-auto mb-3">
                       <span className="text-white font-bold text-lg">{index + 1}</span>
                     </div>
                     <h4 className="font-semibold text-gray-900 text-sm mb-2">{format}</h4>
@@ -229,12 +229,12 @@ export function ConceptIdeationFramework() {
           </div>
 
           {/* Ideation Models Used */}
-          <div className="mt-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl p-6 text-white">
+          <div className="mt-8 bg-gradient-to-r from-brand-600 to-blue-600 rounded-xl p-6 text-white">
             <h3 className="text-lg font-bold mb-4">Ideation Models Applied</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div>
                 <h4 className="font-semibold mb-2">Core Advertising Models</h4>
-                <ul className="text-sm text-purple-100 space-y-1">
+                <ul className="text-sm text-brand-100 space-y-1">
                   <li>• Jobs-to-be-Done Framework</li>
                   <li>• Pain-Pleasure-Gain Model</li>
                   <li>• Competitive Disruption</li>
@@ -242,7 +242,7 @@ export function ConceptIdeationFramework() {
               </div>
               <div>
                 <h4 className="font-semibold mb-2">Social Media Specific</h4>
-                <ul className="text-sm text-purple-100 space-y-1">
+                <ul className="text-sm text-brand-100 space-y-1">
                   <li>• Hook Framework</li>
                   <li>• Platform-Native Content</li>
                   <li>• Trend Adaptation</li>
@@ -250,7 +250,7 @@ export function ConceptIdeationFramework() {
               </div>
               <div>
                 <h4 className="font-semibold mb-2">Strategic Frameworks</h4>
-                <ul className="text-sm text-purple-100 space-y-1">
+                <ul className="text-sm text-brand-100 space-y-1">
                   <li>• Cultural Tension Resolution</li>
                   <li>• Emotional Journey Mapping</li>
                   <li>• Persona-Based Targeting</li>
@@ -258,7 +258,7 @@ export function ConceptIdeationFramework() {
               </div>
             </div>
             
-            <div className="mt-6 pt-6 border-t border-purple-400">
+            <div className="mt-6 pt-6 border-t border-brand-400">
               <button 
                 onClick={() => {
                   const serviceTiersElement = document.getElementById('service-tiers');
@@ -266,7 +266,7 @@ export function ConceptIdeationFramework() {
                     serviceTiersElement.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-colors duration-200 flex items-center"
+                className="bg-white text-brand-600 px-6 py-3 rounded-lg font-semibold hover:bg-brand-50 transition-colors duration-200 flex items-center"
               >
                 Get Weekly Concept Development
                 <ArrowRight className="h-4 w-4 ml-2" />

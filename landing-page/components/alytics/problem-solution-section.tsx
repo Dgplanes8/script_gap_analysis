@@ -105,8 +105,8 @@ export function ProblemSolutionSection() {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-                    <span className="text-green-600 font-semibold text-sm">2</span>
+                  <div className="w-8 h-8 bg-brand-100 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                    <span className="text-brand-600 font-semibold text-sm">2</span>
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Dream Outcome Vault</h4>
@@ -115,8 +115,8 @@ export function ProblemSolutionSection() {
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-                    <span className="text-purple-600 font-semibold text-sm">3</span>
+                  <div className="w-8 h-8 bg-brand-100 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                    <span className="text-brand-600 font-semibold text-sm">3</span>
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Strategic Content Creation</h4>
@@ -136,15 +136,15 @@ export function ProblemSolutionSection() {
                   <span className="text-gray-700">Uses your customers' actual language</span>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                  <div className="w-2 h-2 bg-brand-500 rounded-full mr-3"></div>
                   <span className="text-gray-700">Addresses real pain points, not guesses</span>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                  <div className="w-2 h-2 bg-brand-500 rounded-full mr-3"></div>
                   <span className="text-gray-700">Creates instant emotional connection</span>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
+                  <div className="w-2 h-2 bg-brand-500 rounded-full mr-3"></div>
                   <span className="text-gray-700">Drives 3x higher conversion rates</span>
                 </div>
               </div>

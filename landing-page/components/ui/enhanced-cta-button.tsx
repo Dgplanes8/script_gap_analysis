@@ -22,7 +22,7 @@ export function EnhancedCTAButton({
       return {
         text: 'Start Free 7-Day Pilot',
         subtext: 'Test our approach risk-free',
-        bgClass: 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700',
+        bgClass: 'bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700',
         icon: Target,
         badge: '🎯 FREE'
       };

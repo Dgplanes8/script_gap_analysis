@@ -121,7 +121,7 @@ export function ChurnReductionCalculator() {
 
   return (
     <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-      <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-8 text-white">
+      <div className="bg-gradient-to-r from-brand-600 to-brand-600 p-8 text-white">
         <div className="text-center">
           <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
             <TrendingDown className="h-8 w-8 text-white" />
@@ -129,7 +129,7 @@ export function ChurnReductionCalculator() {
           <h2 className="text-2xl font-bold mb-2">
             Subscription Churn Reduction Calculator
           </h2>
-          <p className="text-purple-100">
+          <p className="text-brand-100">
             Calculate the revenue impact of reducing your subscription churn rate
           </p>
         </div>
@@ -148,7 +148,7 @@ export function ChurnReductionCalculator() {
               <select
                 value={inputs.industry}
                 onChange={(e) => handleInputChange('industry', e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
               >
                 <option value="b2b-saas">B2B SaaS</option>
                 <option value="consumer-saas">Consumer SaaS</option>
@@ -168,7 +168,7 @@ export function ChurnReductionCalculator() {
                   type="number"
                   value={inputs.monthlyRecurringRevenue || ''}
                   onChange={(e) => handleInputChange('monthlyRecurringRevenue', e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                   placeholder="e.g. 50000"
                 />
               </div>
@@ -182,7 +182,7 @@ export function ChurnReductionCalculator() {
                   step="0.1"
                   value={inputs.currentChurnRate || ''}
                   onChange={(e) => handleInputChange('currentChurnRate', e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                   placeholder="e.g. 8.5"
                 />
               </div>
@@ -197,7 +197,7 @@ export function ChurnReductionCalculator() {
                   type="number"
                   value={inputs.averageSubscriptionValue || ''}
                   onChange={(e) => handleInputChange('averageSubscriptionValue', e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                   placeholder="e.g. 97"
                 />
               </div>
@@ -210,7 +210,7 @@ export function ChurnReductionCalculator() {
                   type="number"
                   value={inputs.totalSubscribers || ''}
                   onChange={(e) => handleInputChange('totalSubscribers', e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"
                   placeholder="e.g. 515"
                 />
               </div>
@@ -218,9 +218,9 @@ export function ChurnReductionCalculator() {
 
             {/* Churn Assessment */}
             <div className={`p-4 rounded-lg flex items-center ${
-              assessment.status === 'good' ? 'bg-green-50 text-green-800' :
-              assessment.status === 'average' ? 'bg-yellow-50 text-yellow-800' :
-              'bg-red-50 text-red-800'
+              assessment.status === 'good' ? 'bg-brand-50 text-brand-800' :
+              assessment.status === 'average' ? 'bg-brand-50 text-brand-800' :
+              'bg-brand-50 text-brand-800'
             }`}>
               <AlertCircle className="h-5 w-5 mr-2 flex-shrink-0" />
               <span className="text-sm">{assessment.message}</span>
@@ -231,7 +231,7 @@ export function ChurnReductionCalculator() {
               disabled={!isFormValid}
               className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors flex items-center justify-center ${
                 isFormValid
-                  ? 'bg-purple-600 text-white hover:bg-purple-700'
+                  ? 'bg-brand-600 text-white hover:bg-brand-700'
                   : 'bg-gray-300 text-gray-500 cursor-not-allowed'
               }`}
             >
@@ -247,56 +247,56 @@ export function ChurnReductionCalculator() {
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Churn Reduction Impact</h3>
                 
                 {/* Current Loss */}
-                <div className="bg-red-50 p-6 rounded-lg">
-                  <h4 className="font-semibold text-red-900 mb-3 flex items-center">
+                <div className="bg-brand-50 p-6 rounded-lg">
+                  <h4 className="font-semibold text-brand-900 mb-3 flex items-center">
                     <TrendingDown className="h-5 w-5 mr-2" />
                     Current Revenue Loss
                   </h4>
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <span className="text-red-800">Monthly Loss:</span>
-                      <span className="font-semibold text-red-900">${results.currentMonthlyLoss.toLocaleString()}</span>
+                      <span className="text-brand-800">Monthly Loss:</span>
+                      <span className="font-semibold text-brand-900">${results.currentMonthlyLoss.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-red-800">Annual Loss:</span>
-                      <span className="font-semibold text-red-900">${results.annualRevenueLoss.toLocaleString()}</span>
+                      <span className="text-brand-800">Annual Loss:</span>
+                      <span className="font-semibold text-brand-900">${results.annualRevenueLoss.toLocaleString()}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Optimization Results */}
-                <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-6 rounded-lg text-white">
+                <div className="bg-gradient-to-r from-brand-600 to-brand-600 p-6 rounded-lg text-white">
                   <h4 className="font-semibold mb-4 text-center">35% Churn Reduction Impact</h4>
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div>
                       <div className="text-2xl font-bold mb-1">{results.optimizedChurnRate}%</div>
-                      <div className="text-purple-100 text-sm">New Churn Rate</div>
+                      <div className="text-brand-100 text-sm">New Churn Rate</div>
                     </div>
                     <div>
                       <div className="text-2xl font-bold mb-1">{results.retainedCustomers}</div>
-                      <div className="text-purple-100 text-sm">Customers Saved</div>
+                      <div className="text-brand-100 text-sm">Customers Saved</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Revenue Impact */}
-                <div className="bg-green-50 p-6 rounded-lg">
-                  <h4 className="font-semibold text-green-900 mb-3 flex items-center">
+                <div className="bg-brand-50 p-6 rounded-lg">
+                  <h4 className="font-semibold text-brand-900 mb-3 flex items-center">
                     <DollarSign className="h-5 w-5 mr-2" />
                     Revenue Recovery
                   </h4>
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <span className="text-green-800">Monthly Savings:</span>
-                      <span className="font-semibold text-green-900">${results.potentialSavings.toLocaleString()}</span>
+                      <span className="text-brand-800">Monthly Savings:</span>
+                      <span className="font-semibold text-brand-900">${results.potentialSavings.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-green-800">Annual Savings:</span>
-                      <span className="font-semibold text-green-900">${results.annualSavings.toLocaleString()}</span>
+                      <span className="text-brand-800">Annual Savings:</span>
+                      <span className="font-semibold text-brand-900">${results.annualSavings.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-green-800">LTV Impact:</span>
-                      <span className="font-semibold text-green-900">${results.ltvImpact.toLocaleString()}</span>
+                      <span className="text-brand-800">LTV Impact:</span>
+                      <span className="font-semibold text-brand-900">${results.ltvImpact.toLocaleString()}</span>
                     </div>
                   </div>
                 </div>
@@ -323,19 +323,19 @@ export function ChurnReductionCalculator() {
                   <h4 className="font-semibold text-gray-900 mb-3">Proven Churn Reduction Strategies</h4>
                   <ul className="text-sm text-gray-700 space-y-2">
                     <li className="flex items-start">
-                      <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       Early warning system for at-risk customers (14-day prediction)
                     </li>
                     <li className="flex items-start">
-                      <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       Behavioral trigger-based retention campaigns
                     </li>
                     <li className="flex items-start">
-                      <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       Value reinforcement through creative intelligence
                     </li>
                     <li className="flex items-start">
-                      <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-brand-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       Proactive engagement loops and habit formation
                     </li>
                   </ul>
@@ -358,7 +358,7 @@ export function ChurnReductionCalculator() {
                         window.location.href = '/#service-tiers';
                       }
                     }}
-                    className="bg-green-600 text-white hover:bg-green-700 font-semibold px-8 py-3 rounded-lg transition-colors flex items-center justify-center mx-auto"
+                    className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-8 py-3 rounded-lg transition-colors flex items-center justify-center mx-auto"
                   >
                     Claim Free Week
                     <ArrowRight className="h-5 w-5 ml-2" />

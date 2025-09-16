@@ -8,6 +8,7 @@ import { ArticleSchema } from '@/components/schema'
 import { BreadcrumbNavigation } from '@/components/blog/breadcrumb-navigation'
 import { RelatedArticles } from '@/components/blog/related-articles'
 import { Header } from '@/components/layout/secondary-header'
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Marketing Consultant vs Freelancer: Cost Calculator 2025',
@@ -223,10 +224,10 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                         </div>
                       </div>
                       
-                      <div className="bg-green-50 rounded-lg p-4">
-                        <h5 className="font-medium text-green-900 mb-2">Potential Monthly Savings</h5>
-                        <div className="text-2xl font-bold text-green-600">$1,000-2,500</div>
-                        <div className="text-sm text-green-700">by choosing freelance services</div>
+                      <div className="bg-brand-50 rounded-lg p-4">
+                        <h5 className="font-medium text-brand-900 mb-2">Potential Monthly Savings</h5>
+                        <div className="text-2xl font-bold text-brand-600">$1,000-2,500</div>
+                        <div className="text-sm text-brand-700">by choosing freelance services</div>
                       </div>
                     </div>
                   </div>
@@ -264,9 +265,9 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                       <p className="text-sm text-gray-600">Includes 15-30 hours of strategic work</p>
                     </div>
                     
-                    <div className="bg-red-50 rounded-lg p-4">
-                      <h4 className="font-semibold text-red-900 mb-2">Premium Positioning</h4>
-                      <ul className="text-sm text-red-800 space-y-1">
+                    <div className="bg-brand-50 rounded-lg p-4">
+                      <h4 className="font-semibold text-brand-900 mb-2">Premium Positioning</h4>
+                      <ul className="text-sm text-brand-800 space-y-1">
                         <li>• Higher rates due to local presence</li>
                         <li>• Geographic exclusivity pricing</li>
                         <li>• Established local reputation premium</li>
@@ -290,9 +291,9 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                       <p className="text-sm text-blue-700">Fixed-price deliverables and outcomes</p>
                     </div>
                     
-                    <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                      <h4 className="font-semibold text-green-900 mb-2">Value Positioning</h4>
-                      <ul className="text-sm text-green-800 space-y-1">
+                    <div className="bg-brand-50 rounded-lg p-4 border border-brand-200">
+                      <h4 className="font-semibold text-brand-900 mb-2">Value Positioning</h4>
+                      <ul className="text-sm text-brand-800 space-y-1">
                         <li>• Lower overhead costs</li>
                         <li>• Flexible engagement models</li>
                         <li>• Performance-based pricing options</li>
@@ -317,31 +318,31 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                       <td className="px-4 py-3 text-gray-900">Marketing Strategy Development</td>
                       <td className="px-4 py-3 text-gray-700">$2,000-4,000</td>
                       <td className="px-4 py-3 text-blue-700">$1,200-2,500</td>
-                      <td className="px-4 py-3 text-green-600">$800-1,500</td>
+                      <td className="px-4 py-3 text-brand-600">$800-1,500</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900">Content Marketing Setup</td>
                       <td className="px-4 py-3 text-gray-700">$1,500-3,000</td>
                       <td className="px-4 py-3 text-blue-700">$800-1,800</td>
-                      <td className="px-4 py-3 text-green-600">$700-1,200</td>
+                      <td className="px-4 py-3 text-brand-600">$700-1,200</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900">Social Media Management</td>
                       <td className="px-4 py-3 text-gray-700">$1,200-2,500/mo</td>
                       <td className="px-4 py-3 text-blue-700">$600-1,500/mo</td>
-                      <td className="px-4 py-3 text-green-600">$600-1,000/mo</td>
+                      <td className="px-4 py-3 text-brand-600">$600-1,000/mo</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900">SEO Optimization</td>
                       <td className="px-4 py-3 text-gray-700">$1,000-2,000/mo</td>
                       <td className="px-4 py-3 text-blue-700">$600-1,200/mo</td>
-                      <td className="px-4 py-3 text-green-600">$400-800/mo</td>
+                      <td className="px-4 py-3 text-brand-600">$400-800/mo</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900">Email Marketing Setup</td>
                       <td className="px-4 py-3 text-gray-700">$800-1,500</td>
                       <td className="px-4 py-3 text-blue-700">$400-900</td>
-                      <td className="px-4 py-3 text-green-600">$400-600</td>
+                      <td className="px-4 py-3 text-brand-600">$400-600</td>
                     </tr>
                   </tbody>
                 </table>
@@ -356,24 +357,24 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                 Beyond initial costs, understanding the return on investment helps determine which option delivers better long-term value for your specific business situation.
               </p>
 
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
-                <h3 className="text-lg font-semibold text-yellow-900 mb-3">ROI Calculation Framework</h3>
-                <div className="bg-white rounded-lg p-4 border border-yellow-200">
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6 mb-8">
+                <h3 className="text-lg font-semibold text-brand-900 mb-3">ROI Calculation Framework</h3>
+                <div className="bg-white rounded-lg p-4 border border-brand-200">
                   <div className="text-center mb-4">
-                    <div className="text-2xl font-bold text-yellow-900">Marketing ROI = (Revenue Generated - Marketing Cost) ÷ Marketing Cost × 100</div>
+                    <div className="text-2xl font-bold text-brand-900">Marketing ROI = (Revenue Generated - Marketing Cost) ÷ Marketing Cost × 100</div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                     <div>
-                      <div className="text-lg font-semibold text-yellow-900">Revenue Generated</div>
-                      <div className="text-sm text-yellow-700">New customers + increased sales</div>
+                      <div className="text-lg font-semibold text-brand-900">Revenue Generated</div>
+                      <div className="text-sm text-brand-700">New customers + increased sales</div>
                     </div>
                     <div>
-                      <div className="text-lg font-semibold text-yellow-900">Marketing Cost</div>
-                      <div className="text-sm text-yellow-700">Service fees + ad spend + time</div>
+                      <div className="text-lg font-semibold text-brand-900">Marketing Cost</div>
+                      <div className="text-sm text-brand-700">Service fees + ad spend + time</div>
                     </div>
                     <div>
-                      <div className="text-lg font-semibold text-yellow-900">ROI Percentage</div>
-                      <div className="text-sm text-yellow-700">Profitability measurement</div>
+                      <div className="text-lg font-semibold text-brand-900">ROI Percentage</div>
+                      <div className="text-sm text-brand-700">Profitability measurement</div>
                     </div>
                   </div>
                 </div>
@@ -437,12 +438,12 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                 </div>
               </div>
 
-              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-green-900 mb-4">ROI Optimization Strategies</h3>
+              <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-brand-900 mb-4">ROI Optimization Strategies</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h4 className="font-medium text-green-900 mb-2">For Local Consultants:</h4>
-                    <ul className="text-sm text-green-800 space-y-1">
+                    <h4 className="font-medium text-brand-900 mb-2">For Local Consultants:</h4>
+                    <ul className="text-sm text-brand-800 space-y-1">
                       <li>• Negotiate performance-based fees</li>
                       <li>• Request local case studies and references</li>
                       <li>• Ensure clear KPI tracking and reporting</li>
@@ -450,8 +451,8 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-medium text-green-900 mb-2">For Freelance Services:</h4>
-                    <ul className="text-sm text-green-800 space-y-1">
+                    <h4 className="font-medium text-brand-900 mb-2">For Freelance Services:</h4>
+                    <ul className="text-sm text-brand-800 space-y-1">
                       <li>• Start with small test projects</li>
                       <li>• Choose specialists over generalists</li>
                       <li>• Implement milestone-based payments</li>
@@ -483,62 +484,62 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                   <tbody className="divide-y divide-gray-200">
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Marketing Strategy</td>
-                      <td className="px-4 py-3 text-center text-green-600">Excellent</td>
-                      <td className="px-4 py-3 text-center text-green-600">Excellent</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Excellent</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Excellent</td>
                       <td className="px-4 py-3 text-center text-gray-600">Tie</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Local Market Knowledge</td>
-                      <td className="px-4 py-3 text-center text-green-600">Excellent</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">Good</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Excellent</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Good</td>
                       <td className="px-4 py-3 text-center text-blue-600">Local Consultant</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Content Creation</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">Good</td>
-                      <td className="px-4 py-3 text-center text-green-600">Excellent</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Good</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Excellent</td>
                       <td className="px-4 py-3 text-center text-blue-600">Freelance Service</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Technical SEO</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">Good</td>
-                      <td className="px-4 py-3 text-center text-green-600">Excellent</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Good</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Excellent</td>
                       <td className="px-4 py-3 text-center text-blue-600">Freelance Service</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Social Media Management</td>
-                      <td className="px-4 py-3 text-center text-green-600">Excellent</td>
-                      <td className="px-4 py-3 text-center text-green-600">Excellent</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Excellent</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Excellent</td>
                       <td className="px-4 py-3 text-center text-gray-600">Tie</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Paid Advertising</td>
-                      <td className="px-4 py-3 text-center text-green-600">Excellent</td>
-                      <td className="px-4 py-3 text-center text-green-600">Excellent</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Excellent</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Excellent</td>
                       <td className="px-4 py-3 text-center text-gray-600">Tie</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Analytics & Reporting</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">Good</td>
-                      <td className="px-4 py-3 text-center text-green-600">Excellent</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Good</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Excellent</td>
                       <td className="px-4 py-3 text-center text-blue-600">Freelance Service</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Face-to-Face Meetings</td>
-                      <td className="px-4 py-3 text-center text-green-600">Excellent</td>
-                      <td className="px-4 py-3 text-center text-red-600">Limited</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Excellent</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Limited</td>
                       <td className="px-4 py-3 text-center text-blue-600">Local Consultant</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Specialized Tools</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">Good</td>
-                      <td className="px-4 py-3 text-center text-green-600">Excellent</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Good</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Excellent</td>
                       <td className="px-4 py-3 text-center text-blue-600">Freelance Service</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 text-gray-900 font-medium">Response Time</td>
-                      <td className="px-4 py-3 text-center text-green-600">Excellent</td>
-                      <td className="px-4 py-3 text-center text-yellow-600">Variable</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Excellent</td>
+                      <td className="px-4 py-3 text-center text-brand-600">Variable</td>
                       <td className="px-4 py-3 text-center text-blue-600">Local Consultant</td>
                     </tr>
                   </tbody>
@@ -677,11 +678,11 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                     </div>
                     <div className="ml-12">
                       <p className="text-blue-800 mb-3">Project ROI for both options based on your business metrics:</p>
-                      <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
-                        <p className="text-sm text-yellow-800 mb-2">
+                      <div className="bg-brand-50 rounded-lg p-4 border border-brand-200">
+                        <p className="text-sm text-brand-800 mb-2">
                           <strong>ROI Formula:</strong> (Expected Revenue Increase - Total Marketing Cost) ÷ Total Marketing Cost × 100
                         </p>
-                        <p className="text-xs text-yellow-700">
+                        <p className="text-xs text-brand-700">
                           Factor in setup costs, monthly fees, and time investment for accurate comparison
                         </p>
                       </div>
@@ -724,28 +725,28 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                   <h3 className="text-xl font-semibold text-gray-900 mb-4">Local Consultant Pricing by Market</h3>
                   
                   <div className="space-y-4">
-                    <div className="bg-red-50 rounded-lg p-4 border border-red-200">
-                      <h4 className="font-semibold text-red-900 mb-2">Major Metro Areas (NYC, SF, LA)</h4>
-                      <div className="text-2xl font-bold text-red-600 mb-2">$200-300/hour</div>
-                      <div className="text-sm text-red-700">Premium rates due to high cost of living and competition</div>
+                    <div className="bg-brand-50 rounded-lg p-4 border border-brand-200">
+                      <h4 className="font-semibold text-brand-900 mb-2">Major Metro Areas (NYC, SF, LA)</h4>
+                      <div className="text-2xl font-bold text-brand-600 mb-2">$200-300/hour</div>
+                      <div className="text-sm text-brand-700">Premium rates due to high cost of living and competition</div>
                     </div>
                     
-                    <div className="bg-orange-50 rounded-lg p-4 border border-orange-200">
-                      <h4 className="font-semibold text-orange-900 mb-2">Large Cities (Chicago, Dallas, Atlanta)</h4>
-                      <div className="text-2xl font-bold text-orange-600 mb-2">$150-225/hour</div>
-                      <div className="text-sm text-orange-700">Above-average rates with strong local markets</div>
+                    <div className="bg-brand-50 rounded-lg p-4 border border-brand-200">
+                      <h4 className="font-semibold text-brand-900 mb-2">Large Cities (Chicago, Dallas, Atlanta)</h4>
+                      <div className="text-2xl font-bold text-brand-600 mb-2">$150-225/hour</div>
+                      <div className="text-sm text-brand-700">Above-average rates with strong local markets</div>
                     </div>
                     
-                    <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
-                      <h4 className="font-semibold text-yellow-900 mb-2">Medium Cities (Austin, Portland, Denver)</h4>
-                      <div className="text-2xl font-bold text-yellow-600 mb-2">$100-175/hour</div>
-                      <div className="text-sm text-yellow-700">Moderate rates with growing business markets</div>
+                    <div className="bg-brand-50 rounded-lg p-4 border border-brand-200">
+                      <h4 className="font-semibold text-brand-900 mb-2">Medium Cities (Austin, Portland, Denver)</h4>
+                      <div className="text-2xl font-bold text-brand-600 mb-2">$100-175/hour</div>
+                      <div className="text-sm text-brand-700">Moderate rates with growing business markets</div>
                     </div>
                     
-                    <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                      <h4 className="font-semibold text-green-900 mb-2">Small Cities & Rural Areas</h4>
-                      <div className="text-2xl font-bold text-green-600 mb-2">$75-125/hour</div>
-                      <div className="text-sm text-green-700">Lower rates but potentially limited expertise</div>
+                    <div className="bg-brand-50 rounded-lg p-4 border border-brand-200">
+                      <h4 className="font-semibold text-brand-900 mb-2">Small Cities & Rural Areas</h4>
+                      <div className="text-2xl font-bold text-brand-600 mb-2">$75-125/hour</div>
+                      <div className="text-sm text-brand-700">Lower rates but potentially limited expertise</div>
                     </div>
                   </div>
                 </div>
@@ -774,9 +775,9 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                     </div>
                   </div>
                   
-                  <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                    <h4 className="font-semibold text-green-900 mb-2">Geographic Savings</h4>
-                    <ul className="text-sm text-green-800 space-y-1">
+                  <div className="bg-brand-50 rounded-lg p-4 border border-brand-200">
+                    <h4 className="font-semibold text-brand-900 mb-2">Geographic Savings</h4>
+                    <ul className="text-sm text-brand-800 space-y-1">
                       <li>• No location premium</li>
                       <li>• Access to global talent pool</li>
                       <li>• Competitive marketplace rates</li>
@@ -791,28 +792,28 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                   <div className="text-center">
                     <div className="bg-white rounded-lg p-4 border border-gray-200">
-                      <div className="text-2xl font-bold text-red-600">$2,500</div>
+                      <div className="text-2xl font-bold text-brand-600">$2,500</div>
                       <div className="text-sm text-gray-600">NYC Monthly Savings</div>
                       <div className="text-xs text-gray-500">choosing freelance</div>
                     </div>
                   </div>
                   <div className="text-center">
                     <div className="bg-white rounded-lg p-4 border border-gray-200">
-                      <div className="text-2xl font-bold text-orange-600">$1,800</div>
+                      <div className="text-2xl font-bold text-brand-600">$1,800</div>
                       <div className="text-sm text-gray-600">Large City Savings</div>
                       <div className="text-xs text-gray-500">choosing freelance</div>
                     </div>
                   </div>
                   <div className="text-center">
                     <div className="bg-white rounded-lg p-4 border border-gray-200">
-                      <div className="text-2xl font-bold text-yellow-600">$1,200</div>
+                      <div className="text-2xl font-bold text-brand-600">$1,200</div>
                       <div className="text-sm text-gray-600">Medium City Savings</div>
                       <div className="text-xs text-gray-500">choosing freelance</div>
                     </div>
                   </div>
                   <div className="text-center">
                     <div className="bg-white rounded-lg p-4 border border-gray-200">
-                      <div className="text-2xl font-bold text-green-600">$600</div>
+                      <div className="text-2xl font-bold text-brand-600">$600</div>
                       <div className="text-sm text-gray-600">Small City Savings</div>
                       <div className="text-xs text-gray-500">choosing freelance</div>
                     </div>
@@ -847,9 +848,9 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-3">Results After 6 Months:</h4>
                       <div className="space-y-3">
-                        <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                          <div className="font-semibold text-green-900">ROI: 3.2:1</div>
-                          <div className="text-sm text-green-700">Generated $8,000 additional monthly revenue</div>
+                        <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                          <div className="font-semibold text-brand-900">ROI: 3.2:1</div>
+                          <div className="text-sm text-brand-700">Generated $8,000 additional monthly revenue</div>
                         </div>
                         <div className="bg-gray-50 rounded-lg p-3">
                           <div className="text-sm text-gray-700">
@@ -887,9 +888,9 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-3">Results After 4 Months:</h4>
                       <div className="space-y-3">
-                        <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                          <div className="font-semibold text-green-900">ROI: 4.7:1</div>
-                          <div className="text-sm text-green-700">Generated $10,200 additional monthly revenue</div>
+                        <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                          <div className="font-semibold text-brand-900">ROI: 4.7:1</div>
+                          <div className="text-sm text-brand-700">Generated $10,200 additional monthly revenue</div>
                         </div>
                         <div className="bg-gray-50 rounded-lg p-3">
                           <div className="text-sm text-gray-700">
@@ -935,9 +936,9 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                           <div className="font-semibold text-gray-900">$2,000/month Local Consultant</div>
                           <div className="text-sm text-gray-700">Strategy, networking, local partnerships</div>
                         </div>
-                        <div className="bg-green-50 rounded-lg p-3 border border-green-200">
-                          <div className="font-semibold text-green-900">Combined ROI: 5.1:1</div>
-                          <div className="text-sm text-green-700">Best performance of all case studies</div>
+                        <div className="bg-brand-50 rounded-lg p-3 border border-brand-200">
+                          <div className="font-semibold text-brand-900">Combined ROI: 5.1:1</div>
+                          <div className="text-sm text-brand-700">Best performance of all case studies</div>
                         </div>
                       </div>
                     </div>
@@ -1030,28 +1031,28 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-yellow-900 mb-4">Success Metrics to Track</h3>
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-brand-900 mb-4">Success Metrics to Track</h3>
                   <div className="space-y-3">
                     <div>
-                      <h4 className="font-medium text-yellow-900">Month 1 Metrics:</h4>
-                      <ul className="text-sm text-yellow-800 mt-1 space-y-1">
+                      <h4 className="font-medium text-brand-900">Month 1 Metrics:</h4>
+                      <ul className="text-sm text-brand-800 mt-1 space-y-1">
                         <li>• Strategy completion and approval</li>
                         <li>• Initial setup and tool integration</li>
                         <li>• Team communication effectiveness</li>
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-medium text-yellow-900">Month 3 Metrics:</h4>
-                      <ul className="text-sm text-yellow-800 mt-1 space-y-1">
+                      <h4 className="font-medium text-brand-900">Month 3 Metrics:</h4>
+                      <ul className="text-sm text-brand-800 mt-1 space-y-1">
                         <li>• Lead generation improvement</li>
                         <li>• Website traffic growth</li>
                         <li>• Cost per acquisition trends</li>
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-medium text-yellow-900">Month 6 Metrics:</h4>
-                      <ul className="text-sm text-yellow-800 mt-1 space-y-1">
+                      <h4 className="font-medium text-brand-900">Month 6 Metrics:</h4>
+                      <ul className="text-sm text-brand-800 mt-1 space-y-1">
                         <li>• ROI achievement vs projections</li>
                         <li>• Revenue attribution to marketing</li>
                         <li>• Customer lifetime value impact</li>
@@ -1060,12 +1061,12 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                   </div>
                 </div>
 
-                <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-red-900 mb-4">Common Implementation Pitfalls</h3>
+                <div className="bg-brand-50 border border-brand-200 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-brand-900 mb-4">Common Implementation Pitfalls</h3>
                   <div className="space-y-3">
                     <div>
-                      <h4 className="font-medium text-red-900">Avoid These Mistakes:</h4>
-                      <ul className="text-sm text-red-800 mt-1 space-y-1">
+                      <h4 className="font-medium text-brand-900">Avoid These Mistakes:</h4>
+                      <ul className="text-sm text-brand-800 mt-1 space-y-1">
                         <li>• Not defining clear success metrics upfront</li>
                         <li>• Choosing based on price alone</li>
                         <li>• Insufficient vetting of experience</li>
@@ -1073,8 +1074,8 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-medium text-red-900">Warning Signs:</h4>
-                      <ul className="text-sm text-red-800 mt-1 space-y-1">
+                      <h4 className="font-medium text-brand-900">Warning Signs:</h4>
+                      <ul className="text-sm text-brand-800 mt-1 space-y-1">
                         <li>• Promises of unrealistic results</li>
                         <li>• Lack of transparent reporting</li>
                         <li>• No references or case studies</li>
@@ -1114,13 +1115,7 @@ export default function LocalMarketingConsultantVsFreelanceCalculator() {
                     <BarChart3 className="w-4 h-4 mr-2" />
                     ROI Comparison Tool
                   </Link>
-                  <Link 
-                    href="/free-hooks" 
-                    className="flex items-center text-blue-600 hover:text-blue-700 text-sm"
-                  >
-                    <Target className="w-4 h-4 mr-2" />
-                    52 Free Ad Hooks
-                  </Link>
+                  <FreeWeekButton source="local_marketing_consultant_vs_freelance_services_cost_calculator-cta" className="flex items-center text-blue-600 hover:text-blue-700 text-sm">Start Free Week Trial</FreeWeekButton>
                 </div>
               </div>
 

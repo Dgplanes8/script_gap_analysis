@@ -24,28 +24,28 @@ export function StartupObjectionPreemption() {
           {/* Objection Grid */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {/* Budget Concern */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-red-100">
-              <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <DollarSign className="h-6 w-6 text-red-600" />
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-brand-100">
+              <div className="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mx-auto mb-6">
+                <DollarSign className="h-6 w-6 text-brand-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
                 "I Can't Afford to Waste Money"
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-5 w-5 text-brand-600 mr-3 flex-shrink-0 mt-0.5" />
                   <p className="text-gray-600 text-sm">
                     <strong>$5/week starting price</strong> - Less than a daily coffee. No $5K agency minimums.
                   </p>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-5 w-5 text-brand-600 mr-3 flex-shrink-0 mt-0.5" />
                   <p className="text-gray-600 text-sm">
                     <strong>First week FREE</strong> - Experience the value before paying a penny.
                   </p>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-5 w-5 text-brand-600 mr-3 flex-shrink-0 mt-0.5" />
                   <p className="text-gray-600 text-sm">
                     <strong>Cancel anytime</strong> - No contracts, no commitments, no risk.
                   </p>
@@ -54,28 +54,28 @@ export function StartupObjectionPreemption() {
             </div>
 
             {/* Time Concern */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-orange-100">
-              <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <Clock className="h-6 w-6 text-orange-600" />
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-brand-100">
+              <div className="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mx-auto mb-6">
+                <Clock className="h-6 w-6 text-brand-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
                 "I Don't Have Time to Learn"
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-5 w-5 text-brand-600 mr-3 flex-shrink-0 mt-0.5" />
                   <p className="text-gray-600 text-sm">
                     <strong>Ready-to-use templates</strong> - Copy, paste, launch. No learning curve.
                   </p>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-5 w-5 text-brand-600 mr-3 flex-shrink-0 mt-0.5" />
                   <p className="text-gray-600 text-sm">
                     <strong>Step-by-step instructions</strong> - Exactly what to do, when to do it.
                   </p>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-5 w-5 text-brand-600 mr-3 flex-shrink-0 mt-0.5" />
                   <p className="text-gray-600 text-sm">
                     <strong>Monday delivery</strong> - Fits into your weekly planning routine.
                   </p>
@@ -93,19 +93,19 @@ export function StartupObjectionPreemption() {
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-5 w-5 text-brand-600 mr-3 flex-shrink-0 mt-0.5" />
                   <p className="text-gray-600 text-sm">
                     <strong>Proven methodologies</strong> - Based on $250MM+ in managed ad spend.
                   </p>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-5 w-5 text-brand-600 mr-3 flex-shrink-0 mt-0.5" />
                   <p className="text-gray-600 text-sm">
                     <strong>Performance scoring system</strong> - Each template rated for success probability.
                   </p>
                 </div>
                 <div className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-5 w-5 text-brand-600 mr-3 flex-shrink-0 mt-0.5" />
                   <p className="text-gray-600 text-sm">
                     <strong>Free week trial</strong> - Experience results before committing.
                   </p>
@@ -115,7 +115,7 @@ export function StartupObjectionPreemption() {
           </div>
 
           {/* Bottom Risk Reversal */}
-          <div className="bg-gradient-to-r from-green-600 to-teal-600 rounded-2xl p-8 text-white text-center">
+          <div className="bg-gradient-to-r from-brand-600 to-brand-600 rounded-2xl p-8 text-white text-center">
             <div className="mb-6">
               <TrendingUp className="h-12 w-12 mx-auto mb-4 opacity-80" />
               <h3 className="text-2xl font-bold mb-4">
@@ -151,13 +151,13 @@ export function StartupObjectionPreemption() {
                     serviceSection.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className="bg-white text-green-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                className="bg-white text-brand-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200"
               >
                 Start My FREE Week Today
               </button>
               <button
                 onClick={() => window.location.href = '/free-hooks'}
-                className="border-2 border-white text-white hover:bg-white hover:text-green-600 font-semibold px-8 py-3 rounded-lg transition-colors duration-200"
+                className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-semibold px-8 py-3 rounded-lg transition-colors duration-200"
               >
                 Get Free Templates First
               </button>

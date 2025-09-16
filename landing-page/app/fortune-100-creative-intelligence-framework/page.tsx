@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, TrendingUp, Target, Eye, BarChart3, Users, Zap, Download, Calculator, BookOpen, PlayCircle, Shield, Search, Brain, Lightbulb, Filter } from 'lucide-react';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Fortune 100 Creative Intelligence Framework: Competitive Analysis Methodology for Subscription Growth | Apsics Media',
@@ -158,7 +159,7 @@ export default function Fortune100CreativeIntelligenceFramework() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16">
+      <section className="bg-gradient-to-r from-indigo-600 to-brand-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -222,38 +223,38 @@ export default function Fortune100CreativeIntelligenceFramework() {
               <div className="space-y-3">
                 <h3 className="font-semibold text-gray-900 mb-2">Intelligence Foundation</h3>
                 <a href="#strategic-advantage" className="flex items-center text-gray-600 hover:text-indigo-600 transition-colors">
-                  <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                  <CheckCircle className="h-4 w-4 mr-2 text-brand-500" />
                   1. Fortune 100 vs Traditional Competitive Analysis
                 </a>
                 <a href="#methodology" className="flex items-center text-gray-600 hover:text-indigo-600 transition-colors">
-                  <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                  <CheckCircle className="h-4 w-4 mr-2 text-brand-500" />
                   2. 4-Phase Intelligence Development Process
                 </a>
                 <a href="#frameworks" className="flex items-center text-gray-600 hover:text-indigo-600 transition-colors">
-                  <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                  <CheckCircle className="h-4 w-4 mr-2 text-brand-500" />
                   3. Strategic Analysis Frameworks
                 </a>
                 <a href="#automation" className="flex items-center text-gray-600 hover:text-indigo-600 transition-colors">
-                  <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                  <CheckCircle className="h-4 w-4 mr-2 text-brand-500" />
                   4. Intelligence Gathering Automation
                 </a>
               </div>
               <div className="space-y-3">
                 <h3 className="font-semibold text-gray-900 mb-2">Strategic Implementation</h3>
                 <a href="#implementation" className="flex items-center text-gray-600 hover:text-indigo-600 transition-colors">
-                  <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                  <CheckCircle className="h-4 w-4 mr-2 text-brand-500" />
                   5. 90-Day Implementation Framework
                 </a>
                 <a href="#measurement" className="flex items-center text-gray-600 hover:text-indigo-600 transition-colors">
-                  <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                  <CheckCircle className="h-4 w-4 mr-2 text-brand-500" />
                   6. Intelligence ROI & Impact Measurement
                 </a>
                 <a href="#tools" className="flex items-center text-gray-600 hover:text-indigo-600 transition-colors">
-                  <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                  <CheckCircle className="h-4 w-4 mr-2 text-brand-500" />
                   7. Tools & Templates for Intelligence Teams
                 </a>
                 <a href="#scaling" className="flex items-center text-gray-600 hover:text-indigo-600 transition-colors">
-                  <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                  <CheckCircle className="h-4 w-4 mr-2 text-brand-500" />
                   8. Enterprise Intelligence Scaling Framework
                 </a>
               </div>
@@ -277,7 +278,7 @@ export default function Fortune100CreativeIntelligenceFramework() {
                 moves in real-time and predict market changes before they impact business performance.
               </p>
               
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-8 mb-8">
+              <div className="bg-gradient-to-r from-indigo-50 to-brand-50 rounded-xl p-8 mb-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">The Strategic Intelligence Advantage</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -311,7 +312,7 @@ export default function Fortune100CreativeIntelligenceFramework() {
                 and 31% better strategic decision-making accuracy compared to traditional competitive analysis approaches.
               </p>
 
-              <div className="bg-yellow-50 rounded-lg p-6 mb-8">
+              <div className="bg-brand-50 rounded-lg p-6 mb-8">
                 <h4 className="font-semibold text-gray-900 mb-3">
                   Why Subscription Businesses Need Fortune 100 Intelligence
                 </h4>
@@ -362,7 +363,7 @@ export default function Fortune100CreativeIntelligenceFramework() {
                 {intelligencePhases.map((phase, index) => (
                   <div key={index} className="bg-white rounded-2xl p-8 shadow-lg">
                     <div className="flex items-start mb-6">
-                      <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-xl flex items-center justify-center font-bold text-lg mr-6 flex-shrink-0">
+                      <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-brand-500 text-white rounded-xl flex items-center justify-center font-bold text-lg mr-6 flex-shrink-0">
                         <phase.icon className="h-8 w-8" />
                       </div>
                       <div className="flex-1">
@@ -373,8 +374,8 @@ export default function Fortune100CreativeIntelligenceFramework() {
                           <div className="bg-indigo-50 px-3 py-1 rounded-full">
                             <span className="text-indigo-700 font-semibold">{phase.timeframe}</span>
                           </div>
-                          <div className="bg-green-50 px-3 py-1 rounded-full">
-                            <span className="text-green-700 font-semibold">{phase.outcome}</span>
+                          <div className="bg-brand-50 px-3 py-1 rounded-full">
+                            <span className="text-brand-700 font-semibold">{phase.outcome}</span>
                           </div>
                         </div>
                       </div>
@@ -385,7 +386,7 @@ export default function Fortune100CreativeIntelligenceFramework() {
                       <div className="grid md:grid-cols-2 gap-3">
                         {phase.components.map((component, componentIndex) => (
                           <div key={componentIndex} className="flex items-start">
-                            <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                            <CheckCircle className="h-4 w-4 text-brand-500 mt-0.5 mr-2 flex-shrink-0" />
                             <span className="text-sm text-gray-700">{component}</span>
                           </div>
                         ))}
@@ -418,7 +419,7 @@ export default function Fortune100CreativeIntelligenceFramework() {
                   <div className="grid md:grid-cols-3 gap-8">
                     <div>
                       <div className="flex items-center mb-4">
-                        <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
+                        <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-brand-500 text-white rounded-full flex items-center justify-center font-bold text-lg mr-4">
                           {index + 1}
                         </div>
                         <div>
@@ -439,7 +440,7 @@ export default function Fortune100CreativeIntelligenceFramework() {
                     </div>
                     
                     <div className="md:col-span-2">
-                      <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-6 border border-indigo-200">
+                      <div className="bg-gradient-to-r from-indigo-50 to-brand-50 rounded-lg p-6 border border-indigo-200">
                         <div className="text-sm font-semibold text-gray-900 mb-3">Strategic Tools & Resources:</div>
                         
                         <div className="grid md:grid-cols-2 gap-4">
@@ -448,7 +449,7 @@ export default function Fortune100CreativeIntelligenceFramework() {
                             <div className="space-y-1 text-xs">
                               {framework.tools.slice(0, 2).map((tool, toolIndex) => (
                                 <div key={toolIndex} className="flex items-center">
-                                  <CheckCircle className="h-3 w-3 text-green-500 mr-2" />
+                                  <CheckCircle className="h-3 w-3 text-brand-500 mr-2" />
                                   {tool}
                                 </div>
                               ))}
@@ -460,7 +461,7 @@ export default function Fortune100CreativeIntelligenceFramework() {
                             <div className="space-y-1 text-xs">
                               {framework.tools.slice(2, 4).map((tool, toolIndex) => (
                                 <div key={toolIndex} className="flex items-center">
-                                  <CheckCircle className="h-3 w-3 text-green-500 mr-2" />
+                                  <CheckCircle className="h-3 w-3 text-brand-500 mr-2" />
                                   {tool}
                                 </div>
                               ))}
@@ -469,8 +470,8 @@ export default function Fortune100CreativeIntelligenceFramework() {
                         </div>
                         
                         <div className="mt-4 p-3 bg-white rounded-lg border">
-                          <div className="text-sm font-semibold text-green-800">Strategic Outcome:</div>
-                          <div className="text-xs text-green-700 mt-1">{framework.outcome}</div>
+                          <div className="text-sm font-semibold text-brand-800">Strategic Outcome:</div>
+                          <div className="text-xs text-brand-700 mt-1">{framework.outcome}</div>
                         </div>
                       </div>
                     </div>
@@ -532,13 +533,13 @@ export default function Fortune100CreativeIntelligenceFramework() {
                 </div>
                 
                 <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                    <Brain className="h-6 w-6 text-purple-600" />
+                  <div className="w-12 h-12 bg-brand-100 rounded-lg flex items-center justify-center mb-4">
+                    <Brain className="h-6 w-6 text-brand-600" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Intelligence Analysis Automation</h3>
                   
                   <div className="space-y-4">
-                    <div className="border-l-4 border-purple-500 pl-4">
+                    <div className="border-l-4 border-brand-500 pl-4">
                       <h4 className="font-semibold text-gray-900">Pattern Recognition Systems</h4>
                       <p className="text-sm text-gray-600">
                         AI-powered analysis of competitive patterns, trend identification, 
@@ -546,7 +547,7 @@ export default function Fortune100CreativeIntelligenceFramework() {
                       </p>
                     </div>
                     
-                    <div className="border-l-4 border-purple-500 pl-4">
+                    <div className="border-l-4 border-brand-500 pl-4">
                       <h4 className="font-semibold text-gray-900">Performance Gap Analysis</h4>
                       <p className="text-sm text-gray-600">
                         Automated identification of performance gaps, competitive advantages, 
@@ -554,7 +555,7 @@ export default function Fortune100CreativeIntelligenceFramework() {
                       </p>
                     </div>
                     
-                    <div className="border-l-4 border-purple-500 pl-4">
+                    <div className="border-l-4 border-brand-500 pl-4">
                       <h4 className="font-semibold text-gray-900">Strategic Alert Systems</h4>
                       <p className="text-sm text-gray-600">
                         Real-time alerts for significant competitive changes, market movements, 
@@ -565,7 +566,7 @@ export default function Fortune100CreativeIntelligenceFramework() {
                 </div>
               </div>
               
-              <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-8">
+              <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-xl p-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-6">Technology Stack for Intelligence Operations</h3>
                 
                 <div className="grid md:grid-cols-3 gap-6">
@@ -609,7 +610,7 @@ export default function Fortune100CreativeIntelligenceFramework() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-indigo-600 to-brand-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -648,13 +649,7 @@ export default function Fortune100CreativeIntelligenceFramework() {
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <Link
-                href="/#service-tiers"
-                className="border-2 border-white text-white hover:bg-white hover:text-indigo-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center"
-              >
-                View Intelligence Plans
-                <BarChart3 className="h-5 w-5 ml-2" />
-              </Link>
+              <FreeWeekButton source="fortune_100_creative_intelligence_framework-cta" className="border-2 border-white text-white hover:bg-white hover:text-indigo-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { TrendingUp, Target, Users, Calendar, ArrowRight, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
+import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
   title: 'Weekly Trend Intelligence Guide for Subscription Businesses | Apsics Media',
@@ -59,10 +60,10 @@ export default function WeeklyTrendIntelligenceGuidePage() {
       
       <main className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-red-50 to-orange-50">
+        <section className="py-16 bg-gradient-to-br from-brand-50 to-brand-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
+              <div className="inline-flex items-center bg-gradient-to-r from-brand-600 to-brand-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <TrendingUp className="h-4 w-4 mr-2" />
                 FORTUNE 100 STRATEGY GUIDE
               </div>
@@ -80,9 +81,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                   <Target className="h-5 w-5 mr-2" />
                   Read Complete Guide
                 </Link>
-                <Link href="/#service-tiers" className="btn btn-primary bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg">
-                  Get Weekly Intelligence
-                </Link>
+                <FreeWeekButton source="weekly_trend_intelligence_guide-cta" className="btn btn-primary bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 rounded-lg">Start Free Week Trial</FreeWeekButton>
               </div>
             </div>
           </div>
@@ -96,37 +95,37 @@ export default function WeeklyTrendIntelligenceGuidePage() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-3">
                   <div className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+                    <CheckCircle className="h-5 w-5 text-brand-600 mr-3" />
                     <a href="#what-is-trend-intelligence" className="text-indigo-600 hover:underline">What is Weekly Trend Intelligence?</a>
                   </div>
                   <div className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+                    <CheckCircle className="h-5 w-5 text-brand-600 mr-3" />
                     <a href="#fortune-100-approach" className="text-indigo-600 hover:underline">Fortune 100 Systematic Approach</a>
                   </div>
                   <div className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+                    <CheckCircle className="h-5 w-5 text-brand-600 mr-3" />
                     <a href="#subscription-business-benefits" className="text-indigo-600 hover:underline">Subscription Business Benefits</a>
                   </div>
                   <div className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+                    <CheckCircle className="h-5 w-5 text-brand-600 mr-3" />
                     <a href="#weekly-workflow" className="text-indigo-600 hover:underline">Weekly Intelligence Workflow</a>
                   </div>
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+                    <CheckCircle className="h-5 w-5 text-brand-600 mr-3" />
                     <a href="#competitor-analysis" className="text-indigo-600 hover:underline">Competitor Analysis Framework</a>
                   </div>
                   <div className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+                    <CheckCircle className="h-5 w-5 text-brand-600 mr-3" />
                     <a href="#implementation-guide" className="text-indigo-600 hover:underline">Implementation Roadmap</a>
                   </div>
                   <div className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+                    <CheckCircle className="h-5 w-5 text-brand-600 mr-3" />
                     <a href="#success-metrics" className="text-indigo-600 hover:underline">Success Metrics & KPIs</a>
                   </div>
                   <div className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+                    <CheckCircle className="h-5 w-5 text-brand-600 mr-3" />
                     <a href="#common-mistakes" className="text-indigo-600 hover:underline">Common Implementation Mistakes</a>
                   </div>
                 </div>
@@ -169,7 +168,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                 <div className="grid md:grid-cols-3 gap-6 mb-8">
                   <div className="bg-gray-50 rounded-xl p-6 text-center">
                     <div className="flex justify-center mb-4">
-                      <TrendingUp className="h-8 w-8 text-red-600" />
+                      <TrendingUp className="h-8 w-8 text-brand-600" />
                     </div>
                     <h4 className="font-semibold text-gray-900 mb-3">1. Trend Identification</h4>
                     <p className="text-gray-600 text-sm">
@@ -179,7 +178,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                   </div>
                   <div className="bg-gray-50 rounded-xl p-6 text-center">
                     <div className="flex justify-center mb-4">
-                      <Target className="h-8 w-8 text-red-600" />
+                      <Target className="h-8 w-8 text-brand-600" />
                     </div>
                     <h4 className="font-semibold text-gray-900 mb-3">2. Strategic Adaptation</h4>
                     <p className="text-gray-600 text-sm">
@@ -189,7 +188,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                   </div>
                   <div className="bg-gray-50 rounded-xl p-6 text-center">
                     <div className="flex justify-center mb-4">
-                      <Users className="h-8 w-8 text-red-600" />
+                      <Users className="h-8 w-8 text-brand-600" />
                     </div>
                     <h4 className="font-semibold text-gray-900 mb-3">3. Performance Analysis</h4>
                     <p className="text-gray-600 text-sm">
@@ -213,7 +212,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                   
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h4 className="text-yellow-400 font-semibold mb-3">Phase 1-3: Intelligence Gathering</h4>
+                      <h4 className="text-brand-400 font-semibold mb-3">Phase 1-3: Intelligence Gathering</h4>
                       <ul className="space-y-2 text-gray-300 text-sm">
                         <li>• Platform algorithm monitoring</li>
                         <li>• Competitor content analysis</li>
@@ -221,7 +220,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-yellow-400 font-semibold mb-3">Phase 4-6: Strategic Analysis</h4>
+                      <h4 className="text-brand-400 font-semibold mb-3">Phase 4-6: Strategic Analysis</h4>
                       <ul className="space-y-2 text-gray-300 text-sm">
                         <li>• Brand alignment assessment</li>
                         <li>• Customer journey mapping</li>
@@ -229,7 +228,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-yellow-400 font-semibold mb-3">Phase 7-9: Creative Development</h4>
+                      <h4 className="text-brand-400 font-semibold mb-3">Phase 7-9: Creative Development</h4>
                       <ul className="space-y-2 text-gray-300 text-sm">
                         <li>• Concept ideation & scripting</li>
                         <li>• Platform optimization</li>
@@ -237,7 +236,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-yellow-400 font-semibold mb-3">Phase 10-11: Execution & Analysis</h4>
+                      <h4 className="text-brand-400 font-semibold mb-3">Phase 10-11: Execution & Analysis</h4>
                       <ul className="space-y-2 text-gray-300 text-sm">
                         <li>• Performance monitoring</li>
                         <li>• Data-driven optimization</li>
@@ -264,12 +263,12 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                   addresses each of these challenges systematically.
                 </p>
 
-                <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-8 mb-8">
+                <div className="bg-gradient-to-br from-brand-50 to-blue-50 rounded-2xl p-8 mb-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">Subscription-Specific Advantages</h3>
                   
                   <div className="space-y-6">
                     <div className="flex items-start">
-                      <div className="bg-green-600 rounded-full p-2 mr-4 flex-shrink-0">
+                      <div className="bg-brand-600 rounded-full p-2 mr-4 flex-shrink-0">
                         <CheckCircle className="h-5 w-5 text-white" />
                       </div>
                       <div>
@@ -295,7 +294,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                     </div>
 
                     <div className="flex items-start">
-                      <div className="bg-purple-600 rounded-full p-2 mr-4 flex-shrink-0">
+                      <div className="bg-brand-600 rounded-full p-2 mr-4 flex-shrink-0">
                         <CheckCircle className="h-5 w-5 text-white" />
                       </div>
                       <div>
@@ -334,7 +333,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                     </ul>
                   </div>
 
-                  <div className="border-l-4 border-green-600 pl-6">
+                  <div className="border-l-4 border-brand-600 pl-6">
                     <h4 className="text-lg font-semibold text-gray-900 mb-3">2. Ready-to-Develop Scripts</h4>
                     <ul className="space-y-2 text-gray-600">
                       <li>• Platform-optimized scripts (15-60 second formats)</li>
@@ -344,7 +343,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                     </ul>
                   </div>
 
-                  <div className="border-l-4 border-purple-600 pl-6">
+                  <div className="border-l-4 border-brand-600 pl-6">
                     <h4 className="text-lg font-semibold text-gray-900 mb-3">3. Competitor Intelligence</h4>
                     <ul className="space-y-2 text-gray-600">
                       <li>• Weekly competitor content analysis</li>
@@ -354,7 +353,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                     </ul>
                   </div>
 
-                  <div className="border-l-4 border-orange-600 pl-6">
+                  <div className="border-l-4 border-brand-600 pl-6">
                     <h4 className="text-lg font-semibold text-gray-900 mb-3">4. Implementation Guide</h4>
                     <ul className="space-y-2 text-gray-600">
                       <li>• Production timeline and resource requirements</li>
@@ -380,8 +379,8 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                   
                   <div className="space-y-6">
                     <div className="flex items-start">
-                      <div className="bg-red-100 rounded-lg p-3 mr-4 flex-shrink-0">
-                        <span className="text-red-600 font-bold">Tier 1</span>
+                      <div className="bg-brand-100 rounded-lg p-3 mr-4 flex-shrink-0">
+                        <span className="text-brand-600 font-bold">Tier 1</span>
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-2">Direct Competitors</h4>
@@ -393,8 +392,8 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                     </div>
 
                     <div className="flex items-start">
-                      <div className="bg-orange-100 rounded-lg p-3 mr-4 flex-shrink-0">
-                        <span className="text-orange-600 font-bold">Tier 2</span>
+                      <div className="bg-brand-100 rounded-lg p-3 mr-4 flex-shrink-0">
+                        <span className="text-brand-600 font-bold">Tier 2</span>
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-2">Category Leaders</h4>
@@ -419,8 +418,8 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                     </div>
 
                     <div className="flex items-start">
-                      <div className="bg-purple-100 rounded-lg p-3 mr-4 flex-shrink-0">
-                        <span className="text-purple-600 font-bold">Tier 4</span>
+                      <div className="bg-brand-100 rounded-lg p-3 mr-4 flex-shrink-0">
+                        <span className="text-brand-600 font-bold">Tier 4</span>
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-2">Platform Natives</h4>
@@ -437,7 +436,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
               <section id="implementation-guide" className="mb-16">
                 <h2 className="text-3xl font-bold text-gray-900 mb-8">Implementation Roadmap</h2>
                 
-                <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white mb-8">
+                <div className="bg-gradient-to-r from-indigo-600 to-brand-600 rounded-2xl p-8 text-white mb-8">
                   <h3 className="text-2xl font-bold mb-4">30-60-90 Day Implementation Plan</h3>
                   <p className="text-indigo-100">
                     Systematic rollout ensures successful adoption without overwhelming your team or disrupting 
@@ -446,20 +445,20 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                 </div>
 
                 <div className="space-y-8">
-                  <div className="bg-green-50 rounded-xl p-6 border-l-4 border-green-600">
-                    <h4 className="text-xl font-semibold text-green-900 mb-4">Days 1-30: Foundation Phase</h4>
+                  <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-600">
+                    <h4 className="text-xl font-semibold text-brand-900 mb-4">Days 1-30: Foundation Phase</h4>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <h5 className="font-semibold text-green-800 mb-2">Week 1-2: Baseline Assessment</h5>
-                        <ul className="text-green-700 text-sm space-y-1">
+                        <h5 className="font-semibold text-brand-800 mb-2">Week 1-2: Baseline Assessment</h5>
+                        <ul className="text-brand-700 text-sm space-y-1">
                           <li>• Current creative performance audit</li>
                           <li>• Competitor landscape mapping</li>
                           <li>• Team workflow evaluation</li>
                         </ul>
                       </div>
                       <div>
-                        <h5 className="font-semibold text-green-800 mb-2">Week 3-4: System Setup</h5>
-                        <ul className="text-green-700 text-sm space-y-1">
+                        <h5 className="font-semibold text-brand-800 mb-2">Week 3-4: System Setup</h5>
+                        <ul className="text-brand-700 text-sm space-y-1">
                           <li>• Weekly delivery integration</li>
                           <li>• Testing framework implementation</li>
                           <li>• First trend concepts deployment</li>
@@ -490,20 +489,20 @@ export default function WeeklyTrendIntelligenceGuidePage() {
                     </div>
                   </div>
 
-                  <div className="bg-purple-50 rounded-xl p-6 border-l-4 border-purple-600">
-                    <h4 className="text-xl font-semibold text-purple-900 mb-4">Days 61-90: Mastery Phase</h4>
+                  <div className="bg-brand-50 rounded-xl p-6 border-l-4 border-brand-600">
+                    <h4 className="text-xl font-semibold text-brand-900 mb-4">Days 61-90: Mastery Phase</h4>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <h5 className="font-semibold text-purple-800 mb-2">Week 9-10: Advanced Strategy</h5>
-                        <ul className="text-purple-700 text-sm space-y-1">
+                        <h5 className="font-semibold text-brand-800 mb-2">Week 9-10: Advanced Strategy</h5>
+                        <ul className="text-brand-700 text-sm space-y-1">
                           <li>• Custom trend development</li>
                           <li>• Predictive trend analysis</li>
                           <li>• Competitive differentiation</li>
                         </ul>
                       </div>
                       <div>
-                        <h5 className="font-semibold text-purple-800 mb-2">Week 11-12: Strategic Excellence</h5>
-                        <ul className="text-purple-700 text-sm space-y-1">
+                        <h5 className="font-semibold text-brand-800 mb-2">Week 11-12: Strategic Excellence</h5>
+                        <ul className="text-brand-700 text-sm space-y-1">
                           <li>• Full system optimization</li>
                           <li>• ROI measurement & reporting</li>
                           <li>• Long-term strategic planning</li>
@@ -519,7 +518,7 @@ export default function WeeklyTrendIntelligenceGuidePage() {
         </article>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-br from-red-600 to-orange-600 text-white">
+        <section className="py-16 bg-gradient-to-br from-brand-600 to-brand-600 text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-6">
@@ -548,13 +547,8 @@ export default function WeeklyTrendIntelligenceGuidePage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="/free-hooks" className="btn bg-white text-red-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">
-                  Get 10 Free Hooks First
-                </Link>
-                <Link href="/#service-tiers" className="btn btn-primary bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg">
-                  View Weekly Plans
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </Link>
+                <FreeWeekButton source="weekly_trend_intelligence_guide-cta" className="btn bg-white text-brand-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="weekly_trend_intelligence_guide-cta" className="btn btn-primary bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 rounded-lg">Start Free Week Trial</FreeWeekButton>
               </div>
             </div>
           </div>

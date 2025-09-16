@@ -31,7 +31,7 @@ export default function SubscriptionChurnOptimizationPage() {
 
         {/* Article Header */}
         <header className="mb-12">
-          <div className="inline-flex items-center bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-flex items-center bg-brand-100 text-brand-800 px-3 py-1 rounded-full text-sm font-semibold mb-4">
             <TrendingDown className="h-4 w-4 mr-2" />
             CHURN OPTIMIZATION
           </div>
@@ -44,12 +44,12 @@ export default function SubscriptionChurnOptimizationPage() {
             Transform your subscription business with proven churn reduction strategies. Learn how growth teams at successful SaaS and subscription companies reduce churn by 30-50% using data-driven retention frameworks.
           </p>
 
-          <div className="bg-orange-50 border-l-4 border-orange-500 p-6 mb-8">
+          <div className="bg-brand-50 border-l-4 border-brand-500 p-6 mb-8">
             <div className="flex items-start">
-              <AlertTriangle className="h-6 w-6 text-orange-500 mt-1 mr-3 flex-shrink-0" />
+              <AlertTriangle className="h-6 w-6 text-brand-500 mt-1 mr-3 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold text-orange-900 mb-2">Growth Team Alert</h3>
-                <p className="text-orange-800">
+                <h3 className="font-semibold text-brand-900 mb-2">Growth Team Alert</h3>
+                <p className="text-brand-800">
                   A 5% reduction in churn rate can increase profits by 25-95% according to Bain & Company. 
                   This guide provides actionable frameworks specifically designed for growth teams managing subscription businesses.
                 </p>
@@ -78,20 +78,20 @@ export default function SubscriptionChurnOptimizationPage() {
 
             <div className="bg-gray-50 rounded-lg p-6 my-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <BarChart3 className="h-5 w-5 mr-2 text-orange-600" />
+                <BarChart3 className="h-5 w-5 mr-2 text-brand-600" />
                 The Churn Reality Check
               </h3>
               <div className="grid md:grid-cols-3 gap-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-red-600">15-25%</div>
+                  <div className="text-2xl font-bold text-brand-600">15-25%</div>
                   <div className="text-sm text-gray-600">Average SaaS Monthly Churn</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-orange-600">5x</div>
+                  <div className="text-2xl font-bold text-brand-600">5x</div>
                   <div className="text-sm text-gray-600">Cost to Acquire vs Retain</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">95%</div>
+                  <div className="text-2xl font-bold text-brand-600">95%</div>
                   <div className="text-sm text-gray-600">Profit Increase from 5% Churn Reduction</div>
                 </div>
               </div>
@@ -101,7 +101,7 @@ export default function SubscriptionChurnOptimizationPage() {
           {/* Strategy 1 */}
           <section className="mb-12">
             <div className="flex items-center mb-6">
-              <div className="bg-orange-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">1</div>
+              <div className="bg-brand-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">1</div>
               <h2 className="text-3xl font-bold text-gray-900">Eliminate Involuntary Churn with Smart Payment Recovery</h2>
             </div>
             
@@ -142,7 +142,7 @@ export default function SubscriptionChurnOptimizationPage() {
           {/* Strategy 2 */}
           <section className="mb-12">
             <div className="flex items-center mb-6">
-              <div className="bg-orange-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">2</div>
+              <div className="bg-brand-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">2</div>
               <h2 className="text-3xl font-bold text-gray-900">Optimize Onboarding for First-Month Retention</h2>
             </div>
             
@@ -151,23 +151,23 @@ export default function SubscriptionChurnOptimizationPage() {
               demonstrating immediate value and creating habit-forming behaviors within the first 7 days.
             </p>
 
-            <div className="bg-green-50 rounded-lg p-6 my-8">
-              <h4 className="font-semibold text-green-900 mb-3">The Value-First Onboarding Framework</h4>
+            <div className="bg-brand-50 rounded-lg p-6 my-8">
+              <h4 className="font-semibold text-brand-900 mb-3">The Value-First Onboarding Framework</h4>
               
               <div className="space-y-4">
-                <div className="border-l-4 border-green-500 pl-4">
-                  <h5 className="font-semibold text-green-900">Day 0-1: Immediate Value Delivery</h5>
-                  <p className="text-green-800">Show core value within 5 minutes. Pre-populate accounts with relevant data or templates.</p>
+                <div className="border-l-4 border-brand-500 pl-4">
+                  <h5 className="font-semibold text-brand-900">Day 0-1: Immediate Value Delivery</h5>
+                  <p className="text-brand-800">Show core value within 5 minutes. Pre-populate accounts with relevant data or templates.</p>
                 </div>
                 
-                <div className="border-l-4 border-green-500 pl-4">
-                  <h5 className="font-semibold text-green-900">Day 2-3: Habit Formation</h5>
-                  <p className="text-green-800">Guide users to complete 3-5 key actions that correlate with long-term retention.</p>
+                <div className="border-l-4 border-brand-500 pl-4">
+                  <h5 className="font-semibold text-brand-900">Day 2-3: Habit Formation</h5>
+                  <p className="text-brand-800">Guide users to complete 3-5 key actions that correlate with long-term retention.</p>
                 </div>
                 
-                <div className="border-l-4 border-green-500 pl-4">
-                  <h5 className="font-semibold text-green-900">Day 4-7: Social Proof & Expansion</h5>
-                  <p className="text-green-800">Share success stories, introduce advanced features, encourage team invitations.</p>
+                <div className="border-l-4 border-brand-500 pl-4">
+                  <h5 className="font-semibold text-brand-900">Day 4-7: Social Proof & Expansion</h5>
+                  <p className="text-brand-800">Share success stories, introduce advanced features, encourage team invitations.</p>
                 </div>
               </div>
             </div>
@@ -181,7 +181,7 @@ export default function SubscriptionChurnOptimizationPage() {
           {/* Strategy 3 */}
           <section className="mb-12">
             <div className="flex items-center mb-6">
-              <div className="bg-orange-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">3</div>
+              <div className="bg-brand-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">3</div>
               <h2 className="text-3xl font-bold text-gray-900">Implement Predictive Churn Scoring</h2>
             </div>
             
@@ -190,12 +190,12 @@ export default function SubscriptionChurnOptimizationPage() {
               they cancel, giving your growth team time to intervene with targeted retention campaigns.
             </p>
 
-            <div className="bg-purple-50 rounded-lg p-6 my-8">
-              <h4 className="font-semibold text-purple-900 mb-3">High-Risk Churn Indicators</h4>
+            <div className="bg-brand-50 rounded-lg p-6 my-8">
+              <h4 className="font-semibold text-brand-900 mb-3">High-Risk Churn Indicators</h4>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <h5 className="font-semibold text-purple-900 mb-2">Usage Signals</h5>
-                  <ul className="space-y-1 text-purple-800">
+                  <h5 className="font-semibold text-brand-900 mb-2">Usage Signals</h5>
+                  <ul className="space-y-1 text-brand-800">
                     <li>• 50%+ decrease in login frequency</li>
                     <li>• Core feature usage drop</li>
                     <li>• Support ticket volume spike</li>
@@ -203,8 +203,8 @@ export default function SubscriptionChurnOptimizationPage() {
                   </ul>
                 </div>
                 <div>
-                  <h5 className="font-semibold text-purple-900 mb-2">Behavioral Signals</h5>
-                  <ul className="space-y-1 text-purple-800">
+                  <h5 className="font-semibold text-brand-900 mb-2">Behavioral Signals</h5>
+                  <ul className="space-y-1 text-brand-800">
                     <li>• Billing page visits without purchase</li>
                     <li>• Competitor tool research</li>
                     <li>• Team member removals</li>
@@ -223,7 +223,7 @@ export default function SubscriptionChurnOptimizationPage() {
           {/* Strategy 4 */}
           <section className="mb-12">
             <div className="flex items-center mb-6">
-              <div className="bg-orange-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">4</div>
+              <div className="bg-brand-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">4</div>
               <h2 className="text-3xl font-bold text-gray-900">Deploy Win-Back Campaigns Before Cancellation</h2>
             </div>
             
@@ -232,31 +232,31 @@ export default function SubscriptionChurnOptimizationPage() {
               signals, offering value-based incentives rather than blanket discounts.
             </p>
 
-            <div className="bg-red-50 rounded-lg p-6 my-8">
-              <h4 className="font-semibold text-red-900 mb-3">The Progressive Win-Back Sequence</h4>
+            <div className="bg-brand-50 rounded-lg p-6 my-8">
+              <h4 className="font-semibold text-brand-900 mb-3">The Progressive Win-Back Sequence</h4>
               
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <div className="bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">1</div>
+                  <div className="bg-brand-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">1</div>
                   <div>
-                    <h5 className="font-semibold text-red-900">Value Reinforcement Email</h5>
-                    <p className="text-red-800">Highlight unused features and ROI calculations specific to their use case.</p>
+                    <h5 className="font-semibold text-brand-900">Value Reinforcement Email</h5>
+                    <p className="text-brand-800">Highlight unused features and ROI calculations specific to their use case.</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">2</div>
+                  <div className="bg-brand-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">2</div>
                   <div>
-                    <h5 className="font-semibold text-red-900">Personal Outreach</h5>
-                    <p className="text-red-800">Customer success manager reaches out with personalized optimization recommendations.</p>
+                    <h5 className="font-semibold text-brand-900">Personal Outreach</h5>
+                    <p className="text-brand-800">Customer success manager reaches out with personalized optimization recommendations.</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start">
-                  <div className="bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">3</div>
+                  <div className="bg-brand-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">3</div>
                   <div>
-                    <h5 className="font-semibold text-red-900">Strategic Incentive</h5>
-                    <p className="text-red-800">Offer feature upgrades, extended trials, or service credits (not blanket discounts).</p>
+                    <h5 className="font-semibold text-brand-900">Strategic Incentive</h5>
+                    <p className="text-brand-800">Offer feature upgrades, extended trials, or service credits (not blanket discounts).</p>
                   </div>
                 </div>
               </div>
@@ -271,7 +271,7 @@ export default function SubscriptionChurnOptimizationPage() {
           {/* Strategy 5 */}
           <section className="mb-12">
             <div className="flex items-center mb-6">
-              <div className="bg-orange-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">5</div>
+              <div className="bg-brand-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">5</div>
               <h2 className="text-3xl font-bold text-gray-900">Create Engagement Loops and Habit Formation</h2>
             </div>
             
@@ -321,7 +321,7 @@ export default function SubscriptionChurnOptimizationPage() {
           {/* Strategy 6 */}
           <section className="mb-12">
             <div className="flex items-center mb-6">
-              <div className="bg-orange-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">6</div>
+              <div className="bg-brand-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">6</div>
               <h2 className="text-3xl font-bold text-gray-900">Implement Dynamic Pricing and Plan Optimization</h2>
             </div>
             
@@ -330,28 +330,28 @@ export default function SubscriptionChurnOptimizationPage() {
               intelligent plan recommendations can reduce price-sensitive churn while maintaining healthy margins.
             </p>
 
-            <div className="bg-yellow-50 rounded-lg p-6 my-8">
-              <h4 className="font-semibold text-yellow-900 mb-3">Smart Pricing Strategies</h4>
+            <div className="bg-brand-50 rounded-lg p-6 my-8">
+              <h4 className="font-semibold text-brand-900 mb-3">Smart Pricing Strategies</h4>
               
               <div className="space-y-4">
                 <div>
-                  <h5 className="font-semibold text-yellow-900">Usage-Based Downgrades</h5>
-                  <p className="text-yellow-800">Automatically suggest plan downgrades for low-usage customers before they churn.</p>
+                  <h5 className="font-semibold text-brand-900">Usage-Based Downgrades</h5>
+                  <p className="text-brand-800">Automatically suggest plan downgrades for low-usage customers before they churn.</p>
                 </div>
                 
                 <div>
-                  <h5 className="font-semibold text-yellow-900">Pause Options</h5>
-                  <p className="text-yellow-800">Offer 1-3 month account pauses instead of cancellation for seasonal businesses.</p>
+                  <h5 className="font-semibold text-brand-900">Pause Options</h5>
+                  <p className="text-brand-800">Offer 1-3 month account pauses instead of cancellation for seasonal businesses.</p>
                 </div>
                 
                 <div>
-                  <h5 className="font-semibold text-yellow-900">Annual Commitment Incentives</h5>
-                  <p className="text-yellow-800">Offer significant discounts for annual commitments to reduce monthly churn rates.</p>
+                  <h5 className="font-semibold text-brand-900">Annual Commitment Incentives</h5>
+                  <p className="text-brand-800">Offer significant discounts for annual commitments to reduce monthly churn rates.</p>
                 </div>
                 
                 <div>
-                  <h5 className="font-semibold text-yellow-900">Feature-Specific Pricing</h5>
-                  <p className="text-yellow-800">Create micro-plans around high-value features customers actually use.</p>
+                  <h5 className="font-semibold text-brand-900">Feature-Specific Pricing</h5>
+                  <p className="text-brand-800">Create micro-plans around high-value features customers actually use.</p>
                 </div>
               </div>
             </div>
@@ -365,7 +365,7 @@ export default function SubscriptionChurnOptimizationPage() {
           {/* Strategy 7 */}
           <section className="mb-12">
             <div className="flex items-center mb-6">
-              <div className="bg-orange-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">7</div>
+              <div className="bg-brand-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">7</div>
               <h2 className="text-3xl font-bold text-gray-900">Build a Proactive Customer Success Framework</h2>
             </div>
             
@@ -374,7 +374,7 @@ export default function SubscriptionChurnOptimizationPage() {
               opportunities, addresses concerns before they become problems, and creates customer advocacy.
             </p>
 
-            <div className="bg-emerald-50 rounded-lg p-6 my-8">
+            <div className="bg-brand-50 rounded-lg p-6 my-8">
               <h4 className="font-semibold text-emerald-900 mb-3">Proactive Success Milestones</h4>
               
               <div className="space-y-4">
@@ -421,7 +421,7 @@ export default function SubscriptionChurnOptimizationPage() {
           {/* Measurement Framework */}
           <section className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-              <BarChart3 className="h-8 w-8 mr-3 text-orange-600" />
+              <BarChart3 className="h-8 w-8 mr-3 text-brand-600" />
               Measuring Churn Optimization Success
             </h2>
             
@@ -460,12 +460,12 @@ export default function SubscriptionChurnOptimizationPage() {
           {/* Implementation Timeline */}
           <section className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-              <Calendar className="h-8 w-8 mr-3 text-orange-600" />
+              <Calendar className="h-8 w-8 mr-3 text-brand-600" />
               90-Day Implementation Roadmap
             </h2>
             
             <div className="space-y-6">
-              <div className="border-l-4 border-orange-500 pl-6">
+              <div className="border-l-4 border-brand-500 pl-6">
                 <h3 className="font-semibold text-gray-900 text-lg mb-2">Days 1-30: Foundation & Quick Wins</h3>
                 <ul className="space-y-1 text-gray-700">
                   <li>• Implement smart payment recovery system</li>
@@ -475,7 +475,7 @@ export default function SubscriptionChurnOptimizationPage() {
                 </ul>
               </div>
               
-              <div className="border-l-4 border-orange-400 pl-6">
+              <div className="border-l-4 border-brand-400 pl-6">
                 <h3 className="font-semibold text-gray-900 text-lg mb-2">Days 31-60: Advanced Systems</h3>
                 <ul className="space-y-1 text-gray-700">
                   <li>• Deploy predictive churn scoring</li>
@@ -485,7 +485,7 @@ export default function SubscriptionChurnOptimizationPage() {
                 </ul>
               </div>
               
-              <div className="border-l-4 border-orange-300 pl-6">
+              <div className="border-l-4 border-brand-300 pl-6">
                 <h3 className="font-semibold text-gray-900 text-lg mb-2">Days 61-90: Optimization & Scale</h3>
                 <ul className="space-y-1 text-gray-700">
                   <li>• Optimize pricing and plan recommendations</li>
@@ -513,9 +513,9 @@ export default function SubscriptionChurnOptimizationPage() {
               then build towards predictive systems and proactive customer success.
             </p>
 
-            <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-6 my-8">
+            <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-lg p-6 my-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <TrendingUp className="h-5 w-5 mr-2 text-orange-600" />
+                <TrendingUp className="h-5 w-5 mr-2 text-brand-600" />
                 Your Next Action Step
               </h3>
               <p className="text-gray-800 mb-4">
@@ -529,7 +529,7 @@ export default function SubscriptionChurnOptimizationPage() {
               <div className="text-center">
                 <Link
                   href="/subscription-churn-reduction-framework"
-                  className="inline-flex items-center px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors"
+                  className="inline-flex items-center px-6 py-3 bg-brand-600 text-white font-semibold rounded-lg hover:bg-brand-700 transition-colors"
                 >
                   <TrendingDown className="h-5 w-5 mr-2" />
                   Get Complete Churn Reduction Framework
