@@ -191,7 +191,7 @@ export function generateArticleSchema({
     image: {
       '@type': 'ImageObject',
       '@id': `${baseUrl}${slug}#primaryimage`,
-      url: `${baseUrl}/images/og-image.jpg`,
+      url: `${baseUrl}/images/og-image.png`,
       width: 1200,
       height: 630
     },

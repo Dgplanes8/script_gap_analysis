@@ -3,7 +3,7 @@
 ## ✅ Fixed Issues (Ready for Launch)
 
 ### Critical Issues Resolved:
-- [x] **OG Image**: Created `/public/images/og-image.jpg` from existing creative intelligence image
+- [x] **OG Image**: Created `/public/images/og-image.png` from existing creative intelligence image
 - [x] **ConvertKit Integration**: Fixed environment variable names (`CONVERTKIT_API_KEY`, `CONVERTKIT_FORM_ID`)
 - [x] **Production URL**: Updated to `https://apsicsmedia.com`
 - [x] **Build Process**: Successfully builds with no errors

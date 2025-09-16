@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: 'Apsics Media',
     images: [
       {
-        url: '/images/og-image.jpg',
+        url: '/images/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Creative Intelligence that Converts - APSICS Media',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'APSICS Media | Turn Content Chaos Into Conversion Intelligence',
     description: 'Weekly content intelligence + custom scripts for UGC and paid ads. Built from trending data analysis.',
-    images: ['/images/og-image.jpg'],
+    images: ['/images/og-image.png'],
     creator: '@apsicsmedia',
   },
   robots: {

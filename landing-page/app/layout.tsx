@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     siteName: 'Apsics Media',
     images: [
       {
-        url: '/images/og-image.jpg',
+        url: '/images/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Apsics Media',
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     title: 'Revenue Growth Through Creative Intelligence | APSICS Media',
     description:
       'Transform your creative strategy into measurable revenue growth. Weekly intelligence and conversion-focused scripts from $250MM+ in managed ad spend.',
-    images: ['/images/og-image.jpg'],
+    images: ['/images/og-image.png'],
     creator: '@apsicsmedia',
   },
   robots: {
@@ -189,7 +189,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
         {/* Critical resource hints */}
-        <link rel="preload" href="/images/og-image.jpg" as="image" type="image/jpeg" />
+        <link rel="preload" href="/images/og-image.png" as="image" type="image/png" />
         
       </head>
       <body className={`${inter.className} ${inter.variable}`}>

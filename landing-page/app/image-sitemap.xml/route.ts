@@ -6,7 +6,7 @@ export async function GET() {
   // Define image assets for better SEO indexing
   const imageUrls = [
     {
-      url: `${baseUrl}/images/og-image.jpg`,
+      url: `${baseUrl}/images/og-image.png`,
       caption: 'Strategic Ad Intelligence - Weekly Creative Intelligence for Subscription Businesses',
       geoLocation: 'United States',
       title: 'Strategic Ad Intelligence Logo',
