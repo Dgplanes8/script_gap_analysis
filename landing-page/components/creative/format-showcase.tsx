@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Users, Video, Image, TrendingUp, Star, MessageSquare, ArrowRight, Play, Zap } from 'lucide-react';
+import { Users, Video, Image as ImageIcon, TrendingUp, Star, MessageSquare, ArrowRight, Play, Zap } from 'lucide-react';
 
 interface FormatExample {
   id: string;
@@ -100,7 +100,7 @@ const formatExamples: FormatExample[] = [
     id: 'headline-callout',
     name: 'Headline & Feature Callout',
     description: 'Direct response static with clear benefits',
-    icon: <Image className="h-6 w-6" aria-hidden="true" />,
+    icon: <ImageIcon className="h-6 w-6" aria-hidden="true" />,
     category: 'static',
     platforms: ['Facebook', 'Instagram', 'LinkedIn'],
     hookExample: '"Clean Beauty Made Simple: Natural Glow Without the Fuss"',
@@ -140,7 +140,7 @@ const formatExamples: FormatExample[] = [
 const categoryFilters = [
   { key: 'all', label: 'All Formats', icon: <Star className="h-4 w-4" /> },
   { key: 'video', label: 'Video', icon: <Video className="h-4 w-4" /> },
-  { key: 'static', label: 'Static', icon: <Image className="h-4 w-4" aria-hidden="true" /> },
+  { key: 'static', label: 'Static', icon: <ImageIcon className="h-4 w-4" aria-hidden="true" /> },
   { key: 'interactive', label: 'Interactive', icon: <TrendingUp className="h-4 w-4" /> }
 ];
 

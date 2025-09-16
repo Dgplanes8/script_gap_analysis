@@ -109,3 +109,5 @@ export function SecondaryHeader() {
     </header>
   );
 }
+
+export { SecondaryHeader as Header };
