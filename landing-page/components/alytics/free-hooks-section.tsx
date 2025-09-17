@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Download, Zap, Target, TrendingUp } from 'lucide-react';
-import { EmailCaptureForm } from '@/components/forms/email-capture-form';
+import { ConvertKitForm } from '@/components/forms/convertkit-form';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -95,15 +95,12 @@ export function FreeHooksSection() {
                   Enter your email to get proven hooks that convert viewers into customers
                 </p>
                 
-                <EmailCaptureForm
-                  placeholder="Enter your work email"
-                  buttonText="Get Free Hooks"
-                  variant="cta"
-                  source="alytics-free-hooks"
+                <ConvertKitForm
+                  formId={process.env.NEXT_PUBLIC_CONVERTKIT_FORM_ID || '8372309'}
+                  className="ck-reset"
                 />
-                
                 <p className="text-xs text-gray-500 text-center mt-4">
-                  Instant download • Based on $250MM+ campaigns • Revenue-focused frameworks
+                  Powered by ConvertKit • Instant download • Based on $250MM+ campaigns
                 </p>
               </div>
             </div>
