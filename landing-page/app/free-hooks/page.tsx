@@ -1,17 +1,17 @@
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/secondary-header';
-import { StructuredData } from '@/components/schema';
+import { StructuredData, WebApplicationSchema } from '@/components/schema';
 import { Footer } from '@/components/layout/footer';
 import { Download, BookOpen, Zap, Users } from 'lucide-react';
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 
 export const metadata: Metadata = {
-  title: '10 Free High-Converting Ad Templates | Revenue-Driven Creative Intelligence | APSICS Media',
-  description: 'Download 10 battle-tested ad templates from $250MM+ managed spend. Skip months of trial-and-error testing. Copy, customize, and launch revenue-driving campaigns in minutes.',
+  title: 'Free Download: 10 Ad Templates That Generated $47M+ (Copy & Paste Ready)',
+  description: 'Get 10 battle-tested ad templates from $250M+ spend that averaged 3.2x ROAS. Download instantly. Skip 6 months of testing—start converting in 24 hours.',
   keywords: 'free ad templates, high-converting ad templates, revenue optimization templates, performance marketing templates, conversion-focused ad templates, creative intelligence templates',
   openGraph: {
-    title: '10 Free High-Converting Ad Templates | Revenue-Driven Creative Intelligence',
-    description: 'Download battle-tested ad templates from $250MM+ managed spend. Launch revenue-driving campaigns that convert customers.',
+    title: 'Free Download: 10 Ad Templates That Generated $47M+ (Copy & Paste Ready)',
+    description: 'Get 10 battle-tested ad templates from $250M+ spend that averaged 3.2x ROAS. Download instantly and start converting.',
     type: 'website',
     images: [
       {
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '10 Free High-Converting Ad Templates | Revenue-Driven Creative Intelligence',
-    description: 'Download battle-tested ad templates from $250MM+ managed spend to drive revenue growth.',
+    title: 'Free Download: 10 Ad Templates That Generated $47M+ (Copy & Paste Ready)',
+    description: 'Get 10 battle-tested ad templates from $250M+ spend that averaged 3.2x ROAS. Download instantly.',
     images: ['/images/free-hooks-og.jpg'],
   },
   alternates: {
@@ -184,6 +184,21 @@ export default function FreeHooksPage() {
       
       {/* Footer */}
       <Footer />
+      
+      {/* WebApplication Schema for Download Tool */}
+      <WebApplicationSchema
+        name="Free High-Converting Ad Templates"
+        description="Battle-tested ad templates from $250M+ managed spend for instant download"
+        url="/free-hooks"
+        applicationCategory="BusinessApplication"
+        features={[
+          '10 proven ad templates',
+          'Copy & paste ready format',
+          'Generated $47M+ in revenue',
+          'Instant download access'
+        ]}
+        category="DownloadableResource"
+      />
     </>
   );
 }

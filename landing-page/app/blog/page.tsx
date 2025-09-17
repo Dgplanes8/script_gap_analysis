@@ -7,12 +7,12 @@ import { BlogCTASection } from '@/components/blog/blog-cta-section';
 import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
-  title: 'Blog & Resources - Revenue Growth Through Creative Intelligence | Apsics Media',
-  description: 'Comprehensive guides, tools, and frameworks for business revenue growth. Conversion optimization, performance marketing, creative strategy, and revenue intelligence.',
+  title: '47 Revenue Growth Strategies That Generated $250M+ (Free Access)',
+  description: 'Get the exact playbooks, calculators, and frameworks we used to scale 500+ brands. CAC reduction, conversion optimization, creative intelligence—all free.',
   keywords: 'revenue growth guides, conversion optimization, performance marketing, creative intelligence, business growth resources, ROI optimization, marketing performance',
   openGraph: {
-    title: 'Blog & Resources - Revenue Growth Through Creative Intelligence',
-    description: 'Comprehensive guides and tools for business revenue growth through performance marketing and creative optimization.',
+    title: '47 Revenue Growth Strategies That Generated $250M+ (Free Access)',
+    description: 'Get the exact playbooks, calculators, and frameworks we used to scale 500+ brands. CAC reduction, conversion optimization, creative intelligence.',
     type: 'website',
   },
   alternates: {

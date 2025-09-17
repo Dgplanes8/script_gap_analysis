@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { AlyticsLanding } from '@/components/alytics/alytics-landing';
 
 export const metadata: Metadata = {
-  title: 'APSICS Media | Turn Content Chaos Into Conversion Intelligence',
-  description: 'Weekly content intelligence + custom scripts for UGC and paid ads. Built from trending data analysis and tailored to your specific needs—without the chaos.',
+  title: 'The 25% CAC Reduction Secret (Weekly Creative Intelligence) | APSICS Media',
+  description: 'Stop wasting ad spend. Get weekly creative intelligence + battle-tested scripts that reduced CAC by 25% for 500+ brands. From $250M+ managed spend experience.',
   keywords: 'content intelligence, UGC scripts, paid ads, business marketing, creative intelligence, strategic ad intelligence, growing businesses, viral content, conversion optimization',
   authors: [{ name: 'Apsics Media' }],
   creator: 'Apsics Media',
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'APSICS Media | Turn Content Chaos Into Conversion Intelligence',
-    description: 'Weekly content intelligence + custom scripts for UGC and paid ads. Built from trending data analysis and tailored to your specific needs.',
+    title: 'The 25% CAC Reduction Secret (Weekly Creative Intelligence) | APSICS Media',
+    description: 'Stop wasting ad spend. Get weekly creative intelligence + battle-tested scripts that reduced CAC by 25% for 500+ brands.',
     url: '/',
     siteName: 'Apsics Media',
     images: [
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'APSICS Media | Turn Content Chaos Into Conversion Intelligence',
-    description: 'Weekly content intelligence + custom scripts for UGC and paid ads. Built from trending data analysis.',
+    title: 'The 25% CAC Reduction Secret (Weekly Creative Intelligence) | APSICS Media',
+    description: 'Stop wasting ad spend. Get weekly creative intelligence + battle-tested scripts that reduced CAC by 25% for 500+ brands.',
     images: ['/images/og-image.png'],
     creator: '@apsicsmedia',
   },

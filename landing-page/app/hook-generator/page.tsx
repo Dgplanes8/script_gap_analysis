@@ -6,12 +6,12 @@ import { Header } from '@/components/layout/secondary-header';
 import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
-  title: 'Hook Generator Methodology: Strategic Framework for High-Converting Creative Development | Apsics Media',
-  description: 'Master the systematic hook generation methodology used by Fortune 100 companies. Create performance-scored hooks with 25-point evaluation framework for consistent conversion improvements.',
+  title: 'Free Hook Generator: The $10M Framework Fortune 100s Use (Copy It Now)',
+  description: 'Get the exact hook generation system that created $250M+ in revenue. 25-point scoring framework + proven templates. Skip months of guessing—start converting today.',
   keywords: 'hook generator methodology, creative development framework, systematic hook creation, performance-scored hooks, conversion psychology framework, creative intelligence methodology',
   openGraph: {
-    title: 'Hook Generator Methodology: Strategic Framework for High-Converting Creative Development',
-    description: 'Master the systematic hook generation methodology used by Fortune 100 companies. Create performance-scored hooks with strategic frameworks.',
+    title: 'Free Hook Generator: The $10M Framework Fortune 100s Use (Copy It Now)',
+    description: 'Get the exact hook generation system that created $250M+ in revenue. 25-point scoring framework + proven templates.',
     type: 'article',
   },
   alternates: {
@@ -616,6 +616,21 @@ export default function HookGeneratorMethodology() {
           </div>
         </div>
       </section>
+      
+      {/* WebApplication Schema for Tool Recognition */}
+      <WebApplicationSchema
+        name="Hook Generator Methodology Framework"
+        description="Strategic framework for generating high-converting ad hooks and creative concepts"
+        url="/hook-generator"
+        applicationCategory="BusinessApplication"
+        features={[
+          '25-point hook scoring system',
+          'Performance psychology framework',
+          'Platform-specific optimization',
+          'Audience awareness level targeting'
+        ]}
+        category="BusinessApplication"
+      />
     </div>
   );
 }

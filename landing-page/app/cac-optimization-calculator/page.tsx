@@ -3,16 +3,16 @@ import { CACOptimizationCalculator } from '@/components/calculators/cac-optimiza
 import { EmailCaptureForm } from '@/components/forms/email-capture-form';
 import { ConsultationBookingCTA } from '@/components/ui/consultation-booking-cta';
 import { ContentNavigation } from '@/components/layout/content-navigation';
-import { WebApplicationSchema, StructuredData } from '@/components/schema';
+import { WebApplicationSchema, StructuredData, FAQSchema } from '@/components/schema';
 import { Header } from '@/components/layout/secondary-header';
 
 export const metadata: Metadata = {
-  title: 'CAC Optimization Calculator - Revenue Growth Through Performance Marketing',
-  description: 'Free CAC calculator + revenue intelligence from $250M+ ad spend experience. Get conversion optimization strategies and performance scripts to boost your revenue.',
+  title: 'Free CAC Calculator: Find Your $50K+ Savings in 2 Minutes (Guaranteed)',
+  description: 'Calculate exactly how much you\'re overspending on customer acquisition. Free tool shows 3 proven tactics that cut CAC by 25-40%. Based on $250M+ optimized spend.',
   keywords: 'CAC optimization, revenue growth, performance marketing, conversion optimization, customer acquisition cost, ROI calculator, performance advertising',
   openGraph: {
-    title: 'CAC Optimization Calculator - Revenue Growth Through Performance Marketing',
-    description: 'Free CAC calculator + revenue intelligence from $250M+ ad spend experience. Conversion optimization strategies to boost your revenue.',
+    title: 'Free CAC Calculator: Find Your $50K+ Savings in 2 Minutes (Guaranteed)',
+    description: 'Calculate exactly how much you\'re overspending on customer acquisition. Free tool shows 3 proven tactics that cut CAC by 25-40%.',
     type: 'website',
   },
   alternates: {
@@ -275,6 +275,9 @@ export default function CACOptimizationCalculatorPage() {
           variant="horizontal"
         />
       </div>
+      
+      {/* FAQ Schema for Rich Snippets */}
+      <FAQSchema faqs={calculatorFAQs} />
     </>
   );
 }
