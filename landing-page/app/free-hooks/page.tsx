@@ -189,7 +189,7 @@ export default function FreeHooksPage() {
       <WebApplicationSchema
         name="Free High-Converting Ad Templates"
         description="Battle-tested ad templates from $250M+ managed spend for instant download"
-        url="/free-hooks"
+        slug="/free-hooks"
         features={[
           '10 proven ad templates',
           'Copy & paste ready format',
