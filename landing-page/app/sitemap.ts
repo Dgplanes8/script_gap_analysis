@@ -322,6 +322,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.92,
     },
 
+    // Copywriting & UGC Content Strategy Series - High CTR Content
+    {
+      url: `${baseUrl}/blog/ultimate-ad-copywriting-framework-guide-12-proven-formulas`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/blog/ugc-content-strategy-blueprint-10x-user-content-generation`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.97,
+    },
+    {
+      url: `${baseUrl}/blog/high-converting-ad-copy-templates-25-proven-scripts`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.98,
+    },
+    {
+      url: `${baseUrl}/blog/psychology-based-copywriting-science-persuasive-ad-copy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.96,
+    },
+    {
+      url: `${baseUrl}/blog/ugc-creator-playbook-authentic-content-creation-guide`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.97,
+    },
+
     // About page - Important for trust and SEO
     {
       url: `${baseUrl}/about`,

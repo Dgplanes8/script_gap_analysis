@@ -8,7 +8,7 @@ This document outlines the complete development plan for the "AI Ad Script Gener
 To create a new page on an existing website that allows users to generate advertising concepts and scripts using an AI model. The tool will feature a tiered access system: a one-time free use for anonymous guests, a few free uses for registered users, and paid access for continued use.
 
 1.2. User Flow
-Anonymous User: Can generate one script for free. Tracked by IP.
+Anonymous User: Can generate one script for free. Tracked by a salted hash of their IP address for privacy.
 
 Registered User: After signing up, a user receives 3 free credits.
 
@@ -60,7 +60,7 @@ CREATE POLICY "Users can update their own profile." ON public.profiles
 -- #############################################################
 -- ## STEP 2: CREATE ANONYMOUS USAGE TABLE FOR GUESTS         ##
 -- #############################################################
--- Create the table to track usage by IP address
+-- Create the table to track usage by hashed IP address
 CREATE TABLE public.anonymous_usage (
   ip_address text NOT NULL PRIMARY KEY,
   usage_count integer DEFAULT 0,
@@ -209,6 +209,8 @@ SUPABASE_URL: Public URL of your Supabase project.
 
 SUPABASE_ANON_KEY: Public anon key for your Supabase project.
 
+SUPABASE_SERVICE_ROLE_KEY: Service-level key used by Edge Functions when writing through RLS-protected tables.
+
 OPENROUTER_API_KEY: Your secret API key from OpenRouter.
 
 STRIPE_SECRET_KEY: Your secret Stripe API key.
@@ -216,6 +218,8 @@ STRIPE_SECRET_KEY: Your secret Stripe API key.
 STRIPE_WEBHOOK_SECRET: The webhook signing secret from Stripe.
 
 STRIPE_PRICE_ID: The ID of the product price you created in Stripe.
+
+ANON_USAGE_PEPPER: Secret salt/pepper used to hash anonymous user IP addresses before storing usage.
 
 5.2. Deployment Checklist
 Run the SQL from Section 2 in the Supabase SQL Editor.

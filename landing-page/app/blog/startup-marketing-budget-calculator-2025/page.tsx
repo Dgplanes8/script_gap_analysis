@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { BlogPostTemplate } from '@/templates/blog-post-template';
 import { generateSEOMetadata, KEYWORD_CATEGORIES, COMMON_FAQS } from '@/templates/seo-config';
 import { MarketingBudgetCalculator } from '@/components/calculators/marketing-budget-calculator';
+import { EnhancedBlogImage } from '@/components/blog/enhanced-blog-image';
 
 const POST_CONFIG = {
   title: 'Free Startup Budget Calculator: Why 80% of Founders Spend Wrong (Fix It Now)',
@@ -37,6 +38,15 @@ export default function StartupMarketingBudgetCalculatorPage() {
       <p className="text-lg text-gray-600 mb-6">
         This comprehensive calculator helps early-stage founders allocate marketing budgets across channels, set realistic CAC targets, and optimize spend for sustainable growth. Based on industry benchmarks from 1,200+ startup marketing budgets.
       </p>
+      
+      <EnhancedBlogImage 
+        keywords={['startup', 'budget planning', 'business strategy', 'financial planning', 'entrepreneur']}
+        topic="startup budget planning and financial strategy"
+        alt="Entrepreneur planning startup marketing budget with financial documents and calculator on desk"
+        aspectRatio="wide"
+        priority={true}
+        className="my-8"
+      />
     </div>
   );
 
@@ -57,6 +67,15 @@ export default function StartupMarketingBudgetCalculatorPage() {
 
       <h2 className="text-3xl font-bold text-gray-900 mb-6">The Startup Marketing Budget Framework</h2>
       
+      <EnhancedBlogImage 
+        keywords={['business framework', 'marketing strategy', 'growth planning', 'startup scaling']}
+        topic="marketing budget framework and strategy"
+        alt="Visual representation of marketing budget framework with growth stages and allocation strategies"
+        aspectRatio="wide"
+        priority={false}
+        className="my-8"
+      />
+      
       <h3 className="text-2xl font-semibold text-gray-800 mb-4">1. Revenue-Based Budget Allocation</h3>
       <p className="text-gray-700 mb-6">
         <strong>Bootstrap Stage (Pre-Revenue):</strong> Allocate 15-25% of available runway to marketing, focusing on organic channels and content creation. Maximum $2K monthly until product-market fit validation.
@@ -69,6 +88,15 @@ export default function StartupMarketingBudgetCalculatorPage() {
       </p>
 
       <h3 className="text-2xl font-semibold text-gray-800 mb-4">2. Channel Allocation Strategy</h3>
+      
+      <EnhancedBlogImage 
+        keywords={['marketing channels', 'digital marketing', 'advertising strategy', 'channel distribution']}
+        topic="marketing channel allocation and strategy"
+        alt="Digital marketing channels visualization showing budget allocation across different platforms"
+        aspectRatio="standard"
+        priority={false}
+        className="my-6"
+      />
       
       <div className="bg-gray-50 rounded-lg p-6 mb-8">
         <h4 className="text-xl font-semibold text-gray-800 mb-4">Recommended Channel Mix by Stage:</h4>
@@ -107,6 +135,16 @@ export default function StartupMarketingBudgetCalculatorPage() {
       </div>
 
       <h3 className="text-2xl font-semibold text-gray-800 mb-4">3. CAC Target Setting Framework</h3>
+      
+      <EnhancedBlogImage 
+        keywords={['customer acquisition cost', 'CAC metrics', 'business analytics', 'performance tracking']}
+        topic="customer acquisition cost analysis and optimization"
+        alt="Business analytics dashboard showing customer acquisition cost metrics and performance data"
+        aspectRatio="standard"
+        priority={false}
+        className="my-6"
+      />
+      
       <p className="text-gray-700 mb-4">
         Customer Acquisition Cost (CAC) should align with your customer lifetime value (LTV) and payback period requirements:
       </p>
@@ -183,6 +221,15 @@ export default function StartupMarketingBudgetCalculatorPage() {
       </div>
 
       <h2 className="text-3xl font-bold text-gray-900 mb-6">Budget Tracking and Optimization</h2>
+      
+      <EnhancedBlogImage 
+        keywords={['budget optimization', 'data tracking', 'performance metrics', 'business intelligence']}
+        topic="budget tracking and performance optimization"
+        alt="Professional reviewing marketing budget performance data on computer screen with charts and graphs"
+        aspectRatio="wide"
+        priority={false}
+        className="my-8"
+      />
       
       <p className="text-gray-700 mb-6">
         Effective budget management requires weekly tracking of key metrics and monthly optimization based on performance data. Use the calculator above to establish baseline budgets, then track actual performance against projections.

@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { BlogPostTemplate } from '@/templates/blog-post-template';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
+import { EnhancedBlogImage } from '@/components/blog/enhanced-blog-image';
 
 const POST_CONFIG = {
   title: '52 Ad Templates That Generated $23M+ for Bootstrapped Startups (Free Download)',
@@ -37,6 +38,15 @@ export default function AdTemplatesStartupPage() {
       <p className="text-lg text-gray-600 mb-6">
         These 52 template structures are derived from analysis of 2,500+ high-performing startup ads, categorized by audience awareness level and business model. Each template includes performance scoring criteria and specific implementation guidance.
       </p>
+      
+      <EnhancedBlogImage 
+        keywords={['startup ad templates', 'advertising templates', 'startup marketing', 'ad creative templates']}
+        topic="startup advertising templates and marketing creative collection"
+        alt="Collection of high-converting startup ad templates displayed on computer screens with performance metrics"
+        aspectRatio="wide"
+        priority={true}
+        className="my-8"
+      />
     </div>
   );
 

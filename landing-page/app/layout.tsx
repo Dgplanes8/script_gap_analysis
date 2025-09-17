@@ -112,68 +112,163 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Critical CSS inlined for immediate render */}
+        {/* Critical CSS inlined for immediate render and Core Web Vitals optimization */}
         <style dangerouslySetInnerHTML={{
           __html: `
             :root {
               --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
-              --color-primary-blue: 18 109 251;
-              --color-primary-blue-dark: 15 90 214;
-              --color-primary-blue-light: 59 130 246;
+              --color-primary-blue: rgb(18 109 251);
+              --color-primary-blue-dark: rgb(15 90 214);
+              --color-primary-blue-light: rgb(59 130 246);
               --color-white: rgb(255 255 255);
               --color-gray-200: rgb(229 231 235);
-              --color-text-primary: rgb(17 24 39);
-              --color-text-secondary: rgb(107 114 128);
+              --color-gray-900: rgb(17 24 39);
+              --color-gray-700: rgb(55 65 81);
+              --color-gray-600: rgb(75 85 99);
             }
+            
             body {
               font-family: var(--font-inter);
               margin: 0;
               padding: 0;
               line-height: 1.6;
+              color: var(--color-gray-900);
               -webkit-font-smoothing: antialiased;
               -moz-osx-font-smoothing: grayscale;
+              font-display: swap;
             }
+            
+            /* Prevent layout shift with fixed header height */
+            .header {
+              position: sticky;
+              top: 0;
+              z-index: 50;
+              background: var(--color-white);
+              border-bottom: 1px solid var(--color-gray-200);
+              min-height: 4rem;
+              contain: layout style;
+            }
+            
+            /* Optimized hero section for LCP */
             .hero-section {
-              background: linear-gradient(135deg, var(--color-primary-blue) 0%, var(--color-primary-blue-dark) 50%, var(--color-primary-blue-light) 100%);
+              background: linear-gradient(135deg, var(--color-primary-blue) 0%, var(--color-primary-blue-dark) 100%);
               color: var(--color-white);
-              padding: 6rem 1rem;
+              padding: 6rem 1rem 4rem;
               text-align: center;
-              min-height: 70vh;
+              min-height: 60vh;
               display: flex;
               align-items: center;
               justify-content: center;
+              contain: layout style;
             }
+            
+            .hero-title {
+              font-size: 3.5rem;
+              font-weight: 800;
+              line-height: 1.1;
+              margin-bottom: 1.5rem;
+              contain: layout;
+            }
+            
+            .hero-subtitle {
+              font-size: 1.25rem;
+              opacity: 0.9;
+              max-width: 48rem;
+              margin: 0 auto 2rem;
+              contain: layout;
+            }
+            
+            /* Optimized button styles */
             .btn-primary {
-              background: var(--color-primary-blue);
-              color: var(--color-white);
+              background: var(--color-white);
+              color: var(--color-primary-blue);
               font-weight: 600;
-              padding: 0.875rem 1.5rem;
+              padding: 1rem 2rem;
               border-radius: 0.75rem;
               border: none;
-              font-size: 1rem;
+              font-size: 1.125rem;
               cursor: pointer;
               transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
               display: inline-flex;
               align-items: center;
               justify-content: center;
               text-decoration: none;
-              min-height: 3rem;
+              min-height: 3.5rem;
               box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+              will-change: transform;
             }
+            
             .btn-primary:hover {
-              background: var(--color-primary-blue-dark);
               transform: translateY(-2px);
               box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             }
-            .container { max-width: 80rem; margin: 0 auto; padding: 0 1rem; }
+            
+            /* Layout helpers with contain optimization */
+            .container { 
+              max-width: 80rem; 
+              margin: 0 auto; 
+              padding: 0 1rem;
+              contain: layout;
+            }
+            
+            /* Prevent font loading shift */
+            @font-face {
+              font-family: 'Inter';
+              font-display: swap;
+              src: url('/fonts/inter-var.woff2') format('woff2-variations');
+              font-weight: 100 900;
+              font-style: normal;
+            }
+            
+            /* Layout helpers */
             .text-center { text-align: center; }
             .flex { display: flex; }
             .items-center { align-items: center; }
             .justify-center { justify-content: center; }
-            html { scroll-behavior: smooth; }
+            .justify-between { justify-content: space-between; }
+            .mb-4 { margin-bottom: 1rem; }
+            .mb-6 { margin-bottom: 1.5rem; }
+            .mb-8 { margin-bottom: 2rem; }
+            .font-bold { font-weight: 700; }
+            .font-semibold { font-weight: 600; }
+            .text-lg { font-size: 1.125rem; }
+            .text-xl { font-size: 1.25rem; }
+            .text-2xl { font-size: 1.5rem; }
+            .text-3xl { font-size: 1.875rem; }
+            
+            /* Smooth scrolling */
+            html { 
+              scroll-behavior: smooth;
+              scroll-padding-top: 4rem;
+            }
+            
+            /* Responsive optimizations */
             @media (max-width: 768px) {
-              .hero-section { padding: 3rem 1rem; min-height: 60vh; }
-              .container { padding: 0 1rem; }
+              .hero-section { 
+                padding: 4rem 1rem 3rem; 
+                min-height: 50vh; 
+              }
+              .hero-title { 
+                font-size: 2.5rem; 
+              }
+              .hero-subtitle { 
+                font-size: 1.125rem; 
+              }
+              .container { 
+                padding: 0 1rem; 
+              }
+            }
+            
+            /* Loading states to prevent CLS */
+            .loading-skeleton {
+              background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+              background-size: 200% 100%;
+              animation: loading 1.5s infinite;
+            }
+            
+            @keyframes loading {
+              0% { background-position: 200% 0; }
+              100% { background-position: -200% 0; }
             }
           `
         }} />
