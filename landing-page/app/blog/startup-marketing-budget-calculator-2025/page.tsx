@@ -4,8 +4,8 @@ import { generateSEOMetadata, KEYWORD_CATEGORIES, COMMON_FAQS } from '@/template
 import { MarketingBudgetCalculator } from '@/components/calculators/marketing-budget-calculator';
 
 const POST_CONFIG = {
-  title: 'Startup Marketing Budget Calculator 2025',
-  description: 'Free startup marketing budget calculator for founders. Calculate optimal ad spend, CAC targets, and channel allocation with strategic recommendations.',
+  title: 'Free Startup Budget Calculator: Why 80% of Founders Spend Wrong (Fix It Now)',
+  description: 'Calculate your exact marketing budget like successful startups. Free tool shows channel allocation, CAC targets, and spend optimization. Stop wasting money on guesswork.',
   keywords: [
     ...KEYWORD_CATEGORIES.startup_marketing,
     ...KEYWORD_CATEGORIES.budget_optimization,

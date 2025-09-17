@@ -22,6 +22,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+  alternates: {
+    canonical: '/ad-formats-guide',
+  },
 };
 
 export default function AdFormatsGuidePage() {

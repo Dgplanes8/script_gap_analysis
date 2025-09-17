@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/secondary-header';
 import { Footer } from '@/components/layout/footer';
-import { StructuredData } from '@/components/schema';
+import { StructuredData, OrganizationSchema } from '@/components/schema';
 import { TrendingUp, Users, Award, Target, DollarSign, Building2, ArrowRight, Calendar, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { FreeWeekButton } from '@/components/ui/free-week-button';
@@ -388,6 +388,9 @@ export default function AboutPage() {
       
       {/* Footer */}
       <Footer />
+      
+      {/* Organization Schema */}
+      <OrganizationSchema />
     </>
   );
 }

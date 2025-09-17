@@ -3,8 +3,8 @@ import { BlogPostTemplate } from '@/templates/blog-post-template';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
 
 const POST_CONFIG = {
-  title: '52 High-Converting Ad Templates for Startups',
-  description: 'Free ad template framework guide for startups. 52 proven creative structures with performance scoring to reduce production time 70%.',
+  title: '52 Ad Templates That Generated $23M+ for Bootstrapped Startups (Free Download)',
+  description: 'Get the exact ad templates behind viral startup successes. 52 proven frameworks from $23M+ in tracked revenue. Copy, customize, and launch winning ads in minutes.',
   keywords: [
     ...KEYWORD_CATEGORIES.ad_creative,
     ...KEYWORD_CATEGORIES.startup_marketing,

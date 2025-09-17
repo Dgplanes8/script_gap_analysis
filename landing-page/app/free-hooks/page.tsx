@@ -190,7 +190,6 @@ export default function FreeHooksPage() {
         name="Free High-Converting Ad Templates"
         description="Battle-tested ad templates from $250M+ managed spend for instant download"
         url="/free-hooks"
-        applicationCategory="BusinessApplication"
         features={[
           '10 proven ad templates',
           'Copy & paste ready format',

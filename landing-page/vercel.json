@@ -134,6 +134,26 @@
       "source": "/pilot",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/blog/startup-marketing-templates",
+      "destination": "/blog/52-high-converting-ad-templates-startup",
+      "permanent": true
+    },
+    {
+      "source": "/marketing-tools",
+      "destination": "/tools",
+      "permanent": true
+    },
+    {
+      "source": "/calculators",
+      "destination": "/tools", 
+      "permanent": true
+    },
+    {
+      "source": "/creative-templates",
+      "destination": "/free-hooks",
+      "permanent": true
     }
   ]
 }

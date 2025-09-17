@@ -9,21 +9,21 @@ import { SocialSharing } from '@/components/blog/social-sharing';
 import { Header } from '@/components/layout/secondary-header';
 
 export const metadata: Metadata = {
-  title: 'Freemium to Premium: Conversion Optimization Framework for Mobile Apps | Strategic Ad Intelligence',
-  description: 'Master freemium conversion optimization with proven psychological triggers and Fortune 100 methodologies. Transform free users into high-value premium customers.',
+  title: 'How Spotify Converts 26% of Free Users to Premium (The Secret Framework)',
+  description: 'Get the exact freemium conversion tactics Spotify, Dropbox, and Zoom use to hit 25%+ conversion rates. Psychology triggers, timing strategies—all revealed.',
   keywords: 'freemium conversion optimization, mobile app monetization, user acquisition strategy, app revenue growth, conversion psychology',
   alternates: {
     canonical: '/blog/freemium-conversion-optimization-framework',
   },
   openGraph: {
-    title: 'Freemium to Premium: Conversion Optimization Framework for Mobile Apps',
-    description: 'Transform free users into premium customers with proven conversion strategies',
+    title: 'How Spotify Converts 26% of Free Users to Premium (The Secret Framework)',
+    description: 'Get the exact freemium conversion tactics Spotify, Dropbox, and Zoom use to hit 25%+ conversion rates.',
     type: 'article',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Freemium to Premium: Conversion Optimization Framework for Mobile Apps',
-    description: 'Transform free users into premium customers with proven conversion strategies',
+    title: 'How Spotify Converts 26% of Free Users to Premium (The Secret Framework)',
+    description: 'Get the exact freemium conversion tactics Spotify, Dropbox, and Zoom use to hit 25%+ conversion rates.',
   }
 };
 

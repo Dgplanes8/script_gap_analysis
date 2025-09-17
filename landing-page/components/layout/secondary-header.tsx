@@ -38,7 +38,7 @@ export function SecondaryHeader() {
     : 'bg-white border-b border-transparent';
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${headerClass}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 hidden transition-all duration-300 md:block ${headerClass}`}>
       <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between px-4 sm:h-20 sm:px-6">
         <Link href="/" className="flex items-center gap-3">
           <div className="rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 px-3 py-2 text-base font-semibold text-white shadow-lg sm:text-lg">

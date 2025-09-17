@@ -21,12 +21,12 @@ const SaaSCreativeROICalculator = dynamic(
 );
 
 export const metadata: Metadata = {
-  title: 'SaaS Creative ROI Calculator - Weekly Trend Intelligence Plans',
-  description: 'Free ROI calculator + weekly viral scripts for SaaS businesses. Get trending concepts and competitor analysis every Monday from Fortune 100 methodology.',
+  title: 'Free SaaS ROI Calculator: Find Your $100K+ Revenue Opportunity (2 Minutes)',
+  description: 'Calculate exactly how much revenue you\'re leaving on the table. Free tool shows 5 proven tactics that increased SaaS revenue by 40-60%. Based on Fortune 100 data.',
   keywords: 'SaaS creative ROI, weekly trend intelligence, viral scripts, SaaS marketing, competitor analysis, subscription business growth',
   openGraph: {
-    title: 'SaaS Creative ROI Calculator - Weekly Trend Intelligence Plans',
-    description: 'Free ROI calculator + weekly viral scripts for SaaS. Trending concepts every Monday from Fortune 100 experience.',
+    title: 'Free SaaS ROI Calculator: Find Your $100K+ Revenue Opportunity (2 Minutes)',
+    description: 'Calculate exactly how much revenue you\'re leaving on the table. Free tool shows 5 proven tactics that increased SaaS revenue by 40-60%.',
     type: 'website',
   },
   alternates: {

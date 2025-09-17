@@ -10,21 +10,21 @@ import { Header } from '@/components/layout/secondary-header';
 import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
-  title: 'Mobile App CAC Crisis: 2025 Acquisition Cost Reduction Guide | Strategic Ad Intelligence',
-  description: 'Discover proven strategies to optimize mobile app customer acquisition costs (CAC) in 2025. Learn how Strategic Ad Intelligence System helps growth teams reduce marketing expenses and maximize ROI.',
+  title: 'Mobile App CAC Skyrocketed 300%: The 7 Tactics That Still Work in 2025',
+  description: 'App CACs hit record highs but these 7 proven tactics still cut costs by 40-60%. Real case studies from apps that beat the crisis. Download the exact playbook.',
   keywords: 'mobile app CAC optimization, app acquisition cost, mobile app marketing efficiency, customer acquisition strategies, mobile app growth',
   alternates: {
     canonical: '/blog/mobile-app-cac-crisis-2025-guide',
   },
   openGraph: {
-    title: 'Mobile App CAC Crisis: 2025 Acquisition Cost Reduction Guide',
-    description: 'Proven strategies to reduce mobile app customer acquisition costs in 2025',
+    title: 'Mobile App CAC Skyrocketed 300%: The 7 Tactics That Still Work in 2025',
+    description: 'App CACs hit record highs but these 7 proven tactics still cut costs by 40-60%. Real case studies from apps that beat the crisis.',
     type: 'article',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mobile App CAC Crisis: 2025 Acquisition Cost Reduction Guide',
-    description: 'Proven strategies to reduce mobile app customer acquisition costs in 2025',
+    title: 'Mobile App CAC Skyrocketed 300%: The 7 Tactics That Still Work in 2025',
+    description: 'App CACs hit record highs but these 7 proven tactics still cut costs by 40-60%. Real case studies included.',
   }
 };
 

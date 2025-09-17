@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Get Featured - Monday Morning Marketer Success Stories',
   description:
     'Share your success story with Monday Morning Marketer and get featured in our case studies. Help other fitness and sports apps learn from your results.',
+  alternates: {
+    canonical: '/get-featured',
+  },
 };
 
 export default function GetFeaturedPage() {

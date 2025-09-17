@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: 'Thank You - Apsics Media',
   description:
     'Thank you for your interest in Apsics Media. Your next steps and what to expect.',
+  alternates: {
+    canonical: '/success',
+  },
 };
 
 type HeadlineVariant = {

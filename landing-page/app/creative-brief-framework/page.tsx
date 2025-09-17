@@ -7,12 +7,12 @@ import { Footer } from '@/components/layout/footer';
 import { ServiceTiers } from '@/components/layout/service-tiers';
 
 export const metadata: Metadata = {
-  title: 'Creative Brief Framework - Marketing Brief Template & Strategic Process | Creative Brief Guide',
-  description: 'Master our proven creative brief framework and marketing brief template used by subscription companies to increase conversion rates 3x faster. Streamline creative development from concept to high-converting execution.',
+  title: 'Fortune 100 Creative Brief Template (Copy It): 3x Faster Campaign Development',
+  description: 'Get the exact creative brief template Fortune 100s use to launch campaigns 3x faster. Complete framework eliminates back-and-forth. Download and start winning today.',
   keywords: 'creative brief framework, marketing brief template, advertising brief, creative brief template, strategic creative process, marketing brief, creative development framework, subscription marketing brief, campaign brief template, creative strategy framework',
   openGraph: {
-    title: 'Creative Brief Framework - Marketing Brief Template & Strategic Process',
-    description: 'Master the creative brief framework and marketing brief template that helps subscription companies increase conversions 3x faster. From concept to high-converting execution.',
+    title: 'Fortune 100 Creative Brief Template (Copy It): 3x Faster Campaign Development',
+    description: 'Get the exact creative brief template Fortune 100s use to launch campaigns 3x faster. Complete framework eliminates back-and-forth.',
     images: [
       {
         url: '/og-images/creative-brief-framework.jpg',
@@ -21,6 +21,9 @@ export const metadata: Metadata = {
         alt: 'Creative Brief Framework Guide',
       },
     ],
+  },
+  alternates: {
+    canonical: '/creative-brief-framework',
   },
 };
 

@@ -7,12 +7,12 @@ import { Header } from '@/components/layout/secondary-header';
 import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
-  title: 'Advanced Marketing Attribution Framework for SaaS Companies | Strategic Ad Intelligence',
-  description: 'Master multi-touch attribution modeling for SaaS companies. Implement advanced CAC measurement, optimize marketing spend, and drive revenue growth with proven enterprise attribution methodologies.',
+  title: 'Free Attribution Framework: Track Every $1 Spent to $10 Earned (ROI Proof)',
+  description: 'Stop guessing which channels work. Get the exact attribution system that tracks $250M+ in spend. Multi-touch modeling, CAC optimization—finally know your true ROI.',
   keywords: 'SaaS marketing attribution, multi-touch attribution framework, B2B attribution modeling, CAC optimization, marketing attribution software, revenue attribution tracking, SaaS marketing analytics',
   openGraph: {
-    title: 'Advanced Marketing Attribution Framework for SaaS Companies',
-    description: 'Complete guide to multi-touch attribution modeling for subscription businesses. Accurate CAC measurement and revenue attribution.',
+    title: 'Free Attribution Framework: Track Every $1 Spent to $10 Earned (ROI Proof)',
+    description: 'Stop guessing which channels work. Get the exact attribution system that tracks $250M+ in spend. Multi-touch modeling, CAC optimization.',
     type: 'article',
   },
   alternates: {

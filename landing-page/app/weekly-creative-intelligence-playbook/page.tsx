@@ -4,12 +4,12 @@ import { ArrowRight, CheckCircle, TrendingUp, Target, Clock, BarChart3, Users, Z
 import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
-  title: 'Weekly Creative Intelligence Playbook: Fortune 100 Methodology for Subscription Growth | Apsics Media',
-  description: 'Master the systematic weekly creative intelligence methodology used by Fortune 100 companies. Reduce CAC by 25%, increase conversion rates 3x faster with performance-scored creative development for subscription businesses.',
+  title: 'The Weekly Creative Intelligence Secret: Why Fortune 100s Never Run Out of Ads',
+  description: 'Discover the systematic process Fortune 100s use to generate endless high-converting creative. Complete playbook reveals the weekly methodology that scales indefinitely.',
   keywords: 'weekly creative intelligence, Fortune 100 creative methodology, systematic creative development, subscription business creative strategy, performance-scored creative, weekly creative process, creative intelligence framework',
   openGraph: {
-    title: 'Weekly Creative Intelligence Playbook: Fortune 100 Methodology',
-    description: 'Master the systematic weekly creative intelligence methodology used by Fortune 100 companies. Reduce CAC by 25%, increase conversion rates 3x faster.',
+    title: 'The Weekly Creative Intelligence Secret: Why Fortune 100s Never Run Out of Ads',
+    description: 'Discover the systematic process Fortune 100s use to generate endless high-converting creative. Complete playbook reveals the weekly methodology.',
     type: 'article',
   },
   alternates: {

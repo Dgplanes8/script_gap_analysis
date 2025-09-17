@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import { SaaSGrowthMarketingGuide } from '@/components/content/saas-growth-marketing-guide';
 
 export const metadata: Metadata = {
-  title: 'SaaS Growth Marketing Channel Optimization Guide - Scale Your SaaS Business',
-  description: 'Complete guide to SaaS growth marketing with interactive channel assessment tool, optimization playbook, and growth strategy frameworks. Includes channel performance audit and consultation.',
+  title: 'The $10M SaaS Growth Playbook (Free Download): 0 to $10M ARR Roadmap',
+  description: 'Get the exact growth playbook that scaled 50+ SaaS companies to $10M+ ARR. Channel strategies, CAC optimization, retention tactics—all free. Skip 2 years of trial and error.',
   keywords: 'SaaS growth marketing consultant, SaaS growth marketing guide, SaaS marketing channels, SaaS growth strategy, SaaS marketing optimization',
   openGraph: {
-    title: 'SaaS Growth Marketing Channel Optimization Guide - Scale Your SaaS Business',
-    description: 'Complete guide to SaaS growth marketing with interactive assessment tools and optimization frameworks.',
+    title: 'The $10M SaaS Growth Playbook (Free Download): 0 to $10M ARR Roadmap',
+    description: 'Get the exact growth playbook that scaled 50+ SaaS companies to $10M+ ARR. Channel strategies, CAC optimization, retention tactics.',
     type: 'website',
   },
   alternates: {

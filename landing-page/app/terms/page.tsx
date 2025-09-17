@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: 'Terms of Service - Apsics Media',
   description: 'Terms and conditions for using Apsics Media services.',
   robots: { index: true, follow: true },
+  alternates: {
+    canonical: '/terms',
+  },
 };
 
 export default function TermsPage() {

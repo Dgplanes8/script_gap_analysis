@@ -152,6 +152,33 @@ const nextConfig = {
         destination: 'https://apsicsmedia.com/:path*',
         permanent: true, // This creates a 301 redirect
       },
+      // Common legacy page redirects
+      {
+        source: '/index',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/index.html',
+        destination: '/',
+        permanent: true,
+      },
+      // Catch common alternative spellings/paths
+      {
+        source: '/blog/startup-templates',
+        destination: '/blog/52-high-converting-ad-templates-startup',
+        permanent: true,
+      },
+      {
+        source: '/cac-calculator',
+        destination: '/cac-optimization-calculator',
+        permanent: true,
+      },
+      {
+        source: '/templates',
+        destination: '/free-hooks',
+        permanent: true,
+      },
     ];
   },
 };

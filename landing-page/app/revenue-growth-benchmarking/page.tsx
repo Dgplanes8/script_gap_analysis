@@ -7,12 +7,12 @@ import { Header } from '@/components/layout/secondary-header';
 import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
-  title: 'Subscription Revenue Growth: Creative Strategy Benchmarking Tool | Strategic Ad Intelligence',
-  description: 'Benchmark your creative strategy performance against industry leaders. Get personalized recommendations to accelerate subscription revenue growth.',
+  title: 'Free Benchmark Tool: How You Stack Up Against $250M+ Revenue Leaders',
+  description: 'See exactly where you rank vs. top performers. Free benchmarking tool reveals 3 gaps costing you $50K+ monthly. Compare against 500+ successful brands instantly.',
   keywords: 'creative strategy subscription revenue growth, subscription marketing benchmarks, revenue growth optimization, creative performance analysis',
   openGraph: {
-    title: 'Subscription Revenue Growth: Creative Strategy Benchmarking Tool',
-    description: 'Benchmark your creative strategy performance and get personalized recommendations to accelerate subscription revenue growth.',
+    title: 'Free Benchmark Tool: How You Stack Up Against $250M+ Revenue Leaders',
+    description: 'See exactly where you rank vs. top performers. Free benchmarking tool reveals 3 gaps costing you $50K+ monthly.',
     type: 'article',
   },
   alternates: {

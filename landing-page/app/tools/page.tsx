@@ -10,12 +10,12 @@ import Link from 'next/link';
 import { FreeWeekButton } from '@/components/ui/free-week-button';
 
 export const metadata: Metadata = {
-  title: 'Free Revenue Optimization Tools | ROI Calculator, Creative Assessment & Hook Generator | APSICS Media',
-  description: 'Free tools for business growth: ad ROI calculator, creative benchmark assessment, hook generator. Optimize your marketing budget and boost revenue performance.',
+  title: '7 Free Growth Tools That Saved Startups $2.3M+ (Download All)',
+  description: 'Get the exact calculators and frameworks Fortune 100s use. ROI calculator, benchmark tools, hook generator—all free. Find your $50K+ savings in minutes.',
   keywords: 'ad ROI calculator, creative benchmark tool, revenue optimization tools, hook generator, marketing budget calculator, creative assessment, performance marketing tools',
   openGraph: {
-    title: 'Free Revenue Optimization Tools | ROI Calculator & Creative Assessment',
-    description: 'Free tools for business growth: ad ROI calculator, creative benchmark assessment, hook generator. Optimize your marketing budget and boost revenue.',
+    title: '7 Free Growth Tools That Saved Startups $2.3M+ (Download All)',
+    description: 'Get the exact calculators and frameworks Fortune 100s use. ROI calculator, benchmark tools, hook generator—all free.',
     type: 'website',
     images: [
       {
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Startup Marketing Tools | ROI Calculator & Creative Assessment',
-    description: 'Free tools for startup founders: ROI calculator, creative assessment, hook generator.',
+    title: '7 Free Growth Tools That Saved Startups $2.3M+ (Download All)',
+    description: 'Get the exact calculators and frameworks Fortune 100s use. All free tools in one place.',
     images: ['/images/tools-og.jpg'],
   },
   alternates: {

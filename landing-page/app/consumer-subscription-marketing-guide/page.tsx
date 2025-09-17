@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import { ConsumerSubscriptionMarketingGuide } from '@/components/content/consumer-subscription-marketing-guide';
 
 export const metadata: Metadata = {
-  title: 'Consumer Subscription Marketing Channel Optimization Guide - Scale Your D2C Business',
-  description: 'Complete guide to consumer subscription marketing with interactive channel assessment tool, optimization playbook, and growth strategy frameworks. Includes channel performance audit and consultation.',
+  title: 'D2C Subscription Secrets: How 3 Brands Hit $100M+ ARR (Free Playbook)',
+  description: 'Get the exact strategies behind Dollar Shave Club, BarkBox, and Stitch Fix. Complete D2C playbook: retention tactics, churn prevention, viral growth loops—all free.',
   keywords: 'consumer subscription marketing consultant, D2C subscription marketing guide, consumer subscription marketing channels, D2C growth strategy, subscription marketing optimization',
   openGraph: {
-    title: 'Consumer Subscription Marketing Channel Optimization Guide - Scale Your D2C Business',
-    description: 'Complete guide to consumer subscription marketing with interactive assessment tools and optimization frameworks.',
+    title: 'D2C Subscription Secrets: How 3 Brands Hit $100M+ ARR (Free Playbook)',
+    description: 'Get the exact strategies behind Dollar Shave Club, BarkBox, and Stitch Fix. Complete D2C playbook with retention tactics and viral growth loops.',
     type: 'website',
   },
   alternates: {

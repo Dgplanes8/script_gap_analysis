@@ -144,12 +144,12 @@ export function FreeHooksSection() {
                   <h4 className="text-lg font-semibold text-gray-900 mb-3">
                     10 Proven Hook Frameworks
                   </h4>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Problem-solution hooks that create urgency</li>
-                    <li>• Authority-based hooks that build trust</li>
-                    <li>• Transformation hooks that show outcomes</li>
-                    <li>• Social proof hooks that reduce risk</li>
-                    <li>• Scarcity hooks that drive immediate action</li>
+                  <ul className="list-disc list-inside space-y-2 text-sm text-gray-600 sm:text-base">
+                    <li>Problem-solution hooks that create urgency</li>
+                    <li>Authority-based hooks that build trust</li>
+                    <li>Transformation hooks that show outcomes</li>
+                    <li>Social proof hooks that reduce risk</li>
+                    <li>Scarcity hooks that drive immediate action</li>
                   </ul>
                 </div>
                 
@@ -157,12 +157,12 @@ export function FreeHooksSection() {
                   <h4 className="text-lg font-semibold text-gray-900 mb-3">
                     Psychology Breakdown
                   </h4>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>• Why each hook drives sales (not just engagement)</li>
-                    <li>• When to use each framework</li>
-                    <li>• Cross-vertical adaptation examples</li>
-                    <li>• Performance optimization tips</li>
-                    <li>• Common mistakes that kill conversions</li>
+                  <ul className="list-disc list-inside space-y-2 text-sm text-gray-600 sm:text-base">
+                    <li>Why each hook drives sales (not just engagement)</li>
+                    <li>When to use each framework</li>
+                    <li>Cross-vertical adaptation examples</li>
+                    <li>Performance optimization tips</li>
+                    <li>Common mistakes that kill conversions</li>
                   </ul>
                 </div>
               </div>

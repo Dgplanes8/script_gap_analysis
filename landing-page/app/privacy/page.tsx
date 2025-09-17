@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: 'Privacy Policy - Apsics Media',
   description: 'How Apsics Media collects, uses, and protects your personal information.',
   robots: { index: true, follow: true },
+  alternates: {
+    canonical: '/privacy',
+  },
 };
 
 export default function PrivacyPage() {
