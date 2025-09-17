@@ -622,7 +622,6 @@ export default function HookGeneratorMethodology() {
         name="Hook Generator Methodology Framework"
         description="Strategic framework for generating high-converting ad hooks and creative concepts"
         slug="/hook-generator"
-        applicationCategory="BusinessApplication"
         features={[
           '25-point hook scoring system',
           'Performance psychology framework',
