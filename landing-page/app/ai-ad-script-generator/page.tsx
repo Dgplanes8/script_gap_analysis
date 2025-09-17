@@ -162,7 +162,14 @@ export default function AdScriptGeneratorPage() {
         }
 
         if (typeof data?.creditsRemaining === 'number') {
-          setProfile((prev) => (prev ? { ...prev, credits_remaining: data.creditsRemaining } : prev));
+          setProfile((prev) =>
+            prev
+              ? {
+                  ...prev,
+                  credits_remaining: data.creditsRemaining ?? null,
+                }
+              : prev,
+          );
         }
       } catch (submitError) {
         setError(submitError instanceof Error ? submitError.message : 'Unexpected error occurred.');
