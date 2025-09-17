@@ -621,7 +621,7 @@ export default function HookGeneratorMethodology() {
       <WebApplicationSchema
         name="Hook Generator Methodology Framework"
         description="Strategic framework for generating high-converting ad hooks and creative concepts"
-        url="/hook-generator"
+        slug="/hook-generator"
         applicationCategory="BusinessApplication"
         features={[
           '25-point hook scoring system',
