@@ -13,6 +13,16 @@ const anonKey = Deno.env.get("SUPABASE_ANON_KEY");
 const openRouterApiKey = Deno.env.get("OPENROUTER_API_KEY");
 const anonymousUsagePepper = Deno.env.get("ANON_USAGE_PEPPER");
 
+let basePrompt = "";
+
+try {
+  const promptPath = new URL("../../../../../Prompt_Database/script_bot_prompt.md", import.meta.url);
+  basePrompt = await Deno.readTextFile(promptPath);
+} catch (promptError) {
+  console.error("Failed to load base prompt", promptError);
+  throw new Error("Unable to load script prompt instructions");
+}
+
 if (!supabaseUrl || !serviceRoleKey || !anonKey) {
   throw new Error("Missing Supabase configuration for edge function");
 }
@@ -174,7 +184,7 @@ let ipHash: string | null = null;
       "X-Title": "AI Ad Script Generator",
     },
     body: JSON.stringify({
-      model: "openrouter/llama-3.1-70b-instruct",
+      model: "openrouter/sonoma-dusk-alpha",
       messages: [
         {
           role: "system",
@@ -276,21 +286,24 @@ function buildPrompt({
   tone,
   callToAction,
 }: PromptParams) {
-  return `Generate a ${platform} advertising script.
-Company: ${companyName}
-Product Details: ${productDescription}
+  return `${basePrompt.trim()}
+
+---
+Use the above strategic workflow to craft a finished advertising script. Reference the following campaign brief:
+
+Company Name: ${companyName}
+Product Description: ${productDescription}
 Target Audience: ${targetAudience}
+Primary Platform: ${platform}
 Desired Tone: ${tone}
 Call to Action: ${callToAction}
 
-Deliver a script with:
-1. A pattern-interrupt hook tailored to ${platform}.
-2. Narrative progression (problem → tension → solution → CTA).
-3. Clear transitions, scene directions, and on-screen text cues.
-4. Contextual language that matches the requested tone.
-5. A closing CTA aligned with "${callToAction}".
-
-Keep it concise (max 60 seconds for video scripts).`;
+Output Requirements:
+1. Select the optimal framework based on the campaign brief and platform.
+2. Provide a concise, platform-native script that follows the chosen framework.
+3. Include any critical stage directions or on-screen text cues needed for production.
+4. Close with an explicit CTA aligned to "${callToAction}".
+`;
 }
 
 function extractIpAddress(headers: Headers) {
