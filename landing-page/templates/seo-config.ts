@@ -148,6 +148,22 @@ export const KEYWORD_CATEGORIES = {
     'creative templates',
     'ad design'
   ],
+  creative_optimization: [
+    'creative testing',
+    'creative optimization',
+    'performance creative',
+    'creative intelligence',
+    'ad iteration',
+    'creative analytics'
+  ],
+  performance_marketing: [
+    'performance marketing',
+    'paid media strategy',
+    'performance advertising',
+    'growth marketing',
+    'data-driven marketing',
+    'conversion optimization'
+  ],
   budget_optimization: [
     'marketing budget',
     'ad budget optimization',
@@ -163,6 +179,22 @@ export const KEYWORD_CATEGORIES = {
     'marketing tools',
     'free marketing tools',
     'startup tools'
+  ],
+  automation_tools: [
+    'marketing automation',
+    'workflow automation',
+    'crm automation',
+    'lead nurturing automation',
+    'customer journey automation',
+    'automation software'
+  ],
+  local_business: [
+    'local business marketing',
+    'local advertising',
+    'service business marketing',
+    'local lead generation',
+    'community marketing',
+    'geotargeted marketing'
   ],
   strategy_guides: [
     'marketing strategy',
