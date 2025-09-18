@@ -160,7 +160,7 @@ export function SimplePricingSection() {
   ];
 
   return (
-    <section id="pricing" className="py-20 bg-[#F8F8F8] relative">
+    <section id="service-tiers" className="py-20 bg-[#F8F8F8] relative">
       <div className="max-w-5xl mx-auto px-6">
         
         {/* Section Header */}

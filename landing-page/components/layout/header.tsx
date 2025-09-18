@@ -3,11 +3,10 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, ArrowRight } from 'lucide-react';
-import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 const NAV_LINKS = [
   { label: 'Overview', href: '/#how-it-works' },
-  { label: 'Plans & Pricing', href: '/#pricing' },
+  { label: 'Plans & Pricing', href: '/#service-tiers' },
 ];
 
 function HeaderLink({ label, href, onNavigate }: { label: string; href: string; onNavigate: () => void }) {
@@ -23,7 +22,6 @@ function HeaderLink({ label, href, onNavigate }: { label: string; href: string; 
 }
 
 export function Header() {
-  const { openModal: openFreeWeekModal } = useFreeWeek();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -35,14 +33,6 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleFreeWeek = (source: string) => {
-    openFreeWeekModal({
-      title: 'Start Your FREE Week Trial',
-      subtitle: 'Get trending creative concepts and custom scripts delivered every Monday',
-      source,
-    });
-  };
 
   const closeMobileMenu = () => setIsOpen(false);
 
@@ -74,13 +64,13 @@ export function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center">
-          <button
-            onClick={() => handleFreeWeek('header-cta')}
+          <Link
+            href="/#service-tiers"
             className="inline-flex items-center gap-2 rounded-xl bg-[#126DFB] px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#0F5AD6]"
           >
             Start Free Week Trial
             <ArrowRight className="h-4 w-4" />
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -101,16 +91,14 @@ export function Header() {
               <HeaderLink key={link.label} label={link.label} href={link.href} onNavigate={closeMobileMenu} />
             ))}
             <div className="pt-4">
-              <button
-                onClick={() => {
-                  handleFreeWeek('header-mobile-cta');
-                  closeMobileMenu();
-                }}
+              <Link
+                href="/#service-tiers"
+                onClick={closeMobileMenu}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#126DFB] px-5 py-3 text-base font-semibold text-white shadow-lg transition-colors hover:bg-[#0F5AD6]"
               >
                 Start Free Week Trial
                 <ArrowRight className="h-5 w-5" />
-              </button>
+              </Link>
             </div>
           </nav>
         </div>

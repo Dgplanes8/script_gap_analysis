@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { CheckCircle, Award, Clock } from 'lucide-react';
-import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -28,8 +27,6 @@ const itemVariants = {
 };
 
 export function AlyticsHero() {
-  const { openModal } = useFreeWeek();
-  
   return (
     <section className="relative pt-24 pb-20 px-6 overflow-hidden bg-white">
       <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -70,12 +67,8 @@ export function AlyticsHero() {
 
           {/* CTA Section */}
           <motion.div variants={itemVariants} className="space-y-6">
-            <motion.button
-              onClick={() => openModal({
-                title: "Start Your FREE Week Trial",
-                subtitle: "Get trending creative concepts and custom scripts delivered every Monday",
-                source: "hero-cta"
-              })}
+            <motion.a
+              href="#service-tiers"
               whileHover={{ 
                 scale: 1.02, 
                 boxShadow: "0 12px 30px rgba(18, 109, 251, 0.4)" 
@@ -84,7 +77,7 @@ export function AlyticsHero() {
               className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
             >
               Start Free Week Trial
-            </motion.button>
+            </motion.a>
             
             <motion.div
               initial={{ opacity: 0 }}

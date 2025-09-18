@@ -2,10 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 export function AlyticsNavbar() {
-  const { openModal } = useFreeWeek();
   
   return (
     <motion.nav 
@@ -68,7 +66,7 @@ export function AlyticsNavbar() {
             </motion.a>
             
             <motion.a
-              href="#pricing"
+              href="#service-tiers"
               className="text-gray-600 hover:text-gray-900 transition-colors text-base font-medium relative group"
               whileHover={{ y: -1 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -87,18 +85,14 @@ export function AlyticsNavbar() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <motion.button
-              onClick={() => openModal({
-                title: "Start Your FREE Week Trial",
-                subtitle: "Get trending creative concepts and custom scripts delivered every Monday",
-                source: "navbar-cta"
-              })}
+            <motion.a
+              href="#service-tiers"
               whileHover={{ scale: 1.02, boxShadow: "0 8px 25px rgba(18, 109, 251, 0.3)" }}
               whileTap={{ scale: 0.98 }}
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-200 shadow-lg"
             >
               Start Free Week
-            </motion.button>
+            </motion.a>
           </motion.div>
 
         </div>

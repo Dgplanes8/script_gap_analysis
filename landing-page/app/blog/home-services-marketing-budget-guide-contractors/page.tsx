@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { BlogPostTemplate } from '@/templates/blog-post-template';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
 import { MarketingBudgetCalculator } from '@/components/calculators/marketing-budget-calculator';
@@ -477,14 +478,18 @@ export default function HomeServicesMarketingBudgetPage() {
               based on insights from $250MM+ in managed campaigns.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button
+              <Link
+                href="/#service-tiers"
                 className="bg-white text-brand-600 hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl transition-transform duration-200 shadow-lg hover:scale-[1.02] active:scale-95"
               >
                 Start Your FREE Week
-              </button>
-              <button className="text-white underline hover:no-underline font-medium">
-                Download Free Budget Template →
-              </button>
+              </Link>
+              <Link
+                href="/free-hooks"
+                className="text-white underline hover:no-underline font-medium"
+              >
+                Download Free Hook Templates →
+              </Link>
             </div>
           </section>
         </div>

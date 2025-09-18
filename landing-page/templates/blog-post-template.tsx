@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, Clock, Users, Target, Share2, BookOpen } from 'lucide-react';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { EmailCaptureForm } from '@/components/forms/email-capture-form';
+import { ConvertKitForm } from '@/components/forms/convertkit-form';
 import { SimpleAirtableForm } from '@/components/forms/simple-airtable-form';
 import { SocialSharing } from '@/components/blog/social-sharing';
 import { RelatedArticles } from '@/components/blog/related-articles';
@@ -69,7 +69,7 @@ export function BlogPostTemplate({
   faqSection = [],
   primaryCtaText = "Start Your FREE Week",
   primaryCtaLink = "/#service-tiers",
-  secondaryCtaText = "Download MY Templates",
+  secondaryCtaText = "Download Free Hook Templates",
   secondaryCtaLink = "/free-hooks",
   leadMagnetTitle = "Get Weekly Ad Templates for FREE",
   leadMagnetDescription = "Join 1,200+ startup founders getting winning templates every Monday",
@@ -166,10 +166,11 @@ export function BlogPostTemplate({
                     {leadMagnetDescription}
                   </p>
                   <div className="max-w-md mx-auto">
-                    <EmailCaptureForm
+                    <ConvertKitForm
+                      formId={process.env.NEXT_PUBLIC_CONVERTKIT_FORM_ID || '8372309'}
+                      className="ck-reset"
                       placeholder="Enter your work email"
                       buttonText={secondaryCtaText}
-                      variant="hero"
                       source="blog_lead_magnet"
                     />
                   </div>

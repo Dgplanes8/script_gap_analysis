@@ -3,17 +3,15 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, ArrowRight } from 'lucide-react';
-import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 const NAV_LINKS = [
   { label: 'Overview', href: '/' },
-  { label: 'Plans & Pricing', href: '/#pricing' },
+  { label: 'Plans & Pricing', href: '/#service-tiers' },
 ];
 
 const navItemClass = 'text-sm font-semibold text-gray-700 transition-colors hover:text-brand-600';
 
 export function SecondaryHeader() {
-  const { openModal } = useFreeWeek();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
@@ -22,14 +20,6 @@ export function SecondaryHeader() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const triggerFreeWeek = (source: string) => {
-    openModal({
-      title: 'Start Your FREE Week Trial',
-      subtitle: 'Get trending creative concepts and custom scripts delivered every Monday',
-      source,
-    });
-  };
 
   const closeMobileMenu = () => setIsMobileOpen(false);
 
@@ -60,13 +50,13 @@ export function SecondaryHeader() {
         </nav>
 
         <div className="hidden items-center lg:flex">
-          <button
-            onClick={() => triggerFreeWeek('secondary-header-cta')}
+          <Link
+            href="/#service-tiers"
             className="inline-flex items-center gap-2 rounded-xl bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-transform hover:-translate-y-0.5 hover:bg-brand-600"
           >
             Start Free Week Trial
             <ArrowRight className="h-4 w-4" />
-          </button>
+          </Link>
         </div>
 
         <button
@@ -92,16 +82,14 @@ export function SecondaryHeader() {
               </Link>
             ))}
             <div className="pt-4">
-              <button
-                onClick={() => {
-                  triggerFreeWeek('secondary-header-mobile-cta');
-                  closeMobileMenu();
-                }}
+              <Link
+                href="/#service-tiers"
+                onClick={closeMobileMenu}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-500 px-5 py-3 text-base font-semibold text-white shadow-lg transition-transform hover:-translate-y-0.5 hover:bg-brand-600"
               >
                 Start Free Week Trial
                 <ArrowRight className="h-5 w-5" />
-              </button>
+              </Link>
             </div>
           </nav>
         </div>

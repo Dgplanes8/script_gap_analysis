@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { Award, TrendingUp, Users, BarChart3 } from 'lucide-react';
-import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -57,7 +56,6 @@ function StatCard({ icon, number, label, description }: StatCardProps) {
 }
 
 export function SocialProofSection() {
-  const { openModal } = useFreeWeek();
   const stats = [
     {
       icon: <Award className="w-6 h-6" />,
@@ -174,12 +172,8 @@ export function SocialProofSection() {
           <p className="text-lg text-gray-600 mb-6">
             Ready to access these proven frameworks for your startup?
           </p>
-          <motion.button
-            onClick={() => openModal({
-              source: 'social-proof-cta',
-              title: 'Start Your FREE Week Trial',
-              subtitle: 'Get trending creative concepts and custom scripts delivered every Monday'
-            })}
+          <motion.a
+            href="#service-tiers"
             whileHover={{ 
               scale: 1.02, 
               boxShadow: "0 12px 30px rgba(18, 109, 251, 0.4)" 
@@ -188,7 +182,7 @@ export function SocialProofSection() {
             className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
           >
             Start Free Week Trial
-          </motion.button>
+          </motion.a>
         </motion.div>
 
       </div>

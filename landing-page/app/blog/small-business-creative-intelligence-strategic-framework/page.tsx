@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { BlogPostTemplate } from '@/templates/blog-post-template';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
 
@@ -937,12 +938,18 @@ export default function SmallBusinessCreativeIntelligencePage() {
               based on insights from $250MM+ in managed campaigns.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="bg-white text-[#126DFB] hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl shadow-lg transition-transform duration-200 hover:scale-105 active:scale-95">
+              <Link
+                href="/#service-tiers"
+                className="bg-white text-[#126DFB] hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl shadow-lg transition-transform duration-200 hover:scale-105 active:scale-95"
+              >
                 Start Your FREE Week
-              </button>
-              <button className="text-white underline hover:no-underline font-medium">
-                Download Framework Templates →
-              </button>
+              </Link>
+              <Link
+                href="/free-hooks"
+                className="text-white underline hover:no-underline font-medium"
+              >
+                Download Free Hook Templates →
+              </Link>
             </div>
           </section>
         </div>

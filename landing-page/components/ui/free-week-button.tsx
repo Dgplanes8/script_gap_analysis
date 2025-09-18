@@ -1,9 +1,9 @@
 'use client';
 
 import { ReactNode, useMemo } from 'react';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import clsx from 'clsx';
-import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 interface FreeWeekButtonProps {
   label?: string;
@@ -20,8 +20,6 @@ export function FreeWeekButton({
   className,
   children,
 }: FreeWeekButtonProps) {
-  const { openModal } = useFreeWeek();
-
   const buttonClasses = useMemo(() => {
     const base =
       'inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#126DFB]';
@@ -49,17 +47,13 @@ export function FreeWeekButton({
   }, [variant, className]);
 
   return (
-    <button
-      type="button"
-      onClick={() => openModal({
-        title: 'Start Your FREE Week Trial',
-        subtitle: 'Get trending creative concepts and custom scripts delivered every Monday',
-        source,
-      })}
+    <Link
+      href="/#service-tiers"
       className={buttonClasses}
+      data-source={source}
     >
       {children ?? label ?? 'Start Free Week Trial'}
       {variant !== 'link' && <ArrowRight className="h-4 w-4" />}
-    </button>
+    </Link>
   );
 }
