@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { X, Mail } from 'lucide-react';
-import { EmailCaptureForm } from '@/components/forms/email-capture-form';
+import { ConvertKitForm } from '@/components/forms/convertkit-form';
 
 interface ExitIntentPopupProps {
   title?: string;
@@ -85,10 +85,11 @@ export function ExitIntentPopup({
             </p>
           </div>
 
-          <EmailCaptureForm
-            placeholder="Enter your email for instant access"
+          <ConvertKitForm
+            formId={process.env.NEXT_PUBLIC_CONVERTKIT_FORM_ID || '8372309'}
+            placeholder="Enter your work email"
             buttonText="Get My Free Templates"
-            variant="cta"
+            className="ck-reset"
             source="exit-intent-popup"
           />
 

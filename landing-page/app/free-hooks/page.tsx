@@ -3,7 +3,7 @@ import { Header } from '@/components/layout/secondary-header';
 import { StructuredData, WebApplicationSchema } from '@/components/schema';
 import { Footer } from '@/components/layout/footer';
 import { Download, BookOpen, Zap, Users } from 'lucide-react';
-import { EmailCaptureForm } from '@/components/forms/email-capture-form';
+import { ConvertKitForm } from '@/components/forms/convertkit-form';
 
 export const metadata: Metadata = {
   title: 'Free Download: 10 Ad Templates That Generated $47M+ (Copy & Paste Ready)',
@@ -100,11 +100,12 @@ export default function FreeHooksPage() {
               <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Get Your Revenue-Driving Creative Templates</h3>
                 <p className="text-gray-600 mb-4">Enter your email to download 10 proven ad templates from $250MM+ revenue intelligence experience</p>
-                  
-                  <EmailCaptureForm
+                
+                  <ConvertKitForm
+                    formId={process.env.NEXT_PUBLIC_CONVERTKIT_FORM_ID || '8372309'}
+                    className="ck-reset"
                     placeholder="Enter your work email"
                     buttonText="Download Free Templates"
-                    variant="cta"
                     source="free-hooks-main"
                   />
                   

@@ -6,12 +6,16 @@ interface ConvertKitFormProps {
   formId: string;
   className?: string;
   source?: string;
+  placeholder?: string;
+  buttonText?: string;
 }
 
 export function ConvertKitForm({
   formId,
   className = '',
   source = 'convertkit-form',
+  placeholder = 'Enter your work email',
+  buttonText = 'Get Free Hooks',
 }: ConvertKitFormProps) {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -73,7 +77,7 @@ export function ConvertKitForm({
           type="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          placeholder="Enter your work email"
+          placeholder={placeholder}
           className="h-12 flex-1 rounded-xl border border-gray-200 px-4 text-base text-gray-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
           required
         />
@@ -82,7 +86,7 @@ export function ConvertKitForm({
           disabled={isSubmitting}
           className="inline-flex h-12 items-center justify-center rounded-xl bg-brand-600 px-6 text-base font-semibold text-white shadow-lg transition-colors hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {isSubmitting ? 'Subscribing...' : 'Get Free Hooks'}
+          {isSubmitting ? 'Subscribing...' : buttonText}
         </button>
       </div>
       {error && <p className="text-sm text-red-600">{error}</p>}
