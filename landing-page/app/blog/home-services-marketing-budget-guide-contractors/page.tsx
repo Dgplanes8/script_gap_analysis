@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { motion } from 'framer-motion';
 import { BlogPostTemplate } from '@/templates/blog-post-template';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
 import { MarketingBudgetCalculator } from '@/components/calculators/marketing-budget-calculator';
