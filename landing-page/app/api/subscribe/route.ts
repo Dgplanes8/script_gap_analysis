@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {
-    const { email, source } = await request.json();
+    const { email, source, formId } = await request.json();
 
     if (!email) {
       return NextResponse.json(
@@ -14,11 +14,13 @@ export async function POST(request: NextRequest) {
     // ConvertKit API integration
     const CONVERTKIT_API_KEY = process.env.CONVERTKIT_API_KEY;
     const CONVERTKIT_FORM_ID = process.env.CONVERTKIT_FORM_ID;
+    const resolvedFormId = formId || CONVERTKIT_FORM_ID;
 
-    if (!CONVERTKIT_API_KEY || !CONVERTKIT_FORM_ID) {
+    if (!CONVERTKIT_API_KEY || !resolvedFormId) {
       console.error('ConvertKit configuration missing');
       console.error('CONVERTKIT_API_KEY present:', !!CONVERTKIT_API_KEY);
       console.error('CONVERTKIT_FORM_ID present:', !!CONVERTKIT_FORM_ID);
+      console.error('Form ID provided in request:', !!formId);
       // Fallback to logging if ConvertKit not configured
       console.log('New subscription:', { email, source, timestamp: new Date().toISOString() });
       return NextResponse.json(
@@ -28,47 +30,37 @@ export async function POST(request: NextRequest) {
     }
 
     // Determine tags based on source
-    const baseTags = ['strategic-ad-intelligence'];
-    const sourceTags = {
-      'cac-calculator-page': ['cac-optimization', 'calculator-lead'],
-      'cac-calculator-results': ['cac-optimization', 'calculator-results-lead'],
-      '1m-arr-playbook-download': ['1m-arr-playbook', 'playbook-download'],
-      'creative-roi-calculator-results': ['creative-strategy', 'roi-calculator-lead'],
-      'creative-strategy-guide': ['creative-strategy', 'guide-download'],
-      'alytics-newsletter-section': ['alytics-newsletter', 'content-intelligence'],
-      'alytics-exit-popup': ['alytics-exit-intent', 'content-intelligence'],
-      'exit-intent-popup': ['exit-intent', 'content-intelligence'],
-      'alytics-hero': ['alytics-hero', 'content-intelligence'],
-      'alytics-pricing': ['alytics-pricing', 'content-intelligence'],
-      'alytics-final-conversion': ['alytics-conversion', 'content-intelligence'],
-      'alytics-free-hooks': ['free-hooks', 'content-intelligence'],
-      'alytics-founder-section': ['founder-offer', 'content-intelligence']
-    };
-    
-    const tags = [...baseTags, ...(sourceTags[source as keyof typeof sourceTags] || ['general-signup'])];
-
-    console.log('Submitting to ConvertKit:', { email, source, tags });
+    console.log('Submitting to ConvertKit:', { email, source, formId: resolvedFormId });
 
     // Subscribe to ConvertKit
-    const convertKitResponse = await fetch(`https://api.convertkit.com/v3/forms/${CONVERTKIT_FORM_ID}/subscribe`, {
+    const convertKitResponse = await fetch(`https://api.convertkit.com/v3/forms/${resolvedFormId}/subscribe`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         api_key: CONVERTKIT_API_KEY,
-        email: email,
-        tags: tags
+        email: email
       }),
     });
 
+    const responseBody = await convertKitResponse.json().catch(() => ({}));
+
     if (!convertKitResponse.ok) {
-      const errorData = await convertKitResponse.json();
-      console.error('ConvertKit API Error:', errorData);
+      // ConvertKit returns 422 if the subscriber already exists
+      if (convertKitResponse.status === 422) {
+        console.warn('ConvertKit duplicate subscriber response:', responseBody);
+        return NextResponse.json(
+          { message: 'You are already subscribed! Check your inbox for the latest templates.' },
+          { status: 200 }
+        );
+      }
+
+      console.error('ConvertKit API Error:', responseBody);
       throw new Error('Failed to subscribe to newsletter');
     }
 
-    const subscriberData = await convertKitResponse.json();
+    const subscriberData = responseBody;
     console.log('ConvertKit subscription successful:', { email, source, subscriberId: subscriberData.subscription?.subscriber?.id });
 
     // Return different messages based on source
@@ -85,6 +77,7 @@ export async function POST(request: NextRequest) {
       'alytics-pricing': 'Successfully subscribed! Check your email for next steps and pricing details.',
       'alytics-final-conversion': 'Successfully subscribed! Get ready for game-changing content insights.',
       'alytics-free-hooks': 'Successfully subscribed! Check your email for your free content hooks and templates.',
+      'free-hooks-main': 'Successfully subscribed! Check your email for your free hooks download.',
       'alytics-founder-section': 'Successfully subscribed! Welcome to the founder community - check your email for exclusive insights.'
     };
     
