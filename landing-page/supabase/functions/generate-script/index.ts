@@ -16,7 +16,7 @@ const anonymousUsagePepper = Deno.env.get("ANON_USAGE_PEPPER");
 let basePrompt = "";
 
 try {
-  const promptPath = new URL("../../../../../Prompt_Database/script_bot_prompt.md", import.meta.url);
+  const promptPath = new URL("./prompts/script_bot_prompt.md", import.meta.url);
   basePrompt = await Deno.readTextFile(promptPath);
 } catch (promptError) {
   console.error("Failed to load base prompt", promptError);
