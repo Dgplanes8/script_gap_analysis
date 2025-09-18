@@ -438,12 +438,3 @@ export class PerformanceMonitor {
     };
   }
 }
-
-// Export utilities
-export {
-  ImageOptimizer,
-  LayoutShiftPrevention,
-  FontOptimizer,
-  JavaScriptOptimizer,
-  PerformanceMonitor
-};

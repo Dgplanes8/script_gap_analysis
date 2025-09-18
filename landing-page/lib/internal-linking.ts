@@ -372,8 +372,8 @@ export class InternalLinkingService {
     const set1 = new Set(keywords1.map(k => k.toLowerCase()));
     const set2 = new Set(keywords2.map(k => k.toLowerCase()));
     
-    const intersection = new Set([...set1].filter(x => set2.has(x)));
-    const union = new Set([...set1, ...set2]);
+    const intersection = new Set(Array.from(set1).filter(x => set2.has(x)));
+    const union = new Set(Array.from(set1).concat(Array.from(set2)));
     
     return intersection.size / union.size;
   }
@@ -457,6 +457,3 @@ export class InternalLinkingService {
 
 // Create singleton instance
 export const internalLinkingService = new InternalLinkingService();
-
-// Export types
-export type { InternalLink };

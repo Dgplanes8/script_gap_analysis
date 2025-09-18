@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import { BlogPostTemplate } from '@/templates/blog-post-template';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
-import { motion } from 'framer-motion';
 import { EnhancedBlogImage } from '@/components/blog/enhanced-blog-image';
 
 const POST_CONFIG = {
@@ -70,7 +69,7 @@ export default function UGCCreatorPlaybookPost() {
       subtitle="Transform your creativity into consistent income with the complete UGC creator system. Master authenticity frameworks, platform optimization, and monetization strategies from $250MM+ managed campaigns."
       introduction={
         <div className="space-y-6">
-          <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-xl p-6">
+          <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
             <h3 className="text-xl font-semibold text-purple-800 mb-3">🚀 The $47K Creator Transformation</h3>
             <p className="text-purple-700 leading-relaxed">
               Sarah, a part-time teacher, felt trapped by her $38,000 salary and rising expenses. After discovering UGC creation, 
@@ -85,7 +84,7 @@ export default function UGCCreatorPlaybookPost() {
             outperforming traditional advertising by 300-500% across all platforms and demographics.
           </p>
           
-          <div className="bg-gradient-to-r from-green-600 bg-opacity-5 to-blue-600 bg-opacity-5 border border-green-600 border-opacity-20 rounded-xl p-6">
+          <div className="bg-gradient-to-r from-green-600 bg-opacity-5 to-blue-600 bg-opacity-5 border border-green-600 border-opacity-20 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
             <h3 className="text-lg font-semibold text-green-800 mb-2">Master the Complete UGC Creator System:</h3>
             <ul className="text-gray-700 space-y-2">
               <li>✅ Authenticity frameworks that build trust and drive conversions</li>
@@ -113,7 +112,7 @@ export default function UGCCreatorPlaybookPost() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">The UGC Creator Landscape in 2025: Unprecedented Opportunity</h2>
             
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-blue-800 mb-4">📊 Creator Economy Explosion</h3>
               <p className="text-blue-700 mb-4">
                 The creator economy has transformed from a side hustle to a legitimate career path, with UGC creators leading 
@@ -140,11 +139,7 @@ export default function UGCCreatorPlaybookPost() {
             </div>
 
             <div className="space-y-6">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="bg-white border border-gray-200 rounded-xl p-6"
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">💰 Creator Income Opportunities by Type</h3>
                 
@@ -188,7 +183,7 @@ export default function UGCCreatorPlaybookPost() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
 
           </section>
@@ -206,7 +201,7 @@ export default function UGCCreatorPlaybookPost() {
               className="my-8"
             />
             
-            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
+            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-yellow-800 mb-4">🎯 Why Authenticity Drives 300% Higher Conversions</h3>
               <p className="text-yellow-700 mb-4">
                 Our analysis of 50,000+ UGC campaigns reveals that authentic content consistently outperforms polished advertising. 
@@ -220,11 +215,7 @@ export default function UGCCreatorPlaybookPost() {
               </div>
             </div>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="grid md:grid-cols-2 gap-6"
+            <div className="grid md:grid-cols-2 gap-6"
             >
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold text-gray-800">A.U.T.H.E.N.T.I.C. Principles:</h3>
@@ -269,7 +260,7 @@ export default function UGCCreatorPlaybookPost() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </section>
 
           {/* Monetization Strategies */}
@@ -285,7 +276,7 @@ export default function UGCCreatorPlaybookPost() {
               className="my-8"
             />
             
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6">
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-green-800 mb-4">💰 Revenue Stream Diversification Framework</h3>
               <p className="text-green-700 mb-4">
                 Successful UGC creators don't rely on a single income source. Our data shows creators with 4+ revenue streams 
@@ -312,7 +303,7 @@ export default function UGCCreatorPlaybookPost() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📈 Pricing Framework</h3>
                 <div className="space-y-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
@@ -334,7 +325,7 @@ export default function UGCCreatorPlaybookPost() {
                 </div>
               </div>
               
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">🎯 High-Converting Affiliate Strategies</h3>
                 <div className="space-y-4">
                   <div className="bg-green-50 p-4 rounded-lg">
@@ -365,7 +356,7 @@ export default function UGCCreatorPlaybookPost() {
             <h2 className="text-3xl font-bold text-gray-900">Technical Setup: Professional Results on Any Budget</h2>
             
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-lg font-semibold text-gray-800 mb-4">📱 Basic Setup ($500-$1,500)</h3>
                 <div className="space-y-3 text-sm">
                   <div><strong>Camera:</strong> Smartphone with good camera</div>
@@ -379,7 +370,7 @@ export default function UGCCreatorPlaybookPost() {
                 </div>
               </div>
               
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-lg font-semibold text-blue-800 mb-4">📸 Intermediate ($1,500-$5,000)</h3>
                 <div className="space-y-3 text-sm">
                   <div><strong>Camera:</strong> DSLR/Mirrorless</div>
@@ -393,7 +384,7 @@ export default function UGCCreatorPlaybookPost() {
                 </div>
               </div>
               
-              <div className="bg-purple-50 border border-purple-200 rounded-xl p-6">
+              <div className="bg-purple-50 border border-purple-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-lg font-semibold text-purple-800 mb-4">🎬 Professional ($5,000+)</h3>
                 <div className="space-y-3 text-sm">
                   <div><strong>Studio:</strong> Multiple camera setup</div>
@@ -413,7 +404,7 @@ export default function UGCCreatorPlaybookPost() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">Scaling to Six-Figure Creator Income</h2>
             
-            <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl p-6">
+            <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-indigo-800 mb-4">🚀 The Creator Business Evolution Path</h3>
               <p className="text-indigo-700 mb-4">
                 Successful creators evolve from solopreneurs to business owners by systematically building teams, 
@@ -440,7 +431,7 @@ export default function UGCCreatorPlaybookPost() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">👥 Essential Team Roles</h3>
                 <div className="space-y-3 text-sm">
                   <div className="bg-blue-50 p-3 rounded">
@@ -458,7 +449,7 @@ export default function UGCCreatorPlaybookPost() {
                 </div>
               </div>
               
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📊 Performance Optimization</h3>
                 <div className="space-y-3 text-sm">
                   <div className="bg-yellow-50 p-3 rounded">
@@ -486,13 +477,9 @@ export default function UGCCreatorPlaybookPost() {
               that successful creators use to generate $10,000+ monthly income.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.button
-                whileHover={{ scale: 1.02, boxShadow: "0 12px 30px rgba(255, 255, 255, 0.2)" }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-white text-purple-600 hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
+              <button className="bg-white text-purple-600 hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl shadow-lg transition-transform duration-200 hover:scale-105 active:scale-95">
                 Start Your FREE Week
-              </motion.button>
+              </button>
               <button className="text-white underline hover:no-underline font-medium">
                 Download UGC Creator Toolkit →
               </button>

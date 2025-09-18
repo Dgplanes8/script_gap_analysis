@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import { BlogPostTemplate } from '@/templates/blog-post-template';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
-import { motion } from 'framer-motion';
 import { EnhancedBlogImage } from '@/components/blog/enhanced-blog-image';
 
 const POST_CONFIG = {
@@ -70,7 +69,7 @@ export default function AdCopyTemplatesPage() {
       subtitle="Skip the guesswork with ready-to-use ad copy templates. Get 25+ proven scripts from $250MM+ managed campaigns that drive conversions on Google, Facebook, Instagram, TikTok, and LinkedIn."
       introduction={
         <div className="space-y-6">
-          <div className="bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 rounded-xl p-6">
+          <div className="bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
             <h3 className="text-xl font-semibold text-orange-800 mb-3">⚡ The 47-Second Template Success</h3>
             <p className="text-orange-700 leading-relaxed">
               A struggling e-commerce brand was spending 4+ hours writing each ad, testing dozens of variations with inconsistent results. 
@@ -85,7 +84,7 @@ export default function AdCopyTemplatesPage() {
             we've identified the exact copy templates that consistently drive the highest conversion rates.
           </p>
           
-          <div className="bg-rose-600 bg-opacity-5 border border-rose-600 border-opacity-20 rounded-xl p-6">
+          <div className="bg-rose-600 bg-opacity-5 border border-rose-600 border-opacity-20 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
             <h3 className="text-lg font-semibold text-rose-800 mb-2">Get These 25+ Proven Templates:</h3>
             <ul className="text-gray-700 space-y-2">
               <li>✅ Platform-specific templates for Google, Facebook, Instagram, TikTok, LinkedIn</li>
@@ -114,7 +113,7 @@ export default function AdCopyTemplatesPage() {
             <h2 className="text-3xl font-bold text-gray-900">Why 94% of High-Performing Ads Follow Proven Templates</h2>
             
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+              <div className="bg-red-50 border border-red-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-red-800 mb-4">❌ The "Blank Page" Problem</h3>
                 <ul className="space-y-3 text-red-700">
                   <li>• Spending hours brainstorming copy from scratch</li>
@@ -126,7 +125,7 @@ export default function AdCopyTemplatesPage() {
                 </ul>
               </div>
               
-              <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+              <div className="bg-green-50 border border-green-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-green-800 mb-4">✅ The Template Advantage</h3>
                 <ul className="space-y-3 text-green-700">
                   <li>• Create high-converting copy in under 60 seconds</li>
@@ -148,7 +147,7 @@ export default function AdCopyTemplatesPage() {
               className="my-8"
             />
             
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="bg-gray-50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-lg font-semibold text-gray-800 mb-3">📊 Template Performance Data</h3>
               <p className="text-gray-700 mb-4">
                 Our analysis of 15,000+ ads reveals that copy following proven templates consistently outperforms 
@@ -185,11 +184,7 @@ export default function AdCopyTemplatesPage() {
             </p>
 
             <div className="grid gap-6">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="bg-blue-50 border border-blue-200 rounded-xl p-6"
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">1</div>
@@ -212,13 +207,9 @@ export default function AdCopyTemplatesPage() {
                     <div className="text-sm text-gray-600">Addresses common concerns</div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                className="bg-green-50 border border-green-200 rounded-xl p-6"
+              <div className="bg-green-50 border border-green-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold mr-4">2</div>
@@ -241,13 +232,9 @@ export default function AdCopyTemplatesPage() {
                     <div className="text-sm text-gray-600">Expert recommendations</div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                className="bg-purple-50 border border-purple-200 rounded-xl p-6"
+              <div className="bg-purple-50 border border-purple-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold mr-4">3</div>
@@ -270,13 +257,9 @@ export default function AdCopyTemplatesPage() {
                     <div className="text-sm text-gray-600">Member-only opportunities</div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.3 }}
-                className="bg-orange-50 border border-orange-200 rounded-xl p-6"
+              <div className="bg-orange-50 border border-orange-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold mr-4">4</div>
@@ -299,13 +282,9 @@ export default function AdCopyTemplatesPage() {
                     <div className="text-sm text-gray-600">Identity-based benefits</div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.4 }}
-                className="bg-red-50 border border-red-200 rounded-xl p-6"
+              <div className="bg-red-50 border border-red-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">5</div>
@@ -328,7 +307,7 @@ export default function AdCopyTemplatesPage() {
                     <div className="text-sm text-gray-600">Thought-provoking questions</div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </section>
 
@@ -336,7 +315,7 @@ export default function AdCopyTemplatesPage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">Google Ads Templates: High-Intent Search Traffic</h2>
             
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-blue-800 mb-4">🎯 Google Ads Optimization Strategy</h3>
               <p className="text-blue-700 mb-4">
                 Google Ads capture high-intent searchers actively looking for solutions. Your copy needs to immediately 
@@ -353,7 +332,7 @@ export default function AdCopyTemplatesPage() {
             <div className="space-y-6">
               
               {/* Template 1: Problem-Solution */}
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-3">1</div>
                   <h3 className="text-lg font-semibold text-gray-800">Problem-Solution Template</h3>
@@ -392,7 +371,7 @@ export default function AdCopyTemplatesPage() {
               </div>
 
               {/* Template 2: Authority & Trust */}
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center font-bold mr-3">2</div>
                   <h3 className="text-lg font-semibold text-gray-800">Authority & Trust Template</h3>
@@ -431,7 +410,7 @@ export default function AdCopyTemplatesPage() {
               </div>
 
               {/* Template 3: Urgency & Limited Time */}
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-3">3</div>
                   <h3 className="text-lg font-semibold text-gray-800">Urgency & Limited Time Template</h3>
@@ -484,7 +463,7 @@ export default function AdCopyTemplatesPage() {
               className="my-8"
             />
             
-            <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl p-6">
+            <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-indigo-800 mb-4">📱 Social Media Optimization Strategy</h3>
               <p className="text-indigo-700 mb-4">
                 Facebook and Instagram users scroll for entertainment and connection. Your ads need to feel native to the platform 
@@ -501,7 +480,7 @@ export default function AdCopyTemplatesPage() {
             <div className="space-y-6">
               
               {/* Template 4: Social Proof Story */}
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold mr-3">4</div>
                   <h3 className="text-lg font-semibold text-gray-800">Social Proof Story Template</h3>
@@ -542,7 +521,7 @@ export default function AdCopyTemplatesPage() {
               </div>
 
               {/* Template 5: Curiosity Hook */}
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold mr-3">5</div>
                   <h3 className="text-lg font-semibold text-gray-800">Curiosity Hook Template</h3>
@@ -583,7 +562,7 @@ export default function AdCopyTemplatesPage() {
               </div>
 
               {/* Template 6: Transformation Promise */}
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold mr-3">6</div>
                   <h3 className="text-lg font-semibold text-gray-800">Transformation Promise Template</h3>
@@ -629,7 +608,7 @@ export default function AdCopyTemplatesPage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">LinkedIn Templates: Professional B2B Focus</h2>
             
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-blue-800 mb-4">💼 LinkedIn Optimization Strategy</h3>
               <p className="text-blue-700 mb-4">
                 LinkedIn users are in professional mindset, seeking career advancement and business solutions. 
@@ -646,7 +625,7 @@ export default function AdCopyTemplatesPage() {
             <div className="space-y-6">
               
               {/* Template 7: Authority Case Study */}
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-3">7</div>
                   <h3 className="text-lg font-semibold text-gray-800">Authority Case Study Template</h3>
@@ -687,7 +666,7 @@ export default function AdCopyTemplatesPage() {
               </div>
 
               {/* Template 8: Industry Insight */}
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold mr-3">8</div>
                   <h3 className="text-lg font-semibold text-gray-800">Industry Insight Template</h3>
@@ -733,7 +712,7 @@ export default function AdCopyTemplatesPage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">TikTok Templates: Native & Authentic Content</h2>
             
-            <div className="bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl p-6">
+            <div className="bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-pink-800 mb-4">🎵 TikTok Optimization Strategy</h3>
               <p className="text-pink-700 mb-4">
                 TikTok rewards authentic, entertaining content that doesn't feel like advertising. 
@@ -750,7 +729,7 @@ export default function AdCopyTemplatesPage() {
             <div className="space-y-6">
               
               {/* Template 9: Trend Hijack */}
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-pink-600 text-white rounded-full flex items-center justify-center font-bold mr-3">9</div>
                   <h3 className="text-lg font-semibold text-gray-800">Trend Hijack Template</h3>
@@ -791,7 +770,7 @@ export default function AdCopyTemplatesPage() {
               </div>
 
               {/* Template 10: Before & After */}
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold mr-3">10</div>
                   <h3 className="text-lg font-semibold text-gray-800">Before & After Template</h3>
@@ -837,7 +816,7 @@ export default function AdCopyTemplatesPage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">Template Testing & Optimization Strategy</h2>
             
-            <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6">
+            <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-emerald-800 mb-4">🧪 The Scientific Approach to Template Testing</h3>
               <p className="text-emerald-700 mb-4">
                 Templates provide the foundation, but optimization drives results. Our systematic testing approach 
@@ -852,7 +831,7 @@ export default function AdCopyTemplatesPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📊 Template Testing Methodology</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -903,7 +882,7 @@ export default function AdCopyTemplatesPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">🔄 Optimization Within Templates</h3>
                 <div className="space-y-4">
                   <div className="bg-blue-50 p-4 rounded-lg">
@@ -963,7 +942,7 @@ export default function AdCopyTemplatesPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📈 Template Performance Tracking</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -1017,13 +996,9 @@ export default function AdCopyTemplatesPage() {
               based on insights from $250MM+ in managed campaigns.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.button
-                whileHover={{ scale: 1.02, boxShadow: "0 12px 30px rgba(255, 255, 255, 0.2)" }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-white text-rose-600 hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
+              <button className="bg-white text-rose-600 hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl shadow-lg transition-transform duration-200 hover:scale-105 active:scale-95">
                 Start Your FREE Week
-              </motion.button>
+              </button>
               <button className="text-white underline hover:no-underline font-medium">
                 Download All 25+ Templates →
               </button>

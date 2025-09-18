@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import { BlogPostTemplate } from '@/templates/blog-post-template';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
-import { motion } from 'framer-motion';
 import { EnhancedBlogImage } from '@/components/blog/enhanced-blog-image';
 
 const POST_CONFIG = {
@@ -70,7 +69,7 @@ export default function UGCContentStrategyPage() {
       subtitle="Transform customers into content creators with the proven UGC framework from $250MM+ managed campaigns. Master AI integration, permission protocols, and authentic content strategies that drive real business results."
       introduction={
         <div className="space-y-6">
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-xl p-6">
+          <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
             <h3 className="text-xl font-semibold text-green-800 mb-3">📈 The $2.4M UGC Transformation</h3>
             <p className="text-green-700 leading-relaxed">
               A direct-to-consumer beauty brand was spending $40,000/month on professional content creation with declining engagement rates. 
@@ -85,7 +84,7 @@ export default function UGCContentStrategyPage() {
             we've identified the exact UGC strategies that consistently generate authentic content at scale.
           </p>
           
-          <div className="bg-emerald-600 bg-opacity-5 border border-emerald-600 border-opacity-20 rounded-xl p-6">
+          <div className="bg-emerald-600 bg-opacity-5 border border-emerald-600 border-opacity-20 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
             <h3 className="text-lg font-semibold text-emerald-800 mb-2">Master This Complete UGC System:</h3>
             <ul className="text-gray-700 space-y-2">
               <li>✅ 5-phase UGC generation framework that scales automatically</li>
@@ -123,7 +122,7 @@ export default function UGCContentStrategyPage() {
             />
             
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+              <div className="bg-red-50 border border-red-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-red-800 mb-4">❌ Traditional Content Challenges</h3>
                 <ul className="space-y-3 text-red-700">
                   <li>• High production costs: $5,000-15,000 per video</li>
@@ -135,7 +134,7 @@ export default function UGCContentStrategyPage() {
                 </ul>
               </div>
               
-              <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+              <div className="bg-green-50 border border-green-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-green-800 mb-4">✅ UGC Strategic Advantages</h3>
                 <ul className="space-y-3 text-green-700">
                   <li>• 92% higher trust rates compared to brand advertising</li>
@@ -148,7 +147,7 @@ export default function UGCContentStrategyPage() {
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="bg-gray-50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-lg font-semibold text-gray-800 mb-3">📊 UGC Performance Data Across Industries</h3>
               <p className="text-gray-700 mb-4">
                 Our analysis of 5,400+ UGC campaigns reveals consistent performance improvements across all industries. 
@@ -185,11 +184,7 @@ export default function UGCContentStrategyPage() {
             </p>
 
             <div className="space-y-6">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="bg-blue-50 border border-blue-200 rounded-xl p-6"
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">1</div>
@@ -221,13 +216,9 @@ export default function UGCContentStrategyPage() {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                className="bg-green-50 border border-green-200 rounded-xl p-6"
+              <div className="bg-green-50 border border-green-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold mr-4">2</div>
@@ -259,13 +250,9 @@ export default function UGCContentStrategyPage() {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                className="bg-purple-50 border border-purple-200 rounded-xl p-6"
+              <div className="bg-purple-50 border border-purple-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold mr-4">3</div>
@@ -297,13 +284,9 @@ export default function UGCContentStrategyPage() {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.3 }}
-                className="bg-orange-50 border border-orange-200 rounded-xl p-6"
+              <div className="bg-orange-50 border border-orange-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold mr-4">4</div>
@@ -335,13 +318,9 @@ export default function UGCContentStrategyPage() {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.4 }}
-                className="bg-red-50 border border-red-200 rounded-xl p-6"
+              <div className="bg-red-50 border border-red-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">5</div>
@@ -373,7 +352,7 @@ export default function UGCContentStrategyPage() {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </section>
 
@@ -381,7 +360,7 @@ export default function UGCContentStrategyPage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">AI Integration: Enhancing UGC Without Losing Authenticity</h2>
             
-            <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl p-6">
+            <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-indigo-800 mb-4">🤖 The AI-Human Balance in 2025 UGC</h3>
               <p className="text-indigo-700 mb-4">
                 As AI becomes ubiquitous, authentic human content becomes more valuable. Smart brands use AI to scale 
@@ -397,7 +376,7 @@ export default function UGCContentStrategyPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">🔍 AI-Powered Content Discovery</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -427,7 +406,7 @@ export default function UGCContentStrategyPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📊 AI-Enhanced Content Scoring</h3>
                 <div className="space-y-4">
                   <div className="bg-indigo-50 p-4 rounded-lg">
@@ -480,7 +459,7 @@ export default function UGCContentStrategyPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">⚖️ Maintaining Authenticity with AI</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-red-50 p-4 rounded-lg">
@@ -525,7 +504,7 @@ export default function UGCContentStrategyPage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">Legal Framework: UGC Permissions That Protect Your Brand</h2>
             
-            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
+            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-yellow-800 mb-4">⚠️ The $500,000 Legal Lesson</h3>
               <p className="text-yellow-700 mb-4">
                 A fashion retailer faced a $500,000 lawsuit for using customer Instagram photos without permission. 
@@ -541,7 +520,7 @@ export default function UGCContentStrategyPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📋 Permission Request Framework</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -575,7 +554,7 @@ export default function UGCContentStrategyPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">🔒 Legal Compliance Checklist</h3>
                 <div className="space-y-4">
                   <div className="grid md:grid-cols-3 gap-4">
@@ -633,7 +612,7 @@ export default function UGCContentStrategyPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">💼 Permission Management System</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -694,7 +673,7 @@ export default function UGCContentStrategyPage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">Content Quality Framework: Consistency at Scale</h2>
             
-            <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6">
+            <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-emerald-800 mb-4">🎯 The Quality-Scale Balance</h3>
               <p className="text-emerald-700 mb-4">
                 The challenge with UGC is maintaining quality standards while preserving authenticity. 
@@ -710,7 +689,7 @@ export default function UGCContentStrategyPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📐 Content Quality Standards</h3>
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="bg-blue-50 p-4 rounded-lg">
@@ -775,7 +754,7 @@ export default function UGCContentStrategyPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">🎨 Creator Guidelines Template</h3>
                 <div className="space-y-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
@@ -826,7 +805,7 @@ export default function UGCContentStrategyPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📊 Quality Scoring System</h3>
                 <div className="space-y-4">
                   <div className="bg-indigo-50 p-4 rounded-lg">
@@ -883,7 +862,7 @@ export default function UGCContentStrategyPage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">ROI Measurement: Proving UGC Impact</h2>
             
-            <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+            <div className="bg-green-50 border border-green-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-green-800 mb-4">💰 The Complete UGC ROI Picture</h3>
               <p className="text-green-700 mb-4">
                 UGC delivers value beyond direct conversions. Smart brands track both immediate impact (sales, leads) 
@@ -898,7 +877,7 @@ export default function UGCContentStrategyPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📈 Key Performance Indicators</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -947,7 +926,7 @@ export default function UGCContentStrategyPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">🧮 ROI Calculation Framework</h3>
                 <div className="space-y-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
@@ -1012,7 +991,7 @@ export default function UGCContentStrategyPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📊 Tracking Dashboard Setup</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -1053,13 +1032,9 @@ export default function UGCContentStrategyPage() {
               based on insights from $250MM+ in managed campaigns.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.button
-                whileHover={{ scale: 1.02, boxShadow: "0 12px 30px rgba(255, 255, 255, 0.2)" }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-white text-emerald-600 hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
+              <button className="bg-white text-emerald-600 hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl shadow-lg transition-transform duration-200 hover:scale-105 active:scale-95">
                 Start Your FREE Week
-              </motion.button>
+              </button>
               <button className="text-white underline hover:no-underline font-medium">
                 Download UGC Strategy Blueprint →
               </button>

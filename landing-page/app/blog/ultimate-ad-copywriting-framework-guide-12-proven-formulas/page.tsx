@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import { BlogPostTemplate } from '@/templates/blog-post-template';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
-import { motion } from 'framer-motion';
 import { EnhancedBlogImage } from '@/components/blog/enhanced-blog-image';
 
 const POST_CONFIG = {
@@ -70,7 +69,7 @@ export default function AdCopywritingFrameworksPage() {
       subtitle="Master the strategic frameworks behind high-converting ad copy. Discover 12 proven formulas from $250MM+ managed campaigns that drive results across Google, Facebook, and emerging platforms."
       introduction={
         <div className="space-y-6">
-          <div className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-xl p-6">
+          <div className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
             <h3 className="text-xl font-semibold text-purple-800 mb-3">🎯 The $127,000 Framework Discovery</h3>
             <p className="text-purple-700 leading-relaxed">
               A SaaS startup was burning $8,400/month on Facebook ads with a 0.8% conversion rate using generic copy. 
@@ -85,7 +84,7 @@ export default function AdCopywritingFrameworksPage() {
             we've identified the 12 copywriting frameworks that consistently drive the highest conversion rates.
           </p>
           
-          <div className="bg-[#126DFB] bg-opacity-5 border border-[#126DFB] border-opacity-20 rounded-xl p-6">
+          <div className="bg-[#126DFB] bg-opacity-5 border border-[#126DFB] border-opacity-20 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
             <h3 className="text-lg font-semibold text-[#126DFB] mb-2">Master These 12 Proven Frameworks:</h3>
             <ul className="text-gray-700 space-y-2">
               <li>✅ Classic foundations: AIDA, PAS, BAB with 2025 optimizations</li>
@@ -114,7 +113,7 @@ export default function AdCopywritingFrameworksPage() {
             <h2 className="text-3xl font-bold text-gray-900">Why 89% of High-Converting Ads Follow Strategic Frameworks</h2>
             
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+              <div className="bg-red-50 border border-red-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-red-800 mb-4">❌ Random Copy Approach</h3>
                 <ul className="space-y-3 text-red-700">
                   <li>• Writing copy based on "gut feeling" and inspiration</li>
@@ -126,7 +125,7 @@ export default function AdCopywritingFrameworksPage() {
                 </ul>
               </div>
               
-              <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+              <div className="bg-green-50 border border-green-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-green-800 mb-4">✅ Framework-Driven Strategy</h3>
                 <ul className="space-y-3 text-green-700">
                   <li>• Systematic approach based on psychological triggers</li>
@@ -139,7 +138,7 @@ export default function AdCopywritingFrameworksPage() {
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="bg-gray-50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-lg font-semibold text-gray-800 mb-3">📊 The Framework Performance Data</h3>
               <p className="text-gray-700 mb-4">
                 Our analysis of 12,000+ high-converting ads reveals that successful copy follows predictable patterns. 
@@ -185,11 +184,7 @@ export default function AdCopywritingFrameworksPage() {
             </p>
 
             <div className="grid gap-6">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="bg-blue-50 border border-blue-200 rounded-xl p-6"
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">1</div>
@@ -217,13 +212,9 @@ export default function AdCopywritingFrameworksPage() {
                     <div className="text-sm text-gray-600">Promise-driven</div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                className="bg-green-50 border border-green-200 rounded-xl p-6"
+              <div className="bg-green-50 border border-green-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold mr-4">2</div>
@@ -251,13 +242,9 @@ export default function AdCopywritingFrameworksPage() {
                     <div className="text-sm text-gray-600">Authority-based</div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                className="bg-purple-50 border border-purple-200 rounded-xl p-6"
+              <div className="bg-purple-50 border border-purple-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold mr-4">3</div>
@@ -285,7 +272,7 @@ export default function AdCopywritingFrameworksPage() {
                     <div className="text-sm text-gray-600">Agree-Promise</div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </section>
 
@@ -711,7 +698,7 @@ export default function AdCopywritingFrameworksPage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">Framework Selection Guide: Choose the Right Tool for Your Campaign</h2>
             
-            <div className="bg-gradient-to-r from-[#126DFB] bg-opacity-5 to-blue-50 border border-[#126DFB] border-opacity-20 rounded-xl p-6">
+            <div className="bg-gradient-to-r from-[#126DFB] bg-opacity-5 to-blue-50 border border-[#126DFB] border-opacity-20 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-[#126DFB] mb-4">📋 Decision Matrix: Framework Selection Criteria</h3>
               <p className="text-gray-700 mb-4">
                 Use this data-driven approach to select the optimal framework based on your audience, 
@@ -720,7 +707,7 @@ export default function AdCopywritingFrameworksPage() {
             </div>
 
             <div className="grid gap-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">By Audience Awareness Level</h3>
                 <div className="grid md:grid-cols-3 gap-4">
                   <div className="bg-red-50 p-4 rounded-lg">
@@ -750,7 +737,7 @@ export default function AdCopywritingFrameworksPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">By Campaign Objective</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -774,7 +761,7 @@ export default function AdCopywritingFrameworksPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">By Platform Optimization</h3>
                 <div className="grid md:grid-cols-4 gap-4 text-sm">
                   <div className="bg-blue-50 p-3 rounded">
@@ -802,7 +789,7 @@ export default function AdCopywritingFrameworksPage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">Framework Testing & Optimization Strategy</h2>
             
-            <div className="bg-orange-50 border border-orange-200 rounded-xl p-6">
+            <div className="bg-orange-50 border border-orange-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-orange-800 mb-4">🧪 The Scientific Approach to Framework Testing</h3>
               <p className="text-orange-700">
                 Don't guess which framework will work best. Use our systematic testing approach that's generated 
@@ -811,7 +798,7 @@ export default function AdCopywritingFrameworksPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📊 Testing Methodology</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -861,7 +848,7 @@ export default function AdCopywritingFrameworksPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📈 Performance Tracking Dashboard</h3>
                 <div className="space-y-4">
                   <div className="bg-green-50 p-4 rounded-lg">
@@ -913,7 +900,7 @@ export default function AdCopywritingFrameworksPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">🔄 Optimization Cycles</h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-4">
@@ -1007,13 +994,9 @@ export default function AdCopywritingFrameworksPage() {
               based on insights from $250MM+ in managed campaigns.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.button
-                whileHover={{ scale: 1.02, boxShadow: "0 12px 30px rgba(255, 255, 255, 0.2)" }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-white text-purple-600 hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
+              <button className="bg-white text-purple-600 hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl shadow-lg transition-transform duration-200 hover:scale-105 active:scale-95">
                 Start Your FREE Week
-              </motion.button>
+              </button>
               <button className="text-white underline hover:no-underline font-medium">
                 Download All 12 Framework Templates →
               </button>

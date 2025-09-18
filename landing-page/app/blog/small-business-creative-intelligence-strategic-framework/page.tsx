@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import { BlogPostTemplate } from '@/templates/blog-post-template';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
-import { motion } from 'framer-motion';
 
 const POST_CONFIG = {
   title: 'Small Business Creative Intelligence: Strategic Ad Framework for Maximum ROI',
@@ -68,7 +67,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
       subtitle="Discover the proven creative intelligence system from $250MM+ in managed campaigns that helps local businesses maximize ad ROI, outperform competitors, and build winning campaigns without guesswork."
       introduction={
         <div className="space-y-6">
-          <div className="bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 rounded-xl p-6">
+          <div className="bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
             <h3 className="text-xl font-semibold text-orange-800 mb-3">📊 The $15,000 Creative Intelligence Gap</h3>
             <p className="text-orange-700 leading-relaxed">
               A landscaping company spent $15,000 on Facebook ads over 6 months with the same creative set. 
@@ -82,7 +81,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
             we've identified the exact creative intelligence framework that separates winning local businesses from those burning cash.
           </p>
           
-          <div className="bg-[#126DFB] bg-opacity-5 border border-[#126DFB] border-opacity-20 rounded-xl p-6">
+          <div className="bg-[#126DFB] bg-opacity-5 border border-[#126DFB] border-opacity-20 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
             <h3 className="text-lg font-semibold text-[#126DFB] mb-2">What You'll Master In This Framework:</h3>
             <ul className="text-gray-700 space-y-2">
               <li>✅ The 4-pillar creative intelligence system for local businesses</li>
@@ -102,7 +101,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
             <h2 className="text-3xl font-bold text-gray-900">Why 87% of Small Business Ads Fail: The Creative Intelligence Gap</h2>
             
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+              <div className="bg-red-50 border border-red-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-red-800 mb-4">❌ What Most Small Businesses Do</h3>
                 <ul className="space-y-3 text-red-700">
                   <li>• Create ads based on "gut feeling" and personal preferences</li>
@@ -114,7 +113,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
                 </ul>
               </div>
               
-              <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+              <div className="bg-green-50 border border-green-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-green-800 mb-4">✅ Creative Intelligence Approach</h3>
                 <ul className="space-y-3 text-green-700">
                   <li>• Strategic creative planning based on market intelligence</li>
@@ -127,7 +126,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="bg-gray-50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-lg font-semibold text-gray-800 mb-3">💡 Case Study: Phoenix HVAC Creative Transformation</h3>
               <p className="text-gray-700 mb-4">
                 A Phoenix HVAC company was struggling with $3,200/month ad spend generating only 12 leads. 
@@ -166,11 +165,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="bg-[#126DFB] bg-opacity-5 border border-[#126DFB] border-opacity-20 rounded-xl p-6"
+              <div className="bg-[#126DFB] bg-opacity-5 border border-[#126DFB] border-opacity-20 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-[#126DFB] text-white rounded-full flex items-center justify-center font-bold mr-3">1</div>
@@ -185,13 +180,9 @@ export default function SmallBusinessCreativeIntelligencePage() {
                 <div className="mt-4 p-3 bg-white rounded-lg">
                   <strong>Output:</strong> Strategic creative brief with competitive advantages and market positioning
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                className="bg-green-50 border border-green-200 rounded-xl p-6"
+              <div className="bg-green-50 border border-green-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center font-bold mr-3">2</div>
@@ -206,13 +197,9 @@ export default function SmallBusinessCreativeIntelligencePage() {
                 <div className="mt-4 p-3 bg-white rounded-lg">
                   <strong>Output:</strong> 3-5 high-potential creative variations ready for testing
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                className="bg-purple-50 border border-purple-200 rounded-xl p-6"
+              <div className="bg-purple-50 border border-purple-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold mr-3">3</div>
@@ -227,13 +214,9 @@ export default function SmallBusinessCreativeIntelligencePage() {
                 <div className="mt-4 p-3 bg-white rounded-lg">
                   <strong>Output:</strong> Data-driven creative performance insights and optimization roadmap
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.3 }}
-                className="bg-orange-50 border border-orange-200 rounded-xl p-6"
+              <div className="bg-orange-50 border border-orange-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold mr-3">4</div>
@@ -248,7 +231,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
                 <div className="mt-4 p-3 bg-white rounded-lg">
                   <strong>Output:</strong> Scalable creative system generating consistent ROI growth
                 </div>
-              </motion.div>
+              </div>
             </div>
           </section>
 
@@ -256,7 +239,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">Pillar 1: Market Intelligence - Know Your Competitive Landscape</h2>
             
-            <div className="bg-gradient-to-r from-[#126DFB] bg-opacity-5 to-blue-50 border border-[#126DFB] border-opacity-20 rounded-xl p-6">
+            <div className="bg-gradient-to-r from-[#126DFB] bg-opacity-5 to-blue-50 border border-[#126DFB] border-opacity-20 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-[#126DFB] mb-4">🎯 The Local Market Analysis Framework</h3>
               <p className="text-gray-700 mb-4">
                 Most small businesses create ads in a vacuum. Our market intelligence system gives you unfair advantages 
@@ -265,7 +248,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">🔍 Step 1: Competitive Creative Audit</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -293,7 +276,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📊 Step 2: Gap Analysis & Opportunity Identification</h3>
                 <div className="bg-gray-50 p-4 rounded-lg mb-4">
                   <h4 className="font-semibold text-gray-700 mb-2">Real Example: Plumbing Market Analysis</h4>
@@ -328,7 +311,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">🗺️ Step 3: Local Market Mapping</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -360,7 +343,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">Pillar 2: Strategic Creative Development</h2>
             
-            <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+            <div className="bg-green-50 border border-green-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-green-800 mb-4">🎨 The High-Converting Creative Formula</h3>
               <p className="text-green-700 mb-4">
                 Based on analysis of 12,000+ local business ads, this formula consistently produces 
@@ -375,7 +358,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">🎯 Component 1: Attention Hooks That Work</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -416,7 +399,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">💪 Component 2: Specific Benefit Communication</h3>
                 <div className="space-y-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
@@ -485,7 +468,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">🏆 Component 3: Local Credibility Signals</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -519,7 +502,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">Pillar 3: Performance Testing Methodology</h2>
             
-            <div className="bg-purple-50 border border-purple-200 rounded-xl p-6">
+            <div className="bg-purple-50 border border-purple-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-purple-800 mb-4">🧪 The Small Business Testing Framework</h3>
               <p className="text-purple-700 mb-4">
                 Unlike large corporations with massive budgets, small businesses need a lean testing approach 
@@ -528,7 +511,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📋 Testing Hierarchy: What to Test First</h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-4">
@@ -577,7 +560,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📊 Testing Methodology for Small Budgets</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -633,7 +616,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📈 Performance Tracking Dashboard</h3>
                 <div className="bg-gray-50 p-4 rounded-lg mb-4">
                   <h4 className="font-semibold text-gray-700 mb-2">Essential Metrics to Track:</h4>
@@ -673,7 +656,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">Pillar 4: Scaling Intelligence for Maximum ROI</h2>
             
-            <div className="bg-orange-50 border border-orange-200 rounded-xl p-6">
+            <div className="bg-orange-50 border border-orange-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-orange-800 mb-4">🚀 The Systematic Scaling Framework</h3>
               <p className="text-orange-700 mb-4">
                 Finding winning creatives is just the beginning. The real ROI comes from systematically scaling 
@@ -682,7 +665,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📈 Winner Scaling Methodology</h3>
                 <div className="space-y-4">
                   <div className="bg-green-50 p-4 rounded-lg">
@@ -729,7 +712,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">⏰ Creative Refresh Strategy</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -782,7 +765,7 @@ export default function SmallBusinessCreativeIntelligencePage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">💰 ROI Optimization Protocol</h3>
                 <div className="space-y-4">
                   <div className="bg-green-50 p-4 rounded-lg">
@@ -954,13 +937,9 @@ export default function SmallBusinessCreativeIntelligencePage() {
               based on insights from $250MM+ in managed campaigns.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.button
-                whileHover={{ scale: 1.02, boxShadow: "0 12px 30px rgba(255, 255, 255, 0.2)" }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-white text-[#126DFB] hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
+              <button className="bg-white text-[#126DFB] hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl shadow-lg transition-transform duration-200 hover:scale-105 active:scale-95">
                 Start Your FREE Week
-              </motion.button>
+              </button>
               <button className="text-white underline hover:no-underline font-medium">
                 Download Framework Templates →
               </button>

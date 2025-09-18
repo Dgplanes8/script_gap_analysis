@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import { BlogPostTemplate } from '@/templates/blog-post-template';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
-import { motion } from 'framer-motion';
 
 const POST_CONFIG = {
   title: 'Plumber Marketing Automation Guide: 10x Your Local Business Without Hiring More Staff',
@@ -68,7 +67,7 @@ export default function PlumberMarketingAutomationPage() {
       subtitle="Discover the proven automation systems from $250MM+ in managed campaigns that help plumbing businesses generate consistent leads, improve customer service, and grow revenue without adding overhead or complexity."
       introduction={
         <div className="space-y-6">
-          <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200 rounded-xl p-6">
+          <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
             <h3 className="text-xl font-semibold text-blue-800 mb-3">🚰 The $43,000 Automation Success Story</h3>
             <p className="text-blue-700 leading-relaxed">
               Mike's Plumbing was drowning in missed calls and lost leads. Working 12-hour days, he'd return 6 missed calls 
@@ -83,7 +82,7 @@ export default function PlumberMarketingAutomationPage() {
             we've identified the exact automation systems that separate thriving plumbers from those stuck in the hustle.
           </p>
           
-          <div className="bg-cyan-600 bg-opacity-5 border border-cyan-600 border-opacity-20 rounded-xl p-6">
+          <div className="bg-cyan-600 bg-opacity-5 border border-cyan-600 border-opacity-20 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
             <h3 className="text-lg font-semibold text-cyan-800 mb-2">What You'll Automate In This Guide:</h3>
             <ul className="text-gray-700 space-y-2">
               <li>✅ Emergency lead capture and instant response system</li>
@@ -103,7 +102,7 @@ export default function PlumberMarketingAutomationPage() {
             <h2 className="text-3xl font-bold text-gray-900">Why 73% of Plumbing Businesses Struggle: The Time vs Growth Dilemma</h2>
             
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+              <div className="bg-red-50 border border-red-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-red-800 mb-4">❌ The Manual Marketing Trap</h3>
                 <ul className="space-y-3 text-red-700">
                   <li>• Answering phones between service calls costs leads</li>
@@ -115,7 +114,7 @@ export default function PlumberMarketingAutomationPage() {
                 </ul>
               </div>
               
-              <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+              <div className="bg-green-50 border border-green-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-green-800 mb-4">✅ The Automation Advantage</h3>
                 <ul className="space-y-3 text-green-700">
                   <li>• Instant lead response while you're working other jobs</li>
@@ -128,7 +127,7 @@ export default function PlumberMarketingAutomationPage() {
               </div>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-6">
+            <div className="bg-gray-50 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-lg font-semibold text-gray-800 mb-3">💡 Case Study: Cincinnati Emergency Plumbing Transformation</h3>
               <p className="text-gray-700 mb-4">
                 Tom's Emergency Plumbing was missing 60% of after-hours calls and losing customers to competitors with faster response times. 
@@ -169,11 +168,7 @@ export default function PlumberMarketingAutomationPage() {
             </p>
 
             <div className="space-y-6">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="bg-red-50 border border-red-200 rounded-xl p-6"
+              <div className="bg-red-50 border border-red-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center font-bold mr-4">1</div>
@@ -203,13 +198,9 @@ export default function PlumberMarketingAutomationPage() {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                className="bg-blue-50 border border-blue-200 rounded-xl p-6"
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">2</div>
@@ -239,13 +230,9 @@ export default function PlumberMarketingAutomationPage() {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                className="bg-green-50 border border-green-200 rounded-xl p-6"
+              <div className="bg-green-50 border border-green-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold mr-4">3</div>
@@ -275,13 +262,9 @@ export default function PlumberMarketingAutomationPage() {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.3 }}
-                className="bg-purple-50 border border-purple-200 rounded-xl p-6"
+              <div className="bg-purple-50 border border-purple-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold mr-4">4</div>
@@ -311,13 +294,9 @@ export default function PlumberMarketingAutomationPage() {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.4 }}
-                className="bg-orange-50 border border-orange-200 rounded-xl p-6"
+              <div className="bg-orange-50 border border-orange-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold mr-4">5</div>
@@ -347,7 +326,7 @@ export default function PlumberMarketingAutomationPage() {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </section>
 
@@ -355,7 +334,7 @@ export default function PlumberMarketingAutomationPage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">System 1: Emergency Lead Capture - Never Miss Another Call</h2>
             
-            <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-xl p-6">
+            <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-red-800 mb-4">⚡ The 5-Minute Window That Makes or Breaks Plumbing Businesses</h3>
               <p className="text-red-700 mb-4">
                 Our analysis of 50,000+ plumbing leads shows that response time directly correlates with conversion rate. 
@@ -384,7 +363,7 @@ export default function PlumberMarketingAutomationPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📱 Component 1: Instant SMS Response System</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -408,7 +387,7 @@ export default function PlumberMarketingAutomationPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">🎯 Component 2: Lead Qualification Automation</h3>
                 <div className="bg-gray-50 p-4 rounded-lg mb-4">
                   <h4 className="font-semibold text-gray-700 mb-2">Smart Qualification Questions (Automated):</h4>
@@ -464,7 +443,7 @@ export default function PlumberMarketingAutomationPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📞 Component 3: Smart Call Routing</h3>
                 <div className="space-y-4">
                   <div className="bg-blue-50 p-4 rounded-lg">
@@ -496,7 +475,7 @@ export default function PlumberMarketingAutomationPage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">System 2: Customer Journey Automation - From Lead to Lifetime Customer</h2>
             
-            <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-blue-800 mb-4">🔄 The Customer Lifecycle That Builds Million-Dollar Plumbing Businesses</h3>
               <p className="text-blue-700 mb-4">
                 Most plumbers treat each service call as a one-time transaction. Our automation framework turns every customer 
@@ -505,7 +484,7 @@ export default function PlumberMarketingAutomationPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📅 Pre-Service Communication Sequence</h3>
                 <div className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-6">
@@ -553,7 +532,7 @@ export default function PlumberMarketingAutomationPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">✅ Post-Service Follow-up Automation</h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-4">
@@ -600,7 +579,7 @@ export default function PlumberMarketingAutomationPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">🔄 Long-term Relationship Building</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -634,7 +613,7 @@ export default function PlumberMarketingAutomationPage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">System 3: Review & Reputation Automation - Build Trust at Scale</h2>
             
-            <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+            <div className="bg-green-50 border border-green-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-green-800 mb-4">⭐ The Review Generation System That Dominates Local Search</h3>
               <p className="text-green-700 mb-4">
                 87% of consumers read online reviews before choosing a plumber. Our automation system generates 
@@ -663,7 +642,7 @@ export default function PlumberMarketingAutomationPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📋 The Multi-Platform Review Request System</h3>
                 <div className="space-y-4">
                   <div className="bg-gray-50 p-4 rounded-lg">
@@ -709,7 +688,7 @@ export default function PlumberMarketingAutomationPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">🔧 Negative Feedback Management Automation</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -745,7 +724,7 @@ export default function PlumberMarketingAutomationPage() {
                 </div>
               </div>
 
-              <div className="bg-white border border-gray-200 rounded-xl p-6">
+              <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">📈 Review Marketing & Showcase Automation</h3>
                 <div className="space-y-4">
                   <div className="bg-green-50 p-4 rounded-lg">
@@ -784,7 +763,7 @@ export default function PlumberMarketingAutomationPage() {
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-gray-900">90-Day Implementation Roadmap</h2>
             
-            <div className="bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-xl p-6">
+            <div className="bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-cyan-800 mb-4">🎯 Your Path to Automated Plumbing Business Growth</h3>
               <p className="text-cyan-700">
                 This proven 90-day roadmap transforms manual plumbing businesses into automated growth machines. 
@@ -854,7 +833,7 @@ export default function PlumberMarketingAutomationPage() {
               </div>
             </div>
 
-            <div className="bg-white border border-gray-200 rounded-xl p-6">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-gray-800 mb-4">🛠️ Essential Tools & Budget Breakdown</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -966,13 +945,9 @@ export default function PlumberMarketingAutomationPage() {
               based on insights from $250MM+ in managed campaigns.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.button
-                whileHover={{ scale: 1.02, boxShadow: "0 12px 30px rgba(255, 255, 255, 0.2)" }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-white text-cyan-600 hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
-              >
+              <button className="bg-white text-cyan-600 hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl shadow-lg transition-transform duration-200 hover:scale-105 active:scale-95">
                 Start Your FREE Week
-              </motion.button>
+              </button>
               <button className="text-white underline hover:no-underline font-medium">
                 Download Automation Templates →
               </button>

@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { motion } from 'framer-motion';
 import { BlogPostTemplate } from '@/templates/blog-post-template';
 import { generateSEOMetadata, KEYWORD_CATEGORIES } from '@/templates/seo-config';
 import { MarketingBudgetCalculator } from '@/components/calculators/marketing-budget-calculator';
@@ -478,13 +477,11 @@ export default function HomeServicesMarketingBudgetPage() {
               based on insights from $250MM+ in managed campaigns.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.button
-                whileHover={{ scale: 1.02, boxShadow: "0 12px 30px rgba(255, 255, 255, 0.2)" }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-white text-brand-600 hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl transition-all duration-200 shadow-lg"
+              <button
+                className="bg-white text-brand-600 hover:bg-gray-100 font-semibold text-lg px-8 py-4 rounded-xl transition-transform duration-200 shadow-lg hover:scale-[1.02] active:scale-95"
               >
                 Start Your FREE Week
-              </motion.button>
+              </button>
               <button className="text-white underline hover:no-underline font-medium">
                 Download Free Budget Template →
               </button>
