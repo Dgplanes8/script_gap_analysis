@@ -501,7 +501,6 @@ export default function AIEnhancedCreativeIntelligencePage() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                       <FreeWeekButton source="ai_enhanced_creative_intelligence-cta" className="btn bg-white text-brand-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors">Start Free Week Trial</FreeWeekButton>
-                      <FreeWeekButton source="ai_enhanced_creative_intelligence-cta" className="btn border-white text-white hover:bg-white/10">Start Free Week Trial</FreeWeekButton>
                     </div>
                   </div>
                 </div>

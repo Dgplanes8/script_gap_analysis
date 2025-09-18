@@ -103,7 +103,6 @@ export default function ExamplesPage() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
                 <FreeWeekButton source="examples-cta" className="bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center">Start Free Week Trial</FreeWeekButton>
-                <FreeWeekButton source="examples-cta" className="bg-white border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center">Start Free Week Trial</FreeWeekButton>
               </div>
 
               {/* Quick Stats */}
@@ -310,7 +309,6 @@ export default function ExamplesPage() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <FreeWeekButton source="examples-cta" className="bg-white text-brand-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
-                <FreeWeekButton source="examples-cta" className="bg-brand-800 hover:bg-brand-900 text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
               </div>
             </div>
           </div>

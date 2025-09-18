@@ -548,7 +548,6 @@ export default function WeeklyTrendIntelligenceGuidePage() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <FreeWeekButton source="weekly_trend_intelligence_guide-cta" className="btn bg-white text-brand-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Start Free Week Trial</FreeWeekButton>
-                <FreeWeekButton source="weekly_trend_intelligence_guide-cta" className="btn btn-primary bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 rounded-lg">Start Free Week Trial</FreeWeekButton>
               </div>
             </div>
           </div>

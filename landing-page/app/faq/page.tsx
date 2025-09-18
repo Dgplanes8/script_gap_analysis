@@ -334,7 +334,6 @@ export default function FAQPage() {
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <FreeWeekButton source="faq-cta" className="bg-brand-600 text-white hover:bg-brand-700 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
-                  <FreeWeekButton source="faq-cta" className="bg-white border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
                 </div>
               </div>
             </div>

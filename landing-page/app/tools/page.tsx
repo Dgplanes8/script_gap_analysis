@@ -367,7 +367,6 @@ export default function ToolsPage() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                 <FreeWeekButton source="tools-cta" className="bg-white text-brand-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
-                <FreeWeekButton source="tools-cta" className="bg-brand-800 hover:bg-brand-900 text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
               </div>
 
               <div className="bg-white/10 backdrop-blur rounded-xl p-6">

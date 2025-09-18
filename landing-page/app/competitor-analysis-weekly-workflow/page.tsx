@@ -508,9 +508,13 @@ export default function CompetitorAnalysisWorkflowPage() {
                       Get the same systematic competitor analysis used by Fortune 100 companies, delivered weekly 
                       as part of our trend intelligence service.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                      <FreeWeekButton source="competitor_analysis_weekly_workflow-cta" className="btn bg-white text-brand-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors">Start Free Week Trial</FreeWeekButton>
-                      <FreeWeekButton source="competitor_analysis_weekly_workflow-cta" className="btn border-white text-white hover:bg-white/10">Start Free Week Trial</FreeWeekButton>
+                    <div className="flex justify-center">
+                      <FreeWeekButton
+                        source="competitor_analysis_weekly_workflow-cta"
+                        className="bg-white text-brand-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors"
+                      >
+                        Start Free Week Trial
+                      </FreeWeekButton>
                     </div>
                   </div>
                 </div>

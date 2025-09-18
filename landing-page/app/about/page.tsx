@@ -368,7 +368,6 @@ export default function AboutPage() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                 <FreeWeekButton source="about-cta" className="bg-white text-brand-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
-                <FreeWeekButton source="about-cta" className="bg-brand-800 hover:bg-brand-900 text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
               </div>
 
               <div className="border-t border-white/20 pt-8">

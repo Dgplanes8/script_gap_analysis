@@ -87,9 +87,13 @@ export default function MarketingAttributionFrameworkPage() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <FreeWeekButton source="marketing_attribution_framework-cta" className="px-8 py-3 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition-colors">Start Free Week Trial</FreeWeekButton>
-              <FreeWeekButton source="marketing_attribution_framework-cta" className="px-8 py-3 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition-colors">Start Free Week Trial</FreeWeekButton>
+            <div className="flex justify-center">
+              <FreeWeekButton
+                source="marketing_attribution_framework-cta"
+                className="px-8 py-3 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition-colors"
+              >
+                Start Free Week Trial
+              </FreeWeekButton>
             </div>
           </div>
         </section>
@@ -507,9 +511,13 @@ export default function MarketingAttributionFrameworkPage() {
               data schema templates, and step-by-step implementation guides.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <FreeWeekButton source="marketing_attribution_framework-cta" className="bg-white text-brand-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">Start Free Week Trial</FreeWeekButton>
-              <FreeWeekButton source="marketing_attribution_framework-cta" className="bg-white text-brand-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">Start Free Week Trial</FreeWeekButton>
+            <div className="flex justify-center">
+              <FreeWeekButton
+                source="marketing_attribution_framework-cta"
+                className="bg-white text-brand-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+              >
+                Start Free Week Trial
+              </FreeWeekButton>
             </div>
             
             <div className="text-brand-100 mt-6 max-w-md mx-auto">
