@@ -124,21 +124,12 @@ export function CreditCardAdvisor() {
 
   const getLLMResponse = async (history: Message[]) => {
     try {
-      // Check if API key is configured
-      if (!process.env.NEXT_PUBLIC_OPENROUTER_API_KEY) {
-        throw new Error('OpenRouter API key not configured');
-      }
-
-      const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      const response = await fetch('/api/credit-card-advisor', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_OPENROUTER_API_KEY}`,
           'Content-Type': 'application/json',
-          'HTTP-Referer': process.env.NEXT_PUBLIC_APP_URL || 'https://apsicsmedia.com',
-          'X-Title': 'APSICS Media Credit Card Advisor',
         },
         body: JSON.stringify({
-          model: 'openai/gpt-4o',
           messages: history,
         }),
       });
@@ -146,16 +137,21 @@ export function CreditCardAdvisor() {
       if (!response.ok) {
         const errorData = await response.json().catch(() => null);
         console.error('API Error:', response.status, errorData);
+
+        if (response.status === 500 && errorData?.error?.includes('API key not configured')) {
+          throw new Error('OpenRouter API key not configured');
+        }
+
         throw new Error(`API request failed: ${response.status} ${response.statusText}`);
       }
 
       const data = await response.json();
 
-      if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+      if (!data.content) {
         throw new Error('Invalid response format from AI service');
       }
 
-      const botReply = data.choices[0].message.content;
+      const botReply = data.content;
 
       // Process action plan and add referral links
       const processedReply = processActionPlan(botReply);
@@ -178,6 +174,8 @@ export function CreditCardAdvisor() {
           errorMessage = "⚙️ The AI advisor is not properly configured. Please contact support to enable this feature.";
         } else if (error.message.includes('401')) {
           errorMessage = "🔑 Authentication issue with the AI service. Please contact support.";
+        } else if (error.message.includes('402')) {
+          errorMessage = "💳 The AI advisor service needs to be activated. Please contact support to enable this feature.";
         } else if (error.message.includes('429')) {
           errorMessage = "⏱️ Too many requests. Please wait a moment and try again.";
         } else if (error.message.includes('network') || error.message.includes('fetch')) {
