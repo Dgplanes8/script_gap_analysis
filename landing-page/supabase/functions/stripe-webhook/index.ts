@@ -6,7 +6,7 @@ const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
 };
 
-const supabaseUrl = Deno.env.get("SUPABASE_URL");
+const supabaseUrl = Deno.env.get("EDGE_SUPABASE_URL") ?? Deno.env.get("SUPABASE_URL");
 const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 const stripeSecretKey = Deno.env.get("STRIPE_SECRET_KEY");
 const stripeWebhookSecret = Deno.env.get("STRIPE_WEBHOOK_SECRET");

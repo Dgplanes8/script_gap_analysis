@@ -8,9 +8,9 @@ const corsHeaders = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
-const supabaseUrl = Deno.env.get("SUPABASE_URL");
-const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
-const anonKey = Deno.env.get("SUPABASE_ANON_KEY");
+const supabaseUrl = Deno.env.get("EDGE_SUPABASE_URL") ?? Deno.env.get("SUPABASE_URL");
+const serviceRoleKey = Deno.env.get("EDGE_SUPABASE_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+const anonKey = Deno.env.get("EDGE_SUPABASE_ANON_KEY") ?? Deno.env.get("SUPABASE_ANON_KEY");
 const stripeSecretKey = Deno.env.get("STRIPE_SECRET_KEY");
 const stripePriceId = Deno.env.get("STRIPE_PRICE_ID");
 const successUrl = Deno.env.get("STRIPE_SUCCESS_URL") ?? Deno.env.get("SITE_URL")?.concat("/ai-ad-script-generator?checkout=success");

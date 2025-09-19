@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
+import { basePrompt } from "./prompt.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -7,21 +8,11 @@ const corsHeaders = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
-const supabaseUrl = Deno.env.get("SUPABASE_URL");
-const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
-const anonKey = Deno.env.get("SUPABASE_ANON_KEY");
+const supabaseUrl = Deno.env.get("EDGE_SUPABASE_URL") ?? Deno.env.get("SUPABASE_URL");
+const serviceRoleKey = Deno.env.get("EDGE_SUPABASE_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+const anonKey = Deno.env.get("EDGE_SUPABASE_ANON_KEY") ?? Deno.env.get("SUPABASE_ANON_KEY");
 const openRouterApiKey = Deno.env.get("OPENROUTER_API_KEY");
 const anonymousUsagePepper = Deno.env.get("ANON_USAGE_PEPPER");
-
-let basePrompt = "";
-
-try {
-  const promptPath = new URL("./prompts/script_bot_prompt.md", import.meta.url);
-  basePrompt = await Deno.readTextFile(promptPath);
-} catch (promptError) {
-  console.error("Failed to load base prompt", promptError);
-  throw new Error("Unable to load script prompt instructions");
-}
 
 if (!supabaseUrl || !serviceRoleKey || !anonKey) {
   throw new Error("Missing Supabase configuration for edge function");
@@ -37,16 +28,35 @@ if (!anonymousUsagePepper) {
 
 type RequestPayload = {
   companyName?: string;
+  websiteUrl?: string;
   productDescription?: string;
-  targetAudience?: string;
   platform?: string;
-  tone?: string;
-  callToAction?: string;
+  objective?: string;
 };
 
 const MAX_ANON_CREDITS = 1;
 
+const PLATFORM_LABELS: Record<string, string> = {
+  facebook: 'Facebook / Instagram',
+  tiktok: 'TikTok / Reels',
+  youtube: 'YouTube',
+  linkedin: 'LinkedIn',
+  display: 'Display / Programmatic',
+  ugc: 'UGC / Creator ads',
+};
+
+const OBJECTIVE_LABELS: Record<string, string> = {
+  awareness: 'Awareness',
+  leads: 'Leads',
+  sales: 'Sales',
+  engagement: 'Engagement',
+  downloads: 'Downloads',
+  installs: 'Installs',
+};
+
 serve(async (req) => {
+  console.log("generate-script invoked", { method: req.method, url: req.url });
+
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
@@ -68,25 +78,48 @@ serve(async (req) => {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 
-  const {
-    data: { user },
-  } = await supabaseClient.auth.getUser();
+  let user = null;
+  try {
+    const authResult = await supabaseClient.auth.getUser();
+    user = authResult.data.user;
+  } catch (authError) {
+    console.error("Failed to read auth context", authError);
+    return new Response(JSON.stringify({ error: "Unable to verify session" }), {
+      status: 401,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
 
   let payload: RequestPayload;
 
   try {
     payload = await req.json();
-  } catch (_err) {
+  } catch (parseError) {
+    console.error("Failed to parse JSON", parseError);
     return new Response(JSON.stringify({ error: "Invalid JSON payload" }), {
       status: 400,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
 
-  const { companyName, productDescription, targetAudience, platform, tone, callToAction } = payload;
+  const { companyName, websiteUrl, productDescription, platform, objective } = payload;
 
-  if (!companyName || !productDescription || !targetAudience || !platform || !tone || !callToAction) {
-    return new Response(JSON.stringify({ error: "Missing required fields" }), {
+  if (!companyName || !companyName.trim() || !websiteUrl || !websiteUrl.trim()) {
+    return new Response(JSON.stringify({ error: "Company name and website URL are required" }), {
+      status: 400,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
+  let normalizedWebsiteUrl: string;
+
+  try {
+    const withScheme = websiteUrl.startsWith('http') ? websiteUrl : `https://${websiteUrl}`;
+    const parsedUrl = new URL(withScheme);
+    normalizedWebsiteUrl = parsedUrl.toString();
+  } catch (urlError) {
+    console.error('Invalid website URL provided', websiteUrl, urlError);
+    return new Response(JSON.stringify({ error: "Website URL is invalid" }), {
       status: 400,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
@@ -105,6 +138,7 @@ let ipHash: string | null = null;
       .maybeSingle();
 
     if (error) {
+      console.error("Failed to load profile", error);
       return new Response(JSON.stringify({ error: "Unable to load profile" }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -146,6 +180,7 @@ let ipHash: string | null = null;
       .maybeSingle();
 
     if (error) {
+      console.error("Failed to check anonymous usage", error);
       return new Response(JSON.stringify({ error: "Unable to check anonymous usage" }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -167,15 +202,16 @@ let ipHash: string | null = null;
   }
 
   const prompt = buildPrompt({
-    companyName,
-    productDescription,
-    targetAudience,
-    platform,
-    tone,
-    callToAction,
+    companyName: companyName.trim(),
+    websiteUrl: normalizedWebsiteUrl,
+    productDescription: productDescription?.trim() ?? '',
+    platform: platform?.trim() ?? '',
+    objective: objective?.trim() ?? '',
   });
 
-  const completion = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+  let completion: Response;
+  try {
+    completion = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -200,10 +236,18 @@ let ipHash: string | null = null;
       top_p: 0.9,
       max_tokens: 800,
     }),
-  });
+    });
+  } catch (networkError) {
+    console.error("Failed to call OpenRouter", networkError);
+    return new Response(JSON.stringify({ error: "OpenRouter request failed", details: String(networkError) }), {
+      status: 502,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
 
   if (!completion.ok) {
     const errorBody = await safeReadJson(completion);
+    console.error("OpenRouter request returned non-200", completion.status, errorBody);
     return new Response(JSON.stringify({ error: "OpenRouter request failed", details: errorBody }), {
       status: 502,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -230,6 +274,7 @@ let ipHash: string | null = null;
       .maybeSingle();
 
     if (error || !updatedProfile) {
+      console.error("Failed to decrement credits", error);
       return new Response(JSON.stringify({ error: "Failed to decrement credits" }), {
         status: 409,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -249,6 +294,7 @@ let ipHash: string | null = null;
       .eq("ip_address", anonymousUsage.ip_address);
 
     if (error) {
+      console.error("Failed to update anonymous usage", error);
       return new Response(JSON.stringify({ error: "Unable to update anonymous usage" }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -262,6 +308,7 @@ let ipHash: string | null = null;
         .insert({ ip_address: hashedIp, usage_count: 1, last_used_at: new Date().toISOString() });
 
       if (error) {
+        console.error("Failed to insert anonymous usage", error);
         return new Response(JSON.stringify({ error: "Unable to record anonymous usage" }), {
           status: 500,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -280,29 +327,37 @@ type PromptParams = Required<RequestPayload>;
 
 function buildPrompt({
   companyName,
+  websiteUrl,
   productDescription,
-  targetAudience,
   platform,
-  tone,
-  callToAction,
+  objective,
 }: PromptParams) {
+  const descriptionLine = productDescription.length > 0 ? productDescription : 'Product description was not provided.';
+  const platformLabel = platform.length > 0 ? PLATFORM_LABELS[platform] ?? humanize(platform) : 'Strategist can choose the optimal placement';
+  const objectiveLabel = objective.length > 0 ? OBJECTIVE_LABELS[objective] ?? humanize(objective) : 'Drive measurable conversions';
+
   return `${basePrompt.trim()}
 
 ---
 Use the above strategic workflow to craft a finished advertising script. Reference the following campaign brief:
 
 Company Name: ${companyName}
-Product Description: ${productDescription}
-Target Audience: ${targetAudience}
-Primary Platform: ${platform}
-Desired Tone: ${tone}
-Call to Action: ${callToAction}
+Website URL: ${websiteUrl}
+Product Description: ${descriptionLine}
+Primary Platform: ${platformLabel}
+Campaign Objective: ${objectiveLabel}
 
 Output Requirements:
 1. Select the optimal framework based on the campaign brief and platform.
 2. Provide a concise, platform-native script that follows the chosen framework.
 3. Include any critical stage directions or on-screen text cues needed for production.
-4. Close with an explicit CTA aligned to "${callToAction}".
+4. Close with an explicit CTA aligned to the brand’s buyer journey.
+5. Return only the finished script. Do not include research notes, numbered steps, or multiple concepts—deliver exactly one script.
+
+Formatting Instructions:
+- Begin the response with the line 'Script:'.
+- After that line, output the complete script (including scene/stage directions if relevant) as continuous text or Markdown.
+- Do not add any introductions, summaries, or sections outside the script itself.
 `;
 }
 
@@ -342,4 +397,11 @@ async function hashIp(ip: string): Promise<string> {
   return Array.from(new Uint8Array(digest))
     .map((byte) => byte.toString(16).padStart(2, '0'))
     .join('');
+}
+
+function humanize(value: string) {
+  if (!value) {
+    return '';
+  }
+  return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
 }
