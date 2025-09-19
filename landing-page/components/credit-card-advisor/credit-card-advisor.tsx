@@ -194,39 +194,65 @@ export function CreditCardAdvisor() {
     }
   };
 
+  const formatResponse = (content: string): string => {
+    // First process action plans
+    let formatted = content;
+
+    // Format the text for better readability
+    formatted = formatted
+      // Add line breaks after sentences ending with periods
+      .replace(/\. (?=[A-Z])/g, '.\n\n')
+      // Add line breaks after colons followed by capital letters
+      .replace(/: (?=[A-Z])/g, ':\n\n')
+      // Format bullet points (asterisks)
+      .replace(/\* \*\*/g, '\n\n• **')
+      .replace(/\*\*/g, '**')
+      // Format numbered lists
+      .replace(/(\d+)\./g, '\n\n$1.')
+      // Add spacing around headers with ### or ##
+      .replace(/(#{2,3})\s*([^\n]+)/g, '\n\n$1 $2\n')
+      // Clean up multiple consecutive newlines
+      .replace(/\n{3,}/g, '\n\n')
+      // Trim leading/trailing whitespace
+      .trim();
+
+    return formatted;
+  };
+
   const processActionPlan = (content: string): string => {
     const AMEX_REFERRAL_URL = 'https://www.americanexpress.com/en-us/credit-cards/referral/prospect/all-cards?ref=BRIANF4NkO&XL=MIANS';
     const CHASE_REFERRAL_URL = 'https://www.referyourchasecard.com/19u/8W2414TP7W';
 
-    if (content.includes('[ACTION_PLAN:AMEX]')) {
-      const cleanContent = content.replace('[ACTION_PLAN:AMEX]', '').trim();
+    // First format the response for better readability
+    let formattedContent = formatResponse(content);
+
+    if (formattedContent.includes('[ACTION_PLAN:AMEX]')) {
+      const cleanContent = formattedContent.replace('[ACTION_PLAN:AMEX]', '').trim();
       return `${cleanContent}
 
 <div class="mt-6 p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl border border-[#126DFB]">
   <h3 class="text-xl font-semibold text-gray-900 mb-3">🎯 Recommended Action</h3>
   <p class="text-gray-700 mb-4">Based on your profile, the American Express Platinum Card appears to be the best fit for your needs.</p>
   <a href="${AMEX_REFERRAL_URL}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl">
-    <CreditCard class="w-5 h-5 mr-2" />
-    Apply for Amex Platinum Card
+    💳 Apply for Amex Platinum Card
   </a>
 </div>`;
     }
 
-    if (content.includes('[ACTION_PLAN:CHASE]')) {
-      const cleanContent = content.replace('[ACTION_PLAN:CHASE]', '').trim();
+    if (formattedContent.includes('[ACTION_PLAN:CHASE]')) {
+      const cleanContent = formattedContent.replace('[ACTION_PLAN:CHASE]', '').trim();
       return `${cleanContent}
 
 <div class="mt-6 p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl border border-[#126DFB]">
   <h3 class="text-xl font-semibold text-gray-900 mb-3">🎯 Recommended Action</h3>
   <p class="text-gray-700 mb-4">Based on your profile, the Chase Sapphire Reserve Card appears to be the best fit for your needs.</p>
   <a href="${CHASE_REFERRAL_URL}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl">
-    <CreditCard class="w-5 h-5 mr-2" />
-    Apply for Chase Sapphire Reserve
+    💳 Apply for Chase Sapphire Reserve
   </a>
 </div>`;
     }
 
-    return content;
+    return formattedContent;
   };
 
   return (
@@ -327,8 +353,16 @@ export function CreditCardAdvisor() {
                           ? 'bg-[#126DFB] text-white ml-4'
                           : 'bg-gray-100 text-gray-900 mr-4'
                       }`}
-                      dangerouslySetInnerHTML={{ __html: message.content }}
-                    />
+                    >
+                      {message.role === 'user' ? (
+                        <span className="whitespace-pre-wrap">{message.content}</span>
+                      ) : (
+                        <div
+                          className="whitespace-pre-wrap prose prose-sm max-w-none [&>*]:mb-3 [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:mb-2 [&>p]:mb-2 [&>ul]:mb-2 [&>ol]:mb-2"
+                          dangerouslySetInnerHTML={{ __html: message.content }}
+                        />
+                      )}
+                    </div>
                   </motion.div>
                 ))}
               </AnimatePresence>
