@@ -38,7 +38,14 @@ For each recommendation, provide:
 - Clear reasoning for your recommendation with actual dollar amounts
 - Consider companion card value for Amex Platinum (free Green/Blue cards for couples/families vs Chase's $195 authorized user fee)
 
-When you provide the final action plan and recommend a specific card family (Amex or Chase), conclude your entire response with a special token on a new line: [ACTION_PLAN:AMEX] for American Express or [ACTION_PLAN:CHASE] for Chase.
+IMPORTANT RESPONSE FORMAT:
+After analyzing all responses, you MUST:
+1. Provide a clear, definitive recommendation for ONE specific card (either Amex Platinum or Chase Sapphire Reserve)
+2. Give a brief summary of why this card is the best choice for their specific situation
+3. End your response by asking: "Would you like to apply for the [CARD NAME]?"
+4. Then conclude with the appropriate action token: [ACTION_PLAN:AMEX] for American Express Platinum or [ACTION_PLAN:CHASE] for Chase Sapphire Reserve
+
+Do NOT give wishy-washy recommendations or suggest "both cards are good." Pick ONE card that best fits their profile and ask for confirmation before showing the application link.
 
 Focus on premium travel cards and provide authoritative, data-driven advice that helps users make informed financial decisions using the exact current pricing and benefits listed above.`;
 
@@ -58,6 +65,11 @@ export function CreditCardAdvisor() {
   const [conversationHistory, setConversationHistory] = useState<Message[]>([
     { role: 'system', content: SYSTEM_PROMPT }
   ]);
+  const [pendingRecommendation, setPendingRecommendation] = useState<{
+    type: 'AMEX' | 'CHASE';
+    content: string;
+  } | null>(null);
+  const [isComplete, setIsComplete] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -97,6 +109,50 @@ export function CreditCardAdvisor() {
 
     if (!userInput.trim()) return;
 
+    // Check if we're waiting for confirmation on a recommendation
+    if (pendingRecommendation && !isComplete) {
+      const response = userInput.toLowerCase().trim();
+
+      if (response.includes('yes') || response.includes('apply') || response.includes('get')) {
+        // User confirmed, show the referral link
+        const confirmMessage: Message = {
+          role: 'user',
+          content: userInput,
+          timestamp: new Date()
+        };
+
+        const linkMessage: Message = {
+          role: 'assistant',
+          content: generateReferralLink(pendingRecommendation.type),
+          timestamp: new Date()
+        };
+
+        setMessages(prev => [...prev, confirmMessage, linkMessage]);
+        setIsComplete(true);
+        setPendingRecommendation(null);
+        setUserInput('');
+        return;
+      } else if (response.includes('no') || response.includes('not') || response.includes('different')) {
+        // User declined, offer alternative
+        const declineMessage: Message = {
+          role: 'user',
+          content: userInput,
+          timestamp: new Date()
+        };
+
+        const alternativeMessage: Message = {
+          role: 'assistant',
+          content: `I understand. Based on your profile, you might want to consider the ${pendingRecommendation.type === 'AMEX' ? 'Chase Sapphire Reserve' : 'American Express Platinum'} instead. Would you like me to provide more details about that option, or do you have other questions about credit cards?`,
+          timestamp: new Date()
+        };
+
+        setMessages(prev => [...prev, declineMessage, alternativeMessage]);
+        setPendingRecommendation(null);
+        setUserInput('');
+        return;
+      }
+    }
+
     // Add user message
     const userMessage: Message = {
       role: 'user',
@@ -115,7 +171,7 @@ export function CreditCardAdvisor() {
       setTimeout(() => {
         askQuestion(currentQuestionIndex + 1);
       }, 500);
-    } else {
+    } else if (!isComplete) {
       // All questions answered, get LLM response
       setIsTyping(true);
       await getLLMResponse([...conversationHistory, userMessage]);
@@ -153,17 +209,44 @@ export function CreditCardAdvisor() {
 
       const botReply = data.content;
 
-      // Process action plan and add referral links
-      const processedReply = processActionPlan(botReply);
+      // Check for action plan tokens and handle confirmation flow
+      if (botReply.includes('[ACTION_PLAN:AMEX]')) {
+        const cleanContent = formatResponse(botReply.replace('[ACTION_PLAN:AMEX]', '').trim());
+        setPendingRecommendation({ type: 'AMEX', content: cleanContent });
 
-      const assistantMessage: Message = {
-        role: 'assistant',
-        content: processedReply,
-        timestamp: new Date()
-      };
+        const assistantMessage: Message = {
+          role: 'assistant',
+          content: cleanContent,
+          timestamp: new Date()
+        };
 
-      setMessages(prev => [...prev, assistantMessage]);
-      setConversationHistory(prev => [...prev, assistantMessage]);
+        setMessages(prev => [...prev, assistantMessage]);
+        setConversationHistory(prev => [...prev, assistantMessage]);
+      } else if (botReply.includes('[ACTION_PLAN:CHASE]')) {
+        const cleanContent = formatResponse(botReply.replace('[ACTION_PLAN:CHASE]', '').trim());
+        setPendingRecommendation({ type: 'CHASE', content: cleanContent });
+
+        const assistantMessage: Message = {
+          role: 'assistant',
+          content: cleanContent,
+          timestamp: new Date()
+        };
+
+        setMessages(prev => [...prev, assistantMessage]);
+        setConversationHistory(prev => [...prev, assistantMessage]);
+      } else {
+        // No action plan, just format and display response
+        const processedReply = formatResponse(botReply);
+
+        const assistantMessage: Message = {
+          role: 'assistant',
+          content: processedReply,
+          timestamp: new Date()
+        };
+
+        setMessages(prev => [...prev, assistantMessage]);
+        setConversationHistory(prev => [...prev, assistantMessage]);
+      }
     } catch (error) {
       console.error('Error getting LLM response:', error);
 
@@ -217,6 +300,33 @@ export function CreditCardAdvisor() {
       .trim();
 
     return formatted;
+  };
+
+  const generateReferralLink = (cardType: 'AMEX' | 'CHASE'): string => {
+    const AMEX_REFERRAL_URL = 'https://www.americanexpress.com/en-us/credit-cards/referral/prospect/all-cards?ref=BRIANF4NkO&XL=MIANS';
+    const CHASE_REFERRAL_URL = 'https://www.referyourchasecard.com/19u/8W2414TP7W';
+
+    if (cardType === 'AMEX') {
+      return `Great choice! 🎉 The American Express Platinum Card is an excellent fit for your profile.
+
+<div class="mt-6 p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl border border-[#126DFB]">
+  <h3 class="text-xl font-semibold text-gray-900 mb-3">🎯 Ready to Apply</h3>
+  <p class="text-gray-700 mb-4">Click the button below to apply for the American Express Platinum Card and start earning those valuable Membership Rewards points!</p>
+  <a href="${AMEX_REFERRAL_URL}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl">
+    💳 Apply for Amex Platinum Card
+  </a>
+</div>`;
+    } else {
+      return `Excellent decision! 🎉 The Chase Sapphire Reserve is perfect for your travel goals.
+
+<div class="mt-6 p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl border border-[#126DFB]">
+  <h3 class="text-xl font-semibold text-gray-900 mb-3">🎯 Ready to Apply</h3>
+  <p class="text-gray-700 mb-4">Click the button below to apply for the Chase Sapphire Reserve and start maximizing your travel rewards!</p>
+  <a href="${CHASE_REFERRAL_URL}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl">
+    💳 Apply for Chase Sapphire Reserve
+  </a>
+</div>`;
+    }
   };
 
   const processActionPlan = (content: string): string => {
@@ -331,7 +441,7 @@ export function CreditCardAdvisor() {
             <div className="px-6 py-4 bg-[#126DFB] text-white">
               <div className="flex items-center gap-3">
                 <MessageSquare className="w-5 h-5" />
-                <h2 className="text-lg font-semibold">Chat with Your AI Advisor</h2>
+                <h2 className="text-lg font-semibold">Chase vs Amex AI Advisor</h2>
               </div>
             </div>
 

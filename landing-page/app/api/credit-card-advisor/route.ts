@@ -23,11 +23,11 @@ export async function POST(request: NextRequest) {
         'X-Title': 'APSICS Media Credit Card Advisor',
       },
       body: JSON.stringify({
-        model: 'openrouter/sonoma-dusk-alpha',
+        model: 'deepseek/deepseek-chat-v3.1:free',
         messages: messages,
         temperature: 0.7,
         top_p: 0.9,
-        max_tokens: 1200,
+        max_tokens: 1500,
       }),
     });
 
