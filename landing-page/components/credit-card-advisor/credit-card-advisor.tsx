@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, CreditCard, Shield, Send, Loader2 } from 'lucide-react';
+import { MessageSquare, CreditCard, Shield, Send, Loader2, ExternalLink } from 'lucide-react';
 
 interface Message {
   role: 'user' | 'assistant' | 'system';
@@ -43,11 +43,11 @@ When you provide the final action plan and recommend a specific card family (Ame
 Focus on premium travel cards and provide authoritative, data-driven advice that helps users make informed financial decisions using the exact current pricing and benefits listed above.`;
 
 const INITIAL_QUESTIONS = [
-  "What's your estimated monthly spending across all categories? (Please provide a specific dollar amount)",
-  "How often do you travel per year, and do you prefer domestic or international destinations?",
-  "What's your current credit score range? (Excellent: 750+, Good: 700-749, Fair: 650-699, Poor: Below 650)",
-  "What's your approximate annual income range? (Under $50k, $50k-$100k, $100k-$200k, $200k+)",
-  "What's your primary goal for a premium credit card? (Travel rewards, cashback, building credit, luxury perks, business expenses)"
+  "Which credit cards do you currently have, and how long have you had them?",
+  "How often do you fly (domestic vs international), and which airlines or alliances do you prefer?",
+  "Do you usually stay in hotels, Airbnbs, or alternative lodging? Any loyalty programs you care about?",
+  "About how much do you spend monthly on dining, groceries, travel (flights/hotels), transportation (rideshare, gas, transit), and online shopping?",
+  "Which perks matter more to you: lounge access, hotel upgrades, travel insurance, credits (Uber, streaming, etc.), or luxury experiences?"
 ];
 
 export function CreditCardAdvisor() {
@@ -124,11 +124,18 @@ export function CreditCardAdvisor() {
 
   const getLLMResponse = async (history: Message[]) => {
     try {
+      // Check if API key is configured
+      if (!process.env.NEXT_PUBLIC_OPENROUTER_API_KEY) {
+        throw new Error('OpenRouter API key not configured');
+      }
+
       const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${process.env.NEXT_PUBLIC_OPENROUTER_API_KEY}`,
           'Content-Type': 'application/json',
+          'HTTP-Referer': process.env.NEXT_PUBLIC_APP_URL || 'https://apsicsmedia.com',
+          'X-Title': 'APSICS Media Credit Card Advisor',
         },
         body: JSON.stringify({
           model: 'openai/gpt-4o',
@@ -137,10 +144,17 @@ export function CreditCardAdvisor() {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to get response from AI advisor');
+        const errorData = await response.json().catch(() => null);
+        console.error('API Error:', response.status, errorData);
+        throw new Error(`API request failed: ${response.status} ${response.statusText}`);
       }
 
       const data = await response.json();
+
+      if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+        throw new Error('Invalid response format from AI service');
+      }
+
       const botReply = data.choices[0].message.content;
 
       // Process action plan and add referral links
@@ -156,12 +170,27 @@ export function CreditCardAdvisor() {
       setConversationHistory(prev => [...prev, assistantMessage]);
     } catch (error) {
       console.error('Error getting LLM response:', error);
-      const errorMessage: Message = {
+
+      let errorMessage = "I apologize, but I'm having trouble processing your request right now. Please try again in a moment.";
+
+      if (error instanceof Error) {
+        if (error.message.includes('API key not configured')) {
+          errorMessage = "⚙️ The AI advisor is not properly configured. Please contact support to enable this feature.";
+        } else if (error.message.includes('401')) {
+          errorMessage = "🔑 Authentication issue with the AI service. Please contact support.";
+        } else if (error.message.includes('429')) {
+          errorMessage = "⏱️ Too many requests. Please wait a moment and try again.";
+        } else if (error.message.includes('network') || error.message.includes('fetch')) {
+          errorMessage = "🌐 Network connection issue. Please check your internet and try again.";
+        }
+      }
+
+      const assistantMessage: Message = {
         role: 'assistant',
-        content: "I apologize, but I'm having trouble processing your request right now. Please try again in a moment, or feel free to contact our support team for assistance.",
+        content: errorMessage,
         timestamp: new Date()
       };
-      setMessages(prev => [...prev, errorMessage]);
+      setMessages(prev => [...prev, assistantMessage]);
     } finally {
       setIsTyping(false);
     }
@@ -204,8 +233,33 @@ export function CreditCardAdvisor() {
 
   return (
     <main className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <div className="flex items-center">
+              <h1 className="text-2xl font-bold text-gray-900">
+                APSICS <span className="text-[#126DFB]">Media</span>
+              </h1>
+            </div>
+
+            {/* Learn More CTA */}
+            <motion.a
+              href="/"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold rounded-xl transition-all duration-200 shadow-lg"
+            >
+              Learn More
+              <ExternalLink className="w-4 h-4" />
+            </motion.a>
+          </div>
+        </div>
+      </header>
+
       {/* Hero Section */}
-      <section className="relative pt-24 pb-12 px-6 bg-white">
+      <section className="relative pt-12 pb-12 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           {/* Trust Badge */}
           <motion.div
