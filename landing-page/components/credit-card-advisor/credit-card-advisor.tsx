@@ -224,7 +224,7 @@ export function CreditCardAdvisor() {
     const CHASE_REFERRAL_URL = 'https://www.referyourchasecard.com/19u/8W2414TP7W';
 
     // First format the response for better readability
-    let formattedContent = formatResponse(content);
+    const formattedContent = formatResponse(content);
 
     if (formattedContent.includes('[ACTION_PLAN:AMEX]')) {
       const cleanContent = formattedContent.replace('[ACTION_PLAN:AMEX]', '').trim();
