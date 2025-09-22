@@ -20,6 +20,7 @@
     "perf-audit": "npm run analyze-bundle && npm run type-check && npm run lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-label": "^2.1.7",

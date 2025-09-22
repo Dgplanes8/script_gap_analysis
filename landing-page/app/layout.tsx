@@ -41,9 +41,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Revenue Growth Through Creative Intelligence | APSICS Media',
+  title: 'Stop Burning Ad Budget on Creative Guesswork | APSICS Media',
   description:
-    'Transform your creative strategy into measurable revenue growth. Weekly intelligence, conversion-focused scripts, and performance optimization from $250MM+ in managed ad spend.',
+    'Get $5,000+ agency strategy starting at just $5/week. Research-backed creative concepts for Facebook, Instagram, TikTok, LinkedIn, X, and YouTube.',
   keywords:
     'creative intelligence, revenue growth, conversion optimization, performance marketing, creative strategy, ROI optimization, marketing intelligence, ad performance, creative ROI, conversion rate optimization, performance advertising, marketing automation, creative analytics, revenue optimization, growth marketing',
   authors: [{ name: 'Apsics Media' }],
@@ -56,9 +56,9 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Revenue Growth Through Creative Intelligence | APSICS Media',
+    title: 'Stop Burning Ad Budget on Creative Guesswork | APSICS Media',
     description:
-      'Transform your creative strategy into measurable revenue growth. Weekly intelligence, conversion-focused scripts, and performance optimization from $250MM+ in managed ad spend.',
+      'Get $5,000+ agency strategy starting at just $5/week. Research-backed creative concepts for Facebook, Instagram, TikTok, LinkedIn, X, and YouTube.',
 
     url: '/',
     siteName: 'Apsics Media',
@@ -75,9 +75,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Revenue Growth Through Creative Intelligence | APSICS Media',
+    title: 'Stop Burning Ad Budget on Creative Guesswork | APSICS Media',
     description:
-      'Transform your creative strategy into measurable revenue growth. Weekly intelligence and conversion-focused scripts from $250MM+ in managed ad spend.',
+      'Get $5,000+ agency strategy starting at just $5/week. Research-backed creative concepts for Facebook, Instagram, TikTok, LinkedIn, X, and YouTube.',
     images: ['/images/og-image.png'],
     creator: '@apsicsmedia',
   },

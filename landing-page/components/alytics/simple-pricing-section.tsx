@@ -64,7 +64,7 @@ function PricingTier({ name, price, originalPrice, description, features, popula
 
       {popular && (
         <div className="absolute -top-4 right-6">
-          <div className="bg-gradient-to-r from-brand-500 to-brand-500 text-white text-sm font-semibold px-3 py-1 rounded-full flex items-center gap-1">
+          <div className="bg-gradient-to-r from-[#126DFB] to-[#126DFB] text-white text-sm font-semibold px-3 py-1 rounded-full flex items-center gap-1">
             <Star className="w-3 h-3" />
             Most Popular
           </div>
@@ -117,42 +117,46 @@ export function SimplePricingSection() {
   const { openModal } = useFreeWeek();
   const pricingTiers = [
     {
-      name: "Trend Tracker",
+      name: "Starter",
       price: "$5",
-      description: "Perfect for growing teams ready to scale content",
+      description: "Perfect for testing our strategic approach",
       features: [
-        "1 strategic creative concept weekly",
-        "2 ready-to-develop scripts per concept",
-        "Platform-specific optimizations",
+        "1 custom creative concept weekly (static + video)",
+        "2 ready to launch scripts",
+        "Optimized for Facebook, Instagram, TikTok, LinkedIn, X, YouTube",
+        "Performance improvement guarantee",
         "Weekly Monday delivery"
       ],
       buttonText: "Start Free Week Trial"
     },
     {
-      name: "Competitive Edge",
+      name: "Professional",
       price: "$20",
       originalPrice: "$30",
-      description: "Ideal for teams with growing ad spend",
+      description: "Most popular - proven strategic frameworks at startup prices",
       features: [
-        "2 creative concepts weekly",
-        "4 ready-to-test scripts total",
-        "Competitor-inspired concepts included",
-        "Priority support",
+        "2 custom creative concepts weekly (static + video)",
+        "4 ready to launch scripts total",
+        "Direct senior strategist access",
+        "Competitor analysis included",
+        "Optimized for all major platforms",
+        "Performance improvement guarantee",
         "Weekly Monday delivery"
       ],
       popular: true,
+      badge: "RECOMMENDED",
       buttonText: "Start Free Week Trial"
     },
     {
-      name: "Market Intelligence",
+      name: "Enterprise",
       price: "$50",
-      description: "For teams needing comprehensive coverage",
+      description: "Executive-level strategy for comprehensive coverage",
       features: [
-        "3 creative concepts weekly",
-        "6 ready-to-test scripts total",
-        "Direct team access",
+        "3 custom creative concepts weekly (static + video)",
+        "6 ready to launch scripts total",
+        "Direct senior strategist collaboration",
         "Strategic consultation included",
-        "Custom format requests",
+        "Custom format requests for any platform",
         "Weekly Monday delivery"
       ],
       buttonText: "Start Free Week Trial"
@@ -178,9 +182,9 @@ export function SimplePricingSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Simple pricing,{' '}
+            Get started for{' '}
             <span className="text-transparent bg-gradient-to-r from-[#126DFB] to-[#126DFB] bg-clip-text">
-              maximum value
+              free this week
             </span>
           </motion.h2>
           
@@ -191,19 +195,25 @@ export function SimplePricingSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Try any tier free for a week. No credit card required. Cancel anytime.
+            No credit card. No risk. See results in 7 days or pay nothing.
           </motion.p>
 
-          {/* Free Trial Highlight */}
+          {/* Value Anchoring */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="inline-flex items-center gap-3 px-6 py-3 bg-brand-50 border border-brand-200 rounded-full"
+            className="bg-gradient-to-r from-green-50 to-blue-50 border-2 border-green-200 rounded-2xl p-6 max-w-2xl mx-auto"
           >
-            <CheckCircle className="w-5 h-5 text-brand-600" />
-            <span className="text-brand-800 font-medium">FREE Week Trial • No Risk • Cancel Anytime</span>
+            <div className="text-center">
+              <div className="text-lg font-bold text-gray-900 mb-2">
+                Save $5,000+ monthly vs. agency fees
+              </div>
+              <div className="text-sm text-gray-600">
+                Get the same brand strategy that agencies charge thousands for
+              </div>
+            </div>
           </motion.div>
         </motion.div>
 
@@ -213,7 +223,7 @@ export function SimplePricingSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-3 gap-8 mb-16"
+          className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16"
         >
           {pricingTiers.map((tier, index) => (
             <PricingTier
@@ -244,7 +254,7 @@ export function SimplePricingSection() {
           className="text-center"
         >
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Join businesses across SaaS, ecommerce, apps, and subscriptions who use these frameworks to consistently drive revenue growth.
+            Join businesses across SaaS, ecommerce, local services, and B2B companies who get proven strategic frameworks for a fraction of agency costs — with a performance improvement guarantee.
           </p>
         </motion.div>
 

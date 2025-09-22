@@ -1,6 +1,6 @@
-# Monday Morning Marketer Landing Pages
+# APSICS Media Landing Page
 
-A Next.js 14 application for Monday Morning Marketer landing pages with optimized email capture, Calendly integration, and Stripe payment processing.
+A Next.js 14 application for APSICS Media's creative intelligence service with AI ad script generator, Supabase integration, and subscription billing.
 
 ## Features
 
@@ -17,10 +17,9 @@ A Next.js 14 application for Monday Morning Marketer landing pages with optimize
 
 ## Pages
 
-- `/` - Main landing page with program overview
-- `/pilot` - Strategic Marketing Pilot Program ($997/month)
-- `/990` - Done-For-You Marketing Program ($9,900/month)
-- `/success` - Success stories and testimonials
+- `/` - Main landing page for creative intelligence service
+- `/ai-ad-script-generator` - AI-powered script generation tool
+- Service tiers with $5/week founding member pricing
 
 ## Quick Start
 
@@ -39,16 +38,13 @@ cp .env.local .env
 # Application
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 
-# Email Configuration
-RESEND_API_KEY=your_resend_api_key_here
-NEXT_PUBLIC_FROM_EMAIL=hello@mondaymorningmarketer.com
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 
-# Stripe Configuration  
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key_here
-STRIPE_SECRET_KEY=your_stripe_secret_key_here
-
-# Calendly Configuration
-NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-username
+# AI Configuration
+DEEPSEEK_API_KEY=your_deepseek_api_key
 
 # Analytics
 NEXT_PUBLIC_GA_MEASUREMENT_ID=your_google_analytics_id_here
@@ -65,50 +61,45 @@ npm run dev
 
 ```
 app/
-├── api/
-│   └── subscribe/
-│       └── route.ts         # Email subscription API
-├── pilot/
-│   └── page.tsx            # Pilot program page ($997)
-├── 990/
-│   └── page.tsx            # Done-for-you page ($9,900)
-├── success/
-│   └── page.tsx            # Success stories
+├── ai-ad-script-generator/
+│   └── client-page.tsx     # AI script generator interface
 ├── globals.css             # Global styles
 ├── layout.tsx              # Root layout
-└── page.tsx                # Home page
+└── page.tsx                # Main landing page
 
 components/
+├── alytics/
+│   ├── alytics-hero.tsx           # Hero section
+│   ├── alytics-landing.tsx        # Main landing component
+│   ├── simple-pricing-section.tsx # Pricing tiers
+│   ├── social-proof-section.tsx   # Testimonials and stats
+│   ├── four-box-process-section.tsx # Process explanation
+│   ├── performance-guarantee-section.tsx # Guarantee section
+│   └── founder-section.tsx        # Founder credibility
 ├── forms/
-│   └── email-capture-form.tsx  # Email capture with validation
-├── layout/
-│   ├── hero.tsx               # Hero section component
-│   ├── features.tsx           # Features section
-│   ├── cta-section.tsx        # Call-to-action sections
-│   └── testimonial-section.tsx # Testimonials
-├── ui/
-│   ├── testimonial-card.tsx   # Individual testimonial
-│   ├── pricing-card.tsx       # Pricing display
-│   └── calendly-embed.tsx     # Calendly booking widget
-└── analytics.tsx              # Google Analytics
+│   └── email-capture-form.tsx     # Email capture
+└── ui/
+    └── button.tsx                 # UI components
 
-lib/
-└── utils.ts                   # Utility functions
+supabase/
+└── functions/
+    └── generate-script/
+        └── index.ts               # AI script generation function
 ```
 
 ## Key Components
 
-### EmailCaptureForm
-Optimized email capture with validation, multiple variants, and Resend integration.
+### AI Script Generator
+DeepSeek-powered ad script generation with user authentication and credit system.
 
 ### Hero Section
-Conversion-optimized hero with social proof and clear CTAs.
+Outcome-focused messaging emphasizing revenue doubling potential.
 
-### Pricing Cards
-Professional pricing display with feature lists and conversion tracking.
+### Pricing Section
+Affordable $5/week service vs $5,000+ agency fees positioning.
 
-### Calendly Integration
-Seamless booking widget integration for strategy calls.
+### Social Proof
+12+ years experience and $250MM+ managed media spend credibility.
 
 ## Deployment
 
@@ -128,11 +119,10 @@ npm run start
 | Variable | Description | Required |
 |----------|-------------|----------|
 | `NEXT_PUBLIC_APP_URL` | Application URL | Yes |
-| `RESEND_API_KEY` | Resend API key for emails | Yes |
-| `NEXT_PUBLIC_FROM_EMAIL` | From email address | Yes |
-| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Stripe public key | Optional |
-| `STRIPE_SECRET_KEY` | Stripe secret key | Optional |
-| `NEXT_PUBLIC_CALENDLY_URL` | Calendly booking URL | Yes |
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL | Yes |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonymous key | Yes |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key | Yes |
+| `DEEPSEEK_API_KEY` | DeepSeek AI API key | Yes |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics ID | Optional |
 
 ## Scripts
@@ -145,6 +135,14 @@ npm run start
 - `npm run format` - Format with Prettier
 - `npm run type-check` - TypeScript type checking
 
+## Service Description
+
+APSICS Media provides weekly creative intelligence for performance marketers:
+- Research-backed creative concepts (static + video)
+- Platform-optimized scripts for Facebook, Instagram, TikTok, LinkedIn, X, YouTube
+- $5/week founding member pricing vs $5,000+ agency fees
+- Performance improvement guarantee
+
 ## License
 
-Private - Monday Morning Marketer
+Private - APSICS Media

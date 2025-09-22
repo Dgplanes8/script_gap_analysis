@@ -18,49 +18,49 @@ const processSteps: AccordionItem[] = [
     id: 'customer-research',
     title: 'Customer Research',
     icon: <Target className="h-5 w-5" />,
-    description: 'Pain & Dream Outcomes - Deep dive into your target audience\'s pain points and dream outcomes',
+    description: 'Turn your industry insights into customer pain points that drive urgent action',
     details: [
-      'Golden Pain Bank: Identify absolute dread moments and frustrations your audience faces',
-      'Dream Outcome Vault: Map the perfect scenarios your customers want to achieve',
-      'Emotional trigger identification for authentic connection',
-      'Target persona development with specific pain point analysis'
+      'Customer moments that trigger immediate purchase decisions in your industry',
+      'Transformation outcomes that make customers pay premium prices',
+      'Psychology that turns browsers into buyers within seconds',
+      'Revenue driving customer profiles based on actual purchasing behavior'
     ]
   },
   {
     id: 'concept-ideation',
     title: 'Concept Ideation',
     icon: <Lightbulb className="h-5 w-5" />,
-    description: 'Strategic concept development with proven emotional triggers and positioning',
+    description: 'Transform research into campaigns that make customers want to buy immediately',
     details: [
-      'Target Persona Development: Detailed profiles including demographics, pain points, and behavioral triggers',
-      'Core Emotion Identification: Relief & Security, Liberation & Empowerment, Competence & Power positioning strategies',
-      'Trigger Analysis: Specific moments of frustration, desire, or urgency that drive action',
-      'Strategic Positioning: How your solution uniquely addresses the core emotion vs. competitors',
-      'Format Optimization: UGC, Us vs Them, Before & After, Meme Ads tailored to your personas'
+      'Campaigns that speak directly to customers ready to buy in your market',
+      'Emotional triggers that create urgency and drive immediate action',
+      'Purchase triggers that make customers choose you over competitors',
+      'Market positioning that justifies premium pricing and reduces price objections',
+      'Campaign formats proven to convert in your specific industry'
     ]
   },
   {
     id: 'performance-prediction',
     title: 'Performance Prediction',
     icon: <BarChart3 className="h-5 w-5" />,
-    description: 'Messaging Analysis - Score and validate concepts using proven frameworks',
+    description: 'Predict which campaigns will drive revenue before you spend any ad budget',
     details: [
-      'Performance scoring system (0-25 points) for each concept',
-      'Emotional resonance and benefit clarity analysis',
-      'Attention capture and memorability assessment',
-      'Script format breakdown with target persona validation'
+      'Revenue potential scoring that predicts ROI before launch',
+      'Conversion probability analysis for each campaign concept',
+      'Customer engagement prediction that forecasts viral potential',
+      'Campaign performance validation against successful industry benchmarks'
     ]
   },
   {
     id: 'scripts-headlines',
     title: 'Scripts & Headlines',
     icon: <FileText className="h-5 w-5" />,
-    description: 'Bringing Concepts to Life - Complete, tested scripts across multiple ad formats',
+    description: 'Get copy-paste ready scripts that turn visitors into paying customers',
     details: [
-      'Hook variations: Problem-focused and solution-focused openings',
-      'Complete script framework: HOOK → PROBLEM → AUTHORITY → DEMO → OUTCOME → CTA',
-      'Social proof and authority positioning strategies',
-      'Platform-specific optimization for TikTok, Instagram, Facebook, and LinkedIn'
+      'Opening lines that stop scrolling and create instant interest',
+      'Complete campaigns that guide customers from awareness to purchase',
+      'Authority elements that build trust and reduce buying hesitation',
+      'Ready to post content optimized for maximum conversion on each platform'
     ]
   }
 ];
@@ -80,14 +80,14 @@ export function ProcessAccordion() {
         <div className="text-center mb-8">
           <div className="mb-3">
             <span className="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">
-              Our Process
+              What You Get
             </span>
           </div>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-            Strategic Creative Intelligence in 4 Steps
+            From Your Industry → To Revenue Driving Scripts
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            From audience research to ready-to-launch scripts, delivered every Monday
+            Research based campaigns that outperform guesswork, delivered every Monday
           </p>
         </div>
 

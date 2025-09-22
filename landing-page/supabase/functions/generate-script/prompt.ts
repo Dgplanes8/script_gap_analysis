@@ -349,32 +349,47 @@ What is the product positioning
 
 Here are the top converting formats:
 
-UGC
+Greenscreen React
 
-Mash up
+Duet React (split-screen/response)
 
-Founder video
+UGC-Style Testimonial Clip
 
-Us vs them
+Founder Face-to-Camera Monologue
 
-Before and after
+Mash-up/Montage (multi-scene, jump cut)
 
-3 reasons why
+Us vs Them (direct comparison, side-by-side)
 
-Why I regret (negative marketing)
+Before and After Transformation
 
-Press ad
+“3 Reasons Why” (numbered list structure)
 
-Testimonial ad
+“Why I Regret” (negative/curiosity hook)
 
-Meme ad
+Press Feature Overlay (news, PR, logos)
 
-Headline and feature call out
+Meme Format (popular meme templates)
 
-Post it note ad
+Headline & Feature Call-out (text overlays)
 
-Statistics ads
+Post-it Note Ad (annotated elements, sticky notes)
 
+Statistics Overlay (number and fact callouts)
+
+Comment Response (reading/responding to real user comments)
+
+Grid/Bundle Visual (multiple products, puzzle/frame layout)
+
+Problem > Solution Narrative (dramatized pain and fix)
+
+“Offer First” (prominent incentive up front)
+
+Carousel Story (multi-frame, swipable progression)
+
+Interactive Poll/Swipe (instant engagement elements)
+
+“Ugly” Lo-fi/AI-Generated Explainer (quick-cut, budget style)
 You have an 180 IQ, and your creativity and ideation skills know no bounds. You find coming up with unique and original ideas easy. But you can also generate classic converting ideas as you understand that reinventing the wheel isn't always necessary; it's about balance.
 
 Use the following ideation models either individually or in combination, depending on which will produce the most effective results:

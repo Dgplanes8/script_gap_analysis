@@ -17,7 +17,6 @@
 ---
 
 ## Tier 1: Maximum Impact Content (Score 9.0-10.0)
-
 ### 1. Weekly Creative Intelligence Hub
 
 **1. "The Weekly Creative Intelligence Playbook: Fortune 100 Methodology for Subscription Growth"**

@@ -7,6 +7,8 @@ import { CreditCard, Loader2, Sparkles, X } from 'lucide-react';
 import Link from 'next/link';
 import { getSupabaseBrowserClient, type BrowserClient } from '@/lib/supabase/browser-client';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
+import { ProcessAccordion } from '@/components/alytics/process-accordion';
+import { SimplePricingSection } from '@/components/alytics/simple-pricing-section';
 
 type FormState = {
   companyName: string;
@@ -14,6 +16,7 @@ type FormState = {
   productDescription: string;
   platform: string;
   objective: string;
+  adFormat: 'video' | 'static';
 };
 
 type GenerationResponse = {
@@ -27,7 +30,114 @@ const defaultFormState: FormState = {
   productDescription: '',
   platform: '',
   objective: '',
+  adFormat: 'video',
 };
+
+async function extractEdgeFunctionError(error: unknown): Promise<{
+  statusCode?: number;
+  message?: string;
+}> {
+  if (!error || typeof error !== 'object') {
+    return {};
+  }
+
+  const normalizeStatus = (value: unknown) => {
+    if (typeof value === 'number' && Number.isFinite(value)) {
+      return value;
+    }
+
+    if (typeof value === 'string') {
+      const parsed = Number.parseInt(value, 10);
+      return Number.isFinite(parsed) ? parsed : undefined;
+    }
+
+    return undefined;
+  };
+
+  const maybeError = error as {
+    status?: unknown;
+    code?: unknown;
+    message?: unknown;
+    context?: unknown;
+  };
+
+  const statusCandidates: Array<unknown> = [maybeError.status, maybeError.code];
+  let contextMessage = '';
+
+  const context = maybeError.context as
+    | undefined
+    | null
+    | (Response & {
+        error?: unknown;
+        status?: unknown;
+        statusCode?: unknown;
+      })
+    | {
+        error?: unknown;
+        status?: unknown;
+        statusCode?: unknown;
+        response?: { status?: unknown };
+      };
+
+  if (context && typeof context === 'object') {
+    statusCandidates.push((context as { status?: unknown }).status);
+    statusCandidates.push((context as { statusCode?: unknown }).statusCode);
+    statusCandidates.push((context as { response?: { status?: unknown } }).response?.status);
+
+    const rawContextError = (context as { error?: unknown }).error;
+    if (typeof rawContextError === 'string') {
+      contextMessage = rawContextError;
+    } else if (rawContextError && typeof rawContextError === 'object') {
+      const nested = rawContextError as { message?: unknown; error?: unknown };
+      if (typeof nested.message === 'string') {
+        contextMessage = nested.message;
+      } else if (typeof nested.error === 'string') {
+        contextMessage = nested.error;
+      }
+    }
+  }
+
+  let statusCode: number | undefined;
+  for (const candidate of statusCandidates) {
+    const normalized = normalizeStatus(candidate);
+    if (typeof normalized === 'number') {
+      statusCode = normalized;
+      break;
+    }
+  }
+
+  let message: string | undefined = typeof maybeError.message === 'string' ? maybeError.message : undefined;
+  if (!message && contextMessage) {
+    message = contextMessage;
+  }
+
+  if (!message && context && typeof Response !== 'undefined' && context instanceof Response) {
+    try {
+      const cloned = context.clone();
+      const contentType = cloned.headers.get('content-type') ?? '';
+
+      if (contentType.includes('application/json')) {
+        const json = await cloned.json();
+        if (json) {
+          if (typeof (json as { error?: unknown }).error === 'string') {
+            message = (json as { error: string }).error;
+          } else if (typeof (json as { message?: unknown }).message === 'string') {
+            message = (json as { message: string }).message;
+          }
+        }
+      } else {
+        const text = await cloned.text();
+        if (text) {
+          message = text;
+        }
+      }
+    } catch {
+      // ignore parsing failures, fall back to existing message
+    }
+  }
+
+  return { statusCode, message };
+}
 
 export default function AdScriptGeneratorClient() {
   const supabase = useMemo(() => getSupabaseBrowserClient(), []);
@@ -42,7 +152,20 @@ export default function AdScriptGeneratorClient() {
   const [checkoutStatus, setCheckoutStatus] = useState<'success' | 'cancel' | null>(null);
   const [checkoutMessageDismissed, setCheckoutMessageDismissed] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
-  const [formErrors, setFormErrors] = useState<{ companyName?: string; websiteUrl?: string }>({});
+  const [formErrors, setFormErrors] = useState<{ companyName?: string; websiteUrl?: string; adFormat?: string }>({});
+  const [lastRequestedFormat, setLastRequestedFormat] = useState<'video' | 'static' | null>(null);
+  const [profileCredits, setProfileCredits] = useState<number | null>(null);
+  const [profileLoading, setProfileLoading] = useState(false);
+  const [profileError, setProfileError] = useState<string | null>(null);
+  const [profileReloadKey, setProfileReloadKey] = useState(0);
+  const [emailAddress, setEmailAddress] = useState('');
+  const [emailSending, setEmailSending] = useState(false);
+  const [emailStatus, setEmailStatus] = useState<'success' | 'error' | null>(null);
+  const [emailStatusMessage, setEmailStatusMessage] = useState('');
+
+  const triggerProfileReload = useCallback(() => {
+    setProfileReloadKey((value) => value + 1);
+  }, []);
 
   useEffect(() => {
     let mounted = true;
@@ -58,8 +181,10 @@ export default function AdScriptGeneratorClient() {
 
       if (session?.user) {
         setUser(session.user);
+        setEmailAddress(session.user.email ?? '');
       } else {
         setUser(null);
+        setEmailAddress('');
       }
 
     };
@@ -71,8 +196,10 @@ export default function AdScriptGeneratorClient() {
 
       if (session?.user) {
         setUser(session.user);
+        setEmailAddress(session.user.email ?? '');
       } else {
         setUser(null);
+        setEmailAddress('');
       }
     });
 
@@ -95,6 +222,64 @@ export default function AdScriptGeneratorClient() {
     }
   }, [checkoutMessageDismissed, searchParams]);
 
+  useEffect(() => {
+    if (!user) {
+      setProfileCredits(null);
+      setProfileError(null);
+      setProfileLoading(false);
+      return;
+    }
+
+    let active = true;
+    setProfileLoading(true);
+    setProfileError(null);
+
+    (async () => {
+      try {
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('credits_remaining')
+          .eq('id', user.id)
+          .maybeSingle();
+
+        if (!active) {
+          return;
+        }
+
+        if (error) {
+          console.error('Failed to load profile credits', error);
+          setProfileCredits(null);
+          setProfileError("We couldn't load your remaining credits.");
+        } else {
+          setProfileCredits(data?.credits_remaining ?? 0);
+          setProfileError(null);
+        }
+      } catch (loadError: any) {
+        if (!active) {
+          return;
+        }
+
+        console.error('Unexpected error loading profile credits', loadError);
+        setProfileCredits(null);
+        setProfileError("We couldn't load your remaining credits.");
+      } finally {
+        if (active) {
+          setProfileLoading(false);
+        }
+      }
+    })();
+
+    return () => {
+      active = false;
+    };
+  }, [supabase, user, profileReloadKey]);
+
+  useEffect(() => {
+    if (checkoutStatus === 'success' && user) {
+      triggerProfileReload();
+    }
+  }, [checkoutStatus, triggerProfileReload, user]);
+
   const handleFieldChange = useCallback((key: keyof FormState, value: string) => {
     setFormState((prev) => ({ ...prev, [key]: value }));
     setFormErrors((prev) => (prev[key as keyof typeof prev] ? { ...prev, [key]: undefined } : prev));
@@ -108,7 +293,7 @@ export default function AdScriptGeneratorClient() {
       setShowAuthModal(false);
       setResult('');
 
-      const nextErrors: { companyName?: string; websiteUrl?: string } = {};
+      const nextErrors: { companyName?: string; websiteUrl?: string; adFormat?: string } = {};
 
       if (!formState.companyName.trim()) {
         nextErrors.companyName = 'Company name is required.';
@@ -127,6 +312,10 @@ export default function AdScriptGeneratorClient() {
         }
       }
 
+      if (!formState.adFormat) {
+        nextErrors.adFormat = 'Select the ad output format.';
+      }
+
       if (Object.keys(nextErrors).length > 0) {
         setFormErrors(nextErrors);
         return;
@@ -134,6 +323,7 @@ export default function AdScriptGeneratorClient() {
 
       setFormErrors({});
       setSubmitting(true);
+      setLastRequestedFormat(formState.adFormat);
 
       const normalizedWebsiteUrl = formState.websiteUrl.startsWith('http')
         ? formState.websiteUrl
@@ -149,21 +339,51 @@ export default function AdScriptGeneratorClient() {
               productDescription: formState.productDescription,
               platform: formState.platform,
               objective: formState.objective,
+              adFormat: formState.adFormat,
             },
           },
         );
 
         if (invokeError) {
-          if (invokeError.status === 402) {
-            if (user) {
-              setShowPurchasePrompt(true);
-              setError('You are out of credits. Purchase more to continue generating scripts.');
-            } else {
+          console.error('generate-script error', invokeError);
+          const { statusCode, message: parsedMessage } = await extractEdgeFunctionError(invokeError);
+          const messageText = parsedMessage || invokeError.message || '';
+
+          switch (statusCode) {
+            case 400:
+              setError('Double-check the company name and website URL, then try again.');
+              break;
+            case 401:
+              setError('Please sign in again to continue generating scripts.');
               setShowAuthModal(true);
-              setError('Create a free account to unlock 3 additional scripts.');
-            }
-          } else {
-            setError(invokeError.message || 'Unable to generate script right now.');
+              break;
+            case 402:
+              if (user) {
+                setShowPurchasePrompt(true);
+                setError('You’re out of credits. Upgrade or add more scripts instantly.');
+                setProfileCredits(0);
+              } else {
+                setShowAuthModal(true);
+                setError('Create a free APSICS Media account to unlock three additional scripts.');
+              }
+              break;
+            case 502:
+              setError('The AI model is busy. Wait a few seconds and try again.');
+              break;
+            default:
+              if (messageText.toLowerCase().includes('out of credit') && !user) {
+                setShowAuthModal(true);
+                setError('Create a free APSICS Media account to unlock three additional scripts.');
+              } else if (statusCode === 402 && user) {
+                setShowPurchasePrompt(true);
+                setError('You’re out of credits. Upgrade or add more scripts instantly.');
+              } else {
+                setError(
+                  messageText && !messageText.toLowerCase().includes('edge function returned a non-2xx status code')
+                    ? messageText
+                    : 'Something went wrong. Please try again.',
+                );
+              }
           }
 
           return;
@@ -171,14 +391,28 @@ export default function AdScriptGeneratorClient() {
 
         if (data?.script) {
           setResult(data.script);
+          setEmailStatus(null);
+          setEmailStatusMessage('');
+          if (user?.email) {
+            setEmailAddress(user.email);
+          }
+          if (typeof data.creditsRemaining === 'number') {
+            setProfileCredits(data.creditsRemaining);
+          } else if (user) {
+            triggerProfileReload();
+          }
         }
       } catch (submitError) {
-        setError(submitError instanceof Error ? submitError.message : 'Unexpected error occurred.');
+        setError(
+          submitError instanceof Error
+            ? submitError.message
+            : 'We couldn’t reach the AI right now. Try again in a minute or email brian@apsicsmedia.com.',
+        );
       } finally {
         setSubmitting(false);
       }
     },
-    [formState, supabase, user],
+    [formState, supabase, triggerProfileReload, user],
   );
 
   const handlePurchase = useCallback(async () => {
@@ -204,6 +438,90 @@ export default function AdScriptGeneratorClient() {
       setError(purchaseError instanceof Error ? purchaseError.message : 'Unexpected error.');
     }
   }, [supabase]);
+
+  const handleSignOut = useCallback(async () => {
+    try {
+      await supabase.auth.signOut();
+      setShowPurchasePrompt(false);
+      setResult('');
+      setProfileCredits(null);
+      setError(null);
+      setLastRequestedFormat(null);
+      setEmailAddress('');
+      setEmailStatus(null);
+      setEmailStatusMessage('');
+    } catch (signOutError) {
+      console.error('Failed to sign out', signOutError);
+    }
+  }, [supabase]);
+
+  const handleSendEmail = useCallback(async () => {
+    if (!result || !lastRequestedFormat) {
+      return;
+    }
+
+    if (!emailAddress || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailAddress)) {
+      setEmailStatus('error');
+      setEmailStatusMessage('Enter a valid email address to send the output.');
+      return;
+    }
+
+    setEmailSending(true);
+    setEmailStatus(null);
+    setEmailStatusMessage('');
+
+    try {
+      const response = await fetch('/api/send-ad-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: emailAddress,
+          content: result,
+          format: lastRequestedFormat,
+          companyName: formState.companyName,
+          platform: formState.platform,
+        }),
+      });
+
+      const payload = await response.json();
+
+      if (!response.ok) {
+        console.error('send-ad-email failure', payload);
+
+        const mapFriendlyMessage = () => {
+          if (typeof payload?.details === 'string') {
+            if (payload.details.includes('401') || payload.details.toLowerCase().includes('invalid')) {
+              return 'Email service credentials need attention. Please try again shortly while we refresh them.';
+            }
+
+            if (payload.details.includes('domain') || payload.details.toLowerCase().includes('verify')) {
+              return 'Email service is still verifying our sender address. Give it a minute and try again.';
+            }
+          }
+
+          if (typeof payload?.error === 'string' && payload.error.length > 0) {
+            return payload.error;
+          }
+
+          return 'We couldn’t send the email right now. Please try again in a minute.';
+        };
+
+        const friendly = mapFriendlyMessage();
+        setEmailStatus('error');
+        setEmailStatusMessage(friendly);
+        return;
+      }
+
+      setEmailStatus('success');
+      setEmailStatusMessage('Sent! Check your inbox for the ad deliverable.');
+    } catch (sendError) {
+      console.error('send-ad-email failed', sendError);
+      setEmailStatus('error');
+      setEmailStatusMessage('Unexpected error sending email. Try again in a minute.');
+    } finally {
+      setEmailSending(false);
+    }
+  }, [emailAddress, formState.companyName, formState.platform, lastRequestedFormat, result]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-brand-50">
@@ -246,31 +564,31 @@ export default function AdScriptGeneratorClient() {
           <header className="text-center">
             <div className="mx-auto flex w-fit items-center gap-2 rounded-full bg-brand-100 px-4 py-2 text-sm font-semibold text-brand-800">
               <Sparkles className="h-4 w-4" />
-              Free AI Tool · APSICS Media
+              APSICS Creative Intelligence
             </div>
             <h1 className="mt-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              Free AI Ad Script Generator for Paid Social & UGC
+              Generate revenue-ready ads from our $250M+ creative intelligence engine
             </h1>
             <p className="mt-4 text-lg text-gray-600">
-              Generate scroll-stopping ad scripts backed by APSICS Media’s creative intelligence system—perfect for TikTok, Meta, YouTube, and more.
+              Turn your brief into platform-native scripts and static copy trained on what actually moves CAC. TikTok, Meta, YouTube, LinkedIn, X — handled in a single pass.
             </p>
           </header>
 
           <section className="rounded-3xl border border-brand-100 bg-white p-8 shadow-xl shadow-brand-50/40">
             <div className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
               <div className="space-y-4">
-                <h2 className="text-xl font-semibold text-gray-900">Grab your free AI ad script</h2>
+                <h2 className="text-xl font-semibold text-gray-900">Start with a complimentary script</h2>
                 <p className="text-sm text-gray-600">
-                  Start with one complimentary script—no login required. When you’re ready for more, create a free APSICS Media account to unlock three additional scripts and save your best-performing prompts.
+                  Drop in your company name, URL, and the campaign goal. We’ll return a production-ready concept engineered from competitor intel, audience psychology, and APSICS testing frameworks.
                 </p>
                 <ul className="grid gap-3 text-sm text-gray-600 sm:grid-cols-2">
                   <li className="rounded-2xl border border-brand-100 bg-brand-50/60 p-4">
-                    <p className="font-semibold text-brand-800">Performance-backed outputs</p>
-                    <p className="mt-1 text-brand-700">Built on $250M+ of creative learnings and APSICS Media’s testing frameworks.</p>
+                    <p className="font-semibold text-brand-800">Platform-native copy</p>
+                    <p className="mt-1 text-brand-700">Hooks, overlays, and CTAs tuned to each channel’s pacing and auction behavior.</p>
                   </li>
                   <li className="rounded-2xl border border-success-200 bg-success-50/70 p-4">
-                    <p className="font-semibold text-success-700">Fast, flexible workflows</p>
-                    <p className="mt-1 text-success-600">Export platform-native scripts for paid social, UGC, or lifecycle retargeting in seconds.</p>
+                    <p className="font-semibold text-success-700">Psychology-backed messaging</p>
+                    <p className="mt-1 text-success-600">Language sourced from real customer voice, competitor gaps, and emotional triggers.</p>
                   </li>
                 </ul>
               </div>
@@ -279,14 +597,80 @@ export default function AdScriptGeneratorClient() {
                 <p className="font-semibold uppercase tracking-wide text-brand-700">Free forever plan</p>
                 <ul className="mt-3 space-y-2">
                   <li>• 1 instant script without logging in</li>
-                  <li>• +3 bonus scripts after free account signup</li>
-                  <li>• Upgrade anytime for unlimited concepts</li>
+                  <li>• +3 additional scripts after free account signup</li>
+                  <li>• Upgrade to unlock weekly delivery & advanced formats</li>
                 </ul>
                 <p className="mt-4 text-xs text-brand-700/80">Need more credits? Paid plans add Stripe-powered top ups without leaving this page.</p>
               </div>
             </div>
 
             <form onSubmit={handleSubmit} className="mt-10 space-y-6">
+              <div className="flex flex-col gap-2 rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  {user ? (
+                    <>
+                      <p className="font-semibold text-gray-900">
+                        Signed in as <span className="text-brand-700">{user.email}</span>
+                      </p>
+                      <p className="mt-1 text-xs text-gray-600">
+                        Credits remaining:{' '}
+                        {profileLoading ? (
+                          <span className="inline-flex items-center gap-1 text-gray-500">
+                            <Loader2 className="h-3 w-3 animate-spin" />
+                            Updating…
+                          </span>
+                        ) : typeof profileCredits === 'number' ? (
+                          <span className={profileCredits > 0 ? 'text-success-600' : 'text-red-600'}>{profileCredits}</span>
+                        ) : profileError ? (
+                          <span className="text-red-600">—</span>
+                        ) : (
+                          <span>—</span>
+                        )}
+                      </p>
+                      {profileError ? (
+                        <p className="mt-1 text-xs text-red-600">{profileError}</p>
+                      ) : null}
+                    </>
+                  ) : (
+                    <>
+                      <p className="font-semibold text-gray-900">Guest access active</p>
+                      <p className="mt-1 text-xs text-gray-600">
+                        Enjoy one complimentary export. Create a free APSICS Media account to unlock three more scripts and save your best performers.
+                      </p>
+                    </>
+                  )}
+                </div>
+                <div className="flex items-center gap-2">
+                  {user ? (
+                    <button
+                      type="button"
+                      onClick={handleSignOut}
+                      className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-4 py-2 text-xs font-semibold text-gray-600 transition hover:bg-white"
+                    >
+                      Sign out
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => setShowAuthModal(true)}
+                      className="inline-flex items-center justify-center rounded-lg border border-brand-200 bg-brand-50 px-4 py-2 text-xs font-semibold text-brand-700 transition hover:bg-white"
+                    >
+                      Sign in / Create account
+                    </button>
+                  )}
+                  {user ? (
+                    <button
+                      type="button"
+                      onClick={triggerProfileReload}
+                      className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-4 py-2 text-xs font-semibold text-gray-600 transition hover:bg-white"
+                      disabled={profileLoading}
+                    >
+                      Refresh
+                    </button>
+                  ) : null}
+                </div>
+              </div>
+
               <div className="grid gap-6 md:grid-cols-2">
                 <label className="flex flex-col gap-2 text-sm font-medium text-gray-700">
                   <span className="flex items-center justify-between">
@@ -331,6 +715,25 @@ export default function AdScriptGeneratorClient() {
 
               <label className="flex flex-col gap-2 text-sm font-medium text-gray-700">
                 <span className="flex items-center justify-between">
+                  <span>Ad Output Format</span>
+                  {formErrors.adFormat ? (
+                    <span className="text-xs font-semibold text-red-600">{formErrors.adFormat}</span>
+                  ) : null}
+                </span>
+                <select
+                  name="adFormat"
+                  value={formState.adFormat}
+                  onChange={(event) => handleFieldChange('adFormat', event.target.value as 'video' | 'static')}
+                  className="rounded-lg border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                  aria-invalid={Boolean(formErrors.adFormat)}
+                >
+                  <option value="video">Video ad (scripted output)</option>
+                  <option value="static">Static ad (headline + supporting copy)</option>
+                </select>
+              </label>
+
+              <label className="flex flex-col gap-2 text-sm font-medium text-gray-700">
+                <span className="flex items-center justify-between">
                   <span>Product Description <span className="text-xs font-normal text-gray-400">(optional)</span></span>
                 </span>
                 <textarea
@@ -353,12 +756,12 @@ export default function AdScriptGeneratorClient() {
                     className="rounded-lg border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
                   >
                     <option value="">Let the AI choose the best fit</option>
-                    <option value="facebook">Facebook / Instagram</option>
-                    <option value="tiktok">TikTok / Reels</option>
-                    <option value="youtube">YouTube</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="tiktok">TikTok</option>
                     <option value="linkedin">LinkedIn</option>
-                    <option value="display">Display / Programmatic</option>
-                    <option value="ugc">UGC / Creator ads</option>
+                    <option value="x">X (Twitter)</option>
+                    <option value="youtube">YouTube</option>
                   </select>
                 </label>
 
@@ -406,7 +809,9 @@ export default function AdScriptGeneratorClient() {
             {result && (
               <div className="mt-8 space-y-4 rounded-2xl border border-gray-200 bg-gray-50 p-6">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold text-gray-900">Generated Script</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    Generated {lastRequestedFormat ? (lastRequestedFormat === 'video' ? 'Video Ad' : 'Static Ad') : 'Output'}
+                  </h3>
                   <button
                     onClick={() => {
                       if (typeof navigator !== 'undefined') {
@@ -424,6 +829,54 @@ export default function AdScriptGeneratorClient() {
                 <pre className="whitespace-pre-wrap rounded-xl bg-white p-6 text-sm leading-relaxed text-gray-800 shadow-inner">
                   {result}
                 </pre>
+                <div className="rounded-xl border border-gray-200 bg-white p-4">
+                  <h4 className="text-sm font-semibold text-gray-900">Send this to your inbox</h4>
+                  <p className="mt-1 text-xs text-gray-600">
+                    We’ll email the full {lastRequestedFormat === 'video' ? 'video script' : 'static copy bundle'} straight to your inbox.
+                  </p>
+                  <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end">
+                    <label className="flex-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                      Email address
+                      <input
+                        type="email"
+                        value={emailAddress}
+                        onChange={(event) => {
+                          setEmailAddress(event.target.value);
+                          if (emailStatus) {
+                            setEmailStatus(null);
+                            setEmailStatusMessage('');
+                          }
+                        }}
+                        placeholder="you@company.com"
+                        className="mt-1 w-full rounded-lg border border-gray-200 px-4 py-2 text-sm text-gray-900 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                      />
+                    </label>
+                    <button
+                      type="button"
+                      onClick={handleSendEmail}
+                      disabled={emailSending || !result}
+                      className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                      {emailSending ? (
+                        <>
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                          Sending…
+                        </>
+                      ) : (
+                        'Send email'
+                      )}
+                    </button>
+                  </div>
+                  {emailStatusMessage ? (
+                    <p
+                      className={`mt-2 text-xs font-medium ${
+                        emailStatus === 'success' ? 'text-success-600' : 'text-red-600'
+                      }`}
+                    >
+                      {emailStatusMessage}
+                    </p>
+                  ) : null}
+                </div>
               </div>
             )}
 
@@ -447,9 +900,30 @@ export default function AdScriptGeneratorClient() {
                 </div>
               </div>
             )}
+
+            <div className="mt-8 rounded-3xl border border-brand-200 bg-white p-6 shadow-lg shadow-brand-50/40">
+              <div className="flex flex-col gap-4 text-sm text-gray-700 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-500">Founder Club Special</p>
+                  <h3 className="mt-1 text-xl font-semibold text-gray-900">Get the APSICS Media Founder Club for $20 this week</h3>
+                  <p className="mt-2 text-sm text-gray-600">
+                    Start a free week trial, keep your favourite frameworks, and lock in lifetime Founder Club pricing before it returns to $97.
+                  </p>
+                </div>
+                <div className="flex flex-col items-start gap-3 sm:items-end">
+                  <Link
+                    href="/#service-tiers"
+                    className="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/30 transition hover:bg-brand-700"
+                  >
+                    Start Free Week Trial
+                  </Link>
+                  <p className="text-xs text-brand-700">Founder Club offer: $20 one-time add-on after your trial.</p>
+                </div>
+              </div>
+            </div>
           </section>
 
-          <aside className="rounded-3xl border border-gray-200 bg-white p-8 shadow-xl">
+          <aside id="workflow" className="rounded-3xl border border-gray-200 bg-white p-8 shadow-xl">
             <h2 className="text-2xl font-semibold text-gray-900">How we craft scripts</h2>
             <p className="mt-4 text-base text-gray-600">
               We blend your product inputs with proven creative frameworks, audience psychology, and platform-specific pacing so every script hits performance benchmarks.
@@ -463,62 +937,22 @@ export default function AdScriptGeneratorClient() {
                 <p className="text-sm font-semibold text-brand-800">Platform formatting</p>
                 <p className="mt-1 text-sm text-brand-700">Optimize pacing, structure, and CTA style for the placement you choose.</p>
               </li>
-              <li className="rounded-2xl border border-success-200 bg-success-50/70 p-4">
-                <p className="text-sm font-semibold text-success-700">Performance heuristics</p>
-                <p className="mt-1 text-sm text-success-600">Trained on $250M+ in ad spend, focusing on retention, resonance, and conversion.</p>
+              <li className="rounded-2xl border border-brand-100 bg-brand-50/60 p-4">
+                <p className="text-sm font-semibold text-brand-800">Performance heuristics</p>
+                <p className="mt-1 text-sm text-brand-700">Trained on $250M+ in ad spend, focusing on retention, resonance, and conversion.</p>
               </li>
               <li className="rounded-2xl border border-brand-100 bg-brand-50/60 p-4">
                 <p className="text-sm font-semibold text-brand-800">Brand consistency</p>
                 <p className="mt-1 text-sm text-brand-700">Adapts to your voice guidelines without sacrificing clarity or urgency.</p>
               </li>
             </ul>
-            <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-gray-500">
-              <span>Want to embed this workflow?</span>
-              <Link href="/tools" className="font-semibold text-brand-700 underline-offset-2 hover:text-brand-900 hover:underline">
-                Explore more automation tools
-              </Link>
+            <div className="mt-8">
+              <ProcessAccordion />
             </div>
           </aside>
-
-          <section className="rounded-3xl border border-brand-100 bg-white p-8 shadow-xl shadow-brand-50/30">
-            <h2 className="text-2xl font-semibold text-gray-900">Free AI ad script generator for marketers who need wins fast</h2>
-            <p className="mt-4 text-base text-gray-600">
-              This free AI ad script generator accelerates campaign launches, creative refreshes, and UGC briefs. Pair it with APSICS Media resources to build a full funnel of high-intent ads that convert cold traffic into revenue.
-            </p>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <Link
-                href="/52-high-converting-ad-hooks-library"
-                className="group rounded-2xl border border-gray-200 bg-gray-50/70 p-5 transition hover:border-brand-300 hover:bg-white"
-              >
-                <p className="text-sm font-semibold text-gray-900 group-hover:text-brand-700">Free hook templates for cold audiences</p>
-                <p className="mt-2 text-sm text-gray-600">Stack your scripts with proven hook formulas and intro angles pulled from 52 high-performing ads.</p>
-              </Link>
-              <Link
-                href="/weekly-creative-intelligence-guide"
-                className="group rounded-2xl border border-gray-200 bg-gray-50/70 p-5 transition hover:border-brand-300 hover:bg-white"
-              >
-                <p className="text-sm font-semibold text-gray-900 group-hover:text-brand-700">Creative intelligence playbook</p>
-                <p className="mt-2 text-sm text-gray-600">Follow APSICS Media’s weekly optimization workflow to keep Facebook, TikTok, and YouTube ads scaling.</p>
-              </Link>
-              <Link
-                href="/ai-enhanced-creative-intelligence"
-                className="group rounded-2xl border border-gray-200 bg-gray-50/70 p-5 transition hover:border-brand-300 hover:bg-white"
-              >
-                <p className="text-sm font-semibold text-gray-900 group-hover:text-brand-700">AI creative operations toolkit</p>
-                <p className="mt-2 text-sm text-gray-600">See how APSICS Media blends human strategists with AI to ship top 1% ads across paid social.</p>
-              </Link>
-              <Link
-                href="/subscription-business-viral-content-calendar"
-                className="group rounded-2xl border border-gray-200 bg-gray-50/70 p-5 transition hover:border-brand-300 hover:bg-white"
-              >
-                <p className="text-sm font-semibold text-gray-900 group-hover:text-brand-700">Plan viral content sprints</p>
-                <p className="mt-2 text-sm text-gray-600">Use our subscription brand content calendar to line up organic clips that support every paid campaign.</p>
-              </Link>
-            </div>
-            <p className="mt-6 text-sm text-gray-500">
-              Need more automation? Explore the <Link href="/tools" className="font-semibold text-brand-700 hover:text-brand-900">APSICS Media tools hub</Link> for email, landing page, and creative workflow accelerators.
-            </p>
-          </section>
+        </div>
+        <div className="pt-12">
+          <SimplePricingSection />
         </div>
       </div>
       <ExitIntentPopup 
@@ -536,6 +970,7 @@ export default function AdScriptGeneratorClient() {
           setShowAuthModal(false);
           setShowPurchasePrompt(false);
           setError(null);
+          triggerProfileReload();
         }}
       />
     </div>
@@ -573,10 +1008,31 @@ function AuthPanel({ supabase, onAuthSuccess }: AuthPanelProps) {
           setAuthError(error.message);
           return;
         }
+
+        const { error: subscribeError } = await supabase.functions.invoke('subscribe-convertkit', {
+          body: { email },
+        });
+
+        if (subscribeError) {
+          console.error('subscribe-convertkit failed (sign-in)', subscribeError);
+        }
       } else {
-        const { error } = await supabase.auth.signUp({ email, password });
+        const { data, error } = await supabase.auth.signUp({ email, password });
         if (error) {
           setAuthError(error.message);
+          return;
+        }
+
+        const { error: subscribeError } = await supabase.functions.invoke('subscribe-convertkit', {
+          body: { email },
+        });
+
+        if (subscribeError) {
+          console.error('subscribe-convertkit failed (sign-up)', subscribeError);
+        }
+
+        if (!data.session) {
+          setAuthError('Check your email to confirm your account, then sign in to use your extra credits.');
           return;
         }
       }

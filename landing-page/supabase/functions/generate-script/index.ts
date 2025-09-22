@@ -32,17 +32,18 @@ type RequestPayload = {
   productDescription?: string;
   platform?: string;
   objective?: string;
+  adFormat?: 'video' | 'static';
 };
 
 const MAX_ANON_CREDITS = 1;
 
 const PLATFORM_LABELS: Record<string, string> = {
-  facebook: 'Facebook / Instagram',
-  tiktok: 'TikTok / Reels',
-  youtube: 'YouTube',
+  facebook: 'Facebook',
+  instagram: 'Instagram',
+  tiktok: 'TikTok',
   linkedin: 'LinkedIn',
-  display: 'Display / Programmatic',
-  ugc: 'UGC / Creator ads',
+  x: 'X (Twitter)',
+  youtube: 'YouTube',
 };
 
 const OBJECTIVE_LABELS: Record<string, string> = {
@@ -52,6 +53,21 @@ const OBJECTIVE_LABELS: Record<string, string> = {
   engagement: 'Engagement',
   downloads: 'Downloads',
   installs: 'Installs',
+};
+
+const PLATFORM_BEHAVIOR_NOTES: Record<string, string> = {
+  facebook:
+    'Facebook Feed/In-Stream: Hook within 3 seconds, support with bold captions, balance emotional storytelling with clear benefit-led copy, include social proof cues (reacts, comments) and a direct CTA in the first 45 seconds.',
+  instagram:
+    'Instagram Reels/Stories: Lead with an aesthetic visual or motion transition, keep clips under 30 seconds, use on-screen text sized for vertical framing, and close with swipe-up or tap CTA language.',
+  tiktok:
+    'TikTok UGC: Raw POV intro within 1 second, conversational VO, jump-cut pacing, incorporate native text overlays, comment-bait question, and platform slang/emojis sparingly.',
+  linkedin:
+    'LinkedIn Feed: Professional tone with an insight-led hook, emphasize ROI or team impact, use concise bullet-style messaging, and reference credible data or leadership voice.',
+  x:
+    'X (Twitter) Timeline: 120-200 character hooks, high-contrast visual, provocative statement or stat, invite replies/quote tweets, include a short URL-style CTA.',
+  youtube:
+    'YouTube Pre-roll/Feed: Deliver the promise in the first 5 seconds to beat the skip, combine VO with dynamic b-roll, use chapter-like pacing, and restate CTA verbally and on-screen near the end.',
 };
 
 serve(async (req) => {
@@ -102,10 +118,17 @@ serve(async (req) => {
     });
   }
 
-  const { companyName, websiteUrl, productDescription, platform, objective } = payload;
+  const { companyName, websiteUrl, productDescription, platform, objective, adFormat } = payload;
 
   if (!companyName || !companyName.trim() || !websiteUrl || !websiteUrl.trim()) {
     return new Response(JSON.stringify({ error: "Company name and website URL are required" }), {
+      status: 400,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
+  if (!adFormat || (adFormat !== 'video' && adFormat !== 'static')) {
+    return new Response(JSON.stringify({ error: "Ad format must be either 'video' or 'static'" }), {
       status: 400,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
@@ -125,10 +148,10 @@ serve(async (req) => {
     });
   }
 
-let creditsRemaining = 0;
-let anonymousUsage: { ip_address: string; usage_count: number | null } | null = null;
-let anonymousIp: string | null = null;
-let ipHash: string | null = null;
+  let creditsRemaining = 0;
+  let anonymousUsage: { ip_address: string; usage_count: number | null } | null = null;
+  let anonymousIp: string | null = null;
+  let ipHash: string | null = null;
 
   if (user) {
     const { data: profile, error } = await adminClient
@@ -145,7 +168,45 @@ let ipHash: string | null = null;
       });
     }
 
-    creditsRemaining = profile?.credits_remaining ?? 0;
+    let effectiveProfile = profile;
+
+    if (!effectiveProfile) {
+      const { data: createdProfile, error: createError } = await adminClient
+        .from("profiles")
+        .insert({ id: user.id })
+        .select("id, credits_remaining")
+        .maybeSingle();
+
+      if (createError && createError.code !== "23505") {
+        console.error("Failed to create profile", createError);
+        return new Response(JSON.stringify({ error: "Unable to initialize profile" }), {
+          status: 500,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+
+      if (createError?.code === "23505" || !createdProfile) {
+        const { data: reloadedProfile, error: reloadError } = await adminClient
+          .from("profiles")
+          .select("id, credits_remaining")
+          .eq("id", user.id)
+          .maybeSingle();
+
+        if (reloadError) {
+          console.error("Failed to reload profile after initialization", reloadError);
+          return new Response(JSON.stringify({ error: "Unable to load profile" }), {
+            status: 500,
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+          });
+        }
+
+        effectiveProfile = reloadedProfile ?? null;
+      } else {
+        effectiveProfile = createdProfile;
+      }
+    }
+
+    creditsRemaining = effectiveProfile?.credits_remaining ?? 0;
 
     if (creditsRemaining <= 0) {
       return new Response(JSON.stringify({ error: "Out of credits" }), {
@@ -207,25 +268,26 @@ let ipHash: string | null = null;
     productDescription: productDescription?.trim() ?? '',
     platform: platform?.trim() ?? '',
     objective: objective?.trim() ?? '',
+    adFormat,
   });
 
   let completion: Response;
   try {
     completion = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${openRouterApiKey}`,
-      "HTTP-Referer": "https://openrouter.ai",
-      "X-Title": "AI Ad Script Generator",
-    },
-    body: JSON.stringify({
-      model: "openrouter/sonoma-dusk-alpha",
-      messages: [
-        {
-          role: "system",
-          content:
-            "You are a direct-response marketing strategist. Produce concise, high-performing video ad scripts with hooks, narrative structure, and platform-native pacing.",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${openRouterApiKey}`,
+        "HTTP-Referer": "https://openrouter.ai",
+        "X-Title": "AI Ad Script Generator",
+      },
+      body: JSON.stringify({
+        model: "x-ai/grok-4-fast:free",
+        messages: [
+          {
+            role: "system",
+            content:
+              "You are a direct-response marketing strategist. Produce concise, high-performing video ad scripts with hooks, narrative structure, and platform-native pacing.",
         },
         {
           role: "user",
@@ -323,7 +385,14 @@ let ipHash: string | null = null;
   });
 });
 
-type PromptParams = Required<RequestPayload>;
+type PromptParams = {
+  companyName: string;
+  websiteUrl: string;
+  productDescription: string;
+  platform: string;
+  objective: string;
+  adFormat: 'video' | 'static';
+};
 
 function buildPrompt({
   companyName,
@@ -331,10 +400,18 @@ function buildPrompt({
   productDescription,
   platform,
   objective,
+  adFormat,
 }: PromptParams) {
   const descriptionLine = productDescription.length > 0 ? productDescription : 'Product description was not provided.';
   const platformLabel = platform.length > 0 ? PLATFORM_LABELS[platform] ?? humanize(platform) : 'Strategist can choose the optimal placement';
   const objectiveLabel = objective.length > 0 ? OBJECTIVE_LABELS[objective] ?? humanize(objective) : 'Drive measurable conversions';
+  const adFormatInstruction = adFormat === 'video'
+    ? 'The creative team requires VIDEO deliverables. Step 3 hooks must specify on-screen vs voiceover text. Step 5 scripts must follow an appropriate video framework with scene-by-scene directions, voiceover lines, on-screen text overlays, b-roll guidance, and CTA moments aligned to TikTok/IG/FB video behavior. Do not include static-only elements.'
+    : 'The creative team requires STATIC IMAGE/GRAPHIC deliverables. Step 3 hooks must provide headline, subheadline, and overlay text options. Step 5 secondary copy must include subhead, 3-5 bullet benefits, CTA copy, and optional urgency/risk reversal for static placements (feed, stories, carousel). Do not include video scripting, shot lists, or voiceover guidance.';
+  const platformInstruction = platform && PLATFORM_BEHAVIOR_NOTES[platform]
+    ? PLATFORM_BEHAVIOR_NOTES[platform]
+    : 'No specific platform provided — include cross-platform adaptation notes for Facebook, Instagram, and TikTok with platform-native pacing, hook style, and CTA guidance.';
+  const completenessInstruction = 'If any research data points are missing or unspecified, proceed using best-practice insights and the provided campaign info. Never respond with "This information is not available in the provided training data"—always generate the best possible creative output. Avoid refusal language entirely.';
 
   return `${basePrompt.trim()}
 
@@ -346,13 +423,23 @@ Website URL: ${websiteUrl}
 Product Description: ${descriptionLine}
 Primary Platform: ${platformLabel}
 Campaign Objective: ${objectiveLabel}
+Requested Output Format: ${adFormat === 'video' ? 'Video Ad Creative' : 'Static Ad Creative'}
+
+Additional Format Direction:
+${adFormatInstruction}
+
+Platform-Specific Guidance:
+${platformInstruction}
+
+Completeness Requirement:
+${completenessInstruction}
 
 Output Requirements:
 1. Select the optimal framework based on the campaign brief and platform.
 2. Provide a concise, platform-native script that follows the chosen framework.
-3. Include any critical stage directions or on-screen text cues needed for production.
+3. Include format-appropriate production guidance (e.g., stage directions for video, layout notes for static) only when relevant.
 4. Close with an explicit CTA aligned to the brand’s buyer journey.
-5. Return only the finished script. Do not include research notes, numbered steps, or multiple concepts—deliver exactly one script.
+5. Return only the finished creative output aligned to the requested format. Do not include research notes, numbered steps, or multiple concepts—deliver exactly one execution.
 
 Formatting Instructions:
 - Begin the response with the line 'Script:'.

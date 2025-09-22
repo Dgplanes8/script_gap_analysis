@@ -75,24 +75,24 @@ export function KeyBenefitsSection() {
   const benefits = [
     {
       icon: <Clock className="w-8 h-8" />,
-      title: "Fresh Intelligence (Updated Every Monday)",
-      description: "Always stay ahead with content ideas based on real-time trends and what's actually working.",
+      title: "Consistent Revenue Growth (Every Monday)",
+      description: "Get campaigns that consistently drive sales, not just engagement or likes.",
       bulletPoints: [
-        "Monitor social media for emerging trends",
-        "Analyze competitors for new content", 
-        "Use top formats from scaling campaigns",
-        "Fresh concepts delivered every Monday"
+        "Revenue-driving static and video campaigns based on current market trends",
+        "Competitor analysis that reveals what actually converts",
+        "Proven campaign formats optimized for each platform",
+        "New profit opportunities delivered every Monday"
       ]
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      title: "Cross-Industry Proven",
-      description: "Works whether you're selling SaaS, supplements, or software - if sales matter, these work.",
+      title: "Predictable Revenue Results",
+      description: "Transform any business into a conversion machine - from SaaS to supplements to local services.",
       bulletPoints: [
-        "Subscription: Drive recurring sign-ups",
-        "B2B: Generate qualified leads that close", 
-        "UGC Creators: Content for brand deals",
-        "Ready-to-customize scripts included"
+        "Subscription businesses: Increase sign-up rates and reduce churn",
+        "B2B companies: Generate leads that actually close into deals",
+        "Creator economy: Content that lands profitable brand partnerships",
+        "Local services: Campaigns that fill appointment books"
       ]
     }
   ];
@@ -116,9 +116,9 @@ export function KeyBenefitsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Why you should choose{' '}
+            Get Results That{' '}
             <span className="text-transparent bg-gradient-to-r from-[#126DFB] to-[#126DFB] bg-clip-text">
-              APSICS Media
+              Drive Revenue Growth
             </span>
           </motion.h2>
           
@@ -129,7 +129,7 @@ export function KeyBenefitsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Whether you're scaling SaaS, ecommerce, apps, B2B or any other company - these methods consistently drive revenue growth across every vertical where sales matter.
+            Stop hoping your ads will work. Get static and video campaigns proven to convert across Facebook, Instagram, TikTok, LinkedIn, X, and YouTube.
           </motion.p>
         </motion.div>
 
@@ -161,7 +161,7 @@ export function KeyBenefitsSection() {
           className="text-center mt-16"
         >
           <p className="text-lg text-gray-600 mb-6">
-            Ready to skip the guesswork and start with concepts that already work?
+            Ready to transform your ad budget into predictable revenue?
           </p>
           <motion.button
             onClick={() => openModal({

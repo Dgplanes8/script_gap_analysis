@@ -483,35 +483,49 @@ const itemVariants = {
 ### Messaging Framework
 
 #### Core Value Proposition
-"Strategic ad intelligence from $250MM+ managed spend experience, delivered weekly to fuel startup growth."
+"Proven strategic frameworks from $250MM+ managed spend experience, delivered weekly starting at just $5/week."
+
+#### Updated Headlines & Key Messages
+- **Main Hero**: "You're One Creative Breakthrough Away From Doubling Your Revenue"
+- **Original Alternative**: "Stop Burning Ad Budget on Creative Guesswork"
+- **Pricing Focus**: "Start at just $5/week" (emphasizing accessibility)
+- **Service Scope**: "Static and video content optimized for Facebook, Instagram, TikTok, LinkedIn, X, and YouTube"
 
 #### Key Benefits Hierarchy
-1. **Speed**: Launch campaigns in 10 minutes
-2. **Intelligence**: Data-driven creative decisions
-3. **Cost**: Startup-friendly pricing vs agency costs
-4. **Performance**: Proven methodologies and scoring
-5. **Support**: Weekly delivery and ongoing optimization
+1. **Accessibility**: Starting at $5/week vs $5,000+ agency fees
+2. **Cross-Platform**: Static and video content for all major platforms
+3. **Proven Results**: Research-backed frameworks (not household brand language)
+4. **Performance**: 21-25/25 performance scores with guaranteed improvement
+5. **Industry Coverage**: SaaS, ecommerce, local services, B2B companies
 
 #### Problem-Agitate-Solution Structure
 ```
-PROBLEM: "You're creating content without knowing what's trending or converting"
-AGITATE: "Every post is a guess instead of strategic intelligence"  
-SOLUTION: "Get custom scripts based on real trending data and performance intelligence"
+PROBLEM: "You're burning ad budget on creative guesswork"
+AGITATE: "Every failed campaign represents lost revenue while competitors scale with proven systems"
+SOLUTION: "Get research-backed static and video concepts proven to convert across all platforms"
 ```
 
 ### Content Standards
 
 #### Headlines & Subheadings
 - **Character Limits**: H1 max 60 characters, H2 max 80 characters
-- **Power Words**: Strategic, Custom, Trending, Intelligence, Proven
+- **Power Words**: Proven, Strategic, Research-backed, Revenue-driving, Frameworks
 - **Benefit Focus**: Lead with outcomes, not features
-- **Emotional Triggers**: FOMO, social proof, authority
+- **Emotional Triggers**: Revenue growth, performance improvement, cost savings
+- **Accessibility Focus**: Emphasize "$5/week" vs "$5,000+ agency fees"
 
 #### Call-to-Action Standards
-- **Primary CTAs**: "Start Free Week Trial", "Get Custom Scripts"
-- **Secondary CTAs**: "See How It Works", "View Templates"  
-- **Urgency Language**: "Limited Time", "First 100 Founders"
-- **Risk Reversal**: "No Risk", "Cancel Anytime", "FREE Week"
+- **Primary CTAs**: "Start Free Week Trial", "Get Custom Strategy"
+- **Secondary CTAs**: "See How It Works", "View Examples"
+- **Risk Reversal**: "No credit card required", "Cancel anytime", "FREE Week"
+- **Value Anchoring**: "Save $5,000+ monthly vs. agency fees"
+
+#### Language Guidelines (Updated)
+- **Replace**: "Household brand" → "Proven strategic frameworks" (except in founder bio)
+- **Emphasize**: Cross-platform capabilities (Facebook, Instagram, TikTok, LinkedIn, X, YouTube)
+- **Include**: Both static and video content in all service descriptions
+- **Performance Scoring**: Use 25-point scale (not 50-point)
+- **Industry Examples**: SaaS, beauty, local services (law firm) for cross-vertical appeal
 
 ---
 
@@ -716,9 +730,25 @@ export function ComponentName() {
 
 ---
 
-**Document Version**: 3.0 (Alytics Update)
-**Last Updated**: January 2025  
-**Based On**: Current Homepage Implementation
+**Document Version**: 3.1 (Messaging & Positioning Update)
+**Last Updated**: January 2025
+**Based On**: Current Homepage Implementation + Accessibility Messaging Updates
 **Document Owner**: Design & Development Team
 
-*This updated brand consistency guide reflects the proven patterns from the Alytics homepage implementation. All new pages and component updates should follow these standards for maximum consistency and conversion optimization.*
+*This updated brand consistency guide reflects the proven patterns from the Alytics homepage implementation with updated messaging that emphasizes accessibility ($5/week pricing), cross-platform capabilities (static + video for all major platforms), and proven results over "household brand" positioning. All new pages and component updates should follow these standards for maximum consistency and conversion optimization.*
+
+## 📋 Recent Updates (v3.1)
+
+### Key Messaging Changes
+- **Pricing Emphasis**: Updated hero messaging to highlight "$5/week" accessibility vs "$5,000+ agency fees"
+- **Language Refinement**: Replaced "household brand" with "proven strategic frameworks" throughout (except founder bio)
+- **Platform Clarification**: All content now specifies "static and video" for "Facebook, Instagram, TikTok, LinkedIn, X, and YouTube"
+- **Performance Metrics**: Updated to 25-point performance scoring system
+- **Industry Examples**: Added local services (law firm) alongside SaaS and beauty for broader appeal
+
+### Implementation Priorities
+1. Update all CTAs to emphasize "Start Free Week Trial" with risk reversal
+2. Include platform-specific language in all service descriptions
+3. Use "$5/week" pricing in hero sections and value anchoring
+4. Replace any remaining "household brand" references with accessibility-focused language
+5. Ensure all performance scores use 25-point scale

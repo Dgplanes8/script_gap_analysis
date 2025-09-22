@@ -9,6 +9,11 @@ import { FloatingLogos } from './floating-logos';
 // Dynamic imports for below-fold components
 // Import the working ProblemSolutionWorkflow component directly
 import { ProblemSolutionWorkflow } from './problem-solution-workflow';
+import { CreativeResearchMattersSection } from './creative-research-matters-section';
+import { BeforeAfterExamplesSection } from './before-after-examples-section';
+import { AIGeneratorPreviewSection } from './ai-generator-preview-section';
+import { PerformanceGuaranteeSection } from './performance-guarantee-section';
+import { FourBoxProcessSection } from './four-box-process-section';
 import { FounderSection } from './founder-section';
 
 const KeyBenefitsSection = dynamic(() => import('./key-benefits-section').then(mod => ({ default: mod.KeyBenefitsSection })), {
@@ -49,26 +54,38 @@ export function AlyticsLanding() {
         <FloatingLogos />
       </div>
       
-      {/* 2. Problem-Solution Bridge */}
-      <ProblemSolutionWorkflow />
-      
-      {/* 3. Key Benefits */}
-      <KeyBenefitsSection />
-      
-      {/* 4. Social Proof */}
+      {/* 2. Social Proof - Moved up for immediate credibility */}
       <SocialProofSection />
-      
-      {/* 5. Founder Section & Founding Offer */}
-      <FounderSection />
-      
-      {/* 6. Simple Pricing */}
+
+      {/* 3. Problem-Solution Bridge - Core value prop */}
+      <ProblemSolutionWorkflow />
+
+      {/* 4. Simple Pricing - Earlier conversion opportunity */}
       <SimplePricingSection />
-      
-      {/* 7. Final Conversion Push */}
+
+      {/* 5. Why Creative Research Matters */}
+      <CreativeResearchMattersSection />
+
+      {/* 6. Before/After Examples */}
+      <BeforeAfterExamplesSection />
+
+      {/* 7. AI Generator Preview */}
+      <AIGeneratorPreviewSection />
+
+      {/* 8. Performance Guarantee */}
+      <PerformanceGuaranteeSection />
+
+      {/* 9. 4-Box Process Section */}
+      <FourBoxProcessSection />
+
+      {/* 10. Key Benefits */}
+      <KeyBenefitsSection />
+
+      {/* 11. Founder Section & Founding Offer */}
+      <FounderSection />
+
+      {/* 12. Final Conversion Push */}
       <FinalConversionSection />
-      
-      {/* 8. Free Hooks Lead Magnet */}
-      <FreeHooksSection />
       
       {/* Newsletter Exit Popup */}
       <NewsletterExitPopup />

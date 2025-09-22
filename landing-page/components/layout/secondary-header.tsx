@@ -11,7 +11,22 @@ const NAV_LINKS = [
 
 const navItemClass = 'text-sm font-semibold text-gray-700 transition-colors hover:text-brand-600';
 
-export function SecondaryHeader() {
+type NavLink = {
+  label: string;
+  href: string;
+};
+
+type SecondaryHeaderProps = {
+  links?: NavLink[];
+  ctaHref?: string;
+  ctaLabel?: string;
+};
+
+export function SecondaryHeader({
+  links = NAV_LINKS,
+  ctaHref = '/#service-tiers',
+  ctaLabel = 'Start Free Week Trial',
+}: SecondaryHeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
@@ -36,13 +51,13 @@ export function SecondaryHeader() {
           </div>
           <div className="hidden flex-col sm:flex">
             <span className="text-lg font-semibold text-gray-900">APSICS Media</span>
-            <span className="text-xs font-medium text-gray-500 tracking-wide">Weekly creative intelligence</span>
+            <span className="text-xs font-medium text-gray-500 tracking-wide">Creative intelligence</span>
           </div>
           <span className="text-sm font-semibold text-gray-900 sm:hidden">APSICS</span>
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
-          {NAV_LINKS.map((link) => (
+          {links.map((link) => (
             <Link key={link.label} href={link.href} className={navItemClass}>
               {link.label}
             </Link>
@@ -51,10 +66,10 @@ export function SecondaryHeader() {
 
         <div className="hidden items-center lg:flex">
           <Link
-            href="/#service-tiers"
+            href={ctaHref}
             className="inline-flex items-center gap-2 rounded-xl bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-transform hover:-translate-y-0.5 hover:bg-brand-600"
           >
-            Start Free Week Trial
+            {ctaLabel}
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -71,7 +86,7 @@ export function SecondaryHeader() {
       {isMobileOpen && (
         <div className="border-t border-gray-100 bg-white shadow-lg lg:hidden">
           <nav className="space-y-3 px-4 pb-6 pt-4">
-            {NAV_LINKS.map((link) => (
+            {links.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
@@ -83,11 +98,11 @@ export function SecondaryHeader() {
             ))}
             <div className="pt-4">
               <Link
-                href="/#service-tiers"
+                href={ctaHref}
                 onClick={closeMobileMenu}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-500 px-5 py-3 text-base font-semibold text-white shadow-lg transition-transform hover:-translate-y-0.5 hover:bg-brand-600"
               >
-                Start Free Week Trial
+                {ctaLabel}
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </div>

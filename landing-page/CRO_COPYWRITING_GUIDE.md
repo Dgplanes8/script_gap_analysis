@@ -41,10 +41,10 @@ A - ACTION: Clear, specific call-to-action
 ```
 
 **Example Implementation:**
-- **Attention:** "Stop guessing hooks. Get 12 scripts in 72 hours for $990."
-- **Interest:** "Your next winning ad starts in your reviews..."
-- **Desire:** "Beat your median CTR/TSR with buyer-language hooks"
-- **Action:** "Get Your Scripts Now"
+- **Attention:** "You're One Creative Breakthrough Away From Doubling Your Revenue"
+- **Interest:** "Weekly creative intelligence that turns ad spend into predictable revenue"
+- **Desire:** "$5,000+ agency strategy starting at just $5/week"
+- **Action:** "Start Free Week Trial"
 
 ### 2. PAS Framework  
 **Best for:** Problem-solving products/services
@@ -56,9 +56,9 @@ S - SOLUTION: Present your offer as remedy
 ```
 
 **Example Implementation:**
-- **Problem:** "Your ad hooks aren't converting"
-- **Agitation:** "Every failed campaign costs you customers and budget"
-- **Solution:** "Our customer-language approach creates hooks that actually convert"
+- **Problem:** "Your ad spend isn't generating predictable revenue"
+- **Agitation:** "Every month you delay is revenue left on the table while competitors scale"
+- **Solution:** "Weekly creative intelligence with proven frameworks from $250MM+ managed spend"
 
 ### 3. BAB (Before-After-Bridge)
 **Best for:** Transformation-focused services
@@ -70,9 +70,9 @@ BRIDGE: Your product/service as the solution
 ```
 
 **Example Implementation:**
-- **Before:** "Struggling with low-performing ad creatives"
-- **After:** "Consistent 34% CTR improvement with winning hooks"
-- **Bridge:** "Monday Morning Marketer script system"
+- **Before:** "Burning ad budget on creative guesswork"
+- **After:** "Predictable revenue with research-backed creative concepts"
+- **Bridge:** "APSICS Media weekly creative intelligence service"
 
 ### 4. The Persuasion Equation®
 **Best for:** High-value services and complex sales
@@ -171,9 +171,9 @@ CTA: Action + benefit (not generic "download")
 ```
 
 **Example:**
-- **Headline:** "Get 12 Winning Ad Scripts in 72 Hours"
-- **Subtext:** "Customer-language approach that beats median CTR"
-- **CTA:** "Get Your Scripts Now"
+- **Headline:** "Weekly Creative Intelligence That Doubles Your Revenue"
+- **Subtext:** "Research-backed concepts for all platforms at just $5/week"
+- **CTA:** "Start Free Week Trial"
 
 ---
 
@@ -223,8 +223,8 @@ PLACEMENT: Throughout funnel, not just testimonial page
 ```
 
 **High-Converting Testimonial Example:**
-> "We were struggling with 1.2% CTR on Facebook ads. After implementing MMM scripts, we hit 3.8% CTR in the first week and reduced our CAC by 45%. The customer-language approach was a game-changer for our acquisition." 
-> 
+> "We were burning $10K+ monthly on creative guesswork. APSICS Media's weekly concepts helped us achieve consistent 2.5x ROAS improvement. The research-backed approach completely transformed our acquisition strategy."
+>
 > — Sarah Chen, Growth Director at FitTracker Pro
 
 ---
@@ -256,19 +256,19 @@ DURATION: Run until significance achieved or 2-4 weeks maximum
 #### A/B Test Examples for Agencies
 
 **Value Proposition Tests:**
-- Control: "Professional Marketing Services"
-- Variant A: "Get 34% Better Ad Performance in 72 Hours"
-- Variant B: "Stop Wasting Ad Budget on Hooks That Don't Convert"
+- Control: "Professional Creative Services"
+- Variant A: "You're One Creative Breakthrough Away From Doubling Your Revenue"
+- Variant B: "Stop Burning Ad Budget on Creative Guesswork"
 
 **CTA Tests:**
 - Control: "Contact Us"
-- Variant A: "Get Your Free Scripts Audit"
-- Variant B: "Start 72-Hour Challenge"
+- Variant A: "Start Free Week Trial"
+- Variant B: "Get Weekly Creative Intelligence"
 
 **Social Proof Tests:**
 - Control: "Trusted by 500+ companies"
-- Variant A: "1,247+ marketers get better CTR with our scripts"
-- Variant B: "$1.2M+ in ad spend optimized"
+- Variant A: "12+ Years Experience | $250MM+ Managed"
+- Variant B: "Research-backed frameworks from real experience"
 
 ### Advanced Testing Strategies
 
@@ -410,10 +410,10 @@ COMMITMENT: Public commitments, goal setting, investment consistency
 ```
 
 #### Implementation Examples
-- **Scarcity:** "Only 5 pilot spots available this month"
-- **Urgency:** "72-hour delivery guarantee"
-- **Authority:** "As seen in Marketing Land and AdAge"
-- **Reciprocity:** "Free 7-day scripts pilot program"
+- **Scarcity:** "Founding member pricing ends soon"
+- **Urgency:** "Every month you delay is revenue left on the table"
+- **Authority:** "12+ years scaling media | $250MM+ managed"
+- **Reciprocity:** "Free week trial - no credit card required"
 
 ### Conversion Path Optimization
 
