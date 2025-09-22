@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "properties": {
+    "performanceScore": { "type": "number" },
+    "summary": { "type": "string" },
+    "topWins": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "topRisks": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timecode": { "type": "string" },
+          "observation": { "type": "string" },
+          "recommendation": { "type": "string" },
+          "impact": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          }
+        },
+        "required": ["timecode", "observation", "recommendation", "impact"],
+        "additionalProperties": false
+      }
+    },
+    "iterations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": ["same", "video", "static", "carousel"]
+          },
+          "headline": { "type": "string" },
+          "angleSummary": { "type": "string" },
+          "script": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "scene": { "type": "string" },
+                "description": { "type": "string" },
+                "voiceover": { "type": "string" },
+                "overlay": { "type": "string" },
+                "cta": { "type": "string" }
+              },
+              "required": ["scene", "description"],
+              "additionalProperties": false
+            }
+          },
+          "staticCopy": {
+            "type": "object",
+            "properties": {
+              "headline": { "type": "string" },
+              "body": { "type": "string" },
+              "cta": { "type": "string" },
+              "designNotes": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            },
+            "additionalProperties": false
+          },
+          "testingNotes": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["id", "headline", "angleSummary"],
+        "additionalProperties": false
+      }
+    },
+    "exportArtifacts": {
+      "type": "object",
+      "properties": {
+        "markdown": { "type": "string" },
+        "json": { "type": "object" }
+      },
+      "additionalProperties": false
+    },
+    "error": { "type": "string" },
+    "message": { "type": "string" }
+  },
+  "required": ["iterations"],
+  "additionalProperties": false
+}

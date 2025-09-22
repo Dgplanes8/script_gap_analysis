@@ -1,0 +1,1 @@
+When the requested output includes `video`, build a short-form script that translates the static concept into a vertical-first video. Provide a scene table with on-screen action, voiceover, overlays, and CTA timing. Assume 20-35 seconds unless otherwise noted.

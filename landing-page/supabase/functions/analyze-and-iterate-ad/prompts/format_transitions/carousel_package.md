@@ -1,0 +1,1 @@
+When the output includes `carousel`, storyboard a multi-frame sequence (3-5 frames). For each frame include purpose, headline, supporting copy, suggested visuals, and CTA handling. Ensure progression builds narrative momentum and closes with a clear action.

@@ -1,0 +1,1 @@
+When delivering the `same` iteration package, upgrade the current format without changing media type. Improve hook structure, pacing, CTA placement, overlays, and proof assets while keeping recognizable brand elements intact.

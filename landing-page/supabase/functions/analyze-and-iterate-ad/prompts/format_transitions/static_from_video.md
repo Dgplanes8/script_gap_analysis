@@ -1,0 +1,1 @@
+When the requested output includes `static`, distill the video narrative into a single-frame or carousel-ready concept. Provide headline, body copy, CTA text, and layout or design notes that translate motion beats into punchy static elements.
