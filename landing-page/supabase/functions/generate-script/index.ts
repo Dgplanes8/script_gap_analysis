@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
 import { basePrompt } from "./prompt.ts";
+import { createHash } from "https://deno.land/std@0.208.0/crypto/crypto.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -34,6 +35,111 @@ type RequestPayload = {
   objective?: string;
   adFormat?: 'video' | 'static';
 };
+
+// Usage tracking utilities
+function generateAnonymousKey(request: Request): string {
+  const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || '127.0.0.1';
+  const userAgent = request.headers.get('user-agent') || '';
+
+  const ipHash = createHash('sha256').update(ip + 'apsics-salt').digest('hex');
+  const uaHash = createHash('md5').update(userAgent).digest('hex').substring(0, 8);
+  return `${ipHash}_${uaHash}`;
+}
+
+async function trackToolUsage(
+  supabase: any,
+  data: {
+    toolType: 'script-generator' | 'brief-generator' | 'iteration-tool';
+    inputPayload: Record<string, any>;
+    outputPayload?: Record<string, any>;
+    processingMs?: number;
+    creditsSpent?: number;
+    status?: 'processing' | 'completed' | 'failed' | 'timeout';
+    errorMessage?: string;
+    source?: 'web' | 'api' | 'mobile';
+  },
+  userId?: string | null,
+  anonymousKey?: string
+): Promise<{ usageId: string | null; error: string | null }> {
+  try {
+    const { data: result, error } = await supabase.rpc('log_ai_tool_usage', {
+      p_user_id: userId || null,
+      p_anonymous_key: anonymousKey || null,
+      p_tool_type: data.toolType,
+      p_input_payload: data.inputPayload,
+      p_output_payload: data.outputPayload || null,
+      p_processing_ms: data.processingMs || null,
+      p_credits_spent: data.creditsSpent || 1,
+      p_status: data.status || 'completed',
+      p_error_message: data.errorMessage || null,
+      p_source: data.source || 'web'
+    });
+
+    if (error) {
+      console.error('Usage tracking failed:', error);
+      return { usageId: null, error: error.message };
+    }
+
+    return { usageId: result, error: null };
+  } catch (err) {
+    console.error('Usage tracking error:', err);
+    return { usageId: null, error: err instanceof Error ? err.message : 'Unknown error' };
+  }
+}
+
+async function trackScriptGeneration(
+  supabase: any,
+  data: {
+    usageId?: string;
+    companyName: string;
+    websiteUrl: string;
+    productDescription?: string;
+    platform?: string;
+    objective?: string;
+    adFormat: 'video' | 'static';
+    generatedScript: string;
+    creditsUsed?: number;
+    qualityScore?: number;
+  },
+  userId?: string | null,
+  anonymousKey?: string
+): Promise<{ scriptId: string | null; error: string | null }> {
+  try {
+    const wordCount = data.generatedScript.trim().split(/\s+/).length;
+
+    const { data: result, error } = await supabase
+      .from('ai_script_generations')
+      .insert({
+        usage_id: data.usageId || null,
+        user_id: userId || null,
+        anonymous_key: anonymousKey || null,
+        company_name: data.companyName,
+        website_url: data.websiteUrl,
+        product_description: data.productDescription || null,
+        platform: data.platform || null,
+        objective: data.objective || null,
+        ad_format: data.adFormat,
+        generated_script: data.generatedScript,
+        script_word_count: wordCount,
+        script_quality_score: data.qualityScore || null,
+        credits_used: data.creditsUsed || 1,
+        status: 'completed',
+        completed_at: new Date().toISOString()
+      })
+      .select('id')
+      .single();
+
+    if (error) {
+      console.error('Script generation tracking failed:', error);
+      return { scriptId: null, error: error.message };
+    }
+
+    return { scriptId: result.id, error: null };
+  } catch (err) {
+    console.error('Script tracking error:', err);
+    return { scriptId: null, error: err instanceof Error ? err.message : 'Unknown error' };
+  }
+}
 
 const MAX_ANON_CREDITS = 1;
 
@@ -152,6 +258,8 @@ serve(async (req) => {
   let anonymousUsage: { ip_address: string; usage_count: number | null } | null = null;
   let anonymousIp: string | null = null;
   let ipHash: string | null = null;
+  let anonymousKey: string | null = null;
+  const startTime = Date.now();
 
   if (user) {
     const { data: profile, error } = await adminClient
@@ -216,6 +324,7 @@ serve(async (req) => {
     }
   } else {
     anonymousIp = extractIpAddress(req.headers);
+    anonymousKey = generateAnonymousKey(req);
 
     if (!anonymousIp) {
       return new Response(JSON.stringify({ error: "Anonymous usage requires an IP address" }), {
@@ -325,6 +434,58 @@ serve(async (req) => {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
+
+  const processingTime = Date.now() - startTime;
+
+  // Track comprehensive usage analytics
+  const inputPayload = {
+    companyName: companyName.trim(),
+    websiteUrl: normalizedWebsiteUrl,
+    productDescription: productDescription?.trim() || '',
+    platform: platform?.trim() || '',
+    objective: objective?.trim() || '',
+    adFormat
+  };
+
+  const outputPayload = {
+    script,
+    wordCount: script.trim().split(/\s+/).length,
+    scriptLength: script.length
+  };
+
+  // Track tool usage
+  const { usageId } = await trackToolUsage(
+    adminClient,
+    {
+      toolType: 'script-generator',
+      inputPayload,
+      outputPayload,
+      processingMs: processingTime,
+      creditsSpent: 1,
+      status: 'completed',
+      source: 'web'
+    },
+    user?.id || null,
+    anonymousKey
+  );
+
+  // Track specific script generation details
+  await trackScriptGeneration(
+    adminClient,
+    {
+      usageId,
+      companyName: companyName.trim(),
+      websiteUrl: normalizedWebsiteUrl,
+      productDescription: productDescription?.trim(),
+      platform: platform?.trim(),
+      objective: objective?.trim(),
+      adFormat,
+      generatedScript: script,
+      creditsUsed: 1
+    },
+    user?.id || null,
+    anonymousKey
+  );
 
   if (user) {
     const { data: updatedProfile, error } = await adminClient

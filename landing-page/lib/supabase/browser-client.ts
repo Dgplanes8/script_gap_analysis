@@ -9,6 +9,9 @@ type Database = {
         Row: {
           id: string;
           credits_remaining: number | null;
+          research_mode_unlocked: boolean | null;
+          brief_exports: number | null;
+          last_brief_preview: string | null;
           stripe_customer_id: string | null;
           updated_at: string | null;
         };

@@ -2,6 +2,7 @@ import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
 import { buildIterationPrompt, type OutputFormat } from "./prompt-builder.ts";
 import { ingestSocialAsset, isSocialIngestionError } from "./social-download.ts";
+import { createHash } from "https://deno.land/std@0.208.0/crypto/crypto.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -357,6 +358,57 @@ interface CopyChiefRecommendation {
   testNote: string;
 }
 
+// Usage tracking utilities
+function generateAnonymousKey(request: Request): string {
+  const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || '127.0.0.1';
+  const userAgent = request.headers.get('user-agent') || '';
+
+  const ipHash = createHash('sha256').update(ip + 'apsics-salt').digest('hex');
+  const uaHash = createHash('md5').update(userAgent).digest('hex').substring(0, 8);
+  return `${ipHash}_${uaHash}`;
+}
+
+async function trackToolUsage(
+  supabase: any,
+  data: {
+    toolType: 'script-generator' | 'brief-generator' | 'iteration-tool';
+    inputPayload: Record<string, any>;
+    outputPayload?: Record<string, any>;
+    processingMs?: number;
+    creditsSpent?: number;
+    status?: 'processing' | 'completed' | 'failed' | 'timeout';
+    errorMessage?: string;
+    source?: 'web' | 'api' | 'mobile';
+  },
+  userId?: string | null,
+  anonymousKey?: string
+): Promise<{ usageId: string | null; error: string | null }> {
+  try {
+    const { data: result, error } = await supabase.rpc('log_ai_tool_usage', {
+      p_user_id: userId || null,
+      p_anonymous_key: anonymousKey || null,
+      p_tool_type: data.toolType,
+      p_input_payload: data.inputPayload,
+      p_output_payload: data.outputPayload || null,
+      p_processing_ms: data.processingMs || null,
+      p_credits_spent: data.creditsSpent || 1,
+      p_status: data.status || 'completed',
+      p_error_message: data.errorMessage || null,
+      p_source: data.source || 'web'
+    });
+
+    if (error) {
+      console.error('Usage tracking failed:', error);
+      return { usageId: null, error: error.message };
+    }
+
+    return { usageId: result, error: null };
+  } catch (err) {
+    console.error('Usage tracking error:', err);
+    return { usageId: null, error: err instanceof Error ? err.message : 'Unknown error' };
+  }
+}
+
 serve(async (req) => {
   try {
     if (req.method === "OPTIONS") {
@@ -409,6 +461,9 @@ serve(async (req) => {
   });
 
   let user = null;
+  const startTime = Date.now();
+  const anonymousKey = generateAnonymousKey(req);
+
   try {
     const authResult = await supabaseClient.auth.getUser();
     user = authResult.data.user ?? null;
@@ -850,7 +905,51 @@ serve(async (req) => {
     updatedCredits = Math.max(0, creditsRemaining - 1);
   }
 
-  const processingMs = Date.now() - startedAt;
+  const processingMs = Date.now() - startTime;
+
+  // Track comprehensive usage analytics
+  const inputPayload = {
+    companyName,
+    primaryPlatform,
+    iterationGoal,
+    referenceUrl: referenceUrlString,
+    additionalContext,
+    inputMethod,
+    assetUrl: assetUrl.toString(),
+    assetType,
+    uploadedPath,
+    outputFormats,
+    assetContentType,
+    socialSourceUrl: originalSocialUrl,
+    upstreamDownloadUrl
+  };
+
+  const outputPayload = {
+    iterationsCount: analysis.iterations?.length || 0,
+    performanceScore: analysis.performanceScore,
+    hasScenes: analysis.scenes?.length || 0,
+    topWinsCount: analysis.topWins?.length || 0,
+    topRisksCount: analysis.topRisks?.length || 0,
+    copyChiefRecommendationsCount: analysis.copyChiefRecommendations?.length || 0,
+    outputFormats,
+    hasExportArtifacts: !!analysis.exportArtifacts
+  };
+
+  // Track tool usage
+  await trackToolUsage(
+    adminClient,
+    {
+      toolType: 'iteration-tool',
+      inputPayload,
+      outputPayload,
+      processingMs,
+      creditsSpent: 1,
+      status: 'completed',
+      source: 'web'
+    },
+    user?.id || null,
+    anonymousKey
+  );
 
   const runRecord = {
     user_id: user?.id ?? null,
@@ -908,6 +1007,32 @@ serve(async (req) => {
   );
   } catch (error) {
     console.error("Uncaught error in analyze-and-iterate-ad function:", error);
+
+    const processingMs = Date.now() - startTime;
+    const errorMessage = error instanceof Error ? error.message : "Internal server error";
+
+    // Track failed usage
+    await trackToolUsage(
+      adminClient,
+      {
+        toolType: 'iteration-tool',
+        inputPayload: {
+          companyName: payload?.companyName,
+          primaryPlatform: payload?.primaryPlatform,
+          iterationGoal: payload?.iterationGoal,
+          inputMethod: payload?.inputMethod,
+          assetType: payload?.assetType
+        },
+        processingMs,
+        creditsSpent: 0, // Don't charge for failed generations
+        status: 'failed',
+        errorMessage,
+        source: 'web'
+      },
+      user?.id || null,
+      anonymousKey
+    );
+
     return new Response(
       JSON.stringify({ error: "Internal server error" }),
       {

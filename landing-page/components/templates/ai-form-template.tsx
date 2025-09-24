@@ -71,15 +71,18 @@ export function AIFormTemplate({
 
       if (field.type === 'url' && formData[field.key]) {
         try {
-          const url = formData[field.key].startsWith('http')
-            ? formData[field.key]
-            : `https://${formData[field.key]}`;
-          const parsedUrl = new URL(url);
+          const url = formData[field.key].trim();
+          // Accept www., https://, or bare domain
+          const normalizedUrl = url.startsWith('http://') || url.startsWith('https://')
+            ? url
+            : `https://${url}`;
+
+          const parsedUrl = new URL(normalizedUrl);
           if (!parsedUrl.host) {
             throw new Error('Invalid host');
           }
         } catch {
-          errors[field.key] = 'Enter a valid URL.';
+          errors[field.key] = 'Enter a valid website URL (e.g., example.com or https://example.com).';
         }
       }
 

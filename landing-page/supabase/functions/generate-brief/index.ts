@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
+import { createHash } from "https://deno.land/std@0.208.0/crypto/crypto.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -68,6 +69,57 @@ type StoredBriefResponse = {
   includePdf?: boolean;
 };
 
+// Usage tracking utilities
+function generateAnonymousKey(request: Request): string {
+  const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || '127.0.0.1';
+  const userAgent = request.headers.get('user-agent') || '';
+
+  const ipHash = createHash('sha256').update(ip + 'apsics-salt').digest('hex');
+  const uaHash = createHash('md5').update(userAgent).digest('hex').substring(0, 8);
+  return `${ipHash}_${uaHash}`;
+}
+
+async function trackToolUsage(
+  supabase: any,
+  data: {
+    toolType: 'script-generator' | 'brief-generator' | 'iteration-tool';
+    inputPayload: Record<string, any>;
+    outputPayload?: Record<string, any>;
+    processingMs?: number;
+    creditsSpent?: number;
+    status?: 'processing' | 'completed' | 'failed' | 'timeout';
+    errorMessage?: string;
+    source?: 'web' | 'api' | 'mobile';
+  },
+  userId?: string | null,
+  anonymousKey?: string
+): Promise<{ usageId: string | null; error: string | null }> {
+  try {
+    const { data: result, error } = await supabase.rpc('log_ai_tool_usage', {
+      p_user_id: userId || null,
+      p_anonymous_key: anonymousKey || null,
+      p_tool_type: data.toolType,
+      p_input_payload: data.inputPayload,
+      p_output_payload: data.outputPayload || null,
+      p_processing_ms: data.processingMs || null,
+      p_credits_spent: data.creditsSpent || 1,
+      p_status: data.status || 'completed',
+      p_error_message: data.errorMessage || null,
+      p_source: data.source || 'web'
+    });
+
+    if (error) {
+      console.error('Usage tracking failed:', error);
+      return { usageId: null, error: error.message };
+    }
+
+    return { usageId: result, error: null };
+  } catch (err) {
+    console.error('Usage tracking error:', err);
+    return { usageId: null, error: err instanceof Error ? err.message : 'Unknown error' };
+  }
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
@@ -91,6 +143,9 @@ serve(async (req) => {
   });
 
   let userId: string | null = null;
+  const startTime = Date.now();
+  const anonymousKey = generateAnonymousKey(req);
+
   try {
     const { data } = await supabaseClient.auth.getUser();
     userId = data.user?.id ?? null;
@@ -192,6 +247,8 @@ serve(async (req) => {
 
     const structuredBrief = await runBriefSynthesisCall(requestPayload, processedMode, researchSummary, primaryModel);
 
+    const processingTime = Date.now() - startTime;
+
     const storedResponse: StoredBriefResponse = {
       requestedMode,
       processedMode,
@@ -199,6 +256,53 @@ serve(async (req) => {
       structuredBrief,
       includePdf,
     };
+
+    // Track comprehensive usage analytics
+    const inputPayload = {
+      mode: requestedMode,
+      brief_format: requestPayload.brief_format,
+      companyName: requestPayload.companyName,
+      websiteUrl: requestPayload.websiteUrl,
+      productDescription: requestPayload.productDescription,
+      campaignObjective: requestPayload.campaignObjective,
+      audienceProfile: requestPayload.audienceProfile,
+      keyMessages: requestPayload.keyMessages,
+      brandVoice: requestPayload.brandVoice,
+      primaryPlatform: requestPayload.primaryPlatform,
+      budgetRange: requestPayload.budgetRange,
+      creativeConstraints: requestPayload.creativeConstraints,
+      includePdf
+    };
+
+    const outputPayload = {
+      processedMode,
+      briefSections: {
+        executiveSummary: structuredBrief.executiveSummary?.length || 0,
+        strategicFoundation: structuredBrief.strategicFoundation?.length || 0,
+        creativeDirection: structuredBrief.creativeDirection?.length || 0,
+        deliverables: structuredBrief.deliverables?.length || 0,
+        successMetrics: structuredBrief.successMetrics?.length || 0
+      },
+      researchIncluded: !!researchSummary,
+      researchLength: researchSummary?.length || 0,
+      pdfRequested: includePdf
+    };
+
+    // Track tool usage
+    await trackToolUsage(
+      adminClient,
+      {
+        toolType: 'brief-generator',
+        inputPayload,
+        outputPayload,
+        processingMs: processingTime,
+        creditsSpent: creditCost,
+        status: 'completed',
+        source: 'web'
+      },
+      userId,
+      anonymousKey
+    );
 
     await adminClient
       .from("creative_brief_requests")
@@ -254,11 +358,38 @@ serve(async (req) => {
   } catch (error) {
     console.error("Brief generation failed", error);
 
+    const processingTime = Date.now() - startTime;
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+
+    // Track failed usage
+    await trackToolUsage(
+      adminClient,
+      {
+        toolType: 'brief-generator',
+        inputPayload: {
+          mode: requestPayload.mode,
+          brief_format: requestPayload.brief_format,
+          companyName: requestPayload.companyName,
+          websiteUrl: requestPayload.websiteUrl,
+          productDescription: requestPayload.productDescription,
+          campaignObjective: requestPayload.campaignObjective,
+          audienceProfile: requestPayload.audienceProfile
+        },
+        processingMs: processingTime,
+        creditsSpent: 0, // Don't charge for failed generations
+        status: 'failed',
+        errorMessage,
+        source: 'web'
+      },
+      userId,
+      anonymousKey
+    );
+
     await adminClient
       .from("creative_brief_requests")
       .update({
         status: "failed",
-        error_message: error instanceof Error ? error.message : "Unknown error",
+        error_message: errorMessage,
         completed_at: new Date().toISOString(),
       })
       .eq("id", jobId);

@@ -99,7 +99,7 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
         type: 'select',
         optional: true,
         options: [
-          { value: '', label: 'Let the AI choose the best fit' },
+          { value: '', label: 'Select One' },
           { value: 'facebook', label: 'Facebook' },
           { value: 'instagram', label: 'Instagram' },
           { value: 'tiktok', label: 'TikTok' },
@@ -114,7 +114,7 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
         type: 'select',
         optional: true,
         options: [
-          { value: '', label: 'Select campaign goal' },
+          { value: '', label: 'Select One' },
           { value: 'awareness', label: 'Awareness' },
           { value: 'leads', label: 'Leads' },
           { value: 'sales', label: 'Sales' },
@@ -240,7 +240,7 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
         type: 'select',
         required: true,
         options: [
-          { value: '', label: 'Select a goal' },
+          { value: '', label: 'Select One' },
           { value: 'performance', label: 'Reduce CAC / boost ROAS' },
           { value: 'engagement', label: 'Increase engagement and watch time' },
           { value: 'conversion', label: 'Drive direct response conversions' },
@@ -418,7 +418,7 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
         type: 'select',
         optional: true,
         options: [
-          { value: '', label: 'Multi-platform approach' },
+          { value: '', label: 'Select One' },
           { value: 'facebook', label: 'Facebook' },
           { value: 'instagram', label: 'Instagram' },
           { value: 'tiktok', label: 'TikTok' },
@@ -432,7 +432,7 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
         type: 'select',
         optional: true,
         options: [
-          { value: '', label: 'Prefer not to specify' },
+          { value: '', label: 'Select One' },
           { value: 'under-5k', label: 'Under $5,000' },
           { value: '5k-15k', label: '$5,000 - $15,000' },
           { value: '15k-50k', label: '$15,000 - $50,000' },
@@ -577,7 +577,7 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
         type: 'select',
         optional: true,
         options: [
-          { value: '', label: 'Select primary goal' },
+          { value: '', label: 'Select One' },
           { value: 'awareness', label: 'Brand awareness' },
           { value: 'sales', label: 'Drive sales' },
           { value: 'signups', label: 'Increase signups' },
