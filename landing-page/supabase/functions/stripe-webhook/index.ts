@@ -10,7 +10,8 @@ const supabaseUrl = Deno.env.get("EDGE_SUPABASE_URL") ?? Deno.env.get("SUPABASE_
 const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 const stripeSecretKey = Deno.env.get("STRIPE_SECRET_KEY");
 const stripeWebhookSecret = Deno.env.get("STRIPE_WEBHOOK_SECRET");
-const creditsPerPurchase = Number(Deno.env.get("STRIPE_PURCHASE_CREDIT_AMOUNT") ?? "50");
+const defaultCreditsPerPurchase = Number(Deno.env.get("STRIPE_PURCHASE_CREDIT_AMOUNT") ?? "50");
+const briefCreditPackSize = Number(Deno.env.get("BRIEF_CREDIT_PACK_SIZE") ?? `${defaultCreditsPerPurchase}`);
 
 if (!supabaseUrl || !serviceRoleKey) {
   throw new Error("Missing Supabase configuration for edge function");
@@ -47,41 +48,19 @@ serve(async (req) => {
     const session = event.data.object as Stripe.Checkout.Session;
     const customerId = typeof session.customer === "string" ? session.customer : session.customer?.id;
 
-    if (!customerId) {
+    if (customerId) {
+      await applyCreditGrant(customerId, session.metadata ?? {});
+    } else {
       console.warn("Checkout session missing customer reference", session.id);
-      return new Response(JSON.stringify({ received: true }), {
-        status: 200,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
     }
+  }
 
-    const adminClient = createClient(supabaseUrl, serviceRoleKey, {
-      auth: { persistSession: false, autoRefreshToken: false },
-    });
+  if (event.type === "customer.subscription.updated") {
+    const subscription = event.data.object as Stripe.Subscription;
+    const customerId = typeof subscription.customer === "string" ? subscription.customer : subscription.customer?.id;
 
-    const { data: profile, error } = await adminClient
-      .from("profiles")
-      .select("id, credits_remaining")
-      .eq("stripe_customer_id", customerId)
-      .maybeSingle();
-
-    if (error || !profile) {
-      console.error("Unable to locate profile for Stripe customer", customerId, error);
-      return new Response(JSON.stringify({ received: true }), {
-        status: 200,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-
-    const nextCredits = (profile.credits_remaining ?? 0) + creditsPerPurchase;
-
-    const { error: updateError } = await adminClient
-      .from("profiles")
-      .update({ credits_remaining: nextCredits })
-      .eq("id", profile.id);
-
-    if (updateError) {
-      console.error("Unable to update credits", updateError);
+    if (customerId) {
+      await applyCreditGrant(customerId, subscription.metadata ?? {});
     }
   }
 
@@ -90,3 +69,51 @@ serve(async (req) => {
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });
 });
+
+async function applyCreditGrant(customerId: string, metadata: Record<string, string>) {
+  const adminClient = createClient(supabaseUrl, serviceRoleKey, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+
+  const { data: profile, error } = await adminClient
+    .from("profiles")
+    .select("id, credits_remaining, research_mode_unlocked")
+    .eq("stripe_customer_id", customerId)
+    .maybeSingle();
+
+  if (error || !profile) {
+    console.error("Unable to locate profile for Stripe customer", customerId, error);
+    return;
+  }
+
+  const metadataProduct = metadata?.product ?? "";
+  const creditOverride = metadata?.credit_amount ? Number(metadata.credit_amount) : NaN;
+  const creditIncrement = Number.isFinite(creditOverride)
+    ? Number(creditOverride)
+    : metadataProduct === "creative_brief"
+      ? briefCreditPackSize
+      : defaultCreditsPerPurchase;
+
+  const unlockResearch = [metadata?.unlock_research_mode, metadata?.research_mode, metadata?.grant_research_mode]
+    .filter(Boolean)
+    .map((value) => value?.toLowerCase())
+    .includes("true");
+
+  const payload: Record<string, unknown> = {
+    credits_remaining: (profile.credits_remaining ?? 0) + creditIncrement,
+    updated_at: new Date().toISOString(),
+  };
+
+  if (unlockResearch && !profile.research_mode_unlocked) {
+    payload.research_mode_unlocked = true;
+  }
+
+  const { error: updateError } = await adminClient
+    .from("profiles")
+    .update(payload)
+    .eq("id", profile.id);
+
+  if (updateError) {
+    console.error("Unable to update profile after Stripe grant", updateError);
+  }
+}

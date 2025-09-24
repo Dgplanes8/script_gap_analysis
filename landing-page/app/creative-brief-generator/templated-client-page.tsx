@@ -3,32 +3,44 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import type { User } from '@supabase/supabase-js';
-import { CreditCard, Loader2, X } from 'lucide-react';
+import { CreditCard, Loader2, X, FileText, Download, Mail, FileDown } from 'lucide-react';
 import { getSupabaseBrowserClient, type BrowserClient } from '@/lib/supabase/browser-client';
 import { AIFormTemplate } from '@/components/templates/ai-form-template';
 import { getToolConfig } from '@/lib/template-configs';
+import {
+  type BriefMode,
+  type BriefFormat,
+  type StructuredBrief,
+  type BriefResponse,
+  generateBrief,
+  fetchBriefStatus,
+  startCreativeBriefCheckout,
+} from './creative-brief-generator';
 
 type FormState = {
   companyName: string;
   websiteUrl: string;
+  briefFormat: BriefFormat;
   productDescription: string;
-  platform: string;
-  objective: string;
-  adFormat: 'video' | 'static';
-};
-
-type GenerationResponse = {
-  script: string;
-  creditsRemaining?: number;
+  campaignObjective: string;
+  audienceProfile: string;
+  keyMessages?: string;
+  primaryPlatform?: string;
+  budgetRange?: string;
+  creativeConstraints?: string;
 };
 
 const defaultFormState: FormState = {
   companyName: '',
   websiteUrl: '',
+  briefFormat: 'ugc',
   productDescription: '',
-  platform: '',
-  objective: '',
-  adFormat: 'video',
+  campaignObjective: '',
+  audienceProfile: '',
+  keyMessages: '',
+  primaryPlatform: '',
+  budgetRange: '',
+  creativeConstraints: '',
 };
 
 async function extractEdgeFunctionError(error: unknown): Promise<{
@@ -137,8 +149,19 @@ async function extractEdgeFunctionError(error: unknown): Promise<{
   return { statusCode, message };
 }
 
-export default function TemplatedAdScriptGeneratorClient() {
-  const config = getToolConfig('ai-ad-script-generator');
+function toMarkdown(brief: StructuredBrief) {
+  return `# Creative Brief\n\n## Executive Summary\n${brief.executiveSummary}\n\n## Strategic Foundation\n${brief.strategicFoundation}\n\n## Creative Direction\n${brief.creativeDirection}\n\n## Deliverables\n${brief.deliverables}\n\n## Success Metrics\n${brief.successMetrics}\n`;
+}
+
+function renderParagraphsCopy(copy: string) {
+  return copy
+    .split(/\n+/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+}
+
+export default function TemplatedCreativeBriefGeneratorClient() {
+  const config = getToolConfig('creative-brief-generator');
 
   if (!config) {
     return <div>Configuration not found</div>;
@@ -149,21 +172,25 @@ export default function TemplatedAdScriptGeneratorClient() {
   const searchParams = useSearchParams();
   const [user, setUser] = useState<User | null>(null);
   const [submitting, setSubmitting] = useState(false);
-  const [result, setResult] = useState('');
+  const [structuredBrief, setStructuredBrief] = useState<StructuredBrief | null>(null);
+  const [researchSummary, setResearchSummary] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showPurchasePrompt, setShowPurchasePrompt] = useState(false);
   const [checkoutStatus, setCheckoutStatus] = useState<'success' | 'cancel' | null>(null);
   const [checkoutMessageDismissed, setCheckoutMessageDismissed] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
-  const [lastRequestedFormat, setLastRequestedFormat] = useState<'video' | 'static' | null>(null);
   const [profileCredits, setProfileCredits] = useState<number | null>(null);
   const [profileLoading, setProfileLoading] = useState(false);
   const [profileError, setProfileError] = useState<string | null>(null);
   const [profileReloadKey, setProfileReloadKey] = useState(0);
-  const [emailAddress, setEmailAddress] = useState('');
+  const [pollingJobId, setPollingJobId] = useState<string | null>(null);
+  const [polling, setPolling] = useState(false);
+  const [downgradedMode, setDowngradedMode] = useState<BriefMode | null>(null);
+  const [requestedPdf, setRequestedPdf] = useState(false);
   const [emailSending, setEmailSending] = useState(false);
-  const [emailStatus, setEmailStatus] = useState<'success' | 'error' | null>(null);
-  const [emailStatusMessage, setEmailStatusMessage] = useState('');
+  const [emailSent, setEmailSent] = useState(false);
+  const [pdfGenerating, setPdfGenerating] = useState(false);
+  const [lastFormData, setLastFormData] = useState<Record<string, any> | null>(null);
 
   const triggerProfileReload = useCallback(() => {
     setProfileReloadKey((value) => value + 1);
@@ -181,13 +208,7 @@ export default function TemplatedAdScriptGeneratorClient() {
         return;
       }
 
-      if (session?.user) {
-        setUser(session.user);
-        setEmailAddress(session.user.email ?? '');
-      } else {
-        setUser(null);
-        setEmailAddress('');
-      }
+      setUser(session?.user ?? null);
     };
 
     const { data: listener } = supabase.auth.onAuthStateChange(async (_event, session) => {
@@ -195,13 +216,7 @@ export default function TemplatedAdScriptGeneratorClient() {
         return;
       }
 
-      if (session?.user) {
-        setUser(session.user);
-        setEmailAddress(session.user.email ?? '');
-      } else {
-        setUser(null);
-        setEmailAddress('');
-      }
+      setUser(session?.user ?? null);
     });
 
     bootstrapAuth();
@@ -239,7 +254,7 @@ export default function TemplatedAdScriptGeneratorClient() {
       try {
         const { data, error } = await supabase
           .from('profiles')
-          .select('credits_remaining')
+          .select('credits_remaining, research_mode_unlocked, brief_exports')
           .eq('id', user.id)
           .maybeSingle();
 
@@ -281,36 +296,119 @@ export default function TemplatedAdScriptGeneratorClient() {
     }
   }, [checkoutStatus, triggerProfileReload, user]);
 
+  // Polling effect for async brief generation
+  useEffect(() => {
+    if (!pollingJobId) {
+      return;
+    }
+
+    let cancelled = false;
+    setPolling(true);
+
+    const poll = async (attempt = 0) => {
+      if (cancelled) {
+        return;
+      }
+
+      if (attempt > 15) {
+        setPolling(false);
+        setError('Still generating your brief. Please refresh the page or try again shortly.');
+        return;
+      }
+
+      const { data, error } = await fetchBriefStatus(supabase, pollingJobId);
+
+      if (cancelled) {
+        return;
+      }
+
+      if (error) {
+        const { message } = await extractEdgeFunctionError(error);
+        setError(message || 'Unable to read brief status.');
+        setPolling(false);
+        return;
+      }
+
+      if (!data) {
+        setPolling(false);
+        setError('Brief status response missing.');
+        return;
+      }
+
+      if (data.status === 'completed' && data.brief) {
+        setStructuredBrief(data.brief);
+        if (data.researchSummary) {
+          setResearchSummary(data.researchSummary);
+        }
+        if (data.processedMode && data.requestedMode && data.processedMode !== data.requestedMode) {
+          setDowngradedMode(data.processedMode as BriefMode);
+        }
+        if (data.includePdf) {
+          setRequestedPdf(true);
+        }
+        setPolling(false);
+        setPollingJobId(null);
+        if (user) {
+          triggerProfileReload();
+        }
+        return;
+      }
+
+      if (data.status === 'failed') {
+        setPolling(false);
+        setPollingJobId(null);
+        setError(data.error || 'Brief generation failed. Please try again.');
+        return;
+      }
+
+      setTimeout(() => poll(attempt + 1), 2000);
+    };
+
+    poll();
+
+    return () => {
+      cancelled = true;
+      setPolling(false);
+    };
+  }, [pollingJobId, supabase, triggerProfileReload, user]);
+
   const handleSubmit = useCallback(
     async (formData: Record<string, any>) => {
       setError(null);
       setShowPurchasePrompt(false);
       setShowAuthModal(false);
-      setResult('');
+      setStructuredBrief(null);
+      setResearchSummary(null);
       setSubmitting(true);
-      setLastRequestedFormat(formData.adFormat);
+      setPollingJobId(null);
+      setDowngradedMode(null);
+      setRequestedPdf(false);
+      setLastFormData(formData);
 
       const normalizedWebsiteUrl = formData.websiteUrl.startsWith('http')
         ? formData.websiteUrl
         : `https://${formData.websiteUrl}`;
 
       try {
-        const { data, error: invokeError } = await supabase.functions.invoke<GenerationResponse>(
-          'generate-script',
-          {
-            body: {
-              companyName: formData.companyName,
-              websiteUrl: normalizedWebsiteUrl,
-              productDescription: formData.productDescription,
-              platform: formData.platform,
-              objective: formData.objective,
-              adFormat: formData.adFormat,
-            },
-          },
-        );
+        const payload = {
+          mode: 'simple' as BriefMode, // Start with simple mode for all users
+          brief_format: formData.briefFormat,
+          companyName: formData.companyName.trim(),
+          websiteUrl: normalizedWebsiteUrl,
+          productDescription: formData.productDescription.trim(),
+          campaignObjective: formData.campaignObjective.trim(),
+          audienceProfile: formData.audienceProfile.trim(),
+          keyMessages: formData.keyMessages?.trim() || undefined,
+          primaryPlatform: formData.primaryPlatform || undefined,
+          budgetRange: formData.budgetRange || undefined,
+          creativeConstraints: formData.creativeConstraints?.trim() || undefined,
+          include_pdf: false, // For template simplicity, no PDF checkbox
+        };
+
+        const { data, error: invokeError } = await generateBrief(supabase, payload);
 
         if (invokeError) {
-          console.error('generate-script error', invokeError);
+          console.error('generate-brief error', invokeError);
           const { statusCode, message: parsedMessage } = await extractEdgeFunctionError(invokeError);
           const messageText = parsedMessage || invokeError.message || '';
 
@@ -319,17 +417,17 @@ export default function TemplatedAdScriptGeneratorClient() {
               setError('Double-check the company name and website URL, then try again.');
               break;
             case 401:
-              setError('Please sign in again to continue generating scripts.');
+              setError('Please sign in again to continue generating briefs.');
               setShowAuthModal(true);
               break;
             case 402:
               if (user) {
                 setShowPurchasePrompt(true);
-                setError('You\'re out of credits. Upgrade or add more scripts instantly.');
+                setError('You\'re out of credits. Upgrade to unlock advanced mode and more briefs.');
                 setProfileCredits(0);
               } else {
                 setShowAuthModal(true);
-                setError('Create a free APSICS Media account to unlock three additional scripts.');
+                setError('Create a free APSICS account to unlock three additional briefs.');
               }
               break;
             case 502:
@@ -338,10 +436,10 @@ export default function TemplatedAdScriptGeneratorClient() {
             default:
               if (messageText.toLowerCase().includes('out of credit') && !user) {
                 setShowAuthModal(true);
-                setError('Create a free APSICS Media account to unlock three additional scripts.');
+                setError('Create a free APSICS account to unlock three additional briefs.');
               } else if (statusCode === 402 && user) {
                 setShowPurchasePrompt(true);
-                setError('You\'re out of credits. Upgrade or add more scripts instantly.');
+                setError('You\'re out of credits. Upgrade to unlock advanced mode and more briefs.');
               } else {
                 setError(
                   messageText && !messageText.toLowerCase().includes('edge function returned a non-2xx status code')
@@ -354,18 +452,33 @@ export default function TemplatedAdScriptGeneratorClient() {
           return;
         }
 
-        if (data?.script) {
-          setResult(data.script);
-          setEmailStatus(null);
-          setEmailStatusMessage('');
-          if (user?.email) {
-            setEmailAddress(user.email);
-          }
-          if (typeof data.creditsRemaining === 'number') {
-            setProfileCredits(data.creditsRemaining);
-          } else if (user) {
-            triggerProfileReload();
-          }
+        if (!data) {
+          setError('No response from brief generator.');
+          return;
+        }
+
+        if (data.requestedMode !== data.mode) {
+          setDowngradedMode(data.mode);
+        }
+
+        if (data.brief) {
+          setStructuredBrief(data.brief);
+        }
+
+        if (data.researchSummary) {
+          setResearchSummary(data.researchSummary);
+        }
+
+        if (data.includePdf) {
+          setRequestedPdf(true);
+        }
+
+        if (!data.brief && data.jobId) {
+          setPollingJobId(data.jobId);
+        }
+
+        if (user) {
+          triggerProfileReload();
         }
       } catch (submitError) {
         setError(
@@ -384,23 +497,24 @@ export default function TemplatedAdScriptGeneratorClient() {
     setError(null);
 
     try {
-      const { data, error: invokeError } = await supabase.functions.invoke<{ checkout_url?: string }>(
-        'create-checkout-session',
-        { body: {} },
-      );
+      const { data, error: invokeError } = await startCreativeBriefCheckout(supabase, {
+        unlockResearch: true,
+        creditAmount: 50,
+      });
 
       if (invokeError) {
-        setError(invokeError.message || 'Unable to create checkout session.');
+        const { message } = await extractEdgeFunctionError(invokeError);
+        setError(message || 'Unable to start checkout.');
         return;
       }
 
       if (data?.checkout_url) {
         window.location.href = data.checkout_url;
       } else {
-        setError('Checkout session did not return a redirect URL.');
+        setError('Checkout session missing redirect URL.');
       }
     } catch (purchaseError) {
-      setError(purchaseError instanceof Error ? purchaseError.message : 'Unexpected error.');
+      setError(purchaseError instanceof Error ? purchaseError.message : 'Unexpected error during checkout.');
     }
   }, [supabase]);
 
@@ -408,65 +522,90 @@ export default function TemplatedAdScriptGeneratorClient() {
     try {
       await supabase.auth.signOut();
       setShowPurchasePrompt(false);
-      setResult('');
+      setStructuredBrief(null);
+      setResearchSummary(null);
       setProfileCredits(null);
       setError(null);
-      setLastRequestedFormat(null);
-      setEmailAddress('');
-      setEmailStatus(null);
-      setEmailStatusMessage('');
+      setDowngradedMode(null);
+      setRequestedPdf(false);
     } catch (signOutError) {
       console.error('Failed to sign out', signOutError);
     }
   }, [supabase]);
 
-  const handleSendEmail = useCallback(async () => {
-    if (!result || !lastRequestedFormat) {
+  const handleDownloadPdf = useCallback(async () => {
+    if (!structuredBrief || pdfGenerating) {
       return;
     }
 
-    if (!emailAddress || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailAddress)) {
-      setEmailStatus('error');
-      setEmailStatusMessage('Enter a valid email address to send the output.');
+    setPdfGenerating(true);
+    try {
+      const markdown = toMarkdown(structuredBrief);
+      const response = await fetch('/api/generate-brief-pdf', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content: markdown,
+          companyName: lastFormData?.companyName || 'Company',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to generate PDF');
+      }
+
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `creative-brief-${(lastFormData?.companyName || 'company').toLowerCase().replace(/\s+/g, '-')}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('PDF generation failed:', error);
+      setError('Failed to generate PDF. Please try again.');
+    } finally {
+      setPdfGenerating(false);
+    }
+  }, [structuredBrief, pdfGenerating, lastFormData?.companyName]);
+
+  const handleSendEmail = useCallback(async () => {
+    if (!structuredBrief || !user?.email || emailSending) {
       return;
     }
 
     setEmailSending(true);
-    setEmailStatus(null);
-    setEmailStatusMessage('');
-
     try {
-      const response = await fetch('/api/send-ad-email', {
+      const markdown = toMarkdown(structuredBrief);
+      const response = await fetch('/api/send-brief-email', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
-          email: emailAddress,
-          content: result,
-          format: lastRequestedFormat,
-          companyName: '', // This would be extracted from form data
-          platform: '', // This would be extracted from form data
+          email: user.email,
+          content: markdown,
+          companyName: lastFormData?.companyName || 'Company',
         }),
       });
 
-      const payload = await response.json();
-
       if (!response.ok) {
-        console.error('send-ad-email failure', payload);
-        setEmailStatus('error');
-        setEmailStatusMessage('We couldn\'t send the email right now. Please try again in a minute.');
-        return;
+        throw new Error('Failed to send email');
       }
 
-      setEmailStatus('success');
-      setEmailStatusMessage('Sent! Check your inbox for the ad deliverable.');
-    } catch (sendError) {
-      console.error('send-ad-email failed', sendError);
-      setEmailStatus('error');
-      setEmailStatusMessage('Unexpected error sending email. Try again in a minute.');
+      setEmailSent(true);
+      setTimeout(() => setEmailSent(false), 3000); // Reset after 3 seconds
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setError('Failed to send email. Please try again.');
     } finally {
       setEmailSending(false);
     }
-  }, [emailAddress, lastRequestedFormat, result]);
+  }, [structuredBrief, user?.email, emailSending, lastFormData?.companyName]);
 
   // User section component
   const userSection = (
@@ -500,7 +639,7 @@ export default function TemplatedAdScriptGeneratorClient() {
           <>
             <p className="font-semibold text-gray-900">Guest access active</p>
             <p className="mt-1 text-xs text-gray-600">
-              Enjoy one complimentary export. Create a free APSICS Media account to unlock three more scripts and save your best performers.
+              Enjoy one complimentary brief. Create a free APSICS account to unlock three more briefs and access advanced features.
             </p>
           </>
         )}
@@ -537,87 +676,121 @@ export default function TemplatedAdScriptGeneratorClient() {
     </div>
   );
 
-  // Custom result component
-  const resultComponent = result ? (
+  // Custom result component for brief display
+  const resultComponent = structuredBrief ? (
     <div className="mt-8 space-y-4 rounded-2xl border border-gray-200 bg-gray-50 p-6">
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-gray-900">
-          Generated {lastRequestedFormat ? (lastRequestedFormat === 'video' ? 'Video Ad' : 'Static Ad') : 'Output'}
-        </h3>
-        <button
-          onClick={() => {
-            if (typeof navigator !== 'undefined') {
-              navigator.clipboard
-                .writeText(result)
-                .catch(() => setError('Unable to copy to clipboard.'));
-            }
-          }}
-          className="rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-200"
-          type="button"
-        >
-          Copy to clipboard
-        </button>
-      </div>
-      <pre className="whitespace-pre-wrap rounded-xl bg-white p-6 text-sm leading-relaxed text-gray-800 shadow-inner">
-        {result}
-      </pre>
-      <div className="rounded-xl border border-gray-200 bg-white p-4">
-        <h4 className="text-sm font-semibold text-gray-900">Send this to your inbox</h4>
-        <p className="mt-1 text-xs text-gray-600">
-          We'll email the full {lastRequestedFormat === 'video' ? 'video script' : 'static copy bundle'} straight to your inbox.
-        </p>
-        <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end">
-          <label className="flex-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
-            Email address
-            <input
-              type="email"
-              value={emailAddress}
-              onChange={(event) => {
-                setEmailAddress(event.target.value);
-                if (emailStatus) {
-                  setEmailStatus(null);
-                  setEmailStatusMessage('');
-                }
-              }}
-              placeholder="you@company.com"
-              className="mt-1 w-full rounded-lg border border-gray-200 px-4 py-2 text-sm text-gray-900 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
-            />
-          </label>
-          <button
-            type="button"
-            onClick={handleSendEmail}
-            disabled={emailSending || !result}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            {emailSending ? (
-              <>
+        <h3 className="text-lg font-semibold text-gray-900">Generated Creative Brief</h3>
+        <div className="flex items-center gap-2">
+          {user?.email && (
+            <button
+              onClick={handleSendEmail}
+              disabled={emailSending}
+              className="inline-flex items-center gap-2 rounded-lg bg-[#126DFB] px-3 py-2 text-sm font-medium text-white transition hover:bg-[#0F5AD6] disabled:opacity-50"
+              type="button"
+            >
+              {emailSending ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
-                Sending…
-              </>
+              ) : emailSent ? (
+                <Mail className="h-4 w-4" />
+              ) : (
+                <Mail className="h-4 w-4" />
+              )}
+              {emailSending ? 'Sending...' : emailSent ? 'Sent!' : 'Email'}
+            </button>
+          )}
+          <button
+            onClick={handleDownloadPdf}
+            disabled={pdfGenerating}
+            className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-200 disabled:opacity-50"
+            type="button"
+          >
+            {pdfGenerating ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
-              'Send email'
+              <FileDown className="h-4 w-4" />
             )}
+            {pdfGenerating ? 'Generating...' : 'Download PDF'}
           </button>
         </div>
-        {emailStatusMessage ? (
-          <p
-            className={`mt-2 text-xs font-medium ${
-              emailStatus === 'success' ? 'text-success-600' : 'text-red-600'
-            }`}
-          >
-            {emailStatusMessage}
-          </p>
-        ) : null}
       </div>
+
+      {researchSummary && (
+        <div className="rounded-md border border-primary/30 bg-primary/5 p-3">
+          <h4 className="text-sm font-semibold text-primary">Research Highlights</h4>
+          {renderParagraphsCopy(researchSummary).map((paragraph, index) => (
+            <p key={index} className="mt-1 text-sm text-primary/90">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      )}
+
+      <div className="space-y-4">
+        <div className="space-y-2">
+          <h4 className="text-base font-semibold text-gray-900">Executive Summary</h4>
+          {renderParagraphsCopy(structuredBrief.executiveSummary).map((paragraph, index) => (
+            <p key={`summary-${index}`} className="text-sm leading-relaxed text-gray-600">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        <div className="space-y-2">
+          <h4 className="text-base font-semibold text-gray-900">Strategic Foundation</h4>
+          {renderParagraphsCopy(structuredBrief.strategicFoundation).map((paragraph, index) => (
+            <p key={`foundation-${index}`} className="text-sm leading-relaxed text-gray-600">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        <div className="space-y-2">
+          <h4 className="text-base font-semibold text-gray-900">Creative Direction</h4>
+          {renderParagraphsCopy(structuredBrief.creativeDirection).map((paragraph, index) => (
+            <p key={`direction-${index}`} className="text-sm leading-relaxed text-gray-600">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        <div className="space-y-2">
+          <h4 className="text-base font-semibold text-gray-900">Deliverables</h4>
+          {renderParagraphsCopy(structuredBrief.deliverables).map((paragraph, index) => (
+            <p key={`deliverables-${index}`} className="text-sm leading-relaxed text-gray-600">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        <div className="space-y-2">
+          <h4 className="text-base font-semibold text-gray-900">Success Metrics</h4>
+          {renderParagraphsCopy(structuredBrief.successMetrics).map((paragraph, index) => (
+            <p key={`metrics-${index}`} className="text-sm leading-relaxed text-gray-600">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      </div>
+
+      {requestedPdf && (
+        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <FileText className="h-4 w-4" /> PDF export queued via APSICS renderer. You'll receive it as soon as it's ready.
+        </div>
+      )}
+
+      {downgradedMode === 'simple' && (
+        <div className="rounded-md border border-warning/20 bg-warning/10 p-3 text-sm text-warning">
+          Advanced mode is available with the Growth plan. We delivered a simple brief so you can keep momentum going.
+        </div>
+      )}
     </div>
   ) : undefined;
 
   return (
     <>
       {checkoutStatus && !checkoutMessageDismissed && (
-        <div
-          className={`mx-auto mb-6 max-w-4xl px-4 sm:px-6 lg:px-8`}
-        >
+        <div className={`mx-auto mb-6 max-w-4xl px-4 sm:px-6 lg:px-8`}>
           <div
             className={`flex items-start justify-between rounded-2xl border px-4 py-3 text-sm ${
               checkoutStatus === 'success'
@@ -628,12 +801,12 @@ export default function TemplatedAdScriptGeneratorClient() {
             <div className="pr-4">
               <p className="font-semibold">
                 {checkoutStatus === 'success'
-                  ? 'Payment confirmed — 50 new credits were added to your account.'
+                  ? 'Payment confirmed — 50 new credits and research mode added to your account.'
                   : 'Checkout cancelled — your card was not charged.'}
               </p>
               <p className="mt-1 text-xs text-current/80">
                 {checkoutStatus === 'success'
-                  ? 'You can start generating more scripts right away.'
+                  ? 'You can start generating advanced briefs right away.'
                   : 'Need more time? You can resume checkout whenever you are ready.'}
               </p>
             </div>
@@ -642,7 +815,7 @@ export default function TemplatedAdScriptGeneratorClient() {
               onClick={() => {
                 setCheckoutMessageDismissed(true);
                 setCheckoutStatus(null);
-                router.replace('/ai-ad-script-generator');
+                router.replace('/creative-brief-generator');
               }}
               className="rounded-md bg-white/60 px-3 py-1 text-xs font-semibold text-gray-600 shadow-sm transition hover:bg-white"
             >
@@ -656,9 +829,9 @@ export default function TemplatedAdScriptGeneratorClient() {
         config={config.form}
         fields={config.fields}
         onSubmit={handleSubmit}
-        submitting={submitting}
+        submitting={submitting || polling}
         error={error}
-        result={result}
+        result={structuredBrief ? 'Generated' : ''}
         resultComponent={resultComponent}
         userSection={userSection}
       />
@@ -668,9 +841,9 @@ export default function TemplatedAdScriptGeneratorClient() {
           <div className="rounded-2xl border border-brand-200 bg-brand-50 p-6 text-brand-900">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
-                <h3 className="text-lg font-semibold">Need more scripts?</h3>
+                <h3 className="text-lg font-semibold">Need advanced research mode?</h3>
                 <p className="mt-1 text-sm text-brand-800">
-                  Unlock 50 additional credits instantly or chat with our team about unlimited creative intelligence retainers.
+                  Unlock 50 additional credits, advanced research mode with competitive analysis, and unlimited PDF exports.
                 </p>
               </div>
               <button
@@ -679,7 +852,7 @@ export default function TemplatedAdScriptGeneratorClient() {
                 type="button"
               >
                 <CreditCard className="h-4 w-4" />
-                Purchase More Credits
+                Unlock Research Mode
               </button>
             </div>
           </div>
@@ -778,7 +951,7 @@ function AuthPanel({ supabase, onAuthSuccess }: AuthPanelProps) {
     <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
       <div className="flex items-center justify-between">
         <p className="text-sm font-semibold text-gray-700">
-          {mode === 'sign-in' ? 'Sign in to continue generating scripts' : 'Create a free account to claim 3 more scripts'}
+          {mode === 'sign-in' ? 'Sign in to continue generating briefs' : 'Create a free account to claim 3 more briefs'}
         </p>
         <button
           type="button"
@@ -854,10 +1027,10 @@ function AuthModal({ open, onClose, supabase, onAuthSuccess }: AuthModalProps) {
           <X className="h-5 w-5" />
         </button>
         <div className="mb-6 space-y-2 text-center">
-          <p className="text-xs font-semibold uppercase tracking-wide text-brand-500">Unlock more scripts</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-brand-500">Unlock more briefs</p>
           <h3 className="text-2xl font-bold text-gray-900">Create a free APSICS account</h3>
           <p className="text-sm text-gray-600">
-            Get three additional AI ad scripts, save your favourites, and access Monday creative intelligence drops.
+            Get three additional AI creative briefs, save your favorites, and access Monday creative intelligence drops.
           </p>
         </div>
         <AuthPanel

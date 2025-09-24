@@ -491,15 +491,159 @@
     border-color: rgb(var(--primary-blue) / 0.2);
   }
   
+  /* Page Layout Classes - Brand Compliant */
+  .page-section {
+    padding: 5rem 0; /* py-20 */
+    position: relative;
+  }
+
+  .page-title {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: clamp(2rem, 3.5vw, 3rem); /* Responsive 32px-48px */
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: rgb(var(--text-primary));
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: clamp(1.5rem, 2.5vw, 2rem); /* 24px-32px */
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: rgb(var(--text-primary));
+  }
+
+  /* Form Styling - Brand Compliant */
+  .form-card {
+    background: rgb(var(--background-white));
+    border-radius: 1rem; /* 16px */
+    padding: 2rem; /* 32px */
+    border: 1px solid rgb(var(--text-secondary) / 0.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.25, 0.25, 0, 1);
+    position: relative;
+  }
+
+  .form-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(18, 109, 251, 0.08);
+    border-color: rgb(var(--primary-blue) / 0.2);
+  }
+
+  .form-control {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    width: 100%;
+    padding: 0.875rem 1rem; /* 14px 16px */
+    border: 2px solid rgb(var(--text-secondary) / 0.2);
+    border-radius: 0.75rem; /* 12px */
+    background-color: rgb(var(--background-white));
+    color: rgb(var(--text-primary));
+    font-size: 1rem; /* 16px - prevents iOS zoom */
+    line-height: 1.5;
+    min-height: 3rem; /* 48px - proper touch targets */
+    transition: all 0.4s cubic-bezier(0.25, 0.25, 0, 1);
+    position: relative;
+  }
+
+  .form-control:focus {
+    outline: none;
+    border-color: rgb(var(--primary-blue));
+    box-shadow: 0 0 0 3px rgb(var(--primary-blue) / 0.1), 0 4px 8px rgba(18, 109, 251, 0.1);
+    transform: translateY(-1px);
+  }
+
+  .form-control:hover:not(:focus) {
+    border-color: rgb(var(--primary-blue) / 0.4);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .form-control:invalid {
+    border-color: rgb(var(--error-red));
+  }
+
+  .form-control:invalid:focus {
+    box-shadow: 0 0 0 3px rgb(var(--error-red) / 0.1);
+  }
+
+  .form-control::placeholder {
+    color: rgb(var(--text-muted));
+  }
+
+  /* Enhanced Card System - Brand Compliant */
+  .card {
+    background: rgb(var(--background-white));
+    border-radius: 1rem; /* 16px */
+    padding: 1.5rem; /* 24px */
+    border: 1px solid rgb(var(--text-secondary) / 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.25, 0.25, 0, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(18, 109, 251, 0.1);
+    border-color: rgb(var(--primary-blue) / 0.3);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(18, 109, 251, 0.6), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .card:hover::before {
+    left: 100%;
+  }
+
+  .result-card {
+    position: sticky;
+    top: 2rem;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+  }
+
+  /* Brand Trust Badge Component */
+  .trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem; /* 12px */
+    padding: 0.5rem 1rem; /* 8px 16px */
+    background: rgb(var(--background-gray));
+    border-radius: 9999px; /* rounded-full */
+    border: 1px solid rgb(var(--text-secondary) / 0.2);
+    margin-bottom: 2rem;
+  }
+
+  .trust-badge-icon {
+    width: 1rem; /* 16px */
+    height: 1rem; /* 16px */
+    color: rgb(var(--primary-blue));
+  }
+
+  .trust-badge-text {
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    color: rgb(var(--text-secondary));
+  }
+
   /* Legacy compatibility */
   .framer-card {
     @apply brand-card;
   }
-  
+
   .framer-feature-card {
     @apply feature-card;
   }
-  
+
   /* Calculator and form styling */
   .calculator-card {
     @apply bg-white rounded-2xl shadow-xl overflow-hidden;

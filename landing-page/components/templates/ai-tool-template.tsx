@@ -45,17 +45,17 @@ export function AIToolTemplate({
         <div className="px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl space-y-10">
             <header className="text-center">
-              {config.header.badgeText && (
+              {config.header?.badgeText && (
                 <div className="mx-auto flex w-fit items-center gap-2 rounded-full bg-brand-100 px-4 py-2 text-sm font-semibold text-brand-800">
                   <span className="h-4 w-4">✨</span>
-                  {config.header.badgeText}
+                  {config.header?.badgeText}
                 </div>
               )}
               <h1 className="mt-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                {config.header.title}
+                {config.header?.title}
               </h1>
               <p className="mt-4 text-lg text-gray-600">
-                {config.header.subtitle}
+                {config.header?.subtitle}
               </p>
             </header>
 

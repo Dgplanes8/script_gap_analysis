@@ -1,6 +1,8 @@
 # AI Ad Iteration Tool - Product Requirements Document
 _Last updated: September 20, 2025_
 
+> **Status Note (September 2025)**: Proof-of-concept is live with Apify-powered Meta Ads Library ingestion (returns Facebook/Instagram video & image URLs), Supabase storage uploads, and Gemini JSON outputs. Remaining work includes expanding beyond Meta (TikTok API or equivalent), adding video transcript + scene extraction (ffmpeg), implementing async job polling, hardening OpenRouter rate-limit handling, and automating storage cleanup/history UX. Future contributors should pick up from these outstanding tasks.
+
 ## 1. Mission & Success Criteria
 - **Objective**: Launch a high-converting AI Ad Iteration Tool that lets marketers upload existing creative or submit owned social URLs and receive APSICS-quality iterations in under three minutes.
 - **Target Personas**: Performance marketing leads, lifecycle marketers, and creative strategists managing paid social spend for DTC, subscription, and SaaS brands.
@@ -360,7 +362,15 @@ type IterationAnalysis = {
 1. **Asset preparation**
    - For uploads, `client-page` uploads to Supabase Storage bucket `ai-ad-iteration-assets` using `supabase.storage.from(...).upload` with UUID file names.
    - Generate signed URL valid for 15 minutes and pass to edge function payload.
-   - For social URLs, queue background fetcher (`supabase/functions/fetch-social-asset`) to download media into storage when necessary; send storage URL into main edge function to keep OpenRouter request simple.
+   - For social URLs (initially Facebook/Instagram only), route through a `fetch-social-asset` workflow that downloads the media into storage before analysis. The OpenRouter call must include an `image_url` (static) or hosted MP4 (video); the external social URL alone is insufficient.
+   - **APIs & tools (PoC)**: For the proof-of-concept we will lean on an Apify Ads Library actor to resolve Meta ad URLs into direct asset links, then persist them to Supabase storage before Gemini analysis. Long term, migrate to the official Meta Marketing API once production credentials are secured and layer TikTok ingestion afterward.
+
+### Social Asset Retrieval Service (PoC)
+1. **Dispatch**: Queue a `fetch-social-asset` helper when `inputMethod === 'url'`.
+2. **Acquisition**:
+   - Facebook / Instagram: Trigger the Apify Ads Library actor with the ad ID + session cookie; download returned MP4/PNG into Supabase.
+3. **Storage**: Place downloaded assets under `ai-ad-iteration-assets/{jobId}/raw.*` and pass signed URLs + metadata (duration, format) to the analyzer.
+4. **Cleanup**: Delete assets within 24 hours unless the user explicitly saves history.
 
 2. **Edge function: `supabase/functions/analyze-and-iterate-ad/index.ts`**
    - Authenticate user via `supabase.auth.getUser`.

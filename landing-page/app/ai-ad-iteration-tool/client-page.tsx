@@ -31,7 +31,7 @@ import {
 
 const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
 const MAX_VIDEO_BYTES = 50 * 1024 * 1024;
-const SOCIAL_DOMAINS = ['facebook.com', 'instagram.com', 'tiktok.com', 'youtube.com'];
+const SOCIAL_DOMAINS = ['facebook.com', 'instagram.com'];
 
 const OUTPUT_OPTIONS: Array<{ value: OutputFormat; label: string; description: string }> = [
   { value: 'same', label: 'Same format upgrade', description: 'Improve pacing, hooks, and CTAs without changing format.' },
@@ -248,7 +248,7 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
   const [fileError, setFileError] = useState<string | null>(null);
   const [assetUrl, setAssetUrl] = useState('');
   const [urlError, setUrlError] = useState<string | null>(null);
-  const [outputFormats, setOutputFormats] = useState<Set<OutputFormat>>(() => new Set(['same']));
+  const [outputFormats, setOutputFormats] = useState<Set<OutputFormat>>(() => new Set<OutputFormat>(['same']));
 
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -501,18 +501,7 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
   }, []);
 
   const toggleOutputFormat = useCallback((format: OutputFormat) => {
-    setOutputFormats((prev) => {
-      const next = new Set(prev);
-      if (next.has(format)) {
-        if (next.size === 1) {
-          return next;
-        }
-        next.delete(format);
-      } else {
-        next.add(format);
-      }
-      return next;
-    });
+    setOutputFormats(() => new Set([format]));
   }, []);
 
   const uploadAsset = useCallback(
@@ -590,7 +579,7 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
             const parsed = new URL(trimmedUrl);
             const domainMatch = SOCIAL_DOMAINS.some((domain) => parsed.hostname.toLowerCase().includes(domain));
             if (!domainMatch) {
-              setError('We currently support Facebook, Instagram, TikTok, and YouTube URLs.');
+              setError('We currently support Facebook and Instagram ads only. TikTok and YouTube support coming soon.');
               abortSubmission();
               return;
             }
@@ -612,7 +601,6 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
 
         const payload = {
           companyName: formData.companyName,
-          brandVoice: formData.brandVoice,
           primaryPlatform: formData.primaryPlatform,
           iterationGoal: formData.iterationGoal,
           referenceUrl: formData.referenceUrl || null,
@@ -894,7 +882,7 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
           </button>
         </div>
         <p className="text-xs text-brand-700">
-          Meta, Instagram, TikTok, and YouTube assets only. We only iterate content your brand owns.
+Facebook and Instagram ads only. TikTok and YouTube support coming soon. We only iterate content your brand owns.
         </p>
       </div>
 
