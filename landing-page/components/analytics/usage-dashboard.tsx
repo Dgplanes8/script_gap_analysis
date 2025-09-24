@@ -5,7 +5,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { BarChart3, TrendingUp, Users, Clock, Target, AlertCircle } from 'lucide-react';
 import type { BrowserClient } from '@/lib/supabase/browser-client';
 
@@ -42,11 +42,7 @@ export function UsageDashboard({ supabase, className }: DashboardProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetchAnalytics();
-  }, [supabase]);
-
-  const fetchAnalytics = async () => {
+  const fetchAnalytics = useCallback(async () => {
     try {
       setLoading(true);
 
@@ -75,7 +71,11 @@ export function UsageDashboard({ supabase, className }: DashboardProps) {
     } finally {
       setLoading(false);
     }
-  };
+  }, [supabase]);
+
+  useEffect(() => {
+    fetchAnalytics();
+  }, [fetchAnalytics]);
 
   const formatToolName = (toolType: string) => {
     switch (toolType) {

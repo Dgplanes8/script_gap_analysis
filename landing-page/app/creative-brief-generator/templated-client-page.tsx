@@ -161,12 +161,7 @@ function renderParagraphsCopy(copy: string) {
 }
 
 export default function TemplatedCreativeBriefGeneratorClient() {
-  const config = getToolConfig('creative-brief-generator');
-
-  if (!config) {
-    return <div>Configuration not found</div>;
-  }
-
+  // All hooks must be called before any conditional returns
   const supabase = useMemo(() => getSupabaseBrowserClient(), []);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -606,6 +601,13 @@ export default function TemplatedCreativeBriefGeneratorClient() {
       setEmailSending(false);
     }
   }, [structuredBrief, user?.email, emailSending, lastFormData?.companyName]);
+
+  // Config check after all hooks are declared
+  const config = getToolConfig('creative-brief-generator');
+
+  if (!config) {
+    return <div>Configuration not found</div>;
+  }
 
   // User section component
   const userSection = (

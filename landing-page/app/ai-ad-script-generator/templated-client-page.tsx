@@ -38,12 +38,7 @@ const defaultFormState: FormState = {
 
 
 export default function TemplatedAdScriptGeneratorClient() {
-  const config = getToolConfig('ai-ad-script-generator');
-
-  if (!config) {
-    return <div>Configuration not found</div>;
-  }
-
+  // All hooks must be called before any conditional returns
   const supabase = useMemo(() => getSupabaseBrowserClient(), []);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -367,6 +362,13 @@ export default function TemplatedAdScriptGeneratorClient() {
       setEmailSending(false);
     }
   }, [emailAddress, lastRequestedFormat, result]);
+
+  // Config check after all hooks are declared
+  const config = getToolConfig('ai-ad-script-generator');
+
+  if (!config) {
+    return <div>Configuration not found</div>;
+  }
 
   // User section component
   const userSection = (

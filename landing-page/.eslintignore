@@ -1,0 +1,13 @@
+node_modules/
+.next/
+out/
+build/
+dist/
+*.log
+.DS_Store
+*.tsbuildinfo
+
+# Exclude Supabase functions (Deno code)
+supabase/
+supabase/**/*
+supabase/functions/**/*

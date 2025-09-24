@@ -29,6 +29,7 @@
     "**/*.test.tsx",
     "**/*.test.ts",
     "__tests__/**/*",
-    "supabase"
+    "supabase/**/*",
+    "supabase/functions/**/*"
   ]
 }
