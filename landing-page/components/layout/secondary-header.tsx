@@ -16,7 +16,7 @@ type NavLink = {
   href: string;
 };
 
-type SecondaryHeaderProps = {
+export type SecondaryHeaderProps = {
   links?: NavLink[];
   ctaHref?: string;
   ctaLabel?: string;

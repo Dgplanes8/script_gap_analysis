@@ -3,15 +3,12 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import type { User } from '@supabase/supabase-js';
-import { CreditCard, Loader2, X } from 'lucide-react';
-import { getSupabaseBrowserClient, type BrowserClient } from '@/lib/supabase/browser-client';
+import { CreditCard, Loader2 } from 'lucide-react';
+import { getSupabaseBrowserClient } from '@/lib/supabase/browser-client';
 import { AIFormTemplate } from '@/components/templates/ai-form-template';
 import { getToolConfig } from '@/lib/template-configs';
-import { extractEdgeFunctionError, getStandardErrorMessage } from '@/lib/utils/error-handling';
-import { fetchUserProfile, createAuthStateManager } from '@/lib/utils/supabase-helpers';
-import { CreditDisplay, PurchasePrompt, CheckoutStatus } from '@/components/shared/credit-display';
-import { AuthModal } from '@/components/shared/auth-modal';
-import { ContactFooter } from '@/components/shared/contact-info';
+import { extractEdgeFunctionError } from '@/lib/utils/error-handling';
+import { AuthModal as SharedAuthModal } from '@/components/shared/auth-modal';
 
 type FormState = {
   companyName: string;
@@ -25,15 +22,6 @@ type FormState = {
 type GenerationResponse = {
   script: string;
   creditsRemaining?: number;
-};
-
-const defaultFormState: FormState = {
-  companyName: '',
-  websiteUrl: '',
-  productDescription: '',
-  platform: '',
-  objective: '',
-  adFormat: 'video',
 };
 
 
@@ -177,7 +165,8 @@ export default function TemplatedAdScriptGeneratorClient() {
   }, [checkoutStatus, triggerProfileReload, user]);
 
   const handleSubmit = useCallback(
-    async (formData: Record<string, any>) => {
+    async (rawFormData: Record<string, any>) => {
+      const formData = rawFormData as FormState;
       setError(null);
       setShowPurchasePrompt(false);
       setShowAuthModal(false);
@@ -588,7 +577,7 @@ export default function TemplatedAdScriptGeneratorClient() {
         </div>
       )}
 
-      <AuthModal
+      <SharedAuthModal
         open={showAuthModal}
         onClose={() => {
           setShowAuthModal(false);
@@ -601,174 +590,9 @@ export default function TemplatedAdScriptGeneratorClient() {
           setError(null);
           triggerProfileReload();
         }}
+        subscribeToConvertKit={true}
+        toolType="script"
       />
     </>
-  );
-}
-
-type AuthModalProps = {
-  open: boolean;
-  onClose: () => void;
-  supabase: BrowserClient;
-  onAuthSuccess: () => void;
-};
-
-type AuthPanelProps = {
-  supabase: BrowserClient;
-  onAuthSuccess: () => void;
-};
-
-function AuthPanel({ supabase, onAuthSuccess }: AuthPanelProps) {
-  const [mode, setMode] = useState<'sign-in' | 'sign-up'>('sign-in');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [authError, setAuthError] = useState<string | null>(null);
-  const [busy, setBusy] = useState(false);
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setBusy(true);
-    setAuthError(null);
-
-    try {
-      if (mode === 'sign-in') {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) {
-          setAuthError(error.message);
-          return;
-        }
-
-        const { error: subscribeError } = await supabase.functions.invoke('subscribe-convertkit', {
-          body: { email },
-        });
-
-        if (subscribeError) {
-          console.error('subscribe-convertkit failed (sign-in)', subscribeError);
-        }
-      } else {
-        const { data, error } = await supabase.auth.signUp({ email, password });
-        if (error) {
-          setAuthError(error.message);
-          return;
-        }
-
-        const { error: subscribeError } = await supabase.functions.invoke('subscribe-convertkit', {
-          body: { email },
-        });
-
-        if (subscribeError) {
-          console.error('subscribe-convertkit failed (sign-up)', subscribeError);
-        }
-
-        if (!data.session) {
-          setAuthError('Check your email to confirm your account, then sign in to use your extra credits.');
-          return;
-        }
-      }
-
-      setEmail('');
-      setPassword('');
-      onAuthSuccess();
-    } catch (err) {
-      setAuthError(err instanceof Error ? err.message : 'Authentication failed.');
-    } finally {
-      setBusy(false);
-    }
-  };
-
-  return (
-    <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
-      <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold text-gray-700">
-          {mode === 'sign-in' ? 'Sign in to continue generating scripts' : 'Create a free account to claim 3 more scripts'}
-        </p>
-        <button
-          type="button"
-          onClick={() => {
-            setMode((prev) => (prev === 'sign-in' ? 'sign-up' : 'sign-in'));
-            setAuthError(null);
-          }}
-          className="text-sm font-semibold text-brand-700 hover:text-brand-900"
-        >
-          {mode === 'sign-in' ? 'Need an account?' : 'Already registered?'}
-        </button>
-      </div>
-
-      <form onSubmit={handleSubmit} className="mt-4 space-y-4">
-        <div className="space-y-1">
-          <label className="text-xs font-semibold uppercase tracking-wide text-gray-500" htmlFor="auth-email">
-            Email
-          </label>
-          <input
-            id="auth-email"
-            type="email"
-            autoComplete="email"
-            required
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            className="w-full rounded-lg border border-gray-200 px-4 py-2 text-sm text-gray-900 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
-          />
-        </div>
-
-        <div className="space-y-1">
-          <label className="text-xs font-semibold uppercase tracking-wide text-gray-500" htmlFor="auth-password">
-            Password
-          </label>
-          <input
-            id="auth-password"
-            type="password"
-            autoComplete={mode === 'sign-in' ? 'current-password' : 'new-password'}
-            required
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            className="w-full rounded-lg border border-gray-200 px-4 py-2 text-sm text-gray-900 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
-          />
-        </div>
-
-        {authError && <p className="text-sm text-red-600">{authError}</p>}
-
-        <button
-          type="submit"
-          disabled={busy}
-          className="inline-flex w-full items-center justify-center rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-75"
-        >
-          {busy ? 'Processing…' : mode === 'sign-in' ? 'Sign in' : 'Create account'}
-        </button>
-      </form>
-    </div>
-  );
-}
-
-function AuthModal({ open, onClose, supabase, onAuthSuccess }: AuthModalProps) {
-  if (!open) {
-    return null;
-  }
-
-  return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 px-4 py-8" role="dialog" aria-modal="true">
-      <div className="relative w-full max-w-lg rounded-3xl bg-white p-8 shadow-2xl">
-        <button
-          type="button"
-          onClick={onClose}
-          className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-gray-500 transition hover:text-gray-800"
-          aria-label="Close sign in modal"
-        >
-          <X className="h-5 w-5" />
-        </button>
-        <div className="mb-6 space-y-2 text-center">
-          <p className="text-xs font-semibold uppercase tracking-wide text-brand-500">Unlock more scripts</p>
-          <h3 className="text-2xl font-bold text-gray-900">Create a free APSICS account</h3>
-          <p className="text-sm text-gray-600">
-            Get three additional AI ad scripts, save your favourites, and access Monday creative intelligence drops.
-          </p>
-        </div>
-        <AuthPanel
-          supabase={supabase}
-          onAuthSuccess={() => {
-            onAuthSuccess();
-          }}
-        />
-      </div>
-    </div>
   );
 }

@@ -33,7 +33,7 @@ export interface AIFormConfig {
 interface AIFormTemplateProps {
   config: AIFormConfig;
   fields: FormField[];
-  onSubmit: (formData: Record<string, any>) => Promise<void>;
+  onSubmit: (formData: Record<string, any>) => Promise<unknown>;
   submitting?: boolean;
   error?: string | null;
   result?: string;
@@ -58,7 +58,15 @@ export function AIFormTemplate({
 
   const handleFieldChange = useCallback((key: string, value: any) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
-    setFormErrors((prev) => (prev[key] ? { ...prev, [key]: undefined } : prev));
+    setFormErrors((prev) => {
+      if (!prev[key]) {
+        return prev;
+      }
+
+      const next = { ...prev };
+      delete next[key];
+      return next;
+    });
   }, []);
 
   const validateForm = () => {

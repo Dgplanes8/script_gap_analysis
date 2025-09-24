@@ -6,7 +6,6 @@ import { Loader2, Lock, Sparkles, Download, FileText } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { getSupabaseBrowserClient } from '@/lib/supabase/browser-client';
-import { ProcessAccordion } from '@/components/alytics/process-accordion';
 import { SimplePricingSection } from '@/components/alytics/simple-pricing-section';
 import {
   type BriefMode,
@@ -1095,8 +1094,8 @@ export default function CreativeBriefGeneratorClient() {
               context through frameworks used to scale paid social, email, and lifecycle campaigns across hundreds of DTC
               launches.
             </p>
-            <ProcessAccordion
-              steps={[
+            <div className="space-y-4">
+              {[
                 {
                   title: 'Collect brand inputs',
                   description: 'Answer a focused set of questions to capture positioning, offer, and constraints.',
@@ -1111,8 +1110,13 @@ export default function CreativeBriefGeneratorClient() {
                   description:
                     'Download the brief as Markdown or PDF, share with creators, and track exports from your dashboard.',
                 },
-              ]}
-            />
+              ].map((step) => (
+                <div key={step.title} className="rounded-2xl border border-muted bg-white p-4 shadow-sm">
+                  <h3 className="text-base font-semibold text-foreground">{step.title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="rounded-2xl border border-muted bg-background p-6 shadow-sm">
             <h3 className="text-lg font-semibold text-foreground">Why creators love APSICS briefs</h3>
@@ -1135,11 +1139,7 @@ export default function CreativeBriefGeneratorClient() {
 
       <section className="py-20 bg-white relative" id="plans">
         <div className="max-w-4xl mx-auto px-6">
-          <SimplePricingSection
-            highlightPlan="growth"
-            title="Choose your brief plan"
-            subtitle="Start with a free simple brief. Upgrade to Growth for unlimited exports, APSICS research mode, and creator-ready PDF packages."
-          />
+          <SimplePricingSection />
         </div>
       </section>
 
