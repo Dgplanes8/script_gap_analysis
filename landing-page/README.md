@@ -8,12 +8,13 @@ A Next.js 14 application for APSICS Media's creative intelligence service with A
 - **TypeScript** for type safety
 - **Tailwind CSS** for styling
 - **React Hook Form** with Zod validation
-- **Resend** for email marketing
+- **Resend / ConvertKit** for email flows
 - **Calendly** integration for booking
 - **Stripe** for payments
 - **Analytics** ready (Google Analytics)
 - **Mobile-responsive** design
 - **SEO optimized**
+- **Hardened forms** with CORS allowlists and per-IP rate limiting
 
 ## Pages
 
@@ -28,25 +29,31 @@ A Next.js 14 application for APSICS Media's creative intelligence service with A
 npm install
 ```
 
-2. Copy environment variables:
+2. Copy the example environment file and fill in secrets (never commit the result):
 ```bash
-cp .env.local .env
+cp .env.example .env.local
 ```
 
-3. Update environment variables in `.env`:
+3. Update `.env.local` with your keys (all other `.env*` files are gitignored):
 ```
-# Application
+# Core URLs
 NEXT_PUBLIC_APP_URL=http://localhost:3000
+ALLOWED_ORIGINS=http://localhost:3000
 
 # Supabase Configuration
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 
-# AI Configuration
-DEEPSEEK_API_KEY=your_deepseek_api_key
+# Email + Forms
+CONVERTKIT_API_KEY=your_convertkit_api_key
+CONVERTKIT_FORM_ID=your_convertkit_form_id
+RESEND_API_KEY=your_resend_api_key
+AIRTABLE_API_KEY=your_airtable_api_key
+AIRTABLE_BASE_ID=your_airtable_base_id
+AIRTABLE_TABLE_ID=your_airtable_table_id
 
-# Analytics
+# Analytics (optional)
 NEXT_PUBLIC_GA_MEASUREMENT_ID=your_google_analytics_id_here
 ```
 
@@ -122,7 +129,13 @@ npm run start
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL | Yes |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonymous key | Yes |
 | `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key | Yes |
-| `DEEPSEEK_API_KEY` | DeepSeek AI API key | Yes |
+| `CONVERTKIT_API_KEY` | ConvertKit API key (fallback to logging if absent) | Optional |
+| `CONVERTKIT_FORM_ID` | ConvertKit form id (or override per request) | Optional |
+| `RESEND_API_KEY` | Resend API key for transactional emails | Optional |
+| `AIRTABLE_API_KEY` | Airtable API key for lead capture | Optional |
+| `AIRTABLE_BASE_ID` | Airtable base id | Optional |
+| `AIRTABLE_TABLE_ID` | Airtable table id | Optional |
+| `ALLOWED_ORIGINS` | Comma-separated list of allowed origins for API access | Yes (prod) |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics ID | Optional |
 
 ## Scripts
@@ -142,6 +155,13 @@ APSICS Media provides weekly creative intelligence for performance marketers:
 - Platform-optimized scripts for Facebook, Instagram, TikTok, LinkedIn, X, YouTube
 - $5/week founding member pricing vs $5,000+ agency fees
 - Performance improvement guarantee
+
+## Security Practices
+
+- Never commit real secrets – keep them in `.env.local`, which is gitignored.
+- Update `ALLOWED_ORIGINS` to the exact domains permitted to hit form APIs.
+- All new API routes should reuse the helpers in `lib/security/request-guard.ts` for CORS + rate limiting.
+- Avoid logging raw user inputs; mask emails or remove PII before writing to logs.
 
 ## License
 

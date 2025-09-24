@@ -1,13 +1,42 @@
 import { NextRequest, NextResponse } from 'next/server';
+import {
+  checkRateLimit,
+  getClientIdentifier,
+  handlePreflight,
+  resolveAllowedOrigin,
+  rateLimitResponse,
+  withCors,
+} from '@/lib/security/request-guard';
+
+export async function OPTIONS(request: NextRequest) {
+  return handlePreflight(request);
+}
 
 export async function POST(request: NextRequest) {
+  const allowedOrigin = resolveAllowedOrigin(request);
+  if (!allowedOrigin) {
+    return NextResponse.json(
+      { error: 'Origin not allowed' },
+      { status: 403 }
+    );
+  }
+
+  const clientIdentifier = getClientIdentifier(request);
+  const rateLimit = checkRateLimit(clientIdentifier, 10, 60_000);
+  if (!rateLimit.allowed) {
+    return rateLimitResponse(rateLimit.retryAfter, allowedOrigin);
+  }
+
   try {
     const { email, source, formId } = await request.json();
 
     if (!email) {
-      return NextResponse.json(
-        { error: 'Email is required' },
-        { status: 400 }
+      return withCors(
+        NextResponse.json(
+          { error: 'Email is required' },
+          { status: 400 }
+        ),
+        allowedOrigin
       );
     }
 
@@ -22,15 +51,25 @@ export async function POST(request: NextRequest) {
       console.error('CONVERTKIT_FORM_ID present:', !!CONVERTKIT_FORM_ID);
       console.error('Form ID provided in request:', !!formId);
       // Fallback to logging if ConvertKit not configured
-      console.log('New subscription:', { email, source, timestamp: new Date().toISOString() });
-      return NextResponse.json(
-        { message: 'Successfully subscribed! We will be in touch soon.' },
-        { status: 200 }
+      console.log('Subscription received (ConvertKit not configured).', {
+        source: source || 'unknown',
+        timestamp: new Date().toISOString(),
+      });
+      return withCors(
+        NextResponse.json(
+          { message: 'Successfully subscribed! We will be in touch soon.' },
+          { status: 200 }
+        ),
+        allowedOrigin
       );
     }
 
+    const maskedEmail = email.includes('@')
+      ? `${email.slice(0, 1)}***@${email.split('@')[1]}`
+      : 'masked';
+
     // Determine tags based on source
-    console.log('Submitting to ConvertKit:', { email, source, formId: resolvedFormId });
+    console.log('Submitting to ConvertKit:', { email: maskedEmail, source, formId: resolvedFormId });
 
     // Subscribe to ConvertKit
     const convertKitResponse = await fetch(`https://api.convertkit.com/v3/forms/${resolvedFormId}/subscribe`, {
@@ -50,9 +89,12 @@ export async function POST(request: NextRequest) {
       // ConvertKit returns 422 if the subscriber already exists
       if (convertKitResponse.status === 422) {
         console.warn('ConvertKit duplicate subscriber response:', responseBody);
-        return NextResponse.json(
-          { message: 'You are already subscribed! Check your inbox for the latest templates.' },
-          { status: 200 }
+        return withCors(
+          NextResponse.json(
+            { message: 'You are already subscribed! Check your inbox for the latest templates.' },
+            { status: 200 }
+          ),
+          allowedOrigin
         );
       }
 
@@ -61,7 +103,11 @@ export async function POST(request: NextRequest) {
     }
 
     const subscriberData = responseBody;
-    console.log('ConvertKit subscription successful:', { email, source, subscriberId: subscriberData.subscription?.subscriber?.id });
+    console.log('ConvertKit subscription successful:', {
+      email: maskedEmail,
+      source,
+      subscriberId: subscriberData.subscription?.subscriber?.id,
+    });
 
     // Return different messages based on source
     const messages = {
@@ -83,15 +129,21 @@ export async function POST(request: NextRequest) {
     
     const message = messages[source as keyof typeof messages] || 'Successfully subscribed! Check your email for your download.';
 
-    return NextResponse.json(
-      { message },
-      { status: 200 }
+    return withCors(
+      NextResponse.json(
+        { message },
+        { status: 200 }
+      ),
+      allowedOrigin
     );
   } catch (error) {
     console.error('Error processing subscription:', error);
-    return NextResponse.json(
-      { error: 'Failed to subscribe. Please try again.' },
-      { status: 500 }
+    return withCors(
+      NextResponse.json(
+        { error: 'Failed to subscribe. Please try again.' },
+        { status: 500 }
+      ),
+      allowedOrigin
     );
   }
 }

@@ -32,10 +32,12 @@ In Vercel dashboard, add these variables:
 **Required:**
 ```
 NEXT_PUBLIC_APP_URL=https://your-vercel-url.vercel.app
+ALLOWED_ORIGINS=https://your-production-domain.com,https://www.your-production-domain.com
 RESEND_API_KEY=re_xxxxxxxxxx
 NEXT_PUBLIC_FROM_EMAIL=hello@mondaymorningmarketer.com
 AIRTABLE_API_KEY=patxxxxxxxxxx
 AIRTABLE_BASE_ID=appxxxxxxxxxx
+AIRTABLE_TABLE_ID=tblxxxxxxxxxxxxxx
 AIRTABLE_TABLE_NAME=Get Featured Submissions
 ```
 

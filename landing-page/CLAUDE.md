@@ -41,6 +41,11 @@ Landing page for APSICS Media's creative intelligence service - weekly research-
 - **Animations**: Framer Motion with consistent variants
 - **Error Handling**: Async/await pattern preferred over Promise chains
 - **Mobile**: Touch-friendly targets (44px minimum)
+- **Security**:
+  - Use `lib/security/request-guard` for CORS + rate limiting on new API routes
+  - Redact or hash PII in server logs; never persist raw emails or budgets
+  - Secrets live in ignored `.env.local`; never commit `.env`
+  - Sanitize any AI or user-generated HTML before rendering client-side
 
 ### Performance Optimization
 - **Loading**: Progressive enhancement with motion.div

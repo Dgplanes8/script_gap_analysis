@@ -10,6 +10,7 @@ Copy these variables to your Vercel project settings:
 ```bash
 # Application URL (update after deployment)
 NEXT_PUBLIC_APP_URL=https://your-project-name.vercel.app
+ALLOWED_ORIGINS=https://your-production-domain.com,https://www.your-production-domain.com
 
 # Email Service (Kit/ConvertKit)
 KIT_API_KEY=your_kit_api_key
@@ -19,6 +20,7 @@ NEXT_PUBLIC_FROM_EMAIL=hello@mondaymorningmarketer.com
 # Airtable Integration (for Get Featured form)
 AIRTABLE_API_KEY=your_airtable_api_key
 AIRTABLE_BASE_ID=your_airtable_base_id
+AIRTABLE_TABLE_ID=your_airtable_table_id
 AIRTABLE_TABLE_NAME=Get Featured Submissions
 
 # External Services
@@ -33,6 +35,7 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```bash
 # Application URL (update after deployment)
 NEXT_PUBLIC_APP_URL=https://your-project-name.vercel.app
+ALLOWED_ORIGINS=https://your-production-domain.com,https://www.your-production-domain.com
 
 # Email Service (Resend)
 RESEND_API_KEY=your_resend_api_key
@@ -42,6 +45,7 @@ RESEND_AUDIENCE_ID=your_audience_id_optional
 # Airtable Integration (for Get Featured form)
 AIRTABLE_API_KEY=your_airtable_api_key
 AIRTABLE_BASE_ID=your_airtable_base_id
+AIRTABLE_TABLE_ID=your_airtable_table_id
 AIRTABLE_TABLE_NAME=Get Featured Submissions
 
 # External Services

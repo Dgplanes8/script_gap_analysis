@@ -1,30 +1,65 @@
 import { NextRequest, NextResponse } from 'next/server';
+import {
+  checkRateLimit,
+  getClientIdentifier,
+  handlePreflight,
+  resolveAllowedOrigin,
+  rateLimitResponse,
+  withCors,
+} from '@/lib/security/request-guard';
 
 const AIRTABLE_API_KEY = process.env.AIRTABLE_API_KEY;
 const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
-// Use table ID if available, otherwise fall back to table name
-const AIRTABLE_TABLE_ID = process.env.AIRTABLE_TABLE_ID || 'tblmHGwp3SBo8KSLF';
-const AIRTABLE_TABLE_NAME = process.env.AIRTABLE_TABLE_NAME || 'Lead Management';
+const AIRTABLE_TABLE_ID = process.env.AIRTABLE_TABLE_ID;
+
+export async function OPTIONS(request: NextRequest) {
+  return handlePreflight(request);
+}
 
 export async function POST(request: NextRequest) {
+  const allowedOrigin = resolveAllowedOrigin(request);
+  if (!allowedOrigin) {
+    return NextResponse.json({ error: 'Origin not allowed' }, { status: 403 });
+  }
+
+  const clientIdentifier = getClientIdentifier(request);
+  const rateLimit = checkRateLimit(clientIdentifier, 5, 60_000);
+  if (!rateLimit.allowed) {
+    return rateLimitResponse(rateLimit.retryAfter, allowedOrigin);
+  }
+
   try {
     const data = await request.json();
-    console.log('Received form submission:', data);
 
-    if (!AIRTABLE_API_KEY || !AIRTABLE_BASE_ID) {
+    const submittedName = [data?.name, [data?.firstName, data?.lastName].filter(Boolean).join(' ').trim()]
+      .find((value) => typeof value === 'string' && value.trim().length > 0) || 'Unknown';
+    const submittedEmail = typeof data?.email === 'string' ? data.email.trim() : '';
+
+    if (!submittedEmail) {
+      return withCors(
+        NextResponse.json(
+          { error: 'Valid email is required' },
+          { status: 400 }
+        ),
+        allowedOrigin
+      );
+    }
+
+    if (!AIRTABLE_API_KEY || !AIRTABLE_BASE_ID || !AIRTABLE_TABLE_ID) {
       console.error('Missing Airtable configuration');
-      console.error('AIRTABLE_API_KEY present:', !!AIRTABLE_API_KEY);
-      console.error('AIRTABLE_BASE_ID present:', !!AIRTABLE_BASE_ID);
-      return NextResponse.json(
-        { error: 'Server configuration error' },
-        { status: 500 }
+      return withCors(
+        NextResponse.json(
+          { error: 'Server configuration error' },
+          { status: 500 }
+        ),
+        allowedOrigin
       );
     }
 
     // Handle different submission types
     let fields: Record<string, any> = {
-      'Name': data.name,
-      'Email': data.email,
+      'Name': submittedName,
+      'Email': submittedEmail,
       'Company': data.company || '',
       'Submitted': new Date().toISOString(),
       'Status': 'New',
@@ -57,8 +92,8 @@ export async function POST(request: NextRequest) {
       };
     } else if (data.type === 'strategic_consultation') {
       fields = {
-        'Name': data.fullName || '',
-        'Email': data.email || '',
+        'Name': submittedName,
+        'Email': submittedEmail,
         'Company': data.company || '',
         'Monthly Ad Spend': data.monthlyAdSpend || '',
         'Package Interest': data.packageInterest || '',
@@ -76,8 +111,8 @@ export async function POST(request: NextRequest) {
       };
     } else if (data.type === 'free_week_trial') {
       fields = {
-        'Name': data.name || '',
-        'Email': data.email || '',
+        'Name': submittedName,
+        'Email': submittedEmail,
         'Company': data.company || '',
         'Monthly Budget': data.monthlyBudget || '',
         'Goals': data.goals || '',
@@ -88,15 +123,9 @@ export async function POST(request: NextRequest) {
       };
     }
 
-    console.log('Submitting to Airtable with fields:', fields);
-    
-    // Use table ID directly (more reliable than table name)
-    const tableIdentifier = AIRTABLE_TABLE_ID;
-    console.log('Airtable URL:', `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${tableIdentifier}`);
-
     // Submit to Airtable
     const airtableResponse = await fetch(
-      `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${tableIdentifier}`,
+      `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_ID}`,
       {
         method: 'POST',
         headers: {
@@ -113,36 +142,27 @@ export async function POST(request: NextRequest) {
       }
     );
 
-    console.log('Airtable response status:', airtableResponse.status);
-
     if (!airtableResponse.ok) {
       const errorData = await airtableResponse.json();
       console.error('Airtable API Error:', errorData);
       throw new Error(`Failed to submit to Airtable: ${JSON.stringify(errorData)}`);
     }
 
-    const airtableData = await airtableResponse.json();
-    console.log('Airtable submission successful:', airtableData);
-
-    // Log the submission
-    console.log('New submission:', {
-      name: data.name || `${data.firstName} ${data.lastName}`,
-      email: data.email,
-      company: data.company,
-      type: data.type,
-      source: data.source,
-      timestamp: new Date().toISOString()
-    });
-
-    return NextResponse.json(
-      { message: 'Successfully submitted!' },
-      { status: 200 }
+    return withCors(
+      NextResponse.json(
+        { message: 'Successfully submitted!' },
+        { status: 200 }
+      ),
+      allowedOrigin
     );
   } catch (error) {
     console.error('Error submitting to Airtable:', error);
-    return NextResponse.json(
-      { error: 'Failed to submit. Please try again.' },
-      { status: 500 }
+    return withCors(
+      NextResponse.json(
+        { error: 'Failed to submit. Please try again.' },
+        { status: 500 }
+      ),
+      allowedOrigin
     );
   }
 }

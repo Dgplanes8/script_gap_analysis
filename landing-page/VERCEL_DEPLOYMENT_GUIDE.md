@@ -40,11 +40,13 @@ In Vercel dashboard → Settings → Environment Variables:
 **Option 1: With Kit (ConvertKit) - Recommended**
 ```bash
 NEXT_PUBLIC_APP_URL=https://your-vercel-url.vercel.app
+ALLOWED_ORIGINS=https://your-production-domain.com,https://www.your-production-domain.com
 KIT_API_KEY=your_kit_api_key_here
 KIT_FORM_ID=your_kit_form_id
 NEXT_PUBLIC_FROM_EMAIL=hello@mondaymorningmarketer.com
 AIRTABLE_API_KEY=patxxxxxxxxxx
 AIRTABLE_BASE_ID=appxxxxxxxxxx
+AIRTABLE_TABLE_ID=tblxxxxxxxxxxxxxx
 AIRTABLE_TABLE_NAME=Get Featured Submissions
 NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-username
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
@@ -53,11 +55,13 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 **Option 2: With Resend (Legacy)**
 ```bash
 NEXT_PUBLIC_APP_URL=https://your-vercel-url.vercel.app
+ALLOWED_ORIGINS=https://your-production-domain.com,https://www.your-production-domain.com
 RESEND_API_KEY=re_xxxxxxxxxx
 RESEND_AUDIENCE_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 NEXT_PUBLIC_FROM_EMAIL=hello@mondaymorningmarketer.com
 AIRTABLE_API_KEY=patxxxxxxxxxx
 AIRTABLE_BASE_ID=appxxxxxxxxxx
+AIRTABLE_TABLE_ID=tblxxxxxxxxxxxxxx
 AIRTABLE_TABLE_NAME=Get Featured Submissions
 NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-username
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX

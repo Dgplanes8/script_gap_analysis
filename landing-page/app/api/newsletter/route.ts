@@ -1,26 +1,55 @@
 import { NextRequest, NextResponse } from 'next/server';
+import {
+  checkRateLimit,
+  getClientIdentifier,
+  handlePreflight,
+  resolveAllowedOrigin,
+  rateLimitResponse,
+  withCors,
+} from '@/lib/security/request-guard';
 
 const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
 const AIRTABLE_API_KEY = process.env.AIRTABLE_API_KEY;
 const AIRTABLE_TABLE_NAME = 'Newsletter'; // Can create a separate table for newsletter signups
 
+export async function OPTIONS(request: NextRequest) {
+  return handlePreflight(request);
+}
+
 export async function POST(request: NextRequest) {
+  const allowedOrigin = resolveAllowedOrigin(request);
+  if (!allowedOrigin) {
+    return NextResponse.json({ error: 'Origin not allowed' }, { status: 403 });
+  }
+
+  const clientIdentifier = getClientIdentifier(request);
+  const rateLimit = checkRateLimit(clientIdentifier, 10, 60_000);
+  if (!rateLimit.allowed) {
+    return rateLimitResponse(rateLimit.retryAfter, allowedOrigin);
+  }
+
   try {
     const { name, email, source } = await request.json();
 
     if (!name || !email) {
-      return NextResponse.json(
-        { error: 'Name and email are required' },
-        { status: 400 }
+      return withCors(
+        NextResponse.json(
+          { error: 'Name and email are required' },
+          { status: 400 }
+        ),
+        allowedOrigin
       );
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: 'Invalid email format' },
-        { status: 400 }
+      return withCors(
+        NextResponse.json(
+          { error: 'Invalid email format' },
+          { status: 400 }
+        ),
+        allowedOrigin
       );
     }
 
@@ -81,21 +110,27 @@ export async function POST(request: NextRequest) {
     }
     */
 
-    return NextResponse.json(
-      { 
-        message: 'Successfully subscribed to newsletter',
-        email,
-        name,
-        source 
-      },
-      { status: 200 }
+    return withCors(
+      NextResponse.json(
+        { 
+          message: 'Successfully subscribed to newsletter',
+          email,
+          name,
+          source 
+        },
+        { status: 200 }
+      ),
+      allowedOrigin
     );
 
   } catch (error) {
     console.error('Newsletter signup error:', error);
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
+    return withCors(
+      NextResponse.json(
+        { error: 'Internal server error' },
+        { status: 500 }
+      ),
+      allowedOrigin
     );
   }
 }

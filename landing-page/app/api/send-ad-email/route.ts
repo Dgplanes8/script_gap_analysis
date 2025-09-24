@@ -1,4 +1,12 @@
 import { NextResponse } from 'next/server';
+import {
+  checkRateLimit,
+  getClientIdentifier,
+  handlePreflight,
+  resolveAllowedOrigin,
+  rateLimitResponse,
+  withCors,
+} from '@/lib/security/request-guard';
 
 const PLATFORM_LABELS: Record<string, string> = {
   facebook: 'Facebook',
@@ -18,11 +26,29 @@ function escapeHtml(value: string) {
     .replace(/'/g, '&#39;');
 }
 
+export async function OPTIONS(request: Request) {
+  return handlePreflight(request);
+}
+
 export async function POST(request: Request) {
+  const allowedOrigin = resolveAllowedOrigin(request);
+  if (!allowedOrigin) {
+    return NextResponse.json({ error: 'Origin not allowed' }, { status: 403 });
+  }
+
+  const clientIdentifier = getClientIdentifier(request);
+  const rateLimit = checkRateLimit(clientIdentifier, 5, 60_000);
+  if (!rateLimit.allowed) {
+    return rateLimitResponse(rateLimit.retryAfter, allowedOrigin);
+  }
+
   const resendApiKey = process.env.RESEND_API_KEY;
 
   if (!resendApiKey) {
-    return NextResponse.json({ error: 'Email service is not configured.' }, { status: 500 });
+    return withCors(
+      NextResponse.json({ error: 'Email service is not configured.' }, { status: 500 }),
+      allowedOrigin
+    );
   }
 
   let payload: {
@@ -37,21 +63,33 @@ export async function POST(request: Request) {
   try {
     payload = await request.json();
   } catch (parseError) {
-    return NextResponse.json({ error: 'Invalid JSON payload.' }, { status: 400 });
+    return withCors(
+      NextResponse.json({ error: 'Invalid JSON payload.' }, { status: 400 }),
+      allowedOrigin
+    );
   }
 
   const { email, content, format = 'static', companyName, platform, subject } = payload;
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return NextResponse.json({ error: 'Valid email address is required.' }, { status: 400 });
+    return withCors(
+      NextResponse.json({ error: 'Valid email address is required.' }, { status: 400 }),
+      allowedOrigin
+    );
   }
 
   if (!content || typeof content !== 'string') {
-    return NextResponse.json({ error: 'Generated output is missing.' }, { status: 400 });
+    return withCors(
+      NextResponse.json({ error: 'Generated output is missing.' }, { status: 400 }),
+      allowedOrigin
+    );
   }
 
   if (!['video', 'static', 'iteration'].includes(format)) {
-    return NextResponse.json({ error: 'Ad format must be provided.' }, { status: 400 });
+    return withCors(
+      NextResponse.json({ error: 'Ad format must be provided.' }, { status: 400 }),
+      allowedOrigin
+    );
   }
 
   const displayCompany = companyName?.trim() || 'your campaign';
@@ -89,17 +127,17 @@ export async function POST(request: Request) {
     text: textBody,
   };
 
- const response = await fetch('https://api.resend.com/emails', {
-   method: 'POST',
-   headers: {
-     Authorization: `Bearer ${resendApiKey}`,
-     'Content-Type': 'application/json',
-   },
-   body: JSON.stringify(emailPayload),
- });
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${resendApiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(emailPayload),
+  });
 
- if (!response.ok) {
-   const errorText = await response.text();
+  if (!response.ok) {
+    const errorText = await response.text();
     const friendlyMessage = response.status === 401
       ? 'Email service credentials are invalid or expired.'
       : response.status === 403
@@ -108,8 +146,11 @@ export async function POST(request: Request) {
           ? 'Email service rate limit reached.'
           : 'Email service returned an error.';
 
-    return NextResponse.json({ error: friendlyMessage, details: errorText }, { status: 502 });
- }
+    return withCors(
+      NextResponse.json({ error: friendlyMessage, details: errorText }, { status: 502 }),
+      allowedOrigin
+    );
+  }
 
- return NextResponse.json({ success: true });
+  return withCors(NextResponse.json({ success: true }), allowedOrigin);
 }

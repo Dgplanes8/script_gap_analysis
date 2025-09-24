@@ -22,10 +22,12 @@ npm run dev
 ### Required for Production
 ```
 NEXT_PUBLIC_APP_URL=https://mondaymorningmarketer.com
+ALLOWED_ORIGINS=https://mondaymorningmarketer.com,https://www.mondaymorningmarketer.com
 RESEND_API_KEY=re_xxxxxxxxxx
 NEXT_PUBLIC_FROM_EMAIL=hello@mondaymorningmarketer.com
 AIRTABLE_API_KEY=patxxxxxxxxxx
 AIRTABLE_BASE_ID=appxxxxxxxxxx
+AIRTABLE_TABLE_ID=tblxxxxxxxxxxxxxx
 AIRTABLE_TABLE_NAME=Get Featured Submissions
 ```
 
