@@ -59,11 +59,11 @@ function PricingTier({
   return (
     <motion.div
       variants={cardVariants}
-      whileHover={{ 
+      whileHover={{
         y: highlight ? 0 : -8,
         boxShadow: highlight ? "0 25px 50px rgba(18, 109, 251, 0.2)" : "0 20px 40px rgba(0, 0, 0, 0.08)"
       }}
-      className={`rounded-2xl p-8 border relative ${
+      className={`rounded-2xl p-8 border relative flex flex-col h-full ${
         highlight
           ? 'bg-gradient-to-b from-blue-50 via-white to-white border-[#126DFB] shadow-xl'
           : 'bg-white border-gray-200 shadow-lg'
@@ -107,7 +107,7 @@ function PricingTier({
         </div>
       </div>
 
-      <ul className="space-y-3 mb-8 min-h-[160px]">
+      <ul className="space-y-3 mb-8 flex-grow flex flex-col justify-start">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start gap-3">
             <CheckCircle className={`w-5 h-5 mt-1 flex-shrink-0 ${highlight ? 'text-[#126DFB]' : 'text-[#10B981]'}`} />
@@ -116,18 +116,20 @@ function PricingTier({
         ))}
       </ul>
 
-      <motion.button
-        onClick={onButtonClick}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-200 ${
-          highlight
-            ? 'bg-[#126DFB] hover:bg-[#0F5AD6] text-white shadow-lg'
-            : 'bg-gray-900 hover:bg-gray-800 text-white shadow-lg'
-        }`}
-      >
-        {buttonText}
-      </motion.button>
+      <div className="mt-auto">
+        <motion.button
+          onClick={onButtonClick}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-200 ${
+            highlight
+              ? 'bg-[#126DFB] hover:bg-[#0F5AD6] text-white shadow-lg'
+              : 'bg-gray-900 hover:bg-gray-800 text-white shadow-lg'
+          }`}
+        >
+          {buttonText}
+        </motion.button>
+      </div>
     </motion.div>
   );
 }
@@ -333,6 +335,39 @@ export function SimplePricingSection() {
                 <span>Framework application tailored to your product roadmaps and channel mix.</span>
               </li>
             </ul>
+          </div>
+        </motion.div>
+
+        {/* Risk Reversal Guarantee */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-2xl p-8 mb-16 max-w-3xl mx-auto text-center"
+        >
+          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <CheckCircle className="w-8 h-8 text-green-600" />
+          </div>
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            30-Day Revenue Improvement Guarantee
+          </h3>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            If our credit-based creative intelligence doesn't improve your ad performance within 30 days, we'll refund your entire investment. No questions asked.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">
+            <div className="flex items-center justify-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              <span>Cancel anytime</span>
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              <span>Full refund guarantee</span>
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              <span>No long-term contracts</span>
+            </div>
           </div>
         </motion.div>
 

@@ -67,7 +67,7 @@ export function ProblemSolutionWorkflow() {
             whileTap={{ scale: 0.98 }}
           className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
         >
-          Generate My First Breakthrough Ad
+          Claim 10 Free Credits
         </motion.a>
         </motion.div>
 

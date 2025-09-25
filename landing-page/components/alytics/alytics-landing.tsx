@@ -15,6 +15,7 @@ import { AIGeneratorPreviewSection } from './ai-generator-preview-section';
 import { PerformanceGuaranteeSection } from './performance-guarantee-section';
 import { FourBoxProcessSection } from './four-box-process-section';
 import { FounderSection } from './founder-section';
+import { CreativeGuessworkProblemSection } from './creative-guesswork-problem-section';
 
 const KeyBenefitsSection = dynamic(() => import('./key-benefits-section').then(mod => ({ default: mod.KeyBenefitsSection })), {
   loading: () => <div className="py-20 bg-white animate-pulse"></div>
@@ -60,31 +61,22 @@ export function AlyticsLanding() {
       {/* 3. Social Proof - Builds on demo success */}
       <SocialProofSection />
 
-      {/* 4. Before/After Examples - Proof of transformation */}
+      {/* 4. Problem/Pain - Establish the creative guesswork problem */}
+      <CreativeGuessworkProblemSection />
+
+      {/* 5. Before/After Examples - Proof of transformation */}
       <BeforeAfterExamplesSection />
 
-      {/* 5. Simple Pricing - After demonstrating value */}
+      {/* 6. Simple Pricing - After demonstrating value */}
       <SimplePricingSection />
 
-      {/* 6. Problem-Solution Bridge - Core value prop */}
+      {/* 7. Problem-Solution Bridge - Core value prop */}
       <ProblemSolutionWorkflow />
 
-      {/* 7. Why Creative Research Matters */}
-      <CreativeResearchMattersSection />
-
-      {/* 8. Performance Guarantee */}
-      <PerformanceGuaranteeSection />
-
-      {/* 9. 4-Box Process Section */}
-      <FourBoxProcessSection />
-
-      {/* 10. Key Benefits */}
-      <KeyBenefitsSection />
-
-      {/* 11. Founder Section & Founding Offer */}
+      {/* 8. Founder Section & Founding Offer */}
       <FounderSection />
 
-      {/* 12. Final Conversion Push */}
+      {/* 9. Final Conversion Push */}
       <FinalConversionSection />
       
       {/* Newsletter Exit Popup */}

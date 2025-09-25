@@ -49,20 +49,20 @@ export function AlyticsHero() {
           {/* Main Headline */}
           <motion.div variants={itemVariants}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight max-w-4xl mx-auto">
-              Turn Any Business Into{' '}
+              Replace{' '}
               <span className="text-transparent bg-gradient-to-r from-[#126DFB] to-[#126DFB] bg-clip-text">
-                High-Converting Ads
+                $5,000+ Agency Retainers
               </span>{' '}
-              in 60 Seconds
+              Starting at $19/Month
             </h1>
           </motion.div>
 
           {/* Subtitle */}
           <motion.div variants={itemVariants}>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Our AI transforms $250M+ of campaign data into your breakthrough ad copy. Never run a losing ad again with scripts that reduced CAC 25% for 500+ brands.
+              Get 150+ revenue-ready ads every month for less than one agency creative brief. Our credit-based creative intelligence reduced CAC 25% for 500+ growth teams using $250M+ in proven frameworks.
               <br />
-              <span className="text-gray-700 font-medium">See it happen live below, then get 10 more custom ads with your free account.</span>
+              <span className="text-gray-700 font-medium">Try the generator below, then claim 10 free credits across every tool.</span>
             </p>
           </motion.div>
 
@@ -77,7 +77,7 @@ export function AlyticsHero() {
               whileTap={{ scale: 0.98 }}
               className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
             >
-              Generate My First Ad Now (Free)
+              Claim 10 Free Credits
             </motion.a>
             
             <motion.div
@@ -87,7 +87,7 @@ export function AlyticsHero() {
               className="flex items-center justify-center gap-2 text-sm text-gray-500"
             >
               <CheckCircle className="w-4 h-4 text-[#126DFB]" />
-              No signup required • Get 10 more with free account
+              Email-only signup • Use across script, brief & iteration tools
             </motion.div>
 
             {/* Value Props */}

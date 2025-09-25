@@ -71,9 +71,15 @@ export function SocialProofSection() {
     },
     {
       icon: <TrendingUp className="w-6 h-6" />,
-      number: "1000s",
-      label: "Creatives Produced",
-      description: "Revenue-driving content tested across multiple verticals"
+      number: "500+",
+      label: "Growth Teams",
+      description: "SaaS, ecommerce, and B2B brands who reduced CAC 25% with our creative intelligence"
+    },
+    {
+      icon: <Users className="w-6 h-6" />,
+      number: "25%",
+      label: "Average CAC Reduction",
+      description: "Consistent improvement across verticals using research-backed creative frameworks"
     }
   ];
 
@@ -119,7 +125,7 @@ export function SocialProofSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
         >
           {stats.map((stat, index) => (
             <StatCard

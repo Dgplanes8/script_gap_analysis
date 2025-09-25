@@ -80,7 +80,7 @@ export function CreativeResearchMattersSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Why 500+ Teams Chose APSICS Over{' '}
-            <span className="text-transparent bg-gradient-to-r from-red-600 to-red-500 bg-clip-text">
+            <span className="text-transparent bg-gradient-to-r from-[#F97316] to-[#EF4444] bg-clip-text">
               $5,000+ Agencies
             </span>
           </motion.h2>

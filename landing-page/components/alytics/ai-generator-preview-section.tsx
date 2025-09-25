@@ -105,12 +105,12 @@ export function AIGeneratorPreviewSection() {
                 whileTap={{ scale: 0.98 }}
                 className="bg-yellow-400 text-[#126DFB] font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:bg-yellow-300 transition-all duration-200 inline-flex items-center gap-2"
               >
-                Generate My First Ad (Free)
+                Claim 10 Free Credits
                 <ArrowRight className="w-4 h-4" />
               </motion.a>
 
               <p className="text-blue-200 text-sm mt-4">
-                ⚡ Live now - see results in 60 seconds • Get 10 more with free account
+                ⚡ Live now - try the generator • Use across script, brief & iteration tools
               </p>
             </div>
           </motion.div>
