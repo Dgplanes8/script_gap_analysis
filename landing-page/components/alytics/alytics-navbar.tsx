@@ -2,9 +2,31 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { ChevronDown } from 'lucide-react';
+
+const TOOLS_LINKS = [
+  { label: 'Free Hook Generator', href: '/hook-generator' },
+  { label: 'AI Script Generator', href: '/ai-ad-script-generator' },
+  { label: 'Creative Brief Generator', href: '/creative-brief-generator' },
+  { label: 'AI Ad Iterator', href: '/ai-ad-iteration-tool' },
+];
 
 export function AlyticsNavbar() {
-  
+  const [isToolsOpen, setIsToolsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (!target.closest('[data-tools-dropdown]')) {
+        setIsToolsOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
+
   return (
     <motion.nav 
       initial={{ opacity: 0, y: -20 }}
@@ -53,17 +75,43 @@ export function AlyticsNavbar() {
               />
             </motion.a>
             
-            <motion.a
-              href="#benefits"
-              className="text-gray-600 hover:text-gray-900 transition-colors text-base font-medium relative group"
-              whileHover={{ y: -1 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
-              Benefits
-              <motion.div
-                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"
-              />
-            </motion.a>
+            {/* Tools Dropdown */}
+            <div className="relative" data-tools-dropdown>
+              <motion.button
+                onClick={() => setIsToolsOpen(!isToolsOpen)}
+                className="text-gray-600 hover:text-gray-900 transition-colors text-base font-medium relative group flex items-center gap-1"
+                whileHover={{ y: -1 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                Tools
+                <ChevronDown className={`h-4 w-4 transition-transform ${isToolsOpen ? 'rotate-180' : ''}`} />
+                <motion.div
+                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"
+                />
+              </motion.button>
+
+              {isToolsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute left-0 top-full mt-2 w-64 rounded-xl border border-gray-200 bg-white shadow-lg z-50"
+                >
+                  <div className="p-2">
+                    {TOOLS_LINKS.map((tool) => (
+                      <Link
+                        key={tool.label}
+                        href={tool.href}
+                        onClick={() => setIsToolsOpen(false)}
+                        className="block rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-[#126DFB]"
+                      >
+                        {tool.label}
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </div>
             
             <motion.a
               href="#service-tiers"
