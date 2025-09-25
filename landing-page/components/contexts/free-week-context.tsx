@@ -37,8 +37,10 @@ export function FreeWeekProvider({ children }: { children: ReactNode }) {
     tier?: string;
   }) => {
     setModalProps({
-      title: props?.title || "Start Your FREE Week Trial",
-      subtitle: props?.subtitle || "Get trending creative concepts and custom scripts delivered every Monday",
+      title: props?.title || "Claim Your Free Credits",
+      subtitle:
+        props?.subtitle ||
+        "Create a free APSICS Media account to unlock 10 monthly credits you can use on every generator.",
       source: props?.source || "free-week-cta",
       tier: props?.tier
     });

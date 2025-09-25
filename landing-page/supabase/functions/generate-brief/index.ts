@@ -15,12 +15,10 @@ const openRouterApiKey = Deno.env.get("OPENROUTER_API_KEY");
 const primaryModel = Deno.env.get("OPENROUTER_PRIMARY_MODEL") ?? "x-ai/grok-4-fast:free";
 const researchModel = Deno.env.get("OPENROUTER_RESEARCH_MODEL") ?? "x-ai/grok-4-fast:free";
 const openRouterBaseUrl = Deno.env.get("OPENROUTER_BASE_URL") ?? "https://openrouter.ai/api/v1";
-const anonymousUsagePepper = Deno.env.get("ANON_USAGE_PEPPER");
 const briefRenderWebhook = Deno.env.get("BRIEF_RENDER_WEBHOOK");
 
 const simpleModeCost = 1;
 const advancedModeCost = 3;
-const anonymousSimpleAllowance = 1;
 
 if (!supabaseUrl || !serviceRoleKey || !anonKey) {
   throw new Error("Missing Supabase configuration for edge function");
@@ -30,9 +28,6 @@ if (!openRouterApiKey) {
   throw new Error("OPENROUTER_API_KEY environment variable is required");
 }
 
-if (!anonymousUsagePepper) {
-  throw new Error("ANON_USAGE_PEPPER environment variable is required");
-}
 
 type BriefMode = "simple" | "advanced";
 type BriefFormat = "ugc" | "static" | "video" | "hybrid";
@@ -91,13 +86,11 @@ async function trackToolUsage(
     errorMessage?: string;
     source?: 'web' | 'api' | 'mobile';
   },
-  userId?: string | null,
-  anonymousKey?: string
+  userId?: string | null
 ): Promise<{ usageId: string | null; error: string | null }> {
   try {
     const { data: result, error } = await supabase.rpc('log_ai_tool_usage', {
       p_user_id: userId || null,
-      p_anonymous_key: anonymousKey || null,
       p_tool_type: data.toolType,
       p_input_payload: data.inputPayload,
       p_output_payload: data.outputPayload || null,
@@ -144,14 +137,16 @@ serve(async (req) => {
 
   let userId: string | null = null;
   const startTime = Date.now();
-  const anonymousKey = generateAnonymousKey(req);
-
   try {
     const { data } = await supabaseClient.auth.getUser();
     userId = data.user?.id ?? null;
   } catch (error) {
     console.error("Failed to evaluate auth context", error);
     return jsonError("Unable to verify session", 401);
+  }
+
+  if (!userId) {
+    return jsonError("Sign in to generate creative briefs.", 401);
   }
 
   let requestPayload: BriefRequestPayload;
@@ -175,50 +170,27 @@ serve(async (req) => {
   let researchModeUnlocked = false;
   let creditsRemaining = 0;
 
-  if (userId) {
-    const profile = await upsertProfile(adminClient, userId);
-    if (!profile) {
-      return jsonError("Unable to access profile", 500);
-    }
-
-    researchModeUnlocked = profile.research_mode_unlocked ?? false;
-    creditsRemaining = profile.credits_remaining ?? 0;
-
-    if (requestedMode === "advanced" && !researchModeUnlocked) {
-      processedMode = "simple";
-      creditCost = simpleModeCost;
-    }
-
-    if (creditsRemaining < creditCost) {
-      return jsonError("Insufficient credits", 402);
-    }
+  const profile = await upsertProfile(adminClient, userId);
+  if (!profile) {
+    return jsonError("Unable to access profile", 500);
   }
 
-  const clientIp = extractIpAddress(req.headers);
-  let anonymousKey: string | null = null;
+  researchModeUnlocked = profile.research_mode_unlocked ?? false;
+  creditsRemaining = profile.credits_remaining ?? 0;
 
-  if (!userId) {
-    if (requestedMode === "advanced") {
-      return jsonError("Advanced mode requires an account", 402);
-    }
+  if (requestedMode === "advanced" && !researchModeUnlocked) {
+    processedMode = "simple";
+    creditCost = simpleModeCost;
+  }
 
-    if (!clientIp) {
-      return jsonError("Unable to determine request origin", 400);
-    }
-
-    anonymousKey = await hashIp(clientIp);
-
-    const usage = await readAnonymousUsage(adminClient, anonymousKey);
-    if ((usage?.usage_count ?? 0) >= anonymousSimpleAllowance) {
-      return jsonError("Free trial already used", 402);
-    }
+  if (creditsRemaining < creditCost) {
+    return jsonError("You are out of credits. Upgrade your plan to keep generating briefs.", 402);
   }
 
   const nowIso = new Date().toISOString();
 
   const insertPayload = {
     user_id: userId,
-    anonymous_key: anonymousKey,
     mode: processedMode,
     brief_format: requestPayload.brief_format,
     input_payload: requestPayload,
@@ -301,7 +273,6 @@ serve(async (req) => {
         source: 'web'
       },
       userId,
-      anonymousKey
     );
 
     await adminClient
@@ -313,20 +284,16 @@ serve(async (req) => {
       })
       .eq("id", jobId);
 
-    if (userId) {
-      await adminClient.rpc("consume_creative_brief_credit", {
-        p_user_id: userId,
-        p_cost: creditCost,
-      });
+    await adminClient.rpc("consume_creative_brief_credit", {
+      p_user_id: userId,
+      p_cost: creditCost,
+    });
 
-      const previewSnippet = buildPreviewSnippet(structuredBrief);
-      await adminClient
-        .from("profiles")
-        .update({ last_brief_preview: previewSnippet, updated_at: new Date().toISOString() })
-        .eq("id", userId);
-    } else if (anonymousKey) {
-      await incrementAnonymousUsage(adminClient, anonymousKey);
-    }
+    const previewSnippet = buildPreviewSnippet(structuredBrief);
+    await adminClient
+      .from("profiles")
+      .update({ last_brief_preview: previewSnippet, updated_at: new Date().toISOString() })
+      .eq("id", userId);
 
     if (includePdf && briefRenderWebhook) {
       await triggerRenderWebhook(briefRenderWebhook, {
@@ -335,9 +302,7 @@ serve(async (req) => {
         mode: processedMode,
         format: requestPayload.brief_format,
       });
-      if (userId) {
-        await adminClient.rpc("increment_brief_export", { p_user_id: userId });
-      }
+      await adminClient.rpc("increment_brief_export", { p_user_id: userId });
     }
 
     return new Response(
@@ -382,7 +347,6 @@ serve(async (req) => {
         source: 'web'
       },
       userId,
-      anonymousKey
     );
 
     await adminClient
@@ -845,93 +809,6 @@ Budget: ${payload.budgetRange ?? "Not specified"}
 Brief Format: ${formatLabel(payload.brief_format)}
 
 Provide: 1) audience insight summary, 2) competitive positioning guidance, 3) strategic whitespace opportunities, 4) tone and hook direction. Do not exceed 4 short paragraphs.`;
-}
-
-function extractIpAddress(headers: Headers) {
-  const xForwardedFor = headers.get("x-forwarded-for") ?? headers.get("X-Forwarded-For");
-  if (xForwardedFor) {
-    const ip = xForwardedFor.split(",")[0]?.trim();
-    if (ip) {
-      return ip;
-    }
-  }
-
-  const cfConnect = headers.get("cf-connecting-ip") ?? headers.get("CF-Connecting-IP");
-  if (cfConnect) {
-    return cfConnect;
-  }
-
-  const realIp = headers.get("x-real-ip") ?? headers.get("X-Real-IP");
-  if (realIp) {
-    return realIp;
-  }
-
-  return null;
-}
-
-async function hashIp(ip: string): Promise<string> {
-  const data = new TextEncoder().encode(`${anonymousUsagePepper}:${ip}`);
-  const digest = await crypto.subtle.digest("SHA-256", data);
-  return Array.from(new Uint8Array(digest))
-    .map((byte) => byte.toString(16).padStart(2, "0"))
-    .join("");
-}
-
-async function readAnonymousUsage(adminClient: ReturnType<typeof createClient>, anonymousKey: string) {
-  const { data, error } = await adminClient
-    .from("anonymous_usage")
-    .select("usage_count")
-    .eq("ip_address", anonymousKey)
-    .maybeSingle();
-
-  if (error) {
-    console.error("Failed to read anonymous usage", error);
-    return null;
-  }
-
-  return data;
-}
-
-async function incrementAnonymousUsage(adminClient: ReturnType<typeof createClient>, anonymousKey: string) {
-  const now = new Date().toISOString();
-
-  const { data, error } = await adminClient
-    .from("anonymous_usage")
-    .select("usage_count")
-    .eq("ip_address", anonymousKey)
-    .maybeSingle();
-
-  if (error && error.code !== "PGRST116") {
-    console.error("Failed to read anonymous usage before increment", error);
-    return;
-  }
-
-  if (data) {
-    const { error: updateError } = await adminClient
-      .from("anonymous_usage")
-      .update({
-        usage_count: (data.usage_count ?? 0) + 1,
-        last_used_at: now,
-      })
-      .eq("ip_address", anonymousKey);
-
-    if (updateError) {
-      console.error("Failed to increment anonymous usage", updateError);
-    }
-    return;
-  }
-
-  const { error: insertError } = await adminClient
-    .from("anonymous_usage")
-    .insert({
-      ip_address: anonymousKey,
-      usage_count: 1,
-      last_used_at: now,
-    });
-
-  if (insertError) {
-    console.error("Failed to insert anonymous usage row", insertError);
-  }
 }
 
 async function triggerRenderWebhook(url: string, payload: Record<string, unknown>) {

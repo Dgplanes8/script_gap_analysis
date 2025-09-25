@@ -117,7 +117,7 @@ export async function POST(request: NextRequest) {
         'Monthly Budget': data.monthlyBudget || '',
         'Goals': data.goals || '',
         'Source': data.source || 'landing_page',
-        'Type': 'Free Week Trial',
+        'Type': 'Free Credits',
         'Status': 'New',
         'Submitted': new Date().toISOString()
       };

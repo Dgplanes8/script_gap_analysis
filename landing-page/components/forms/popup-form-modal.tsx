@@ -15,7 +15,7 @@ interface PopupFormModalProps {
 export function PopupFormModal({
   isOpen,
   onClose,
-  title = "Claim Free Week",
+  title = "Claim Free Credits",
   subtitle = "Start your free week of trending creative concepts and scripts",
   source = "popup"
 }: PopupFormModalProps) {
@@ -81,7 +81,7 @@ export function PopupFormModal({
           {/* Form */}
           <EmailCaptureForm
             placeholder="Enter your work email"
-            buttonText="Claim Free Week"
+            buttonText="Claim Free Credits"
             variant="cta"
             source={source}
           />

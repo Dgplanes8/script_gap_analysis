@@ -2,11 +2,18 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
 
 const NAV_LINKS = [
   { label: 'Overview', href: '/#how-it-works' },
   { label: 'Plans & Pricing', href: '/#service-tiers' },
+];
+
+const TOOLS_LINKS = [
+  { label: 'Free Hook Generator', href: '/hook-generator' },
+  { label: 'AI Script Generator', href: '/ai-ad-script-generator' },
+  { label: 'Creative Brief Generator', href: '/creative-brief-generator' },
+  { label: 'AI Ad Iterator', href: '/ai-ad-iteration-tool' },
 ];
 
 function HeaderLink({ label, href, onNavigate }: { label: string; href: string; onNavigate: () => void }) {
@@ -24,17 +31,33 @@ function HeaderLink({ label, href, onNavigate }: { label: string; href: string; 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isToolsOpen, setIsToolsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (!target.closest('[data-tools-dropdown]')) {
+        setIsToolsOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('click', handleClickOutside);
+    };
   }, []);
 
-  const closeMobileMenu = () => setIsOpen(false);
+  const closeMobileMenu = () => {
+    setIsOpen(false);
+    setIsToolsOpen(false);
+  };
 
   const headerStyles = isScrolled
     ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100'
@@ -60,6 +83,34 @@ export function Header() {
           {NAV_LINKS.map((link) => (
             <HeaderLink key={link.label} label={link.label} href={link.href} onNavigate={closeMobileMenu} />
           ))}
+
+          {/* Tools Dropdown */}
+          <div className="relative" data-tools-dropdown>
+            <button
+              onClick={() => setIsToolsOpen(!isToolsOpen)}
+              className="inline-flex items-center gap-1 text-sm font-medium text-gray-700 transition-colors hover:text-[#126DFB]"
+            >
+              Tools
+              <ChevronDown className={`h-4 w-4 transition-transform ${isToolsOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {isToolsOpen && (
+              <div className="absolute right-0 top-full mt-2 w-56 rounded-xl border border-gray-200 bg-white shadow-lg">
+                <div className="p-2">
+                  {TOOLS_LINKS.map((tool) => (
+                    <Link
+                      key={tool.label}
+                      href={tool.href}
+                      onClick={() => setIsToolsOpen(false)}
+                      className="block rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-[#126DFB]"
+                    >
+                      {tool.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* Desktop CTA */}
@@ -68,7 +119,7 @@ export function Header() {
             href="/#service-tiers"
             className="inline-flex items-center gap-2 rounded-xl bg-[#126DFB] px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#0F5AD6]"
           >
-            Start Free Week Trial
+            Claim 10 Free Credits
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -90,13 +141,40 @@ export function Header() {
             {NAV_LINKS.map((link) => (
               <HeaderLink key={link.label} label={link.label} href={link.href} onNavigate={closeMobileMenu} />
             ))}
+
+            {/* Mobile Tools Section */}
+            <div className="space-y-2">
+              <button
+                onClick={() => setIsToolsOpen(!isToolsOpen)}
+                className="flex w-full items-center justify-between text-sm font-medium text-gray-700"
+              >
+                Tools
+                <ChevronDown className={`h-4 w-4 transition-transform ${isToolsOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {isToolsOpen && (
+                <div className="ml-4 space-y-2 border-l border-gray-200 pl-4">
+                  {TOOLS_LINKS.map((tool) => (
+                    <Link
+                      key={tool.label}
+                      href={tool.href}
+                      onClick={closeMobileMenu}
+                      className="block text-sm font-medium text-gray-600 transition-colors hover:text-[#126DFB]"
+                    >
+                      {tool.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <div className="pt-4">
               <Link
                 href="/#service-tiers"
                 onClick={closeMobileMenu}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#126DFB] px-5 py-3 text-base font-semibold text-white shadow-lg transition-colors hover:bg-[#0F5AD6]"
               >
-                Start Free Week Trial
+                Claim 10 Free Credits
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </div>

@@ -512,10 +512,10 @@ export function ServiceTierForm({
           <Play className="h-8 w-8 text-brand-600" />
         </div>
         <h3 className="text-lg font-semibold text-brand-800 mb-2">
-          Your FREE Week Starts Monday!
+          Your Credits Are Active!
         </h3>
         <p className="text-brand-700 mb-2">
-          <strong>{currentTier.name}</strong> tier activated successfully.
+          <strong>{currentTier.name}</strong> plan activated successfully.
         </p>
         <p className="text-brand-600 text-sm">
           Check your email for your welcome guide and first set of templates.
@@ -532,11 +532,11 @@ export function ServiceTierForm({
           className="inline-flex items-center px-6 py-4 bg-gradient-to-r from-brand-600 to-brand-600 text-white font-bold rounded-lg hover:from-brand-700 hover:to-brand-700 transition-colors shadow-lg hover:shadow-xl text-lg"
         >
           <Play className="h-5 w-5 mr-2" />
-          Start Your FREE Week
+          Claim Your Free Credits
           <ArrowRight className="ml-2 h-4 w-4" />
         </button>
         <p className="text-sm text-gray-600 mt-2">
-          {currentTier.name} • First week FREE • No commitment
+          {currentTier.name} • 10 credits reload monthly • Upgrade anytime
         </p>
       </div>
     );
@@ -547,10 +547,10 @@ export function ServiceTierForm({
       <div className="text-center mb-4">
         <div className="inline-flex items-center bg-gradient-to-r from-brand-600 to-brand-600 text-white px-3 py-1 rounded-full text-xs font-semibold mb-3">
           <TierIcon className="h-3 w-3 mr-1" />
-          FREE WEEK TRIAL
+          FREE CREDITS
         </div>
         <h3 className="text-lg font-semibold text-gray-900">{currentTier.name}</h3>
-        <p className="text-sm text-gray-600">Start your free week • {currentTier.price} after trial</p>
+        <p className="text-sm text-gray-600">Claim your free credits • {currentTier.price} when you upgrade</p>
       </div>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-2 gap-3">
@@ -611,16 +611,16 @@ export function ServiceTierForm({
           {isSubmitting ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Starting Your Free Week...
+              Unlocking Your Credits...
             </>
           ) : (
             <>
-              Start FREE Week Trial
+              Claim Free Credits
               <ArrowRight className="ml-2 h-4 w-4" />
             </>
           )}
         </button>
-        <p className="text-xs text-gray-500 text-center">No payment required • Cancel anytime</p>
+        <p className="text-xs text-gray-500 text-center">No payment required • Credits refresh monthly • Upgrade whenever you need more</p>
         <button
           type="button"
           onClick={() => setShowForm(false)}

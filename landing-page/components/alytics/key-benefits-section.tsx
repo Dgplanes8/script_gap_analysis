@@ -166,8 +166,8 @@ export function KeyBenefitsSection() {
           <motion.button
             onClick={() => openModal({
               source: 'benefits-cta',
-              title: 'Start Your FREE Week Trial',
-              subtitle: 'Get trending creative concepts and custom scripts delivered every Monday'
+              title: 'Claim Your Free Credits',
+              subtitle: 'Create a free account to unlock 10 monthly credits across every generator.'
             })}
             whileHover={{ 
               scale: 1.02, 
@@ -176,7 +176,7 @@ export function KeyBenefitsSection() {
             whileTap={{ scale: 0.98 }}
             className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
           >
-            Start Free Week Trial
+            Claim 10 Free Credits
           </motion.button>
         </motion.div>
 

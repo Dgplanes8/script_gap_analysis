@@ -513,7 +513,7 @@ export default function CompetitorAnalysisWorkflowPage() {
                         source="competitor_analysis_weekly_workflow-cta"
                         className="bg-white text-brand-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors"
                       >
-                        Start Free Week Trial
+                        Claim 10 Free Credits
                       </FreeWeekButton>
                     </div>
                   </div>

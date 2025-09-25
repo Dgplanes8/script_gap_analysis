@@ -1,32 +1,34 @@
 # CLAUDE Development Guidelines
 
 ## Project Context
-Landing page for APSICS Media's creative intelligence service - weekly research-backed creative concepts and scripts for performance marketing.
+Landing page for APSICS Media's credit-based creative intelligence platform – deliver weekly research-backed creative concepts, scripts, and ad iterations through a unified credit wallet.
 
-## Key Business Updates (v3.1)
+## Key Business Updates (v3.2)
 
 ### Core Value Proposition
-- **Primary**: "$5,000+ agency strategy starting at just $5/week"
+- **Primary**: "$5,000+ agency strategy at a fraction of the cost via credits"
 - **Outcome Focus**: "You're One Creative Breakthrough Away From Doubling Your Revenue"
 - **Problem**: Companies burning ad budget on creative guesswork
-- **Solution**: Weekly creative intelligence that turns ad spend into predictable revenue
+- **Solution**: Weekly creative intelligence powered by a shared credit wallet (scripts, briefs, iteration)
 
 ### Service Clarity
 - **Content Types**: Both static and video content
 - **Platforms**: Facebook, Instagram, TikTok, LinkedIn, X, YouTube
-- **Delivery**: Weekly Monday delivery (1 concept + 2 scripts)
+- **Delivery**: Mix of on-demand generator runs + Studio expert-crafted concept (month one)
 - **Performance**: 25-point scoring system (not 50-point)
 
 ### Language Guidelines
 - **Avoid**: "Household brand" (except in founder bio) - intimidates smaller companies
 - **Use**: "Proven strategic frameworks"
-- **Emphasize**: Cross-platform capabilities in all service descriptions
-- **Minimize**: Overuse of hyphens and repetitive "56%" statistic
+- **Emphasize**: Credits, plan tiers (Explore/Essentials/Studio/Concierge), cross-platform capabilities
+- **Minimize**: Overuse of hyphens and repetitive stats
 
 ### Pricing Structure
-- **Founding Member**: $5/week (was $20/week founding member in pricing section)
-- **Regular**: $39/week after trial
-- **Comparison**: vs $5,000+ agency fees
+- **Explore**: $0 / 10 credits refreshed monthly (no card)
+- **Essentials**: $19 / 150 credits per month
+- **Studio**: $29/mo for first 6 months (800 credits + expert concept), renews at $49
+- **Concierge**: $249 / 2,000 credits per month with strategist collaboration
+- **Comparison**: vs $5,000+ agency retainers
 
 ## Technical Standards
 
@@ -34,7 +36,7 @@ Landing page for APSICS Media's creative intelligence service - weekly research-
 - **Primary Color**: #126DFB (APSICS blue)
 - **Animation**: 0.4s duration with custom easing [0.25, 0.25, 0, 1]
 - **Typography**: Responsive hierarchy (text-4xl → text-6xl)
-- **CTA**: Consistent "Start Free Week Trial" messaging
+- **CTA**: Consistent "Claim 10 Free Credits" messaging
 
 ### Development Patterns
 - **React/Next.js**: TypeScript with strict type checking
@@ -67,7 +69,7 @@ Landing page for APSICS Media's creative intelligence service - weekly research-
 - **Outcome over features**: Focus on revenue doubling vs feature lists
 - **Urgency**: "Every month you delay is revenue left on the table"
 - **Social proof**: $250MM+ managed, 12+ years experience
-- **Risk reversal**: Free week trial, performance guarantee
+- **Risk reversal**: 10 free monthly credits, Studio founding offer guarantee
 - **Clear value**: Agency-level strategy at fraction of cost
 
 ## Recent Problem Solving
@@ -97,4 +99,4 @@ npm run lint       # ESLint check
 - Social Proof: `/components/alytics/social-proof-section.tsx`
 - Main App: `/app/ai-ad-script-generator/client-page.tsx`
 
-Last Updated: September 2025 (v3.1)
+Last Updated: February 2025 (v3.2)

@@ -301,7 +301,7 @@ export function CACReductionCalculator() {
                   }}
                   className="bg-white text-indigo-600 hover:bg-gray-50 font-semibold px-6 py-2 rounded-lg transition-colors flex items-center justify-center mx-auto"
                 >
-                  Claim Free Week
+                  Claim Free Credits
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </button>
               </div>

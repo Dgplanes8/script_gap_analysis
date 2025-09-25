@@ -49,34 +49,35 @@ export function AlyticsHero() {
           {/* Main Headline */}
           <motion.div variants={itemVariants}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight max-w-4xl mx-auto">
-              You're One Creative Breakthrough Away From{' '}
+              Turn Any Business Into{' '}
               <span className="text-transparent bg-gradient-to-r from-[#126DFB] to-[#126DFB] bg-clip-text">
-                Doubling Your Revenue
-              </span>
+                High-Converting Ads
+              </span>{' '}
+              in 60 Seconds
             </h1>
           </motion.div>
 
           {/* Subtitle */}
           <motion.div variants={itemVariants}>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Weekly creative intelligence that turns your ad spend into predictable revenue. No more $10K+ testing cycles or guessing what will work.
+              Our AI transforms $250M+ of campaign data into your breakthrough ad copy. Never run a losing ad again with scripts that reduced CAC 25% for 500+ brands.
               <br />
-              <span className="text-gray-700 font-medium">Every month you delay is revenue left on the table while competitors scale with proven systems.</span>
+              <span className="text-gray-700 font-medium">See it happen live below, then get 10 more custom ads with your free account.</span>
             </p>
           </motion.div>
 
           {/* CTA Section */}
           <motion.div variants={itemVariants} className="space-y-6">
             <motion.a
-              href="#service-tiers"
-              whileHover={{ 
-                scale: 1.02, 
-                boxShadow: "0 12px 30px rgba(18, 109, 251, 0.4)" 
+              href="/ai-ad-script-generator"
+              whileHover={{
+                scale: 1.02,
+                boxShadow: "0 12px 30px rgba(18, 109, 251, 0.4)"
               }}
               whileTap={{ scale: 0.98 }}
               className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
             >
-              Start Free Week Trial
+              Generate My First Ad Now (Free)
             </motion.a>
             
             <motion.div
@@ -86,7 +87,7 @@ export function AlyticsHero() {
               className="flex items-center justify-center gap-2 text-sm text-gray-500"
             >
               <CheckCircle className="w-4 h-4 text-[#126DFB]" />
-              No credit card required
+              No signup required • Get 10 more with free account
             </motion.div>
 
             {/* Value Props */}
@@ -96,15 +97,15 @@ export function AlyticsHero() {
             >
               <div className="flex items-center gap-2 text-gray-600">
                 <Clock className="w-5 h-5 text-[#126DFB]" />
-                <span className="font-medium">Weekly Delivery</span>
+                <span className="font-medium">60-Second Generation</span>
               </div>
               <div className="flex items-center gap-2 text-gray-600">
                 <CheckCircle className="w-5 h-5 text-[#126DFB]" />
-                <span className="font-medium">Proven Frameworks</span>
+                <span className="font-medium">Research-Backed</span>
               </div>
               <div className="flex items-center gap-2 text-gray-600">
                 <Award className="w-5 h-5 text-[#126DFB]" />
-                <span className="font-medium">Ready to Use</span>
+                <span className="font-medium">Copy & Launch</span>
               </div>
             </motion.div>
           </motion.div>

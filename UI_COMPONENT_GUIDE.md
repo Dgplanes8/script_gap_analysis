@@ -24,21 +24,21 @@ This guide documents all reusable UI components, their usage patterns, props, an
 **Props**:
 ```typescript
 interface SimpleAirtableFormProps {
-  buttonText?: string;           // Default: "Start My FREE Week Trial"
+  buttonText?: string;           // Default: "Claim My Free Credits"
   buttonClassName?: string;      // Default: "btn btn-primary text-lg px-8 py-4"
-  source?: string;              // Default: "service-tiers"
-  tier?: string;                // Pre-populate package interest
-  onSuccess?: () => void;       // Success callback
-  onError?: () => void;         // Error callback
+  source?: string;               // Default: "service-tiers"
+  tier?: string;                 // Pre-populate package interest
+  onSuccess?: () => void;        // Success callback
+  onError?: () => void;          // Error callback
 }
 ```
 
 **Usage**:
 ```tsx
 <SimpleAirtableForm
-  buttonText="Start Free Week"
+  buttonText="Claim Free Credits"
   source="service-tiers-modal"
-  tier="Trend Tracker"
+  tier="Essentials"
   onSuccess={() => window.location.href = '/success?source=order'}
 />
 ```
@@ -97,11 +97,10 @@ interface EmailCaptureFormProps {
 ```
 
 **Tier Structure**:
-1. **Creative Starter** - $5/week
-2. **Trend Tracker** - $15/week (Most Popular)
-3. **Competitive Edge** - $35/week  
-4. **Market Intelligence** - $99/week
-5. **Enterprise** - Custom Pricing
+1. **Explore** – $0 / 10 credits monthly
+2. **Essentials** – $19 / 150 credits monthly (Most Popular)
+3. **Studio** – $29/mo for six months (800 credits + expert concept) → $49 standard
+4. **Concierge** – $249 / 2,000 credits monthly
 
 ### Header
 
@@ -120,7 +119,7 @@ interface EmailCaptureFormProps {
 - Blog & Guides
 - Free Templates
 - Services (dropdown)
-- Claim Free Week (CTA)
+- Claim Free Credits (CTA)
 - Download Templates (Secondary CTA)
 
 ### Footer

@@ -1,7 +1,6 @@
 import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
 import { basePrompt } from "./prompt.ts";
-import { createHash } from "https://deno.land/std@0.208.0/crypto/crypto.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -13,7 +12,6 @@ const supabaseUrl = Deno.env.get("EDGE_SUPABASE_URL") ?? Deno.env.get("SUPABASE_
 const serviceRoleKey = Deno.env.get("EDGE_SUPABASE_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 const anonKey = Deno.env.get("EDGE_SUPABASE_ANON_KEY") ?? Deno.env.get("SUPABASE_ANON_KEY");
 const openRouterApiKey = Deno.env.get("OPENROUTER_API_KEY");
-const anonymousUsagePepper = Deno.env.get("ANON_USAGE_PEPPER");
 
 if (!supabaseUrl || !serviceRoleKey || !anonKey) {
   throw new Error("Missing Supabase configuration for edge function");
@@ -23,9 +21,6 @@ if (!openRouterApiKey) {
   throw new Error("OPENROUTER_API_KEY environment variable is required");
 }
 
-if (!anonymousUsagePepper) {
-  throw new Error("ANON_USAGE_PEPPER environment variable is required for hashing anonymous usage");
-}
 
 type RequestPayload = {
   companyName?: string;
@@ -35,16 +30,6 @@ type RequestPayload = {
   objective?: string;
   adFormat?: 'video' | 'static';
 };
-
-// Usage tracking utilities
-function generateAnonymousKey(request: Request): string {
-  const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || '127.0.0.1';
-  const userAgent = request.headers.get('user-agent') || '';
-
-  const ipHash = createHash('sha256').update(ip + 'apsics-salt').digest('hex');
-  const uaHash = createHash('md5').update(userAgent).digest('hex').substring(0, 8);
-  return `${ipHash}_${uaHash}`;
-}
 
 async function trackToolUsage(
   supabase: any,
@@ -58,13 +43,11 @@ async function trackToolUsage(
     errorMessage?: string;
     source?: 'web' | 'api' | 'mobile';
   },
-  userId?: string | null,
-  anonymousKey?: string
+  userId?: string | null
 ): Promise<{ usageId: string | null; error: string | null }> {
   try {
     const { data: result, error } = await supabase.rpc('log_ai_tool_usage', {
       p_user_id: userId || null,
-      p_anonymous_key: anonymousKey || null,
       p_tool_type: data.toolType,
       p_input_payload: data.inputPayload,
       p_output_payload: data.outputPayload || null,
@@ -101,8 +84,7 @@ async function trackScriptGeneration(
     creditsUsed?: number;
     qualityScore?: number;
   },
-  userId?: string | null,
-  anonymousKey?: string
+  userId?: string | null
 ): Promise<{ scriptId: string | null; error: string | null }> {
   try {
     const wordCount = data.generatedScript.trim().split(/\s+/).length;
@@ -112,7 +94,6 @@ async function trackScriptGeneration(
       .insert({
         usage_id: data.usageId || null,
         user_id: userId || null,
-        anonymous_key: anonymousKey || null,
         company_name: data.companyName,
         website_url: data.websiteUrl,
         product_description: data.productDescription || null,
@@ -140,8 +121,6 @@ async function trackScriptGeneration(
     return { scriptId: null, error: err instanceof Error ? err.message : 'Unknown error' };
   }
 }
-
-const MAX_ANON_CREDITS = 1;
 
 const PLATFORM_LABELS: Record<string, string> = {
   facebook: 'Facebook',
@@ -254,121 +233,78 @@ serve(async (req) => {
     });
   }
 
-  let creditsRemaining = 0;
-  let anonymousUsage: { ip_address: string; usage_count: number | null } | null = null;
-  let anonymousIp: string | null = null;
-  let ipHash: string | null = null;
-  let anonymousKey: string | null = null;
-  const startTime = Date.now();
+  if (!user) {
+    return new Response(JSON.stringify({ error: "Sign in to generate ad scripts." }), {
+      status: 401,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
 
-  if (user) {
-    const { data: profile, error } = await adminClient
+  const startTime = Date.now();
+  let creditsRemaining = 0;
+
+  const { data: profile, error } = await adminClient
+    .from("profiles")
+    .select("id, credits_remaining")
+    .eq("id", user.id)
+    .maybeSingle();
+
+  if (error) {
+    console.error("Failed to load profile", error);
+    return new Response(JSON.stringify({ error: "Unable to load profile" }), {
+      status: 500,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
+  let effectiveProfile = profile;
+
+  if (!effectiveProfile) {
+    const { data: createdProfile, error: createError } = await adminClient
       .from("profiles")
+      .insert({ id: user.id })
       .select("id, credits_remaining")
-      .eq("id", user.id)
       .maybeSingle();
 
-    if (error) {
-      console.error("Failed to load profile", error);
-      return new Response(JSON.stringify({ error: "Unable to load profile" }), {
+    if (createError && createError.code !== "23505") {
+      console.error("Failed to create profile", createError);
+      return new Response(JSON.stringify({ error: "Unable to initialize profile" }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
-    let effectiveProfile = profile;
-
-    if (!effectiveProfile) {
-      const { data: createdProfile, error: createError } = await adminClient
+    if (createError?.code === "23505" || !createdProfile) {
+      const { data: reloadedProfile, error: reloadError } = await adminClient
         .from("profiles")
-        .insert({ id: user.id })
         .select("id, credits_remaining")
+        .eq("id", user.id)
         .maybeSingle();
 
-      if (createError && createError.code !== "23505") {
-        console.error("Failed to create profile", createError);
-        return new Response(JSON.stringify({ error: "Unable to initialize profile" }), {
+      if (reloadError) {
+        console.error("Failed to reload profile after initialization", reloadError);
+        return new Response(JSON.stringify({ error: "Unable to load profile" }), {
           status: 500,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
         });
       }
 
-      if (createError?.code === "23505" || !createdProfile) {
-        const { data: reloadedProfile, error: reloadError } = await adminClient
-          .from("profiles")
-          .select("id, credits_remaining")
-          .eq("id", user.id)
-          .maybeSingle();
-
-        if (reloadError) {
-          console.error("Failed to reload profile after initialization", reloadError);
-          return new Response(JSON.stringify({ error: "Unable to load profile" }), {
-            status: 500,
-            headers: { ...corsHeaders, "Content-Type": "application/json" },
-          });
-        }
-
-        effectiveProfile = reloadedProfile ?? null;
-      } else {
-        effectiveProfile = createdProfile;
-      }
+      effectiveProfile = reloadedProfile ?? null;
+    } else {
+      effectiveProfile = createdProfile;
     }
+  }
 
-    creditsRemaining = effectiveProfile?.credits_remaining ?? 0;
+  creditsRemaining = effectiveProfile?.credits_remaining ?? 0;
 
-    if (creditsRemaining <= 0) {
-      return new Response(JSON.stringify({ error: "Out of credits" }), {
+  if (creditsRemaining <= 0) {
+    return new Response(
+      JSON.stringify({ error: "You are out of credits. Upgrade your plan to keep generating scripts." }),
+      {
         status: 402,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-  } else {
-    anonymousIp = extractIpAddress(req.headers);
-    anonymousKey = generateAnonymousKey(req);
-
-    if (!anonymousIp) {
-      return new Response(JSON.stringify({ error: "Anonymous usage requires an IP address" }), {
-        status: 400,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-
-    try {
-      ipHash = await hashIp(anonymousIp);
-    } catch (hashError) {
-      console.error("Failed to hash anonymous IP", hashError);
-      return new Response(JSON.stringify({ error: "Unable to process anonymous request" }), {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-
-    const { data, error } = await adminClient
-      .from("anonymous_usage")
-      .select("ip_address, usage_count")
-      .eq("ip_address", ipHash)
-      .maybeSingle();
-
-    if (error) {
-      console.error("Failed to check anonymous usage", error);
-      return new Response(JSON.stringify({ error: "Unable to check anonymous usage" }), {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-
-    anonymousUsage = data ?? null;
-    const usageCount = data?.usage_count ?? 0;
-    const remaining = MAX_ANON_CREDITS - usageCount;
-
-    if (remaining <= 0) {
-      return new Response(JSON.stringify({ error: "Out of credits" }), {
-        status: 402,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-
-    creditsRemaining = remaining;
+      },
+    );
   }
 
   const prompt = buildPrompt({
@@ -465,8 +401,7 @@ serve(async (req) => {
       status: 'completed',
       source: 'web'
     },
-    user?.id || null,
-    anonymousKey
+    user.id
   );
 
   // Track specific script generation details
@@ -483,64 +418,26 @@ serve(async (req) => {
       generatedScript: script,
       creditsUsed: 1
     },
-    user?.id || null,
-    anonymousKey
+    user.id
   );
 
-  if (user) {
-    const { data: updatedProfile, error } = await adminClient
-      .from("profiles")
-      .update({ credits_remaining: creditsRemaining - 1 })
-      .eq("id", user.id)
-      .eq("credits_remaining", creditsRemaining)
-      .select("credits_remaining")
-      .maybeSingle();
+  const { data: updatedProfile, error: creditUpdateError } = await adminClient
+    .from("profiles")
+    .update({ credits_remaining: creditsRemaining - 1 })
+    .eq("id", user.id)
+    .eq("credits_remaining", creditsRemaining)
+    .select("credits_remaining")
+    .maybeSingle();
 
-    if (error || !updatedProfile) {
-      console.error("Failed to decrement credits", error);
-      return new Response(JSON.stringify({ error: "Failed to decrement credits" }), {
-        status: 409,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-
-    return new Response(JSON.stringify({ script, creditsRemaining: updatedProfile.credits_remaining ?? 0 }), {
-      status: 200,
+  if (creditUpdateError || !updatedProfile) {
+    console.error("Failed to decrement credits", creditUpdateError);
+    return new Response(JSON.stringify({ error: "Failed to decrement credits" }), {
+      status: 409,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
 
-  if (anonymousUsage) {
-    const { error } = await adminClient
-      .from("anonymous_usage")
-      .update({ usage_count: (anonymousUsage.usage_count ?? 0) + 1, last_used_at: new Date().toISOString() })
-      .eq("ip_address", anonymousUsage.ip_address);
-
-    if (error) {
-      console.error("Failed to update anonymous usage", error);
-      return new Response(JSON.stringify({ error: "Unable to update anonymous usage" }), {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-  } else {
-    const hashedIp = ipHash;
-    if (hashedIp) {
-      const { error } = await adminClient
-        .from("anonymous_usage")
-        .insert({ ip_address: hashedIp, usage_count: 1, last_used_at: new Date().toISOString() });
-
-      if (error) {
-        console.error("Failed to insert anonymous usage", error);
-        return new Response(JSON.stringify({ error: "Unable to record anonymous usage" }), {
-          status: 500,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        });
-      }
-    }
-  }
-
-  return new Response(JSON.stringify({ script }), {
+  return new Response(JSON.stringify({ script, creditsRemaining: updatedProfile.credits_remaining ?? 0 }), {
     status: 200,
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });
@@ -609,42 +506,12 @@ Formatting Instructions:
 `;
 }
 
-function extractIpAddress(headers: Headers) {
-  const xForwardedFor = headers.get("x-forwarded-for") ?? headers.get("X-Forwarded-For");
-  if (xForwardedFor) {
-    const ip = xForwardedFor.split(",")[0]?.trim();
-    if (ip) {
-      return ip;
-    }
-  }
-
-  const cfConnectingIp = headers.get("cf-connecting-ip") ?? headers.get("CF-Connecting-IP");
-  if (cfConnectingIp) {
-    return cfConnectingIp;
-  }
-
-  const realIp = headers.get("x-real-ip") ?? headers.get("X-Real-IP");
-  if (realIp) {
-    return realIp;
-  }
-
-  return null;
-}
-
 async function safeReadJson(response: Response) {
   try {
     return await response.json();
   } catch (_error) {
     return await response.text();
   }
-}
-
-async function hashIp(ip: string): Promise<string> {
-  const data = new TextEncoder().encode(`${anonymousUsagePepper}:${ip}`);
-  const digest = await crypto.subtle.digest('SHA-256', data);
-  return Array.from(new Uint8Array(digest))
-    .map((byte) => byte.toString(16).padStart(2, '0'))
-    .join('');
 }
 
 function humanize(value: string) {

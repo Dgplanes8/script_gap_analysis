@@ -49,42 +49,42 @@ export function AIGeneratorPreviewSection() {
           <motion.div variants={itemVariants} className="mb-12">
             <div className="inline-flex items-center bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <Zap className="w-4 h-4 mr-2" />
-              COMING SOON
+              LIVE DEMO
             </div>
 
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Test Our AI Script Generator{' '}
+              See Your Business Turn Into{' '}
               <span className="text-yellow-300">
-                Before You Buy
+                High-Converting Ads
               </span>
             </h2>
 
             <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Experience how research based creative strategy works. Get a custom ad script for your business in under 60 seconds.
+              Experience how $250M+ of campaign data becomes your breakthrough ad copy. Generate a custom script for your business in under 60 seconds.
             </p>
           </motion.div>
 
-          {/* Preview Features */}
+          {/* Demo Features */}
           <motion.div
             variants={containerVariants}
             className="grid md:grid-cols-3 gap-6 mb-12"
           >
             <motion.div variants={itemVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
               <Target className="w-6 h-6 text-yellow-300 mx-auto mb-4" />
-              <h3 className="text-lg font-bold mb-2">Your Industry Analysis</h3>
-              <p className="text-blue-100 text-sm">AI analyzes your market and identifies proven conversion triggers</p>
+              <h3 className="text-lg font-bold mb-2">Industry Intelligence</h3>
+              <p className="text-blue-100 text-sm">AI analyzes your market and surfaces proven conversion triggers from $250M+ spend</p>
             </motion.div>
 
             <motion.div variants={itemVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
               <Clock className="w-6 h-6 text-yellow-300 mx-auto mb-4" />
-              <h3 className="text-lg font-bold mb-2">60-Second Results</h3>
-              <p className="text-blue-100 text-sm">Get complete ad scripts faster than writing a single headline</p>
+              <h3 className="text-lg font-bold mb-2">Instant Generation</h3>
+              <p className="text-blue-100 text-sm">Complete ad scripts in 60 seconds - faster than brainstorming a single hook</p>
             </motion.div>
 
             <motion.div variants={itemVariants} className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
               <ArrowRight className="w-6 h-6 text-yellow-300 mx-auto mb-4" />
-              <h3 className="text-lg font-bold mb-2">Ready To Launch</h3>
-              <p className="text-blue-100 text-sm">Copy-paste scripts optimized for your specific platforms</p>
+              <h3 className="text-lg font-bold mb-2">Copy & Launch</h3>
+              <p className="text-blue-100 text-sm">Platform-optimized scripts ready to paste into TikTok, Meta, YouTube, or LinkedIn</p>
             </motion.div>
           </motion.div>
 
@@ -92,27 +92,25 @@ export function AIGeneratorPreviewSection() {
           <motion.div variants={itemVariants}>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
               <h3 className="text-2xl font-bold mb-4">
-                See What Research-Backed Creative Looks Like
+                Turn Your Business Into High-Converting Ads
               </h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Try our AI generator to experience how industry research transforms into revenue driving campaigns. No signup required.
+                Experience how industry research transforms into revenue-driving campaigns. No signup required for your first script.
               </p>
 
-              {/* Placeholder Button - Will link to generator when ready */}
-              <motion.button
+              {/* Live Generator Link */}
+              <motion.a
+                href="/ai-ad-script-generator"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="bg-yellow-400 text-[#126DFB] font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:bg-yellow-300 transition-all duration-200 cursor-not-allowed opacity-75"
-                disabled
+                className="bg-yellow-400 text-[#126DFB] font-semibold text-lg px-8 py-4 rounded-xl shadow-lg hover:bg-yellow-300 transition-all duration-200 inline-flex items-center gap-2"
               >
-                <span className="flex items-center gap-2">
-                  Try AI Generator (Coming Soon)
-                  <Zap className="w-4 h-4" />
-                </span>
-              </motion.button>
+                Generate My First Ad (Free)
+                <ArrowRight className="w-4 h-4" />
+              </motion.a>
 
               <p className="text-blue-200 text-sm mt-4">
-                🚀 Launching soon, be the first to test research based AI creativity
+                ⚡ Live now - see results in 60 seconds • Get 10 more with free account
               </p>
             </div>
           </motion.div>

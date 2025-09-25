@@ -16,7 +16,7 @@ interface HeroEnhancedProps {
 export function HeroEnhanced({
   title = "Get Fresh Content Ideas + Custom Scripts That Convert",
   subtitle = "Weekly content ideas + fully customized scripts for UGC, paid ads, and social media. Built from trending content intelligence and tailored to your specific needs.",
-  ctaText = "Start Free Week",
+  ctaText = "Claim Free Credits",
   showEmailCapture = false
 }: HeroEnhancedProps) {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);

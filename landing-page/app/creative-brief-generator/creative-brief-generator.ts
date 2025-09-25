@@ -71,19 +71,28 @@ export async function startCreativeBriefCheckout(
   options: {
     unlockResearch?: boolean;
     creditAmount?: number;
+    tier?: 'essentials' | 'studio' | 'concierge';
   } = {},
 ) {
-  const { unlockResearch = true, creditAmount = 50 } = options;
+  const {
+    unlockResearch = true,
+    creditAmount,
+    tier = 'studio',
+  } = options;
+
+  const metadata: Record<string, string> = {
+    product: 'creative_brief',
+    unlock_research_mode: unlockResearch ? 'true' : 'false',
+  };
+
+  if (typeof creditAmount === 'number') {
+    metadata.credit_amount = String(creditAmount);
+  }
 
   return supabase.functions.invoke<{ checkout_url?: string }>('create-checkout-session', {
     body: {
-      product: 'creative_brief',
-      metadata: {
-        product: 'creative_brief',
-        unlock_research_mode: unlockResearch ? 'true' : 'false',
-        credit_amount: String(creditAmount),
-      },
+      tier,
+      metadata,
     },
   });
 }
-

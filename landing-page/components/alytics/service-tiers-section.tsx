@@ -147,7 +147,7 @@ export function ServiceTiersSection() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 max-w-4xl mx-auto leading-tight">
             Start Your{' '}
             <span className="text-transparent bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text">
-              Free Week Trial
+              Free Credits
             </span>
           </h2>
           

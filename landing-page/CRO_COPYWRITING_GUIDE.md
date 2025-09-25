@@ -44,7 +44,7 @@ A - ACTION: Clear, specific call-to-action
 - **Attention:** "You're One Creative Breakthrough Away From Doubling Your Revenue"
 - **Interest:** "Weekly creative intelligence that turns ad spend into predictable revenue"
 - **Desire:** "$5,000+ agency strategy starting at just $5/week"
-- **Action:** "Start Free Week Trial"
+- **Action:** "Claim 10 Free Credits"
 
 ### 2. PAS Framework  
 **Best for:** Problem-solving products/services
@@ -173,7 +173,7 @@ CTA: Action + benefit (not generic "download")
 **Example:**
 - **Headline:** "Weekly Creative Intelligence That Doubles Your Revenue"
 - **Subtext:** "Research-backed concepts for all platforms at just $5/week"
-- **CTA:** "Start Free Week Trial"
+- **CTA:** "Claim 10 Free Credits"
 
 ---
 
@@ -262,7 +262,7 @@ DURATION: Run until significance achieved or 2-4 weeks maximum
 
 **CTA Tests:**
 - Control: "Contact Us"
-- Variant A: "Start Free Week Trial"
+- Variant A: "Claim 10 Free Credits"
 - Variant B: "Get Weekly Creative Intelligence"
 
 **Social Proof Tests:**

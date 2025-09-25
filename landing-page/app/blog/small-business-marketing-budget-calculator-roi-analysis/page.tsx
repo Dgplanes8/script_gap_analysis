@@ -1414,7 +1414,7 @@ export default function SmallBusinessMarketingBudgetCalculator() {
                     <PieChart className="w-4 h-4 mr-2" />
                     CAC Optimization Calculator
                   </Link>
-                  <FreeWeekButton source="small_business_marketing_budget_calculator_roi_analysis-cta" className="flex items-center text-blue-600 hover:text-blue-700 text-sm">Start Free Week Trial</FreeWeekButton>
+                  <FreeWeekButton source="small_business_marketing_budget_calculator_roi_analysis-cta" className="flex items-center text-blue-600 hover:text-blue-700 text-sm">Claim 10 Free Credits</FreeWeekButton>
                 </div>
               </div>
 

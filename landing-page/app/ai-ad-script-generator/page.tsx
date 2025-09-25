@@ -14,7 +14,7 @@ export default function AdScriptGeneratorPage() {
           { label: 'Plans & Pricing', href: '#service-tiers' },
         ]}
         ctaHref="#service-tiers"
-        ctaLabel="Start Free Week Trial"
+        ctaLabel="Claim 10 Free Credits"
       />
       <div className="pt-20 md:pt-24">
         <AdScriptGeneratorClient />

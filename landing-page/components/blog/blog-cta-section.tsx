@@ -8,7 +8,7 @@ interface BlogCTASectionProps {
 }
 
 export function BlogCTASection({
-  title = 'Claim Your Free Week Trial',
+  title = 'Claim Your Free Credits Trial',
   description = 'Get trending creative concepts, competitor insights, and ready-to-develop scripts delivered every Monday.',
 }: BlogCTASectionProps) {
   return (

@@ -154,6 +154,7 @@ python phased_workflow_orchestrator.py --brand "Your Brand" --status
 - **[Phased Workflow Guide](PHASED_WORKFLOW_GUIDE.md)** - Complete phased execution guide (recommended)
 - **[Legacy Workflow Guide](WORKFLOW_EXECUTION_GUIDE.md)** - Original numbered step instructions
 - **[PRD](Overview/Ad%20Analysis%20and%20Script%20Writer%20PRD.md)** - Product requirements and framework
+- **[Stripe Setup Guide](stripe-setup-guide.md)** - Step-by-step billing configuration for the credit-based plans
 
 ## 🤖 Generated with Claude Code
 

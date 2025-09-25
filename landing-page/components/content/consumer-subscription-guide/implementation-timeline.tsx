@@ -134,7 +134,7 @@ export function ImplementationTimeline({
               className="bg-brand-600 text-white hover:bg-brand-700 font-semibold py-4 px-8 rounded-lg transition-colors duration-200 flex items-center justify-center"
             >
               <ArrowRight className="h-5 w-5 mr-2" />
-              Claim Free Week
+              Claim Free Credits
             </button>
             <button
               onClick={handleDownloadRequest}

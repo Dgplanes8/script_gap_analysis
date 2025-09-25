@@ -12,7 +12,7 @@ interface EmailCaptureFormProps {
 }
 
 export function EmailCaptureForm({
-  buttonText = 'Start Free Week Trial',
+  buttonText = 'Claim My Free Credits',
   source = 'email-capture',
   tier,
   variant = 'inline',

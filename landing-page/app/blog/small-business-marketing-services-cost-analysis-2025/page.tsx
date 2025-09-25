@@ -907,7 +907,7 @@ export default function SmallBusinessMarketingCostAnalysis() {
                     <BarChart3 className="w-4 h-4 mr-2" />
                     ROI Comparison Tool
                   </Link>
-                  <FreeWeekButton source="small_business_marketing_services_cost_analysis_2025-cta" className="flex items-center text-blue-600 hover:text-blue-700 text-sm">Start Free Week Trial</FreeWeekButton>
+                  <FreeWeekButton source="small_business_marketing_services_cost_analysis_2025-cta" className="flex items-center text-blue-600 hover:text-blue-700 text-sm">Claim 10 Free Credits</FreeWeekButton>
                 </div>
               </div>
 

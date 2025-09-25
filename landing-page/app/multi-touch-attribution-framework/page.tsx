@@ -607,7 +607,7 @@ export default function MultiTouchAttributionFramework() {
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <FreeWeekButton source="multi_touch_attribution_framework-cta" className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="multi_touch_attribution_framework-cta" className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Claim 10 Free Credits</FreeWeekButton>
             </div>
           </div>
         </div>

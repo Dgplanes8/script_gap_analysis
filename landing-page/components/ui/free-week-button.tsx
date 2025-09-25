@@ -52,7 +52,7 @@ export function FreeWeekButton({
       className={buttonClasses}
       data-source={source}
     >
-      {children ?? label ?? 'Start Free Week Trial'}
+      {children ?? label ?? 'Claim 10 Free Credits'}
       {variant !== 'link' && <ArrowRight className="h-4 w-4" />}
     </Link>
   );

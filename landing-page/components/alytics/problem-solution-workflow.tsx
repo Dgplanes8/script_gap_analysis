@@ -23,12 +23,12 @@ export function ProblemSolutionWorkflow() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Creating content that drives sales takes{' '}
+            Turn Every Ad Dollar Into{' '}
             <span className="text-transparent bg-gradient-to-r from-[#126DFB] to-[#126DFB] bg-clip-text">
-              strategic intelligence
+              Predictable Revenue
             </span>
           </motion.h2>
-          
+
           <motion.p
             className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ export function ProblemSolutionWorkflow() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            You're spending money on ads that generate engagement but don't move the revenue needle. Our systematic approach eliminates the $10K+ testing cycles with proven methods that consistently drive sales.
+            Stop burning budget on ads that feel native but convert like crazy. Our research-backed approach eliminated guesswork for 500+ brands, turning $250M+ in spend into breakthrough campaigns that scale profitably.
           </motion.p>
         </motion.div>
 
@@ -59,16 +59,16 @@ export function ProblemSolutionWorkflow() {
           className="text-center mt-20"
         >
           <motion.a
-            href="#service-tiers"
-            whileHover={{ 
-              scale: 1.02, 
-              boxShadow: "0 12px 30px rgba(18, 109, 251, 0.4)" 
+            href="/ai-ad-script-generator"
+            whileHover={{
+              scale: 1.02,
+              boxShadow: "0 12px 30px rgba(18, 109, 251, 0.4)"
             }}
             whileTap={{ scale: 0.98 }}
-            className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
-          >
-            Start Free Week Trial
-          </motion.a>
+          className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
+        >
+          Generate My First Breakthrough Ad
+        </motion.a>
         </motion.div>
 
       </div>

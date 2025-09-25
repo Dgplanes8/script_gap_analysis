@@ -1065,7 +1065,7 @@ export default function LocalCreativeAgencyPartnershipGuide() {
                     <DollarSign className="w-4 h-4 mr-2" />
                     Marketing Budget Calculator
                   </Link>
-                  <FreeWeekButton source="local_creative_agency_partnership_guide_build_vs_hire-cta" className="flex items-center text-blue-600 hover:text-blue-700 text-sm">Start Free Week Trial</FreeWeekButton>
+                  <FreeWeekButton source="local_creative_agency_partnership_guide_build_vs_hire-cta" className="flex items-center text-blue-600 hover:text-blue-700 text-sm">Claim 10 Free Credits</FreeWeekButton>
                 </div>
               </div>
 

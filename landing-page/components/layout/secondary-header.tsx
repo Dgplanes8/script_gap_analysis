@@ -25,7 +25,7 @@ export type SecondaryHeaderProps = {
 export function SecondaryHeader({
   links = NAV_LINKS,
   ctaHref = '/#service-tiers',
-  ctaLabel = 'Start Free Week Trial',
+  ctaLabel = 'Claim 10 Free Credits',
 }: SecondaryHeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);

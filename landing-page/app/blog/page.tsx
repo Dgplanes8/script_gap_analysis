@@ -200,7 +200,7 @@ export default function BlogPage() {
             </p>
               
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <FreeWeekButton source="blog-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="blog-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">Claim 10 Free Credits</FreeWeekButton>
             </div>
           </div>
         </section>
@@ -274,7 +274,7 @@ export default function BlogPage() {
             </p>
               
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <FreeWeekButton source="blog-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="blog-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">Claim 10 Free Credits</FreeWeekButton>
             </div>
           </div>
         </section>

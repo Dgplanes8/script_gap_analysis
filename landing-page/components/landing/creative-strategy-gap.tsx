@@ -188,7 +188,7 @@ export function CreativeStrategyGap() {
                 }}
                 className="bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-200 flex items-center justify-center"
               >
-                <span>Start Your Free Week</span>
+                <span>Claim Your Free Credits</span>
                 <ArrowRight className="h-5 w-5 ml-2" />
               </button>
               <button

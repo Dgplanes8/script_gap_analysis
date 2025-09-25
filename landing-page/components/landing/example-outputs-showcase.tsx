@@ -185,7 +185,7 @@ export function ExampleOutputsShowcase() {
                   }}
                   className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-semibold px-6 py-3 rounded-lg transition-colors duration-200"
                 >
-                  Start Your Free Week
+                  Claim Your Free Credits
                 </button>
               </div>
             </div>

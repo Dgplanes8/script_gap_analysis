@@ -58,7 +58,7 @@ export default function SuccessPage({
       <Hero
         title={title}
         subtitle={subtitle}
-        ctaText="Start Free Week Trial"
+        ctaText="Claim 10 Free Credits"
         secondaryCtaText="View Plans"
         background="gradient"
         showEmailCapture={false}
@@ -144,7 +144,7 @@ export default function SuccessPage({
                 </li>
               </ul>
 
-              <FreeWeekButton source="success-cta" className="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors text-center block">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="success-cta" className="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors text-center block">Claim 10 Free Credits</FreeWeekButton>
             </div>
 
             <div className="bg-gradient-to-br from-brand-600 to-brand-700 rounded-2xl p-8 shadow-lg text-white relative">
@@ -213,7 +213,7 @@ export default function SuccessPage({
               Get proven templates from high-performing campaigns. Perfect way to experience our strategic approach before choosing a weekly plan.
             </p>
 
-            <FreeWeekButton source="success-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold px-8 py-4 text-lg rounded-xl transition-colors inline-block">Start Free Week Trial</FreeWeekButton>
+            <FreeWeekButton source="success-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold px-8 py-4 text-lg rounded-xl transition-colors inline-block">Claim 10 Free Credits</FreeWeekButton>
 
             <p className="text-sm text-gray-500 mt-4">
               Instant PDF download + weekly trend intelligence newsletter

@@ -14,7 +14,7 @@ interface SimpleAirtableFormProps {
 }
 
 export function SimpleAirtableForm({ 
-  buttonText = "Start My FREE Week Trial",
+  buttonText = "Claim My Free Credits",
   buttonClassName = "btn btn-primary text-lg px-8 py-4",
   source = "service-tiers",
   tier,
@@ -99,10 +99,10 @@ export function SimpleAirtableForm({
       <div className="text-center mb-4">
         <div className="inline-flex items-center bg-gradient-to-r from-[#126DFB] to-[#0F5AD6] text-white px-3 py-1 rounded-full text-xs font-semibold mb-3">
           <Mail className="h-3 w-3 mr-1" />
-          FREE WEEK TRIAL
+          FREE CREDITS
         </div>
-        <h3 className="text-lg font-semibold text-gray-900">Start Your FREE Week</h3>
-        <p className="text-sm text-gray-600">Get winning templates every Monday</p>
+        <h3 className="text-lg font-semibold text-gray-900">Claim Your Free Credits</h3>
+        <p className="text-sm text-gray-600">Unlock 10 AI credits you can use on any generator</p>
       </div>
       
       {error && (
@@ -112,7 +112,7 @@ export function SimpleAirtableForm({
       )}
       
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <input
             type="text"
             placeholder="Full name"
@@ -131,7 +131,7 @@ export function SimpleAirtableForm({
             required
           />
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <input
             type="text"
             placeholder="Company name"
@@ -161,16 +161,16 @@ export function SimpleAirtableForm({
           {isSubmitting ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Starting Your Free Week...
+              Unlocking Your Credits...
             </>
           ) : (
             <>
-              Start FREE Week Trial
+              Claim Free Credits
               <ArrowRight className="ml-2 h-4 w-4" />
             </>
           )}
         </button>
-        <p className="text-xs text-gray-500 text-center">No payment required • Cancel anytime</p>
+        <p className="text-xs text-gray-500 text-center">No payment required • Credits refresh monthly • Upgrade whenever you need more</p>
         <button
           type="button"
           onClick={() => setShowForm(false)}

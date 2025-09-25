@@ -360,11 +360,11 @@ export default function AdScriptGeneratorClient() {
             case 402:
               if (user) {
                 setShowPurchasePrompt(true);
-                setError('You’re out of credits. Upgrade or add more scripts instantly.');
+                setError('You’re out of credits. Upgrade to Essentials or Studio to keep generating scripts.');
                 setProfileCredits(0);
               } else {
                 setShowAuthModal(true);
-                setError('Create a free APSICS Media account to unlock three additional scripts.');
+                setError('Create a free APSICS Media account to access your 10 monthly credits.');
               }
               break;
             case 502:
@@ -373,10 +373,10 @@ export default function AdScriptGeneratorClient() {
             default:
               if (messageText.toLowerCase().includes('out of credit') && !user) {
                 setShowAuthModal(true);
-                setError('Create a free APSICS Media account to unlock three additional scripts.');
+                setError('Create a free APSICS Media account to access your 10 monthly credits.');
               } else if (statusCode === 402 && user) {
                 setShowPurchasePrompt(true);
-                setError('You’re out of credits. Upgrade or add more scripts instantly.');
+                setError('You’re out of credits. Upgrade to Essentials or Studio to keep generating scripts.');
               } else {
                 setError(
                   messageText && !messageText.toLowerCase().includes('edge function returned a non-2xx status code')
@@ -415,13 +415,13 @@ export default function AdScriptGeneratorClient() {
     [formState, supabase, triggerProfileReload, user],
   );
 
-  const handlePurchase = useCallback(async () => {
+  const handlePurchase = useCallback(async (tier: 'essentials' | 'studio' | 'concierge' = 'essentials') => {
     setError(null);
 
     try {
       const { data, error: invokeError } = await supabase.functions.invoke<{ checkout_url?: string }>(
         'create-checkout-session',
-        { body: {} },
+        { body: { tier } },
       );
 
       if (invokeError) {
@@ -597,7 +597,7 @@ export default function AdScriptGeneratorClient() {
                 <p className="font-semibold uppercase tracking-wide text-brand-700">Free forever plan</p>
                 <ul className="mt-3 space-y-2">
                   <li>• 1 instant script without logging in</li>
-                  <li>• +3 additional scripts after free account signup</li>
+                  <li>• 10 credits every month with a free account</li>
                   <li>• Upgrade to unlock weekly delivery & advanced formats</li>
                 </ul>
                 <p className="mt-4 text-xs text-brand-700/80">Need more credits? Paid plans add Stripe-powered top ups without leaving this page.</p>
@@ -635,7 +635,7 @@ export default function AdScriptGeneratorClient() {
                     <>
                       <p className="font-semibold text-gray-900">Guest access active</p>
                       <p className="mt-1 text-xs text-gray-600">
-                        Enjoy one complimentary export. Create a free APSICS Media account to unlock three more scripts and save your best performers.
+                        Enjoy one complimentary export. Create a free APSICS Media account to access 10 monthly credits and save your best performers.
                       </p>
                     </>
                   )}
@@ -884,19 +884,29 @@ export default function AdScriptGeneratorClient() {
               <div className="mt-8 rounded-2xl border border-brand-200 bg-brand-50 p-6 text-brand-900">
                 <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                   <div>
-                    <h3 className="text-lg font-semibold">Need more scripts?</h3>
+                    <h3 className="text-lg font-semibold">You’ve used your free credits.</h3>
                     <p className="mt-1 text-sm text-brand-800">
-                      Unlock 50 additional credits instantly or chat with our team about unlimited creative intelligence retainers.
+                      Upgrade to Essentials for 150 monthly credits or lock in the $29 Studio founding offer with 800 credits and an expert concept.
                     </p>
                   </div>
-                  <button
-                    onClick={handlePurchase}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/30 transition hover:bg-brand-700"
-                    type="button"
-                  >
-                    <CreditCard className="h-4 w-4" />
-                    Purchase More Credits
-                  </button>
+                  <div className="flex flex-col gap-3 md:flex-row">
+                    <button
+                      onClick={() => handlePurchase('essentials')}
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/30 transition hover:bg-brand-700"
+                      type="button"
+                    >
+                      <CreditCard className="h-4 w-4" />
+                      Upgrade to Essentials
+                    </button>
+                    <button
+                      onClick={() => handlePurchase('studio')}
+                      className="inline-flex items-center justify-center gap-2 rounded-xl border border-brand-500 px-5 py-3 text-sm font-semibold text-brand-700 transition hover:border-brand-600 hover:text-brand-800"
+                      type="button"
+                    >
+                      <CreditCard className="h-4 w-4" />
+                      Unlock Studio Founding Offer
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
@@ -904,10 +914,10 @@ export default function AdScriptGeneratorClient() {
             <div className="mt-8 rounded-3xl border border-brand-200 bg-white p-6 shadow-lg shadow-brand-50/40">
               <div className="flex flex-col gap-4 text-sm text-gray-700 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-500">Founder Club Special</p>
-                  <h3 className="mt-1 text-xl font-semibold text-gray-900">Get the APSICS Media Founder Club for $20 this week</h3>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-500">Studio Founding Offer</p>
+                  <h3 className="mt-1 text-xl font-semibold text-gray-900">Lock $29/mo Studio pricing for six months</h3>
                   <p className="mt-2 text-sm text-gray-600">
-                    Start a free week trial, keep your favourite frameworks, and lock in lifetime Founder Club pricing before it returns to $97.
+                    Founding members receive 800 credits every month plus an expert-crafted concept in the first month. Pricing renews at $49/mo after the introductory period.
                   </p>
                 </div>
                 <div className="flex flex-col items-start gap-3 sm:items-end">
@@ -915,9 +925,9 @@ export default function AdScriptGeneratorClient() {
                     href="/#service-tiers"
                     className="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/30 transition hover:bg-brand-700"
                   >
-                    Start Free Week Trial
+                    Explore Plans &amp; Pricing
                   </Link>
-                  <p className="text-xs text-brand-700">Founder Club offer: $20 one-time add-on after your trial.</p>
+                  <p className="text-xs text-brand-700">Includes 800 monthly credits and expert concept delivery.</p>
                 </div>
               </div>
             </div>
@@ -1130,7 +1140,7 @@ function AuthModal({ open, onClose, supabase, onAuthSuccess }: AuthModalProps) {
           <p className="text-xs font-semibold uppercase tracking-wide text-brand-500">Unlock more scripts</p>
           <h3 className="text-2xl font-bold text-gray-900">Create a free APSICS account</h3>
           <p className="text-sm text-gray-600">
-            Get three additional AI ad scripts, save your favourites, and access Monday creative intelligence drops.
+            Get 10 monthly AI ad script credits, save your favourites, and access Monday creative intelligence drops.
           </p>
         </div>
         <AuthPanel

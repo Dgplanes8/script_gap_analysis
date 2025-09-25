@@ -279,7 +279,7 @@ export function ServiceTiersEnhanced() {
                         : 'bg-white border-2 border-gray-200 hover:border-blue-300 text-gray-900 hover:bg-blue-50'
                     }`}
                   >
-                    <span className="framer-body-bold">Start Free Week</span>
+                    <span className="framer-body-bold">Claim Free Credits</span>
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </button>
                 </div>
@@ -315,7 +315,7 @@ export function ServiceTiersEnhanced() {
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
             <div className="framer-bg-white rounded-2xl p-8 max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl">
               <div className="flex justify-between items-center mb-6">
-                <h3 className="framer-heading-5">Start Your Free Week</h3>
+                <h3 className="framer-heading-5">Claim Your Free Credits</h3>
                 <button
                   onClick={() => setShowAirtableForm(false)}
                   className="text-gray-400 hover:text-gray-600 text-2xl leading-none"

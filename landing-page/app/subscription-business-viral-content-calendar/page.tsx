@@ -453,7 +453,7 @@ export default function ViralContentCalendarPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <FreeWeekButton source="subscription_business_viral_content_calendar-cta" className="btn bg-white text-brand-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="subscription_business_viral_content_calendar-cta" className="btn bg-white text-brand-600 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors">Claim 10 Free Credits</FreeWeekButton>
               </div>
 
               <p className="text-sm text-brand-200 mt-6">

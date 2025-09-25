@@ -625,11 +625,11 @@ export default function HighConvertingAdHooksLibrary() {
                 className="bg-white text-brand-600 hover:bg-brand-50 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 style={{ scrollBehavior: 'smooth' }}
               >
-                Start Your Free Week Trial
+                Claim Your Free Credits
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <FreeWeekButton source="52_high_converting_ad_hooks_library-cta" className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="52_high_converting_ad_hooks_library-cta" className="border-2 border-white text-white hover:bg-white hover:text-brand-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Claim 10 Free Credits</FreeWeekButton>
             </div>
           </div>
         </div>

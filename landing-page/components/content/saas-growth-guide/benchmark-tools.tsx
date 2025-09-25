@@ -38,7 +38,7 @@ export function BenchmarkTools({ handleDownloadRequest }: BenchmarkToolsProps) {
               }}
               className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
             >
-              Claim Free Week
+              Claim Free Credits
               <ArrowRight className="h-4 w-4 ml-2" />
             </button>
             

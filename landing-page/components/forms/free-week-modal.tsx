@@ -16,8 +16,8 @@ interface FreeWeekModalProps {
 export function FreeWeekModal({
   isOpen,
   onClose,
-  title = "Start Your FREE Week Trial",
-  subtitle = "Get trending creative concepts and custom scripts delivered every Monday",
+  title = "Claim Your Free Credits",
+  subtitle = "Create your free APSICS Media account and unlock 10 AI credits every month.",
   source = "free-week-popup",
   tier
 }: FreeWeekModalProps) {
@@ -83,7 +83,7 @@ export function FreeWeekModal({
           {/* Form Container */}
           <div className="px-8 pb-8">
             <SimpleAirtableForm
-              buttonText="Start My FREE Week Trial"
+              buttonText="Claim My Free Credits"
               buttonClassName="w-full bg-gradient-to-r from-[#126DFB] to-[#0F5AD6] hover:from-[#0F5AD6] hover:to-[#126DFB] text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
               source={source}
               tier={tier}
@@ -100,7 +100,7 @@ export function FreeWeekModal({
           {/* Footer */}
           <div className="px-8 pb-6 text-center">
             <div className="text-xs text-gray-500">
-              First week FREE • No payment required • Cancel anytime
+              10 credits reload every month • No card required • Upgrade anytime
             </div>
           </div>
         </div>

@@ -396,7 +396,7 @@ export default function CompetitiveAnalysisPage() {
                 <p className="text-lg opacity-90 mb-6">
                   Weekly templates bridge the gap between expensive agencies and DIY struggles. You get professional creative strategy at growth-focused pricing with the flexibility to scale up or down based on your needs.
                 </p>
-                <FreeWeekButton source="competitive_analysis-cta" className="bg-white text-brand-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl inline-flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="competitive_analysis-cta" className="bg-white text-brand-600 hover:bg-gray-100 font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl inline-flex items-center text-lg">Claim 10 Free Credits</FreeWeekButton>
               </div>
             </div>
           </div>
@@ -414,7 +414,7 @@ export default function CompetitiveAnalysisPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <FreeWeekButton source="competitive_analysis-cta" className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="competitive_analysis-cta" className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl flex items-center text-lg">Claim 10 Free Credits</FreeWeekButton>
               </div>
             </div>
           </div>

@@ -635,11 +635,11 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
             case 402:
               if (user) {
                 setShowPurchasePrompt(true);
-                setError('You are out of credits. Add more to continue iterating.');
+                setError('You are out of credits. Upgrade to Essentials or Studio to keep iterating.');
                 setProfileCredits(0);
               } else {
                 setShowAuthModal(true);
-                setError('Create a free account to unlock three additional iterations.');
+                setError('Create a free account to access your 10 monthly credits.');
               }
               break;
             case 403:
@@ -651,7 +651,7 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
             default:
               if (statusCode === 402 && user) {
                 setShowPurchasePrompt(true);
-                setError('You are out of credits. Add more to continue iterating.');
+                setError('You are out of credits. Upgrade to Essentials or Studio to keep iterating.');
               } else if (effectiveMessage) {
                 setError(effectiveMessage);
               } else {
@@ -705,13 +705,13 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
     ],
   );
 
-  const handlePurchase = useCallback(async () => {
+  const handlePurchase = useCallback(async (tier: 'essentials' | 'studio' | 'concierge' = 'essentials') => {
     setError(null);
 
     try {
       const { data, error: invokeError } = await supabase.functions.invoke<{ checkout_url?: string }>(
         'create-checkout-session',
-        { body: {} },
+        { body: { tier } },
       );
 
       if (invokeError) {
@@ -807,7 +807,7 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
               ? profileLoading
                 ? 'Checking your credits...'
                 : profileError || `Credits remaining: ${profileCredits ?? 0}`
-              : 'Run one iteration without logging in. Create a free account to unlock more runs.'}
+              : 'Sign in to access your 10 monthly credits and save every iteration.'}
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-2">
@@ -837,14 +837,14 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
               Sign in or create free account
             </button>
           )}
-          <button
-            type="button"
-            onClick={handlePurchase}
-            className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-3 py-2 text-xs font-semibold text-white shadow-brand-600/30 transition hover:bg-brand-700"
-          >
-            <CreditCard className="h-4 w-4" />
-            Buy credits
-          </button>
+        <button
+          type="button"
+          onClick={() => handlePurchase('essentials')}
+          className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-3 py-2 text-xs font-semibold text-white shadow-brand-600/30 transition hover:bg-brand-700"
+        >
+          <CreditCard className="h-4 w-4" />
+          Upgrade to Essentials
+        </button>
         </div>
       </div>
     </div>
@@ -1067,19 +1067,29 @@ Facebook and Instagram ads only. TikTok and YouTube support coming soon. We only
           <div className="rounded-2xl border border-brand-200 bg-brand-50 p-6 text-brand-900">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
-                <h3 className="text-lg font-semibold">Need more iterations?</h3>
+                <h3 className="text-lg font-semibold">You’ve used your available credits.</h3>
                 <p className="mt-1 text-sm text-brand-800">
-                  Unlock 50 additional credits instantly or talk with the APSICS team about creative intelligence retainers.
+                  Upgrade to Essentials for 150 monthly credits or secure the $29 Studio founding offer for 800 monthly credits and dedicated expert support.
                 </p>
               </div>
-              <button
-                onClick={handlePurchase}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/30 transition hover:bg-brand-700"
-                type="button"
-              >
-                <CreditCard className="h-4 w-4" />
-                Purchase more credits
-              </button>
+              <div className="flex flex-col gap-3 md:flex-row">
+                <button
+                  onClick={() => handlePurchase('essentials')}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/30 transition hover:bg-brand-700"
+                  type="button"
+                >
+                  <CreditCard className="h-4 w-4" />
+                  Upgrade to Essentials
+                </button>
+                <button
+                  onClick={() => handlePurchase('studio')}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-brand-500 px-5 py-3 text-sm font-semibold text-brand-700 transition hover:border-brand-600 hover:text-brand-800"
+                  type="button"
+                >
+                  <CreditCard className="h-4 w-4" />
+                  Unlock Studio Founding Offer
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -1416,7 +1426,7 @@ function AuthModal({ open, onClose, supabase, onAuthSuccess }: AuthModalProps) {
         <DialogHeader>
           <DialogTitle className="text-xl font-semibold text-gray-900">Sign in or create a free account</DialogTitle>
           <DialogDescription className="text-sm text-gray-600">
-            Free accounts unlock three additional iterations and save your creative history.
+            Free accounts unlock 10 monthly credits and save your creative history.
           </DialogDescription>
         </DialogHeader>
         <AuthPanel supabase={supabase} onAuthSuccess={onAuthSuccess} onClose={onClose} />

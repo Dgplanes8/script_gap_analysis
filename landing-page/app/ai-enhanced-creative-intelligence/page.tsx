@@ -500,7 +500,7 @@ export default function AIEnhancedCreativeIntelligencePage() {
                       Get the same AI-enhanced system used by Fortune 100 companies, delivered weekly with human strategic oversight.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                      <FreeWeekButton source="ai_enhanced_creative_intelligence-cta" className="btn bg-white text-brand-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors">Start Free Week Trial</FreeWeekButton>
+                      <FreeWeekButton source="ai_enhanced_creative_intelligence-cta" className="btn bg-white text-brand-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors">Claim 10 Free Credits</FreeWeekButton>
                     </div>
                   </div>
                 </div>

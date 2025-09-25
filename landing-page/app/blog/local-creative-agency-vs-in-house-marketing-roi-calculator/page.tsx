@@ -1021,7 +1021,7 @@ export default function LocalCreativeAgencyVsInHouseROICalculator() {
                     <DollarSign className="w-4 h-4 mr-2" />
                     Budget Planning Tool
                   </Link>
-                  <FreeWeekButton source="local_creative_agency_vs_in_house_marketing_roi_calculator-cta" className="flex items-center text-brand-600 hover:text-brand-700 text-sm">Start Free Week Trial</FreeWeekButton>
+                  <FreeWeekButton source="local_creative_agency_vs_in_house_marketing_roi_calculator-cta" className="flex items-center text-brand-600 hover:text-brand-700 text-sm">Claim 10 Free Credits</FreeWeekButton>
                 </div>
               </div>
 

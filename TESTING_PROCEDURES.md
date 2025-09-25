@@ -54,8 +54,8 @@ mcp__playwright__browser_take_screenshot --element="Service Tier Cards" --ref="[
 
 2. **Test Tier Selection**:
    ```bash
-   # Click on "Claim Free Week" button for Trend Tracker tier
-   mcp__playwright__browser_click --element="Trend Tracker Claim Free Week button" --ref="[tier-button-trend-tracker]"
+   # Click on "Claim Free Credits" button for the Essentials tier
+   mcp__playwright__browser_click --element="Essentials Claim Free Credits button" --ref="[tier-button-essentials]"
    ```
 
 3. **Verify Form Display**:
@@ -71,7 +71,7 @@ mcp__playwright__browser_take_screenshot --element="Service Tier Cards" --ref="[
      {"name": "Full Name", "type": "textbox", "ref": "[name-input]", "value": "John Doe"},
      {"name": "Email", "type": "textbox", "ref": "[email-input]", "value": "john@test.com"},
      {"name": "Company", "type": "textbox", "ref": "[company-input]", "value": "Test Corp"},
-     {"name": "Package Interest", "type": "combobox", "ref": "[package-select]", "value": "Trend Tracker"}
+     {"name": "Package Interest", "type": "combobox", "ref": "[package-select]", "value": "Essentials"}
    ]'
    ```
 
@@ -209,10 +209,10 @@ mcp__playwright__browser_take_screenshot --element="Service Tier Cards" --ref="[
 **Pre-population Testing**:
 ```bash
 # Test tier pre-population
-1. Click "Claim Free Week" on Creative Starter tier
-2. Verify "Package Interest" dropdown shows "Creative Starter"
-3. Repeat for each tier
-4. Ensure correct tier name appears in dropdown
+1. Click "Claim Free Credits" on the Explore tier
+2. Verify "Package Interest" dropdown shows "Explore"
+3. Repeat for Essentials, Studio, and Concierge
+4. Ensure the dropdown reflects the selected tier each time
 ```
 
 ### Airtable Integration Testing

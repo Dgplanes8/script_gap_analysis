@@ -92,7 +92,7 @@ export default function MarketingAttributionFrameworkPage() {
                 source="marketing_attribution_framework-cta"
                 className="px-8 py-3 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition-colors"
               >
-                Start Free Week Trial
+                Claim 10 Free Credits
               </FreeWeekButton>
             </div>
           </div>
@@ -516,7 +516,7 @@ export default function MarketingAttributionFrameworkPage() {
                 source="marketing_attribution_framework-cta"
                 className="bg-white text-brand-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
               >
-                Start Free Week Trial
+                Claim 10 Free Credits
               </FreeWeekButton>
             </div>
             
@@ -544,7 +544,7 @@ export default function MarketingAttributionFrameworkPage() {
                 <p className="text-gray-600 mb-4">
                   Use attribution insights to systematically reduce customer acquisition costs.
                 </p>
-                <FreeWeekButton source="marketing_attribution_framework-cta" className="text-brand-600 font-semibold hover:underline">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="marketing_attribution_framework-cta" className="text-brand-600 font-semibold hover:underline">Claim 10 Free Credits</FreeWeekButton>
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg">
@@ -552,7 +552,7 @@ export default function MarketingAttributionFrameworkPage() {
                 <p className="text-gray-600 mb-4">
                   Compare your attribution sophistication against industry leaders.
                 </p>
-                <FreeWeekButton source="marketing_attribution_framework-cta" className="text-brand-600 font-semibold hover:underline">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="marketing_attribution_framework-cta" className="text-brand-600 font-semibold hover:underline">Claim 10 Free Credits</FreeWeekButton>
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg">
@@ -560,7 +560,7 @@ export default function MarketingAttributionFrameworkPage() {
                 <p className="text-gray-600 mb-4">
                   Multi-touch attribution specialized for D2C and consumer subscription brands.
                 </p>
-                <FreeWeekButton source="marketing_attribution_framework-cta" className="text-brand-600 font-semibold hover:underline">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="marketing_attribution_framework-cta" className="text-brand-600 font-semibold hover:underline">Claim 10 Free Credits</FreeWeekButton>
               </div>
             </div>
           </div>

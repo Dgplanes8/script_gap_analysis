@@ -256,7 +256,7 @@ const buttonHoverVariants = {
   whileTap={{ scale: 0.98 }}
   className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
 >
-  Start Free Week Trial
+  Claim 10 Free Credits
 </motion.button>
 ```
 
@@ -515,7 +515,7 @@ SOLUTION: "Get research-backed static and video concepts proven to convert acros
 - **Accessibility Focus**: Emphasize "$5/week" vs "$5,000+ agency fees"
 
 #### Call-to-Action Standards
-- **Primary CTAs**: "Start Free Week Trial", "Get Custom Strategy"
+- **Primary CTAs**: "Claim 10 Free Credits", "Get Custom Strategy"
 - **Secondary CTAs**: "See How It Works", "View Examples"
 - **Risk Reversal**: "No credit card required", "Cancel anytime", "FREE Week"
 - **Value Anchoring**: "Save $5,000+ monthly vs. agency fees"
@@ -730,25 +730,24 @@ export function ComponentName() {
 
 ---
 
-**Document Version**: 3.1 (Messaging & Positioning Update)
-**Last Updated**: January 2025
-**Based On**: Current Homepage Implementation + Accessibility Messaging Updates
+**Document Version**: 3.2 (Credit-Based Messaging Update)
+**Last Updated**: February 2025
+**Based On**: Credit wallet launch + Studio founding offer rollout
 **Document Owner**: Design & Development Team
 
-*This updated brand consistency guide reflects the proven patterns from the Alytics homepage implementation with updated messaging that emphasizes accessibility ($5/week pricing), cross-platform capabilities (static + video for all major platforms), and proven results over "household brand" positioning. All new pages and component updates should follow these standards for maximum consistency and conversion optimization.*
+*This guide now reflects the credit-first positioning used across the refreshed landing page. Messaging emphasises “Claim 10 free credits”, the Essentials/Studio/Concierge tiers, and the Studio expert concept bonus. Replace all remaining free-week or $5/week language with credit terminology.*
 
-## 📋 Recent Updates (v3.1)
+## 📋 Recent Updates (v3.2)
 
 ### Key Messaging Changes
-- **Pricing Emphasis**: Updated hero messaging to highlight "$5/week" accessibility vs "$5,000+ agency fees"
-- **Language Refinement**: Replaced "household brand" with "proven strategic frameworks" throughout (except founder bio)
-- **Platform Clarification**: All content now specifies "static and video" for "Facebook, Instagram, TikTok, LinkedIn, X, and YouTube"
-- **Performance Metrics**: Updated to 25-point performance scoring system
-- **Industry Examples**: Added local services (law firm) alongside SaaS and beauty for broader appeal
+- **Credit Emphasis**: Hero/CTA copy now reads “Claim 10 Free Credits” (Explore plan)
+- **Plan Ladder**: Pricing sections highlight Explore (10 credits), Essentials (150 credits), Studio (800 credits + expert concept), Concierge (2,000 credits)
+- **Studio Bonus**: Add the expert-crafted concept bullet list wherever Studio messaging appears
+- **Stripe Metadata**: Reference `plan_tier`, `credit_amount`, and `studio_rate` in technical docs
 
 ### Implementation Priorities
-1. Update all CTAs to emphasize "Start Free Week Trial" with risk reversal
-2. Include platform-specific language in all service descriptions
-3. Use "$5/week" pricing in hero sections and value anchoring
-4. Replace any remaining "household brand" references with accessibility-focused language
-5. Ensure all performance scores use 25-point scale
+1. Ensure all CTAs reference credits instead of free weeks
+2. Update copy blocks to mention the credit grants that map to each tier
+3. Highlight the Studio founding offer ($29/mo for first 6 months, then $49)
+4. Confirm screenshots/demos reflect the credit counters in the app
+5. Maintain the 25-point performance scoring language while aligning examples with credit terminology

@@ -33,22 +33,22 @@ export function FinalConversionSection() {
   const riskReversals = [
     {
       icon: <Shield className="w-5 h-5" />,
-      text: "No credit card required"
+      text: "No payment required to claim your credits"
     },
     {
       icon: <CheckCircle className="w-5 h-5" />,
-      text: "Cancel anytime"
+      text: "Credits refresh every month"
     },
     {
       icon: <Clock className="w-5 h-5" />,
-      text: "Full week to evaluate"
+      text: "Upgrade or cancel anytime"
     }
   ];
 
   const urgencyPoints = [
-    "Weekly delivery starts next Monday",
-    "Custom research for your specific industry",
-    "Ready-to-use creative concepts and scripts"
+    "Founding offer: lock $29/mo Studio pricing for six months",
+    "Expert crafted concept delivered in your first month",
+    "Credits work across scripts, briefs, and iteration requests"
   ];
 
   return (
@@ -105,8 +105,8 @@ export function FinalConversionSection() {
           <motion.div variants={itemVariants} className="mb-8">
             <motion.button
               onClick={() => openModal({
-                title: "Start Your FREE Week Trial",
-                subtitle: "Get trending creative concepts and custom scripts delivered every Monday",
+                title: "Claim Your Free Credits",
+                subtitle: "Create a free account to unlock 10 monthly credits and explore every generator.",
                 source: "final-conversion-cta"
               })}
               whileHover={{ 
@@ -117,7 +117,7 @@ export function FinalConversionSection() {
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg group"
             >
               <span className="flex items-center gap-3">
-                Claim Your Free Week
+                Claim Your Free Credits
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </span>
             </motion.button>

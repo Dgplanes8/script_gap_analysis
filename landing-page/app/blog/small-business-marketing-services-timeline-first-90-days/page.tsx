@@ -580,7 +580,7 @@ export default function SmallBusinessMarketingServicesTimeline() {
                   <div className="text-center p-6 bg-blue-50 rounded-lg">
                     <h3 className="font-semibold text-blue-900 mb-2">Get Your Personalized Timeline</h3>
                     <p className="text-blue-700 mb-4">Receive customized timeline expectations based on your business type and marketing goals.</p>
-                    <FreeWeekButton source="small_business_marketing_services_timeline_first_90_days-cta" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">Start Free Week Trial</FreeWeekButton>
+                    <FreeWeekButton source="small_business_marketing_services_timeline_first_90_days-cta" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">Claim 10 Free Credits</FreeWeekButton>
                   </div>
                 </div>
                 
@@ -590,7 +590,7 @@ export default function SmallBusinessMarketingServicesTimeline() {
                   <p className="text-blue-100 text-sm mb-4">
                     Skip the 90-day ramp-up with proven creative strategies and competitive intelligence delivered weekly.
                   </p>
-                  <FreeWeekButton source="small_business_marketing_services_timeline_first_90_days-cta" className="bg-white text-indigo-600 hover:bg-gray-50 font-semibold px-6 py-2 rounded-lg transition-colors text-sm flex items-center">Start Free Week Trial</FreeWeekButton>
+                  <FreeWeekButton source="small_business_marketing_services_timeline_first_90_days-cta" className="bg-white text-indigo-600 hover:bg-gray-50 font-semibold px-6 py-2 rounded-lg transition-colors text-sm flex items-center">Claim 10 Free Credits</FreeWeekButton>
                 </div>
               </div>
             </section>

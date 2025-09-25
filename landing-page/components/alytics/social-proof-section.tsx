@@ -179,10 +179,10 @@ export function SocialProofSection() {
               boxShadow: "0 12px 30px rgba(18, 109, 251, 0.4)" 
             }}
             whileTap={{ scale: 0.98 }}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
-          >
-            Start Free Week Trial
-          </motion.a>
+          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
+        >
+          Claim 10 Free Credits
+        </motion.a>
         </motion.div>
 
       </div>

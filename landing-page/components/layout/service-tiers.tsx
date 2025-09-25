@@ -260,7 +260,7 @@ export function ServiceTiers() {
                     className={`w-full py-3 px-4 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center min-h-[48px] text-sm ${tier.ctaColor}`}
                   >
                     <Calendar className="h-4 w-4 mr-2 flex-shrink-0" />
-                    <span className="text-center flex-1">{tier.id === 'enterprise' ? 'Contact Us' : `Claim Free Week`}</span>
+                    <span className="text-center flex-1">{tier.id === 'enterprise' ? 'Contact Us' : `Claim Free Credits`}</span>
                     <ArrowRight className="h-3 w-3 ml-2 flex-shrink-0" />
                   </button>
 
@@ -317,7 +317,7 @@ export function ServiceTiers() {
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
         <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold">Start Your Free Week</h3>
+            <h3 className="text-lg font-semibold">Claim Your Free Credits</h3>
             <button
               onClick={() => setShowAirtableForm(false)}
               className="text-gray-400 hover:text-gray-600"
@@ -326,7 +326,7 @@ export function ServiceTiers() {
             </button>
           </div>
           <SimpleAirtableForm
-            buttonText="Start Free Week"
+            buttonText="Claim Free Credits"
             source="service-tiers-modal"
             tier={selectedTier || 'unknown'}
             onSuccess={() => {

@@ -89,7 +89,7 @@ export default function CACReductionGuidePage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <FreeWeekButton source="cac_reduction_guide-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="cac_reduction_guide-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">Claim 10 Free Credits</FreeWeekButton>
             </div>
           </div>
         </section>
@@ -493,7 +493,7 @@ export default function CACReductionGuidePage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <FreeWeekButton source="cac_reduction_guide-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="cac_reduction_guide-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">Claim 10 Free Credits</FreeWeekButton>
             </div>
             
             <div className="text-gray-600 mt-8 max-w-md mx-auto">
@@ -520,7 +520,7 @@ export default function CACReductionGuidePage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Interactive calculator to estimate your CAC reduction potential and ROI.
                 </p>
-                <FreeWeekButton source="cac_reduction_guide-cta" className="text-[#126DFB] font-semibold hover:underline mt-auto">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="cac_reduction_guide-cta" className="text-[#126DFB] font-semibold hover:underline mt-auto">Claim 10 Free Credits</FreeWeekButton>
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
@@ -528,7 +528,7 @@ export default function CACReductionGuidePage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Advanced tools for automated creative analysis and strategic optimization.
                 </p>
-                <FreeWeekButton source="cac_reduction_guide-cta" className="text-indigo-600 font-semibold hover:underline mt-auto">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="cac_reduction_guide-cta" className="text-indigo-600 font-semibold hover:underline mt-auto">Claim 10 Free Credits</FreeWeekButton>
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
@@ -536,7 +536,7 @@ export default function CACReductionGuidePage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Advanced attribution modeling for accurate CAC measurement and optimization.
                 </p>
-                <FreeWeekButton source="cac_reduction_guide-cta" className="text-indigo-600 font-semibold hover:underline mt-auto">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="cac_reduction_guide-cta" className="text-indigo-600 font-semibold hover:underline mt-auto">Claim 10 Free Credits</FreeWeekButton>
               </div>
             </div>
           </div>

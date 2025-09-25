@@ -10,7 +10,7 @@ interface ConsultationBookingCTAProps {
 
 export function ConsultationBookingCTA({ 
   variant = 'primary', 
-  text = 'Claim Free Week',
+  text = 'Claim Free Credits',
   className = ''
 }: ConsultationBookingCTAProps) {
   const baseClasses = 'inline-flex items-center font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';

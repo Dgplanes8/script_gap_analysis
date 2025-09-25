@@ -53,24 +53,24 @@ export function AlyticsLanding() {
         <AlyticsHero />
         <FloatingLogos />
       </div>
-      
-      {/* 2. Social Proof - Moved up for immediate credibility */}
+
+      {/* 2. Live Demo - Immediate value demonstration */}
+      <AIGeneratorPreviewSection />
+
+      {/* 3. Social Proof - Builds on demo success */}
       <SocialProofSection />
 
-      {/* 3. Problem-Solution Bridge - Core value prop */}
-      <ProblemSolutionWorkflow />
-
-      {/* 4. Simple Pricing - Earlier conversion opportunity */}
-      <SimplePricingSection />
-
-      {/* 5. Why Creative Research Matters */}
-      <CreativeResearchMattersSection />
-
-      {/* 6. Before/After Examples */}
+      {/* 4. Before/After Examples - Proof of transformation */}
       <BeforeAfterExamplesSection />
 
-      {/* 7. AI Generator Preview */}
-      <AIGeneratorPreviewSection />
+      {/* 5. Simple Pricing - After demonstrating value */}
+      <SimplePricingSection />
+
+      {/* 6. Problem-Solution Bridge - Core value prop */}
+      <ProblemSolutionWorkflow />
+
+      {/* 7. Why Creative Research Matters */}
+      <CreativeResearchMattersSection />
 
       {/* 8. Performance Guarantee */}
       <PerformanceGuaranteeSection />

@@ -266,7 +266,7 @@ export function ROICalculator() {
           <div className="mt-12 text-center">
             <div className="bg-gradient-to-r from-brand-50 to-brand-50 rounded-2xl p-8 border border-brand-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Start Your Free Week Trial Today
+                Claim Your Free Credits Today
               </h3>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -279,7 +279,7 @@ export function ROICalculator() {
                   }}
                   className="bg-gradient-to-r from-brand-600 to-brand-600 hover:from-brand-700 hover:to-brand-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center"
                 >
-                  Start My Free Week Trial
+                  Claim My Free Credits
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </button>
                 

@@ -16,6 +16,11 @@ const defaultStripePriceId = Deno.env.get("STRIPE_PRICE_ID");
 const defaultSuccessUrl = Deno.env.get("STRIPE_SUCCESS_URL") ?? Deno.env.get("SITE_URL")?.concat("/ai-ad-script-generator?checkout=success");
 const defaultCancelUrl = Deno.env.get("STRIPE_CANCEL_URL") ?? Deno.env.get("SITE_URL")?.concat("/ai-ad-script-generator?checkout=cancel");
 
+const essentialsPriceId = Deno.env.get("STRIPE_ESSENTIALS_PRICE_ID") ?? defaultStripePriceId;
+const studioFoundingPriceId = Deno.env.get("STRIPE_STUDIO_FOUNDING_PRICE_ID") ?? undefined;
+const studioStandardPriceId = Deno.env.get("STRIPE_STUDIO_STANDARD_PRICE_ID") ?? undefined;
+const conciergePriceId = Deno.env.get("STRIPE_CONCIERGE_PRICE_ID") ?? undefined;
+
 const briefPriceId = Deno.env.get("BRIEF_STRIPE_PRICE_ID") ?? defaultStripePriceId;
 const briefSuccessUrl = Deno.env.get("BRIEF_SUCCESS_URL");
 const briefCancelUrl = Deno.env.get("BRIEF_CANCEL_URL");
@@ -108,7 +113,7 @@ serve(async (req) => {
     }
   }
 
-  let parsedBody: { product?: string; priceId?: string; checkoutMode?: "payment" | "subscription"; metadata?: Record<string, string>; quantity?: number } = {};
+  let parsedBody: { product?: string; priceId?: string; tier?: string; checkoutMode?: "payment" | "subscription"; metadata?: Record<string, string>; quantity?: number } = {};
   if (req.headers.get("content-type")?.includes("application/json")) {
     try {
       parsedBody = await req.json();
@@ -119,8 +124,50 @@ serve(async (req) => {
 
   const product = parsedBody.product ?? "default";
   const isCreativeBriefCheckout = product === "creative_brief";
+  const requestedTierRaw = typeof parsedBody.tier === 'string' ? parsedBody.tier.toLowerCase() : undefined;
+  const tierSelection = requestedTierRaw ?? (isCreativeBriefCheckout ? 'studio' : 'essentials');
 
-  const checkoutPriceId = parsedBody.priceId ?? (isCreativeBriefCheckout ? briefPriceId : defaultStripePriceId);
+  let checkoutPriceId = typeof parsedBody.priceId === 'string' ? parsedBody.priceId : undefined;
+  let mappedCreditAmount: number | undefined;
+  let canonicalTier = tierSelection;
+  let studioRate: 'founding' | 'standard' | undefined;
+
+  if (!checkoutPriceId) {
+    switch (tierSelection) {
+      case 'essentials':
+        checkoutPriceId = essentialsPriceId;
+        mappedCreditAmount = 150;
+        break;
+      case 'studio':
+        checkoutPriceId = studioFoundingPriceId ?? studioStandardPriceId ?? essentialsPriceId;
+        mappedCreditAmount = 800;
+        if (checkoutPriceId === studioFoundingPriceId && studioFoundingPriceId) {
+          studioRate = 'founding';
+        } else if (checkoutPriceId === studioStandardPriceId && studioStandardPriceId) {
+          studioRate = 'standard';
+        }
+        break;
+      case 'studio_standard':
+        canonicalTier = 'studio';
+        checkoutPriceId = studioStandardPriceId ?? studioFoundingPriceId ?? essentialsPriceId;
+        mappedCreditAmount = 800;
+        studioRate = checkoutPriceId === studioStandardPriceId && studioStandardPriceId ? 'standard' : 'founding';
+        break;
+      case 'concierge':
+        checkoutPriceId = conciergePriceId ?? defaultStripePriceId;
+        mappedCreditAmount = 2000;
+        break;
+      case 'explore':
+        checkoutPriceId = essentialsPriceId;
+        mappedCreditAmount = 10;
+        break;
+      default:
+        checkoutPriceId = essentialsPriceId;
+        mappedCreditAmount = 150;
+        break;
+    }
+  }
+
   if (!checkoutPriceId) {
     return new Response(JSON.stringify({ error: "Stripe price is not configured" }), {
       status: 500,
@@ -138,9 +185,21 @@ serve(async (req) => {
     });
   }
 
-  const checkoutMode = parsedBody.checkoutMode ?? (isCreativeBriefCheckout ? (briefCheckoutMode as "payment" | "subscription" | undefined) ?? "payment" : "payment");
-  const metadata = parsedBody.metadata ?? (isCreativeBriefCheckout ? { product: "creative_brief" } : {});
+  const checkoutMode = parsedBody.checkoutMode ?? (isCreativeBriefCheckout ? (briefCheckoutMode as "payment" | "subscription" | undefined) ?? "payment" : "subscription");
   const quantity = parsedBody.quantity && parsedBody.quantity > 0 ? parsedBody.quantity : 1;
+  const metadata: Record<string, string> = { ...(parsedBody.metadata ?? (isCreativeBriefCheckout ? { product: 'creative_brief' } : {})) };
+
+  if (!metadata.plan_tier) {
+    metadata.plan_tier = canonicalTier;
+  }
+
+  if (studioRate) {
+    metadata.studio_rate = studioRate;
+  }
+
+  if (!metadata.credit_amount && typeof mappedCreditAmount === 'number') {
+    metadata.credit_amount = String(mappedCreditAmount);
+  }
 
   const session = await stripe.checkout.sessions.create({
     mode: checkoutMode,
@@ -154,6 +213,7 @@ serve(async (req) => {
     success_url: successUrl,
     cancel_url: cancelUrl,
     metadata,
+    ...(checkoutMode === 'subscription' ? { subscription_data: { metadata } } : {}),
   });
 
   const response: CheckoutResponse = {

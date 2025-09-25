@@ -190,10 +190,10 @@ export function WeeklyPricingFAQ({
                   Still have questions about weekly pricing?
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Start your FREE week trial and experience the flexibility firsthand.
+                  Claim your 10 free monthly credits and test every generator before you upgrade.
                 </p>
                 <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200">
-                  Start Free Week Trial
+                  Claim Free Credits
                 </button>
               </div>
             </div>

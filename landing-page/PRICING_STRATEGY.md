@@ -1,264 +1,137 @@
-# Weekly Creative Intelligence Pricing Strategy
-*Revolutionary Weekly Pricing for Weekly Creative Delivery*
-
-## 🚀 Limited Time Launch Offer
-**First 50 customers only**
-
-### **Try Your First Week FREE**
-- No commitment • Cancel anytime
-- Full access to your chosen tier
-- Experience our Monday delivery system
-- Weekly billing starts Week 2
+# Creative Intelligence Pricing Strategy
+*Credit-based plans for scripts, briefs, and iteration campaigns*
 
 ---
 
-## 📊 Pricing Tiers Overview
+## Why the Pricing Model Changed
 
-| Tier | Weekly Price | Monthly Equivalent | Best For |
-|------|-------------|-------------------|----------|
-| **Creative Starter** | $5/week | $21.67/month | Solopreneurs & Early Stage |
-| **Trend Tracker** | $15/week | $65/month | Growing Startups |
-| **Competitive Edge** | $35/week | $151.67/month | Performance Teams |
-| **Market Intelligence** | $89/week | $385.67/month | Scale Companies |
+The previous weekly billing + free week trial model created operational drag:
 
----
+- Trial abuse meant most prospects never upgraded.
+- Messaging was inconsistent: some pages promoted $5/week, others sold monthly retainers.
+- Stripe plans did not align with the internal credit ledger, creating manual fulfilment.
 
-## 🎯 Tier Details
-
-### **Creative Starter - $5/week**
-*Perfect for solopreneurs and early-stage startups*
-
-**What You Get Every Monday:**
-- ✅ 1 high-converting creative concept
-- ✅ 2 ready-to-test scripts per concept
-- ✅ Single platform optimization (TikTok, Facebook, OR Instagram)
-- ✅ Basic trend insights & reasoning
-- ✅ Email delivery with implementation tips
-
-**Ideal For:**
-- Solo founders testing creative approaches
-- $500-$2K monthly ad spend
-- Single platform focus
-- Learning creative strategy basics
-
-**Value Delivered:**
-- Concepts worth $200+ from agencies
-- 2+ hours of creative research saved
-- Psychology-backed hook formulas
-- Platform-native optimization
+The new structure fixes those problems by introducing a single credit wallet that spans every generator and scales with usage.
 
 ---
 
-### **Trend Tracker - $15/week** ⭐ *Most Popular*
-*Current offering with weekly pricing*
+## Core Principles
 
-**What You Get Every Monday:**
-- ✅ 1 strategic creative concept
-- ✅ 2 ready-to-develop scripts per concept
-- ✅ Multi-platform optimization (TikTok + Facebook + Instagram)
-- ✅ Trend analysis & competitive insights
-- ✅ Performance scoring (25-point framework)
-- ✅ Email delivery + basic support
-- ✅ Monthly strategy overview
-
-**Ideal For:**
-- Growth teams at subscription companies
-- $2K-$10K monthly ad spend
-- Multi-platform campaigns
-- Consistent creative testing needs
-
-**Value Delivered:**
-- Replaces $400+/week agency retainer
-- 5+ hours creative research weekly
-- Fortune 100 methodology access
+1. **Credits First** – Users think in outcomes (scripts, briefs, remixes). Credits convert abstract AI runs into predictable units. One script/brief/iteration generally consumes 1 credit.
+2. **Free On-Ramp** – Every registered account receives 10 credits every month. This replaces the free-week messaging and encourages immediate, recurring engagement.
+3. **Simplified Plans** – Four tiers ladder from free testing to white-glove support. Essentials and Studio cover the majority of demand; Concierge remains the premium option.
+4. **Founding Offer = Urgency** – Studio launches with a six-month $29/mo discount that pairs with the “expert crafted concept” bonus. After six billing cycles Stripe shifts customers to $49/mo.
 
 ---
 
-### **Competitive Edge - $35/week**
-*For performance marketing teams*
+## Plan Overview
 
-**What You Get Every Monday:**
-- ✅ 2 creative concepts (1 trend-based + 1 competitor-inspired)
-- ✅ 4 weekly scripts (2 per concept)
-- ✅ Full competitive intelligence report
-- ✅ Multi-platform + audience optimization
-- ✅ Performance scoring & A/B test recommendations
-- ✅ Priority email support (24hr response)
-- ✅ Monthly strategic consultation call
+| Plan | Monthly Price | Credits / Month | Ideal For |
+| --- | --- | --- | --- |
+| **Explore** | $0 | 10 | Prospects validating the tools |
+| **Essentials** | $19 | 150 | Lean growth teams running steady creative tests |
+| **Studio** *(founding offer)* | $29 for 6 months → $49 | 800 | Teams replacing agency retainers and wanting expert guidance |
+| **Concierge** | $249 | 2,000 | Revenue teams with aggressive testing roadmaps |
 
-**Ideal For:**
-- Performance marketers with saturated audiences
-- $10K-$50K monthly ad spend
-- Competitive displacement strategies
-- Systematic creative testing programs
-
-**Value Delivered:**
-- Replaces $800+/week agency fees
-- 10+ hours competitive research weekly
-- Strategic positioning frameworks
-- Custom audience expansion insights
+> **Note:** Stripe stores Studio as two prices: the founding price for the first six cycles and the standard price that kicks in afterwards. Metadata on each price keeps the credit grant consistent.
 
 ---
 
-### **Market Intelligence - $89/week**
-*For companies scaling beyond $200K/month*
+## What Each Plan Unlocks
 
-**What You Get Every Monday:**
-- ✅ 3 creative concepts delivered weekly
-- ✅ 6 ready-to-test scripts (2 per concept)
-- ✅ Comprehensive competitive analysis
-- ✅ Custom audience research & insights
-- ✅ Direct team access for strategic support
-- ✅ Strategic review calls
-- ✅ Custom creative brief development
+### Explore – $0 / 10 credits
+- Email-only signup, no payment method required
+- Access to all three generators (scripts, briefs, iteration)
+- Saved history and ability to upgrade instantly
+- Earned credits reset to 10 every monthly cycle
 
-**Ideal For:**
-- Scaling companies
-- $50K+ monthly ad spend
-- Multiple product lines or markets
-- Strategic creative program management
+### Essentials – $19 / 150 credits
+- Enough volume for weekly script + brief requests plus occasional iteration runs
+- Priority processing in edge functions and email follow-up
+- Shared brand workspace for teams
+- Best entry point for in-house marketers
 
-**Value Delivered:**
-- Replaces $2,000+/week agency retainer
-- 20+ hours strategic research weekly
-- Executive-level creative intelligence
-- Complete creative program oversight
+### Studio – $29 founding offer (renews at $49)
+- 800 credits every month
+- Unlocks advanced research mode and premium email delivery
+- Includes the **expert crafted concept** delivered during the first month:
+  - 2 target personas with positioning notes
+  - 3 asset recommendations (video/static) with full copy & production direction
+  - Comprehensive audience research, competitive teardown, and trend analysis
+  - Framework application tailored to the account
+- Founding offer messaging: “Lock $29/mo for six months, then $49/mo afterwards.”
 
----
-
-## 💰 Cost Comparison
-
-### vs. Traditional Agencies
-| Service | Weekly Cost | Deliverables | Timeline |
-|---------|------------|-------------|----------|
-| **Traditional Agency** | $800-2,000/week | 1-2 concepts | 2+ weeks |
-| **Our Creative Starter** | $5/week | 1 concept + scripts | Every Monday |
-| **Our Trend Tracker** | $15/week | 1 concept + scripts | Every Monday |
-
-### vs. Freelancers
-| Service | Weekly Cost | Quality | Consistency |
-|---------|------------|---------|-------------|
-| **Freelance Copywriter** | $200-500/week | Variable | Inconsistent |
-| **Our System** | $15-89/week | Fortune 100 methodology | Every Monday |
-
-### vs. Internal Team
-| Approach | Weekly Cost | Time Investment | Results |
-|----------|------------|----------------|---------|
-| **Internal Research** | $1,000+/week | 20+ hours | Inconsistent |
-| **Our Intelligence** | $15-89/week | 0 hours | Proven framework |
+### Concierge – $249 / 2,000 credits
+- Everything in Studio plus:
+  - Direct strategist collaboration + Slack access
+  - Unlimited expert concept reviews
+  - Quarterly performance planning with leadership
+  - Perfect for teams managing multiple product lines or heavy testing calendars
 
 ---
 
-## 🔥 Limited Time Offer Details
+## Messaging Frameworks
 
-### **Early Adopter Pricing** (First 200 Customers)
-- ✅ **Lock in launch pricing forever**
-- ✅ **Priority customer support**
-- ✅ **Direct founder access**
+### Key Lines
+- “Claim 10 free credits each month—no card required.”
+- “Credits travel across every generator: scripts, briefs, and ad remixing.”
+- “Upgrade to Essentials or Studio the moment you need more volume.”
+- “Studio founding members lock $29/mo for six months and receive an expert-crafted concept in month one.”
 
-### **Urgency Indicators**
-- 🕐 **Limited spots remaining** 
-- 🚨 **Launch pricing never returns**
-- 💎 **Founding member benefits for life**
-
----
-
-## 🎯 Positioning Strategy
-
-### **Revolutionary Weekly Model**
-*"Pay weekly for weekly value delivery"*
-
-- **Traditional:** Monthly subscriptions for inconsistent delivery
-- **Our Approach:** Weekly billing aligned with weekly creative delivery
-- **Customer Benefit:** Cancel anytime, restart anytime, pay for what you get
-
-### **Fortune 100 Methodology, Startup Speed**
-*"Enterprise strategy without enterprise timelines"*
-
-- **Traditional:** 6-month agency contracts, 2-week turnarounds
-- **Our Approach:** Weekly intelligence, Monday delivery guarantee
-- **Customer Benefit:** Immediate access to proven frameworks
-
-### **Creative Intelligence vs. Creative Services**
-*"Strategic insights, not just creative output"*
-
-- **Traditional:** Templates and copy without strategy
-- **Our Approach:** Psychology-backed concepts with competitive intelligence
-- **Customer Benefit:** Understand why concepts work, not just what to test
+### Objection Handling
+| Objection | Response |
+| --- | --- |
+| "We just need a quick test." | Highlight Explore’s 10 credits and instant upgrade path. |
+| "Too many plans." | Emphasize credit wallet simplicity and show calculator: credits × average usage. |
+| "We already have an agency." | Focus on Studio’s expert concept bonus + ongoing credits at a fraction of the retainer. |
+| "Will data lock-in happen?" | Credit-based system is cancel-anytime; unused credits persist until used. |
 
 ---
 
-## 📈 Success Metrics & Guarantees
+## Stripe / Billing Requirements
 
-### **Performance Targets**
-- 📊 **15-25% CPA improvement** within 60 days
-- 🚀 **3x faster creative iteration** vs. traditional methods
-- 📈 **15+ hours saved** per week on creative research
-- 🎯 **Platform-native concepts** for authentic engagement
-
-### **Quality Guarantees**
-- ✅ **Monday delivery promise** (or week refunded)
-- ✅ **Performance scoring** for every concept
-- ✅ **Strategy reasoning** included with all concepts
-- ✅ **Cancel anytime** with no questions asked
-
-### **Customer Success Support**
-- 📞 **Implementation guidance** included
-- 📚 **Best practices library** access
-- 🎓 **Monthly training sessions** for optimization
-- 🔄 **Continuous improvement** based on your feedback
+1. **Price Metadata** – `plan_tier`, `credit_amount`, and (for Studio) `studio_rate` must be present so the webhook knows how many credits to refill.
+2. **Checkout Inputs** – Frontend calls `create-checkout-session` with the tier name. The Edge function maps tiers to Stripe price IDs and injects metadata.
+3. **Webhook Logic** – `stripe-webhook` reads the metadata on both checkout sessions and subscription updates to add credits. Environment variables now include:
+   - `STRIPE_ESSENTIALS_PRICE_ID`
+   - `STRIPE_STUDIO_FOUNDING_PRICE_ID`
+   - `STRIPE_STUDIO_STANDARD_PRICE_ID`
+   - `STRIPE_CONCIERGE_PRICE_ID`
+4. **Migration** – New profiles default to **10 credits**. Existing profiles were backfilled via `20250925120000_update_profile_credit_defaults.sql`.
 
 ---
 
-## 🚀 Getting Started
+## Landing Page & CTA Updates
 
-### **Choose Your Tier** (First Week FREE)
-1. **Select** the tier that matches your ad spend and goals
-2. **Experience** full value during your free week
-3. **Continue** weekly billing or cancel anytime
-4. **Upgrade/downgrade** as your needs evolve
-
-### **Implementation Timeline**
-- **Day 1:** Account setup + first concept delivery
-- **Day 3:** Implementation guidance + support access
-- **Week 1:** Performance tracking + optimization tips
-- **Week 2:** Billing starts + upgrade consultation available
-
-### **Next Steps**
-- 🎯 **Start Your Free Week**: Choose tier below
-- 📞 **Book Strategy Call**: Discuss custom needs
-- 📚 **Download Resources**: Download 10 free hooks and sign up for free weekly newsletter
+- Replace every “Start Free Week Trial” button with “Claim 10 Free Credits”.
+- Pricing grid copy now references Explore/Essentials/Studio/Concierge.
+- Add the expert concept highlight card below the grid (already implemented in code).
+- Secondary messaging (“Founding member pricing”, etc.) should align with Studio’s six-month discount.
 
 ---
 
-*Ready to transform your creative strategy? Start your free week today and join the weekly creative intelligence revolution.*
+## Success Metrics to Track Post-Launch
 
-**[START YOUR FREE WEEK →]**
-
----
-
-## FAQ
-
-### **Billing & Pricing**
-**Q: How does weekly billing work?**
-A: You're billed every week for continued access. Cancel anytime before your next billing cycle.
-
-**Q: Can I upgrade or downgrade tiers?**
-A: Yes, changes take effect immediately. You'll be prorated for any differences.
-
-**Q: Is the launch pricing really locked forever?**
-A: Yes, first 200 customers lock in their pricing permanently, even as we raise prices for new customers.
-
-### **Content & Delivery**
-**Q: What if I don't like a week's concepts?**
-A: Every concept includes our reasoning. If it doesn't fit your brand, we'll provide alternatives or credit your account.
-
-**Q: Can I pause my subscription?**
-A: Yes, pause for up to 4 weeks per year without losing your launch pricing.
-
-**Q: Do you customize for my specific industry?**
-A: Creative Starter and Trend Tracker are general frameworks. Higher tiers include industry-specific customization.
+1. **Explore → Paid conversion rate** – target ≥ 25% within first month.
+2. **Average credits consumed per user** – ensures allocations (150/800/2000) feel right.
+3. **Stripe churn at month 7** – watch Studio customers as they graduate from $29 to $49.
+4. **Support tickets about credits** – gauge clarity of the new system.
 
 ---
 
-*Last updated: January 2025 • Pricing subject to change for new customers after launch period*
+## FAQ Snippets
+
+- **Is the free plan unlimited?** No—it refreshes 10 credits every month so prospects always have a reason to log back in.
+- **Do credits roll over?** Yes, unused credits accumulate (we do not expire them at this time).
+- **Can we buy extra credits without upgrading?** Not yet; prompt users to Essentials or Studio instead.
+- **What happens after the Studio founding offer ends?** Stripe automatically transitions those subscriptions to the standard $49 price while retaining metadata.
+
+---
+
+## Next Iterations
+
+- Offer add-on credit packs once Stripe usage stabilizes.
+- Introduce metered billing for API partners built on the same credit ledger.
+- Automate downgrade paths (Studio → Essentials) within the customer portal.
+
+This document replaces all legacy references to weekly billing and free-week trials. Update any remaining docs with the language templates above.

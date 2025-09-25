@@ -89,7 +89,7 @@ export default function RevenueGrowthBenchmarkingPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <FreeWeekButton source="revenue_growth_benchmarking-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="revenue_growth_benchmarking-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg">Claim 10 Free Credits</FreeWeekButton>
             </div>
           </div>
         </section>
@@ -319,7 +319,7 @@ export default function RevenueGrowthBenchmarkingPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <FreeWeekButton source="revenue_growth_benchmarking-cta" className="bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="revenue_growth_benchmarking-cta" className="bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">Claim 10 Free Credits</FreeWeekButton>
             </div>
             
             <div className="text-emerald-100 mt-6 max-w-md mx-auto">
@@ -346,7 +346,7 @@ export default function RevenueGrowthBenchmarkingPage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Step-by-step framework to reduce customer acquisition costs by 30-50%.
                 </p>
-                <FreeWeekButton source="revenue_growth_benchmarking-cta" className="text-emerald-600 font-semibold hover:underline mt-auto">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="revenue_growth_benchmarking-cta" className="text-emerald-600 font-semibold hover:underline mt-auto">Claim 10 Free Credits</FreeWeekButton>
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
@@ -354,7 +354,7 @@ export default function RevenueGrowthBenchmarkingPage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Automated creative analysis and competitor intelligence for strategic advantage.
                 </p>
-                <FreeWeekButton source="revenue_growth_benchmarking-cta" className="text-emerald-600 font-semibold hover:underline mt-auto">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="revenue_growth_benchmarking-cta" className="text-emerald-600 font-semibold hover:underline mt-auto">Claim 10 Free Credits</FreeWeekButton>
               </div>
               
               <div className="bg-gray-50 p-6 rounded-lg flex flex-col min-h-[200px]">
@@ -362,7 +362,7 @@ export default function RevenueGrowthBenchmarkingPage() {
                 <p className="text-gray-600 mb-4 flex-grow">
                   Calculate the potential ROI of implementing systematic creative strategy.
                 </p>
-                <FreeWeekButton source="revenue_growth_benchmarking-cta" className="text-emerald-600 font-semibold hover:underline mt-auto">Start Free Week Trial</FreeWeekButton>
+                <FreeWeekButton source="revenue_growth_benchmarking-cta" className="text-emerald-600 font-semibold hover:underline mt-auto">Claim 10 Free Credits</FreeWeekButton>
               </div>
             </div>
           </div>

@@ -669,7 +669,7 @@ export default function FreelanceMarketingConsultantSelectionChecklist() {
                     <DollarSign className="w-4 h-4 mr-2" />
                     Contract Template
                   </Link>
-                  <FreeWeekButton source="freelance_marketing_consultant_selection_checklist_2025-cta" className="flex items-center text-blue-600 hover:text-blue-700 text-sm">Start Free Week Trial</FreeWeekButton>
+                  <FreeWeekButton source="freelance_marketing_consultant_selection_checklist_2025-cta" className="flex items-center text-blue-600 hover:text-blue-700 text-sm">Claim 10 Free Credits</FreeWeekButton>
                 </div>
               </div>
 

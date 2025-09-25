@@ -31,9 +31,9 @@ export function CreativeResearchMattersSection() {
     {
       type: "fail",
       icon: <Target className="w-6 h-6" />,
-      title: "Typical Business",
-      method: "Posts random content",
-      result: "Hopes something works",
+      title: "Most Businesses",
+      method: "Post random content",
+      result: "Burn budget hoping something works",
       color: "text-[#EF4444]",
       bgColor: "bg-[#FEF2F2]",
       borderColor: "border-[#E5E7EB]"
@@ -41,9 +41,9 @@ export function CreativeResearchMattersSection() {
     {
       type: "fail",
       icon: <TrendingUp className="w-6 h-6" />,
-      title: "Basic Agency",
-      method: "Uses generic templates",
-      result: "Same ads as competitors",
+      title: "$5K+ Agencies",
+      method: "Use the same generic templates",
+      result: "Identical ads as your competitors",
       color: "text-[#F97316]",
       bgColor: "bg-[#FFF7ED]",
       borderColor: "border-[#E5E7EB]"
@@ -51,9 +51,9 @@ export function CreativeResearchMattersSection() {
     {
       type: "success",
       icon: <Zap className="w-6 h-6" />,
-      title: "APSICS Method",
-      method: "Research-backed concepts",
-      result: "Predictable revenue growth",
+      title: "APSICS Teams",
+      method: "Launch research-backed campaigns",
+      result: "Scale predictable revenue growth",
       color: "text-[#126DFB]",
       bgColor: "bg-[#EFF6FF]",
       borderColor: "border-[#126DFB]"
@@ -79,9 +79,9 @@ export function CreativeResearchMattersSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Most Ads Fail Because They're Built On{' '}
+            Why 500+ Teams Chose APSICS Over{' '}
             <span className="text-transparent bg-gradient-to-r from-red-600 to-red-500 bg-clip-text">
-              Guesswork
+              $5,000+ Agencies
             </span>
           </motion.h2>
 
@@ -92,7 +92,7 @@ export function CreativeResearchMattersSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Every failed ad campaign represents lost revenue, missed opportunities, and sleepless nights wondering what went wrong. Smart companies use data to predict what converts.
+            While competitors burn budget on creative guesswork, smart growth teams use research-backed frameworks to turn every ad dollar into predictable revenue growth.
           </motion.p>
         </motion.div>
 

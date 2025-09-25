@@ -91,7 +91,7 @@ export function AlyticsNavbar() {
               whileTap={{ scale: 0.98 }}
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-200 shadow-lg"
             >
-              Start Free Week
+              Claim Free Credits
             </motion.a>
           </motion.div>
 

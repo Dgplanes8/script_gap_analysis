@@ -55,7 +55,7 @@ export function SecondaryHeader() {
             href="/#service-tiers"
             className="inline-flex items-center gap-2 rounded-xl bg-[#126DFB] px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#0F5AD6]"
           >
-            Start Free Week Trial
+            Claim 10 Free Credits
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -88,7 +88,7 @@ export function SecondaryHeader() {
                 onClick={closeMobileMenu}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#126DFB] px-5 py-3 text-base font-semibold text-white shadow-lg transition-colors hover:bg-[#0F5AD6]"
               >
-                Start Free Week Trial
+                Claim 10 Free Credits
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </div>

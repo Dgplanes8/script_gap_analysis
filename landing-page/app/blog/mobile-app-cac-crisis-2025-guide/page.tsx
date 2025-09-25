@@ -342,7 +342,7 @@ export default function MobileAppCACCrisisPage() {
                   </p>
                   <div className="space-y-4">
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                      <FreeWeekButton source="mobile_app_cac_crisis_2025_guide-cta" className="inline-flex items-center px-6 py-3 bg-brand-600 text-white font-bold rounded-lg hover:bg-brand-700 transition-colors">Start Free Week Trial</FreeWeekButton>
+                      <FreeWeekButton source="mobile_app_cac_crisis_2025_guide-cta" className="inline-flex items-center px-6 py-3 bg-brand-600 text-white font-bold rounded-lg hover:bg-brand-700 transition-colors">Claim 10 Free Credits</FreeWeekButton>
                       <Link
                         href="/mobile-app-cac-optimization-2025"
                         className="inline-flex items-center px-6 py-3 border-2 border-brand-600 text-brand-600 font-semibold rounded-lg hover:bg-brand-600 hover:text-white transition-colors"

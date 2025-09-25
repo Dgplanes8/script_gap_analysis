@@ -40,7 +40,7 @@ export function CaseStudySection() {
             <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
               <BookOpen className="h-6 w-6 text-white" />
             </div>
-            <h3 className="text-xl font-semibold mb-4">Claim Your Free Week</h3>
+            <h3 className="text-xl font-semibold mb-4">Claim Your Free Credits</h3>
             <p className="text-indigo-100 mb-6">
               Get access to our complete strategic ad intelligence system for one week completely free. 
               Experience our proven methodology and see the results for yourself.
@@ -62,7 +62,7 @@ export function CaseStudySection() {
               }}
               className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
             >
-              Claim Free Week
+              Claim Free Credits
               <ArrowRight className="h-4 w-4 ml-2" />
             </button>
           </div>

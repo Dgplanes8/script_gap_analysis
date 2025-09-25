@@ -158,7 +158,7 @@ export function SubscriptionMarketingGuide() {
               }}
               className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
             >
-              Claim Free Week
+              Claim Free Credits
               <ArrowRight className="h-4 w-4 ml-2" />
             </button>
           </nav>
@@ -197,7 +197,7 @@ export function SubscriptionMarketingGuide() {
                 className="border-2 border-brand-600 text-brand-600 px-8 py-4 rounded-lg font-semibold hover:bg-brand-50 transition-colors flex items-center justify-center"
               >
                 <ArrowRight className="h-5 w-5 mr-2" />
-                Claim Free Week
+                Claim Free Credits
               </button>
             </div>
             
@@ -345,7 +345,7 @@ export function SubscriptionMarketingGuide() {
                 }}
                 className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-6 py-3 rounded-lg transition-colors flex items-center"
               >
-                Claim Free Week
+                Claim Free Credits
                 <ArrowRight className="h-4 w-4 ml-2" />
               </button>
             </div>

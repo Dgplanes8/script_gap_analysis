@@ -418,11 +418,11 @@ export default function TemplatedCreativeBriefGeneratorClient() {
             case 402:
               if (user) {
                 setShowPurchasePrompt(true);
-                setError('You\'re out of credits. Upgrade to unlock advanced mode and more briefs.');
+                setError('You\'re out of credits. Upgrade to Essentials or Studio to keep generating briefs.');
                 setProfileCredits(0);
               } else {
                 setShowAuthModal(true);
-                setError('Create a free APSICS account to unlock three additional briefs.');
+                setError('Create a free APSICS account to access your 10 monthly credits.');
               }
               break;
             case 502:
@@ -431,10 +431,10 @@ export default function TemplatedCreativeBriefGeneratorClient() {
             default:
               if (messageText.toLowerCase().includes('out of credit') && !user) {
                 setShowAuthModal(true);
-                setError('Create a free APSICS account to unlock three additional briefs.');
+                setError('Create a free APSICS account to access your 10 monthly credits.');
               } else if (statusCode === 402 && user) {
                 setShowPurchasePrompt(true);
-                setError('You\'re out of credits. Upgrade to unlock advanced mode and more briefs.');
+                setError('You\'re out of credits. Upgrade to Essentials or Studio to keep generating briefs.');
               } else {
                 setError(
                   messageText && !messageText.toLowerCase().includes('edge function returned a non-2xx status code')
@@ -488,13 +488,13 @@ export default function TemplatedCreativeBriefGeneratorClient() {
     [supabase, triggerProfileReload, user],
   );
 
-  const handlePurchase = useCallback(async () => {
+  const handlePurchase = useCallback(async (tier: 'essentials' | 'studio' | 'concierge' = 'studio') => {
     setError(null);
 
     try {
       const { data, error: invokeError } = await startCreativeBriefCheckout(supabase, {
         unlockResearch: true,
-        creditAmount: 50,
+        tier,
       });
 
       if (invokeError) {
@@ -641,7 +641,7 @@ export default function TemplatedCreativeBriefGeneratorClient() {
           <>
             <p className="font-semibold text-gray-900">Guest access active</p>
             <p className="mt-1 text-xs text-gray-600">
-              Enjoy one complimentary brief. Create a free APSICS account to unlock three more briefs and access advanced features.
+              Enjoy one complimentary brief. Sign in to access your 10 monthly credits and advanced features.
             </p>
           </>
         )}
@@ -843,19 +843,29 @@ export default function TemplatedCreativeBriefGeneratorClient() {
           <div className="rounded-2xl border border-brand-200 bg-brand-50 p-6 text-brand-900">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
-                <h3 className="text-lg font-semibold">Need advanced research mode?</h3>
+                <h3 className="text-lg font-semibold">Activate advanced research.</h3>
                 <p className="mt-1 text-sm text-brand-800">
-                  Unlock 50 additional credits, advanced research mode with competitive analysis, and unlimited PDF exports.
+                  Upgrade to Essentials for 150 monthly credits or secure the $29 Studio founding offer with 800 credits and an expert-crafted concept in month one.
                 </p>
               </div>
-              <button
-                onClick={handlePurchase}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/30 transition hover:bg-brand-700"
-                type="button"
-              >
-                <CreditCard className="h-4 w-4" />
-                Unlock Research Mode
-              </button>
+              <div className="flex flex-col gap-3 md:flex-row">
+                <button
+                  onClick={() => handlePurchase('essentials')}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/30 transition hover:bg-brand-700"
+                  type="button"
+                >
+                  <CreditCard className="h-4 w-4" />
+                  Upgrade to Essentials
+                </button>
+                <button
+                  onClick={() => handlePurchase('studio')}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-brand-500 px-5 py-3 text-sm font-semibold text-brand-700 transition hover:border-brand-600 hover:text-brand-800"
+                  type="button"
+                >
+                  <CreditCard className="h-4 w-4" />
+                  Unlock Studio Founding Offer
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -1032,7 +1042,7 @@ function AuthModal({ open, onClose, supabase, onAuthSuccess }: AuthModalProps) {
           <p className="text-xs font-semibold uppercase tracking-wide text-brand-500">Unlock more briefs</p>
           <h3 className="text-2xl font-bold text-gray-900">Create a free APSICS account</h3>
           <p className="text-sm text-gray-600">
-            Get three additional AI creative briefs, save your favorites, and access Monday creative intelligence drops.
+            Get 10 monthly AI creative brief credits, save your favorites, and access Monday creative intelligence drops.
           </p>
         </div>
         <AuthPanel

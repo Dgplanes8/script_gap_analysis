@@ -588,7 +588,7 @@ export default function MarketingAutomationWeeklyCreativeIntelligenceSetup() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <FreeWeekButton source="marketing_automation_weekly_creative_intelligence_setup-cta" className="bg-brand-600 text-white hover:bg-brand-700 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="marketing_automation_weekly_creative_intelligence_setup-cta" className="bg-brand-600 text-white hover:bg-brand-700 font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center">Claim 10 Free Credits</FreeWeekButton>
             </div>
           </div>
         </div>

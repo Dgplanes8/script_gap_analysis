@@ -146,7 +146,7 @@ Extra Small: text-xs (0.75rem) - Disclaimers, metadata
 
 **CTAs and Buttons**:
 - Action-oriented language: "Get," "Start," "Download," "Claim"
-- Create urgency: "Free Week," "Limited Time," "Join 1,200+ Founders"
+- Create urgency: "Claim Your Credits," "Limited Time Founding Offer," "Join 1,200+ Founders"
 - Avoid generic text like "Click Here" or "Submit"
 
 ---

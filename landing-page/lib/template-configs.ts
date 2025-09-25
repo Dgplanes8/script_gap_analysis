@@ -128,7 +128,7 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
       badge: 'Founder Club Special',
       title: 'Get the APSICS Media Founder Club for $20 this week',
       description: 'Start a free week trial, keep your favourite frameworks, and lock in lifetime Founder Club pricing before it returns to $97.',
-      ctaText: 'Start Free Week Trial',
+      ctaText: 'Claim 10 Free Credits',
       ctaHref: '/#service-tiers',
       footerText: 'Founder Club offer: $20 one-time add-on after your trial.',
     },
@@ -163,7 +163,7 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
         { label: 'Plans & Pricing', href: '#service-tiers' },
       ],
       ctaHref: '#service-tiers',
-      ctaLabel: 'Start Free Week Trial',
+      ctaLabel: 'Claim 10 Free Credits',
     },
   },
 

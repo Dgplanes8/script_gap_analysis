@@ -647,7 +647,7 @@ export default function FacebookAdCreativeIntelligenceSystem() {
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
               
-              <FreeWeekButton source="facebook_ad_creative_intelligence_system-cta" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Start Free Week Trial</FreeWeekButton>
+              <FreeWeekButton source="facebook_ad_creative_intelligence_system-cta" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold py-4 px-8 rounded-lg transition-all duration-200 flex items-center justify-center">Claim 10 Free Credits</FreeWeekButton>
             </div>
           </div>
         </div>

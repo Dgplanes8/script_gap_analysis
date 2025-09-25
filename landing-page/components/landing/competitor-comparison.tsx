@@ -339,7 +339,7 @@ export function CompetitorComparison() {
                 }}
                 className="bg-gradient-to-r from-brand-600 to-brand-600 hover:from-brand-700 hover:to-brand-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl"
               >
-                Start My Free Week Trial
+                Claim My Free Credits
               </button>
             </div>
           </div>

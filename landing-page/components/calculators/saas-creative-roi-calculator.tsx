@@ -480,7 +480,7 @@ export function SaaSCreativeROICalculator() {
                     }}
                     className="bg-white text-brand-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-50 transition-colors flex items-center"
                   >
-                    Claim Free Week
+                    Claim Free Credits
                     <ArrowRight className="h-4 w-4 ml-2" />
                   </button>
                   <div className="max-w-xs">
@@ -517,7 +517,7 @@ export function SaaSCreativeROICalculator() {
               }}
               className="bg-brand-600 text-white hover:bg-brand-700 font-semibold px-8 py-3 rounded-lg transition-colors flex items-center justify-center"
             >
-              Claim Free Week
+              Claim Free Credits
               <ArrowRight className="h-5 w-5 ml-2" />
             </button>
           </div>
