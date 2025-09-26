@@ -30,8 +30,8 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
         showPricingSection: true,
       },
       exitIntent: {
-        title: 'Grab 10 More Free Ad Templates',
-        subtitle: 'Join 100+ teams getting Monday creative intelligence drops plus instant access to our 10-template swipe file.',
+        title: 'Get Weekly Creative Intelligence Before You Go',
+        subtitle: 'Join 150+ growth teams getting Monday creative intelligence drops, bonus credits, and exclusive frameworks.',
       },
     },
     form: {
@@ -51,13 +51,13 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
         },
       ],
       freePlan: {
-        title: 'Free forever plan',
+        title: 'FREE FOREVER PLAN',
         features: [
           '1 instant script without logging in',
-          '+3 additional scripts after free account signup',
+          '10 credits every month with a free account',
           'Upgrade to unlock weekly delivery & advanced formats',
         ],
-        note: 'Need more credits? Paid plans add Stripe-powered top ups without leaving this page.',
+        note: 'Need more credits? Paid plans add instant top ups without leaving this page.',
       },
     },
     fields: [
@@ -181,9 +181,8 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
         showPricingSection: true,
       },
       exitIntent: {
-        title: 'Grab 5 more iteration formulas before you go',
-        subtitle:
-          'Join 100+ growth teams receiving weekly APSICS teardown drops, bonus credits, and private breakdowns.',
+        title: 'Get Weekly Creative Intelligence Before You Go',
+        subtitle: 'Join 150+ growth teams getting Monday creative intelligence drops, bonus credits, and exclusive frameworks.',
       },
     },
     form: {
@@ -204,13 +203,13 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
         },
       ],
       freePlan: {
-        title: 'Included in the free tier',
+        title: 'FREE FOREVER PLAN',
         features: [
-          '1 instant iteration with no login required',
-          '+3 additional iterations after free account signup',
-          'Upgrade for unlimited credits and weekly auto-delivery',
+          '1 instant script without logging in',
+          '10 credits every month with a free account',
+          'Upgrade to unlock weekly delivery & advanced formats',
         ],
-        note: 'Paid tiers unlock bulk uploads, CSV history export, and concierge reviews.',
+        note: 'Need more credits? Paid plans add instant top ups without leaving this page.',
       },
     },
     fields: [
@@ -227,6 +226,7 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
         type: 'select',
         required: true,
         options: [
+          { value: '', label: 'Select One' },
           { value: 'facebook', label: 'Facebook / Meta' },
           { value: 'instagram', label: 'Instagram (Reels/Stories)' },
           { value: 'tiktok', label: 'TikTok' },
@@ -265,13 +265,12 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
       },
     ],
     foundersClub: {
-      badge: 'Founder Club Insider',
-      title: 'Lock lifetime creative intelligence access at $20/mo',
-      description:
-        'Secure the Founder Club seat before it reverts to $97/mo and get priority iteration reviews, weekly teardown drops, and 50 bonus credits.',
-      ctaText: 'Claim Founder Club Seat',
+      badge: 'Founder Club Special',
+      title: 'Get the APSICS Media Founder Club for $20 this week',
+      description: 'Start a free week trial, keep your favourite frameworks, and lock in lifetime Founder Club pricing before it returns to $97.',
+      ctaText: 'Claim 10 Free Credits',
       ctaHref: '/#service-tiers',
-      footerText: 'Includes private Slack office hours and quarterly creative audits.',
+      footerText: 'Founder Club offer: $20 one-time add-on after your trial.',
     },
     process: {
       title: 'How APSICS remixes your creative in 180 seconds',
@@ -322,8 +321,8 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
         showPricingSection: true,
       },
       exitIntent: {
-        title: 'Download Our Creative Brief Templates',
-        subtitle: 'Join 100+ teams getting Monday creative intelligence drops plus instant access to our proven brief framework.',
+        title: 'Get Weekly Creative Intelligence Before You Go',
+        subtitle: 'Join 150+ growth teams getting Monday creative intelligence drops, bonus credits, and exclusive frameworks.',
       },
     },
     form: {
@@ -343,13 +342,13 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
         },
       ],
       freePlan: {
-        title: 'Free creative brief plan',
+        title: 'FREE FOREVER PLAN',
         features: [
-          '1 instant brief generation without signup',
-          '+3 additional briefs after free account creation',
-          'Upgrade to unlock advanced research mode & PDF exports',
+          '1 instant script without logging in',
+          '10 credits every month with a free account',
+          'Upgrade to unlock weekly delivery & advanced formats',
         ],
-        note: 'Advanced mode includes competitive analysis and audience research for enhanced brief quality.',
+        note: 'Need more credits? Paid plans add instant top ups without leaving this page.',
       },
     },
     fields: [
@@ -449,12 +448,12 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
       },
     ],
     foundersClub: {
-      badge: 'Creative Strategist Special',
-      title: 'Get the APSICS Creative Intelligence Suite for $20',
-      description: 'Access advanced research mode, unlimited brief exports, PDF automation, and weekly creative intelligence drops.',
-      ctaText: 'Unlock Research Mode',
+      badge: 'Founder Club Special',
+      title: 'Get the APSICS Media Founder Club for $20 this week',
+      description: 'Start a free week trial, keep your favourite frameworks, and lock in lifetime Founder Club pricing before it returns to $97.',
+      ctaText: 'Claim 10 Free Credits',
       ctaHref: '/#service-tiers',
-      footerText: 'Includes competitive analysis and audience research for every brief.',
+      footerText: 'Founder Club offer: $20 one-time add-on after your trial.',
     },
     process: {
       title: 'How we craft strategic briefs',

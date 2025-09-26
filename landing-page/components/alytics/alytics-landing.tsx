@@ -14,8 +14,8 @@ import { BeforeAfterExamplesSection } from './before-after-examples-section';
 import { AIGeneratorPreviewSection } from './ai-generator-preview-section';
 import { PerformanceGuaranteeSection } from './performance-guarantee-section';
 import { FourBoxProcessSection } from './four-box-process-section';
-import { FounderSection } from './founder-section';
 import { CreativeGuessworkProblemSection } from './creative-guesswork-problem-section';
+import { ToolsOverviewSection } from './tools-overview-section';
 
 const KeyBenefitsSection = dynamic(() => import('./key-benefits-section').then(mod => ({ default: mod.KeyBenefitsSection })), {
   loading: () => <div className="py-20 bg-white animate-pulse"></div>
@@ -67,16 +67,19 @@ export function AlyticsLanding() {
       {/* 5. Before/After Examples - Proof of transformation */}
       <BeforeAfterExamplesSection />
 
-      {/* 6. Simple Pricing - After demonstrating value */}
+      {/* 6. Tools Overview - Clarify product suite */}
+      <ToolsOverviewSection />
+
+      {/* 7. Simple Pricing - After demonstrating value */}
       <SimplePricingSection />
 
-      {/* 7. Problem-Solution Bridge - Core value prop */}
+      {/* 8. Problem-Solution Bridge - Core value prop */}
       <ProblemSolutionWorkflow />
 
-      {/* 8. Founder Section & Founding Offer */}
-      <FounderSection />
+      {/* 9. Key Benefits - Value reinforcement */}
+      <KeyBenefitsSection />
 
-      {/* 9. Final Conversion Push */}
+      {/* 10. Final Conversion Push */}
       <FinalConversionSection />
       
       {/* Newsletter Exit Popup */}

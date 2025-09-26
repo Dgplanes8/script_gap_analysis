@@ -41,7 +41,7 @@ export function CreativeResearchMattersSection() {
     {
       type: "fail",
       icon: <TrendingUp className="w-6 h-6" />,
-      title: "$5K+ Agencies",
+      title: "Traditional Agencies",
       method: "Use the same generic templates",
       result: "Identical ads as your competitors",
       color: "text-[#F97316]",
@@ -79,9 +79,9 @@ export function CreativeResearchMattersSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Why 500+ Teams Chose APSICS Over{' '}
-            <span className="text-transparent bg-gradient-to-r from-[#F97316] to-[#EF4444] bg-clip-text">
-              $5,000+ Agencies
+            Why Smart Growth Teams Choose{' '}
+            <span className="text-transparent bg-gradient-to-r from-[#126DFB] to-[#126DFB] bg-clip-text">
+              Research-Backed Creative Intelligence
             </span>
           </motion.h2>
 

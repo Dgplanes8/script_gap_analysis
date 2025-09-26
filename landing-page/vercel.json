@@ -3,8 +3,11 @@
     "app/api/subscribe/route.ts": {
       "maxDuration": 30
     },
-    "app/api/airtable-submit/route.ts": {
+    "app/api/leads/collect/route.ts": {
       "maxDuration": 30
+    },
+    "app/api/leads/package-checkout/route.ts": {
+      "maxDuration": 60
     }
   },
   "headers": [

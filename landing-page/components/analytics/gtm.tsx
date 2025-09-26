@@ -89,6 +89,20 @@ export const trackWeeklyTrialSubmission = (tier: string, email: string, source: 
   });
 };
 
+export const trackPaidPackageCheckout = (tier: string, email: string, source: string) => {
+  trackEvent('paid_package_checkout', {
+    event_category: 'revenue',
+    event_label: tier,
+    tier_name: tier,
+    email_domain: email.split('@')[1] || 'unknown',
+    checkout_source: source,
+    value: tier === 'Founders Special' ? 50 :
+           tier === 'Starter' ? 15 :
+           tier === 'Growth' ? 35 :
+           tier === 'Scale' ? 99 : 0
+  });
+};
+
 // Newsletter signup tracking
 export const trackNewsletterSignup = (email: string, source: string) => {
   trackEvent('newsletter_signup', {

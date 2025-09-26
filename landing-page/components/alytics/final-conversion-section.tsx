@@ -47,8 +47,8 @@ export function FinalConversionSection() {
 
   const urgencyPoints = [
     "Founding offer: lock $29/mo Studio pricing for six months",
-    "Expert crafted concept delivered in your first month",
-    "Credits work across scripts, briefs, and iteration requests"
+    "Expert crafted concept package delivered in your first month",
+    "Credits work across all tools with more functionality coming soon"
   ];
 
   return (
@@ -78,7 +78,7 @@ export function FinalConversionSection() {
               </span>
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              Join businesses who use proven frameworks to consistently drive revenue from their ad spend.
+  Join growth teams who use proven creative intelligence to consistently drive revenue from their ad spend.
             </p>
           </motion.div>
 
@@ -161,7 +161,7 @@ export function FinalConversionSection() {
                 <span className="text-blue-600 font-bold">3</span>
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2">Receive Concepts</h4>
-                <p className="text-gray-600 text-sm">Ready-to-develop concepts and scripts delivered Monday</p>
+                <p className="text-gray-600 text-sm">Fully-developed creative concepts with strategic insights delivered weekly</p>
               </div>
             </div>
           </motion.div>

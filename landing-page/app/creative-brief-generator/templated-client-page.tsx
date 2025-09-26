@@ -6,6 +6,7 @@ import type { User } from '@supabase/supabase-js';
 import { CreditCard, Loader2, X, FileText, Download, Mail, FileDown } from 'lucide-react';
 import { getSupabaseBrowserClient, type BrowserClient } from '@/lib/supabase/browser-client';
 import { AIFormTemplate } from '@/components/templates/ai-form-template';
+import { useFreeWeek } from '@/components/contexts/free-week-context';
 import { getToolConfig } from '@/lib/template-configs';
 import {
   type BriefMode,
@@ -160,11 +161,40 @@ function renderParagraphsCopy(copy: string) {
     .filter(Boolean);
 }
 
+function renderParagraphBlocks(copy: string) {
+  const paragraphs = renderParagraphsCopy(copy);
+  return paragraphs.map((paragraph, index) => (
+    <div
+      key={index}
+      className="rounded-2xl border border-gray-100 bg-gray-50/80 p-4 text-sm leading-relaxed text-gray-600"
+    >
+      {paragraph}
+    </div>
+  ));
+}
+
+function parseCreativeConcepts(copy: string) {
+  const conceptRegex = /Concept\s+(\d+):\s*([^–-]+)[–-]\s*(.*?)(?=Concept\s+\d+:|$)/g;
+  const concepts: Array<{ id: string; title: string; description: string }> = [];
+  let match: RegExpExecArray | null;
+
+  while ((match = conceptRegex.exec(copy)) !== null) {
+    concepts.push({
+      id: match[1].trim(),
+      title: match[2].trim(),
+      description: match[3].replace(/\s+/g, ' ').trim(),
+    });
+  }
+
+  return concepts.length ? concepts : null;
+}
+
 export default function TemplatedCreativeBriefGeneratorClient() {
   // All hooks must be called before any conditional returns
   const supabase = useMemo(() => getSupabaseBrowserClient(), []);
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { openModal } = useFreeWeek();
   const [user, setUser] = useState<User | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [structuredBrief, setStructuredBrief] = useState<StructuredBrief | null>(null);
@@ -249,7 +279,7 @@ export default function TemplatedCreativeBriefGeneratorClient() {
       try {
         const { data, error } = await supabase
           .from('profiles')
-          .select('credits_remaining, research_mode_unlocked, brief_exports')
+          .select('credits_remaining')
           .eq('id', user.id)
           .maybeSingle();
 
@@ -488,30 +518,26 @@ export default function TemplatedCreativeBriefGeneratorClient() {
     [supabase, triggerProfileReload, user],
   );
 
-  const handlePurchase = useCallback(async (tier: 'essentials' | 'studio' | 'concierge' = 'studio') => {
-    setError(null);
+  const handlePurchase = useCallback((tier: 'essentials' | 'studio' | 'concierge' = 'studio') => {
+    const tierTitles = {
+      essentials: 'Upgrade to Essentials',
+      studio: 'Unlock Studio Founding Offer',
+      concierge: 'Talk to a Strategist'
+    };
 
-    try {
-      const { data, error: invokeError } = await startCreativeBriefCheckout(supabase, {
-        unlockResearch: true,
-        tier,
-      });
+    const tierSubtitles = {
+      essentials: 'Lock in 150 credits per month with priority processing for your entire team.',
+      studio: 'Founding members secure $29/mo pricing for six months plus an expert-crafted concept for 6 months.',
+      concierge: 'Schedule time with our senior team to tailor Concierge access to your roadmap.'
+    };
 
-      if (invokeError) {
-        const { message } = await extractEdgeFunctionError(invokeError);
-        setError(message || 'Unable to start checkout.');
-        return;
-      }
-
-      if (data?.checkout_url) {
-        window.location.href = data.checkout_url;
-      } else {
-        setError('Checkout session missing redirect URL.');
-      }
-    } catch (purchaseError) {
-      setError(purchaseError instanceof Error ? purchaseError.message : 'Unexpected error during checkout.');
-    }
-  }, [supabase]);
+    openModal({
+      title: tierTitles[tier],
+      subtitle: tierSubtitles[tier],
+      source: 'creative-brief-generator',
+      tier: tier
+    });
+  }, [openModal]);
 
   const handleSignOut = useCallback(async () => {
     try {
@@ -680,15 +706,15 @@ export default function TemplatedCreativeBriefGeneratorClient() {
 
   // Custom result component for brief display
   const resultComponent = structuredBrief ? (
-    <div className="mt-8 space-y-4 rounded-2xl border border-gray-200 bg-gray-50 p-6">
-      <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-gray-900">Generated Creative Brief</h3>
-        <div className="flex items-center gap-2">
+    <div className="mt-8 space-y-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h3 className="text-xl font-semibold text-gray-900">Generated Creative Brief</h3>
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
           {user?.email && (
             <button
               onClick={handleSendEmail}
               disabled={emailSending}
-              className="inline-flex items-center gap-2 rounded-lg bg-[#126DFB] px-3 py-2 text-sm font-medium text-white transition hover:bg-[#0F5AD6] disabled:opacity-50"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#126DFB] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#0F5AD6] disabled:opacity-50"
               type="button"
             >
               {emailSending ? (
@@ -704,7 +730,7 @@ export default function TemplatedCreativeBriefGeneratorClient() {
           <button
             onClick={handleDownloadPdf}
             disabled={pdfGenerating}
-            className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-200 disabled:opacity-50"
+            className="inline-flex items-center gap-2 rounded-xl border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-100 disabled:opacity-50"
             type="button"
           >
             {pdfGenerating ? (
@@ -718,8 +744,8 @@ export default function TemplatedCreativeBriefGeneratorClient() {
       </div>
 
       {researchSummary && (
-        <div className="rounded-md border border-primary/30 bg-primary/5 p-3">
-          <h4 className="text-sm font-semibold text-primary">Research Highlights</h4>
+        <div className="rounded-xl border border-primary/30 bg-primary/5 p-4">
+          <h4 className="text-sm font-semibold text-primary mb-1">Research Highlights</h4>
           {renderParagraphsCopy(researchSummary).map((paragraph, index) => (
             <p key={index} className="mt-1 text-sm text-primary/90">
               {paragraph}
@@ -729,49 +755,55 @@ export default function TemplatedCreativeBriefGeneratorClient() {
       )}
 
       <div className="space-y-4">
-        <div className="space-y-2">
+        <div className="space-y-3">
           <h4 className="text-base font-semibold text-gray-900">Executive Summary</h4>
-          {renderParagraphsCopy(structuredBrief.executiveSummary).map((paragraph, index) => (
-            <p key={`summary-${index}`} className="text-sm leading-relaxed text-gray-600">
-              {paragraph}
-            </p>
-          ))}
+          <div className="space-y-3">
+            {renderParagraphBlocks(structuredBrief.executiveSummary)}
+          </div>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-3">
           <h4 className="text-base font-semibold text-gray-900">Strategic Foundation</h4>
-          {renderParagraphsCopy(structuredBrief.strategicFoundation).map((paragraph, index) => (
-            <p key={`foundation-${index}`} className="text-sm leading-relaxed text-gray-600">
-              {paragraph}
-            </p>
-          ))}
+          <div className="space-y-3">
+            {renderParagraphBlocks(structuredBrief.strategicFoundation)}
+          </div>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-3">
           <h4 className="text-base font-semibold text-gray-900">Creative Direction</h4>
-          {renderParagraphsCopy(structuredBrief.creativeDirection).map((paragraph, index) => (
-            <p key={`direction-${index}`} className="text-sm leading-relaxed text-gray-600">
-              {paragraph}
-            </p>
-          ))}
+          {(() => {
+            const concepts = parseCreativeConcepts(structuredBrief.creativeDirection);
+            if (concepts) {
+              return (
+                <div className="space-y-3">
+                  {concepts.map((concept) => (
+                    <div key={concept.id} className="rounded-2xl border border-gray-100 bg-gray-50/80 p-4">
+                      <p className="text-sm font-semibold text-gray-900">
+                        Concept {concept.id}: {concept.title}
+                      </p>
+                      <p className="mt-2 text-sm leading-relaxed text-gray-600">{concept.description}</p>
+                    </div>
+                  ))}
+                </div>
+              );
+            }
+
+            return renderParagraphBlocks(structuredBrief.creativeDirection);
+          })()}
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-3">
           <h4 className="text-base font-semibold text-gray-900">Deliverables</h4>
-          {renderParagraphsCopy(structuredBrief.deliverables).map((paragraph, index) => (
-            <p key={`deliverables-${index}`} className="text-sm leading-relaxed text-gray-600">
-              {paragraph}
-            </p>
-          ))}
+          <div className="space-y-3">
+            {renderParagraphBlocks(structuredBrief.deliverables)}
+          </div>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-3">
           <h4 className="text-base font-semibold text-gray-900">Success Metrics</h4>
-          {renderParagraphsCopy(structuredBrief.successMetrics).map((paragraph, index) => (
-            <p key={`metrics-${index}`} className="text-sm leading-relaxed text-gray-600">
-              {paragraph}
-            </p>
-          ))}
+          <div className="space-y-3">
+            {renderParagraphBlocks(structuredBrief.successMetrics)}
+          </div>
         </div>
       </div>
 
@@ -855,7 +887,7 @@ export default function TemplatedCreativeBriefGeneratorClient() {
                   type="button"
                 >
                   <CreditCard className="h-4 w-4" />
-                  Upgrade to Essentials
+                  Get 150 Credits
                 </button>
                 <button
                   onClick={() => handlePurchase('studio')}
@@ -863,14 +895,13 @@ export default function TemplatedCreativeBriefGeneratorClient() {
                   type="button"
                 >
                   <CreditCard className="h-4 w-4" />
-                  Unlock Studio Founding Offer
+                  Get 800 Credits + Expert Concept
                 </button>
               </div>
             </div>
           </div>
         </div>
       )}
-
       <AuthModal
         open={showAuthModal}
         onClose={() => {
@@ -960,8 +991,8 @@ function AuthPanel({ supabase, onAuthSuccess }: AuthPanelProps) {
   };
 
   return (
-    <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
-      <div className="flex items-center justify-between">
+    <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm font-semibold text-gray-700">
           {mode === 'sign-in' ? 'Sign in to continue generating briefs' : 'Create a free account to claim 3 more briefs'}
         </p>

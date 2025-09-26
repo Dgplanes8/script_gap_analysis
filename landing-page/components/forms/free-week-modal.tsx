@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { SimpleAirtableForm } from './simple-airtable-form';
+import { PackageCheckoutForm } from './package-checkout-form';
 
 interface FreeWeekModalProps {
   isOpen: boolean;
@@ -82,25 +83,37 @@ export function FreeWeekModal({
 
           {/* Form Container */}
           <div className="px-8 pb-8">
-            <SimpleAirtableForm
-              buttonText="Claim My Free Credits"
-              buttonClassName="w-full bg-gradient-to-r from-[#126DFB] to-[#0F5AD6] hover:from-[#0F5AD6] hover:to-[#126DFB] text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
-              source={source}
-              tier={tier}
-              onSuccess={() => {
-                // Modal will close automatically when form redirects to success page
-                onClose();
-              }}
-              onError={() => {
-                // Keep modal open on error so user can retry
-              }}
-            />
+            {tier && ['essentials', 'studio', 'concierge'].includes(tier.toLowerCase()) ? (
+              <PackageCheckoutForm
+                packageName={tier.charAt(0).toUpperCase() + tier.slice(1)}
+                source={source || 'pricing-modal'}
+                onClose={onClose}
+              />
+            ) : (
+              <SimpleAirtableForm
+                buttonText="Claim My Free Credits"
+                buttonClassName="w-full bg-gradient-to-r from-[#126DFB] to-[#0F5AD6] hover:from-[#0F5AD6] hover:to-[#126DFB] text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
+                source={source}
+                tier={tier}
+                onSuccess={() => {
+                  // Modal will close automatically when form redirects to success page
+                  onClose();
+                }}
+                onError={() => {
+                  // Keep modal open on error so user can retry
+                }}
+              />
+            )}
           </div>
 
           {/* Footer */}
           <div className="px-8 pb-6 text-center">
             <div className="text-xs text-gray-500">
-              10 credits reload every month • No card required • Upgrade anytime
+              {tier && ['essentials', 'studio', 'concierge'].includes(tier.toLowerCase()) ? (
+                'Secure checkout via Stripe • Cancel anytime • 30-day guarantee'
+              ) : (
+                '10 credits reload every month • No card required • Upgrade anytime'
+              )}
             </div>
           </div>
         </div>

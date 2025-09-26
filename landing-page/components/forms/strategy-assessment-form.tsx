@@ -66,7 +66,7 @@ export function StrategyAssessmentForm({ onClose }: StrategyAssessmentFormProps)
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('/api/airtable-submit', {
+      const response = await fetch('/api/leads/collect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

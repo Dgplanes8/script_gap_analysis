@@ -332,8 +332,8 @@ serve(async (req) => {
           {
             role: "system",
             content:
-              "You are a direct-response marketing strategist. Produce concise, high-performing video ad scripts with hooks, narrative structure, and platform-native pacing.",
-        },
+              "You are a direct-response marketing strategist. Produce concise, high-performing video ad scripts with hooks, narrative structure, and platform-native pacing. Never invent research or data; if required inputs are missing, ask for clarification or return an explicit error.",
+          },
         {
           role: "user",
           content: prompt,
@@ -380,7 +380,8 @@ serve(async (req) => {
     productDescription: productDescription?.trim() || '',
     platform: platform?.trim() || '',
     objective: objective?.trim() || '',
-    adFormat
+    adFormat,
+    fullPrompt: prompt  // Add the actual prompt sent to OpenRouter
   };
 
   const outputPayload = {
@@ -471,11 +472,7 @@ function buildPrompt({
     : 'No specific platform provided — include cross-platform adaptation notes for Facebook, Instagram, and TikTok with platform-native pacing, hook style, and CTA guidance.';
   const completenessInstruction = 'If any research data points are missing or unspecified, proceed using best-practice insights and the provided campaign info. Never respond with "This information is not available in the provided training data"—always generate the best possible creative output. Avoid refusal language entirely.';
 
-  return `${basePrompt.trim()}
-
----
-Use the above strategic workflow to craft a finished advertising script. Reference the following campaign brief:
-
+  const campaignBriefSection = `Campaign Brief:
 Company Name: ${companyName}
 Website URL: ${websiteUrl}
 Product Description: ${descriptionLine}
@@ -490,7 +487,14 @@ Platform-Specific Guidance:
 ${platformInstruction}
 
 Completeness Requirement:
-${completenessInstruction}
+${completenessInstruction}`;
+
+  return `${campaignBriefSection.trim()}
+
+---
+${basePrompt.trim()}
+
+Use the above strategic workflow to craft a finished advertising script that aligns with the campaign brief provided above.
 
 Output Requirements:
 1. Select the optimal framework based on the campaign brief and platform.

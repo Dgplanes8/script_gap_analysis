@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingDown, Clock, DollarSign, AlertCircle } from 'lucide-react';
 
@@ -160,18 +161,9 @@ export function CreativeGuessworkProblemSection() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Creative Chaos</h3>
               <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2"></div>
-                  <span>Randomly testing ad concepts without proven frameworks</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2"></div>
-                  <span>Missing trends while competitors capitalize first</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2"></div>
-                  <span>Burning budget on creative that doesn't convert</span>
-                </li>
+                <BulletItem color="#EF4444">Randomly testing ad concepts without proven frameworks</BulletItem>
+                <BulletItem color="#EF4444">Missing trends while competitors capitalize first</BulletItem>
+                <BulletItem color="#EF4444">Burning budget on creative that doesn't convert</BulletItem>
               </ul>
             </div>
 
@@ -182,18 +174,9 @@ export function CreativeGuessworkProblemSection() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Conversion Machine</h3>
               <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-[#126DFB] rounded-full mt-2"></div>
-                  <span>Research-backed creative from $250M+ proven spend</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-[#126DFB] rounded-full mt-2"></div>
-                  <span>Weekly trend intelligence delivered to your inbox</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-[#126DFB] rounded-full mt-2"></div>
-                  <span>25% CAC reduction across 500+ growth teams</span>
-                </li>
+                <BulletItem color="#126DFB">Research-backed creative from $250M+ proven spend</BulletItem>
+                <BulletItem color="#126DFB">Weekly trend intelligence delivered to your inbox</BulletItem>
+                <BulletItem color="#126DFB">25% CAC reduction across 500+ growth teams</BulletItem>
               </ul>
             </div>
           </div>
@@ -219,3 +202,9 @@ export function CreativeGuessworkProblemSection() {
     </section>
   );
 }
+const BulletItem = ({ color, children }: { color: string; children: React.ReactNode }) => (
+  <li className="flex items-start gap-3 text-left">
+    <div className={`mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0`} style={{ backgroundColor: color }} />
+    <span className="leading-relaxed">{children}</span>
+  </li>
+);

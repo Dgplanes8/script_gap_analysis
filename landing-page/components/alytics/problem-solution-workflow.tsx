@@ -36,7 +36,7 @@ export function ProblemSolutionWorkflow() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Stop burning budget on ads that feel native but convert like crazy. Our research-backed approach eliminated guesswork for 500+ brands, turning $250M+ in spend into breakthrough campaigns that scale profitably.
+Stop burning budget on ads that feel native but convert like crazy. Our research-backed approach eliminates creative guesswork, turning ad spend into breakthrough campaigns that scale profitably through data-driven strategic frameworks.
           </motion.p>
         </motion.div>
 

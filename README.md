@@ -1,172 +1,183 @@
-# Ad Analysis and Script Writer Workflow
+# Supabase CLI
 
-## 🚀 Complete Phased Ad Campaign Development System
+[![Coverage Status](https://coveralls.io/repos/github/supabase/cli/badge.svg?branch=main)](https://coveralls.io/github/supabase/cli?branch=main) [![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/supabase-cli/setup-cli/master?style=flat-square&label=Bitbucket%20Canary)](https://bitbucket.org/supabase-cli/setup-cli/pipelines) [![Gitlab Pipeline Status](https://img.shields.io/gitlab/pipeline-status/sweatybridge%2Fsetup-cli?label=Gitlab%20Canary)
+](https://gitlab.com/sweatybridge/setup-cli/-/pipelines)
 
-A comprehensive workflow for systematic ad analysis, competitive research, and high-converting script generation. Build data-driven campaigns with validated concepts, scored copy, and professional script frameworks.
+[Supabase](https://supabase.io) is an open source Firebase alternative. We're building the features of Firebase using enterprise-grade open source tools.
 
-## 📊 What's Included
+This repository contains all the functionality for Supabase CLI.
 
-### **Complete Workflow System**
-- **14-step phased process** across 4 strategic phases
-- **Python orchestrator scripts** for automated workflow execution
-- **Professional script frameworks** with 10 proven structures
-- **Performance scoring system** for copy validation
-- **Production-ready creative briefs** for team handoff
+- [x] Running Supabase locally
+- [x] Managing database migrations
+- [x] Creating and deploying Supabase Functions
+- [x] Generating types directly from your database schema
+- [x] Making authenticated HTTP requests to [Management API](https://supabase.com/docs/reference/api/introduction)
 
-### **Key Features**
-- **Phased execution** - Foundation → Analysis → Creative Development → Finalization
-- **Multi-source research** - Perplexity MCP, Reddit API, Apify MCP, AssemblyAI
-- **Validated concepts** - 3 concepts × 3-5 formats = 15 total ads
-- **Scored copy development** - 25-point performance prediction system
-- **Framework-based scripts** - Professional structures for all awareness levels
+## Getting started
 
-## 🎯 Workflow Capabilities
+### Install the CLI
 
-### Research & Analysis
-- **Multi-source intelligence** - Perplexity, Reddit, competitive ads, video transcription
-- **Gap analysis framework** - Systematic opportunity identification
-- **Competitive positioning** - Strategic advantage mapping
-- **Audience insights** - Authentic voice capture and pain point analysis
+Available via [NPM](https://www.npmjs.com) as dev dependency. To install:
 
-### Creative Development
-- **Concept validation** - Strategic alignment scoring and framework
-- **Copy performance scoring** - 25-point prediction system across 5 dimensions
-- **Professional script frameworks** - 10 proven structures for all awareness levels
-- **Platform optimization** - Native content guidelines for TikTok, Instagram, Facebook
-
-## 📁 Repository Structure
-
-```
-Ad Workflow/
-├── phased_workflow_orchestrator.py     # New phased orchestrator (recommended)
-├── ad_workflow_orchestrator.py         # Legacy numbered orchestrator  
-├── PHASED_WORKFLOW_GUIDE.md            # Complete phased execution guide
-├── WORKFLOW_EXECUTION_GUIDE.md         # Legacy numbered execution guide
-├── workflow_steps/                     # Individual step scripts
-│   ├── step_1_brand_setup.py          # Brand profiling and setup
-│   ├── step_2_perplexity_research.py  # Market intelligence gathering
-│   ├── step_3_reddit_research.py      # Social listening analysis
-│   ├── step_4_apify_scraping.py       # Competitive ad analysis
-│   ├── steps_5_through_9.py           # Analysis and creative steps
-│   └── assemblyai_integration.py      # Video transcription with AI
-├── Projects/{brand_name}/              # Brand-specific project folder
-│   ├── Brand/                         # Brand profile and guidelines
-│   ├── Perplexity/                    # Market research results
-│   ├── Reddit/                        # Social listening insights
-│   ├── Apify/                         # Competitive ad analysis
-│   ├── AssemblyAI/                    # Video/audio transcription
-│   ├── Guide/                         # Script writing guidelines
-│   ├── Gap_Analysis/                  # Strategic and competitive analysis
-│   ├── Concepts/                      # Strategic concept generation
-│   ├── Copy/                          # Hook/headline development
-│   ├── Script/                        # Complete script variations
-│   └── Completed_Analysis/            # Final analysis and creative brief
-├── Prompt_Database/                   # Reusable analysis templates
-├── Overview/                          # PRD and workflow documentation
-└── Brand_Guidelines/                  # Brand template framework
-```
-
-## 🔧 Quick Start
-
-### Execute Complete Workflow (Recommended)
 ```bash
-python phased_workflow_orchestrator.py --brand "Your Brand" --competitors "Comp1,Comp2,Comp3" --full
+npm i supabase --save-dev
 ```
 
-### Execute by Phase
+To install the beta release channel:
+
 ```bash
-python phased_workflow_orchestrator.py --brand "Your Brand" --phase 1  # Foundation
-python phased_workflow_orchestrator.py --brand "Your Brand" --phase 2  # Analysis
-python phased_workflow_orchestrator.py --brand "Your Brand" --phase 3  # Creative Development
-python phased_workflow_orchestrator.py --brand "Your Brand" --phase 4  # Finalization
+npm i supabase@beta --save-dev
 ```
 
-### Execute Individual Steps
+When installing with yarn 4, you need to disable experimental fetch with the following nodejs config.
+
+```
+NODE_OPTIONS=--no-experimental-fetch yarn add supabase
+```
+
+> **Note**
+For Bun versions below v1.0.17, you must add `supabase` as a [trusted dependency](https://bun.sh/guides/install/trusted) before running `bun add -D supabase`.
+
+<details>
+  <summary><b>macOS</b></summary>
+
+  Available via [Homebrew](https://brew.sh). To install:
+
+  ```sh
+  brew install supabase/tap/supabase
+  ```
+
+  To install the beta release channel:
+  
+  ```sh
+  brew install supabase/tap/supabase-beta
+  brew link --overwrite supabase-beta
+  ```
+  
+  To upgrade:
+
+  ```sh
+  brew upgrade supabase
+  ```
+</details>
+
+<details>
+  <summary><b>Windows</b></summary>
+
+  Available via [Scoop](https://scoop.sh). To install:
+
+  ```powershell
+  scoop bucket add supabase https://github.com/supabase/scoop-bucket.git
+  scoop install supabase
+  ```
+
+  To upgrade:
+
+  ```powershell
+  scoop update supabase
+  ```
+</details>
+
+<details>
+  <summary><b>Linux</b></summary>
+
+  Available via [Homebrew](https://brew.sh) and Linux packages.
+
+  #### via Homebrew
+
+  To install:
+
+  ```sh
+  brew install supabase/tap/supabase
+  ```
+
+  To upgrade:
+
+  ```sh
+  brew upgrade supabase
+  ```
+
+  #### via Linux packages
+
+  Linux packages are provided in [Releases](https://github.com/supabase/cli/releases). To install, download the `.apk`/`.deb`/`.rpm`/`.pkg.tar.zst` file depending on your package manager and run the respective commands.
+
+  ```sh
+  sudo apk add --allow-untrusted <...>.apk
+  ```
+
+  ```sh
+  sudo dpkg -i <...>.deb
+  ```
+
+  ```sh
+  sudo rpm -i <...>.rpm
+  ```
+
+  ```sh
+  sudo pacman -U <...>.pkg.tar.zst
+  ```
+</details>
+
+<details>
+  <summary><b>Other Platforms</b></summary>
+
+  You can also install the CLI via [go modules](https://go.dev/ref/mod#go-install) without the help of package managers.
+
+  ```sh
+  go install github.com/supabase/cli@latest
+  ```
+
+  Add a symlink to the binary in `$PATH` for easier access:
+
+  ```sh
+  ln -s "$(go env GOPATH)/bin/cli" /usr/bin/supabase
+  ```
+
+  This works on other non-standard Linux distros.
+</details>
+
+<details>
+  <summary><b>Community Maintained Packages</b></summary>
+
+  Available via [pkgx](https://pkgx.sh/). Package script [here](https://github.com/pkgxdev/pantry/blob/main/projects/supabase.com/cli/package.yml).
+  To install in your working directory:
+
+  ```bash
+  pkgx install supabase
+  ```
+
+  Available via [Nixpkgs](https://nixos.org/). Package script [here](https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/supabase-cli/default.nix).
+</details>
+
+### Run the CLI
+
 ```bash
-python phased_workflow_orchestrator.py --brand "Your Brand" --step Brand_Setup
-python phased_workflow_orchestrator.py --brand "Your Brand" --step Copy_Development
-python phased_workflow_orchestrator.py --brand "Your Brand" --step Creative_Brief
+supabase bootstrap
 ```
 
-### Check Progress
+Or using npx:
+
 ```bash
-python phased_workflow_orchestrator.py --brand "Your Brand" --status
+npx supabase bootstrap
 ```
 
-## 📈 Phased Workflow Structure
+The bootstrap command will guide you through the process of setting up a Supabase project using one of the [starter](https://github.com/supabase-community/supabase-samples/blob/main/samples.json) templates.
 
-### **Phase 1: Foundation** (4 steps)
-1. **Brand_Setup** - Brand profiling and folder structure
-2. **Research_Perplexity** - Market intelligence using Perplexity MCP
-3. **Research_Reddit** - Social listening and authentic voice capture
-4. **Research_Apify** - Competitive Facebook/Instagram ad analysis
+## Docs
 
-### **Phase 2: Analysis** (4 steps)
-5. **Transcription_Analysis** - Video/audio analysis with AssemblyAI
-6. **Script_Analysis** - Best practices guide creation
-7. **Competitive_Analysis** - Deep competitor strategy analysis
-8. **Gap_Analysis** - Strategic opportunity identification
+Command & config reference can be found [here](https://supabase.com/docs/reference/cli/about).
 
-### **Phase 3: Creative Development** (4 steps)
-9. **Concept_Generation** - Strategic concept ideation (3 concepts × 3-5 formats)
-10. **Copy_Development** - Hook/headline creation with 25-point scoring
-11. **Script_Generation** - Professional framework-based script creation
-12. **Creative_Validation** - Final asset validation and prioritization
+## Breaking changes
 
-### **Phase 4: Finalization** (2 steps)
-13. **Creative_Brief** - Production-ready brief for team handoff
-14. **Final_Analysis** - Complete strategic analysis and roadmap
+We follow semantic versioning for changes that directly impact CLI commands, flags, and configurations.
 
-## 🎯 Workflow Outputs
+However, due to dependencies on other service images, we cannot guarantee that schema migrations, seed.sql, and generated types will always work for the same CLI major version. If you need such guarantees, we encourage you to pin a specific version of CLI in package.json.
 
-### Strategic Deliverables
-- **Complete brand positioning** with target audience and differentiation strategy
-- **Market opportunity analysis** with competitive gaps and strategic advantages
-- **Validated concept framework** with 3 concepts × 3-5 formats = 15 total ads
-- **Scored copy bank** with performance predictions across 5 dimensions
-- **Professional script library** using proven frameworks for all awareness levels
+## Developing
 
-### Production Assets
-- **15 Complete Scripts** with framework rationale and platform optimization
-- **Creative Brief** with production requirements and visual direction
-- **Performance Predictions** with expected conversion and engagement metrics
-- **Implementation Roadmap** with phases, timelines, and success criteria
+To run from source:
 
-### Framework Benefits
-- **Systematic approach** reduces guesswork and improves consistency
-- **Data-driven insights** from multi-source research and competitive analysis
-- **Validated concepts** minimize creative risk through strategic alignment
-- **Professional frameworks** ensure script quality and platform optimization
-- **Performance scoring** predicts success before production investment
-
-## 🛠 Requirements
-
-- Python 3.7+
-- Access to research APIs:
-  - Perplexity MCP
-  - Reddit API
-  - Apify MCP (Facebook Ads Library)
-  - AssemblyAI API
-  - Claude Code
-
-## 📚 Documentation
-
-- **[Phased Workflow Guide](PHASED_WORKFLOW_GUIDE.md)** - Complete phased execution guide (recommended)
-- **[Legacy Workflow Guide](WORKFLOW_EXECUTION_GUIDE.md)** - Original numbered step instructions
-- **[PRD](Overview/Ad%20Analysis%20and%20Script%20Writer%20PRD.md)** - Product requirements and framework
-- **[Stripe Setup Guide](stripe-setup-guide.md)** - Step-by-step billing configuration for the credit-based plans
-
-## 🤖 Generated with Claude Code
-
-This comprehensive workflow system was developed using Claude Code, demonstrating a systematic approach to ad campaign development through data-driven research, competitive analysis, and strategic creative development.
-
-### Key Innovations
-- **Phased workflow structure** for logical step progression
-- **Copy performance scoring** with 25-point prediction framework
-- **Professional script frameworks** integrated from proven advertising models
-- **Multi-source research integration** for comprehensive market intelligence
-- **Production-ready outputs** with creative briefs and implementation roadmaps
-
----
-
-**Result:** Complete, systematic workflow for developing high-converting ad campaigns with validated concepts, scored copy, and professional scripts ready for production.
+```sh
+# Go >= 1.22
+go run . help
+```

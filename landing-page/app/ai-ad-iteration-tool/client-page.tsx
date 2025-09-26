@@ -20,6 +20,7 @@ import clsx from 'clsx';
 import { AIFormTemplate } from '@/components/templates/ai-form-template';
 import type { ToolPageConfig } from '@/lib/template-configs';
 import { getSupabaseBrowserClient, type BrowserClient } from '@/lib/supabase/browser-client';
+import { useFreeWeek } from '@/components/contexts/free-week-context';
 import {
   Dialog,
   DialogContent,
@@ -235,6 +236,7 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
   const supabase = useMemo(() => getSupabaseBrowserClient(), []);
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { openModal } = useFreeWeek();
 
   const [user, setUser] = useState<User | null>(null);
   const [profileCredits, setProfileCredits] = useState<number | null>(null);
@@ -639,7 +641,7 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
                 setProfileCredits(0);
               } else {
                 setShowAuthModal(true);
-                setError('Create a free account to access your 10 monthly credits.');
+                setError('Create a free APSICS Media account to access your 10 monthly credits.');
               }
               break;
             case 403:
@@ -705,31 +707,26 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
     ],
   );
 
-  const handlePurchase = useCallback(async (tier: 'essentials' | 'studio' | 'concierge' = 'essentials') => {
-    setError(null);
+  const handlePurchase = useCallback((tier: 'essentials' | 'studio' | 'concierge' = 'essentials') => {
+    const tierTitles = {
+      essentials: 'Upgrade to Essentials',
+      studio: 'Unlock Studio Founding Offer',
+      concierge: 'Talk to a Strategist'
+    };
 
-    try {
-      const { data, error: invokeError } = await supabase.functions.invoke<{ checkout_url?: string }>(
-        'create-checkout-session',
-        { body: { tier } },
-      );
+    const tierSubtitles = {
+      essentials: 'Lock in 150 credits per month with priority processing for your entire team.',
+      studio: 'Founding members secure $29/mo pricing for six months plus an expert-crafted concept for 6 months.',
+      concierge: 'Schedule time with our senior team to tailor Concierge access to your roadmap.'
+    };
 
-      if (invokeError) {
-        console.error('create-checkout-session error', invokeError);
-        setError(invokeError.message || 'We could not start the checkout process.');
-        return;
-      }
-
-      if (data?.checkout_url) {
-        window.location.href = data.checkout_url;
-      } else {
-        setError('Checkout session did not return a redirect URL.');
-      }
-    } catch (purchaseError) {
-      console.error('Checkout error', purchaseError);
-      setError(purchaseError instanceof Error ? purchaseError.message : 'Unexpected error while starting checkout.');
-    }
-  }, [supabase]);
+    openModal({
+      title: tierTitles[tier],
+      subtitle: tierSubtitles[tier],
+      source: 'ai-ad-iteration-tool',
+      tier: tier
+    });
+  }, [openModal]);
 
   const handleSignOut = useCallback(async () => {
     try {
@@ -834,7 +831,7 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
               onClick={() => setShowAuthModal(true)}
               className="rounded-lg border border-brand-200 bg-brand-50 px-3 py-2 text-xs font-semibold text-brand-800 transition hover:bg-brand-100"
             >
-              Sign in or create free account
+              Create free account
             </button>
           )}
         <button
@@ -843,7 +840,7 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
           className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-3 py-2 text-xs font-semibold text-white shadow-brand-600/30 transition hover:bg-brand-700"
         >
           <CreditCard className="h-4 w-4" />
-          Upgrade to Essentials
+          Get 150 Credits
         </button>
         </div>
       </div>
@@ -1079,7 +1076,7 @@ Facebook and Instagram ads only. TikTok and YouTube support coming soon. We only
                   type="button"
                 >
                   <CreditCard className="h-4 w-4" />
-                  Upgrade to Essentials
+                  Get 150 Credits
                 </button>
                 <button
                   onClick={() => handlePurchase('studio')}
@@ -1087,7 +1084,7 @@ Facebook and Instagram ads only. TikTok and YouTube support coming soon. We only
                   type="button"
                 >
                   <CreditCard className="h-4 w-4" />
-                  Unlock Studio Founding Offer
+                  Get 800 Credits + Expert Concept
                 </button>
               </div>
             </div>
@@ -1424,9 +1421,9 @@ function AuthModal({ open, onClose, supabase, onAuthSuccess }: AuthModalProps) {
     <Dialog open={open} onOpenChange={(value) => (!value ? onClose() : null)}>
       <DialogContent className="bg-white">
         <DialogHeader>
-          <DialogTitle className="text-xl font-semibold text-gray-900">Sign in or create a free account</DialogTitle>
+          <DialogTitle className="text-xl font-semibold text-gray-900">Create a free APSICS account</DialogTitle>
           <DialogDescription className="text-sm text-gray-600">
-            Free accounts unlock 10 monthly credits and save your creative history.
+            Get 10 monthly AI iteration credits, save your creative history, and access Monday creative intelligence drops.
           </DialogDescription>
         </DialogHeader>
         <AuthPanel supabase={supabase} onAuthSuccess={onAuthSuccess} onClose={onClose} />

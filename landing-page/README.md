@@ -49,9 +49,18 @@ SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 CONVERTKIT_API_KEY=your_convertkit_api_key
 CONVERTKIT_FORM_ID=your_convertkit_form_id
 RESEND_API_KEY=your_resend_api_key
-AIRTABLE_API_KEY=your_airtable_api_key
-AIRTABLE_BASE_ID=your_airtable_base_id
-AIRTABLE_TABLE_ID=your_airtable_table_id
+RESEND_FROM_EMAIL="APSICS Media <notifications@yourdomain.com>"
+LEAD_ALERT_EMAIL=you@yourdomain.com
+
+# Stripe Pricing (optional)
+STRIPE_SECRET_KEY=your_stripe_secret_key
+STRIPE_PRICE_ID=default_subscription_price_id
+STRIPE_SUCCESS_URL=https://yourdomain.com/success
+STRIPE_CANCEL_URL=https://yourdomain.com/cancelled
+STRIPE_FOUNDERS_SPECIAL_PRICE_ID=price_xxx
+STRIPE_STARTER_PRICE_ID=price_xxx
+STRIPE_GROWTH_PRICE_ID=price_xxx
+STRIPE_SCALE_PRICE_ID=price_xxx
 
 # Analytics (optional)
 NEXT_PUBLIC_GA_MEASUREMENT_ID=your_google_analytics_id_here
@@ -132,9 +141,16 @@ npm run start
 | `CONVERTKIT_API_KEY` | ConvertKit API key (fallback to logging if absent) | Optional |
 | `CONVERTKIT_FORM_ID` | ConvertKit form id (or override per request) | Optional |
 | `RESEND_API_KEY` | Resend API key for transactional emails | Optional |
-| `AIRTABLE_API_KEY` | Airtable API key for lead capture | Optional |
-| `AIRTABLE_BASE_ID` | Airtable base id | Optional |
-| `AIRTABLE_TABLE_ID` | Airtable table id | Optional |
+| `RESEND_FROM_EMAIL` | Default `from` address for Resend emails | Optional |
+| `LEAD_ALERT_EMAIL` | Comma separated emails for internal lead alerts | Optional |
+| `STRIPE_SECRET_KEY` | Stripe secret key for checkout sessions | Optional |
+| `STRIPE_PRICE_ID` | Default Stripe price ID fallback | Optional |
+| `STRIPE_SUCCESS_URL` | Default Stripe success redirect URL | Optional |
+| `STRIPE_CANCEL_URL` | Default Stripe cancel redirect URL | Optional |
+| `STRIPE_FOUNDERS_SPECIAL_PRICE_ID` | Stripe price ID for Founders Special package | Optional |
+| `STRIPE_STARTER_PRICE_ID` | Stripe price ID for Starter plan | Optional |
+| `STRIPE_GROWTH_PRICE_ID` | Stripe price ID for Growth plan | Optional |
+| `STRIPE_SCALE_PRICE_ID` | Stripe price ID for Scale plan | Optional |
 | `ALLOWED_ORIGINS` | Comma-separated list of allowed origins for API access | Yes (prod) |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics ID | Optional |
 

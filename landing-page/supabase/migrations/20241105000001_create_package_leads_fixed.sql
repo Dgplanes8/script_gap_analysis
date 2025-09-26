@@ -1,0 +1,47 @@
+-- Package leads table for marketing submissions (fixed version)
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+
+CREATE TABLE IF NOT EXISTS public.package_leads (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  email text NOT NULL,
+  name text,
+  company text,
+  website text,
+  package_interest text,
+  lead_type text NOT NULL DEFAULT 'marketing' CHECK (lead_type IN ('free_trial', 'paid_package', 'assessment', 'content_download', 'marketing')),
+  source text,
+  status text NOT NULL DEFAULT 'new',
+  stripe_session_id text,
+  metadata jsonb,
+  notes text,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS package_leads_created_at_idx ON public.package_leads (created_at DESC);
+CREATE INDEX IF NOT EXISTS package_leads_lead_type_idx ON public.package_leads (lead_type);
+CREATE INDEX IF NOT EXISTS package_leads_email_idx ON public.package_leads (email);
+
+ALTER TABLE public.package_leads ENABLE ROW LEVEL SECURITY;
+
+-- Drop policy if exists and recreate
+DROP POLICY IF EXISTS "Service role can manage package leads" ON public.package_leads;
+CREATE POLICY "Service role can manage package leads" ON public.package_leads
+  USING (auth.role() = 'service_role')
+  WITH CHECK (auth.role() = 'service_role');
+
+CREATE OR REPLACE FUNCTION public.touch_package_lead_updated_at()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+AS $$
+BEGIN
+  NEW.updated_at = now();
+  RETURN NEW;
+END;
+$$;
+
+DROP TRIGGER IF EXISTS package_leads_set_updated_at ON public.package_leads;
+CREATE TRIGGER package_leads_set_updated_at
+  BEFORE UPDATE ON public.package_leads
+  FOR EACH ROW
+  EXECUTE FUNCTION public.touch_package_lead_updated_at();

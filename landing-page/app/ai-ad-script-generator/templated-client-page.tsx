@@ -449,9 +449,19 @@ export default function TemplatedAdScriptGeneratorClient() {
           Copy to clipboard
         </button>
       </div>
-      <pre className="whitespace-pre-wrap rounded-xl bg-white p-6 text-sm leading-relaxed text-gray-800 shadow-inner">
-        {result}
-      </pre>
+          <div className="space-y-3">
+            {result
+              .trim()
+              .split(/\n\s*\n/)
+              .map((block, index) => (
+                <div
+                  key={`templated-result-block-${index}`}
+                  className="rounded-2xl border border-gray-100 bg-gray-50/80 p-4 text-sm leading-relaxed text-gray-800"
+                >
+                  {block}
+                </div>
+              ))}
+          </div>
       <div className="rounded-xl border border-gray-200 bg-white p-4">
         <h4 className="text-sm font-semibold text-gray-900">Send this to your inbox</h4>
         <p className="mt-1 text-xs text-gray-600">

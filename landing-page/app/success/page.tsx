@@ -1,251 +1,145 @@
+import Link from 'next/link';
 import { Metadata } from 'next';
-import { TrendingUp, CheckCircle, Calendar } from 'lucide-react';
-import { Hero } from '@/components/layout/hero';
-import { FreeWeekButton } from '@/components/ui/free-week-button';
+import { ArrowRight, CheckCircle, Mail, Rocket, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Thank You - Apsics Media',
   description:
-    'Thank you for your interest in Apsics Media. Your next steps and what to expect.',
+    'Confirmation page for APSICS Media customers. Access every AI tool, onboarding steps, and support contact details.',
   alternates: {
     canonical: '/success',
   },
 };
 
-type HeadlineVariant = {
-  title: string;
-  subtitle: string;
-};
+const tools = [
+  {
+    name: 'AI Ad Script Generator',
+    description: 'Spin up scroll-stopping video scripts with platform-native pacing in minutes.',
+    href: '/ai-ad-script-generator',
+  },
+  {
+    name: 'AI Ad Iteration Tool',
+    description: 'Upload ads for structured analysis and get two conversion-focused variations ready for testing.',
+    href: '/ai-ad-iteration-tool',
+  },
+  {
+    name: 'Creative Brief Generator',
+    description: 'Turn campaign inputs into a production-ready creative brief and research summary.',
+    href: '/creative-brief-generator',
+  },
+];
 
-function getHeadlineVariant(source: string | null): HeadlineVariant {
-  switch (source) {
-    case 'call':
-      return {
-        title: 'Booked! Bring your current creative performance data.',
-        subtitle:
-          "We'll confirm scope and discuss which weekly trend intelligence plan fits your growth goals. Fresh scripts delivered every Monday starting next week.",
-      };
-    case 'order':
-      return {
-        title: 'Welcome to weekly trend intelligence! First delivery this Monday.',
-        subtitle:
-          "Watch for your welcome guide with this Monday's trending concepts. You can reply with any questions.",
-      };
-    case 'newsletter':
-      return {
-        title: 'Welcome to weekly trend intelligence — your first issue arrives next Monday at 8am ET.',
-        subtitle:
-          "Check your inbox for a welcome email and your '10 Free Templates' PDF. Every Monday you'll get trending concepts, competitor analysis, and ready-to-develop scripts.",
-      };
-    default:
-      return {
-        title: 'Thank You - Your Free Templates Are Coming!',
-        subtitle:
-          "Check your inbox for instant access to your free templates. We're excited to help you create high-converting campaigns.",
-      };
-  }
-}
+const startupSteps = [
+  {
+    title: 'Confirm your access',
+    detail: 'Sign in with the email you used during checkout and make sure your credits are available.',
+  },
+  {
+    title: 'Choose your first tool',
+    detail: 'Launch the generator that matches your next deliverable—scripts, iterations, or full briefs.',
+  },
+  {
+    title: 'Ship creative fast',
+    detail: 'Download or copy the AI output, share it with your team, and start testing in your ad accounts.',
+  },
+];
 
 export default function SuccessPage({
   searchParams,
 }: {
-  searchParams: { source?: string };
+  searchParams: { source?: string; lead?: string };
 }) {
-  const { title, subtitle } = getHeadlineVariant(searchParams?.source ?? null);
-  
+  const leadId = searchParams?.lead;
+
   return (
     <main className="min-h-screen">
-      <Hero
-        title={title}
-        subtitle={subtitle}
-        ctaText="Claim 10 Free Credits"
-        secondaryCtaText="View Plans"
-        background="gradient"
-        showEmailCapture={false}
-      />
-
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">What Happens Next?</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Here's what to expect in the coming days.
-            </p>
+      <section className="bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900 text-white py-20 lg:py-24">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-sm font-medium uppercase tracking-wide text-white/80 rounded-full px-4 py-1 mb-6">
+            <Sparkles className="h-4 w-4" />
+            Confirmation
           </div>
+          <h1 className="text-3xl md:text-5xl font-bold mb-6">You&apos;re in and ready to create.</h1>
+          <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+            Your APSICS Media account is active. Jump straight into any tool, share the outputs with your team, and let us know how we can support your next campaign.
+          </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200">
-              <div className="bg-brand-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Calendar className="h-8 w-8 text-brand-600" />
-              </div>
-              <h3 className="text-lg font-semibold mb-3 text-gray-900">If You Booked a Call</h3>
-              <p className="text-gray-600 leading-relaxed">
-                We'll confirm scope and discuss which weekly plan fits your growing business. Bring your current creative performance data for strategic assessment.
-              </p>
+          {leadId && (
+            <div className="mt-6 inline-flex items-center gap-2 text-sm text-white/80 bg-white/10 rounded-full px-4 py-2">
+              <CheckCircle className="h-4 w-4" />
+              <span>Reference ID: {leadId}</span>
             </div>
+          )}
 
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200">
-              <div className="bg-brand-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="h-8 w-8 text-brand-600" />
-              </div>
-              <h3 className="text-lg font-semibold mb-3 text-gray-900">If You Subscribed</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Watch for your welcome guide. Your first weekly trend intelligence delivery arrives this Monday.
-              </p>
-            </div>
-
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg border border-gray-200">
-              <div className="bg-brand-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="h-8 w-8 text-brand-600" />
-              </div>
-              <h3 className="text-lg font-semibold mb-3 text-gray-900">If You Downloaded Free Templates</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Check your inbox for your 10 Free Templates PDF and welcome email. Consider weekly trend intelligence for fresh concepts every Monday.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-[#F8F8F8]">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Explore Our Programs</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Choose the right path for your growing business goals.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-brand-100 hover:border-brand-300 transition-colors">
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Weekly Trend Intelligence</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Weekly trend intelligence with ready-to-develop scripts based on what's working RIGHT NOW.
-                </p>
-              </div>
-
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-brand-500 mt-1 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700">1 trending concept every Monday</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#10B981] mt-1 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700">2 ready-to-develop scripts</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#10B981] mt-1 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700">Platform optimization guide</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-[#10B981] mt-1 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700">Weekly trend analysis</span>
-                </li>
-              </ul>
-
-              <FreeWeekButton source="success-cta" className="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors text-center block">Claim 10 Free Credits</FreeWeekButton>
-            </div>
-
-            <div className="bg-gradient-to-br from-brand-600 to-brand-700 rounded-2xl p-8 shadow-lg text-white relative">
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-brand-500 to-brand-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                Most Popular
-              </div>
-
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-bold mb-2">All Weekly Plans Available</h3>
-                <p className="text-blue-100 leading-relaxed">
-                  Starting at $5/week with first week FREE. See all tiers and choose what fits your growth goals.
-                </p>
-              </div>
-
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-brand-200 mt-1 mr-3 flex-shrink-0" />
-                  <span>Trend Tracker: $5/week - 1 concept weekly</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-blue-200 mt-1 mr-3 flex-shrink-0" />
-                  <span>Competitive Edge: $20/week - 2 concepts weekly</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-blue-200 mt-1 mr-3 flex-shrink-0" />
-                  <span>Market Intelligence: $50/week - 3 concepts weekly</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-blue-200 mt-1 mr-3 flex-shrink-0" />
-                  <span>All plans include trend analysis &amp; ready scripts</span>
-                </li>
-              </ul>
-
-              <FreeWeekButton
-                source="success-pricing-cta"
-                variant="secondary"
-                className="w-full py-3 text-base"
+          <div className="mt-12 grid gap-4 sm:grid-cols-3">
+            {tools.map((tool) => (
+              <Link
+                key={tool.name}
+                href={tool.href}
+                className="group flex flex-col h-full rounded-2xl border border-white/10 bg-white/5 p-6 text-left transition hover:border-white/30 hover:bg-white/10"
               >
-                Compare All Weekly Plans
-              </FreeWeekButton>
-            </div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-sm font-semibold text-white/80">Launch</span>
+                  <ArrowRight className="h-4 w-4 text-white/70 transition group-hover:translate-x-1" />
+                </div>
+                <h2 className="text-xl font-semibold mb-2 text-white">{tool.name}</h2>
+                <p className="text-sm text-white/80 leading-relaxed">{tool.description}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
       <section className="py-20 bg-white">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Focus on Building Your Business</h2>
-          <p className="text-lg text-gray-600 mb-12 leading-relaxed">
-            We'll handle the creative templates so you can focus on what matters most - growing your business.
-          </p>
-
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              <strong>Ready to get started?</strong> Check your email for your free templates and consider upgrading to weekly delivery for fresh concepts every Monday.
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-4 py-1 text-sm font-medium text-brand-600">
+              <Rocket className="h-4 w-4" />
+              How to get started
+            </div>
+            <h2 className="mt-4 text-3xl md:text-4xl font-bold text-gray-900">Move from checkout to creative output</h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Follow these quick steps and you will have new ads ready to test today.
             </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            {startupSteps.map((step, index) => (
+              <div
+                key={step.title}
+                className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-600 font-semibold">
+                    {index + 1}
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900">{step.title}</h3>
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed">{step.detail}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       <section className="py-20 bg-[#F8F8F8]">
-        <div className="max-w-2xl mx-auto px-6">
-          <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Start With 10 Free Templates</h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Get proven templates from high-performing campaigns. Perfect way to experience our strategic approach before choosing a weekly plan.
-            </p>
-
-            <FreeWeekButton source="success-cta" className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold px-8 py-4 text-lg rounded-xl transition-colors inline-block">Claim 10 Free Credits</FreeWeekButton>
-
-            <p className="text-sm text-gray-500 mt-4">
-              Instant PDF download + weekly trend intelligence newsletter
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-white">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Questions? We're Here to Help</h2>
-          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-            Have questions about our process, timeline, or which program is right for your growing business?
-          </p>
-
-          <div className="bg-[#F8F8F8] rounded-xl p-8">
-            <p className="text-lg text-gray-700 mb-6">
-              <strong>Contact us:</strong>{' '}
-              <a href="mailto:hello@apsicsmedia.com" className="text-[#126DFB] hover:underline">
-                hello@apsicsmedia.com
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="rounded-3xl border border-brand-100 bg-white p-10 shadow-lg">
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-100 text-brand-600">
+                <Mail className="h-6 w-6" />
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Questions or feature requests?</h2>
+              <p className="text-base text-gray-600 max-w-2xl">
+                Brian and the APSICS Media team are on standby to help you launch faster. Share feedback, request new capabilities, or ask for strategic guidance any time.
+              </p>
+              <a
+                href="mailto:brian@apsicsmedia.com"
+                className="inline-flex items-center gap-2 rounded-full border border-brand-500 px-6 py-3 text-sm font-semibold text-brand-600 transition hover:bg-brand-50"
+              >
+                brian@apsicsmedia.com
+                <ArrowRight className="h-4 w-4" />
               </a>
-            </p>
-
-            <div className="text-sm text-gray-600 space-y-2 leading-relaxed">
-              <p>
-                <strong>IP/Scope:</strong> You own delivered scripts, thumbnails, and summaries. Internal tools, prompts, and raw
-                research remain our IP.
-              </p>
-              <p>
-                <strong>Refund Policy:</strong> Full refund if scoped deliverables aren't provided within 72 business hours of intake
-                completion.
-              </p>
             </div>
           </div>
         </div>

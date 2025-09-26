@@ -9,7 +9,7 @@ interface SubmissionResponse {
   error?: any;
 }
 
-export async function submitToAirtable(
+export async function submitLeadCapture(
   formData: FormSubmissionData,
   additionalData: Partial<FormSubmissionData> = {}
 ): Promise<SubmissionResponse> {
@@ -20,9 +20,9 @@ export async function submitToAirtable(
       submissionDate: new Date().toISOString(),
     };
 
-    console.log('Submitting to Airtable:', payload);
+    console.log('Submitting lead payload:', payload);
 
-    const response = await fetch('/api/airtable-submit', {
+    const response = await fetch('/api/leads/collect', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -30,18 +30,18 @@ export async function submitToAirtable(
       body: JSON.stringify(payload),
     });
 
-    console.log('Airtable API response status:', response.status);
+    console.log('Lead API response status:', response.status);
 
     if (response.ok) {
       const responseData = await response.json();
-      console.log('Airtable submission successful:', responseData);
+      console.log('Lead submission successful:', responseData);
       return {
         success: true,
         message: 'Form submitted successfully! We\'ll be in touch within 24 hours.'
       };
     } else {
       const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-      console.error('Airtable submission failed:', response.status, errorData);
+      console.error('Lead submission failed:', response.status, errorData);
       return {
         success: false,
         message: 'Something went wrong. Please try again.',

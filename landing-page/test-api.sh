@@ -27,13 +27,14 @@ curl -X POST $SERVER_URL/api/subscribe \
 
 echo ""
 echo ""
-echo "📋 Testing Airtable submission API..."
-curl -X POST $SERVER_URL/api/airtable-submit \
+echo "📋 Testing lead capture API..."
+curl -X POST $SERVER_URL/api/leads/collect \
   -H "Content-Type: application/json" \
   -d '{
     "name":"Test User",
     "email":"test@example.com",
     "company":"Test Company",
+    "type":"strategy_assessment",
     "appType":"Fitness",
     "currentCTR":"2.5%",
     "currentTSR":"12%",
@@ -50,6 +51,6 @@ echo "🏁 API testing complete!"
 echo ""
 echo "Expected results:"
 echo "- Email API: Should return 200 status and success message"
-echo "- Airtable API: Should return 200 status and success message"
+echo "- Lead capture API: Should return 200 status and success message"
 echo ""
 echo "If you see 500 errors, check that your environment variables are set correctly in .env.local"

@@ -72,14 +72,14 @@ export const FORM_CONFIGS = {
   blog: {
     type: 'blog_lead_capture' as FormSubmissionType,
     schema: baseFormSchema,
-    endpoint: '/api/airtable-submit',
+    endpoint: '/api/leads/collect',
     successMessage: 'Your templates are on the way!',
     errorFallback: '/free-hooks'
   },
   playbook: {
     type: 'playbook_download' as FormSubmissionType,
     schema: baseFormSchema,
-    endpoint: '/api/airtable-submit',
+    endpoint: '/api/leads/collect',
     successMessage: 'Your complete playbook is ready!',
     errorFallback: '/free-hooks'
   },
@@ -93,7 +93,7 @@ export const FORM_CONFIGS = {
   service: {
     type: 'free_week_trial' as FormSubmissionType,
     schema: baseFormSchema,
-    endpoint: '/api/airtable-submit',
+    endpoint: '/api/leads/collect',
     successMessage: 'Your FREE week starts Monday!',
     errorFallback: '/success'
   },

@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 const TOOLS_LINKS = [
-  { label: 'Free Hook Generator', href: '/hook-generator' },
   { label: 'AI Script Generator', href: '/ai-ad-script-generator' },
   { label: 'Creative Brief Generator', href: '/creative-brief-generator' },
   { label: 'AI Ad Iterator', href: '/ai-ad-iteration-tool' },
@@ -35,7 +34,7 @@ export function AlyticsNavbar() {
       className="w-full bg-white/80 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50"
     >
       <div className="max-w-[1200px] mx-auto px-12 py-3">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-3">
           
           {/* Logo + Brand */}
           <motion.div 
@@ -64,7 +63,7 @@ export function AlyticsNavbar() {
             className="hidden md:flex items-center gap-8"
           >
             <motion.a
-              href="#how-it-works"
+              href="/#how-it-works"
               className="text-gray-600 hover:text-gray-900 transition-colors text-base font-medium relative group"
               whileHover={{ y: -1 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -102,6 +101,7 @@ export function AlyticsNavbar() {
                       <Link
                         key={tool.label}
                         href={tool.href}
+                        prefetch={true}
                         onClick={() => setIsToolsOpen(false)}
                         className="block rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-[#126DFB]"
                       >
@@ -114,7 +114,7 @@ export function AlyticsNavbar() {
             </div>
             
             <motion.a
-              href="#service-tiers"
+              href="/#service-tiers"
               className="text-gray-600 hover:text-gray-900 transition-colors text-base font-medium relative group"
               whileHover={{ y: -1 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -134,10 +134,10 @@ export function AlyticsNavbar() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <motion.a
-              href="#service-tiers"
+              href="/#service-tiers"
               whileHover={{ scale: 1.02, boxShadow: "0 8px 25px rgba(18, 109, 251, 0.3)" }}
               whileTap={{ scale: 0.98 }}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-200 shadow-lg"
+              className="hidden sm:inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-lg whitespace-nowrap"
             >
               Claim Free Credits
             </motion.a>

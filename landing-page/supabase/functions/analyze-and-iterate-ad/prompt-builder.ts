@@ -9,6 +9,7 @@ Provided product info
 Avatar insights
 Research from psychographics and customer voice
 Competitive analysis If data is missing, say: "This information is not available in the provided training data."
+If required evidence or context is unavailable, request the missing information or return an explicit error instead of fabricating research or assumptions.
 Structure All Ad Outputs for Clarity Every concept must include:
 Target avatar
 Core emotion

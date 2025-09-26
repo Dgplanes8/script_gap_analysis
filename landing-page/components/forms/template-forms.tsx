@@ -45,7 +45,7 @@ export function BlogPostLeadCaptureForm({
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/airtable-submit', {
+      const response = await fetch('/api/leads/collect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -304,7 +304,7 @@ export function PlaybookDownloadForm({
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/airtable-submit', {
+      const response = await fetch('/api/leads/collect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -480,7 +480,7 @@ export function ServiceTierForm({
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/airtable-submit', {
+      const response = await fetch('/api/leads/collect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

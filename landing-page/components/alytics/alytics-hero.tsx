@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CheckCircle, Award, Clock } from 'lucide-react';
+import { CheckCircle, Award, Clock, ArrowRight } from 'lucide-react';
+import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -27,6 +28,8 @@ const itemVariants = {
 };
 
 export function AlyticsHero() {
+  const { openModal } = useFreeWeek();
+
   return (
     <section className="relative pt-24 pb-20 px-6 overflow-hidden bg-white">
       <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -42,16 +45,16 @@ export function AlyticsHero() {
           <motion.div variants={itemVariants}>
             <div className="inline-flex items-center gap-3 px-4 py-2 bg-gray-50 rounded-full border border-gray-200">
               <Award className="w-4 h-4 text-[#126DFB]" />
-              <span className="text-sm font-medium text-gray-700">12+ Years Scaling Media | $250MM+ Managed</span>
+              <span className="text-sm font-medium text-gray-700">Research-Backed Creative Development Platform</span>
             </div>
           </motion.div>
 
           {/* Main Headline */}
           <motion.div variants={itemVariants}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight max-w-4xl mx-auto">
-              Replace{' '}
+              Turn Your Ad Budget Into{' '}
               <span className="text-transparent bg-gradient-to-r from-[#126DFB] to-[#126DFB] bg-clip-text">
-                $5,000+ Agency Retainers
+                Predictable Revenue
               </span>{' '}
               Starting at $19/Month
             </h1>
@@ -60,7 +63,7 @@ export function AlyticsHero() {
           {/* Subtitle */}
           <motion.div variants={itemVariants}>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Get 150+ revenue-ready ads every month for less than one agency creative brief. Our credit-based creative intelligence reduced CAC 25% for 500+ growth teams using $250M+ in proven frameworks.
+              Get fully developed ad concepts - complete with scripts, strategic insights, positioning, and competitor analysis. These aren't creative assets, they're the research and development that drives ad success.
               <br />
               <span className="text-gray-700 font-medium">Try the generator below, then claim 10 free credits across every tool.</span>
             </p>
@@ -68,17 +71,23 @@ export function AlyticsHero() {
 
           {/* CTA Section */}
           <motion.div variants={itemVariants} className="space-y-6">
-            <motion.a
-              href="/ai-ad-script-generator"
+            <motion.button
+              type="button"
+              onClick={() => openModal({
+                source: 'hero-claim-credits',
+                title: 'Claim Your Free Credits',
+                subtitle: 'Create a free APSICS Media account and unlock 10 monthly credits across every generator.',
+              })}
               whileHover={{
                 scale: 1.02,
                 boxShadow: "0 12px 30px rgba(18, 109, 251, 0.4)"
               }}
               whileTap={{ scale: 0.98 }}
-              className="bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
+              className="inline-flex items-center justify-center gap-3 bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
             >
               Claim 10 Free Credits
-            </motion.a>
+              <ArrowRight className="h-5 w-5" />
+            </motion.button>
             
             <motion.div
               initial={{ opacity: 0 }}

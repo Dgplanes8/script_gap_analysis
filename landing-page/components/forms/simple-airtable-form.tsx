@@ -37,15 +37,46 @@ export function SimpleAirtableForm({
     setError(null);
 
     try {
+      const selectedTier = formData.packageInterest || tier || 'unknown';
+
       // Track form submission attempt
       trackWeeklyTrialSubmission(
-        formData.packageInterest || tier || 'unknown',
+        selectedTier,
         formData.email,
         source
       );
 
-      // Submit to Airtable API using the same endpoint and format as existing form
-      const response = await fetch('/api/airtable-submit', {
+      // Check if user selected a paid tier - redirect to Stripe checkout
+      const paidTiers = ['Essentials', 'Studio', 'Concierge'];
+      if (paidTiers.includes(selectedTier)) {
+        // Submit to Stripe checkout API
+        const response = await fetch('/api/leads/package-checkout', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            company: formData.company,
+            packageInterest: selectedTier,
+            source: source
+          }),
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          if (result.success && result.checkoutUrl) {
+            // Redirect to Stripe checkout
+            window.location.href = result.checkoutUrl;
+            return;
+          }
+        }
+        throw new Error('Failed to create Stripe checkout session');
+      }
+
+      // For free tiers, submit to internal lead capture API
+      const response = await fetch('/api/leads/collect', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,10 +100,10 @@ export function SimpleAirtableForm({
           window.location.href = '/success?source=' + source;
         }
       } else {
-        throw new Error('Airtable submission failed');
+        throw new Error('Lead submission failed');
       }
     } catch (error) {
-      console.error('Error submitting to Airtable:', error);
+      console.error('Error submitting lead:', error);
       setError('Something went wrong. Please reach out to brian@apsicsmedia.com');
       if (onError) {
         onError();
@@ -147,10 +178,10 @@ export function SimpleAirtableForm({
             required
           >
             <option value="">Package Interest</option>
-            <option value="Trend Tracker">Trend Tracker</option>
-            <option value="Competitive Edge">Competitive Edge</option>
-            <option value="Market Intelligence">Market Intelligence</option>
-            <option value="Enterprise">Enterprise</option>
+            <option value="Explore">Explore ($0 - 10 credits)</option>
+            <option value="Essentials">Essentials ($19 - 150 credits)</option>
+            <option value="Studio">Studio ($29 - 800 credits)</option>
+            <option value="Concierge">Concierge ($249 - 2,000 credits)</option>
           </select>
         </div>
         <button
@@ -161,11 +192,15 @@ export function SimpleAirtableForm({
           {isSubmitting ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Unlocking Your Credits...
+              {['Essentials', 'Studio', 'Concierge'].includes(formData.packageInterest)
+                ? 'Setting Up Your Account...'
+                : 'Unlocking Your Credits...'}
             </>
           ) : (
             <>
-              Claim Free Credits
+              {['Essentials', 'Studio', 'Concierge'].includes(formData.packageInterest)
+                ? 'Get My Credits'
+                : 'Claim Free Credits'}
               <ArrowRight className="ml-2 h-4 w-4" />
             </>
           )}

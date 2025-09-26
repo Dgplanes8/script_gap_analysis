@@ -51,14 +51,15 @@ curl -X POST https://your-domain.com/api/subscribe \
   -d '{"email":"test@example.com","firstName":"Test"}'
 ```
 
-### Test Airtable Submission
+### Test Lead Capture Submission
 ```bash
-curl -X POST https://your-domain.com/api/airtable-submit \
+curl -X POST https://your-domain.com/api/leads/collect \
   -H "Content-Type: application/json" \
   -d '{
     "name":"Test User",
     "email":"test@example.com",
     "company":"Test Co",
+    "type":"strategy_assessment",
     "appType":"Fitness",
     "painPoints":"Testing form submission",
     "goals":"Verify integration works"
@@ -70,7 +71,7 @@ curl -X POST https://your-domain.com/api/airtable-submit \
 - [ ] Site loads at custom domain
 - [ ] All forms submit successfully
 - [ ] Email subscription sends welcome email
-- [ ] Airtable integration creates records
+- [ ] Supabase `package_leads` table receives submissions
 - [ ] Calendly widget loads and works
 - [ ] Analytics tracking active
 - [ ] Mobile responsive design working

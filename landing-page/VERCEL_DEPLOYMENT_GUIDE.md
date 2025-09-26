@@ -246,7 +246,7 @@ curl -X POST http://localhost:3000/api/subscribe \
   -d '{"email":"test@example.com","firstName":"Test"}'
 
 # Test Airtable submission  
-curl -X POST http://localhost:3000/api/airtable-submit \
+curl -X POST http://localhost:3000/api/leads/collect \
   -H "Content-Type: application/json" \
   -d '{"name":"Test","email":"test@example.com","company":"Test Co","appType":"Fitness","painPoints":"Testing","goals":"Testing"}'
 ```

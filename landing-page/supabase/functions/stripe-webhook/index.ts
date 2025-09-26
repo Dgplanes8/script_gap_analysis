@@ -22,6 +22,9 @@ if (!stripeSecretKey || !stripeWebhookSecret) {
 }
 
 const stripe = new Stripe(stripeSecretKey, { apiVersion: "2024-06-20" });
+const adminClient = createClient(supabaseUrl, serviceRoleKey, {
+  auth: { persistSession: false, autoRefreshToken: false },
+});
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -48,11 +51,23 @@ serve(async (req) => {
     const session = event.data.object as Stripe.Checkout.Session;
     const customerId = typeof session.customer === "string" ? session.customer : session.customer?.id;
 
+    await updatePackageLeadStatus(session, "checkout_completed");
+
     if (customerId) {
       await applyCreditGrant(customerId, session.metadata ?? {});
     } else {
       console.warn("Checkout session missing customer reference", session.id);
     }
+  }
+
+  if (event.type === "checkout.session.expired") {
+    const session = event.data.object as Stripe.Checkout.Session;
+    await updatePackageLeadStatus(session, "checkout_expired");
+  }
+
+  if (event.type === "checkout.session.async_payment_failed") {
+    const session = event.data.object as Stripe.Checkout.Session;
+    await updatePackageLeadStatus(session, "checkout_failed");
   }
 
   if (event.type === "customer.subscription.updated") {
@@ -71,10 +86,6 @@ serve(async (req) => {
 });
 
 async function applyCreditGrant(customerId: string, metadata: Record<string, string>) {
-  const adminClient = createClient(supabaseUrl, serviceRoleKey, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  });
-
   const { data: profile, error } = await adminClient
     .from("profiles")
     .select("id, credits_remaining, research_mode_unlocked")
@@ -115,5 +126,64 @@ async function applyCreditGrant(customerId: string, metadata: Record<string, str
 
   if (updateError) {
     console.error("Unable to update profile after Stripe grant", updateError);
+  }
+}
+
+async function updatePackageLeadStatus(session: Stripe.Checkout.Session, status: string) {
+  const leadId = session.metadata?.lead_id;
+
+  if (!leadId) {
+    return;
+  }
+
+  const { data: existingLead, error: fetchError } = await adminClient
+    .from("package_leads")
+    .select("metadata")
+    .eq("id", leadId)
+    .maybeSingle();
+
+  if (fetchError) {
+    console.error("Failed to load package lead for Stripe webhook", leadId, fetchError);
+    return;
+  }
+
+  const mergedMetadata: Record<string, unknown> = {
+    ...(existingLead?.metadata as Record<string, unknown> | null | undefined ?? {}),
+    stripe_session_status: status,
+  };
+
+  if (session.id) {
+    mergedMetadata.stripe_session_id = session.id;
+  }
+
+  if (session.payment_intent) {
+    mergedMetadata.payment_intent = typeof session.payment_intent === "string"
+      ? session.payment_intent
+      : session.payment_intent.id;
+  }
+
+  if (session.subscription) {
+    mergedMetadata.subscription_id = typeof session.subscription === "string"
+      ? session.subscription
+      : session.subscription.id;
+  }
+
+  if (session.customer) {
+    mergedMetadata.stripe_customer_id = typeof session.customer === "string"
+      ? session.customer
+      : session.customer.id;
+  }
+
+  const { error: updateError } = await adminClient
+    .from("package_leads")
+    .update({
+      status,
+      stripe_session_id: session.id,
+      metadata: mergedMetadata,
+    })
+    .eq("id", leadId);
+
+  if (updateError) {
+    console.error("Failed to update package lead status", leadId, updateError);
   }
 }

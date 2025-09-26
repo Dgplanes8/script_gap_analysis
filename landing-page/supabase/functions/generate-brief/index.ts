@@ -1,12 +1,5 @@
-import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
+import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
-import { createHash } from "https://deno.land/std@0.208.0/crypto/crypto.ts";
-
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
 
 const supabaseUrl = Deno.env.get("EDGE_SUPABASE_URL") ?? Deno.env.get("SUPABASE_URL");
 const serviceRoleKey = Deno.env.get("EDGE_SUPABASE_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
@@ -65,12 +58,25 @@ type StoredBriefResponse = {
 };
 
 // Usage tracking utilities
-function generateAnonymousKey(request: Request): string {
+async function generateAnonymousKey(request: Request): Promise<string> {
   const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || '127.0.0.1';
   const userAgent = request.headers.get('user-agent') || '';
 
-  const ipHash = createHash('sha256').update(ip + 'apsics-salt').digest('hex');
-  const uaHash = createHash('md5').update(userAgent).digest('hex').substring(0, 8);
+  const encoder = new TextEncoder();
+
+  const ipData = encoder.encode(ip + 'apsics-salt');
+  const ipHashBuffer = await crypto.subtle.digest('SHA-256', ipData);
+  const ipHash = Array.from(new Uint8Array(ipHashBuffer))
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('');
+
+  const uaData = encoder.encode(userAgent);
+  const uaHashBuffer = await crypto.subtle.digest('SHA-256', uaData);
+  const uaHash = Array.from(new Uint8Array(uaHashBuffer))
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('')
+    .substring(0, 8);
+
   return `${ipHash}_${uaHash}`;
 }
 
@@ -114,8 +120,13 @@ async function trackToolUsage(
 }
 
 serve(async (req) => {
+  const corsHeaders = buildCorsHeaders(req);
+
   if (req.method === "OPTIONS") {
-    return new Response("ok", { headers: corsHeaders });
+    return new Response("ok", {
+      status: 200,
+      headers: corsHeaders,
+    });
   }
 
   if (req.method !== "POST") {
@@ -142,11 +153,11 @@ serve(async (req) => {
     userId = data.user?.id ?? null;
   } catch (error) {
     console.error("Failed to evaluate auth context", error);
-    return jsonError("Unable to verify session", 401);
+    return jsonError("Unable to verify session", 401, corsHeaders);
   }
 
   if (!userId) {
-    return jsonError("Sign in to generate creative briefs.", 401);
+    return jsonError("Sign in to generate creative briefs.", 401, corsHeaders);
   }
 
   let requestPayload: BriefRequestPayload;
@@ -154,12 +165,12 @@ serve(async (req) => {
     requestPayload = await req.json();
   } catch (error) {
     console.error("Invalid JSON payload", error);
-    return jsonError("Invalid JSON payload", 400);
+    return jsonError("Invalid JSON payload", 400, corsHeaders);
   }
 
   const validationError = validatePayload(requestPayload);
   if (validationError) {
-    return jsonError(validationError, 400);
+    return jsonError(validationError, 400, corsHeaders);
   }
 
   const requestedMode = requestPayload.mode;
@@ -172,7 +183,7 @@ serve(async (req) => {
 
   const profile = await upsertProfile(adminClient, userId);
   if (!profile) {
-    return jsonError("Unable to access profile", 500);
+    return jsonError("Unable to access profile", 500, corsHeaders);
   }
 
   researchModeUnlocked = profile.research_mode_unlocked ?? false;
@@ -184,7 +195,7 @@ serve(async (req) => {
   }
 
   if (creditsRemaining < creditCost) {
-    return jsonError("You are out of credits. Upgrade your plan to keep generating briefs.", 402);
+    return jsonError("You are out of credits. Upgrade your plan to keep generating briefs.", 402, corsHeaders);
   }
 
   const nowIso = new Date().toISOString();
@@ -207,7 +218,7 @@ serve(async (req) => {
 
   if (insertError || !requestRecord) {
     console.error("Failed to enqueue brief request", insertError);
-    return jsonError("Unable to create brief request", 500);
+    return jsonError("Unable to create brief request", 500, corsHeaders);
   }
 
   const jobId = requestRecord.id as string;
@@ -358,7 +369,7 @@ serve(async (req) => {
       })
       .eq("id", jobId);
 
-    return jsonError("Failed to generate creative brief", 500);
+    return jsonError("Failed to generate creative brief", 500, corsHeaders);
   }
 });
 
@@ -394,33 +405,65 @@ function validatePayload(payload: BriefRequestPayload): string | null {
 }
 
 async function upsertProfile(adminClient: ReturnType<typeof createClient>, userId: string) {
-  const { data: profile, error } = await adminClient
-    .from("profiles")
-    .select("id, credits_remaining, research_mode_unlocked")
-    .eq("id", userId)
-    .maybeSingle();
-
-  if (error) {
-    console.error("Failed to load profile", error);
-    return null;
-  }
+  const profile = await fetchProfileWithFallback(adminClient, userId);
 
   if (profile) {
     return profile;
   }
 
-  const { data: created, error: createError } = await adminClient
-    .from("profiles")
-    .insert({ id: userId })
-    .select("id, credits_remaining, research_mode_unlocked")
-    .maybeSingle();
+  const { error: createError } = await adminClient.from("profiles").insert({ id: userId });
 
-  if (createError) {
+  if (createError && createError.code !== "23505") {
+    // Ignore unique violation (profile already created concurrently)
     console.error("Failed to create profile", createError);
     return null;
   }
 
-  return created;
+  return fetchProfileWithFallback(adminClient, userId);
+}
+
+async function fetchProfileWithFallback(adminClient: ReturnType<typeof createClient>, userId: string) {
+  const primarySelection = await adminClient
+    .from("profiles")
+    .select("id, credits_remaining, research_mode_unlocked")
+    .eq("id", userId)
+    .maybeSingle();
+
+  if (!primarySelection.error) {
+    if (primarySelection.data) {
+      return {
+        ...primarySelection.data,
+        research_mode_unlocked: primarySelection.data.research_mode_unlocked ?? false,
+      };
+    }
+    return null;
+  }
+
+  if (primarySelection.error?.code !== "42703") {
+    console.error("Failed to load profile", primarySelection.error);
+    return null;
+  }
+
+  // Column missing; fall back to minimal shape
+  const fallbackSelection = await adminClient
+    .from("profiles")
+    .select("id, credits_remaining")
+    .eq("id", userId)
+    .maybeSingle();
+
+  if (fallbackSelection.error) {
+    console.error("Failed to load profile (fallback)", fallbackSelection.error);
+    return null;
+  }
+
+  if (!fallbackSelection.data) {
+    return null;
+  }
+
+  return {
+    ...fallbackSelection.data,
+    research_mode_unlocked: false,
+  } as { id: string; credits_remaining: number | null; research_mode_unlocked: boolean };
 }
 
 async function runResearchCall(payload: BriefRequestPayload, model: string): Promise<string> {
@@ -428,7 +471,7 @@ async function runResearchCall(payload: BriefRequestPayload, model: string): Pro
     {
       role: "system" as const,
       content:
-        "You are a senior marketing strategist. Summarize the most relevant audience, competitive, and positioning insights based on the campaign request. Respond in under 250 words.",
+        "You are a senior marketing strategist. Summarize the most relevant audience, competitive, and positioning insights based on the campaign request. Respond in under 250 words. Never fabricate research or data; if key inputs are missing, request more information or return an explicit error.",
     },
     {
       role: "user" as const,
@@ -498,6 +541,9 @@ async function callOpenRouter(model: string, messages: Array<{ role: "system" | 
 const BRIEF_GENERATOR_PROMPT = `🚀 ULTIMATE DIRECT RESPONSE CREATIVE STRATEGIST
 CORE MISSION
 You are a specialized direct response creative strategist AI trained to ideate, write, and optimize high-converting ad creative for Facebook, Instagram, and TikTok. Your outputs include hooks, headlines, UGC scripts, and multi-format conversion-focused ads.
+
+INTEGRITY RULE
+Never fabricate data, research, or performance claims. If required context, evidence, or references are missing, pause to request the information or return an explicit error instead of guessing.
 
 WORKFLOW OVERVIEW
 Follow this sequential process without pausing:
@@ -835,7 +881,43 @@ function buildPreviewSnippet(structuredBrief: StructuredBrief) {
   return `${summary.slice(0, 497)}...`;
 }
 
-function jsonError(message: string, status: number) {
+function buildCorsHeaders(req: Request): Record<string, string> {
+  const origin = req.headers.get("origin") ?? "*";
+  const requestedHeaders = req.headers.get("access-control-request-headers") ?? "";
+  const defaultHeaders = ["authorization", "x-client-info", "apikey", "content-type"];
+
+  const headerSet = new Set<string>();
+  for (const header of defaultHeaders) {
+    headerSet.add(header.toLowerCase());
+  }
+
+  if (requestedHeaders) {
+    for (const header of requestedHeaders.split(",")) {
+      const trimmed = header.trim();
+      if (trimmed) {
+        headerSet.add(trimmed.toLowerCase());
+      }
+    }
+  }
+
+  const allowHeaders = Array.from(headerSet).join(", ");
+
+  const headers: Record<string, string> = {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Headers": allowHeaders,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Max-Age": "86400",
+    "Vary": "Origin, Access-Control-Request-Headers",
+  };
+
+  if (origin !== "*") {
+    headers["Access-Control-Allow-Credentials"] = "true";
+  }
+
+  return headers;
+}
+
+function jsonError(message: string, status: number, corsHeaders: Record<string, string>) {
   return new Response(JSON.stringify({ error: message }), {
     status,
     headers: { ...corsHeaders, "Content-Type": "application/json" },

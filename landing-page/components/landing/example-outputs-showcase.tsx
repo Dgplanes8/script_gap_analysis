@@ -87,7 +87,7 @@ export function ExampleOutputsShowcase() {
               What You Actually Get Every Monday
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
-              Strategic creative intelligence delivered weekly - not just ideas, but complete implementation packages ready for your campaigns.
+  Fully-developed creative concepts with scripts, strategic insights, and positioning frameworks - not the actual creative assets, but the research and strategic direction that drives ad success.
             </p>
           </div>
 

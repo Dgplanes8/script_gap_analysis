@@ -9,6 +9,8 @@ import { getSupabaseBrowserClient, type BrowserClient } from '@/lib/supabase/bro
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { ProcessAccordion } from '@/components/alytics/process-accordion';
 import { SimplePricingSection } from '@/components/alytics/simple-pricing-section';
+import { StudioFoundingOfferCard } from '@/components/alytics/studio-founding-offer-card';
+import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 type FormState = {
   companyName: string;
@@ -143,6 +145,7 @@ export default function AdScriptGeneratorClient() {
   const supabase = useMemo(() => getSupabaseBrowserClient(), []);
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { openModal } = useFreeWeek();
   const [formState, setFormState] = useState<FormState>(defaultFormState);
   const [user, setUser] = useState<User | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -415,29 +418,26 @@ export default function AdScriptGeneratorClient() {
     [formState, supabase, triggerProfileReload, user],
   );
 
-  const handlePurchase = useCallback(async (tier: 'essentials' | 'studio' | 'concierge' = 'essentials') => {
-    setError(null);
+  const handlePurchase = useCallback((tier: 'essentials' | 'studio' | 'concierge' = 'essentials') => {
+    const tierTitles = {
+      essentials: 'Upgrade to Essentials',
+      studio: 'Unlock Studio Founding Offer',
+      concierge: 'Talk to a Strategist'
+    };
 
-    try {
-      const { data, error: invokeError } = await supabase.functions.invoke<{ checkout_url?: string }>(
-        'create-checkout-session',
-        { body: { tier } },
-      );
+    const tierSubtitles = {
+      essentials: 'Lock in 150 credits per month with priority processing for your entire team.',
+      studio: 'Founding members secure $29/mo pricing for six months plus an expert-crafted concept for 6 months.',
+      concierge: 'Schedule time with our senior team to tailor Concierge access to your roadmap.'
+    };
 
-      if (invokeError) {
-        setError(invokeError.message || 'Unable to create checkout session.');
-        return;
-      }
-
-      if (data?.checkout_url) {
-        window.location.href = data.checkout_url;
-      } else {
-        setError('Checkout session did not return a redirect URL.');
-      }
-    } catch (purchaseError) {
-      setError(purchaseError instanceof Error ? purchaseError.message : 'Unexpected error.');
-    }
-  }, [supabase]);
+    openModal({
+      title: tierTitles[tier],
+      subtitle: tierSubtitles[tier],
+      source: 'ai-ad-script-generator',
+      tier: tier
+    });
+  }, [openModal]);
 
   const handleSignOut = useCallback(async () => {
     try {
@@ -600,7 +600,7 @@ export default function AdScriptGeneratorClient() {
                   <li>• 10 credits every month with a free account</li>
                   <li>• Upgrade to unlock weekly delivery & advanced formats</li>
                 </ul>
-                <p className="mt-4 text-xs text-brand-700/80">Need more credits? Paid plans add Stripe-powered top ups without leaving this page.</p>
+                <p className="mt-4 text-xs text-brand-700/80">Need more credits? Paid plans add instant top ups without leaving this page.</p>
               </div>
             </div>
 
@@ -635,7 +635,7 @@ export default function AdScriptGeneratorClient() {
                     <>
                       <p className="font-semibold text-gray-900">Guest access active</p>
                       <p className="mt-1 text-xs text-gray-600">
-                        Enjoy one complimentary export. Create a free APSICS Media account to access 10 monthly credits and save your best performers.
+                        Enjoy one complimentary download. Create a free APSICS Media account to access 10 monthly credits and save your best performers.
                       </p>
                     </>
                   )}
@@ -807,7 +807,7 @@ export default function AdScriptGeneratorClient() {
             )}
 
             {result && (
-              <div className="mt-8 space-y-4 rounded-2xl border border-gray-200 bg-gray-50 p-6">
+              <div className="mt-8 space-y-5 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-gray-900">
                     Generated {lastRequestedFormat ? (lastRequestedFormat === 'video' ? 'Video Ad' : 'Static Ad') : 'Output'}
@@ -826,9 +826,19 @@ export default function AdScriptGeneratorClient() {
                     Copy to clipboard
                   </button>
                 </div>
-                <pre className="whitespace-pre-wrap rounded-xl bg-white p-6 text-sm leading-relaxed text-gray-800 shadow-inner">
-                  {result}
-                </pre>
+                <div className="space-y-3">
+                  {result
+                    .trim()
+                    .split(/\n\s*\n/)
+                    .map((block, index) => (
+                      <div
+                        key={`result-block-${index}`}
+                        className="rounded-2xl border border-gray-100 bg-gray-50/80 p-4 text-sm leading-relaxed text-gray-800"
+                      >
+                        {block}
+                      </div>
+                    ))}
+                </div>
                 <div className="rounded-xl border border-gray-200 bg-white p-4">
                   <h4 className="text-sm font-semibold text-gray-900">Send this to your inbox</h4>
                   <p className="mt-1 text-xs text-gray-600">
@@ -896,7 +906,7 @@ export default function AdScriptGeneratorClient() {
                       type="button"
                     >
                       <CreditCard className="h-4 w-4" />
-                      Upgrade to Essentials
+                      Get 150 Credits
                     </button>
                     <button
                       onClick={() => handlePurchase('studio')}
@@ -904,33 +914,14 @@ export default function AdScriptGeneratorClient() {
                       type="button"
                     >
                       <CreditCard className="h-4 w-4" />
-                      Unlock Studio Founding Offer
+                      Get 800 Credits + Expert Concept
                     </button>
                   </div>
                 </div>
               </div>
             )}
 
-            <div className="mt-8 rounded-3xl border border-brand-200 bg-white p-6 shadow-lg shadow-brand-50/40">
-              <div className="flex flex-col gap-4 text-sm text-gray-700 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-500">Studio Founding Offer</p>
-                  <h3 className="mt-1 text-xl font-semibold text-gray-900">Lock $29/mo Studio pricing for six months</h3>
-                  <p className="mt-2 text-sm text-gray-600">
-                    Founding members receive 800 credits every month plus an expert-crafted concept in the first month. Pricing renews at $49/mo after the introductory period.
-                  </p>
-                </div>
-                <div className="flex flex-col items-start gap-3 sm:items-end">
-                  <Link
-                    href="/#service-tiers"
-                    className="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/30 transition hover:bg-brand-700"
-                  >
-                    Explore Plans &amp; Pricing
-                  </Link>
-                  <p className="text-xs text-brand-700">Includes 800 monthly credits and expert concept delivery.</p>
-                </div>
-              </div>
-            </div>
+            <StudioFoundingOfferCard className="mt-8" />
           </section>
 
           <aside id="workflow" className="rounded-3xl border border-gray-200 bg-white p-8 shadow-xl">

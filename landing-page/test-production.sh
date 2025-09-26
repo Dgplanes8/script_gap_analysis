@@ -54,14 +54,15 @@ else
     echo "⚠️  Email API returned status: $EMAIL_STATUS (check environment variables)"
 fi
 
-echo "📋 Testing Airtable submission API..."
-AIRTABLE_STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-    -X POST "$PROD_URL/api/airtable-submit" \
+echo "📋 Testing lead capture API..."
+LEAD_API_STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+    -X POST "$PROD_URL/api/leads/collect" \
     -H "Content-Type: application/json" \
     -d '{
         "name":"Test User",
         "email":"test@example.com", 
         "company":"Test Company",
+        "type":"strategy_assessment",
         "appType":"Fitness",
         "currentCTR":"2.5%",
         "currentTSR":"12%",
@@ -71,10 +72,10 @@ AIRTABLE_STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
         "timeline":"Next 30 days"
     }')
 
-if [ "$AIRTABLE_STATUS" -eq 200 ]; then
-    echo "✅ Airtable API working (Status: $AIRTABLE_STATUS)"
+if [ "$LEAD_API_STATUS" -eq 200 ]; then
+    echo "✅ Lead capture API working (Status: $LEAD_API_STATUS)"
 else
-    echo "⚠️  Airtable API returned status: $AIRTABLE_STATUS (check environment variables)"
+    echo "⚠️  Lead capture API returned status: $LEAD_API_STATUS (check environment variables)"
 fi
 
 # Test static files
@@ -121,7 +122,7 @@ echo ""
 echo "📊 Summary:"
 echo "- Homepage: $HOMEPAGE_STATUS"
 echo "- Email API: $EMAIL_STATUS"  
-echo "- Airtable API: $AIRTABLE_STATUS"
+echo "- Lead capture API: $LEAD_API_STATUS"
 echo "- Sitemap: $SITEMAP_STATUS"
 echo "- Robots.txt: $ROBOTS_STATUS"
 echo "- 404 handling: $NOT_FOUND_STATUS"
@@ -129,7 +130,7 @@ echo ""
 echo "🔍 Next steps:"
 echo "1. Test forms manually in browser"
 echo "2. Check email delivery"
-echo "3. Verify Airtable submissions"
+echo "3. Verify Supabase lead entries"
 echo "4. Test mobile responsiveness"
 echo "5. Run PageSpeed Insights: https://pagespeed.web.dev/"
 echo "6. Test social media previews"

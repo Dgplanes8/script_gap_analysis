@@ -50,8 +50,8 @@ export function AirtableForm({
       if (onSubmit) {
         await onSubmit(data);
       } else {
-        // Submit to Airtable via API route
-        const response = await fetch('/api/airtable-submit', {
+        // Submit to lead capture API route
+        const response = await fetch('/api/leads/collect', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),

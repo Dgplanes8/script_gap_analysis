@@ -81,9 +81,14 @@ Run the following scripts inside the Supabase SQL editor to provision storage, R
 
 -- Creative brief generator (profiles, request log, analytics view)
 \i supabase/sql/ai_creative_brief_generator.sql
+
+-- Lead capture table for marketing forms
+\i supabase/sql/package_leads.sql
 ```
 
 The shared `anonymous_usage.ip_address` column stores a salted SHA-256 hash, never the raw IP.
+
+The `package_leads` table centralises marketing form submissions for free trials, content downloads, assessments, and paid checkout requests. All inserts should flow through trusted server-side code using the service role key.
 
 ## Edge Functions
 Deploy the edge functions using the Supabase CLI:

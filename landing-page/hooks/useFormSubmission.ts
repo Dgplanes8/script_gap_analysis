@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { submitToAirtable, trackFormSubmission } from '@/lib/business-logic/form-submission';
+import { submitLeadCapture, trackFormSubmission } from '@/lib/business-logic/form-submission';
 
 interface UseFormSubmissionOptions {
   onSuccess?: () => void;
@@ -28,7 +28,7 @@ export function useFormSubmission(options: UseFormSubmissionOptions = {}) {
     setState(prev => ({ ...prev, isSubmitting: true, message: '', error: null }));
 
     try {
-      const result = await submitToAirtable(formData, options.additionalData);
+      const result = await submitLeadCapture(formData, options.additionalData);
       
       if (result.success) {
         setState({

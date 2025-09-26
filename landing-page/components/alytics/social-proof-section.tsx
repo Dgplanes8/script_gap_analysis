@@ -71,15 +71,15 @@ export function SocialProofSection() {
     },
     {
       icon: <TrendingUp className="w-6 h-6" />,
-      number: "500+",
-      label: "Growth Teams",
-      description: "SaaS, ecommerce, and B2B brands who reduced CAC 25% with our creative intelligence"
-    },
-    {
-      icon: <Users className="w-6 h-6" />,
       number: "25%",
       label: "Average CAC Reduction",
       description: "Consistent improvement across verticals using research-backed creative frameworks"
+    },
+    {
+      icon: <Users className="w-6 h-6" />,
+      number: "150+",
+      label: "Monthly Concepts",
+      description: "Fully-developed ad concepts with scripts, insights, and strategic direction delivered weekly"
     }
   ];
 
@@ -152,9 +152,9 @@ export function SocialProofSection() {
             </div>
             
             <blockquote className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 italic">
-              "I watched the brand I was scaling fall behind competitors who seemed to always know what content would work. 
+              "I watched the brand I was scaling fall behind competitors who seemed to always know what content would work.
               We were losing market share because our creative was always one trend behind. That's when I developed this systematic method to stay ahead of trends and create content templates that consistently drive sales.
-              Now, after 12 years and $250MM+ in managed spend, I use these exact frameworks to help others avoid the struggle I went through."
+              After years of refining these frameworks, I built this platform to help others avoid the struggle I went through."
             </blockquote>
             
             <div className="flex flex-col items-center">
@@ -162,7 +162,7 @@ export function SocialProofSection() {
                 AM
               </div>
               <div className="font-semibold text-gray-900 text-lg">APSICS Media Founder</div>
-              <div className="text-gray-600">12+ Years Scaling Media | $250MM+ Managed</div>
+              <div className="text-gray-600">12+ Years Scaling Media | Proven Framework Developer</div>
             </div>
           </div>
         </motion.div>

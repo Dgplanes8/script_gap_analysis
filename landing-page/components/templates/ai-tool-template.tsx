@@ -23,7 +23,8 @@ export interface AIToolTemplateConfig {
 
 interface AIToolTemplateProps {
   config: AIToolTemplateConfig;
-  secondaryHeaderProps: SecondaryHeaderProps;
+  secondaryHeaderProps?: SecondaryHeaderProps;
+  headerComponent?: ReactNode;
   children: ReactNode;
   foundersClubContent?: ReactNode;
   processContent?: ReactNode;
@@ -33,6 +34,7 @@ interface AIToolTemplateProps {
 export function AIToolTemplate({
   config,
   secondaryHeaderProps,
+  headerComponent,
   children,
   foundersClubContent,
   processContent,
@@ -40,7 +42,7 @@ export function AIToolTemplate({
 }: AIToolTemplateProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-brand-50">
-      <SecondaryHeader {...secondaryHeaderProps} />
+      {headerComponent ?? (secondaryHeaderProps ? <SecondaryHeader {...secondaryHeaderProps} /> : null)}
       <div className="pt-20 md:pt-24">
         <div className="px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl space-y-10">
@@ -62,7 +64,7 @@ export function AIToolTemplate({
             {children}
 
             {config.sections.showFoundersClub && foundersClubContent && (
-              <div className="mt-8 rounded-3xl border border-brand-200 bg-white p-6 shadow-lg shadow-brand-50/40">
+              <div className="mt-8">
                 {foundersClubContent}
               </div>
             )}

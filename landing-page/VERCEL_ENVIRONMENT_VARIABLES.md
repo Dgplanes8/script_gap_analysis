@@ -161,7 +161,7 @@ curl -X POST https://your-vercel-url.vercel.app/api/subscribe \
   -d '{"email":"test@example.com","firstName":"Test"}'
 
 # Test Airtable integration
-curl -X POST https://your-vercel-url.vercel.app/api/airtable-submit \
+curl -X POST https://your-vercel-url.vercel.app/api/leads/collect \
   -H "Content-Type: application/json" \
   -d '{"name":"Test","email":"test@example.com","company":"Test Co","appType":"fitness","painPoints":"Testing","goals":"Testing"}'
 ```

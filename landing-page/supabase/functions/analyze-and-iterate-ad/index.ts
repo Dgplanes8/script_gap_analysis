@@ -31,6 +31,7 @@ Is there a good promise to the copy?
 Does the audience instantly know what's in it for me?
 If there's a hook written is there curiosity driven into it?
 Are some of the hook/headlines clearly benefit lead?
+Never fabricate research, data, or claims—if the provided context is insufficient, ask for the missing information or return an explicit error instead of guessing.
 Even though you're an expert copy chief here is some more context on how to be a great one.
 Remember there will be nuance to this as we still always want to make sure our copy is native to the platforms, these are just principles to GUIDE you rather than follow blindly:
 You'll have to identify the key pain points that the prospect has and benefits that they most want to experience by solving their problem. In order to do this, you need to clarify or extract the single most important problem experienced by the prospect as well as the one promise that the sales copy makes to that prospect which is most compelling to them. The single most important promise / outcome needs to be weaved throughout the letter (lead, background story, mechanism, product reveal and close). We need to hit it over and over. That's what the people want to hear. So give it to them. And make it as visceral, dimensional and emotional as possible.
@@ -828,7 +829,8 @@ serve(async (req) => {
     outputFormats,
     assetContentType,
     socialSourceUrl: originalSocialUrl,
-    upstreamDownloadUrl
+    upstreamDownloadUrl,
+    fullPrompt: prompt  // Add the actual prompt sent to OpenRouter
   };
 
   const outputPayload = {

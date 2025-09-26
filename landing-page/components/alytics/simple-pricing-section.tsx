@@ -69,7 +69,7 @@ function PricingTier({
           : 'bg-white border-gray-200 shadow-lg'
       }`}
     >
-      {badge && (
+      {badge && !highlight && (
         <div className="absolute -top-4 left-6">
           <div className="bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded-full">
             {badge}
@@ -78,8 +78,8 @@ function PricingTier({
       )}
 
       {highlight && (
-        <div className="absolute -top-4 right-6">
-          <div className="bg-gradient-to-r from-[#126DFB] to-[#126DFB] text-white text-sm font-semibold px-3 py-1 rounded-full flex items-center gap-1">
+        <div className="absolute -top-6 left-1/2 -translate-x-1/2">
+          <div className="bg-[#126DFB] text-white text-sm font-semibold px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
             <Star className="w-3 h-3" />
             Most Popular
           </div>
@@ -151,9 +151,8 @@ export function SimplePricingSection() {
       credits: '2,000 credits per month',
       features: [
         'Everything in Studio plus direct strategist collaboration',
-        'Unlimited expert concept reviews and feedback loops',
-        'Slack access for rapid iteration and campaign pivots',
-        'Quarterly performance planning with senior leadership'
+        'Weekly expert concept reviews and custom tailored strategy',
+        'Direct access to our senior team for rapid iteration and campaign pivots',
       ],
       buttonText: 'Talk to a Strategist',
       modalTitle: 'Talk to a Strategist',
@@ -168,30 +167,29 @@ export function SimplePricingSection() {
       description: 'Turn creative bottlenecks into revenue multipliers.',
       credits: '800 credits per month',
       features: [
-        'Expert crafted concept in month one (2 personas, 3 asset recs, full copy)',
-        'Comprehensive audience & competitor research baked in',
-        'Weekly creative intelligence reviews with trend insights',
-        'Unlocks advanced research features across every generator'
+        'Only 25 packages available',
+        'Expert crafted creative concept package delivered for the first 6 months',
+        'Priority support and direct access to founder',
+        'Early access to additional tools and functionality being developed (coming soon)'
       ],
       highlight: true,
       badge: 'Most Popular',
       footnote: 'Lock $29/mo for the first 6 months. Renews at $49/mo afterwards.',
       buttonText: 'Unlock Studio Founding Offer',
       modalTitle: 'Unlock Studio Founding Offer',
-      modalSubtitle: 'Founding members secure $29/mo pricing for six months plus an expert-crafted concept in month one.',
+      modalSubtitle: 'Founding members secure $29/mo pricing for six months plus an expert-crafted concept for 6 months.',
       source: 'pricing-studio',
       tier: 'studio'
     },
     {
       name: 'Essentials',
       price: '$19',
-      description: 'Never run a losing ad again.',
+      description: 'Jumpstart your ad performance',
       credits: '150 credits per month',
       features: [
-        'Fuel multiple scripts, briefs, and iterations each week',
-        'Priority processing + saved brand workspaces',
-        'Performance notes baked into every output',
-        'Perfect for teams replacing ad hoc freelancers'
+        'Fuel multiple scripts, briefs, and iterations',
+        'Email support available',
+        'Perfect for teams replacing freelancers or starting to scale'
       ],
       buttonText: 'Upgrade to Essentials',
       modalTitle: 'Upgrade to Essentials',
@@ -202,17 +200,16 @@ export function SimplePricingSection() {
     {
       name: 'Explore',
       price: '$0',
-      description: 'Test every generator before you upgrade.',
+      description: 'Test every tool before you upgrade.',
       credits: '10 credits included every month',
       features: [
         'Email-only signup with instant workspace access',
         'Use on the script, brief, and iteration tools',
-        'Save outputs and revisit your prompts anytime',
-        'Upgrade the moment you need more volume'
+        'Download and share completed assets',
       ],
       buttonText: 'Claim 10 Free Credits',
       modalTitle: 'Claim Your Free Credits',
-      modalSubtitle: 'Create your free APSICS Media account and unlock 10 monthly credits across every generator.',
+      modalSubtitle: 'Create your free APSICS Media account and unlock 10 monthly credits across every tool.',
       source: 'pricing-explore',
       tier: 'explore'
     }
@@ -237,7 +234,7 @@ export function SimplePricingSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Replace $5,000+ Agency Retainers Starting at $19/Month
+Turn Ad Spend Into Revenue Growth Starting at $19/Month
           </motion.h2>
 
           <motion.p
@@ -247,7 +244,7 @@ export function SimplePricingSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Get 150 revenue-ready ads every month for less than one agency creative brief. Join the 500+ teams who reduced CAC 25% with proven frameworks.
+Get 150+ fully-developed creative concepts every month - complete with scripts, strategic insights, and positioning frameworks. Access comprehensive creative intelligence that includes market research, competitor analysis, and trend-based recommendations.
           </motion.p>
 
           {/* Value Anchoring */}
@@ -314,25 +311,25 @@ export function SimplePricingSection() {
               <p className="text-xs font-semibold uppercase tracking-wide text-brand-500">Studio Founding Bonus</p>
               <h3 className="mt-2 text-2xl font-semibold text-gray-900">Expert Crafted Concept in Month One</h3>
               <p className="mt-3 text-sm text-gray-600">
-                Studio members receive a bespoke concept package during their first 30 days. Our senior strategists audit your market, surface winning angles, and deliver ready-to-launch creative.
+                Studio members receive a comprehensive creative concept package during their first 30 days. Our strategists analyze your market, identify winning angles, and deliver fully-developed creative strategies with complete implementation guidance.
               </p>
             </div>
             <ul className="space-y-3 text-sm text-gray-700">
               <li className="flex items-start gap-2">
                 <CheckCircle className="mt-1 h-4 w-4 text-brand-600" />
-                <span>2 high-impact target personas with positioning notes and buying triggers.</span>
+                <span>2 detailed target personas with specific positioning strategies and conversion triggers</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="mt-1 h-4 w-4 text-brand-600" />
-                <span>3 asset recommendations (video & static) with full copy and production direction.</span>
+                <span>3 asset recommendations including complete scripts, copy, and detailed production guidance</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="mt-1 h-4 w-4 text-brand-600" />
-                <span>Comprehensive audience research, competitive teardown, and trend analysis.</span>
+                <span>In-depth market research with competitive intelligence and current trend integration</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="mt-1 h-4 w-4 text-brand-600" />
-                <span>Framework application tailored to your product roadmaps and channel mix.</span>
+                <span>Custom framework application aligned with your specific product goals and marketing channels</span>
               </li>
             </ul>
           </div>

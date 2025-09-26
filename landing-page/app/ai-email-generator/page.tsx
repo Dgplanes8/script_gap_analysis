@@ -1,12 +1,16 @@
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
+import nextDynamic from 'next/dynamic';
 import { AIToolTemplate } from '@/components/templates/ai-tool-template';
-import { AIFormTemplate } from '@/components/templates/ai-form-template';
 import { FoundersClubSection } from '@/components/templates/founders-club-section';
 import { ProcessSection } from '@/components/templates/process-section';
 import { SimplePricingSection } from '@/components/alytics/simple-pricing-section';
 import { getToolConfig } from '@/lib/template-configs';
+
+const AIFormTemplate = nextDynamic(() => import('@/components/templates/ai-form-template').then(mod => mod.AIFormTemplate), {
+  ssr: false,
+});
 
 export default function AIEmailGeneratorPage() {
   const config = getToolConfig('ai-email-generator');
