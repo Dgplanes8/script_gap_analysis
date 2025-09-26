@@ -56,7 +56,7 @@ export function ToolsOverviewSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              className="flex flex-col rounded-3xl border border-brand-100 bg-white/80 p-6 shadow-sm shadow-brand-50/50 backdrop-blur"
+              className="flex flex-col h-full rounded-3xl border border-brand-100 bg-white/80 p-6 shadow-sm shadow-brand-50/50 backdrop-blur"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-50 text-brand-600">
@@ -65,7 +65,7 @@ export function ToolsOverviewSection() {
                 <h3 className="text-xl font-semibold text-gray-900">{tool.name}</h3>
               </div>
               <p className="mt-4 text-sm text-gray-600 leading-relaxed">{tool.description}</p>
-              <ul className="mt-6 space-y-2 text-sm text-gray-700">
+              <ul className="mt-6 space-y-2 text-sm text-gray-700 flex-grow">
                 {tool.benefits.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-2">
                     <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-brand-500"></span>

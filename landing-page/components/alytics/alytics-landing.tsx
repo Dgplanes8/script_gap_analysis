@@ -25,9 +25,7 @@ const SocialProofSection = dynamic(() => import('./social-proof-section').then(m
   loading: () => <div className="py-20 bg-gray-50 animate-pulse"></div>
 });
 
-const SimplePricingSection = dynamic(() => import('./simple-pricing-section').then(mod => ({ default: mod.SimplePricingSection })), {
-  loading: () => <div className="py-20 bg-white animate-pulse"></div>
-});
+import { SimplePricingSection } from './simple-pricing-section';
 
 const FinalConversionSection = dynamic(() => import('./final-conversion-section').then(mod => ({ default: mod.FinalConversionSection })), {
   loading: () => <div className="py-20 bg-gradient-to-b from-gray-50 to-white animate-pulse"></div>

@@ -7,6 +7,7 @@ const DEFAULT_ORIGINS = [
   'http://localhost:3001',
   'http://127.0.0.1:3000',
   'http://127.0.0.1:3001',
+  'https://mondaymorningmarketer-r29vlbo77-brians-projects-1696f1c3.vercel.app',
 ];
 
 const allowedOrigins = new Set(
@@ -35,7 +36,13 @@ function normaliseOrigin(origin: string | null): string | null {
 export function resolveAllowedOrigin(request: Request): string | null {
   const headers = request.headers;
   const origin = normaliseOrigin(headers.get('origin'));
+
   if (origin && allowedOrigins.has(origin)) {
+    return origin;
+  }
+
+  // Allow Vercel preview deployments
+  if (origin && origin.includes('.vercel.app')) {
     return origin;
   }
 
@@ -45,6 +52,10 @@ export function resolveAllowedOrigin(request: Request): string | null {
       const url = new URL(referer);
       const formatted = `${url.protocol}//${url.host}`;
       if (allowedOrigins.has(formatted)) {
+        return formatted;
+      }
+      // Allow Vercel preview deployments from referer
+      if (formatted.includes('.vercel.app')) {
         return formatted;
       }
     } catch (_error) {

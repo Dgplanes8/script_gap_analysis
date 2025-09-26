@@ -87,7 +87,7 @@ export function ProcessAccordion() {
             From Your Industry → To Revenue Driving Scripts
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Research based campaigns that outperform guesswork, delivered every Monday
+            Expert concepts deliver research esearch based campaigns that outperform guesswork, delivered every Monday
           </p>
         </div>
 
