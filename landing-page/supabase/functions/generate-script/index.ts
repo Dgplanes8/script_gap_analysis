@@ -4,7 +4,7 @@ import { basePrompt } from "./prompt.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-anonymous-key",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
@@ -43,11 +43,13 @@ async function trackToolUsage(
     errorMessage?: string;
     source?: 'web' | 'api' | 'mobile';
   },
-  userId?: string | null
+  userId?: string | null,
+  anonymousKey?: string | null
 ): Promise<{ usageId: string | null; error: string | null }> {
   try {
     const { data: result, error } = await supabase.rpc('log_ai_tool_usage', {
       p_user_id: userId || null,
+      p_anonymous_key: anonymousKey || null,
       p_tool_type: data.toolType,
       p_input_payload: data.inputPayload,
       p_output_payload: data.outputPayload || null,
@@ -84,7 +86,8 @@ async function trackScriptGeneration(
     creditsUsed?: number;
     qualityScore?: number;
   },
-  userId?: string | null
+  userId?: string | null,
+  anonymousKey?: string | null
 ): Promise<{ scriptId: string | null; error: string | null }> {
   try {
     const wordCount = data.generatedScript.trim().split(/\s+/).length;
@@ -94,6 +97,7 @@ async function trackScriptGeneration(
       .insert({
         usage_id: data.usageId || null,
         user_id: userId || null,
+        anonymous_key: anonymousKey || null,
         company_name: data.companyName,
         website_url: data.websiteUrl,
         product_description: data.productDescription || null,
@@ -180,6 +184,7 @@ serve(async (req) => {
   });
 
   let user = null;
+  let resolvedAnonymousKey: string | null = null;
   try {
     const authResult = await supabaseClient.auth.getUser();
     user = authResult.data.user;
@@ -233,78 +238,97 @@ serve(async (req) => {
     });
   }
 
-  if (!user) {
-    return new Response(JSON.stringify({ error: "Sign in to generate ad scripts." }), {
-      status: 401,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
-  }
-
   const startTime = Date.now();
   let creditsRemaining = 0;
 
-  const { data: profile, error } = await adminClient
-    .from("profiles")
-    .select("id, credits_remaining")
-    .eq("id", user.id)
-    .maybeSingle();
+  if (!user) {
+    const headerKey = req.headers.get("x-anonymous-key")?.trim() ?? "";
+    resolvedAnonymousKey = headerKey.length > 0 && headerKey.length <= 128 ? headerKey : crypto.randomUUID();
 
-  if (error) {
-    console.error("Failed to load profile", error);
-    return new Response(JSON.stringify({ error: "Unable to load profile" }), {
-      status: 500,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
-  }
+    const { count: anonUsageCount, error: anonUsageError } = await adminClient
+      .from("ai_tool_usage")
+      .select("id", { count: "exact", head: true })
+      .eq("tool_type", "script-generator")
+      .eq("anonymous_key", resolvedAnonymousKey);
 
-  let effectiveProfile = profile;
-
-  if (!effectiveProfile) {
-    const { data: createdProfile, error: createError } = await adminClient
-      .from("profiles")
-      .insert({ id: user.id })
-      .select("id, credits_remaining")
-      .maybeSingle();
-
-    if (createError && createError.code !== "23505") {
-      console.error("Failed to create profile", createError);
-      return new Response(JSON.stringify({ error: "Unable to initialize profile" }), {
+    if (anonUsageError) {
+      console.error("Failed to read anonymous usage", anonUsageError);
+      return new Response(JSON.stringify({ error: "Unable to verify usage" }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
-    if (createError?.code === "23505" || !createdProfile) {
-      const { data: reloadedProfile, error: reloadError } = await adminClient
+    if ((anonUsageCount ?? 0) >= 1) {
+      return new Response(JSON.stringify({ error: "Sign in to keep generating ad scripts." }), {
+        status: 401,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+  } else {
+    const { data: profile, error } = await adminClient
+      .from("profiles")
+      .select("id, credits_remaining")
+      .eq("id", user.id)
+      .maybeSingle();
+
+    if (error) {
+      console.error("Failed to load profile", error);
+      return new Response(JSON.stringify({ error: "Unable to load profile" }), {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    let effectiveProfile = profile;
+
+    if (!effectiveProfile) {
+      const { data: createdProfile, error: createError } = await adminClient
         .from("profiles")
+        .insert({ id: user.id })
         .select("id, credits_remaining")
-        .eq("id", user.id)
         .maybeSingle();
 
-      if (reloadError) {
-        console.error("Failed to reload profile after initialization", reloadError);
-        return new Response(JSON.stringify({ error: "Unable to load profile" }), {
+      if (createError && createError.code !== "23505") {
+        console.error("Failed to create profile", createError);
+        return new Response(JSON.stringify({ error: "Unable to initialize profile" }), {
           status: 500,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
         });
       }
 
-      effectiveProfile = reloadedProfile ?? null;
-    } else {
-      effectiveProfile = createdProfile;
+      if (createError?.code === "23505" || !createdProfile) {
+        const { data: reloadedProfile, error: reloadError } = await adminClient
+          .from("profiles")
+          .select("id, credits_remaining")
+          .eq("id", user.id)
+          .maybeSingle();
+
+        if (reloadError) {
+          console.error("Failed to reload profile after initialization", reloadError);
+          return new Response(JSON.stringify({ error: "Unable to load profile" }), {
+            status: 500,
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+          });
+        }
+
+        effectiveProfile = reloadedProfile ?? null;
+      } else {
+        effectiveProfile = createdProfile;
+      }
     }
-  }
 
-  creditsRemaining = effectiveProfile?.credits_remaining ?? 0;
+    creditsRemaining = effectiveProfile?.credits_remaining ?? 0;
 
-  if (creditsRemaining <= 0) {
-    return new Response(
-      JSON.stringify({ error: "You are out of credits. Upgrade your plan to keep generating scripts." }),
-      {
-        status: 402,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      },
-    );
+    if (creditsRemaining <= 0) {
+      return new Response(
+        JSON.stringify({ error: "You are out of credits. Upgrade your plan to keep generating scripts." }),
+        {
+          status: 402,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        },
+      );
+    }
   }
 
   const prompt = buildPrompt({
@@ -402,7 +426,8 @@ serve(async (req) => {
       status: 'completed',
       source: 'web'
     },
-    user.id
+    user?.id ?? null,
+    resolvedAnonymousKey
   );
 
   // Track specific script generation details
@@ -419,8 +444,16 @@ serve(async (req) => {
       generatedScript: script,
       creditsUsed: 1
     },
-    user.id
+    user?.id ?? null,
+    resolvedAnonymousKey
   );
+
+  if (!user) {
+    return new Response(JSON.stringify({ script, anonymousKey: resolvedAnonymousKey }), {
+      status: 200,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
 
   const { data: updatedProfile, error: creditUpdateError } = await adminClient
     .from("profiles")

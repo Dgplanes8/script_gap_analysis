@@ -77,6 +77,27 @@ export async function POST(request: NextRequest) {
 
   try {
     const supabase = getSupabaseServerClient();
+
+    // Check if email already exists
+    const { data: existingLead } = await supabase
+      .from('package_leads')
+      .select('id, email, package_interest, created_at')
+      .eq('email', email)
+      .single();
+
+    if (existingLead) {
+      // Email already exists, return success but with existing lead info
+      return withCors(
+        NextResponse.json({
+          success: true,
+          leadId: existingLead.id,
+          message: 'Welcome back! You already have an account with us.',
+          existing: true
+        }),
+        allowedOrigin
+      );
+    }
+
     const { data: insertedLead, error: insertError } = await supabase
       .from('package_leads')
       .insert({
@@ -94,6 +115,18 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (insertError) {
+      // Handle unique constraint violation gracefully
+      if (insertError.code === '23505') {
+        return withCors(
+          NextResponse.json({
+            success: true,
+            message: 'Welcome back! You already have an account with us.',
+            existing: true
+          }),
+          allowedOrigin
+        );
+      }
+
       console.error('Failed to insert lead into Supabase', insertError);
       return withCors(
         NextResponse.json({ error: 'Failed to record submission.' }, { status: 500 }),

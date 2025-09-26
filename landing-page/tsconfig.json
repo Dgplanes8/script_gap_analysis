@@ -29,6 +29,8 @@
     "**/*.test.tsx",
     "**/*.test.ts",
     "__tests__/**/*",
+    "tests/**/*",
+    "playwright.config.ts",
     "supabase/**/*",
     "supabase/functions/**/*"
   ]

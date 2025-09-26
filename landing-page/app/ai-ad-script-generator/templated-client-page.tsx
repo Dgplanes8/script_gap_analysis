@@ -22,6 +22,7 @@ type FormState = {
 type GenerationResponse = {
   script: string;
   creditsRemaining?: number;
+  anonymousKey?: string;
 };
 
 
@@ -47,6 +48,8 @@ export default function TemplatedAdScriptGeneratorClient() {
   const [emailSending, setEmailSending] = useState(false);
   const [emailStatus, setEmailStatus] = useState<'success' | 'error' | null>(null);
   const [emailStatusMessage, setEmailStatusMessage] = useState('');
+  const [anonymousKey, setAnonymousKey] = useState<string | null>(null);
+  const [anonUsageCount, setAnonUsageCount] = useState(0);
 
   const triggerProfileReload = useCallback(() => {
     setProfileReloadKey((value) => value + 1);
@@ -164,6 +167,25 @@ export default function TemplatedAdScriptGeneratorClient() {
     }
   }, [checkoutStatus, triggerProfileReload, user]);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const storedKey = window.localStorage.getItem('scriptGeneratorAnonymousKey');
+    if (storedKey) {
+      setAnonymousKey(storedKey);
+    }
+
+    const storedCount = window.localStorage.getItem('scriptGeneratorAnonymousUsageCount');
+    if (storedCount) {
+      const parsed = Number.parseInt(storedCount, 10);
+      if (Number.isFinite(parsed) && parsed >= 0) {
+        setAnonUsageCount(parsed);
+      }
+    }
+  }, []);
+
   const handleSubmit = useCallback(
     async (rawFormData: Record<string, any>) => {
       const formData = rawFormData as FormState;
@@ -171,27 +193,64 @@ export default function TemplatedAdScriptGeneratorClient() {
       setShowPurchasePrompt(false);
       setShowAuthModal(false);
       setResult('');
-      setSubmitting(true);
       setLastRequestedFormat(formData.adFormat);
+
+      const isAnonymousUser = !user;
+      let currentAnonymousKey = anonymousKey;
+
+      if (isAnonymousUser) {
+        if (anonUsageCount >= 1) {
+          setError('You’ve used your free script. Create a free APSICS Media account to keep generating.');
+          setShowAuthModal(true);
+          return;
+        }
+
+        if (!currentAnonymousKey) {
+          const newAnonymousKey =
+            typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
+              ? crypto.randomUUID()
+              : `anon_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+          currentAnonymousKey = newAnonymousKey;
+          setAnonymousKey(newAnonymousKey);
+          if (typeof window !== 'undefined') {
+            window.localStorage.setItem('scriptGeneratorAnonymousKey', newAnonymousKey);
+          }
+        }
+      }
+
+      setSubmitting(true);
 
       const normalizedWebsiteUrl = formData.websiteUrl.startsWith('http')
         ? formData.websiteUrl
         : `https://${formData.websiteUrl}`;
 
       try {
-        const { data, error: invokeError } = await supabase.functions.invoke<GenerationResponse>(
-          'generate-script',
-          {
-            body: {
-              companyName: formData.companyName,
-              websiteUrl: normalizedWebsiteUrl,
-              productDescription: formData.productDescription,
-              platform: formData.platform,
-              objective: formData.objective,
-              adFormat: formData.adFormat,
-            },
+        const invokeOptions: {
+          body: {
+            companyName: string;
+            websiteUrl: string;
+            productDescription: string;
+            platform: string;
+            objective: string;
+            adFormat: 'video' | 'static';
+          };
+          headers?: Record<string, string>;
+        } = {
+          body: {
+            companyName: formData.companyName,
+            websiteUrl: normalizedWebsiteUrl,
+            productDescription: formData.productDescription,
+            platform: formData.platform,
+            objective: formData.objective,
+            adFormat: formData.adFormat,
           },
-        );
+        };
+
+        if (isAnonymousUser && currentAnonymousKey) {
+          invokeOptions.headers = { 'x-anonymous-key': currentAnonymousKey };
+        }
+
+        const { data, error: invokeError } = await supabase.functions.invoke<GenerationResponse>('generate-script', invokeOptions);
 
         if (invokeError) {
           console.error('generate-script error', invokeError);
@@ -203,7 +262,11 @@ export default function TemplatedAdScriptGeneratorClient() {
               setError('Double-check the company name and website URL, then try again.');
               break;
             case 401:
-              setError('Please sign in again to continue generating scripts.');
+              if (user) {
+                setError('Please sign in again to continue generating scripts.');
+              } else {
+                setError('Create a free APSICS Media account to keep generating scripts.');
+              }
               setShowAuthModal(true);
               break;
             case 402:
@@ -213,7 +276,7 @@ export default function TemplatedAdScriptGeneratorClient() {
                 setProfileCredits(0);
               } else {
                 setShowAuthModal(true);
-                setError('Create a free APSICS Media account to unlock three additional scripts.');
+                setError('Create a free APSICS Media account to keep generating scripts.');
               }
               break;
             case 502:
@@ -222,7 +285,7 @@ export default function TemplatedAdScriptGeneratorClient() {
             default:
               if (messageText.toLowerCase().includes('out of credit') && !user) {
                 setShowAuthModal(true);
-                setError('Create a free APSICS Media account to unlock three additional scripts.');
+                setError('Create a free APSICS Media account to keep generating scripts.');
               } else if (statusCode === 402 && user) {
                 setShowPurchasePrompt(true);
                 setError('You\'re out of credits. Upgrade or add more scripts instantly.');
@@ -250,6 +313,22 @@ export default function TemplatedAdScriptGeneratorClient() {
           } else if (user) {
             triggerProfileReload();
           }
+          if (!user) {
+            if (data.anonymousKey && data.anonymousKey.length > 0 && data.anonymousKey !== currentAnonymousKey) {
+              setAnonymousKey(data.anonymousKey);
+              if (typeof window !== 'undefined') {
+                window.localStorage.setItem('scriptGeneratorAnonymousKey', data.anonymousKey);
+              }
+              currentAnonymousKey = data.anonymousKey;
+            }
+            setAnonUsageCount((prev) => {
+              const next = prev + 1;
+              if (typeof window !== 'undefined') {
+                window.localStorage.setItem('scriptGeneratorAnonymousUsageCount', next.toString());
+              }
+              return next;
+            });
+          }
         }
       } catch (submitError) {
         setError(
@@ -261,7 +340,7 @@ export default function TemplatedAdScriptGeneratorClient() {
         setSubmitting(false);
       }
     },
-    [supabase, triggerProfileReload, user],
+    [anonUsageCount, anonymousKey, supabase, triggerProfileReload, user],
   );
 
   const handlePurchase = useCallback(async () => {
@@ -391,7 +470,7 @@ export default function TemplatedAdScriptGeneratorClient() {
           <>
             <p className="font-semibold text-gray-900">Guest access active</p>
             <p className="mt-1 text-xs text-gray-600">
-              Enjoy one complimentary export. Create a free APSICS Media account to unlock three more scripts and save your best performers.
+              Enjoy one complimentary export. Create a free APSICS Media account to keep generating scripts and save your best performers.
             </p>
           </>
         )}

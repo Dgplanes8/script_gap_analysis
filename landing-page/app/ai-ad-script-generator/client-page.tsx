@@ -24,6 +24,7 @@ type FormState = {
 type GenerationResponse = {
   script: string;
   creditsRemaining?: number;
+  anonymousKey?: string;
 };
 
 const defaultFormState: FormState = {
@@ -165,6 +166,8 @@ export default function AdScriptGeneratorClient() {
   const [emailSending, setEmailSending] = useState(false);
   const [emailStatus, setEmailStatus] = useState<'success' | 'error' | null>(null);
   const [emailStatusMessage, setEmailStatusMessage] = useState('');
+  const [anonymousKey, setAnonymousKey] = useState<string | null>(null);
+  const [anonUsageCount, setAnonUsageCount] = useState(0);
 
   const triggerProfileReload = useCallback(() => {
     setProfileReloadKey((value) => value + 1);
@@ -283,6 +286,25 @@ export default function AdScriptGeneratorClient() {
     }
   }, [checkoutStatus, triggerProfileReload, user]);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const storedKey = window.localStorage.getItem('scriptGeneratorAnonymousKey');
+    if (storedKey) {
+      setAnonymousKey(storedKey);
+    }
+
+    const storedCount = window.localStorage.getItem('scriptGeneratorAnonymousUsageCount');
+    if (storedCount) {
+      const parsed = Number.parseInt(storedCount, 10);
+      if (Number.isFinite(parsed) && parsed >= 0) {
+        setAnonUsageCount(parsed);
+      }
+    }
+  }, []);
+
   const handleFieldChange = useCallback((key: keyof FormState, value: string) => {
     setFormState((prev) => ({ ...prev, [key]: value }));
     setFormErrors((prev) => (prev[key as keyof typeof prev] ? { ...prev, [key]: undefined } : prev));
@@ -325,6 +347,30 @@ export default function AdScriptGeneratorClient() {
       }
 
       setFormErrors({});
+
+      const isAnonymousUser = !user;
+      let currentAnonymousKey = anonymousKey;
+
+      if (isAnonymousUser) {
+        if (anonUsageCount >= 1) {
+          setError('You’ve used your free script. Create a free APSICS Media account to keep generating.');
+          setShowAuthModal(true);
+          return;
+        }
+
+        if (!currentAnonymousKey) {
+          const newAnonymousKey =
+            typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
+              ? crypto.randomUUID()
+              : `anon_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+          currentAnonymousKey = newAnonymousKey;
+          setAnonymousKey(newAnonymousKey);
+          if (typeof window !== 'undefined') {
+            window.localStorage.setItem('scriptGeneratorAnonymousKey', newAnonymousKey);
+          }
+        }
+      }
+
       setSubmitting(true);
       setLastRequestedFormat(formState.adFormat);
 
@@ -333,19 +379,32 @@ export default function AdScriptGeneratorClient() {
         : `https://${formState.websiteUrl}`;
 
       try {
-        const { data, error: invokeError } = await supabase.functions.invoke<GenerationResponse>(
-          'generate-script',
-          {
-            body: {
-              companyName: formState.companyName,
-              websiteUrl: normalizedWebsiteUrl,
-              productDescription: formState.productDescription,
-              platform: formState.platform,
-              objective: formState.objective,
-              adFormat: formState.adFormat,
-            },
+        const invokeOptions: {
+          body: {
+            companyName: string;
+            websiteUrl: string;
+            productDescription: string;
+            platform: string;
+            objective: string;
+            adFormat: 'video' | 'static';
+          };
+          headers?: Record<string, string>;
+        } = {
+          body: {
+            companyName: formState.companyName,
+            websiteUrl: normalizedWebsiteUrl,
+            productDescription: formState.productDescription,
+            platform: formState.platform,
+            objective: formState.objective,
+            adFormat: formState.adFormat,
           },
-        );
+        };
+
+        if (isAnonymousUser && currentAnonymousKey) {
+          invokeOptions.headers = { 'x-anonymous-key': currentAnonymousKey };
+        }
+
+        const { data, error: invokeError } = await supabase.functions.invoke<GenerationResponse>('generate-script', invokeOptions);
 
         if (invokeError) {
           console.error('generate-script error', invokeError);
@@ -357,7 +416,11 @@ export default function AdScriptGeneratorClient() {
               setError('Double-check the company name and website URL, then try again.');
               break;
             case 401:
-              setError('Please sign in again to continue generating scripts.');
+              if (user) {
+                setError('Please sign in again to continue generating scripts.');
+              } else {
+                setError('Create a free APSICS Media account to keep generating scripts.');
+              }
               setShowAuthModal(true);
               break;
             case 402:
@@ -404,6 +467,22 @@ export default function AdScriptGeneratorClient() {
           } else if (user) {
             triggerProfileReload();
           }
+          if (!user) {
+            if (data.anonymousKey && data.anonymousKey.length > 0 && data.anonymousKey !== currentAnonymousKey) {
+              setAnonymousKey(data.anonymousKey);
+              if (typeof window !== 'undefined') {
+                window.localStorage.setItem('scriptGeneratorAnonymousKey', data.anonymousKey);
+              }
+              currentAnonymousKey = data.anonymousKey;
+            }
+            setAnonUsageCount((prev) => {
+              const next = prev + 1;
+              if (typeof window !== 'undefined') {
+                window.localStorage.setItem('scriptGeneratorAnonymousUsageCount', next.toString());
+              }
+              return next;
+            });
+          }
         }
       } catch (submitError) {
         setError(
@@ -415,7 +494,7 @@ export default function AdScriptGeneratorClient() {
         setSubmitting(false);
       }
     },
-    [formState, supabase, triggerProfileReload, user],
+    [anonUsageCount, anonymousKey, formState, supabase, triggerProfileReload, user],
   );
 
   const handlePurchase = useCallback((tier: 'essentials' | 'studio' | 'concierge' = 'essentials') => {

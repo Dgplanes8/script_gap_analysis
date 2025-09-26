@@ -44,4 +44,7 @@ export function getSupabaseBrowserClient(): BrowserClient {
   return client;
 }
 
+// Alias for compatibility
+export const createBrowserClient = getSupabaseBrowserClient;
+
 export type ProfileRow = Database['public']['Tables']['profiles']['Row'];
