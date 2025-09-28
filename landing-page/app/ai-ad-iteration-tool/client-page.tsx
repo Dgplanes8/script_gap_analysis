@@ -389,7 +389,7 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
           return;
         }
 
-        setProfileCredits(data?.credits_remaining ?? 0);
+        setProfileCredits((data as { credits_remaining: number } | null)?.credits_remaining ?? 0);
         setProfileError(null);
       } catch (loadErr) {
         if (!active) {
