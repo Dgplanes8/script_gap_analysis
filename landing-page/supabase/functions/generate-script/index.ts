@@ -428,10 +428,39 @@ serve(async (req) => {
       script = `${copy.headline}\n\n${copy.subheadline}\n\n${copy.body}\n\n${copy.bullets.map((b: string) => `• ${b}`).join('\n')}\n\n${copy.cta}\n\nDesign Notes: ${copy.designNotes}`;
     }
   } catch (parseError) {
-    // If JSON parsing fails, use raw content as script (legacy format)
-    console.log('Using legacy text format, JSON parsing failed:', parseError);
-    console.log('Raw content:', rawContent.substring(0, 200) + '...');
-    structuredData = null;
+    // If JSON parsing fails, try to fix common JSON issues and retry
+    console.log('Initial JSON parsing failed:', parseError);
+
+    try {
+      // Try to fix common JSON issues
+      let fixedContent = cleanedContent
+        .replace(/\n/g, '\\n')  // Escape newlines
+        .replace(/\r/g, '\\r')  // Escape carriage returns
+        .replace(/\t/g, '\\t')  // Escape tabs
+        .replace(/"/g, '\\"')   // Escape quotes
+        .replace(/\\"/g, '"')   // Fix over-escaped quotes at start
+        .replace(/^"/, '')      // Remove leading quote if present
+        .replace(/"$/, '');     // Remove trailing quote if present
+
+      // Try parsing the fixed content
+      structuredData = JSON.parse(fixedContent);
+      console.log('Successfully parsed JSON after fixing:', structuredData);
+
+      // Process the parsed data same as above
+      if (structuredData.contentType === 'video' && structuredData.script?.scenes) {
+        script = structuredData.script.scenes.map((scene: any) =>
+          `[${scene.timing}] ${scene.description}\nVO: ${scene.voiceover}\nOn-screen: ${scene.onScreenText}${scene.cta ? `\nCTA: ${scene.cta}` : ''}`
+        ).join('\n\n');
+      } else if (structuredData.contentType === 'static' && structuredData.staticCopy) {
+        const copy = structuredData.staticCopy;
+        script = `${copy.headline}\n\n${copy.subheadline}\n\n${copy.body}\n\n${copy.bullets.map((b: string) => `• ${b}`).join('\n')}\n\n${copy.cta}\n\nDesign Notes: ${copy.designNotes}`;
+      }
+    } catch (secondParseError) {
+      // If both attempts fail, use raw content as script (legacy format)
+      console.log('Using legacy text format, JSON parsing failed after fixes:', secondParseError);
+      console.log('Raw content sample:', rawContent.substring(0, 300) + '...');
+      structuredData = null;
+    }
   }
 
   const processingTime = Date.now() - startTime;
@@ -592,7 +621,15 @@ ${basePrompt.trim()}
 Use the above strategic workflow to craft a finished advertising script that aligns with the campaign brief provided above.
 
 CRITICAL OUTPUT FORMAT REQUIREMENT:
-You MUST return your response as valid JSON in exactly this structure:
+You MUST return your response as valid JSON. Follow these rules strictly:
+
+JSON FORMATTING RULES:
+- All string values must be properly escaped (use \\" for quotes, \\n for line breaks)
+- No trailing commas
+- No comments or additional text outside the JSON
+- Ensure all quotes and special characters are escaped
+
+REQUIRED JSON STRUCTURE:
 
 FOR VIDEO FORMAT:
 {
@@ -613,8 +650,8 @@ FOR VIDEO FORMAT:
       "improvedElement": "Expert-optimized hook variation",
       "frameworkUsed": "Which script framework was applied",
       "awarenessStage": "Unaware|Problem-Aware|Solution-Aware|Product-Aware|Most-Aware",
-      "rationale": "Why this approach works",
-      "testingStrategy": "How to test and optimize"
+      "rationale": "Why this approach works for this brief",
+      "testingStrategy": "How to test and optimize performance"
     }
   ],
   "platformAdaptations": {
@@ -643,8 +680,8 @@ FOR STATIC FORMAT:
       "improvedElement": "Expert-optimized headline variation",
       "frameworkUsed": "Which copy framework was applied",
       "awarenessStage": "Unaware|Problem-Aware|Solution-Aware|Product-Aware|Most-Aware",
-      "rationale": "Why this approach works",
-      "testingStrategy": "How to test and optimize"
+      "rationale": "Why this approach works for this brief",
+      "testingStrategy": "How to test and optimize performance"
     }
   ],
   "platformAdaptations": {
@@ -657,13 +694,7 @@ FOR STATIC FORMAT:
   }
 }
 
-Output Requirements:
-1. Select the optimal framework based on the campaign brief and platform.
-2. Structure content cleanly with separate fields for each element.
-3. Include expert-level recommendations for optimization.
-4. Provide platform-specific adaptation guidance.
-5. Return ONLY valid JSON - no additional text outside the JSON structure.
-6. Ensure all strings are properly escaped for JSON format.
+CRITICAL: Return ONLY the JSON object. No explanations, no markdown, no additional text.
 `;
 }
 

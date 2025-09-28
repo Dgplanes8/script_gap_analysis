@@ -283,31 +283,36 @@ function renderStructuredScript(scenes: ScriptScene[]) {
           </h3>
         </div>
       </div>
-      <div className="space-y-4">
+      <div className="space-y-6">
         {scenes.map((scene, index) => (
           <div key={index} className="rounded-xl p-6 bg-white/80 border border-blue-200 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
+              <span className="px-2 py-1 bg-blue-600 text-white text-sm font-bold rounded">
+                Scene {index + 1}
+              </span>
               <span className="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
                 {scene.timing}
               </span>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-4">
               <div>
-                <span className="font-medium text-blue-700">Visual:</span>
-                <p className="text-gray-700 mt-1">{scene.description}</p>
+                <h4 className="font-semibold text-blue-900 mb-2">Visual Description</h4>
+                <p className="text-gray-700 leading-relaxed">{scene.description}</p>
               </div>
               <div>
-                <span className="font-medium text-blue-700">Voiceover:</span>
-                <p className="text-gray-700 mt-1 italic">"{scene.voiceover}"</p>
+                <h4 className="font-semibold text-blue-900 mb-2">Voiceover</h4>
+                <p className="text-gray-700 italic leading-relaxed">"{scene.voiceover}"</p>
               </div>
-              <div>
-                <span className="font-medium text-blue-700">On-Screen Text:</span>
-                <p className="text-gray-700 mt-1 font-medium">{scene.onScreenText}</p>
-              </div>
+              {scene.onScreenText && (
+                <div>
+                  <h4 className="font-semibold text-blue-900 mb-2">On-Screen Text</h4>
+                  <p className="text-gray-900 font-medium">{scene.onScreenText}</p>
+                </div>
+              )}
               {scene.cta && (
                 <div>
-                  <span className="font-medium text-blue-700">Call to Action:</span>
-                  <p className="text-gray-700 mt-1 font-semibold">{scene.cta}</p>
+                  <h4 className="font-semibold text-blue-900 mb-2">Call to Action</h4>
+                  <p className="text-blue-800 font-bold text-lg">{scene.cta}</p>
                 </div>
               )}
             </div>
@@ -427,25 +432,49 @@ export function ScriptOutputDisplay({
 }) {
   const sections = useMemo(() => parseScriptOutput(script), [script]);
 
+  // Debug logging
+  console.log('=== ScriptOutputDisplay Debug ===');
+  console.log('Script length:', script?.length);
+  console.log('StructuredData:', structuredData);
+  console.log('StructuredData type:', typeof structuredData);
+  console.log('Has scenes:', !!(structuredData?.script?.scenes?.length));
+  console.log('Has recommendations:', !!(structuredData?.recommendations?.length));
+  console.log('Content type:', structuredData?.contentType);
+
+  // Try to parse JSON from script if structuredData is null but script looks like JSON
+  let parsedData = structuredData;
+  if (!structuredData && script && script.trim().startsWith('{')) {
+    try {
+      console.log('Attempting to parse JSON from script...');
+      parsedData = JSON.parse(script);
+      console.log('Successfully parsed JSON from script:', parsedData);
+    } catch (e) {
+      console.log('Failed to parse JSON from script:', e);
+    }
+  }
+
   // If we have structured data, use the enhanced display
-  if (structuredData && structuredData.recommendations && structuredData.platformAdaptations) {
+  if (parsedData && (parsedData.script?.scenes || parsedData.staticCopy || parsedData.recommendations)) {
+    console.log('✅ Using structured display for contentType:', parsedData.contentType);
     return (
       <div className="space-y-8">
         {/* Priority 1: Expert Recommendations */}
-        {!!(structuredData.recommendations?.length) && renderRecommendations(structuredData.recommendations)}
+        {!!(parsedData.recommendations?.length) && renderRecommendations(parsedData.recommendations)}
 
         {/* Priority 2: Structured Content */}
-        {structuredData.contentType === 'video' && !!(structuredData.script?.scenes?.length) &&
-          renderStructuredScript(structuredData.script.scenes)}
+        {parsedData.contentType === 'video' && !!(parsedData.script?.scenes?.length) &&
+          renderStructuredScript(parsedData.script.scenes)}
 
-        {structuredData.contentType === 'static' && structuredData.staticCopy &&
-          renderStaticCopy(structuredData.staticCopy)}
+        {parsedData.contentType === 'static' && parsedData.staticCopy &&
+          renderStaticCopy(parsedData.staticCopy)}
 
         {/* Priority 3: Platform Adaptations */}
-        {renderPlatformAdaptations(structuredData.platformAdaptations)}
+        {parsedData.platformAdaptations && renderPlatformAdaptations(parsedData.platformAdaptations)}
       </div>
     );
   }
+
+  console.log('❌ Falling back to legacy display');
 
   // Fallback to legacy display
   return (
