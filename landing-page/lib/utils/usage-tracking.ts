@@ -184,7 +184,7 @@ export async function trackScriptGeneration(
       return { scriptId: null, error: error.message };
     }
 
-    return { scriptId: result.id, error: null };
+    return { scriptId: (result as { id: string } | null)?.id ?? null, error: null };
   } catch (err) {
     console.error('Script tracking error:', err);
     return { scriptId: null, error: err instanceof Error ? err.message : 'Unknown error' };
@@ -311,13 +311,13 @@ export async function getUserUsageAnalytics(
 
     return {
       data: {
-        totalGenerations: data.total_generations,
-        toolsUsed: data.tools_used,
-        totalCreditsSpent: data.total_credits_spent,
-        avgProcessingTime: data.avg_processing_ms,
-        successRate: data.success_rate_pct,
-        lastUsed: data.last_usage,
-        firstUsed: data.first_usage,
+        totalGenerations: (data as any)?.total_generations ?? 0,
+        toolsUsed: (data as any)?.tools_used ?? [],
+        totalCreditsSpent: (data as any)?.total_credits_spent ?? 0,
+        avgProcessingTime: (data as any)?.avg_processing_ms ?? 0,
+        successRate: (data as any)?.success_rate_pct ?? 0,
+        lastUsed: (data as any)?.last_usage ?? null,
+        firstUsed: (data as any)?.first_usage ?? null,
       },
       error: null
     };

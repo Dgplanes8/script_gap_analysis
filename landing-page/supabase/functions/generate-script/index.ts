@@ -120,7 +120,7 @@ async function trackScriptGeneration(
       return { scriptId: null, error: error.message };
     }
 
-    return { scriptId: result.id, error: null };
+    return { scriptId: (result as { id: string } | null)?.id ?? null, error: null };
   } catch (err) {
     console.error('Script tracking error:', err);
     return { scriptId: null, error: err instanceof Error ? err.message : 'Unknown error' };
