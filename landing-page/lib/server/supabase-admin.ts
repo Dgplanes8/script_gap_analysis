@@ -43,13 +43,32 @@ type Database = {
         Insert: PackageLeadInsert;
         Update: PackageLeadUpdate;
       };
+      [key: string]: {
+        Row: any;
+        Insert: any;
+        Update: any;
+      };
+    };
+    Views: {
+      [key: string]: {
+        Row: any;
+      };
+    };
+    Functions: {
+      [key: string]: {
+        Args: any;
+        Returns: any;
+      };
+    };
+    Enums: {
+      [key: string]: string;
     };
   };
 };
 
-let supabaseServerClient: SupabaseClient<Database> | null = null;
+let supabaseServerClient: SupabaseClient | null = null;
 
-export function getSupabaseServerClient(): SupabaseClient<Database> {
+export function getSupabaseServerClient(): SupabaseClient {
   if (supabaseServerClient) {
     return supabaseServerClient;
   }
@@ -61,7 +80,7 @@ export function getSupabaseServerClient(): SupabaseClient<Database> {
     throw new Error('Missing Supabase server environment variables.');
   }
 
-  supabaseServerClient = createClient<Database>(url, serviceRoleKey, {
+  supabaseServerClient = createClient(url, serviceRoleKey, {
     auth: {
       persistSession: false,
       autoRefreshToken: false,
@@ -71,4 +90,4 @@ export function getSupabaseServerClient(): SupabaseClient<Database> {
   return supabaseServerClient;
 }
 
-export type SupabaseServerClient = SupabaseClient<Database>;
+export type SupabaseServerClient = SupabaseClient;

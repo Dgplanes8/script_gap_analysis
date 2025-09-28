@@ -98,19 +98,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const insertData = {
+      email,
+      name,
+      company,
+      website,
+      package_interest: packageInterest,
+      lead_type: leadType,
+      source: source || null,
+      status: 'new',
+      metadata,
+    };
+
     const { data: insertedLead, error: insertError } = await supabase
       .from('package_leads')
-      .insert({
-        email,
-        name,
-        company,
-        website,
-        package_interest: packageInterest,
-        lead_type: leadType,
-        source: source || null,
-        status: 'new',
-        metadata,
-      })
+      .insert(insertData as any)
       .select('id, created_at')
       .single();
 

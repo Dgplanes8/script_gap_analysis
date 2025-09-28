@@ -7,3 +7,8 @@ export async function register() {
     await import('./sentry.edge.config');
   }
 }
+
+// Client-side instrumentation
+if (typeof window !== 'undefined') {
+  import('./instrumentation-client');
+}

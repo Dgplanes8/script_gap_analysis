@@ -359,7 +359,7 @@ serve(async (req) => {
           {
             role: "system",
             content:
-              "You are a direct-response marketing strategist. Produce concise, high-performing video ad scripts with hooks, narrative structure, and platform-native pacing. Never invent research or data; if required inputs are missing, ask for clarification or return an explicit error.",
+              "You are a direct-response marketing strategist. You MUST return valid JSON only. Never return plain text. Always follow the exact JSON structure provided in the prompt. If you cannot generate the full response within token limits, prioritize the core content sections first.",
           },
         {
           role: "user",
@@ -368,7 +368,7 @@ serve(async (req) => {
       ],
       temperature: 0.7,
       top_p: 0.9,
-      max_tokens: 800,
+      max_tokens: 1500,
     }),
     });
   } catch (networkError) {
@@ -447,8 +447,38 @@ serve(async (req) => {
       }
     }
   } catch (parseError) {
-    // JSON parsing failed, use raw content as fallback
-    structuredData = null;
+    // Try to fix truncated JSON by adding missing closing braces
+    try {
+      let fixedContent = cleanedContent;
+
+      // Count opening vs closing braces to detect truncation
+      const openBraces = (fixedContent.match(/\{/g) || []).length;
+      const closeBraces = (fixedContent.match(/\}/g) || []).length;
+      const missingBraces = openBraces - closeBraces;
+
+      if (missingBraces > 0) {
+        // Add missing closing braces
+        fixedContent += '}]'.repeat(Math.min(missingBraces, 3));
+      }
+
+      structuredData = JSON.parse(fixedContent);
+
+      // Validate and extract script as above
+      if (structuredData && typeof structuredData === 'object') {
+        const isValidVideo = structuredData.contentType === 'video' &&
+                            Array.isArray(structuredData.script?.scenes) &&
+                            structuredData.script.scenes.length > 0;
+
+        if (isValidVideo) {
+          script = structuredData.script.scenes.map((scene: any) =>
+            `[${scene.timing || 'Scene'}] ${scene.description || ''}\n${scene.voiceover || ''}${scene.onScreenText ? `\nText: ${scene.onScreenText}` : ''}${scene.cta ? `\nCTA: ${scene.cta}` : ''}`
+          ).join('\n\n');
+        }
+      }
+    } catch (secondError) {
+      // Both attempts failed, use raw content as fallback
+      structuredData = null;
+    }
   }
 
   const processingTime = Date.now() - startTime;
@@ -641,7 +671,15 @@ FOR VIDEO FORMAT:
       "rationale": "Why this approach works for this brief",
       "testingStrategy": "How to test and optimize performance"
     }
-  ]
+  ],
+  "platformAdaptations": {
+    "tiktok": "TikTok-specific adaptation notes",
+    "instagram": "Instagram-specific adaptation notes",
+    "facebook": "Facebook-specific adaptation notes",
+    "x": "X/Twitter-specific adaptation notes",
+    "linkedin": "LinkedIn-specific adaptation notes",
+    "youtube": "YouTube-specific adaptation notes"
+  }
 }
 
 FOR STATIC FORMAT:
@@ -663,12 +701,22 @@ FOR STATIC FORMAT:
       "rationale": "Why this approach works for this brief",
       "testingStrategy": "How to test and optimize performance"
     }
-  ]
+  ],
+  "platformAdaptations": {
+    "tiktok": "TikTok-specific adaptation notes",
+    "instagram": "Instagram-specific adaptation notes",
+    "facebook": "Facebook-specific adaptation notes",
+    "x": "X/Twitter-specific adaptation notes",
+    "linkedin": "LinkedIn-specific adaptation notes",
+    "youtube": "YouTube-specific adaptation notes"
+  }
 }
 
-CRITICAL:
-- Return ONLY the JSON object. No explanations, no markdown, no additional text.
-- Keep entire response under 1500 tokens to ensure clean parsing and display.
+CRITICAL OUTPUT REQUIREMENTS:
+- Return ONLY valid JSON - no markdown, no explanations, no extra text
+- Start response with { and end with }
+- If hitting token limits, include scenes/staticCopy and recommendations first, platformAdaptations second
+- Ensure all JSON strings are properly escaped (use \\" for quotes)
 `;
 }
 
