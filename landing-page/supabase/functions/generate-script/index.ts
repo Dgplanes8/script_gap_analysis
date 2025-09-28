@@ -398,69 +398,57 @@ serve(async (req) => {
     });
   }
 
-  // Try to parse as JSON first (new format), fallback to raw string (legacy format)
+  // Parse JSON response and create structured data
   let structuredData = null;
   let script = rawContent;
 
   // Clean up the content and try to extract JSON
   let cleanedContent = rawContent.trim();
 
-  // Remove any markdown code block markers if present
+  // Remove markdown code block markers if present
   if (cleanedContent.startsWith('```json')) {
     cleanedContent = cleanedContent.replace(/^```json\n/, '').replace(/\n```$/, '');
   } else if (cleanedContent.startsWith('```')) {
     cleanedContent = cleanedContent.replace(/^```\n/, '').replace(/\n```$/, '');
   }
 
+  // Remove any trailing text after the JSON block
+  const jsonEnd = cleanedContent.lastIndexOf('}');
+  if (jsonEnd !== -1) {
+    cleanedContent = cleanedContent.substring(0, jsonEnd + 1);
+  }
+
   try {
     structuredData = JSON.parse(cleanedContent);
-    console.log('Successfully parsed JSON response:', structuredData);
 
-    // If we successfully parsed JSON, extract the script content for legacy compatibility
-    if (structuredData.contentType === 'video' && structuredData.script?.scenes) {
-      // For video, concatenate scenes into a readable script format
-      script = structuredData.script.scenes.map((scene: any) =>
-        `[${scene.timing}] ${scene.description}\nVO: ${scene.voiceover}\nOn-screen: ${scene.onScreenText}${scene.cta ? `\nCTA: ${scene.cta}` : ''}`
-      ).join('\n\n');
-    } else if (structuredData.contentType === 'static' && structuredData.staticCopy) {
-      // For static, format the copy structure
-      const copy = structuredData.staticCopy;
-      script = `${copy.headline}\n\n${copy.subheadline}\n\n${copy.body}\n\n${copy.bullets.map((b: string) => `• ${b}`).join('\n')}\n\n${copy.cta}\n\nDesign Notes: ${copy.designNotes}`;
+    // Validate the structure matches our expected schema
+    if (structuredData && typeof structuredData === 'object') {
+      const isValidVideo = structuredData.contentType === 'video' &&
+                          Array.isArray(structuredData.script?.scenes) &&
+                          structuredData.script.scenes.length > 0;
+
+      const isValidStatic = structuredData.contentType === 'static' &&
+                           structuredData.staticCopy &&
+                           typeof structuredData.staticCopy === 'object';
+
+      if (!isValidVideo && !isValidStatic) {
+        // Invalid structure, fallback to raw content
+        structuredData = null;
+      } else {
+        // Create a simplified script text for legacy compatibility
+        if (isValidVideo) {
+          script = structuredData.script.scenes.map((scene: any) =>
+            `[${scene.timing || 'Scene'}] ${scene.description || ''}\n${scene.voiceover || ''}${scene.onScreenText ? `\nText: ${scene.onScreenText}` : ''}${scene.cta ? `\nCTA: ${scene.cta}` : ''}`
+          ).join('\n\n');
+        } else if (isValidStatic) {
+          const copy = structuredData.staticCopy;
+          script = `${copy.headline || ''}\n\n${copy.subheadline || ''}\n\n${copy.body || ''}\n\n${(copy.bullets || []).map((b: string) => `• ${b}`).join('\n')}\n\n${copy.cta || ''}`;
+        }
+      }
     }
   } catch (parseError) {
-    // If JSON parsing fails, try to fix common JSON issues and retry
-    console.log('Initial JSON parsing failed:', parseError);
-
-    try {
-      // Try to fix common JSON issues
-      let fixedContent = cleanedContent
-        .replace(/\n/g, '\\n')  // Escape newlines
-        .replace(/\r/g, '\\r')  // Escape carriage returns
-        .replace(/\t/g, '\\t')  // Escape tabs
-        .replace(/"/g, '\\"')   // Escape quotes
-        .replace(/\\"/g, '"')   // Fix over-escaped quotes at start
-        .replace(/^"/, '')      // Remove leading quote if present
-        .replace(/"$/, '');     // Remove trailing quote if present
-
-      // Try parsing the fixed content
-      structuredData = JSON.parse(fixedContent);
-      console.log('Successfully parsed JSON after fixing:', structuredData);
-
-      // Process the parsed data same as above
-      if (structuredData.contentType === 'video' && structuredData.script?.scenes) {
-        script = structuredData.script.scenes.map((scene: any) =>
-          `[${scene.timing}] ${scene.description}\nVO: ${scene.voiceover}\nOn-screen: ${scene.onScreenText}${scene.cta ? `\nCTA: ${scene.cta}` : ''}`
-        ).join('\n\n');
-      } else if (structuredData.contentType === 'static' && structuredData.staticCopy) {
-        const copy = structuredData.staticCopy;
-        script = `${copy.headline}\n\n${copy.subheadline}\n\n${copy.body}\n\n${copy.bullets.map((b: string) => `• ${b}`).join('\n')}\n\n${copy.cta}\n\nDesign Notes: ${copy.designNotes}`;
-      }
-    } catch (secondParseError) {
-      // If both attempts fail, use raw content as script (legacy format)
-      console.log('Using legacy text format, JSON parsing failed after fixes:', secondParseError);
-      console.log('Raw content sample:', rawContent.substring(0, 300) + '...');
-      structuredData = null;
-    }
+    // JSON parsing failed, use raw content as fallback
+    structuredData = null;
   }
 
   const processingTime = Date.now() - startTime;

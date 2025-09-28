@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
       return withCors(
         NextResponse.json({
           success: true,
-          leadId: existingLead.id,
+          leadId: (existingLead as { id: string; email: string; package_interest: string; created_at: string } | null)?.id,
           message: 'Welcome back! You already have an account with us.',
           existing: true
         }),
