@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
+import { captureEdgeFunctionError } from "../_shared/sentry.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -39,6 +40,8 @@ serve(async (req) => {
       headers: corsHeaders,
     });
   }
+
+  try {
 
   let payload: SubscribePayload;
 
@@ -121,6 +124,24 @@ serve(async (req) => {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     },
   );
+
+  } catch (error) {
+    console.error("ConvertKit subscription failed", error);
+    captureEdgeFunctionError(error, {
+      functionName: 'subscribe-convertkit',
+      additionalTags: {
+        error_type: 'subscription_failed'
+      }
+    });
+
+    return new Response(
+      JSON.stringify({ success: false, error: "Subscription failed" }),
+      {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      },
+    );
+  }
 });
 
 export {};

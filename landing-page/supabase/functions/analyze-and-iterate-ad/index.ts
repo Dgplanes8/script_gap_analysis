@@ -917,6 +917,17 @@ serve(async (req) => {
   } catch (error) {
     console.error("Uncaught error in analyze-and-iterate-ad function:", error);
 
+    // Capture error in Sentry
+    captureEdgeFunctionError(error, {
+      functionName: 'analyze-and-iterate-ad',
+      additionalTags: {
+        error_type: 'ad_iteration_failed',
+        company_name: payload?.companyName || 'unknown',
+        platform: payload?.primaryPlatform || 'unknown',
+        input_method: payload?.inputMethod || 'unknown'
+      }
+    });
+
     const processingMs = Date.now() - startTime;
     const errorMessage = error instanceof Error ? error.message : "Internal server error";
 

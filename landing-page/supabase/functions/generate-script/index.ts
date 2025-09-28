@@ -174,6 +174,8 @@ serve(async (req) => {
     });
   }
 
+  try {
+
   const adminClient = createClient(supabaseUrl, serviceRoleKey, {
     auth: { persistSession: false, autoRefreshToken: false },
   });
@@ -520,6 +522,21 @@ serve(async (req) => {
     status: 200,
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });
+
+  } catch (error) {
+    console.error("Generate script function failed", error);
+    captureEdgeFunctionError(error, {
+      functionName: 'generate-script',
+      additionalTags: {
+        error_type: 'script_generation_failed'
+      }
+    });
+
+    return new Response(JSON.stringify({ error: "Script generation failed" }), {
+      status: 500,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
 });
 
 type PromptParams = {

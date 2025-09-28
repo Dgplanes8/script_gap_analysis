@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
+import { captureEdgeFunctionError } from "../_shared/sentry.ts";
 
 const supabaseUrl = Deno.env.get("EDGE_SUPABASE_URL") ?? Deno.env.get("SUPABASE_URL");
 const serviceRoleKey = Deno.env.get("EDGE_SUPABASE_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
@@ -161,6 +162,8 @@ serve(async (req) => {
       headers: corsHeaders,
     });
   }
+
+  try {
 
   const adminClient = createClient(supabaseUrl, serviceRoleKey, {
     auth: { persistSession: false, autoRefreshToken: false },
@@ -405,6 +408,18 @@ serve(async (req) => {
       .eq("id", jobId);
 
     return jsonError("Failed to generate creative brief", 500, corsHeaders);
+  }
+
+  } catch (error) {
+    console.error("Generate brief function failed", error);
+    captureEdgeFunctionError(error, {
+      functionName: 'generate-brief',
+      additionalTags: {
+        error_type: 'function_exception'
+      }
+    });
+
+    return jsonError("Internal server error", 500, corsHeaders);
   }
 });
 

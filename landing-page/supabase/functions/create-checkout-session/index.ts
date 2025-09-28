@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
 import Stripe from "https://esm.sh/stripe@14.17.0?target=deno";
+import { captureEdgeFunctionError } from "../_shared/sentry.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -52,6 +53,8 @@ serve(async (req) => {
       headers: corsHeaders,
     });
   }
+
+  try {
 
   const adminClient = createClient(supabaseUrl, serviceRoleKey, {
     auth: { persistSession: false, autoRefreshToken: false },
@@ -232,4 +235,19 @@ serve(async (req) => {
     status: 200,
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });
+
+  } catch (error) {
+    console.error("Create checkout session failed", error);
+    captureEdgeFunctionError(error, {
+      functionName: 'create-checkout-session',
+      additionalTags: {
+        error_type: 'checkout_creation_failed'
+      }
+    });
+
+    return new Response(JSON.stringify({ error: "Failed to create checkout session" }), {
+      status: 500,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
 });
