@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
 import Stripe from "https://esm.sh/stripe@14.17.0?target=deno";
+import { captureEdgeFunctionError } from "../_shared/sentry.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -31,71 +32,110 @@ serve(async (req) => {
     return new Response("ok", { headers: corsHeaders });
   }
 
-  const signature = req.headers.get("stripe-signature");
-  if (!signature) {
-    return new Response("Missing Stripe signature", { status: 400, headers: corsHeaders });
-  }
-
-  const rawBody = await req.text();
-
-  let event: Stripe.Event;
-
   try {
-    event = stripe.webhooks.constructEvent(rawBody, signature, stripeWebhookSecret);
+    const signature = req.headers.get("stripe-signature");
+    if (!signature) {
+      return new Response("Missing Stripe signature", { status: 400, headers: corsHeaders });
+    }
+
+    const rawBody = await req.text();
+
+    let event: Stripe.Event;
+
+    try {
+      event = stripe.webhooks.constructEvent(rawBody, signature, stripeWebhookSecret);
+    } catch (error) {
+      console.error("Stripe signature verification failed", error);
+      captureEdgeFunctionError(error, {
+        functionName: 'stripe-webhook',
+        additionalTags: {
+          error_type: 'signature_verification_failed',
+          stripe_signature_present: !!signature
+        }
+      });
+      return new Response("Invalid signature", { status: 400, headers: corsHeaders });
+    }
+
+    if (event.type === "checkout.session.completed") {
+      const session = event.data.object as Stripe.Checkout.Session;
+      const customerId = typeof session.customer === "string" ? session.customer : session.customer?.id;
+
+      await updatePackageLeadStatus(session, "checkout_completed");
+
+      if (customerId) {
+        await applyCreditGrant(customerId, session.metadata ?? {});
+      } else {
+        console.warn("Checkout session missing customer reference", session.id);
+        captureEdgeFunctionError(new Error("Checkout session missing customer reference"), {
+          functionName: 'stripe-webhook',
+          additionalTags: {
+            error_type: 'missing_customer_id',
+            session_id: session.id,
+            event_type: event.type
+          }
+        });
+      }
+    }
+
+    if (event.type === "checkout.session.expired") {
+      const session = event.data.object as Stripe.Checkout.Session;
+      await updatePackageLeadStatus(session, "checkout_expired");
+    }
+
+    if (event.type === "checkout.session.async_payment_failed") {
+      const session = event.data.object as Stripe.Checkout.Session;
+      await updatePackageLeadStatus(session, "checkout_failed");
+    }
+
+    if (event.type === "customer.subscription.updated") {
+      const subscription = event.data.object as Stripe.Subscription;
+      const customerId = typeof subscription.customer === "string" ? subscription.customer : subscription.customer?.id;
+
+      if (customerId) {
+        await applyCreditGrant(customerId, subscription.metadata ?? {});
+      }
+    }
+
+    return new Response(JSON.stringify({ received: true }), {
+      status: 200,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+
   } catch (error) {
-    console.error("Stripe signature verification failed", error);
-    return new Response("Invalid signature", { status: 400, headers: corsHeaders });
+    console.error("Stripe webhook processing failed", error);
+    captureEdgeFunctionError(error, {
+      functionName: 'stripe-webhook',
+      additionalTags: {
+        error_type: 'webhook_processing_failed'
+      }
+    });
+
+    return new Response("Webhook processing failed", {
+      status: 500,
+      headers: corsHeaders
+    });
   }
-
-  if (event.type === "checkout.session.completed") {
-    const session = event.data.object as Stripe.Checkout.Session;
-    const customerId = typeof session.customer === "string" ? session.customer : session.customer?.id;
-
-    await updatePackageLeadStatus(session, "checkout_completed");
-
-    if (customerId) {
-      await applyCreditGrant(customerId, session.metadata ?? {});
-    } else {
-      console.warn("Checkout session missing customer reference", session.id);
-    }
-  }
-
-  if (event.type === "checkout.session.expired") {
-    const session = event.data.object as Stripe.Checkout.Session;
-    await updatePackageLeadStatus(session, "checkout_expired");
-  }
-
-  if (event.type === "checkout.session.async_payment_failed") {
-    const session = event.data.object as Stripe.Checkout.Session;
-    await updatePackageLeadStatus(session, "checkout_failed");
-  }
-
-  if (event.type === "customer.subscription.updated") {
-    const subscription = event.data.object as Stripe.Subscription;
-    const customerId = typeof subscription.customer === "string" ? subscription.customer : subscription.customer?.id;
-
-    if (customerId) {
-      await applyCreditGrant(customerId, subscription.metadata ?? {});
-    }
-  }
-
-  return new Response(JSON.stringify({ received: true }), {
-    status: 200,
-    headers: { ...corsHeaders, "Content-Type": "application/json" },
-  });
 });
 
 async function applyCreditGrant(customerId: string, metadata: Record<string, string>) {
-  const { data: profile, error } = await adminClient
-    .from("profiles")
-    .select("id, credits_remaining, research_mode_unlocked")
-    .eq("stripe_customer_id", customerId)
-    .maybeSingle();
+  try {
+    const { data: profile, error } = await adminClient
+      .from("profiles")
+      .select("id, credits_remaining, research_mode_unlocked")
+      .eq("stripe_customer_id", customerId)
+      .maybeSingle();
 
-  if (error || !profile) {
-    console.error("Unable to locate profile for Stripe customer", customerId, error);
-    return;
-  }
+    if (error || !profile) {
+      console.error("Unable to locate profile for Stripe customer", customerId, error);
+      captureEdgeFunctionError(error || new Error("Profile not found"), {
+        functionName: 'stripe-webhook',
+        additionalTags: {
+          error_type: 'profile_lookup_failed',
+          stripe_customer_id: customerId
+        }
+      });
+      return;
+    }
 
   const metadataProduct = metadata?.product ?? "";
   const creditOverride = metadata?.credit_amount ? Number(metadata.credit_amount) : NaN;
@@ -119,13 +159,32 @@ async function applyCreditGrant(customerId: string, metadata: Record<string, str
     payload.research_mode_unlocked = true;
   }
 
-  const { error: updateError } = await adminClient
-    .from("profiles")
-    .update(payload)
-    .eq("id", profile.id);
+    const { error: updateError } = await adminClient
+      .from("profiles")
+      .update(payload)
+      .eq("id", profile.id);
 
-  if (updateError) {
-    console.error("Unable to update profile after Stripe grant", updateError);
+    if (updateError) {
+      console.error("Unable to update profile after Stripe grant", updateError);
+      captureEdgeFunctionError(updateError, {
+        functionName: 'stripe-webhook',
+        additionalTags: {
+          error_type: 'credit_grant_failed',
+          stripe_customer_id: customerId,
+          profile_id: profile.id,
+          credit_increment: String(creditIncrement)
+        }
+      });
+    }
+  } catch (error) {
+    console.error("Credit grant function failed", error);
+    captureEdgeFunctionError(error, {
+      functionName: 'stripe-webhook',
+      additionalTags: {
+        error_type: 'credit_grant_exception',
+        stripe_customer_id: customerId
+      }
+    });
   }
 }
 

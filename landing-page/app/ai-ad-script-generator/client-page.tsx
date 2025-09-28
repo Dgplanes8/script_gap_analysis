@@ -199,6 +199,7 @@ export default function AdScriptGeneratorClient() {
   const [user, setUser] = useState<User | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState('');
+  const [structuredData, setStructuredData] = useState<ScriptGenerationData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showPurchasePrompt, setShowPurchasePrompt] = useState(false);
   const [checkoutStatus, setCheckoutStatus] = useState<'success' | 'cancel' | null>(null);
@@ -582,6 +583,8 @@ export default function AdScriptGeneratorClient() {
 
         if (data?.script) {
           setResult(data.script);
+          console.log('Received structured data:', data.data);
+          setStructuredData(data.data || null);
           setEmailStatus(null);
           setEmailStatusMessage('');
           if (user?.email) {
@@ -1038,7 +1041,7 @@ export default function AdScriptGeneratorClient() {
                   statusType: emailStatus,
                 }}
               >
-                <ScriptOutputDisplay script={result} />
+                <ScriptOutputDisplay script={result} structuredData={structuredData} />
               </ResultActionsPanel>
             )}
 

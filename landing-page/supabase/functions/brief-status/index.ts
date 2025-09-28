@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
+import { captureEdgeFunctionError } from "../_shared/sentry.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -30,6 +31,23 @@ serve(async (req) => {
   if (req.method === "GET") {
     const url = new URL(req.url);
     jobId = url.searchParams.get("jobId");
+
+    // Test Sentry error tracking - remove this after testing
+    if (url.searchParams.get("test_sentry") === "true") {
+      try {
+        // @ts-ignore - Intentionally calling undefined function for testing
+        myUndefinedFunction();
+      } catch (error) {
+        captureEdgeFunctionError(error, {
+          functionName: 'brief-status',
+          additionalTags: {
+            error_type: 'sentry_test',
+            test: 'true'
+          }
+        });
+        return jsonError("Sentry test error triggered", 500);
+      }
+    }
   } else if (req.method === "POST") {
     try {
       const body = await req.json();

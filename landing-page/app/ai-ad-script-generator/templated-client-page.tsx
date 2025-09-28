@@ -22,8 +22,53 @@ type FormState = {
   adFormat: 'video' | 'static';
 };
 
+type ScriptScene = {
+  timing: string;
+  description: string;
+  voiceover: string;
+  onScreenText: string;
+  cta?: string;
+};
+
+type StaticCopy = {
+  headline: string;
+  subheadline: string;
+  body: string;
+  bullets: string[];
+  cta: string;
+  designNotes: string;
+};
+
+type ScriptRecommendation = {
+  improvedElement: string;
+  frameworkUsed: string;
+  awarenessStage: string;
+  rationale: string;
+  testingStrategy: string;
+};
+
+type PlatformAdaptations = {
+  tiktok: string;
+  instagram: string;
+  facebook: string;
+  x: string;
+  linkedin: string;
+  youtube: string;
+};
+
+type ScriptGenerationData = {
+  contentType: 'video' | 'static';
+  script?: {
+    scenes: ScriptScene[];
+  };
+  staticCopy?: StaticCopy;
+  recommendations: ScriptRecommendation[];
+  platformAdaptations: PlatformAdaptations;
+};
+
 type GenerationResponse = {
   script: string;
+  data?: ScriptGenerationData;
   creditsRemaining?: number;
   anonymousKey?: string;
 };
@@ -37,6 +82,7 @@ export default function TemplatedAdScriptGeneratorClient() {
   const [user, setUser] = useState<User | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState('');
+  const [structuredData, setStructuredData] = useState<ScriptGenerationData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [showPurchasePrompt, setShowPurchasePrompt] = useState(false);
   const [checkoutStatus, setCheckoutStatus] = useState<'success' | 'cancel' | null>(null);
@@ -319,6 +365,7 @@ export default function TemplatedAdScriptGeneratorClient() {
 
         if (data?.script) {
           setResult(data.script);
+          setStructuredData(data.data || null);
           setEmailStatus(null);
           setEmailStatusMessage('');
           if (user?.email) {
@@ -614,7 +661,7 @@ export default function TemplatedAdScriptGeneratorClient() {
         statusType: emailStatus,
       }}
     >
-      <ScriptOutputDisplay script={result} />
+      <ScriptOutputDisplay script={result} structuredData={structuredData} />
     </ResultActionsPanel>
   ) : undefined;
 

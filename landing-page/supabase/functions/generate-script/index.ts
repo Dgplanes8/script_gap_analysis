@@ -1,6 +1,7 @@
 import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
 import { basePrompt } from "./prompt.ts";
+import { captureEdgeFunctionError } from "../_shared/sentry.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -399,8 +400,20 @@ serve(async (req) => {
   let structuredData = null;
   let script = rawContent;
 
+  // Clean up the content and try to extract JSON
+  let cleanedContent = rawContent.trim();
+
+  // Remove any markdown code block markers if present
+  if (cleanedContent.startsWith('```json')) {
+    cleanedContent = cleanedContent.replace(/^```json\n/, '').replace(/\n```$/, '');
+  } else if (cleanedContent.startsWith('```')) {
+    cleanedContent = cleanedContent.replace(/^```\n/, '').replace(/\n```$/, '');
+  }
+
   try {
-    structuredData = JSON.parse(rawContent);
+    structuredData = JSON.parse(cleanedContent);
+    console.log('Successfully parsed JSON response:', structuredData);
+
     // If we successfully parsed JSON, extract the script content for legacy compatibility
     if (structuredData.contentType === 'video' && structuredData.script?.scenes) {
       // For video, concatenate scenes into a readable script format
@@ -415,6 +428,8 @@ serve(async (req) => {
   } catch (parseError) {
     // If JSON parsing fails, use raw content as script (legacy format)
     console.log('Using legacy text format, JSON parsing failed:', parseError);
+    console.log('Raw content:', rawContent.substring(0, 200) + '...');
+    structuredData = null;
   }
 
   const processingTime = Date.now() - startTime;
