@@ -3,6 +3,7 @@ export const revalidate = 0;
 
 import nextDynamic from 'next/dynamic';
 import { AlyticsNavbar } from '@/components/alytics/alytics-navbar';
+import { ToolHeader } from '@/components/shared/tool-header';
 
 // Dynamic import of the heavy client component for better performance
 const AdScriptGeneratorClient = nextDynamic(() => import('./client-page'), {
@@ -17,7 +18,7 @@ const AdScriptGeneratorClient = nextDynamic(() => import('./client-page'), {
 export default function AdScriptGeneratorPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-brand-50">
-      <AlyticsNavbar />
+      <ToolHeader fallback={<AlyticsNavbar />} />
       <div className="pt-20 md:pt-24">
         <AdScriptGeneratorClient />
       </div>
