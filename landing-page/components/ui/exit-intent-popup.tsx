@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { X, Mail } from 'lucide-react';
 import { ConvertKitForm } from '@/components/forms/convertkit-form';
+import { createBrowserClient } from '@/lib/supabase/browser-client';
 
 interface ExitIntentPopupProps {
   title?: string;
@@ -15,8 +16,48 @@ export function ExitIntentPopup({
 }: ExitIntentPopupProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
+  const [shouldRender, setShouldRender] = useState<boolean | null>(null);
+  const supabase = createBrowserClient();
 
   useEffect(() => {
+    let mounted = true;
+
+    const determineSession = async () => {
+      try {
+        const {
+          data: { session },
+        } = await supabase.auth.getSession();
+
+        if (mounted) {
+          setShouldRender(!session);
+        }
+      } catch (error) {
+        console.error('ExitIntentPopup: failed to load session', error);
+        if (mounted) {
+          setShouldRender(true);
+        }
+      }
+    };
+
+    determineSession();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setShouldRender(!session);
+    });
+
+    return () => {
+      mounted = false;
+      subscription.unsubscribe();
+    };
+  }, [supabase]);
+
+  useEffect(() => {
+    if (shouldRender === false) {
+      return;
+    }
+
     let hasTriggered = false;
 
     const handleMouseLeave = (e: MouseEvent) => {
@@ -44,7 +85,7 @@ export function ExitIntentPopup({
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('keydown', handleEscape);
     };
-  }, [isDismissed]);
+  }, [isDismissed, shouldRender]);
 
   const handleClose = () => {
     setIsVisible(false);
@@ -57,7 +98,8 @@ export function ExitIntentPopup({
     }
   };
 
-  if (!isVisible || isDismissed) return null;
+  if (shouldRender === false || !isVisible || isDismissed) return null;
+  if (shouldRender === null) return null;
 
   return (
     <div 

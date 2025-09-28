@@ -72,13 +72,16 @@ export function FinalConversionSection() {
           {/* Main Headline */}
           <motion.div variants={itemVariants} className="mb-8">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-              Stop guessing.{' '}
+              Your Creative Breakthrough is{' '}
               <span className="text-transparent bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text">
-                Start converting.
+                60 Seconds Away
               </span>
             </h2>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-  Join growth teams who use proven creative intelligence to consistently drive revenue from their ad spend.
+            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto mb-4">
+              First generation completely free. See what $250M+ in campaign intelligence looks like for your brand.
+            </p>
+            <p className="text-lg text-gray-700 font-medium max-w-xl mx-auto">
+              Every month you delay is revenue left on the table.
             </p>
           </motion.div>
 

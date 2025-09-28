@@ -52,18 +52,17 @@ export function AlyticsHero() {
           {/* Main Headline */}
           <motion.div variants={itemVariants}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight max-w-4xl mx-auto">
-              Turn Your Ad Budget Into{' '}
+              Stop Launching{' '}
               <span className="text-transparent bg-gradient-to-r from-[#126DFB] to-[#126DFB] bg-clip-text">
-                Predictable Revenue
-              </span>{' '}
-              Starting at $19/Month
+                Creative That Flops
+              </span>
             </h1>
           </motion.div>
 
           {/* Subtitle */}
           <motion.div variants={itemVariants}>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Get fully developed ad concepts - complete with scripts, strategic insights, positioning, and competitor analysis. These aren't creative assets, they're the research and development that drives ad success.
+              In 60 seconds, generate ad concepts with proven performance patterns. Built from analyzing what converts across $250M+ in managed spend.
               <br />
               <span className="text-gray-700 font-medium">Try the generator below, then claim 10 free credits across every tool.</span>
             </p>
@@ -71,13 +70,8 @@ export function AlyticsHero() {
 
           {/* CTA Section */}
           <motion.div variants={itemVariants} className="space-y-6">
-            <motion.button
-              type="button"
-              onClick={() => openModal({
-                source: 'hero-claim-credits',
-                title: 'Claim Your Free Credits',
-                subtitle: 'Create a free APSICS Media account and unlock 10 monthly credits across every generator.',
-              })}
+            <motion.a
+              href="/ai-ad-script-generator"
               whileHover={{
                 scale: 1.02,
                 boxShadow: "0 12px 30px rgba(18, 109, 251, 0.4)"
@@ -85,9 +79,9 @@ export function AlyticsHero() {
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center justify-center gap-3 bg-[#126DFB] hover:bg-[#0F5AD6] text-white font-semibold text-lg px-12 py-4 rounded-xl transition-all duration-200 shadow-lg"
             >
-              Claim 10 Free Credits
+              Generate Your First Winner Free
               <ArrowRight className="h-5 w-5" />
-            </motion.button>
+            </motion.a>
             
             <motion.div
               initial={{ opacity: 0 }}
@@ -96,7 +90,7 @@ export function AlyticsHero() {
               className="flex items-center justify-center gap-2 text-sm text-gray-500"
             >
               <CheckCircle className="w-4 h-4 text-[#126DFB]" />
-              Email-only signup • Use across script, brief & iteration tools
+              First creative generation completely free • See what 12+ years of campaign intelligence makes
             </motion.div>
 
             {/* Value Props */}

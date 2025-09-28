@@ -16,6 +16,7 @@ import { PerformanceGuaranteeSection } from './performance-guarantee-section';
 import { FourBoxProcessSection } from './four-box-process-section';
 import { CreativeGuessworkProblemSection } from './creative-guesswork-problem-section';
 import { ToolsOverviewSection } from './tools-overview-section';
+import { ComingSoonPipelineSection } from './coming-soon-pipeline-section';
 
 const KeyBenefitsSection = dynamic(() => import('./key-benefits-section').then(mod => ({ default: mod.KeyBenefitsSection })), {
   loading: () => <div className="py-20 bg-white animate-pulse"></div>
@@ -68,16 +69,19 @@ export function AlyticsLanding() {
       {/* 6. Tools Overview - Clarify product suite */}
       <ToolsOverviewSection />
 
-      {/* 7. Simple Pricing - After demonstrating value */}
+      {/* 7. Coming Soon Pipeline - Platform evolution preview */}
+      <ComingSoonPipelineSection />
+
+      {/* 8. Simple Pricing - After demonstrating value */}
       <SimplePricingSection />
 
-      {/* 8. Problem-Solution Bridge - Core value prop */}
+      {/* 9. Problem-Solution Bridge - Core value prop */}
       <ProblemSolutionWorkflow />
 
-      {/* 9. Key Benefits - Value reinforcement */}
+      {/* 10. Key Benefits - Value reinforcement */}
       <KeyBenefitsSection />
 
-      {/* 10. Final Conversion Push */}
+      {/* 11. Final Conversion Push */}
       <FinalConversionSection />
       
       {/* Newsletter Exit Popup */}

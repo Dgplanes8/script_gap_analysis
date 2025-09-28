@@ -217,7 +217,7 @@ export function SimplePricingSection() {
 
   return (
     <section id="service-tiers" className="py-20 bg-[#F8F8F8] relative">
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-6">
         
         {/* Section Header */}
         <motion.div
@@ -272,7 +272,7 @@ Get 150+ fully-developed creative concepts every month - complete with scripts, 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid gap-8 max-w-5xl mx-auto mb-16 sm:grid-cols-2 xl:grid-cols-4"
+          className="grid gap-8 max-w-4xl mx-auto mb-16 sm:grid-cols-2 xl:grid-cols-4"
         >
           {pricingTiers.map((tier) => (
             <PricingTier
@@ -304,7 +304,7 @@ Get 150+ fully-developed creative concepts every month - complete with scripts, 
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-5xl mx-auto mb-16 rounded-3xl border border-blue-100 bg-white p-8 shadow-lg"
+          className="max-w-4xl mx-auto mb-16 rounded-3xl border border-blue-100 bg-white p-8 shadow-lg"
         >
           <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] md:items-center">
             <div>

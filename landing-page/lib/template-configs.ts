@@ -273,7 +273,7 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
       footerText: 'Founder Club offer: $20 one-time add-on after your trial.',
     },
     process: {
-      title: 'How APSICS remixes your creative in 180 seconds',
+      title: 'How APSICS remixes your creative in under 30 seconds',
       description:
         'Every analysis layers our $250M+ performance dataset with your brand voice to deliver usable landable creative - not generic AI fluff.',
       highlights: [

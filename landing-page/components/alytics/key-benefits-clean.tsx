@@ -55,7 +55,7 @@ export function KeyBenefitsClean() {
 
   return (
     <section className="py-12 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-10">
           <div className="mb-3">

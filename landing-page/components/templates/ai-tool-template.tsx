@@ -1,8 +1,10 @@
 'use client';
 
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { SecondaryHeader, type SecondaryHeaderProps } from '@/components/layout/secondary-header';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
+import { ToolHeader } from '@/components/shared/tool-header';
+import { createBrowserClient } from '@/lib/supabase/browser-client';
 
 export interface AIToolTemplateConfig {
   header: {
@@ -40,9 +42,47 @@ export function AIToolTemplate({
   processContent,
   pricingContent,
 }: AIToolTemplateProps) {
+  const fallbackHeader = headerComponent ?? (secondaryHeaderProps ? <SecondaryHeader {...secondaryHeaderProps} /> : null);
+  const [hasSession, setHasSession] = useState<boolean | null>(null);
+  const supabase = createBrowserClient();
+
+  useEffect(() => {
+    let mounted = true;
+
+    const resolveSession = async () => {
+      try {
+        const {
+          data: { session },
+        } = await supabase.auth.getSession();
+
+        if (mounted) {
+          setHasSession(Boolean(session));
+        }
+      } catch (error) {
+        console.error('AI Tool Template: failed to load session', error);
+        if (mounted) {
+          setHasSession(false);
+        }
+      }
+    };
+
+    resolveSession();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setHasSession(Boolean(session));
+    });
+
+    return () => {
+      mounted = false;
+      subscription.unsubscribe();
+    };
+  }, [supabase]);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-brand-50">
-      {headerComponent ?? (secondaryHeaderProps ? <SecondaryHeader {...secondaryHeaderProps} /> : null)}
+      {fallbackHeader ? <ToolHeader fallback={fallbackHeader} /> : null}
       <div className="pt-20 md:pt-24">
         <div className="px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl space-y-10">
@@ -82,7 +122,7 @@ export function AIToolTemplate({
           )}
         </div>
       </div>
-      {config.exitIntent && (
+      {config.exitIntent && hasSession === false && (
         <ExitIntentPopup
           title={config.exitIntent.title}
           subtitle={config.exitIntent.subtitle}

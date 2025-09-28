@@ -745,6 +745,7 @@ const EMBEDDED_PROMPTS = {
 const OUTPUT_STRUCTURE_SCHEMA = {
   "type": "object",
   "properties": {
+    "summary": { "type": "string" },
     "iterations": {
       "type": "array",
       "items": {
@@ -754,53 +755,66 @@ const OUTPUT_STRUCTURE_SCHEMA = {
             "type": "string",
             "enum": ["same", "video", "static", "carousel"]
           },
-          "headline": { "type": "string", "maxLength": 150 },
-          "angleSummary": { "type": "string", "maxLength": 400 },
+
+          // CORE MESSAGING
+          "hook": { "type": "string" },
+          "headline": { "type": "string" },
+          "angleSummary": { "type": "string" },
+
+          // EXECUTION DETAILS
+          "visual": { "type": "string" },
+          "callToAction": { "type": "string" },
+
+          // SCRIPT (for video only)
           "script": {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
-                "scene": { "type": "string", "maxLength": 100 },
-                "description": { "type": "string", "maxLength": 300 },
-                "voiceover": { "type": "string", "maxLength": 300 },
-                "overlay": { "type": "string", "maxLength": 200 },
-                "cta": { "type": "string", "maxLength": 100 }
+                "scene": { "type": "string" },
+                "visual": { "type": "string" },
+                "voiceover": { "type": "string" },
+                "overlay": { "type": "string" }
               },
-              "required": ["scene", "description"],
+              "required": ["scene", "visual"],
               "additionalProperties": false
             },
-            "maxItems": 8
+            "maxItems": 6
           },
+
+          // STATIC COPY (for static only)
           "staticCopy": {
             "type": "object",
             "properties": {
-              "headline": { "type": "string", "maxLength": 150 },
-              "body": { "type": "string", "maxLength": 500 },
-              "cta": { "type": "string", "maxLength": 100 },
-              "designNotes": {
+              "headline": { "type": "string" },
+              "body": { "type": "string" },
+              "bulletPoints": {
                 "type": "array",
-                "items": { "type": "string", "maxLength": 200 },
-                "maxItems": 5
-              }
+                "items": { "type": "string" },
+                "maxItems": 3
+              },
+              "cta": { "type": "string" }
             },
             "additionalProperties": false
           },
+
+          // TESTING
           "testingNotes": {
             "type": "array",
-            "items": { "type": "string", "maxLength": 300 },
-            "maxItems": 5
+            "items": { "type": "string" },
+            "maxItems": 2
           }
         },
-        "required": ["id", "headline", "angleSummary"],
+        "required": ["id", "hook", "headline", "angleSummary", "visual", "callToAction"],
         "additionalProperties": false
       },
+      "minItems": 1,
       "maxItems": 4
     },
-    "error": { "type": "string", "maxLength": 200 },
-    "message": { "type": "string", "maxLength": 300 }
+    "error": { "type": "string" },
+    "message": { "type": "string" }
   },
-  "required": ["iterations"],
+  "required": ["summary", "iterations"],
   "additionalProperties": false
 } as const;
 
@@ -1078,24 +1092,27 @@ OUTPUT COMPLIANCE:
 
   const outputStructure = `OUTPUT STRUCTURE (STRICT JSON ONLY):
 {
+  "summary": string,
   "iterations": [{
     "id": "same" | "video" | "static" | "carousel",
+    "hook": string,
     "headline": string,
     "angleSummary": string,
+    "visual": string,
+    "callToAction": string,
     "script": [{
       "scene": string,
-      "description": string,
-      "voiceover"?: string,
-      "overlay"?: string,
-      "cta"?: string
-    }] (optional),
+      "visual": string,
+      "voiceover": string,
+      "overlay"?: string
+    }] (optional, for video only),
     "staticCopy"?: {
-      "headline"?: string,
-      "body"?: string,
-      "cta"?: string,
-      "designNotes"?: string array
-    },
-    "testingNotes"?: string array
+      "headline": string,
+      "body": string,
+      "bulletPoints": string array (max 3 items),
+      "cta": string
+    } (for static only),
+    "testingNotes"?: string array (max 2 items)
   }] (1-4 items required),
   "error"?: string,
   "message"?: string

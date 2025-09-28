@@ -20,11 +20,37 @@ export type BriefGeneratorPayload = {
 };
 
 export type StructuredBrief = {
-  executiveSummary: string;
-  strategicFoundation: string;
-  creativeDirection: string;
-  deliverables: string;
-  successMetrics: string;
+  campaignOverview: {
+    campaignName: string;
+    primaryObjective: string;
+    targetAudience: string;
+    keyMessage: string;
+    uniqueValueProposition: string;
+  };
+  conceptSummary: {
+    conceptName: string;
+    strategicApproach: string;
+    targetPersona: string;
+    coreEmotion: string;
+    lifeForce8: string;
+    awarenessLevel: string;
+    formats: string;
+    performancePredictionScore: string;
+  };
+  formatExecutions: Array<{
+    formatType: string;
+    primaryHook: string;
+    keyVisuals: string;
+    talentNotes: string;
+    goldenPainAddressed: string;
+    dreamOutcomePromised: string;
+  }>;
+  brandGuidelines: {
+    voicePositioning: string;
+    powerWords: string;
+    forbiddenLanguage: string;
+    requiredDisclaimers: string;
+  };
 };
 
 export type BriefResponse = {
@@ -48,22 +74,46 @@ export type BriefStatusResponse = {
   error?: string;
 };
 
+type InvokeOptions = {
+  headers?: Record<string, string>;
+};
+
 export async function generateBrief(
   supabase: SupabaseClient,
   payload: BriefGeneratorPayload,
+  options: InvokeOptions = {},
 ) {
-  return supabase.functions.invoke<BriefResponse>('generate-brief', {
+  const invokeOptions: {
+    body: BriefGeneratorPayload;
+    headers?: Record<string, string>;
+  } = {
     body: payload,
-  });
+  };
+
+  if (options.headers) {
+    invokeOptions.headers = options.headers;
+  }
+
+  return supabase.functions.invoke<BriefResponse>('generate-brief', invokeOptions);
 }
 
 export async function fetchBriefStatus(
   supabase: SupabaseClient,
   jobId: string,
+  options: InvokeOptions = {},
 ) {
-  return supabase.functions.invoke<BriefStatusResponse>('brief-status', {
+  const invokeOptions: {
+    body: { jobId: string };
+    headers?: Record<string, string>;
+  } = {
     body: { jobId },
-  });
+  };
+
+  if (options.headers) {
+    invokeOptions.headers = options.headers;
+  }
+
+  return supabase.functions.invoke<BriefStatusResponse>('brief-status', invokeOptions);
 }
 
 export async function startCreativeBriefCheckout(
@@ -73,6 +123,7 @@ export async function startCreativeBriefCheckout(
     creditAmount?: number;
     tier?: 'essentials' | 'studio' | 'concierge';
   } = {},
+  invokeOptions: InvokeOptions = {},
 ) {
   const {
     unlockResearch = true,
@@ -89,10 +140,22 @@ export async function startCreativeBriefCheckout(
     metadata.credit_amount = String(creditAmount);
   }
 
-  return supabase.functions.invoke<{ checkout_url?: string }>('create-checkout-session', {
+  const request: {
+    body: {
+      tier: 'essentials' | 'studio' | 'concierge';
+      metadata: Record<string, string>;
+    };
+    headers?: Record<string, string>;
+  } = {
     body: {
       tier,
       metadata,
     },
-  });
+  };
+
+  if (invokeOptions.headers) {
+    request.headers = invokeOptions.headers;
+  }
+
+  return supabase.functions.invoke<{ checkout_url?: string }>('create-checkout-session', request);
 }

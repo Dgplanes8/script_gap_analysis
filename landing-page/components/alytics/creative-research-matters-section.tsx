@@ -52,7 +52,7 @@ export function CreativeResearchMattersSection() {
       type: "success",
       icon: <Zap className="w-6 h-6" />,
       title: "APSICS Teams",
-      method: "Launch research-backed campaigns",
+      method: "Launch research backed campaigns",
       result: "Scale predictable revenue growth",
       color: "text-[#126DFB]",
       bgColor: "bg-[#EFF6FF]",
@@ -92,7 +92,7 @@ export function CreativeResearchMattersSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            While competitors burn budget on creative guesswork, smart growth teams use research-backed frameworks to turn every ad dollar into predictable revenue growth.
+            While competitors burn budget on creative guesswork, smart growth teams use research backed frameworks to turn every ad dollar into predictable revenue growth.
           </motion.p>
         </motion.div>
 
@@ -157,8 +157,8 @@ export function CreativeResearchMattersSection() {
             </div>
 
             <div className="bg-white rounded-xl p-6 shadow-sm">
-              <div className="text-3xl font-bold text-[#126DFB] mb-2">25%</div>
-              <p className="text-[#374151]">average CAC reduction with strategic creative</p>
+              <div className="text-3xl font-bold text-[#126DFB] mb-2">1000+</div>
+              <p className="text-[#374151]">high converting assets analyzed monthly for patterns</p>
             </div>
 
             <div className="bg-white rounded-xl p-6 shadow-sm">

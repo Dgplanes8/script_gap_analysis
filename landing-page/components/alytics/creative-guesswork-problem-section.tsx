@@ -80,7 +80,7 @@ export function CreativeGuessworkProblemSection() {
 
   return (
     <section className="py-20 bg-gradient-to-br from-red-50 to-orange-50 relative">
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-6">
 
         {/* Section Header */}
         <motion.div
@@ -121,7 +121,7 @@ export function CreativeGuessworkProblemSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            While your competitors use data-driven creative frameworks, your team is stuck guessing what will work—wasting time and budget on untested concepts.
+            While your competitors use data driven creative frameworks, your team is stuck guessing what will work—wasting time and budget on untested concepts.
           </motion.p>
         </motion.div>
 
@@ -152,10 +152,10 @@ export function CreativeGuessworkProblemSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="bg-white rounded-2xl p-8 md:p-12 border border-gray-200 shadow-lg"
         >
-          <div className="grid gap-8 md:grid-cols-2 items-center">
+          <div className="grid gap-8 md:grid-cols-2 items-start">
 
             {/* Before */}
-            <div className="text-center md:text-left">
+            <div className="text-center md:text-left min-h-[200px] flex flex-col justify-between">
               <div className="inline-flex items-center bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-semibold mb-4">
                 Your Current Reality
               </div>
@@ -168,15 +168,15 @@ export function CreativeGuessworkProblemSection() {
             </div>
 
             {/* After */}
-            <div className="text-center md:text-left">
+            <div className="text-center md:text-left min-h-[200px] flex flex-col justify-between">
               <div className="inline-flex items-center bg-[#126DFB] text-white px-3 py-1 rounded-full text-sm font-semibold mb-4">
                 With APSICS Media
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Conversion Machine</h3>
               <ul className="space-y-3 text-gray-600">
-                <BulletItem color="#126DFB">Research-backed creative from $250M+ proven spend</BulletItem>
-                <BulletItem color="#126DFB">Weekly trend intelligence delivered to your inbox</BulletItem>
-                <BulletItem color="#126DFB">25% CAC reduction across 500+ growth teams</BulletItem>
+                <BulletItem color="#126DFB">Research backed creative from $250M+ proven spend</BulletItem>
+                <BulletItem color="#126DFB">Intelligence from 1000+ high converting assets analyzed monthly</BulletItem>
+                <BulletItem color="#126DFB">Proven patterns that eliminate creative guesswork completely</BulletItem>
               </ul>
             </div>
           </div>

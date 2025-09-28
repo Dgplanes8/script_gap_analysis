@@ -16,6 +16,7 @@ import {
   fetchBriefStatus,
   startCreativeBriefCheckout,
 } from './creative-brief-generator';
+import { buildSupabaseInvokeHeaders } from '@/utils/build-supabase-invoke-headers';
 
 const STORAGE_KEY = 'creative-brief-generator-form';
 
@@ -166,8 +167,57 @@ function persistFormState(nextState: FormState) {
   }
 }
 
+function normalizeWebsiteUrl(rawUrl: string): string {
+  const trimmed = rawUrl.trim();
+  if (!trimmed) {
+    return '';
+  }
+
+  return /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+}
+
 function toMarkdown(brief: StructuredBrief) {
-  return `# Creative Brief\n\n## Executive Summary\n${brief.executiveSummary}\n\n## Strategic Foundation\n${brief.strategicFoundation}\n\n## Creative Direction\n${brief.creativeDirection}\n\n## Deliverables\n${brief.deliverables}\n\n## Success Metrics\n${brief.successMetrics}\n`;
+  let markdown = `# Creative Brief\n\n`;
+
+  // Campaign Overview
+  markdown += `## 1. CAMPAIGN OVERVIEW\n\n`;
+  markdown += `**Campaign Name:** ${brief.campaignOverview.campaignName}\n\n`;
+  markdown += `**Primary Objective:** ${brief.campaignOverview.primaryObjective}\n\n`;
+  markdown += `**Target Audience:** ${brief.campaignOverview.targetAudience}\n\n`;
+  markdown += `**Key Message:** ${brief.campaignOverview.keyMessage}\n\n`;
+  markdown += `**Unique Value Proposition:** ${brief.campaignOverview.uniqueValueProposition}\n\n`;
+
+  // Concept Summary
+  markdown += `## 2. CONCEPT SUMMARY (Highest Scoring Concept)\n\n`;
+  markdown += `**Concept Name:** ${brief.conceptSummary.conceptName}\n\n`;
+  markdown += `**Strategic Approach:** ${brief.conceptSummary.strategicApproach}\n\n`;
+  markdown += `**Target Persona:** ${brief.conceptSummary.targetPersona}\n\n`;
+  markdown += `**Core Emotion:** ${brief.conceptSummary.coreEmotion}\n\n`;
+  markdown += `**Life Force 8:** ${brief.conceptSummary.lifeForce8}\n\n`;
+  markdown += `**Awareness Level:** ${brief.conceptSummary.awarenessLevel}\n\n`;
+  markdown += `**Formats:** ${brief.conceptSummary.formats}\n\n`;
+  markdown += `**Performance Prediction Score:** ${brief.conceptSummary.performancePredictionScore}\n\n`;
+
+  // Format Executions
+  markdown += `## 3. FORMAT EXECUTIONS\n\n`;
+  brief.formatExecutions.forEach((execution, index) => {
+    markdown += `### Format ${index + 1}: ${execution.formatType}\n\n`;
+    markdown += `**Primary Hook/Headline:** ${execution.primaryHook}\n\n`;
+    markdown += `**Key Visuals:** ${execution.keyVisuals}\n\n`;
+    markdown += `**Talent Notes:** ${execution.talentNotes}\n\n`;
+    markdown += `**Golden Pain Addressed:** ${execution.goldenPainAddressed}\n\n`;
+    markdown += `**Dream Outcome Promised:** ${execution.dreamOutcomePromised}\n\n`;
+    markdown += `---\n\n`;
+  });
+
+  // Brand Guidelines
+  markdown += `## 4. BRAND GUIDELINES\n\n`;
+  markdown += `**Voice Positioning:** ${brief.brandGuidelines.voicePositioning}\n\n`;
+  markdown += `**Power Words:** ${brief.brandGuidelines.powerWords}\n\n`;
+  markdown += `**Forbidden Language:** ${brief.brandGuidelines.forbiddenLanguage}\n\n`;
+  markdown += `**Required Disclaimers:** ${brief.brandGuidelines.requiredDisclaimers}\n\n`;
+
+  return markdown;
 }
 
 function renderParagraphsCopy(copy: string) {
@@ -301,6 +351,7 @@ export default function CreativeBriefGeneratorClient() {
   const [showPurchasePrompt, setShowPurchasePrompt] = useState(false);
   const [downgradedMode, setDowngradedMode] = useState<BriefMode | null>(null);
   const [requestedPdf, setRequestedPdf] = useState(false);
+  const [accessToken, setAccessToken] = useState<string | null>(null);
 
   const creditCost = formState.briefMode === 'advanced' ? 3 : 1;
 
@@ -354,7 +405,14 @@ export default function CreativeBriefGeneratorClient() {
       }
     });
 
-    if (!formState.websiteUrl.includes('.')) {
+    const websiteCandidate = formState.websiteUrl.trim();
+    if (websiteCandidate) {
+      try {
+        new URL(normalizeWebsiteUrl(websiteCandidate));
+      } catch {
+        errors.websiteUrl = 'Enter a valid URL';
+      }
+    } else {
       errors.websiteUrl = 'Enter a valid URL';
     }
 
@@ -380,7 +438,7 @@ export default function CreativeBriefGeneratorClient() {
         mode: formState.briefMode,
         brief_format: formState.briefFormat,
         companyName: formState.companyName.trim(),
-        websiteUrl: formState.websiteUrl.trim(),
+        websiteUrl: normalizeWebsiteUrl(formState.websiteUrl),
         productDescription: formState.productDescription.trim(),
         campaignObjective: formState.campaignObjective.trim(),
         audienceProfile: formState.audienceProfile.trim(),
@@ -392,7 +450,11 @@ export default function CreativeBriefGeneratorClient() {
         include_pdf: formState.includePdf,
       };
 
-      const { data, error } = await generateBrief(supabase, payload);
+      const headers = buildSupabaseInvokeHeaders({ accessToken });
+
+      const { data, error } = await generateBrief(supabase, payload, {
+        headers,
+      });
 
       if (error) {
         const { statusCode, message } = await extractEdgeFunctionError(error);
@@ -445,7 +507,7 @@ export default function CreativeBriefGeneratorClient() {
     } finally {
       setSubmitting(false);
     }
-  }, [formState, loadProfile, supabase, user, validate]);
+  }, [accessToken, formState, loadProfile, supabase, user, validate]);
 
   useEffect(() => {
     let mounted = true;
@@ -459,7 +521,13 @@ export default function CreativeBriefGeneratorClient() {
         return;
       }
 
-      setUser(session?.user ?? null);
+      if (session?.user) {
+        setUser(session.user);
+        setAccessToken(session.access_token ?? null);
+      } else {
+        setUser(null);
+        setAccessToken(null);
+      }
     };
 
     bootstrap();
@@ -469,7 +537,13 @@ export default function CreativeBriefGeneratorClient() {
         return;
       }
 
-      setUser(session?.user ?? null);
+      if (session?.user) {
+        setUser(session.user);
+        setAccessToken(session.access_token ?? null);
+      } else {
+        setUser(null);
+        setAccessToken(null);
+      }
       setProfileReloadKey((value) => value + 1);
     });
 
@@ -477,7 +551,7 @@ export default function CreativeBriefGeneratorClient() {
       mounted = false;
       listener.subscription.unsubscribe();
     };
-  }, [supabase]);
+  }, [accessToken, supabase]);
 
   useEffect(() => {
     if (!user) {
@@ -508,7 +582,11 @@ export default function CreativeBriefGeneratorClient() {
         return;
       }
 
-      const { data, error } = await fetchBriefStatus(supabase, pollingJobId);
+      const headers = buildSupabaseInvokeHeaders({ accessToken });
+
+      const { data, error } = await fetchBriefStatus(supabase, pollingJobId, {
+        headers,
+      });
 
       if (cancelled) {
         return;
@@ -562,16 +640,20 @@ export default function CreativeBriefGeneratorClient() {
       cancelled = true;
       setPolling(false);
     };
-  }, [loadProfile, pollingJobId, supabase, user]);
+  }, [accessToken, loadProfile, pollingJobId, supabase, user]);
 
   const handlePurchase = useCallback(async () => {
     setErrorMessage(null);
     setShowPurchasePrompt(false);
 
     try {
+      const headers = buildSupabaseInvokeHeaders({ accessToken });
+
       const { data, error } = await startCreativeBriefCheckout(supabase, {
         unlockResearch: true,
         creditAmount: 50,
+      }, {
+        headers,
       });
 
       if (error) {
@@ -588,7 +670,7 @@ export default function CreativeBriefGeneratorClient() {
     } catch (purchaseError) {
       setErrorMessage(purchaseError instanceof Error ? purchaseError.message : 'Unexpected error during checkout.');
     }
-  }, [supabase]);
+  }, [accessToken, supabase]);
 
   const handleSignOut = useCallback(async () => {
     try {
@@ -600,6 +682,7 @@ export default function CreativeBriefGeneratorClient() {
       setErrorMessage(null);
       setDowngradedMode(null);
       setRequestedPdf(false);
+      setAccessToken(null);
     } catch (error) {
       console.error('Failed to sign out', error);
     }
@@ -1013,58 +1096,240 @@ export default function CreativeBriefGeneratorClient() {
               </section>
             )}
 
-            <section id="brief-preview" className="space-y-4">
+            <section id="brief-preview" className="space-y-8">
               {structuredBrief ? (
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <h3 className="text-base font-semibold text-foreground">Executive Summary</h3>
-                    {renderParagraphsCopy(structuredBrief.executiveSummary).map((paragraph, index) => (
-                      <p key={`summary-${index}`} className="text-sm leading-relaxed text-muted-foreground">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
+                <motion.div
+                  className="space-y-8"
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  {/* 1. Campaign Overview */}
+                  <motion.div
+                    className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg"
+                    variants={cardVariants}
+                    whileHover="whileHover"
+                  >
+                    <div className="mb-6 flex items-center gap-3">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#F3F8FF] text-[#126DFB]">
+                        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                        </svg>
+                      </div>
+                      <h3 className="text-3xl font-bold text-[#111827] leading-tight">1. Campaign Overview</h3>
+                    </div>
+                    <div className="grid gap-6 md:grid-cols-2">
+                      <div className="space-y-4">
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Campaign Name</p>
+                          <p className="text-xl font-semibold text-[#111827] leading-relaxed">{structuredBrief.campaignOverview.campaignName}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Primary Objective</p>
+                          <p className="text-base text-[#4B5563] leading-relaxed">{structuredBrief.campaignOverview.primaryObjective}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Target Audience</p>
+                          <p className="text-base text-[#4B5563] leading-relaxed">{structuredBrief.campaignOverview.targetAudience}</p>
+                        </div>
+                      </div>
+                      <div className="space-y-4">
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Key Message</p>
+                          <div className="bg-[#F3F8FF] border-l-4 border-[#126DFB] p-4 rounded-xl">
+                            <p className="text-base font-medium text-[#111827] leading-relaxed">{structuredBrief.campaignOverview.keyMessage}</p>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Unique Value Proposition</p>
+                          <p className="text-base text-[#4B5563] leading-relaxed">{structuredBrief.campaignOverview.uniqueValueProposition}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
 
-                  <div className="space-y-2">
-                    <h3 className="text-base font-semibold text-foreground">Strategic Foundation</h3>
-                    {renderParagraphsCopy(structuredBrief.strategicFoundation).map((paragraph, index) => (
-                      <p key={`foundation-${index}`} className="text-sm leading-relaxed text-muted-foreground">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
+                  {/* 2. Concept Summary */}
+                  <motion.div
+                    className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg"
+                    variants={cardVariants}
+                    whileHover="whileHover"
+                  >
+                    <div className="mb-6 flex items-center gap-3">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#D1FAE5] text-[#10B981]">
+                        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+                        </svg>
+                      </div>
+                      <h3 className="text-3xl font-bold text-[#111827] leading-tight">2. Concept Summary</h3>
+                      <span className="bg-[#D1FAE5] text-[#10B981] px-4 py-2 rounded-full text-sm font-semibold">Highest Scoring</span>
+                    </div>
+                    <div className="grid gap-6 md:grid-cols-3">
+                      <div className="space-y-4">
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Concept Name</p>
+                          <p className="text-xl font-bold text-[#10B981] leading-relaxed">{structuredBrief.conceptSummary.conceptName}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Core Emotion</p>
+                          <p className="text-base text-[#4B5563] leading-relaxed">{structuredBrief.conceptSummary.coreEmotion}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Awareness Level</p>
+                          <p className="text-base text-[#4B5563] leading-relaxed">{structuredBrief.conceptSummary.awarenessLevel}</p>
+                        </div>
+                      </div>
+                      <div className="space-y-4">
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Life Force 8</p>
+                          <p className="text-base text-[#4B5563] leading-relaxed">{structuredBrief.conceptSummary.lifeForce8}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Formats</p>
+                          <p className="text-base text-[#4B5563] leading-relaxed">{structuredBrief.conceptSummary.formats}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Performance Score</p>
+                          <div className="flex items-center gap-2">
+                            <div className="text-3xl font-bold text-[#10B981]">{structuredBrief.conceptSummary.performancePredictionScore}</div>
+                            <div className="text-sm text-[#6B7280]">/25</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="space-y-4">
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Strategic Approach</p>
+                          <div className="bg-[#F8F8F8] p-4 rounded-xl">
+                            <p className="text-sm text-[#4B5563] leading-relaxed">{structuredBrief.conceptSummary.strategicApproach}</p>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Target Persona</p>
+                          <p className="text-sm text-[#4B5563] leading-relaxed">{structuredBrief.conceptSummary.targetPersona}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
 
-                  <div className="space-y-2">
-                    <h3 className="text-base font-semibold text-foreground">Creative Direction</h3>
-                    {renderParagraphsCopy(structuredBrief.creativeDirection).map((paragraph, index) => (
-                      <p key={`direction-${index}`} className="text-sm leading-relaxed text-muted-foreground">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
+                  {/* 3. Format Executions */}
+                  <motion.div
+                    className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg"
+                    variants={cardVariants}
+                    whileHover="whileHover"
+                  >
+                    <div className="mb-6 flex items-center gap-3">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#FEF3C7] text-[#F59E0B]">
+                        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0112 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H12m1.125 2.625h7.5m-7.5 0V8.25m0 11.25v-3.375c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v3.375m-8.25-6h.008v.008H12v-.008z" />
+                        </svg>
+                      </div>
+                      <h3 className="text-3xl font-bold text-[#111827] leading-tight">3. Format Executions</h3>
+                    </div>
+                    <div className="space-y-6">
+                      {structuredBrief.formatExecutions.map((execution, index) => (
+                        <motion.div
+                          key={index}
+                          className="border border-[#E5E7EB] rounded-2xl p-6 bg-[#F8F8F8]"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                        >
+                          <div className="mb-4">
+                            <div className="flex items-center gap-3 mb-3">
+                              <span className="bg-[#126DFB] text-white px-3 py-1 rounded-xl text-sm font-semibold">
+                                Format {index + 1}
+                              </span>
+                              <h4 className="text-xl font-bold text-[#111827]">{execution.formatType}</h4>
+                            </div>
+                          </div>
+                          <div className="grid gap-6 md:grid-cols-2">
+                            <div className="space-y-4">
+                              <div>
+                                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Primary Hook/Headline</p>
+                                <div className="bg-white border-l-4 border-[#126DFB] p-4 rounded-xl shadow-sm">
+                                  <p className="text-base font-medium text-[#111827] leading-relaxed">
+                                    "{execution.primaryHook}"
+                                  </p>
+                                </div>
+                              </div>
+                              <div>
+                                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Key Visuals</p>
+                                <p className="text-sm text-[#4B5563] leading-relaxed">{execution.keyVisuals}</p>
+                              </div>
+                              <div>
+                                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Talent Notes</p>
+                                <p className="text-sm text-[#4B5563] leading-relaxed">{execution.talentNotes}</p>
+                              </div>
+                            </div>
+                            <div className="space-y-4">
+                              <div>
+                                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#EF4444] mb-2">🎯 Golden Pain Addressed</p>
+                                <div className="bg-red-50 border-l-4 border-[#EF4444] p-4 rounded-xl">
+                                  <p className="text-sm text-[#374151] leading-relaxed">{execution.goldenPainAddressed}</p>
+                                </div>
+                              </div>
+                              <div>
+                                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#10B981] mb-2">✨ Dream Outcome Promised</p>
+                                <div className="bg-green-50 border-l-4 border-[#10B981] p-4 rounded-xl">
+                                  <p className="text-sm text-[#374151] leading-relaxed">{execution.dreamOutcomePromised}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
 
-                  <div className="space-y-2">
-                    <h3 className="text-base font-semibold text-foreground">Deliverables</h3>
-                    {renderParagraphsCopy(structuredBrief.deliverables).map((paragraph, index) => (
-                      <p key={`deliverables-${index}`} className="text-sm leading-relaxed text-muted-foreground">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
-
-                  <div className="space-y-2">
-                    <h3 className="text-base font-semibold text-foreground">Success Metrics</h3>
-                    {renderParagraphsCopy(structuredBrief.successMetrics).map((paragraph, index) => (
-                      <p key={`metrics-${index}`} className="text-sm leading-relaxed text-muted-foreground">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
-                </div>
+                  {/* 4. Brand Guidelines */}
+                  <motion.div
+                    className="rounded-2xl border border-gray-200 bg-white p-8 shadow-lg"
+                    variants={cardVariants}
+                    whileHover="whileHover"
+                  >
+                    <div className="mb-6 flex items-center gap-3">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#FEF3C7] text-[#F59E0B]">
+                        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3.75-6.75h3.75v-3.75m0 0L12 2.25m0 0L9.75 5.25m2.25-3V12" />
+                        </svg>
+                      </div>
+                      <h3 className="text-3xl font-bold text-[#111827] leading-tight">4. Brand Guidelines</h3>
+                    </div>
+                    <div className="grid gap-6 md:grid-cols-2">
+                      <div className="space-y-6">
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Voice Positioning</p>
+                          <div className="bg-[#FEF3C7] p-4 rounded-xl">
+                            <p className="text-base text-[#374151] leading-relaxed">{structuredBrief.brandGuidelines.voicePositioning}</p>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#10B981] mb-2">✅ Power Words</p>
+                          <div className="bg-green-50 border-l-4 border-[#10B981] p-4 rounded-xl">
+                            <p className="text-sm text-[#374151] leading-relaxed">{structuredBrief.brandGuidelines.powerWords}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="space-y-6">
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#EF4444] mb-2">❌ Forbidden Language</p>
+                          <div className="bg-red-50 border-l-4 border-[#EF4444] p-4 rounded-xl">
+                            <p className="text-sm text-[#374151] leading-relaxed">{structuredBrief.brandGuidelines.forbiddenLanguage}</p>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#6B7280] mb-2">Required Disclaimers</p>
+                          <div className="bg-[#F8F8F8] p-4 rounded-xl">
+                            <p className="text-sm text-[#4B5563] leading-relaxed">{structuredBrief.brandGuidelines.requiredDisclaimers}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </motion.div>
               ) : (
-                <div className="rounded-md border border-dashed border-muted p-6 text-center text-sm text-muted-foreground">
-                  <Sparkles className="mx-auto mb-2 h-6 w-6 text-primary" />
-                  Your brief preview will appear here once generated.
+                <div className="rounded-2xl border border-dashed border-[#E5E7EB] p-8 text-center bg-[#F8F8F8]">
+                  <Sparkles className="mx-auto mb-4 h-8 w-8 text-[#126DFB]" />
+                  <p className="text-base text-[#6B7280] font-medium">Your brief preview will appear here once generated.</p>
                 </div>
               )}
             </section>

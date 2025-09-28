@@ -45,6 +45,13 @@ interface ApifyFacebookActorResult {
       video_hd_url?: string;
       video_sd_url?: string;
     }>;
+    cards?: Array<{
+      original_image_url?: string;
+      resized_image_url?: string;
+      video_url?: string;
+      video_sd_url?: string;
+      video_hd_url?: string;
+    }>;
     display_format?: string;
   };
   // Legacy fields for backward compatibility
@@ -558,6 +565,33 @@ async function fetchMetaAssetViaApify(pageUrl: URL, supabaseAdmin: SupabaseClien
     suspectedType = "image";
   }
 
+  // Check for carousel cards (Meta often populates this array instead of snapshot.images)
+  if (!mediaUrl && actorResult.snapshot?.cards && actorResult.snapshot.cards.length > 0) {
+    const cardWithVideo = actorResult.snapshot.cards.find((card) =>
+      Boolean(card.video_hd_url || card.video_sd_url || card.video_url)
+    );
+
+    if (cardWithVideo) {
+      mediaUrl = cardWithVideo.video_hd_url || cardWithVideo.video_sd_url || cardWithVideo.video_url || null;
+      if (mediaUrl) {
+        suspectedType = "video";
+      }
+    }
+
+    if (!mediaUrl) {
+      const cardWithImage = actorResult.snapshot.cards.find((card) =>
+        Boolean(card.original_image_url || card.resized_image_url)
+      );
+
+      if (cardWithImage) {
+        mediaUrl = cardWithImage.original_image_url || cardWithImage.resized_image_url || null;
+        if (mediaUrl) {
+          suspectedType = "image";
+        }
+      }
+    }
+  }
+
   // Fallback to legacy fields
   if (!mediaUrl) {
     mediaUrl = actorResult.video_sd_url || actorResult.video_hd_url || actorResult.original_image_url || actorResult.image_url || actorResult.preview_image_url;
@@ -567,6 +601,7 @@ async function fetchMetaAssetViaApify(pageUrl: URL, supabaseAdmin: SupabaseClien
   if (!mediaUrl) {
     console.error('No media URLs found in Apify response:', {
       snapshot: actorResult.snapshot,
+      cards: actorResult.snapshot?.cards,
       legacy_fields: {
         video_sd_url: actorResult.video_sd_url,
         video_hd_url: actorResult.video_hd_url,
@@ -575,7 +610,9 @@ async function fetchMetaAssetViaApify(pageUrl: URL, supabaseAdmin: SupabaseClien
         preview_image_url: actorResult.preview_image_url
       }
     });
-    throw new SocialIngestionError("No downloadable media found in Apify response");
+    throw new SocialIngestionError(
+      "We couldn’t fetch the ad media from Meta. Email brian@apsicsmedia.com with the Ad Library link and we’ll help you troubleshoot."
+    );
   }
 
   // suspectedType is already determined above

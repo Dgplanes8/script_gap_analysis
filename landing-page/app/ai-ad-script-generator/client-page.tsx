@@ -10,7 +10,10 @@ import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { ProcessAccordion } from '@/components/alytics/process-accordion';
 import { SimplePricingSection } from '@/components/alytics/simple-pricing-section';
 import { StudioFoundingOfferCard } from '@/components/alytics/studio-founding-offer-card';
+import ResultActionsPanel from '@/components/shared/result-actions-panel';
+import ScriptOutputDisplay from '@/components/shared/script-output-display';
 import { useFreeWeek } from '@/components/contexts/free-week-context';
+import { buildSupabaseInvokeHeaders } from '@/utils/build-supabase-invoke-headers';
 
 type FormState = {
   companyName: string;
@@ -21,8 +24,53 @@ type FormState = {
   adFormat: 'video' | 'static';
 };
 
+type ScriptScene = {
+  timing: string;
+  description: string;
+  voiceover: string;
+  onScreenText: string;
+  cta?: string;
+};
+
+type StaticCopy = {
+  headline: string;
+  subheadline: string;
+  body: string;
+  bullets: string[];
+  cta: string;
+  designNotes: string;
+};
+
+type ScriptRecommendation = {
+  improvedElement: string;
+  frameworkUsed: string;
+  awarenessStage: string;
+  rationale: string;
+  testingStrategy: string;
+};
+
+type PlatformAdaptations = {
+  tiktok: string;
+  instagram: string;
+  facebook: string;
+  x: string;
+  linkedin: string;
+  youtube: string;
+};
+
+type ScriptGenerationData = {
+  contentType: 'video' | 'static';
+  script?: {
+    scenes: ScriptScene[];
+  };
+  staticCopy?: StaticCopy;
+  recommendations: ScriptRecommendation[];
+  platformAdaptations: PlatformAdaptations;
+};
+
 type GenerationResponse = {
   script: string;
+  data?: ScriptGenerationData;
   creditsRemaining?: number;
   anonymousKey?: string;
 };
@@ -166,8 +214,11 @@ export default function AdScriptGeneratorClient() {
   const [emailSending, setEmailSending] = useState(false);
   const [emailStatus, setEmailStatus] = useState<'success' | 'error' | null>(null);
   const [emailStatusMessage, setEmailStatusMessage] = useState('');
+  const [pdfGenerating, setPdfGenerating] = useState(false);
   const [anonymousKey, setAnonymousKey] = useState<string | null>(null);
   const [anonUsageCount, setAnonUsageCount] = useState(0);
+  const [authLoaded, setAuthLoaded] = useState(false);
+  const [accessToken, setAccessToken] = useState<string | null>(null);
 
   const triggerProfileReload = useCallback(() => {
     setProfileReloadKey((value) => value + 1);
@@ -188,11 +239,13 @@ export default function AdScriptGeneratorClient() {
       if (session?.user) {
         setUser(session.user);
         setEmailAddress(session.user.email ?? '');
+        setAccessToken(session.access_token ?? null);
       } else {
         setUser(null);
         setEmailAddress('');
+        setAccessToken(null);
       }
-
+      setAuthLoaded(true);
     };
 
     const { data: listener } = supabase.auth.onAuthStateChange(async (_event, session) => {
@@ -203,10 +256,13 @@ export default function AdScriptGeneratorClient() {
       if (session?.user) {
         setUser(session.user);
         setEmailAddress(session.user.email ?? '');
+        setAccessToken(session.access_token ?? null);
       } else {
         setUser(null);
         setEmailAddress('');
+        setAccessToken(null);
       }
+      setAuthLoaded(true);
     });
 
     bootstrapAuth();
@@ -310,6 +366,70 @@ export default function AdScriptGeneratorClient() {
     setFormErrors((prev) => (prev[key as keyof typeof prev] ? { ...prev, [key]: undefined } : prev));
   }, []);
 
+  const handleEmailAddressChange = useCallback(
+    (value: string) => {
+      setEmailAddress(value);
+      if (emailStatus) {
+        setEmailStatus(null);
+        setEmailStatusMessage('');
+      }
+    },
+    [emailStatus],
+  );
+
+  const handleCopyResult = useCallback(() => {
+    if (!result) {
+      return;
+    }
+
+    if (typeof navigator !== 'undefined') {
+      navigator.clipboard
+        .writeText(result)
+        .catch(() => setError('Unable to copy to clipboard.'));
+    }
+  }, [result]);
+
+  const handleDownloadPdf = useCallback(async () => {
+    if (!result || pdfGenerating) {
+      return;
+    }
+
+    setPdfGenerating(true);
+    try {
+      const response = await fetch('/api/generate-brief-pdf', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content: result,
+          companyName: formState.companyName,
+          documentType: 'ad-script',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to generate PDF');
+      }
+
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      const safeCompany = (formState.companyName || 'campaign').toLowerCase().replace(/\s+/g, '-');
+      link.href = url;
+      link.download = `ad-script-${safeCompany}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch (downloadError) {
+      console.error('Failed to generate ad script PDF', downloadError);
+      setError('Failed to generate PDF. Please try again.');
+    } finally {
+      setPdfGenerating(false);
+    }
+  }, [formState.companyName, pdfGenerating, result]);
+
   const handleSubmit = useCallback(
     async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
@@ -400,8 +520,13 @@ export default function AdScriptGeneratorClient() {
           },
         };
 
-        if (isAnonymousUser && currentAnonymousKey) {
-          invokeOptions.headers = { 'x-anonymous-key': currentAnonymousKey };
+        const headers = buildSupabaseInvokeHeaders({
+          accessToken,
+          anonymousKey: isAnonymousUser ? currentAnonymousKey : undefined,
+        });
+
+        if (headers) {
+          invokeOptions.headers = headers;
         }
 
         const { data, error: invokeError } = await supabase.functions.invoke<GenerationResponse>('generate-script', invokeOptions);
@@ -413,41 +538,41 @@ export default function AdScriptGeneratorClient() {
 
           switch (statusCode) {
             case 400:
-              setError('Double-check the company name and website URL, then try again.');
+              setError('Please check your company name and website URL are correct, then try again.');
               break;
             case 401:
               if (user) {
-                setError('Please sign in again to continue generating scripts.');
+                setError('Your session has expired. Please sign in again to continue.');
               } else {
-                setError('Create a free APSICS Media account to keep generating scripts.');
+                setError('You\'ve used your free script! Create a free account to get 10 more credits each month.');
               }
               setShowAuthModal(true);
               break;
             case 402:
               if (user) {
                 setShowPurchasePrompt(true);
-                setError('You’re out of credits. Upgrade to Essentials or Studio to keep generating scripts.');
+                setError('You\'ve used all your credits! Upgrade to Essentials ($19/month) to get 150 more credits.');
                 setProfileCredits(0);
               } else {
                 setShowAuthModal(true);
-                setError('Create a free APSICS Media account to access your 10 monthly credits.');
+                setError('Create a free account to get 10 credits each month - no payment required!');
               }
               break;
             case 502:
-              setError('The AI model is busy. Wait a few seconds and try again.');
+              setError('Our AI is experiencing high demand. Please wait 30 seconds and try again.');
               break;
             default:
               if (messageText.toLowerCase().includes('out of credit') && !user) {
                 setShowAuthModal(true);
-                setError('Create a free APSICS Media account to access your 10 monthly credits.');
+                setError('Create a free account to get 10 credits each month - no payment required!');
               } else if (statusCode === 402 && user) {
                 setShowPurchasePrompt(true);
-                setError('You’re out of credits. Upgrade to Essentials or Studio to keep generating scripts.');
+                setError('You\'ve used all your credits! Upgrade to Essentials ($19/month) to get 150 more credits.');
               } else {
                 setError(
-                  messageText && !messageText.toLowerCase().includes('edge function returned a non-2xx status code')
+                  messageText && !messageText.toLowerCase().includes('edge function returned a non-2xx status code') && !messageText.toLowerCase().includes('edge function')
                     ? messageText
-                    : 'Something went wrong. Please try again.',
+                    : 'Something went wrong on our end. Please try again in a moment.',
                 );
               }
           }
@@ -494,7 +619,7 @@ export default function AdScriptGeneratorClient() {
         setSubmitting(false);
       }
     },
-    [anonUsageCount, anonymousKey, formState, supabase, triggerProfileReload, user],
+    [accessToken, anonUsageCount, anonymousKey, formState, supabase, triggerProfileReload, user],
   );
 
   const handlePurchase = useCallback((tier: 'essentials' | 'studio' | 'concierge' = 'essentials') => {
@@ -529,6 +654,7 @@ export default function AdScriptGeneratorClient() {
       setEmailAddress('');
       setEmailStatus(null);
       setEmailStatusMessage('');
+      setAccessToken(null);
     } catch (signOutError) {
       console.error('Failed to sign out', signOutError);
     }
@@ -886,87 +1012,34 @@ export default function AdScriptGeneratorClient() {
             )}
 
             {result && (
-              <div className="mt-8 space-y-5 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    Generated {lastRequestedFormat ? (lastRequestedFormat === 'video' ? 'Video Ad' : 'Static Ad') : 'Output'}
-                  </h3>
-                  <button
-                    onClick={() => {
-                      if (typeof navigator !== 'undefined') {
-                        navigator.clipboard
-                          .writeText(result)
-                          .catch(() => setError('Unable to copy to clipboard.'));
-                      }
-                    }}
-                    className="rounded-lg border border-gray-300 px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-200"
-                    type="button"
-                  >
-                    Copy to clipboard
-                  </button>
-                </div>
-                <div className="space-y-3">
-                  {result
-                    .trim()
-                    .split(/\n\s*\n/)
-                    .map((block, index) => (
-                      <div
-                        key={`result-block-${index}`}
-                        className="rounded-2xl border border-gray-100 bg-gray-50/80 p-4 text-sm leading-relaxed text-gray-800"
-                      >
-                        {block}
-                      </div>
-                    ))}
-                </div>
-                <div className="rounded-xl border border-gray-200 bg-white p-4">
-                  <h4 className="text-sm font-semibold text-gray-900">Send this to your inbox</h4>
-                  <p className="mt-1 text-xs text-gray-600">
-                    We’ll email the full {lastRequestedFormat === 'video' ? 'video script' : 'static copy bundle'} straight to your inbox.
-                  </p>
-                  <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end">
-                    <label className="flex-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
-                      Email address
-                      <input
-                        type="email"
-                        value={emailAddress}
-                        onChange={(event) => {
-                          setEmailAddress(event.target.value);
-                          if (emailStatus) {
-                            setEmailStatus(null);
-                            setEmailStatusMessage('');
-                          }
-                        }}
-                        placeholder="you@company.com"
-                        className="mt-1 w-full rounded-lg border border-gray-200 px-4 py-2 text-sm text-gray-900 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
-                      />
-                    </label>
-                    <button
-                      type="button"
-                      onClick={handleSendEmail}
-                      disabled={emailSending || !result}
-                      className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
-                    >
-                      {emailSending ? (
-                        <>
-                          <Loader2 className="h-4 w-4 animate-spin" />
-                          Sending…
-                        </>
-                      ) : (
-                        'Send email'
-                      )}
-                    </button>
-                  </div>
-                  {emailStatusMessage ? (
-                    <p
-                      className={`mt-2 text-xs font-medium ${
-                        emailStatus === 'success' ? 'text-success-600' : 'text-red-600'
-                      }`}
-                    >
-                      {emailStatusMessage}
-                    </p>
-                  ) : null}
-                </div>
-              </div>
+              <ResultActionsPanel
+                title={`Generated ${
+                  lastRequestedFormat ? (lastRequestedFormat === 'video' ? 'Video Ad' : 'Static Ad') : 'Output'
+                }`}
+                onCopy={handleCopyResult}
+                downloads={[
+                  {
+                    id: 'ad-script-pdf',
+                    label: 'Download PDF',
+                    onClick: handleDownloadPdf,
+                    disabled: !result,
+                    loading: pdfGenerating,
+                  },
+                ]}
+                emailConfig={{
+                  description: `We’ll email the full ${
+                    lastRequestedFormat === 'video' ? 'video script' : 'static copy bundle'
+                  } straight to your inbox.`,
+                  value: emailAddress,
+                  onChange: handleEmailAddressChange,
+                  onSubmit: handleSendEmail,
+                  submitting: emailSending,
+                  statusMessage: emailStatusMessage,
+                  statusType: emailStatus,
+                }}
+              >
+                <ScriptOutputDisplay script={result} />
+              </ResultActionsPanel>
             )}
 
             {showPurchasePrompt && (
@@ -1035,10 +1108,12 @@ export default function AdScriptGeneratorClient() {
           <SimplePricingSection />
         </div>
       </div>
-      <ExitIntentPopup 
-        title="Grab 10 More Free Ad Templates"
-        subtitle="Join 100+ teams getting Monday creative intelligence drops plus instant access to our 10-template swipe file."
-      />
+      {authLoaded && !user ? (
+        <ExitIntentPopup 
+          title="Grab 10 More Free Ad Templates"
+          subtitle="Join 100+ teams getting Monday creative intelligence drops plus instant access to our 10-template swipe file."
+        />
+      ) : null}
       <AuthModal
         open={showAuthModal}
         onClose={() => {
@@ -1089,8 +1164,17 @@ function AuthPanel({ supabase, onAuthSuccess }: AuthPanelProps) {
           return;
         }
 
+        const {
+          data: { session: currentSession },
+        } = await supabase.auth.getSession();
+
+        const subscribeHeaders = buildSupabaseInvokeHeaders({
+          accessToken: currentSession?.access_token ?? null,
+        });
+
         const { error: subscribeError } = await supabase.functions.invoke('subscribe-convertkit', {
           body: { email },
+          ...(subscribeHeaders ? { headers: subscribeHeaders } : {}),
         });
 
         if (subscribeError) {
@@ -1103,8 +1187,13 @@ function AuthPanel({ supabase, onAuthSuccess }: AuthPanelProps) {
           return;
         }
 
+        const subscribeHeaders = buildSupabaseInvokeHeaders({
+          accessToken: data.session?.access_token ?? null,
+        });
+
         const { error: subscribeError } = await supabase.functions.invoke('subscribe-convertkit', {
           body: { email },
+          ...(subscribeHeaders ? { headers: subscribeHeaders } : {}),
         });
 
         if (subscribeError) {

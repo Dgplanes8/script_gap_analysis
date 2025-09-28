@@ -5,7 +5,7 @@ import { ingestSocialAsset, isSocialIngestionError } from "./social-download.ts"
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-anonymous-key",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 

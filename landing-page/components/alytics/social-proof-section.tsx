@@ -71,9 +71,9 @@ export function SocialProofSection() {
     },
     {
       icon: <TrendingUp className="w-6 h-6" />,
-      number: "25%",
-      label: "Average CAC Reduction",
-      description: "Consistent improvement across verticals using research-backed creative frameworks"
+      number: "1000+",
+      label: "Assets Analyzed Monthly",
+      description: "High converting campaigns analyzed continuously to identify proven performance patterns"
     },
     {
       icon: <Users className="w-6 h-6" />,
@@ -109,13 +109,23 @@ export function SocialProofSection() {
           </motion.h2>
           
           <motion.p
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             These aren't theoretical frameworks—they're the exact methods I've used to help companies scale from $10K to $1M+ monthly ad spend while consistently driving revenue growth.
+          </motion.p>
+
+          <motion.p
+            className="text-lg text-[#126DFB] font-medium max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            Used by performance marketers scaling from $10K to $100K monthly ad spend
           </motion.p>
         </motion.div>
 
@@ -152,9 +162,8 @@ export function SocialProofSection() {
             </div>
             
             <blockquote className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 italic">
-              "I watched the brand I was scaling fall behind competitors who seemed to always know what content would work.
-              We were losing market share because our creative was always one trend behind. That's when I developed this systematic method to stay ahead of trends and create content templates that consistently drive sales.
-              After years of refining these frameworks, I built this platform to help others avoid the struggle I went through."
+              "I've burned enough ad spend for both of us. After 12+ years and $250M+ managed, I know the difference between creative that converts and creative that crashes.
+              This platform gives you the patterns that actually work—not the guesswork that wastes budgets."
             </blockquote>
             
             <div className="flex flex-col items-center">

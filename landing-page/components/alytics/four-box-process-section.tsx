@@ -46,7 +46,7 @@ const processSteps = [
     number: "03",
     title: "Performance Prediction",
     subtitle: "For YOUR Market & Goals",
-    description: "Predict winning creatives for YOUR business before you spend a dollar using data-driven performance indicators tailored to your market.",
+    description: "Predict winning creatives for YOUR business before you spend a dollar using data driven performance indicators tailored to your market.",
     image: "/images/performance-prediction (4).webp",
     delay: 0.3,
     detailedContent: {

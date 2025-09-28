@@ -98,7 +98,7 @@ export function BeforeAfterExamplesSection() {
 
   return (
     <section className="py-20 bg-[#F8F8F8] relative">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-6">
 
         {/* Section Header */}
         <motion.div

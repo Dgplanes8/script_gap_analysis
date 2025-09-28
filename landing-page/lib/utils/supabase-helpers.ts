@@ -25,12 +25,21 @@ export async function fetchUserProfile(
   supabase: BrowserClient,
   userId: string
 ): Promise<{ data: ProfileData | null; error: string | null }> {
-  try {
-    const { data, error } = await supabase
+  const runQuery = async (columns: string) =>
+    supabase
       .from('profiles')
-      .select('credits_remaining, research_mode_unlocked, brief_exports')
+      .select(columns)
       .eq('id', userId)
       .maybeSingle();
+
+  try {
+    let { data, error } = await runQuery('credits_remaining, research_mode_unlocked, brief_exports');
+
+    if (error && error.code === '42703') {
+      // Legacy profile schema without optional columns, retry selecting only credits
+      console.warn('Profile schema missing optional columns, falling back to credits-only query');
+      ({ data, error } = await runQuery('credits_remaining'));
+    }
 
     if (error) {
       console.error('Profile fetch error:', error);
@@ -40,11 +49,18 @@ export async function fetchUserProfile(
       };
     }
 
+    if (!data) {
+      return {
+        data: null,
+        error: 'Profile not found. Please refresh or contact support to initialize your account.'
+      };
+    }
+
     return {
       data: {
-        credits_remaining: data?.credits_remaining ?? 0,
-        research_mode_unlocked: data?.research_mode_unlocked ?? false,
-        brief_exports: data?.brief_exports ?? 0
+        credits_remaining: (data as { credits_remaining?: number | null }).credits_remaining ?? 0,
+        research_mode_unlocked: (data as { research_mode_unlocked?: boolean | null }).research_mode_unlocked ?? false,
+        brief_exports: (data as { brief_exports?: number | null }).brief_exports ?? 0
       },
       error: null
     };

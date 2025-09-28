@@ -3,11 +3,12 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import type { User } from '@supabase/supabase-js';
-import { CreditCard, Loader2, X, FileText, Download, Mail, FileDown } from 'lucide-react';
+import { CreditCard, Loader2, X, FileText } from 'lucide-react';
 import { getSupabaseBrowserClient, type BrowserClient } from '@/lib/supabase/browser-client';
 import { AIFormTemplate } from '@/components/templates/ai-form-template';
 import { useFreeWeek } from '@/components/contexts/free-week-context';
 import { getToolConfig } from '@/lib/template-configs';
+import ResultActionsPanel from '@/components/shared/result-actions-panel';
 import {
   type BriefMode,
   type BriefFormat,
@@ -17,6 +18,7 @@ import {
   fetchBriefStatus,
   startCreativeBriefCheckout,
 } from './creative-brief-generator';
+import { buildSupabaseInvokeHeaders } from '@/utils/build-supabase-invoke-headers';
 
 type FormState = {
   companyName: string;
@@ -151,7 +153,47 @@ async function extractEdgeFunctionError(error: unknown): Promise<{
 }
 
 function toMarkdown(brief: StructuredBrief) {
-  return `# Creative Brief\n\n## Executive Summary\n${brief.executiveSummary}\n\n## Strategic Foundation\n${brief.strategicFoundation}\n\n## Creative Direction\n${brief.creativeDirection}\n\n## Deliverables\n${brief.deliverables}\n\n## Success Metrics\n${brief.successMetrics}\n`;
+  let markdown = `# Creative Brief\n\n`;
+
+  // Campaign Overview
+  markdown += `## 1. CAMPAIGN OVERVIEW\n\n`;
+  markdown += `**Campaign Name:** ${brief.campaignOverview.campaignName}\n\n`;
+  markdown += `**Primary Objective:** ${brief.campaignOverview.primaryObjective}\n\n`;
+  markdown += `**Target Audience:** ${brief.campaignOverview.targetAudience}\n\n`;
+  markdown += `**Key Message:** ${brief.campaignOverview.keyMessage}\n\n`;
+  markdown += `**Unique Value Proposition:** ${brief.campaignOverview.uniqueValueProposition}\n\n`;
+
+  // Concept Summary
+  markdown += `## 2. CONCEPT SUMMARY (Highest Scoring Concept)\n\n`;
+  markdown += `**Concept Name:** ${brief.conceptSummary.conceptName}\n\n`;
+  markdown += `**Strategic Approach:** ${brief.conceptSummary.strategicApproach}\n\n`;
+  markdown += `**Target Persona:** ${brief.conceptSummary.targetPersona}\n\n`;
+  markdown += `**Core Emotion:** ${brief.conceptSummary.coreEmotion}\n\n`;
+  markdown += `**Life Force 8:** ${brief.conceptSummary.lifeForce8}\n\n`;
+  markdown += `**Awareness Level:** ${brief.conceptSummary.awarenessLevel}\n\n`;
+  markdown += `**Formats:** ${brief.conceptSummary.formats}\n\n`;
+  markdown += `**Performance Prediction Score:** ${brief.conceptSummary.performancePredictionScore}\n\n`;
+
+  // Format Executions
+  markdown += `## 3. FORMAT EXECUTIONS\n\n`;
+  brief.formatExecutions.forEach((execution, index) => {
+    markdown += `### Format ${index + 1}: ${execution.formatType}\n\n`;
+    markdown += `**Primary Hook/Headline:** ${execution.primaryHook}\n\n`;
+    markdown += `**Key Visuals:** ${execution.keyVisuals}\n\n`;
+    markdown += `**Talent Notes:** ${execution.talentNotes}\n\n`;
+    markdown += `**Golden Pain Addressed:** ${execution.goldenPainAddressed}\n\n`;
+    markdown += `**Dream Outcome Promised:** ${execution.dreamOutcomePromised}\n\n`;
+    markdown += `---\n\n`;
+  });
+
+  // Brand Guidelines
+  markdown += `## 4. BRAND GUIDELINES\n\n`;
+  markdown += `**Voice Positioning:** ${brief.brandGuidelines.voicePositioning}\n\n`;
+  markdown += `**Power Words:** ${brief.brandGuidelines.powerWords}\n\n`;
+  markdown += `**Forbidden Language:** ${brief.brandGuidelines.forbiddenLanguage}\n\n`;
+  markdown += `**Required Disclaimers:** ${brief.brandGuidelines.requiredDisclaimers}\n\n`;
+
+  return markdown;
 }
 
 function renderParagraphsCopy(copy: string) {
@@ -159,18 +201,6 @@ function renderParagraphsCopy(copy: string) {
     .split(/\n+/)
     .map((paragraph) => paragraph.trim())
     .filter(Boolean);
-}
-
-function renderParagraphBlocks(copy: string) {
-  const paragraphs = renderParagraphsCopy(copy);
-  return paragraphs.map((paragraph, index) => (
-    <div
-      key={index}
-      className="rounded-2xl border border-gray-100 bg-gray-50/80 p-4 text-sm leading-relaxed text-gray-600"
-    >
-      {paragraph}
-    </div>
-  ));
 }
 
 function parseCreativeConcepts(copy: string) {
@@ -187,6 +217,231 @@ function parseCreativeConcepts(copy: string) {
   }
 
   return concepts.length ? concepts : null;
+}
+
+type DefinitionItem = {
+  label: string;
+  value: string;
+};
+
+function normalizeLabel(label: string) {
+  return label
+    .replace(/^["'\-•\s]+/, '')
+    .replace(/["'\s]+$/, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/\.$/, '');
+}
+
+function extractDefinitionItems(copy: string): DefinitionItem[] {
+  const segments = copy
+    .split(/(?:\n|;)+/)
+    .map((segment) => segment.trim())
+    .filter(Boolean);
+
+  const orderedLabels: string[] = [];
+  const accumulator = new Map<string, string[]>();
+
+  for (const segment of segments) {
+    const colonIndex = segment.indexOf(':');
+    if (colonIndex <= 0) {
+      continue;
+    }
+
+    const rawLabel = normalizeLabel(segment.slice(0, colonIndex));
+    const value = segment.slice(colonIndex + 1).trim();
+
+    if (!rawLabel || !value) {
+      continue;
+    }
+
+    if (!accumulator.has(rawLabel)) {
+      orderedLabels.push(rawLabel);
+      accumulator.set(rawLabel, []);
+    }
+
+    accumulator.get(rawLabel)!.push(value);
+  }
+
+  return orderedLabels.map((label) => ({
+    label,
+    value: accumulator.get(label)!.join(' '),
+  }));
+}
+
+type DefinitionGridOptions = {
+  columns?: 1 | 2 | 3;
+  emphasizeNumeric?: boolean;
+  className?: string;
+};
+
+function DefinitionGrid({ items, columns = 2, emphasizeNumeric = false, className }: { items: DefinitionItem[]; columns?: 1 | 2 | 3; emphasizeNumeric?: boolean; className?: string }) {
+  if (!items.length) {
+    return null;
+  }
+
+  const layoutClasses =
+    columns === 1
+      ? 'space-y-4'
+      : columns === 3
+        ? 'grid gap-4 sm:grid-cols-2 xl:grid-cols-3'
+        : 'grid gap-4 sm:grid-cols-2';
+
+  return (
+    <div className={`${layoutClasses}${className ? ` ${className}` : ''}`}>
+      {items.map((item, index) => {
+        const showLargeValue = emphasizeNumeric && /\d+\s*\/\s*\d+/.test(item.value);
+        return (
+          <div
+            key={`${item.label}-${index}`}
+            className={`flex h-full flex-col rounded-2xl border border-gray-100 bg-white/90 p-5 shadow-sm ${showLargeValue ? 'items-start justify-between' : ''}`}
+          >
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">{item.label}</p>
+            <p
+              className={`mt-2 text-sm leading-relaxed text-gray-700 ${showLargeValue ? 'text-2xl font-semibold text-brand-700' : ''}`}
+            >
+              {item.value}
+            </p>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function renderDefinitionSection(copy: string, options: DefinitionGridOptions = {}) {
+  const items = extractDefinitionItems(copy);
+
+  if (items.length) {
+    return <DefinitionGrid items={items} columns={options.columns} emphasizeNumeric={options.emphasizeNumeric} className={options.className} />;
+  }
+
+  const paragraphs = renderParagraphsCopy(copy);
+
+  if (!paragraphs.length) {
+    return null;
+  }
+
+  return (
+    <div className="space-y-4">
+      {paragraphs.map((paragraph, index) => (
+        <div key={index} className="rounded-2xl border border-gray-100 bg-white/90 p-5 text-sm leading-relaxed text-gray-700">
+          {paragraph}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function extractConceptScores(copy: string) {
+  const pattern = /Concept\s*(\d+)[:\-]?\s*(\d{1,2}\s*\/\s*\d{1,2})/gi;
+  const scores: DefinitionItem[] = [];
+  let match: RegExpExecArray | null;
+  const consumed: string[] = [];
+
+  while ((match = pattern.exec(copy)) !== null) {
+    const conceptId = match[1]?.trim();
+    const score = match[2]?.replace(/\s+/g, '');
+    if (!conceptId || !score) {
+      continue;
+    }
+
+    scores.push({ label: `Concept ${conceptId}`, value: score });
+    consumed.push(match[0]);
+  }
+
+  const sanitizedCopy = consumed
+    .reduce((acc, snippet) => acc.replace(snippet, ''), copy)
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+
+  return { scores, sanitizedCopy };
+}
+
+function ConceptScoreGrid({ scores }: { scores: DefinitionItem[] }) {
+  if (!scores.length) {
+    return null;
+  }
+
+  const columnsClass = scores.length >= 3 ? 'sm:grid-cols-3' : scores.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-1';
+
+  return (
+    <div className={`grid gap-3 ${columnsClass}`}>
+      {scores.map((score) => (
+        <div key={score.label} className="rounded-2xl border border-brand-100 bg-gradient-to-br from-white to-brand-50/40 p-4 shadow-sm">
+          <p className="text-xs font-semibold uppercase tracking-wide text-brand-600">{score.label}</p>
+          <p className="mt-2 text-2xl font-semibold text-brand-800">{score.value}</p>
+          <p className="text-xs font-medium text-brand-500">Performance score</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function renderDeliverablesSection(copy: string) {
+  const { scores, sanitizedCopy } = extractConceptScores(copy);
+  const items = extractDefinitionItems(sanitizedCopy);
+
+  return (
+    <div className="space-y-6">
+      <ConceptScoreGrid scores={scores} />
+      {items.length ? <DefinitionGrid items={items} columns={2} /> : renderDefinitionSection(sanitizedCopy, { columns: 2 })}
+    </div>
+  );
+}
+
+function renderConceptCards(copy: string) {
+  const concepts = parseCreativeConcepts(copy);
+
+  if (!concepts) {
+    return renderDefinitionSection(copy, { columns: 1 });
+  }
+
+  return (
+    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {concepts.map((concept) => {
+        const details = extractDefinitionItems(concept.description);
+        let performanceScore: string | undefined;
+        const filteredDetails = details.filter((detail) => {
+          if (/score/i.test(detail.label)) {
+            performanceScore = detail.value;
+            return false;
+          }
+          return true;
+        });
+
+        return (
+          <article key={concept.id} className="flex h-full flex-col rounded-2xl border border-brand-100 bg-white/90 p-5 shadow-sm">
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2">
+                <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-brand-100 text-sm font-semibold text-brand-700">
+                  {concept.id}
+                </span>
+                <h4 className="text-sm font-semibold text-gray-900">{concept.title}</h4>
+              </div>
+              {performanceScore ? (
+                <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">
+                  {performanceScore}
+                </span>
+              ) : null}
+            </div>
+            {filteredDetails.length ? (
+              <dl className="mt-4 grid gap-3">
+                {filteredDetails.map((detail, index) => (
+                  <div key={`${concept.id}-${detail.label}-${index}`} className="rounded-xl bg-gray-50/80 p-3">
+                    <dt className="text-xs font-semibold uppercase tracking-wide text-gray-500">{detail.label}</dt>
+                    <dd className="mt-1 text-sm leading-relaxed text-gray-700">{detail.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            ) : (
+              <p className="mt-4 text-sm leading-relaxed text-gray-700">{concept.description}</p>
+            )}
+          </article>
+        );
+      })}
+    </div>
+  );
 }
 
 export default function TemplatedCreativeBriefGeneratorClient() {
@@ -213,9 +468,12 @@ export default function TemplatedCreativeBriefGeneratorClient() {
   const [downgradedMode, setDowngradedMode] = useState<BriefMode | null>(null);
   const [requestedPdf, setRequestedPdf] = useState(false);
   const [emailSending, setEmailSending] = useState(false);
-  const [emailSent, setEmailSent] = useState(false);
+  const [emailStatus, setEmailStatus] = useState<'success' | 'error' | null>(null);
+  const [emailStatusMessage, setEmailStatusMessage] = useState('');
+  const [emailAddress, setEmailAddress] = useState('');
   const [pdfGenerating, setPdfGenerating] = useState(false);
-  const [lastFormData, setLastFormData] = useState<Record<string, any> | null>(null);
+  const [lastFormData, setLastFormData] = useState<FormState | null>(null);
+  const [accessToken, setAccessToken] = useState<string | null>(null);
 
   const triggerProfileReload = useCallback(() => {
     setProfileReloadKey((value) => value + 1);
@@ -233,7 +491,15 @@ export default function TemplatedCreativeBriefGeneratorClient() {
         return;
       }
 
-      setUser(session?.user ?? null);
+      if (session?.user) {
+        setUser(session.user);
+        setEmailAddress(session.user.email ?? '');
+        setAccessToken(session.access_token ?? null);
+      } else {
+        setUser(null);
+        setEmailAddress('');
+        setAccessToken(null);
+      }
     };
 
     const { data: listener } = supabase.auth.onAuthStateChange(async (_event, session) => {
@@ -241,7 +507,15 @@ export default function TemplatedCreativeBriefGeneratorClient() {
         return;
       }
 
-      setUser(session?.user ?? null);
+      if (session?.user) {
+        setUser(session.user);
+        setEmailAddress(session.user.email ?? '');
+        setAccessToken(session.access_token ?? null);
+      } else {
+        setUser(null);
+        setEmailAddress('');
+        setAccessToken(null);
+      }
     });
 
     bootstrapAuth();
@@ -341,7 +615,11 @@ export default function TemplatedCreativeBriefGeneratorClient() {
         return;
       }
 
-      const { data, error } = await fetchBriefStatus(supabase, pollingJobId);
+      const headers = buildSupabaseInvokeHeaders({ accessToken });
+
+      const { data, error } = await fetchBriefStatus(supabase, pollingJobId, {
+        headers,
+      });
 
       if (cancelled) {
         return;
@@ -395,10 +673,25 @@ export default function TemplatedCreativeBriefGeneratorClient() {
       cancelled = true;
       setPolling(false);
     };
-  }, [pollingJobId, supabase, triggerProfileReload, user]);
+  }, [accessToken, pollingJobId, supabase, triggerProfileReload, user]);
 
   const handleSubmit = useCallback(
     async (formData: Record<string, any>) => {
+      const briefFormat = typeof formData.briefFormat === 'string' ? (formData.briefFormat as BriefFormat) : defaultFormState.briefFormat;
+
+      const normalizedFormData: FormState = {
+        companyName: typeof formData.companyName === 'string' ? formData.companyName.trim() : '',
+        websiteUrl: typeof formData.websiteUrl === 'string' ? formData.websiteUrl.trim() : '',
+        briefFormat,
+        productDescription: typeof formData.productDescription === 'string' ? formData.productDescription.trim() : '',
+        campaignObjective: typeof formData.campaignObjective === 'string' ? formData.campaignObjective.trim() : '',
+        audienceProfile: typeof formData.audienceProfile === 'string' ? formData.audienceProfile.trim() : '',
+        keyMessages: typeof formData.keyMessages === 'string' ? formData.keyMessages.trim() : '',
+        primaryPlatform: typeof formData.primaryPlatform === 'string' ? formData.primaryPlatform : '',
+        budgetRange: typeof formData.budgetRange === 'string' ? formData.budgetRange : '',
+        creativeConstraints: typeof formData.creativeConstraints === 'string' ? formData.creativeConstraints.trim() : '',
+      };
+
       setError(null);
       setShowPurchasePrompt(false);
       setShowAuthModal(false);
@@ -408,29 +701,35 @@ export default function TemplatedCreativeBriefGeneratorClient() {
       setPollingJobId(null);
       setDowngradedMode(null);
       setRequestedPdf(false);
-      setLastFormData(formData);
+      setEmailStatus(null);
+      setEmailStatusMessage('');
+      setLastFormData(normalizedFormData);
 
-      const normalizedWebsiteUrl = formData.websiteUrl.startsWith('http')
-        ? formData.websiteUrl
-        : `https://${formData.websiteUrl}`;
+      const normalizedWebsiteUrl = normalizedFormData.websiteUrl.startsWith('http')
+        ? normalizedFormData.websiteUrl
+        : `https://${normalizedFormData.websiteUrl}`;
 
       try {
         const payload = {
           mode: 'simple' as BriefMode, // Start with simple mode for all users
-          brief_format: formData.briefFormat,
-          companyName: formData.companyName.trim(),
+          brief_format: normalizedFormData.briefFormat,
+          companyName: normalizedFormData.companyName,
           websiteUrl: normalizedWebsiteUrl,
-          productDescription: formData.productDescription.trim(),
-          campaignObjective: formData.campaignObjective.trim(),
-          audienceProfile: formData.audienceProfile.trim(),
-          keyMessages: formData.keyMessages?.trim() || undefined,
-          primaryPlatform: formData.primaryPlatform || undefined,
-          budgetRange: formData.budgetRange || undefined,
-          creativeConstraints: formData.creativeConstraints?.trim() || undefined,
+          productDescription: normalizedFormData.productDescription,
+          campaignObjective: normalizedFormData.campaignObjective,
+          audienceProfile: normalizedFormData.audienceProfile,
+          keyMessages: normalizedFormData.keyMessages || undefined,
+          primaryPlatform: normalizedFormData.primaryPlatform || undefined,
+          budgetRange: normalizedFormData.budgetRange || undefined,
+          creativeConstraints: normalizedFormData.creativeConstraints || undefined,
           include_pdf: false, // For template simplicity, no PDF checkbox
         };
 
-        const { data, error: invokeError } = await generateBrief(supabase, payload);
+        const headers = buildSupabaseInvokeHeaders({ accessToken });
+
+        const { data, error: invokeError } = await generateBrief(supabase, payload, {
+          headers,
+        });
 
         if (invokeError) {
           console.error('generate-brief error', invokeError);
@@ -467,7 +766,7 @@ export default function TemplatedCreativeBriefGeneratorClient() {
                 setError('You\'re out of credits. Upgrade to Essentials or Studio to keep generating briefs.');
               } else {
                 setError(
-                  messageText && !messageText.toLowerCase().includes('edge function returned a non-2xx status code')
+                  messageText && !messageText.toLowerCase().includes('edge function returned a non-2xx status code') && !messageText.toLowerCase().includes('edge function')
                     ? messageText
                     : 'Something went wrong. Please try again.',
                 );
@@ -515,7 +814,7 @@ export default function TemplatedCreativeBriefGeneratorClient() {
         setSubmitting(false);
       }
     },
-    [supabase, triggerProfileReload, user],
+    [accessToken, supabase, triggerProfileReload, user],
   );
 
   const handlePurchase = useCallback((tier: 'essentials' | 'studio' | 'concierge' = 'studio') => {
@@ -549,6 +848,10 @@ export default function TemplatedCreativeBriefGeneratorClient() {
       setError(null);
       setDowngradedMode(null);
       setRequestedPdf(false);
+      setEmailAddress('');
+      setEmailStatus(null);
+      setEmailStatusMessage('');
+      setAccessToken(null);
     } catch (signOutError) {
       console.error('Failed to sign out', signOutError);
     }
@@ -570,6 +873,7 @@ export default function TemplatedCreativeBriefGeneratorClient() {
         body: JSON.stringify({
           content: markdown,
           companyName: lastFormData?.companyName || 'Company',
+          documentType: 'creative-brief',
         }),
       });
 
@@ -594,12 +898,45 @@ export default function TemplatedCreativeBriefGeneratorClient() {
     }
   }, [structuredBrief, pdfGenerating, lastFormData?.companyName]);
 
+  const handleEmailAddressChange = useCallback(
+    (value: string) => {
+      setEmailAddress(value);
+      if (emailStatus) {
+        setEmailStatus(null);
+        setEmailStatusMessage('');
+      }
+    },
+    [emailStatus],
+  );
+
+  const handleCopyBrief = useCallback(() => {
+    if (!structuredBrief) {
+      return;
+    }
+
+    if (typeof navigator !== 'undefined') {
+      const markdown = toMarkdown(structuredBrief);
+      navigator.clipboard
+        .writeText(markdown)
+        .catch(() => setError('Unable to copy to clipboard.'));
+    }
+  }, [structuredBrief]);
+
   const handleSendEmail = useCallback(async () => {
-    if (!structuredBrief || !user?.email || emailSending) {
+    if (!structuredBrief) {
+      return;
+    }
+
+    if (!emailAddress || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailAddress)) {
+      setEmailStatus('error');
+      setEmailStatusMessage('Enter a valid email address to send the brief.');
       return;
     }
 
     setEmailSending(true);
+    setEmailStatus(null);
+    setEmailStatusMessage('');
+
     try {
       const markdown = toMarkdown(structuredBrief);
       const response = await fetch('/api/send-brief-email', {
@@ -608,7 +945,7 @@ export default function TemplatedCreativeBriefGeneratorClient() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email: user.email,
+          email: emailAddress,
           content: markdown,
           companyName: lastFormData?.companyName || 'Company',
         }),
@@ -618,15 +955,16 @@ export default function TemplatedCreativeBriefGeneratorClient() {
         throw new Error('Failed to send email');
       }
 
-      setEmailSent(true);
-      setTimeout(() => setEmailSent(false), 3000); // Reset after 3 seconds
+      setEmailStatus('success');
+      setEmailStatusMessage('Sent! Check your inbox for the brief.');
     } catch (error) {
       console.error('Email sending failed:', error);
-      setError('Failed to send email. Please try again.');
+      setEmailStatus('error');
+      setEmailStatusMessage('Failed to send the email. Please try again in a minute.');
     } finally {
       setEmailSending(false);
     }
-  }, [structuredBrief, user?.email, emailSending, lastFormData?.companyName]);
+  }, [emailAddress, structuredBrief, lastFormData?.companyName]);
 
   // Config check after all hooks are declared
   const config = getToolConfig('creative-brief-generator');
@@ -706,119 +1044,233 @@ export default function TemplatedCreativeBriefGeneratorClient() {
 
   // Custom result component for brief display
   const resultComponent = structuredBrief ? (
-    <div className="mt-8 space-y-6 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <h3 className="text-xl font-semibold text-gray-900">Generated Creative Brief</h3>
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
-          {user?.email && (
-            <button
-              onClick={handleSendEmail}
-              disabled={emailSending}
-              className="inline-flex items-center gap-2 rounded-xl bg-[#126DFB] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#0F5AD6] disabled:opacity-50"
-              type="button"
-            >
-              {emailSending ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              ) : emailSent ? (
-                <Mail className="h-4 w-4" />
-              ) : (
-                <Mail className="h-4 w-4" />
-              )}
-              {emailSending ? 'Sending...' : emailSent ? 'Sent!' : 'Email'}
-            </button>
-          )}
-          <button
-            onClick={handleDownloadPdf}
-            disabled={pdfGenerating}
-            className="inline-flex items-center gap-2 rounded-xl border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-100 disabled:opacity-50"
-            type="button"
-          >
-            {pdfGenerating ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : (
-              <FileDown className="h-4 w-4" />
-            )}
-            {pdfGenerating ? 'Generating...' : 'Download PDF'}
-          </button>
-        </div>
-      </div>
-
-      {researchSummary && (
-        <div className="rounded-xl border border-primary/30 bg-primary/5 p-4">
-          <h4 className="text-sm font-semibold text-primary mb-1">Research Highlights</h4>
-          {renderParagraphsCopy(researchSummary).map((paragraph, index) => (
-            <p key={index} className="mt-1 text-sm text-primary/90">
-              {paragraph}
-            </p>
-          ))}
-        </div>
-      )}
-
-      <div className="space-y-4">
-        <div className="space-y-3">
-          <h4 className="text-base font-semibold text-gray-900">Executive Summary</h4>
-          <div className="space-y-3">
-            {renderParagraphBlocks(structuredBrief.executiveSummary)}
+    <ResultActionsPanel
+      title="Generated Creative Brief"
+      onCopy={handleCopyBrief}
+      downloads={[
+        {
+          id: 'brief-pdf',
+          label: 'Download PDF',
+          onClick: handleDownloadPdf,
+          disabled: !structuredBrief,
+          loading: pdfGenerating,
+        },
+      ]}
+      emailConfig={{
+        description: 'We’ll email the full creative brief straight to your inbox.',
+        value: emailAddress,
+        onChange: handleEmailAddressChange,
+        onSubmit: handleSendEmail,
+        submitting: emailSending,
+        statusMessage: emailStatusMessage,
+        statusType: emailStatus,
+      }}
+    >
+      <div className="space-y-6">
+        {researchSummary && (
+          <div className="rounded-3xl border border-[#D0E3FF] bg-[#F3F8FF] p-6">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white text-[#126DFB] shadow-sm">
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#3B6FD6]">Research Highlights</p>
+                <h4 className="text-lg font-semibold text-gray-900">Key Competitive Signals</h4>
+              </div>
+            </div>
+            <ul className="mt-4 space-y-3 text-sm font-medium text-gray-600">
+              {renderParagraphsCopy(researchSummary).map((paragraph, index) => (
+                <li key={index} className="flex items-start gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[#126DFB]" aria-hidden />
+                  <span className="leading-relaxed">{paragraph}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
+        )}
 
-        <div className="space-y-3">
-          <h4 className="text-base font-semibold text-gray-900">Strategic Foundation</h4>
-          <div className="space-y-3">
-            {renderParagraphBlocks(structuredBrief.strategicFoundation)}
+        <div className="space-y-8">
+          {/* Campaign Overview */}
+          <div className="rounded-2xl border border-[#D0E3FF] bg-gradient-to-br from-[#F8FAFF] to-[#F3F8FF] p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#126DFB] text-white shadow-lg">
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#3B6FD6]">Campaign Overview</p>
+                <h3 className="text-xl font-semibold text-[#111827]">{structuredBrief.campaignOverview.campaignName}</h3>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <h4 className="text-sm font-semibold text-[#374151] mb-2">Primary Objective</h4>
+                <p className="text-[#111827] font-medium leading-relaxed">{structuredBrief.campaignOverview.primaryObjective}</p>
+              </div>
+              <div>
+                <h4 className="text-sm font-semibold text-[#374151] mb-2">Key Message</h4>
+                <p className="text-[#111827] leading-relaxed">{structuredBrief.campaignOverview.keyMessage}</p>
+              </div>
+              <div>
+                <h4 className="text-sm font-semibold text-[#374151] mb-2">Target Audience</h4>
+                <p className="text-[#111827] leading-relaxed">{structuredBrief.campaignOverview.targetAudience}</p>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="space-y-3">
-          <h4 className="text-base font-semibold text-gray-900">Creative Direction</h4>
-          {(() => {
-            const concepts = parseCreativeConcepts(structuredBrief.creativeDirection);
-            if (concepts) {
-              return (
-                <div className="space-y-3">
-                  {concepts.map((concept) => (
-                    <div key={concept.id} className="rounded-2xl border border-gray-100 bg-gray-50/80 p-4">
-                      <p className="text-sm font-semibold text-gray-900">
-                        Concept {concept.id}: {concept.title}
-                      </p>
-                      <p className="mt-2 text-sm leading-relaxed text-gray-600">{concept.description}</p>
-                    </div>
-                  ))}
+          {/* Concept Summary */}
+          <div className="rounded-2xl border border-[#D1FAE5] bg-gradient-to-br from-[#F0FDF4] to-[#ECFDF5] p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#10B981] text-white shadow-lg">
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#047857]">Highest Scoring Concept</p>
+                <h3 className="text-xl font-semibold text-[#111827]">{structuredBrief.conceptSummary.conceptName}</h3>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div>
+                  <h4 className="text-sm font-semibold text-[#374151] mb-2">Strategic Approach</h4>
+                  <p className="text-[#111827] leading-relaxed">{structuredBrief.conceptSummary.strategicApproach}</p>
                 </div>
-              );
-            }
-
-            return renderParagraphBlocks(structuredBrief.creativeDirection);
-          })()}
-        </div>
-
-        <div className="space-y-3">
-          <h4 className="text-base font-semibold text-gray-900">Deliverables</h4>
-          <div className="space-y-3">
-            {renderParagraphBlocks(structuredBrief.deliverables)}
+                <div>
+                  <h4 className="text-sm font-semibold text-[#374151] mb-2">Core Emotion</h4>
+                  <p className="text-[#111827] leading-relaxed">{structuredBrief.conceptSummary.coreEmotion}</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="rounded-xl bg-white/80 p-4 text-center">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#047857] mb-1">Performance Score</p>
+                  <p className="text-3xl font-bold text-[#10B981]">{structuredBrief.conceptSummary.performancePredictionScore}</p>
+                  <p className="text-xs text-[#6B7280]">out of 25 points</p>
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-[#374151] mb-2">Target Persona</h4>
+                  <p className="text-[#111827] leading-relaxed">{structuredBrief.conceptSummary.targetPersona}</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="space-y-3">
-          <h4 className="text-base font-semibold text-gray-900">Success Metrics</h4>
-          <div className="space-y-3">
-            {renderParagraphBlocks(structuredBrief.successMetrics)}
+          {/* Format Executions */}
+          <div className="rounded-2xl border border-[#FEF3C7] bg-gradient-to-br from-[#FFFBEB] to-[#FEF9E7] p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F59E0B] text-white shadow-lg">
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#92400E]">Format Executions</p>
+                <h3 className="text-xl font-semibold text-[#111827]">Creative Formats</h3>
+              </div>
+            </div>
+            <div className="space-y-6">
+              {structuredBrief.formatExecutions.map((execution, index) => (
+                <div key={index} className="rounded-xl bg-white/80 p-6 border border-[#FDE68A]">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#F59E0B] text-white text-sm font-bold">
+                      {index + 1}
+                    </span>
+                    <h4 className="text-lg font-semibold text-[#111827]">{execution.formatType}</h4>
+                  </div>
+                  <div className="space-y-4">
+                    <div>
+                      <h5 className="text-sm font-semibold text-[#374151] mb-2">Primary Hook</h5>
+                      <p className="text-[#111827] font-medium leading-relaxed">"{execution.primaryHook}"</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <h5 className="text-sm font-semibold text-[#374151] mb-2">Key Visuals</h5>
+                        <p className="text-[#111827] leading-relaxed">{execution.keyVisuals}</p>
+                      </div>
+                      <div>
+                        <h5 className="text-sm font-semibold text-[#374151] mb-2">Talent Notes</h5>
+                        <p className="text-[#111827] leading-relaxed">{execution.talentNotes}</p>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="rounded-lg bg-[#FEF2F2] border border-[#FCA5A5] p-4">
+                        <h5 className="text-sm font-semibold text-[#DC2626] mb-2">Pain Point Addressed</h5>
+                        <p className="text-[#111827] leading-relaxed">{execution.goldenPainAddressed}</p>
+                      </div>
+                      <div className="rounded-lg bg-[#F0FDF4] border border-[#86EFAC] p-4">
+                        <h5 className="text-sm font-semibold text-[#16A34A] mb-2">Dream Outcome</h5>
+                        <p className="text-[#111827] leading-relaxed">{execution.dreamOutcomePromised}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Brand Guidelines */}
+          <div className="rounded-2xl border border-[#FEF3C7] bg-gradient-to-br from-[#FFFBEB] to-[#FEF9E7] p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F59E0B] text-white shadow-lg">
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.623 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#92400E]">Brand Guidelines</p>
+                <h3 className="text-xl font-semibold text-[#111827]">Voice & Language</h3>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div className="rounded-xl bg-[#F0FDF4] border border-[#86EFAC] p-6">
+                  <h4 className="text-sm font-semibold text-[#16A34A] mb-3 flex items-center gap-2">
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    Voice Positioning
+                  </h4>
+                  <p className="text-[#111827] leading-relaxed">{structuredBrief.brandGuidelines.voicePositioning}</p>
+                </div>
+                <div className="rounded-xl bg-[#F0FDF4] border border-[#86EFAC] p-6">
+                  <h4 className="text-sm font-semibold text-[#16A34A] mb-3 flex items-center gap-2">
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    Power Words
+                  </h4>
+                  <p className="text-[#111827] leading-relaxed">{structuredBrief.brandGuidelines.powerWords}</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="rounded-xl bg-[#FEF2F2] border border-[#FCA5A5] p-6">
+                  <h4 className="text-sm font-semibold text-[#DC2626] mb-3 flex items-center gap-2">
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    Forbidden Language
+                  </h4>
+                  <p className="text-[#111827] leading-relaxed">{structuredBrief.brandGuidelines.forbiddenLanguage}</p>
+                </div>
+                <div className="rounded-xl bg-[#FFF7ED] border border-[#FDBA74] p-6">
+                  <h4 className="text-sm font-semibold text-[#EA580C] mb-3 flex items-center gap-2">
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                    </svg>
+                    Required Disclaimers
+                  </h4>
+                  <p className="text-[#111827] leading-relaxed">{structuredBrief.brandGuidelines.requiredDisclaimers}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      {requestedPdf && (
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <FileText className="h-4 w-4" /> PDF export queued via APSICS renderer. You'll receive it as soon as it's ready.
-        </div>
-      )}
-
-      {downgradedMode === 'simple' && (
-        <div className="rounded-md border border-warning/20 bg-warning/10 p-3 text-sm text-warning">
-          Advanced mode is available with the Growth plan. We delivered a simple brief so you can keep momentum going.
-        </div>
-      )}
-    </div>
+    </ResultActionsPanel>
   ) : undefined;
 
   return (
@@ -952,8 +1404,17 @@ function AuthPanel({ supabase, onAuthSuccess }: AuthPanelProps) {
           return;
         }
 
+        const {
+          data: { session: currentSession },
+        } = await supabase.auth.getSession();
+
+        const subscribeHeaders = buildSupabaseInvokeHeaders({
+          accessToken: currentSession?.access_token ?? null,
+        });
+
         const { error: subscribeError } = await supabase.functions.invoke('subscribe-convertkit', {
           body: { email },
+          ...(subscribeHeaders ? { headers: subscribeHeaders } : {}),
         });
 
         if (subscribeError) {
@@ -966,8 +1427,13 @@ function AuthPanel({ supabase, onAuthSuccess }: AuthPanelProps) {
           return;
         }
 
+        const subscribeHeaders = buildSupabaseInvokeHeaders({
+          accessToken: data.session?.access_token ?? null,
+        });
+
         const { error: subscribeError } = await supabase.functions.invoke('subscribe-convertkit', {
           body: { email },
+          ...(subscribeHeaders ? { headers: subscribeHeaders } : {}),
         });
 
         if (subscribeError) {

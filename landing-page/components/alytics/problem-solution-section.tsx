@@ -60,7 +60,7 @@ export function ProblemSolutionSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="max-w-5xl mx-auto"
+          className="max-w-4xl mx-auto"
         >
           
           {/* Main Research Image */}

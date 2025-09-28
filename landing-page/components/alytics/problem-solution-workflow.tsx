@@ -13,7 +13,7 @@ export function ProblemSolutionWorkflow() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
           <motion.h2
@@ -21,7 +21,7 @@ export function ProblemSolutionWorkflow() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
           >
             Turn Every Ad Dollar Into{' '}
             <span className="text-transparent bg-gradient-to-r from-[#126DFB] to-[#126DFB] bg-clip-text">
@@ -34,9 +34,9 @@ export function ProblemSolutionWorkflow() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.4, delay: 0.4 }}
           >
-Stop burning budget on ads that feel native but convert like crazy. Our research-backed approach eliminates creative guesswork, turning ad spend into breakthrough campaigns that scale profitably through data-driven strategic frameworks.
+Stop burning budget on ads that feel native but convert like crazy. Our research backed approach eliminates creative guesswork, turning ad spend into breakthrough campaigns that scale profitably through data driven strategic frameworks.
           </motion.p>
         </motion.div>
 
@@ -45,7 +45,7 @@ Stop burning budget on ads that feel native but convert like crazy. Our research
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.4, delay: 0.4 }}
         >
           <ProcessAccordion />
         </motion.div>
@@ -55,7 +55,7 @@ Stop burning budget on ads that feel native but convert like crazy. Our research
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.4, delay: 0.6 }}
           className="text-center mt-20"
         >
           <motion.a

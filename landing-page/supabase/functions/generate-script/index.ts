@@ -190,7 +190,7 @@ serve(async (req) => {
     user = authResult.data.user;
   } catch (authError) {
     console.error("Failed to read auth context", authError);
-    return new Response(JSON.stringify({ error: "Unable to verify session" }), {
+    return new Response(JSON.stringify({ error: "Please sign in to continue" }), {
       status: 401,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
@@ -211,7 +211,7 @@ serve(async (req) => {
   const { companyName, websiteUrl, productDescription, platform, objective, adFormat } = payload;
 
   if (!companyName || !companyName.trim() || !websiteUrl || !websiteUrl.trim()) {
-    return new Response(JSON.stringify({ error: "Company name and website URL are required" }), {
+    return new Response(JSON.stringify({ error: "Please enter your company name and website URL" }), {
       status: 400,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
@@ -232,7 +232,7 @@ serve(async (req) => {
     normalizedWebsiteUrl = parsedUrl.toString();
   } catch (urlError) {
     console.error('Invalid website URL provided', websiteUrl, urlError);
-    return new Response(JSON.stringify({ error: "Website URL is invalid" }), {
+    return new Response(JSON.stringify({ error: "Please enter a valid website URL (like example.com)" }), {
       status: 400,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
@@ -260,7 +260,7 @@ serve(async (req) => {
     }
 
     if ((anonUsageCount ?? 0) >= 1) {
-      return new Response(JSON.stringify({ error: "Sign in to keep generating ad scripts." }), {
+      return new Response(JSON.stringify({ error: "You've used your free script! Create an account to get 10 more credits each month." }), {
         status: 401,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
@@ -322,7 +322,7 @@ serve(async (req) => {
 
     if (creditsRemaining <= 0) {
       return new Response(
-        JSON.stringify({ error: "You are out of credits. Upgrade your plan to keep generating scripts." }),
+        JSON.stringify({ error: "You've used all your credits! Upgrade to Essentials ($19/month) to get 150 more credits." }),
         {
           status: 402,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -386,13 +386,35 @@ serve(async (req) => {
   }
 
   const completionData = await completion.json();
-  const script = completionData?.choices?.[0]?.message?.content;
+  const rawContent = completionData?.choices?.[0]?.message?.content;
 
-  if (!script) {
-    return new Response(JSON.stringify({ error: "OpenRouter returned an empty response" }), {
+  if (!rawContent) {
+    return new Response(JSON.stringify({ error: "Our AI is having trouble right now. Please try again in a moment." }), {
       status: 502,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
+  }
+
+  // Try to parse as JSON first (new format), fallback to raw string (legacy format)
+  let structuredData = null;
+  let script = rawContent;
+
+  try {
+    structuredData = JSON.parse(rawContent);
+    // If we successfully parsed JSON, extract the script content for legacy compatibility
+    if (structuredData.contentType === 'video' && structuredData.script?.scenes) {
+      // For video, concatenate scenes into a readable script format
+      script = structuredData.script.scenes.map((scene: any) =>
+        `[${scene.timing}] ${scene.description}\nVO: ${scene.voiceover}\nOn-screen: ${scene.onScreenText}${scene.cta ? `\nCTA: ${scene.cta}` : ''}`
+      ).join('\n\n');
+    } else if (structuredData.contentType === 'static' && structuredData.staticCopy) {
+      // For static, format the copy structure
+      const copy = structuredData.staticCopy;
+      script = `${copy.headline}\n\n${copy.subheadline}\n\n${copy.body}\n\n${copy.bullets.map((b: string) => `• ${b}`).join('\n')}\n\n${copy.cta}\n\nDesign Notes: ${copy.designNotes}`;
+    }
+  } catch (parseError) {
+    // If JSON parsing fails, use raw content as script (legacy format)
+    console.log('Using legacy text format, JSON parsing failed:', parseError);
   }
 
   const processingTime = Date.now() - startTime;
@@ -449,7 +471,11 @@ serve(async (req) => {
   );
 
   if (!user) {
-    return new Response(JSON.stringify({ script, anonymousKey: resolvedAnonymousKey }), {
+    return new Response(JSON.stringify({
+      script,
+      data: structuredData,
+      anonymousKey: resolvedAnonymousKey
+    }), {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
@@ -471,7 +497,11 @@ serve(async (req) => {
     });
   }
 
-  return new Response(JSON.stringify({ script, creditsRemaining: updatedProfile.credits_remaining ?? 0 }), {
+  return new Response(JSON.stringify({
+    script,
+    data: structuredData,
+    creditsRemaining: updatedProfile.credits_remaining ?? 0
+  }), {
     status: 200,
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });
@@ -529,17 +559,79 @@ ${basePrompt.trim()}
 
 Use the above strategic workflow to craft a finished advertising script that aligns with the campaign brief provided above.
 
+CRITICAL OUTPUT FORMAT REQUIREMENT:
+You MUST return your response as valid JSON in exactly this structure:
+
+FOR VIDEO FORMAT:
+{
+  "contentType": "video",
+  "script": {
+    "scenes": [
+      {
+        "timing": "0-3s",
+        "description": "Visual scene description",
+        "voiceover": "Spoken content",
+        "onScreenText": "Text overlays",
+        "cta": "Call to action if applicable"
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "improvedElement": "Expert-optimized hook variation",
+      "frameworkUsed": "Which script framework was applied",
+      "awarenessStage": "Unaware|Problem-Aware|Solution-Aware|Product-Aware|Most-Aware",
+      "rationale": "Why this approach works",
+      "testingStrategy": "How to test and optimize"
+    }
+  ],
+  "platformAdaptations": {
+    "tiktok": "TikTok-specific optimization notes",
+    "instagram": "Instagram-specific optimization notes",
+    "facebook": "Facebook-specific optimization notes",
+    "x": "X (Twitter)-specific optimization notes",
+    "linkedin": "LinkedIn-specific optimization notes",
+    "youtube": "YouTube-specific optimization notes"
+  }
+}
+
+FOR STATIC FORMAT:
+{
+  "contentType": "static",
+  "staticCopy": {
+    "headline": "Primary headline",
+    "subheadline": "Supporting subhead",
+    "body": "Main body copy",
+    "bullets": ["Benefit 1", "Benefit 2", "Benefit 3"],
+    "cta": "Call to action",
+    "designNotes": "Layout and visual guidance"
+  },
+  "recommendations": [
+    {
+      "improvedElement": "Expert-optimized headline variation",
+      "frameworkUsed": "Which copy framework was applied",
+      "awarenessStage": "Unaware|Problem-Aware|Solution-Aware|Product-Aware|Most-Aware",
+      "rationale": "Why this approach works",
+      "testingStrategy": "How to test and optimize"
+    }
+  ],
+  "platformAdaptations": {
+    "tiktok": "TikTok-specific optimization notes",
+    "instagram": "Instagram-specific optimization notes",
+    "facebook": "Facebook-specific optimization notes",
+    "x": "X (Twitter)-specific optimization notes",
+    "linkedin": "LinkedIn-specific optimization notes",
+    "youtube": "YouTube-specific optimization notes"
+  }
+}
+
 Output Requirements:
 1. Select the optimal framework based on the campaign brief and platform.
-2. Provide a concise, platform-native script that follows the chosen framework.
-3. Include format-appropriate production guidance (e.g., stage directions for video, layout notes for static) only when relevant.
-4. Close with an explicit CTA aligned to the brand’s buyer journey.
-5. Return only the finished creative output aligned to the requested format. Do not include research notes, numbered steps, or multiple concepts—deliver exactly one execution.
-
-Formatting Instructions:
-- Begin the response with the line 'Script:'.
-- After that line, output the complete script (including scene/stage directions if relevant) as continuous text or Markdown.
-- Do not add any introductions, summaries, or sections outside the script itself.
+2. Structure content cleanly with separate fields for each element.
+3. Include expert-level recommendations for optimization.
+4. Provide platform-specific adaptation guidance.
+5. Return ONLY valid JSON - no additional text outside the JSON structure.
+6. Ensure all strings are properly escaped for JSON format.
 `;
 }
 

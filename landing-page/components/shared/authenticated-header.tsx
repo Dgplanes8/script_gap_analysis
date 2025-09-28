@@ -6,6 +6,7 @@ import { Mail, CreditCard, RefreshCw, LogOut, Menu, X } from 'lucide-react';
 import { createBrowserClient } from '@/lib/supabase/browser-client';
 import { fetchUserProfile } from '@/lib/utils/supabase-helpers';
 import type { User } from '@supabase/supabase-js';
+import { useCallback } from 'react';
 
 interface AuthenticatedHeaderProps {
   className?: string;
@@ -15,8 +16,36 @@ export function AuthenticatedHeader({ className = '' }: AuthenticatedHeaderProps
   const [user, setUser] = useState<User | null>(null);
   const [credits, setCredits] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
+  const [creditsLoading, setCreditsLoading] = useState(false);
+  const [creditsError, setCreditsError] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const supabase = createBrowserClient();
+
+  const loadCredits = useCallback(
+    async (userId: string) => {
+      setCreditsLoading(true);
+      setCreditsError(null);
+      try {
+        const { data, error } = await fetchUserProfile(supabase, userId);
+
+        if (error) {
+          console.error('Error loading profile:', error);
+          setCredits(null);
+          setCreditsError(error);
+          return;
+        }
+
+        setCredits(typeof data?.credits_remaining === 'number' ? data.credits_remaining : null);
+      } catch (error) {
+        console.error('Error loading credits:', error);
+        setCredits(null);
+        setCreditsError('Unable to load credits. Try refreshing.');
+      } finally {
+        setCreditsLoading(false);
+      }
+    },
+    [supabase],
+  );
 
   // Load user and credits on mount
   useEffect(() => {
@@ -27,6 +56,11 @@ export function AuthenticatedHeader({ className = '' }: AuthenticatedHeaderProps
         setUser(user);
 
         if (user) {
+          const sessionCredits = user.user_metadata?.credits_remaining;
+          if (typeof sessionCredits === 'number') {
+            setCredits(sessionCredits);
+          }
+
           // Load credits from user metadata or credits table
           await loadCredits(user.id);
         }
@@ -44,38 +78,24 @@ export function AuthenticatedHeader({ className = '' }: AuthenticatedHeaderProps
       if (event === 'SIGNED_OUT') {
         setUser(null);
         setCredits(null);
+        setCreditsLoading(false);
+        setCreditsError(null);
       } else if (session?.user) {
         setUser(session.user);
+        const sessionCredits = session.user.user_metadata?.credits_remaining;
+        if (typeof sessionCredits === 'number') {
+          setCredits(sessionCredits);
+        }
         loadCredits(session.user.id);
       }
     });
 
     return () => subscription.unsubscribe();
-  }, []);
-
-  async function loadCredits(userId: string) {
-    try {
-      // Get credits from profiles table using the shared helper
-      const { data, error } = await fetchUserProfile(supabase, userId);
-
-      if (error) {
-        console.error('Error loading profile:', error);
-        setCredits(0); // Default fallback
-        return;
-      }
-
-      setCredits(data?.credits_remaining || 0);
-    } catch (error) {
-      console.error('Error loading credits:', error);
-      setCredits(0); // Default fallback
-    }
-  }
+  }, [supabase, loadCredits]);
 
   async function refreshCredits() {
     if (!user) return;
-    setLoading(true);
     await loadCredits(user.id);
-    setLoading(false);
   }
 
   async function handleSignOut() {
@@ -135,15 +155,18 @@ export function AuthenticatedHeader({ className = '' }: AuthenticatedHeaderProps
             {user && (
               <div className="hidden sm:flex items-center space-x-2 bg-gray-50 rounded-lg px-3 py-2">
                 <CreditCard className="h-4 w-4 text-gray-500" />
-                <span className="text-sm font-medium text-gray-700">
-                  {loading ? '...' : `${credits || 0} credits`}
+                <span
+                  className="text-sm font-medium text-gray-700"
+                  title={creditsError ?? undefined}
+                >
+                  {creditsLoading ? '…' : typeof credits === 'number' ? `${credits} credits` : '—'}
                 </span>
                 <button
                   onClick={refreshCredits}
-                  disabled={loading}
+                  disabled={creditsLoading}
                   className="p-1 text-gray-400 hover:text-gray-600 disabled:opacity-50"
                 >
-                  <RefreshCw className={`h-3 w-3 ${loading ? 'animate-spin' : ''}`} />
+                  <RefreshCw className={`h-3 w-3 ${creditsLoading ? 'animate-spin' : ''}`} />
                 </button>
               </div>
             )}
