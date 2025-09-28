@@ -653,15 +653,7 @@ FOR VIDEO FORMAT:
       "rationale": "Why this approach works for this brief",
       "testingStrategy": "How to test and optimize performance"
     }
-  ],
-  "platformAdaptations": {
-    "tiktok": "TikTok-specific optimization notes",
-    "instagram": "Instagram-specific optimization notes",
-    "facebook": "Facebook-specific optimization notes",
-    "x": "X (Twitter)-specific optimization notes",
-    "linkedin": "LinkedIn-specific optimization notes",
-    "youtube": "YouTube-specific optimization notes"
-  }
+  ]
 }
 
 FOR STATIC FORMAT:
@@ -683,18 +675,12 @@ FOR STATIC FORMAT:
       "rationale": "Why this approach works for this brief",
       "testingStrategy": "How to test and optimize performance"
     }
-  ],
-  "platformAdaptations": {
-    "tiktok": "TikTok-specific optimization notes",
-    "instagram": "Instagram-specific optimization notes",
-    "facebook": "Facebook-specific optimization notes",
-    "x": "X (Twitter)-specific optimization notes",
-    "linkedin": "LinkedIn-specific optimization notes",
-    "youtube": "YouTube-specific optimization notes"
-  }
+  ]
 }
 
-CRITICAL: Return ONLY the JSON object. No explanations, no markdown, no additional text.
+CRITICAL:
+- Return ONLY the JSON object. No explanations, no markdown, no additional text.
+- Keep entire response under 1500 tokens to ensure clean parsing and display.
 `;
 }
 
