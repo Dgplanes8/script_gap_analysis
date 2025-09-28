@@ -194,7 +194,7 @@ export default function TemplatedAdScriptGeneratorClient() {
           setProfileCredits(null);
           setProfileError("We couldn't load your remaining credits.");
         } else {
-          setProfileCredits(data?.credits_remaining ?? 0);
+          setProfileCredits((data as { credits_remaining: number } | null)?.credits_remaining ?? 0);
           setProfileError(null);
         }
       } catch (loadError: any) {
