@@ -48,7 +48,7 @@ function parseTextToScenes(text: string): ScriptScene[] {
   if (!text) return [];
 
   // Split by timing patterns like [0-3s], [3-8s], etc.
-  const sceneRegex = /\[(\d+[-–]\d+s?)\]\s*(.*?)(?=\[|\n*$)/gs;
+  const sceneRegex = /\[(\d+[-–]\d+s?)\]\s*(.*?)(?=\[|\n*$)/g;
   const scenes: ScriptScene[] = [];
   let match;
 
