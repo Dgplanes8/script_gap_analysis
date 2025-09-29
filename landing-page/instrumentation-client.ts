@@ -33,3 +33,6 @@ Sentry.init({
   // Release tracking
   environment: process.env.NODE_ENV,
 });
+
+// Required for router navigation instrumentation
+export const onRouterTransitionStart = Sentry.captureRouterTransitionStart;
