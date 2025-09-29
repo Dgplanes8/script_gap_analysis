@@ -3,11 +3,40 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
 import { basePrompt } from "./prompt.ts";
 import { captureEdgeFunctionError } from "../_shared/sentry.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-anonymous-key",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
+function buildCorsHeaders(req: Request): Record<string, string> {
+  const origin = req.headers.get("origin") ?? "*";
+  const requestedHeaders = req.headers.get("access-control-request-headers") ?? "";
+  const defaultHeaders = ["authorization", "x-client-info", "apikey", "content-type", "x-anonymous-key"];
+  const headerSet = new Set<string>();
+
+  for (const header of defaultHeaders) {
+    headerSet.add(header.toLowerCase());
+  }
+
+  if (requestedHeaders) {
+    for (const header of requestedHeaders.split(",")) {
+      const trimmed = header.trim();
+      if (trimmed) {
+        headerSet.add(trimmed.toLowerCase());
+      }
+    }
+  }
+
+  const allowHeaders = Array.from(headerSet).join(", ");
+  const headers: Record<string, string> = {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Headers": allowHeaders,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Max-Age": "86400",
+    "Vary": "Origin, Access-Control-Request-Headers",
+  };
+
+  if (origin !== "*") {
+    headers["Access-Control-Allow-Credentials"] = "true";
+  }
+
+  return headers;
+}
 
 const supabaseUrl = Deno.env.get("EDGE_SUPABASE_URL") ?? Deno.env.get("SUPABASE_URL");
 const serviceRoleKey = Deno.env.get("EDGE_SUPABASE_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
@@ -162,6 +191,8 @@ const PLATFORM_BEHAVIOR_NOTES: Record<string, string> = {
 
 serve(async (req) => {
   console.log("generate-script invoked", { method: req.method, url: req.url });
+
+  const corsHeaders = buildCorsHeaders(req);
 
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
