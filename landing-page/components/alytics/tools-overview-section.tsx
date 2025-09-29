@@ -6,7 +6,7 @@ const tools = [
   {
     name: 'AI Script Generator',
     description: 'Generate scripts using patterns from campaigns that already proved themselves with real money.',
-    benefits: ['1 instant script without logging in', '10 monthly credits on the free plan', 'Expert concepts with Studio tier'],
+    benefits: ['One instant script without logging in', '10 monthly credits on the free plan', 'Expert concepts with Studio tier'],
     href: '/ai-ad-script-generator',
     icon: PenSquare,
     cta: 'Generate a Free Script',
@@ -63,12 +63,12 @@ export function ToolsOverviewSection() {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900">{tool.name}</h3>
               </div>
-              <p className="mt-4 text-sm text-gray-600 leading-relaxed h-12">{tool.description}</p>
+              <p className="mt-4 text-sm text-gray-600 leading-relaxed min-h-[3rem]">{tool.description}</p>
               <ul className="mt-6 space-y-3 text-sm text-gray-700 flex-grow">
                 {tool.benefits.map((benefit) => (
-                  <li key={benefit} className="flex items-start gap-2">
-                    <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[#126DFB]"></span>
-                    <span>{benefit}</span>
+                  <li key={benefit} className="flex items-start gap-3">
+                    <span className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-[#126DFB] flex-shrink-0"></span>
+                    <span className="leading-relaxed">{benefit}</span>
                   </li>
                 ))}
               </ul>

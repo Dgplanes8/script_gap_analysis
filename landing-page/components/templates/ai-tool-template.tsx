@@ -83,7 +83,7 @@ export function AIToolTemplate({
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-brand-50">
       {fallbackHeader ? <ToolHeader fallback={fallbackHeader} /> : null}
-      <div className="pt-20 md:pt-24">
+      <div className="pt-4 md:pt-8">
         <div className="px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl space-y-10">
             <header className="text-center">

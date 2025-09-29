@@ -19,7 +19,7 @@ export default function AdScriptGeneratorPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-brand-50">
       <ToolHeader fallback={<AlyticsNavbar />} />
-      <div className="pt-20 md:pt-24">
+      <div className="pt-4 md:pt-8">
         <AdScriptGeneratorClient />
       </div>
     </div>

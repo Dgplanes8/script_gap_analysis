@@ -31,7 +31,7 @@ export function AlyticsHero() {
   const { openModal } = useFreeWeek();
 
   return (
-    <section className="relative pt-24 pb-20 px-6 overflow-hidden bg-white">
+    <section className="relative pt-8 pb-20 px-6 overflow-hidden bg-white">
       <div className="max-w-4xl mx-auto text-center relative z-10">
         
         <motion.div
