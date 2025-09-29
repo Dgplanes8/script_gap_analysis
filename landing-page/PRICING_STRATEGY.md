@@ -29,9 +29,9 @@ The new structure fixes those problems by introducing a single credit wallet tha
 | Plan | Monthly Price | Credits / Month | Ideal For |
 | --- | --- | --- | --- |
 | **Explore** | $0 | 10 | Prospects validating the tools |
-| **Essentials** | $19 | 150 | Lean growth teams running steady creative tests |
-| **Studio** *(founding offer)* | $29 for 6 months → $49 | 800 | Teams replacing agency retainers and wanting expert guidance |
-| **Concierge** | $249 | 2,000 | Revenue teams with aggressive testing roadmaps |
+| **Essentials** | $19 | 100 | Lean growth teams running steady creative tests |
+| **Studio** *(founding offer)* | $29 for 6 months → $49 | 500 | Teams replacing agency retainers and wanting expert guidance |
+| **Concierge** | $249 | 1,500 | Revenue teams with aggressive testing roadmaps |
 
 > **Note:** Stripe stores Studio as two prices: the founding price for the first six cycles and the standard price that kicks in afterwards. Metadata on each price keeps the credit grant consistent.
 
@@ -45,14 +45,14 @@ The new structure fixes those problems by introducing a single credit wallet tha
 - Saved history and ability to upgrade instantly
 - Earned credits reset to 10 every monthly cycle
 
-### Essentials – $19 / 150 credits
-- Enough volume for weekly script + brief requests plus occasional iteration runs
+### Essentials – $19 / 100 credits
+- Efficient volume for regular script + brief requests with occasional iteration runs
 - Priority processing in edge functions and email follow-up
 - Shared brand workspace for teams
 - Best entry point for in-house marketers
 
 ### Studio – $29 founding offer (renews at $49)
-- 800 credits every month
+- 500 credits every month
 - Unlocks advanced research mode and premium email delivery
 - Includes the **expert crafted concept** delivered during the first month:
   - 2 target personas with positioning notes
@@ -61,7 +61,7 @@ The new structure fixes those problems by introducing a single credit wallet tha
   - Framework application tailored to the account
 - Founding offer messaging: “Lock $29/mo for six months, then $49/mo afterwards.”
 
-### Concierge – $249 / 2,000 credits
+### Concierge – $249 / 1,500 credits
 - Everything in Studio plus:
   - Direct strategist collaboration + Slack access
   - Unlimited expert concept reviews

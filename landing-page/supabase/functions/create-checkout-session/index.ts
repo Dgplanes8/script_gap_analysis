@@ -139,11 +139,11 @@ serve(async (req) => {
     switch (tierSelection) {
       case 'essentials':
         checkoutPriceId = essentialsPriceId;
-        mappedCreditAmount = 150;
+        mappedCreditAmount = 100;
         break;
       case 'studio':
         checkoutPriceId = studioFoundingPriceId ?? studioStandardPriceId ?? essentialsPriceId;
-        mappedCreditAmount = 800;
+        mappedCreditAmount = 500;
         if (checkoutPriceId === studioFoundingPriceId && studioFoundingPriceId) {
           studioRate = 'founding';
         } else if (checkoutPriceId === studioStandardPriceId && studioStandardPriceId) {
@@ -153,12 +153,12 @@ serve(async (req) => {
       case 'studio_standard':
         canonicalTier = 'studio';
         checkoutPriceId = studioStandardPriceId ?? studioFoundingPriceId ?? essentialsPriceId;
-        mappedCreditAmount = 800;
+        mappedCreditAmount = 500;
         studioRate = checkoutPriceId === studioStandardPriceId && studioStandardPriceId ? 'standard' : 'founding';
         break;
       case 'concierge':
         checkoutPriceId = conciergePriceId ?? defaultStripePriceId;
-        mappedCreditAmount = 2000;
+        mappedCreditAmount = 1500;
         break;
       case 'explore':
         checkoutPriceId = essentialsPriceId;
@@ -166,7 +166,7 @@ serve(async (req) => {
         break;
       default:
         checkoutPriceId = essentialsPriceId;
-        mappedCreditAmount = 150;
+        mappedCreditAmount = 100;
         break;
     }
   }

@@ -4,11 +4,40 @@ import { buildIterationPrompt, type OutputFormat } from "./prompt-builder.ts";
 import { ingestSocialAsset, isSocialIngestionError } from "./social-download.ts";
 import { captureEdgeFunctionError } from "../_shared/sentry.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-anonymous-key",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
+function buildCorsHeaders(req: Request): Record<string, string> {
+  const origin = req.headers.get("origin") ?? "*";
+  const requestedHeaders = req.headers.get("access-control-request-headers") ?? "";
+  const defaultHeaders = ["authorization", "x-client-info", "apikey", "content-type", "x-anonymous-key", "baggage"];
+  const headerSet = new Set<string>();
+
+  for (const header of defaultHeaders) {
+    headerSet.add(header.toLowerCase());
+  }
+
+  if (requestedHeaders) {
+    for (const header of requestedHeaders.split(",")) {
+      const trimmed = header.trim();
+      if (trimmed) {
+        headerSet.add(trimmed.toLowerCase());
+      }
+    }
+  }
+
+  const allowHeaders = Array.from(headerSet).join(", ");
+  const headers: Record<string, string> = {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Headers": allowHeaders,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Max-Age": "86400",
+    "Vary": "Origin, Access-Control-Request-Headers",
+  };
+
+  if (origin !== "*") {
+    headers["Access-Control-Allow-Credentials"] = "true";
+  }
+
+  return headers;
+}
 
 // Environment variables will be checked inside the serve function to ensure CORS headers are returned
 
@@ -399,6 +428,8 @@ async function trackToolUsage(
 }
 
 serve(async (req) => {
+  const corsHeaders = buildCorsHeaders(req);
+
   try {
     if (req.method === "OPTIONS") {
       return new Response("ok", { headers: corsHeaders });

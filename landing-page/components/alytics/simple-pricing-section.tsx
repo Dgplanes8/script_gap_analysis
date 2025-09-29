@@ -148,7 +148,7 @@ export function SimplePricingSection() {
       name: 'Concierge',
       price: '$249',
       description: 'Scale breakthrough campaigns at enterprise velocity.',
-      credits: '2,000 credits per month',
+      credits: '1,500 credits per month',
       features: [
         'Everything in Studio plus direct strategist collaboration',
         'Weekly expert concept reviews and custom tailored strategy',
@@ -165,7 +165,7 @@ export function SimplePricingSection() {
       price: '$29',
       originalPrice: '$49',
       description: 'Turn creative bottlenecks into revenue multipliers.',
-      credits: '800 credits per month',
+      credits: '500 credits per month',
       features: [
         'Only 25 packages available',
         'Expert crafted creative concept package delivered for the first 6 months',
@@ -185,9 +185,9 @@ export function SimplePricingSection() {
       name: 'Essentials',
       price: '$19',
       description: 'Jumpstart your ad performance',
-      credits: '150 credits per month',
+      credits: '100 credits per month',
       features: [
-        'Fuel multiple scripts, briefs, and iterations',
+        'Generate scripts, briefs, and iterations efficiently',
         'Email support available',
         'Perfect for teams replacing freelancers or starting to scale'
       ],
@@ -244,7 +244,7 @@ Turn Ad Spend Into Revenue Growth Starting at $19/Month
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-Get 150+ fully-developed creative concepts every month - complete with scripts, strategic insights, and positioning frameworks. Access comprehensive creative intelligence that includes market research, competitor analysis, and trend-based recommendations.
+Get 100+ fully-developed creative concepts every month - complete with scripts, strategic insights, and positioning frameworks. Access comprehensive creative intelligence that includes market research, competitor analysis, and trend-based recommendations.
           </motion.p>
 
           {/* Value Anchoring */}

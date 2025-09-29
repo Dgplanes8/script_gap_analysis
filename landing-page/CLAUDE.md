@@ -25,9 +25,9 @@ Landing page for APSICS Media's credit-based creative intelligence platform – 
 
 ### Pricing Structure
 - **Explore**: $0 / 10 credits refreshed monthly (no card)
-- **Essentials**: $19 / 150 credits per month
-- **Studio**: $29/mo for first 6 months (800 credits + expert concept), renews at $49
-- **Concierge**: $249 / 2,000 credits per month with strategist collaboration
+- **Essentials**: $19 / 100 credits per month
+- **Studio**: $29/mo for first 6 months (500 credits + expert concept), renews at $49
+- **Concierge**: $249 / 1,500 credits per month with strategist collaboration
 - **Comparison**: vs $5,000+ agency retainers
 
 ## Technical Standards

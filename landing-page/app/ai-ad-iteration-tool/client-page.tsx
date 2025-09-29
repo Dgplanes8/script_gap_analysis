@@ -21,6 +21,7 @@ import { getSupabaseBrowserClient, type BrowserClient } from '@/lib/supabase/bro
 import { useFreeWeek } from '@/components/contexts/free-week-context';
 import ResultActionsPanel from '@/components/shared/result-actions-panel';
 import { buildSupabaseInvokeHeaders } from '@/utils/build-supabase-invoke-headers';
+import { extractEdgeFunctionError, getStandardErrorMessage } from '@/lib/utils/error-handling';
 import {
   Dialog,
   DialogContent,
@@ -146,109 +147,6 @@ function determineAssetKind(file: File) {
   return 'unknown' as const;
 }
 
-async function extractEdgeFunctionError(error: unknown): Promise<{
-  statusCode?: number;
-  message?: string;
-}> {
-  if (!error || typeof error !== 'object') {
-    return {};
-  }
-
-  const normalizeStatus = (value: unknown) => {
-    if (typeof value === 'number' && Number.isFinite(value)) {
-      return value;
-    }
-    if (typeof value === 'string') {
-      const parsed = Number.parseInt(value, 10);
-      return Number.isFinite(parsed) ? parsed : undefined;
-    }
-    return undefined;
-  };
-
-  const maybeError = error as {
-    status?: unknown;
-    code?: unknown;
-    message?: unknown;
-    context?: unknown;
-  };
-
-  const statusCandidates: Array<unknown> = [maybeError.status, maybeError.code];
-  let contextMessage = '';
-
-  const context = maybeError.context as
-    | undefined
-    | null
-    | (Response & {
-        error?: unknown;
-        status?: unknown;
-        statusCode?: unknown;
-      })
-    | {
-        error?: unknown;
-        status?: unknown;
-        statusCode?: unknown;
-        response?: { status?: unknown };
-      };
-
-  if (context && typeof context === 'object') {
-    statusCandidates.push((context as { status?: unknown }).status);
-    statusCandidates.push((context as { statusCode?: unknown }).statusCode);
-    statusCandidates.push((context as { response?: { status?: unknown } }).response?.status);
-
-    const rawContextError = (context as { error?: unknown }).error;
-    if (typeof rawContextError === 'string') {
-      contextMessage = rawContextError;
-    } else if (rawContextError && typeof rawContextError === 'object') {
-      const nested = rawContextError as { message?: unknown; error?: unknown };
-      if (typeof nested.message === 'string') {
-        contextMessage = nested.message;
-      } else if (typeof nested.error === 'string') {
-        contextMessage = nested.error;
-      }
-    }
-  }
-
-  let statusCode: number | undefined;
-  for (const candidate of statusCandidates) {
-    const normalized = normalizeStatus(candidate);
-    if (typeof normalized === 'number') {
-      statusCode = normalized;
-      break;
-    }
-  }
-
-  let message: string | undefined = typeof maybeError.message === 'string' ? maybeError.message : undefined;
-  if (!message && contextMessage) {
-    message = contextMessage;
-  }
-
-  if (!message && context && typeof Response !== 'undefined' && context instanceof Response) {
-    try {
-      const cloned = context.clone();
-      const contentType = cloned.headers.get('content-type') ?? '';
-
-      if (contentType.includes('application/json')) {
-        const json = await cloned.json();
-        if (json) {
-          if (typeof (json as { error?: unknown }).error === 'string') {
-            message = (json as { error: string }).error;
-          } else if (typeof (json as { message?: unknown }).message === 'string') {
-            message = (json as { message: string }).message;
-          }
-        }
-      } else {
-        const text = await cloned.text();
-        if (text) {
-          message = text;
-        }
-      }
-    } catch {
-      // ignore parsing issues
-    }
-  }
-
-  return { statusCode, message };
-}
 
 export default function IterationToolClient({ config }: { config: ToolPageConfig }) {
   const supabase = useMemo(() => getSupabaseBrowserClient(), []);
@@ -666,43 +564,32 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
         if (invokeError) {
           console.error('analyze-and-iterate-ad error', invokeError);
           const { statusCode, message: parsedMessage } = await extractEdgeFunctionError(invokeError);
-          const effectiveMessage = parsedMessage || invokeError.message || '';
+
+          // Use standard error messages to avoid technical jargon
+          const errorMessage = parsedMessage &&
+            !parsedMessage.toLowerCase().includes('edge function') &&
+            !parsedMessage.toLowerCase().includes('non-2xx status')
+            ? parsedMessage
+            : getStandardErrorMessage(statusCode || 500, !!user, 'iteration');
 
           switch (statusCode) {
-            case 400:
-              setError(effectiveMessage || 'Check the inputs and try again.');
-              break;
             case 401:
               setShowAuthModal(true);
-              setError('Sign in to keep iterating on your creative.');
               break;
             case 402:
               if (user) {
                 setShowPurchasePrompt(true);
-                setError('You are out of credits. Upgrade to Essentials or Studio to keep iterating.');
                 setProfileCredits(0);
               } else {
                 setShowAuthModal(true);
-                setError('Create a free APSICS Media account to access your 10 monthly credits.');
               }
-              break;
-            case 403:
-              setError(effectiveMessage || 'We couldn’t analyze that ad. Try a different URL or upload the creative directly.');
-              break;
-            case 504:
-              setError('The analysis timed out. Try again in a minute or use a smaller asset.');
               break;
             default:
-              if (statusCode === 402 && user) {
-                setShowPurchasePrompt(true);
-                setError('You are out of credits. Upgrade to Essentials or Studio to keep iterating.');
-              } else if (effectiveMessage) {
-                setError(effectiveMessage);
-              } else {
-                setError('Something went wrong while analyzing your creative. Please try again.');
-              }
+              // All other errors use the standard message
+              break;
           }
 
+          setError(errorMessage);
           return;
         }
 
