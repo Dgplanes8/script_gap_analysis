@@ -172,7 +172,7 @@ export function SimplePricingSection() {
       description: 'Turn creative bottlenecks into revenue multipliers.',
       credits: '500 credits per month',
       features: [
-        'Expert crafted concept in first 6 months',
+        'One expert concept monthly for 6 months',
         'Priority support with founder access',
         'Early beta tool access'
       ],
@@ -180,7 +180,7 @@ export function SimplePricingSection() {
       footnote: 'Lock $29/mo for the first 6 months. Renews at $49/mo afterwards.',
       buttonText: 'Unlock Studio Founding Offer',
       modalTitle: 'Unlock Studio Founding Offer',
-      modalSubtitle: 'Founding members secure $29/mo pricing for six months plus an expert-crafted concept for 6 months.',
+      modalSubtitle: 'Founding members secure $29/mo pricing for six months plus one expert-crafted concept each month for 6 months.',
       source: 'pricing-studio',
       tier: 'studio'
     },
@@ -332,9 +332,9 @@ export function SimplePricingSection() {
           <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] md:items-center">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wide text-[#126DFB]">Studio Founding Bonus</p>
-              <h3 className="mt-2 text-xl sm:text-2xl font-semibold text-gray-900">Expert Crafted Concept in Month One</h3>
+              <h3 className="mt-2 text-xl sm:text-2xl font-semibold text-gray-900">Expert Crafted Concept Every Month for 6 Months</h3>
               <p className="mt-3 text-sm text-gray-600 leading-relaxed">
-                Studio members receive a comprehensive creative concept package during their first 30 days.
+                Studio members receive one comprehensive creative concept package each month for the first 6 months.
               </p>
             </div>
             <ul className="space-y-3 text-sm text-gray-700">
