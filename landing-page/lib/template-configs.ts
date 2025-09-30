@@ -22,7 +22,7 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
       header: {
         title: 'Generate revenue-ready ads from our $250M+ creative intelligence engine',
         subtitle: 'Turn your brief into platform-native scripts and static copy trained on what actually moves CAC. TikTok, Meta, YouTube, LinkedIn, X - handled in a single pass.',
-        badgeText: 'APSICS Creative Intelligence',
+        badgeText: 'Script Generator',
       },
       sections: {
         showFoundersClub: true,
@@ -173,7 +173,7 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
         title: 'Transform your existing ads into APSICS-grade top performers',
         subtitle:
           'Upload your creative or drop a social link to get scene-by-scene diagnostics, format shifts, and ready-to-launch remixes tuned to Meta, TikTok, and beyond.',
-        badgeText: 'APSICS Creative Intelligence',
+        badgeText: 'Ad Iterator',
       },
       sections: {
         showFoundersClub: true,
@@ -188,7 +188,7 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
     form: {
       title: 'Run your first boosted iteration',
       description:
-        'Drop in your brand context and the asset you want to improve. In under three minutes you will receive a full diagnostic, prioritized fixes, and APSICS-crafted remixes across the formats you pick.',
+        'Drop in your brand context and the asset you want to improve. In under 60 seconds you will receive a full diagnostic, prioritized fixes, and APSICS-crafted remixes across the formats you pick.',
       submitButtonText: 'Analyze and Generate Iterations',
       highlights: [
         {

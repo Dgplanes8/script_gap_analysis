@@ -772,7 +772,7 @@ export default function AdScriptGeneratorClient() {
           <header className="text-center">
             <div className="mx-auto flex w-fit items-center gap-2 rounded-full bg-brand-100 px-4 py-2 text-sm font-semibold text-brand-800">
               <Sparkles className="h-4 w-4" />
-              APSICS Creative Intelligence
+              Script Generator
             </div>
             <h1 className="mt-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
               Generate revenue-ready ads from our $250M+ creative intelligence engine
