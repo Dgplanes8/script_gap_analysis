@@ -741,7 +741,7 @@ export function ComponentName() {
 
 ### Key Messaging Changes
 - **Credit Emphasis**: Hero/CTA copy now reads “Claim 10 Free Credits” (Explore plan)
-- **Plan Ladder**: Pricing sections highlight Explore (10 credits), Essentials (150 credits), Studio (800 credits + expert concept), Concierge (2,000 credits)
+- **Plan Ladder**: Pricing sections highlight Explore (10 credits), Essentials (100 credits), Studio (500 credits + expert concept), Concierge (1,500 credits)
 - **Studio Bonus**: Add the expert-crafted concept bullet list wherever Studio messaging appears
 - **Stripe Metadata**: Reference `plan_tier`, `credit_amount`, and `studio_rate` in technical docs
 
@@ -751,3 +751,231 @@ export function ComponentName() {
 3. Highlight the Studio founding offer ($29/mo for first 6 months, then $49)
 4. Confirm screenshots/demos reflect the credit counters in the app
 5. Maintain the 25-point performance scoring language while aligning examples with credit terminology
+
+---
+
+## 💳 Pricing Section Design System (v3.3 - Premium Mobile-First)
+
+### Design Philosophy
+Following Apple's clarity, Figma's progressive disclosure, and direct-response best practices, the pricing section emphasizes Studio through visual hierarchy while maintaining mobile-first accessibility.
+
+### Pricing Card Design Tokens
+
+#### Card Structure
+```css
+/* Base Card Styling */
+--pricing-card-radius: 16px;
+--pricing-card-padding-mobile: 24px;
+--pricing-card-padding-tablet: 32px;
+--pricing-card-padding-desktop: 40px;
+--pricing-card-border: 1px solid #E5E7EB;
+--pricing-card-shadow-base: 0 2px 8px rgba(0,0,0,0.04);
+--pricing-card-shadow-hover: 0 8px 24px rgba(0,0,0,0.08);
+--pricing-card-transition: all 0.3s cubic-bezier(0.25, 0.25, 0, 1);
+```
+
+#### Studio Hero Treatment (Most Popular)
+```css
+/* Studio Card Elevation */
+--studio-gradient: linear-gradient(135deg, #F3F8FF 0%, #FFFFFF 100%);
+--studio-border-glow: 0 0 0 2px #126DFB;
+--studio-shadow: 0 20px 40px rgba(18,109,251,0.15);
+--studio-scale-desktop: 1.05;
+--studio-translate-desktop: translateY(-16px);
+
+/* Studio Glow Animation */
+@keyframes studio-glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px #126DFB, 0 20px 40px rgba(18,109,251,0.15); }
+  50% { box-shadow: 0 0 0 2px #126DFB, 0 24px 48px rgba(18,109,251,0.2); }
+}
+```
+
+#### Button System (Enhanced CTAs)
+```css
+/* Primary CTA (Studio) */
+--cta-studio-gradient: linear-gradient(135deg, #126DFB 0%, #0F5AD6 100%);
+--cta-studio-shadow: 0 4px 12px rgba(18,109,251,0.3), 0 2px 4px rgba(18,109,251,0.2);
+--cta-studio-shadow-hover: 0 8px 20px rgba(18,109,251,0.4), 0 4px 8px rgba(18,109,251,0.2);
+--cta-studio-padding: 16px 32px;
+--cta-studio-radius: 12px;
+--cta-studio-font-size: 16px;
+--cta-studio-font-weight: 600;
+
+/* Secondary CTA (Other Plans) */
+--cta-secondary-bg: #111827;
+--cta-secondary-bg-hover: #000000;
+--cta-secondary-shadow: 0 2px 8px rgba(0,0,0,0.15);
+--cta-secondary-padding: 14px 28px;
+--cta-secondary-font-size: 15px;
+--cta-secondary-font-weight: 600;
+
+/* CTA Touch Targets (Mobile) */
+--cta-min-height-mobile: 56px;
+--cta-min-height-desktop: 48px;
+```
+
+### Typography for Pricing
+
+#### Mobile-First Sizing
+```css
+/* Card Title */
+.pricing-title {
+  font-size: clamp(20px, 4vw, 24px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Price Display */
+.pricing-amount {
+  font-size: clamp(48px, 8vw, 56px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+/* Credit Info */
+.pricing-credits {
+  font-size: 14px;
+  font-weight: 500;
+  color: #126DFB;
+}
+
+/* Feature List */
+.pricing-feature {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #374151;
+}
+```
+
+### Layout System
+
+#### Responsive Grid
+```css
+/* Mobile: Stack vertically, Studio first */
+@media (max-width: 767px) {
+  .pricing-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px 20px;
+  }
+}
+
+/* Tablet: 2x2 Grid */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 48px 32px;
+  }
+}
+
+/* Desktop: 4-column centered */
+@media (min-width: 1024px) {
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  /* Studio card elevated */
+  .studio-card {
+    transform: scale(1.05) translateY(-16px);
+  }
+}
+```
+
+### Content Hierarchy Rules
+
+#### Information Architecture
+1. **Badge** (if applicable) - 12px, uppercase, 600 weight
+2. **Plan Name** - 20-24px, bold
+3. **Price** - 48-56px, bold, brand color
+4. **Credit Allocation** - 14px, medium, muted
+5. **Top 3 Benefits ONLY** - 15px bullets
+6. **CTA Button** - Prominent, contrasting
+7. **Fine Print** - 12px, if needed
+
+#### Feature Reduction Rules
+- **Maximum 3 bullet points** per card
+- Use "See all features" expandable link for detail-oriented users
+- Focus on outcome-driven benefits, not feature lists
+- Keep bullets under 60 characters each
+
+### Micro-interactions
+
+#### Hover States
+```css
+/* Card Hover */
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--pricing-card-shadow-hover);
+  border-color: #126DFB;
+}
+
+/* Button Hover */
+.pricing-cta:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+/* Feature Checkmark Hover */
+.feature-check:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+```
+
+#### Loading & Animation States
+- Cards fade in on scroll: `opacity 0.4s ease`
+- Checkmarks draw in: `stroke-dasharray animation`
+- Price numbers count up on first view
+- Skeleton screens during initial load
+
+### Accessibility Standards
+
+#### WCAG 2.1 AA Compliance
+- Color contrast ratio: Minimum 4.5:1
+- Touch targets: Minimum 56px on mobile, 44px on desktop
+- Keyboard navigation: Visible focus states (2px brand-blue outline)
+- Screen reader: ARIA labels for all interactive elements
+
+#### Focus States
+```css
+.pricing-card:focus-visible,
+.pricing-cta:focus-visible {
+  outline: 2px solid #126DFB;
+  outline-offset: 4px;
+}
+```
+
+### Trust & Urgency Elements
+
+#### Scarcity Indicators
+- "Only 25 packages available" - Prominent badge on Studio
+- Live counter: "17 spots claimed this week"
+- Countdown timer (if time-limited offer active)
+
+#### Social Proof
+- Micro-avatars of recent signups
+- Live activity feed: "Sarah from Shopify just upgraded"
+- Trust badges: SSL, Payment security, 30-day guarantee
+
+### Performance Optimization
+
+#### CSS-Only Animations
+- Use `transform` and `opacity` only (GPU-accelerated)
+- Avoid animating `width`, `height`, `top`, `left`
+- Single `box-shadow` per element (not multiple)
+
+#### Lazy Loading
+- Pricing cards below fold: `loading="lazy"`
+- Defer non-critical scripts
+- Preload critical fonts
+
+---

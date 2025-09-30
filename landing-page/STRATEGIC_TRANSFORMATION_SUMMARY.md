@@ -14,9 +14,9 @@ The landing page now promotes APSICS Media’s credit-based creative intelligenc
 ### 2. Current Service Model ✅
 **Credit-Based Creative Intelligence**
 - **Explore**: $0 / 10 credits every month
-- **Essentials**: $19 / 150 credits monthly
-- **Studio**: $29/mo for first 6 months (then $49) with 800 credits + expert-crafted concept
-- **Concierge**: $249 / 2,000 credits monthly with strategist collaboration
+- **Essentials**: $19 / 100 credits monthly
+- **Studio**: $29/mo for first 6 months (then $49) with 500 credits + expert-crafted concept
+- **Concierge**: $249 / 1,500 credits monthly with strategist collaboration
 
 **Deliverables per credit** (approximate):
 - Script generator runs
@@ -73,7 +73,7 @@ Studio includes the month-one expert concept (2 personas, 3 assets + copy, full 
 - “Explore Plans & Pricing”
 
 ### Studio Highlight Copy
-- “Lock $29/mo for six months, secure 800 credits each month, and receive an expert-crafted concept in month one.”
+- "Lock $29/mo for six months, secure 500 credits each month, and receive an expert-crafted concept in month one."
 
 ## Recommended Next Steps
 

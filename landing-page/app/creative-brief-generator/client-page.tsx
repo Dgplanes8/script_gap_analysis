@@ -173,7 +173,11 @@ function normalizeWebsiteUrl(rawUrl: string): string {
     return '';
   }
 
-  return /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+  // Remove common prefixes if present
+  let cleaned = trimmed.replace(/^(https?:\/\/)?(www\.)?/i, '');
+
+  // Add https:// and www. prefix
+  return `https://www.${cleaned}`;
 }
 
 function toMarkdown(brief: StructuredBrief) {
@@ -407,13 +411,13 @@ export default function CreativeBriefGeneratorClient() {
 
     const websiteCandidate = formState.websiteUrl.trim();
     if (websiteCandidate) {
-      try {
-        new URL(normalizeWebsiteUrl(websiteCandidate));
-      } catch {
-        errors.websiteUrl = 'Enter a valid URL';
+      // Basic domain validation - accepts nike.com, www.nike.com, or https://nike.com
+      const domainPattern = /^(?:https?:\/\/)?(?:www\.)?[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+(?:\/.*)?$/;
+      if (!domainPattern.test(websiteCandidate)) {
+        errors.websiteUrl = 'Enter a valid domain or URL';
       }
     } else {
-      errors.websiteUrl = 'Enter a valid URL';
+      errors.websiteUrl = 'Enter a valid domain or URL';
     }
 
     setFormErrors(errors);
@@ -811,7 +815,7 @@ export default function CreativeBriefGeneratorClient() {
                   className="form-control"
                   value={formState.websiteUrl}
                   onChange={(event) => handleFormChange('websiteUrl', event.target.value)}
-                  placeholder="https://yourbrand.com"
+                  placeholder="nike.com or www.nike.com"
                 />
                 {formErrors.websiteUrl && <p className="text-xs text-destructive">{formErrors.websiteUrl}</p>}
               </div>

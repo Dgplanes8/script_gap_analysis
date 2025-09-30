@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CheckCircle, Star } from 'lucide-react';
+import { CheckCircle, Star, Zap } from 'lucide-react';
 import { useFreeWeek } from '@/components/contexts/free-week-context';
 
 const containerVariants = {
@@ -9,19 +9,19 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.2
+      staggerChildren: 0.15,
+      delayChildren: 0.1
     }
   }
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.4,
       ease: [0.25, 0.25, 0, 1]
     }
   }
@@ -60,71 +60,91 @@ function PricingTier({
     <motion.div
       variants={cardVariants}
       whileHover={{
-        y: highlight ? 0 : -8,
-        boxShadow: highlight ? "0 25px 50px rgba(18, 109, 251, 0.2)" : "0 20px 40px rgba(0, 0, 0, 0.08)"
+        y: -4,
+        transition: { duration: 0.2 }
       }}
-      className={`rounded-2xl p-8 border relative flex flex-col h-full ${
+      className={`relative rounded-2xl p-6 sm:p-8 border flex flex-col h-full ${
         highlight
-          ? 'bg-gradient-to-b from-blue-50 via-white to-white border-[#126DFB] shadow-xl'
-          : 'bg-white border-gray-200 shadow-lg'
-      }`}
+          ? 'bg-gradient-to-b from-[#F3F8FF] via-white to-white border-[#126DFB] shadow-[0_0_0_2px_#126DFB,0_20px_40px_rgba(18,109,251,0.15)] lg:scale-105 lg:-translate-y-4'
+          : 'bg-white border-gray-200 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:border-[#126DFB]'
+      } transition-all duration-300`}
     >
-      {badge && !highlight && (
-        <div className="absolute -top-4 left-6">
-          <div className="bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded-full">
-            {badge}
-          </div>
-        </div>
-      )}
-
+      {/* Badge */}
       {highlight && (
-        <div className="absolute -top-6 left-1/2 -translate-x-1/2">
-          <div className="bg-[#126DFB] text-white text-sm font-semibold px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
-            <Star className="w-3 h-3" />
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+          <div className="bg-gradient-to-r from-[#126DFB] to-[#0F5AD6] text-white text-xs font-semibold px-4 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg">
+            <Star className="w-3 h-3 fill-current" />
             Most Popular
           </div>
         </div>
       )}
 
-      <div className="text-center mb-8">
-        <h3 className={`text-2xl font-bold mb-2 ${highlight ? 'text-[#0F5AD6]' : 'text-gray-900'}`}>
+      {badge && !highlight && (
+        <div className="absolute -top-3 left-6 z-10">
+          <div className="bg-[#111827] text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
+            {badge}
+          </div>
+        </div>
+      )}
+
+      {/* Plan Name */}
+      <div className="text-center mb-6">
+        <h3 className={`text-xl sm:text-2xl font-bold mb-2 ${highlight ? 'text-[#0F5AD6]' : 'text-gray-900'}`}>
           {name}
         </h3>
-        <p className="text-gray-600 mb-6">{description}</p>
-
-        <div className="mb-6">
-          {originalPrice && (
-            <div className="text-lg text-gray-400 line-through mb-1">{originalPrice}</div>
-          )}
-          <div className={`text-4xl font-bold ${highlight ? 'text-[#126DFB]' : 'text-gray-900'}`}>
-            {price}
-          </div>
-          <div className="text-sm text-gray-500 mt-1">{priceSuffix}</div>
-          <div className="text-sm font-medium text-gray-700 mt-3">{credits}</div>
-          {footnote && (
-            <div className="text-xs text-gray-500 mt-2 leading-relaxed">{footnote}</div>
-          )}
-        </div>
+        <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
       </div>
 
-      <ul className="space-y-3 mb-8 flex-grow flex flex-col justify-start">
+      {/* Pricing */}
+      <div className="text-center mb-6">
+        {originalPrice && (
+          <div className="text-base text-gray-400 line-through mb-1">{originalPrice}</div>
+        )}
+        <div className={`text-5xl sm:text-[56px] font-bold leading-none tracking-tight ${
+          highlight ? 'text-[#126DFB]' : 'text-gray-900'
+        }`}>
+          {price}
+        </div>
+        <div className="text-xs text-gray-500 mt-2">{priceSuffix}</div>
+        <div className={`text-sm font-medium mt-3 ${highlight ? 'text-[#126DFB]' : 'text-gray-700'}`}>
+          {credits}
+        </div>
+        {footnote && (
+          <div className="text-xs text-gray-500 mt-3 leading-relaxed px-2">{footnote}</div>
+        )}
+      </div>
+
+      {/* Features */}
+      <ul className="space-y-3 mb-6 flex-grow">
         {features.map((feature, index) => (
-          <li key={index} className="flex items-start gap-3">
-            <CheckCircle className={`w-5 h-5 mt-1 flex-shrink-0 ${highlight ? 'text-[#126DFB]' : 'text-[#10B981]'}`} />
-            <span className="text-gray-700 leading-relaxed text-sm">{feature}</span>
-          </li>
+          <motion.li
+            key={index}
+            className="flex items-start gap-2.5"
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.1 }}
+            viewport={{ once: true }}
+          >
+            <CheckCircle
+              className={`w-5 h-5 mt-0.5 flex-shrink-0 transition-transform duration-200 hover:scale-110 hover:rotate-6 ${
+                highlight ? 'text-[#126DFB]' : 'text-[#10B981]'
+              }`}
+            />
+            <span className="text-sm text-gray-700 leading-relaxed">{feature}</span>
+          </motion.li>
         ))}
       </ul>
 
+      {/* CTA Button */}
       <div className="mt-auto">
         <motion.button
           onClick={onButtonClick}
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.02, y: -2 }}
           whileTap={{ scale: 0.98 }}
-          className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-200 ${
+          className={`w-full min-h-[56px] sm:min-h-[48px] py-3.5 px-6 rounded-xl font-semibold text-base transition-all duration-200 ${
             highlight
-              ? 'bg-[#126DFB] hover:bg-[#0F5AD6] text-white shadow-lg'
-              : 'bg-gray-900 hover:bg-gray-800 text-white shadow-lg'
+              ? 'bg-gradient-to-r from-[#126DFB] to-[#0F5AD6] hover:brightness-105 text-white shadow-[0_4px_12px_rgba(18,109,251,0.3),0_2px_4px_rgba(18,109,251,0.2)] hover:shadow-[0_8px_20px_rgba(18,109,251,0.4),0_4px_8px_rgba(18,109,251,0.2)]'
+              : 'bg-[#111827] hover:bg-black text-white shadow-[0_2px_8px_rgba(0,0,0,0.15)]'
           }`}
         >
           {buttonText}
@@ -143,23 +163,8 @@ type PricingTierConfig = PricingTierProps & {
 
 export function SimplePricingSection() {
   const { openModal } = useFreeWeek();
+
   const pricingTiers: PricingTierConfig[] = [
-    {
-      name: 'Concierge',
-      price: '$249',
-      description: 'Scale breakthrough campaigns at enterprise velocity.',
-      credits: '1,500 credits per month',
-      features: [
-        'Everything in Studio plus direct strategist collaboration',
-        'Weekly expert concept reviews and custom tailored strategy',
-        'Direct access to our senior team for rapid iteration and campaign pivots',
-      ],
-      buttonText: 'Talk to a Strategist',
-      modalTitle: 'Talk to a Strategist',
-      modalSubtitle: 'Schedule time with our senior team to tailor Concierge access to your roadmap.',
-      source: 'pricing-concierge',
-      tier: 'concierge'
-    },
     {
       name: 'Studio',
       price: '$29',
@@ -167,13 +172,11 @@ export function SimplePricingSection() {
       description: 'Turn creative bottlenecks into revenue multipliers.',
       credits: '500 credits per month',
       features: [
-        'Only 25 packages available',
-        'Expert crafted creative concept package delivered for the first 6 months',
-        'Priority support and direct access to founder',
-        'Early access to additional tools and functionality being developed (coming soon)'
+        'Expert crafted concept in first 6 months',
+        'Priority support with founder access',
+        'Early beta tool access'
       ],
       highlight: true,
-      badge: 'Most Popular',
       footnote: 'Lock $29/mo for the first 6 months. Renews at $49/mo afterwards.',
       buttonText: 'Unlock Studio Founding Offer',
       modalTitle: 'Unlock Studio Founding Offer',
@@ -187,15 +190,31 @@ export function SimplePricingSection() {
       description: 'Jumpstart your ad performance',
       credits: '100 credits per month',
       features: [
-        'Generate scripts, briefs, and iterations efficiently',
+        'Generate scripts, briefs, iterations',
         'Email support available',
-        'Perfect for teams replacing freelancers or starting to scale'
+        'Perfect for scaling teams'
       ],
       buttonText: 'Upgrade to Essentials',
       modalTitle: 'Upgrade to Essentials',
-      modalSubtitle: 'Lock in 150 credits per month with priority processing for your entire team.',
+      modalSubtitle: 'Lock in 100 credits per month with priority processing for your entire team.',
       source: 'pricing-essentials',
       tier: 'essentials'
+    },
+    {
+      name: 'Concierge',
+      price: '$249',
+      description: 'Scale breakthrough campaigns at enterprise velocity.',
+      credits: '1,500 credits per month',
+      features: [
+        'Direct strategist collaboration',
+        'Weekly expert concept reviews',
+        'Custom strategy for rapid iteration'
+      ],
+      buttonText: 'Talk to a Strategist',
+      modalTitle: 'Talk to a Strategist',
+      modalSubtitle: 'Schedule time with our senior team to tailor Concierge access to your roadmap.',
+      source: 'pricing-concierge',
+      tier: 'concierge'
     },
     {
       name: 'Explore',
@@ -203,9 +222,9 @@ export function SimplePricingSection() {
       description: 'Test every tool before you upgrade.',
       credits: '10 credits included every month',
       features: [
-        'Email-only signup with instant workspace access',
-        'Use on the script, brief, and iteration tools',
-        'Download and share completed assets',
+        'Email-only signup, instant access',
+        'Use script, brief, iteration tools',
+        'Download completed assets'
       ],
       buttonText: 'Claim 10 Free Credits',
       modalTitle: 'Claim Your Free Credits',
@@ -216,63 +235,67 @@ export function SimplePricingSection() {
   ];
 
   return (
-    <section id="service-tiers" className="py-20 bg-[#F8F8F8] relative">
-      <div className="max-w-4xl mx-auto px-6">
-        
+    <section id="service-tiers" className="py-16 sm:py-20 bg-[#F8F8F8] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 sm:mb-16"
         >
           <motion.h2
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6"
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-Turn Ad Spend Into Revenue Growth Starting at $19/Month
+            Turn Ad Spend Into Revenue Growth
           </motion.h2>
 
           <motion.p
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4"
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-Get 100+ fully-developed creative concepts every month - complete with scripts, strategic insights, and positioning frameworks. Access comprehensive creative intelligence that includes market research, competitor analysis, and trend-based recommendations.
+            Get 100+ fully-developed creative concepts every month. Complete with scripts, strategic insights, and positioning frameworks.
           </motion.p>
 
           {/* Value Anchoring */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="bg-gradient-to-r from-green-50 to-blue-50 border-2 border-green-200 rounded-2xl p-6 max-w-3xl mx-auto"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="bg-gradient-to-r from-green-50 to-blue-50 border-2 border-green-200 rounded-2xl p-5 sm:p-6 max-w-3xl mx-auto"
           >
-            <div className="text-center">
-              <div className="text-lg font-bold text-gray-900 mb-2">
-                One platform. Three revenue engines. Credits that work across every breakthrough tool.
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <Zap className="w-5 h-5 text-[#126DFB]" />
+              <div className="text-base sm:text-lg font-bold text-gray-900">
+                One platform. Three revenue engines.
               </div>
-              <div className="text-sm text-gray-600">
-                Script generator • Ad iteration engine • Creative brief builder • Expert concept delivery for Studio+
-              </div>
+            </div>
+            <div className="text-xs sm:text-sm text-gray-600">
+              Script generator • Ad iteration engine • Creative brief builder
             </div>
           </motion.div>
         </motion.div>
 
-        {/* Pricing Grid */}
+        {/* Pricing Grid - Mobile First */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid gap-8 max-w-4xl mx-auto mb-16 sm:grid-cols-2 xl:grid-cols-4"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid gap-4 sm:gap-6 lg:gap-6 max-w-7xl mx-auto mb-12 sm:mb-16
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-4"
         >
           {pricingTiers.map((tier) => (
             <PricingTier
@@ -300,36 +323,32 @@ Get 100+ fully-developed creative concepts every month - complete with scripts, 
 
         {/* Expert Crafted Concept Highlight */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl mx-auto mb-16 rounded-3xl border border-blue-100 bg-white p-8 shadow-lg"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-4xl mx-auto mb-12 sm:mb-16 rounded-2xl sm:rounded-3xl border border-blue-100 bg-white p-6 sm:p-8 shadow-lg"
         >
           <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] md:items-center">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-brand-500">Studio Founding Bonus</p>
-              <h3 className="mt-2 text-2xl font-semibold text-gray-900">Expert Crafted Concept in Month One</h3>
-              <p className="mt-3 text-sm text-gray-600">
-                Studio members receive a comprehensive creative concept package during their first 30 days. Our strategists analyze your market, identify winning angles, and deliver fully-developed creative strategies with complete implementation guidance.
+              <p className="text-xs font-semibold uppercase tracking-wide text-[#126DFB]">Studio Founding Bonus</p>
+              <h3 className="mt-2 text-xl sm:text-2xl font-semibold text-gray-900">Expert Crafted Concept in Month One</h3>
+              <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+                Studio members receive a comprehensive creative concept package during their first 30 days.
               </p>
             </div>
             <ul className="space-y-3 text-sm text-gray-700">
               <li className="flex items-start gap-2">
-                <CheckCircle className="mt-1 h-4 w-4 text-brand-600" />
-                <span>2 detailed target personas with specific positioning strategies and conversion triggers</span>
+                <CheckCircle className="mt-1 h-4 w-4 text-[#126DFB] flex-shrink-0" />
+                <span>2 detailed target personas with positioning strategies</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="mt-1 h-4 w-4 text-brand-600" />
-                <span>3 asset recommendations including complete scripts, copy, and detailed production guidance</span>
+                <CheckCircle className="mt-1 h-4 w-4 text-[#126DFB] flex-shrink-0" />
+                <span>3 asset recommendations with complete scripts</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="mt-1 h-4 w-4 text-brand-600" />
-                <span>In-depth market research with competitive intelligence and current trend integration</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle className="mt-1 h-4 w-4 text-brand-600" />
-                <span>Custom framework application aligned with your specific product goals and marketing channels</span>
+                <CheckCircle className="mt-1 h-4 w-4 text-[#126DFB] flex-shrink-0" />
+                <span>Market research with competitive intelligence</span>
               </li>
             </ul>
           </div>
@@ -337,32 +356,32 @@ Get 100+ fully-developed creative concepts every month - complete with scripts, 
 
         {/* Risk Reversal Guarantee */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-2xl p-8 mb-16 max-w-3xl mx-auto text-center"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-2xl p-6 sm:p-8 mb-12 sm:mb-16 max-w-3xl mx-auto text-center"
         >
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckCircle className="w-8 h-8 text-green-600" />
+          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <CheckCircle className="w-7 h-7 sm:w-8 sm:h-8 text-green-600" />
           </div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
             30-Day Revenue Improvement Guarantee
           </h3>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            If our credit-based creative intelligence doesn't improve your ad performance within 30 days, we'll refund your entire investment. No questions asked.
+          <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-5 sm:mb-6">
+            If our creative intelligence doesn't improve your ad performance within 30 days, we'll refund your entire investment.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-xs sm:text-sm text-gray-600">
             <div className="flex items-center justify-center gap-2">
-              <CheckCircle className="w-4 h-4 text-green-600" />
+              <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
               <span>Cancel anytime</span>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <CheckCircle className="w-4 h-4 text-green-600" />
+              <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
               <span>Full refund guarantee</span>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <CheckCircle className="w-4 h-4 text-green-600" />
+              <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
               <span>No long-term contracts</span>
             </div>
           </div>
@@ -370,13 +389,13 @@ Get 100+ fully-developed creative concepts every month - complete with scripts, 
 
         {/* Urgency & Social Proof */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-4">
             Join SaaS, ecommerce, and B2B growth teams who turned ad spend into predictable revenue. Every month you delay is potential ROI left on the table.
           </p>
         </motion.div>

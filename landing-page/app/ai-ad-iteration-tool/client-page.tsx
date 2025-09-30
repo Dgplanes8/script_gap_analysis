@@ -658,7 +658,7 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
     };
 
     const tierSubtitles = {
-      essentials: 'Lock in 150 credits per month with priority processing for your entire team.',
+      essentials: 'Lock in 100 credits per month with priority processing for your entire team.',
       studio: 'Founding members secure $29/mo pricing for six months plus an expert-crafted concept for 6 months.',
       concierge: 'Schedule time with our senior team to tailor Concierge access to your roadmap.'
     };
@@ -784,7 +784,7 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
           className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-3 py-2 text-xs font-semibold text-white shadow-brand-600/30 transition hover:bg-brand-700"
         >
           <CreditCard className="h-4 w-4" />
-          Get 150 Credits
+          Get 100 Credits
         </button>
         </div>
       </div>
@@ -1021,7 +1021,7 @@ Use Facebook Ads Library URLs like https://www.facebook.com/ads/library/?id=xyz.
                   type="button"
                 >
                   <CreditCard className="h-4 w-4" />
-                  Get 150 Credits
+                  Get 100 Credits
                 </button>
                 <button
                   onClick={() => handlePurchase('studio')}
@@ -1029,7 +1029,7 @@ Use Facebook Ads Library URLs like https://www.facebook.com/ads/library/?id=xyz.
                   type="button"
                 >
                   <CreditCard className="h-4 w-4" />
-                  Get 800 Credits + Expert Concept
+                  Get 500 Credits + Expert Concept
                 </button>
               </div>
             </div>

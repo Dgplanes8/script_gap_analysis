@@ -179,9 +179,9 @@ export function SimpleAirtableForm({
           >
             <option value="">Package Interest</option>
             <option value="Explore">Explore ($0 - 10 credits)</option>
-            <option value="Essentials">Essentials ($19 - 150 credits)</option>
-            <option value="Studio">Studio ($29 - 800 credits)</option>
-            <option value="Concierge">Concierge ($249 - 2,000 credits)</option>
+            <option value="Essentials">Essentials ($19 - 100 credits)</option>
+            <option value="Studio">Studio ($29 - 500 credits)</option>
+            <option value="Concierge">Concierge ($249 - 1,500 credits)</option>
           </select>
         </div>
         <button

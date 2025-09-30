@@ -19,7 +19,7 @@ export function StudioFoundingOfferCard({ className }: StudioFoundingOfferCardPr
           <p className="text-xs font-semibold uppercase tracking-wide text-brand-500">Studio Founding Offer</p>
           <h3 className="mt-1 text-xl font-semibold text-gray-900">Lock $29/mo Studio pricing for six months</h3>
           <p className="mt-2 text-sm text-gray-600">
-            Founding members receive 800 credits every month plus an expert-crafted concept in the first month. Pricing
+            Founding members receive 500 credits every month plus an expert-crafted concept in the first month. Pricing
             renews at $49/mo after the introductory period.
           </p>
         </div>

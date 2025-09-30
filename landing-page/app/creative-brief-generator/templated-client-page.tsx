@@ -825,7 +825,7 @@ export default function TemplatedCreativeBriefGeneratorClient() {
     };
 
     const tierSubtitles = {
-      essentials: 'Lock in 150 credits per month with priority processing for your entire team.',
+      essentials: 'Lock in 100 credits per month with priority processing for your entire team.',
       studio: 'Founding members secure $29/mo pricing for six months plus an expert-crafted concept for 6 months.',
       concierge: 'Schedule time with our senior team to tailor Concierge access to your roadmap.'
     };
@@ -1329,7 +1329,7 @@ export default function TemplatedCreativeBriefGeneratorClient() {
               <div>
                 <h3 className="text-lg font-semibold">Activate advanced research.</h3>
                 <p className="mt-1 text-sm text-brand-800">
-                  Upgrade to Essentials for 150 monthly credits or secure the $29 Studio founding offer with 800 credits and an expert-crafted concept in month one.
+                  Upgrade to Essentials for 100 monthly credits or secure the $29 Studio founding offer with 500 credits and an expert-crafted concept in month one.
                 </p>
               </div>
               <div className="flex flex-col gap-3 md:flex-row">
@@ -1339,7 +1339,7 @@ export default function TemplatedCreativeBriefGeneratorClient() {
                   type="button"
                 >
                   <CreditCard className="h-4 w-4" />
-                  Get 150 Credits
+                  Get 100 Credits
                 </button>
                 <button
                   onClick={() => handlePurchase('studio')}
@@ -1347,7 +1347,7 @@ export default function TemplatedCreativeBriefGeneratorClient() {
                   type="button"
                 >
                   <CreditCard className="h-4 w-4" />
-                  Get 800 Credits + Expert Concept
+                  Get 500 Credits + Expert Concept
                 </button>
               </div>
             </div>
