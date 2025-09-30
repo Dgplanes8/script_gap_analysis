@@ -174,7 +174,7 @@ function normalizeWebsiteUrl(rawUrl: string): string {
   }
 
   // Remove common prefixes if present
-  let cleaned = trimmed.replace(/^(https?:\/\/)?(www\.)?/i, '');
+  const cleaned = trimmed.replace(/^(https?:\/\/)?(www\.)?/i, '');
 
   // Add https:// and www. prefix
   return `https://www.${cleaned}`;
