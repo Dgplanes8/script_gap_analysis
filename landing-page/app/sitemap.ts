@@ -164,22 +164,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // High-Value Tools & Calculators - SEO Priority Pages
     {
-      url: `${baseUrl}/hook-generator`,
+      url: `${baseUrl}/ai-ad-script-generator`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.99,
     },
     {
-      url: `${baseUrl}/cac-optimization-calculator`,
+      url: `${baseUrl}/creative-brief-generator`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.99,
+    },
+    {
+      url: `${baseUrl}/ai-ad-iteration-tool`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.98,
     },
     {
-      url: `${baseUrl}/free-hooks`,
+      url: `${baseUrl}/hook-generator`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.97,
+    },
+    {
+      url: `${baseUrl}/cac-optimization-calculator`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.96,
+    },
+    {
+      url: `${baseUrl}/free-hooks`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
     },
 
     // Comprehensive Strategy Guides - High SEO Value
