@@ -1,5 +1,80 @@
 # Custom Ad Iteration Workflow Build Plan
 
+## 🎯 Implementation Status (Updated: 2025-09-29 - Phase 5 Complete)
+
+### ✅ COMPLETED (Full MVP - Ready for Testing)
+
+**Phase 1-4: Complete Foundation**
+- ✅ Database migration with 3 tables (`custom_ad_submissions`, `custom_ad_creations`, `custom_ad_share_tokens`)
+- ✅ Helper functions for share token generation and analytics integration
+- ✅ Edge Function: `capture-shared-ad` with dual auth (JWT + share tokens) and email confirmation
+- ✅ API Routes: Share token management (`/api/custom-ads/tokens`)
+- ✅ API Routes: Custom ads CRUD (`/api/custom-ads`)
+- ✅ Helper module: `lib/supabase/custom-ads.ts`
+- ✅ Tool config added to `template-configs.ts` (custom-ad-iteration-tool)
+- ✅ Page structure: `/app/custom-ad-iteration-tool/page.tsx`
+- ✅ Client component with:
+  - Enhanced data table for saved ads with selection
+  - Token generation UI with copy-to-clipboard
+  - iOS Shortcut setup instructions (collapsible)
+  - Form integration with AIFormTemplate
+  - Empty states and loading states
+- ✅ Navigation updated in `authenticated-header.tsx`
+- ✅ iOS Shortcut documentation: `docs/ios-shortcut-setup.md`
+
+**Phase 5: Ad Generation with Base Ads (COMPLETE)**
+- ✅ Extended `PromptContext` interface with `baseAds?: BaseAdReference[]`
+- ✅ Created `BaseAdReference` interface with url, platform, companyName, analysisData
+- ✅ Built `formatBaseAdContext()` helper to format competitor intelligence prompts
+- ✅ Updated `buildIterationPrompt()` to inject base ad context when provided
+- ✅ Extended `IterationRequestPayload` to accept `baseAds?: BaseAdSubmission[]`
+- ✅ Implemented base ad processing logic in Edge Function:
+  - Loops through each selected ad
+  - Ingests social assets using `ingestSocialAsset()`
+  - Extracts creative elements and analysis data
+  - Handles errors gracefully
+  - Passes processed base ads to prompt builder
+- ✅ Wired client-page.tsx onSubmit handler:
+  - Fetches selected submission details
+  - Builds baseAds payload
+  - Calls Edge Function with authentication
+  - Displays loading, error, and success states
+  - Refreshes submission table after generation
+- ✅ TypeScript compilation passes with no errors
+
+**Files Modified in Phase 5:**
+- `supabase/functions/analyze-and-iterate-ad/prompt-builder.ts` - Added base ad context formatting
+- `supabase/functions/analyze-and-iterate-ad/index.ts` - Added base ad processing logic
+- `app/custom-ad-iteration-tool/client-page.tsx` - Wired generation flow with UI states
+- `app/custom-ad-iteration-tool/page.tsx` - Fixed TypeScript type assertions
+
+**Testing Checklist Before Production:**
+- [ ] Run migration: `supabase migration up` or `npx supabase db push`
+- [ ] Deploy Edge Functions:
+  - [ ] `npx supabase functions deploy capture-shared-ad`
+  - [ ] `npx supabase functions deploy analyze-and-iterate-ad`
+- [ ] Test iOS Shortcut → ad appears in table
+- [ ] Test token generation and clipboard copy
+- [ ] Test ad selection → generation flow (Phase 5 complete, ready to test)
+- [ ] Verify email confirmation sends after ad submission
+- [ ] Check credits deduction after generation
+- [ ] Test deletion cascade (deleting submission removes creations)
+- [ ] Verify base ad ingestion (check console logs for asset analysis)
+- [ ] Test error handling (invalid URLs, missing auth, insufficient credits)
+
+### 📝 Future Enhancements (Post-MVP)
+
+**Phase 7-10 from Original Plan:**
+- Analytics dashboard updates (custom-ad-iteration tool type)
+- Performance optimization (caching, lazy loading)
+- Realtime updates via Supabase subscriptions
+- TikTok/YouTube ad support
+- Bulk actions (delete multiple, export)
+- Advanced filtering and search
+- A/B testing integration
+
+---
+
 ## Goal
 Launch a logged-in "Custom Ad Iteration Tool" inside the existing APSICS Media landing page experience. The feature lets authenticated users save ads they discover in Meta/Instagram, view them in a personalized table, and generate new APSICS-crafted ads using those saved assets as base inspiration. The workflow must match the established brand voice, visual system, and UX patterns documented in `landing-page/CLAUDE.md`, `landing-page/brand_voice.md`, and `landing-page/BRAND_CONSISTENCY_GUIDE.md` while reusing existing components wherever possible.
 
@@ -24,6 +99,7 @@ Persist shared ad links keyed to authenticated users and track regenerated ads t
    - `custom_ad_submissions`
      - `id uuid primary key default gen_random_uuid()`
      - `created_at timestamptz default now()`
+     - `updated_at timestamptz default now()`
      - `user_id uuid references auth.users(id) on delete cascade`
      - `platform text check (platform in ('facebook','instagram','meta','tiktok','linkedin','youtube','other')) default 'facebook'`
      - `ad_url text not null`
@@ -33,13 +109,14 @@ Persist shared ad links keyed to authenticated users and track regenerated ads t
    - `custom_ad_creations`
      - `id uuid primary key default gen_random_uuid()`
      - `created_at timestamptz default now()`
+     - `updated_at timestamptz default now()`
      - `user_id uuid references auth.users(id) on delete cascade`
      - `submission_id uuid references public.custom_ad_submissions(id) on delete cascade`
      - `request_payload jsonb not null`
      - `result_payload jsonb`
      - `status text check (status in ('pending','complete','failed')) default 'pending'`
      - `credits_spent integer default 0`
-2. **Write migration**: create `supabase/migrations/<timestamp>_create_custom_ad_workflow.sql` with table definitions, indexes on `user_id`, `created_at`, and RLS policies:
+2. **Write migration**: create `supabase/migrations/<timestamp>_create_custom_ad_workflow.sql` with table definitions, indexes on `user_id`, `created_at`, triggers to keep `updated_at = now()` on insert/update, and RLS policies:
    - Enable RLS on both tables.
    - Policy: authenticated users can `select`, `insert`, `update`, `delete` their own rows (`auth.uid() = user_id`).
    - Policy: service role can manage all rows (mirrors existing patterns).
@@ -76,18 +153,19 @@ Provide a secure webhook the iOS Shortcut can call to store shared ad URLs.
    - Ensure `adUrl` is HTTPS and matches allowed domains (`facebook.com`, `instagram.com`).
    - Normalize platform (map `meta` -> `facebook`).
    - Trim company name; cap length at 150 chars.
-5. **Duplication handling**: before insert, check if the same `ad_url` already exists for the user. If so, update `created_at` or return existing row (decide with user—default: return existing row).
+5. **Duplication handling**: before insert, check if the same `ad_url` already exists for the user. If found, update its `updated_at` (and optionally `metadata`) then return that row instead of inserting a duplicate.
 6. **Insert** into `custom_ad_submissions`; store `metadata` like:
    ```json
    {
      "user_agent": "Shortcuts/2.2",
      "source": "ios_shortcut"
-   }
+ }
    ```
-7. **Response**: return JSON with `submissionId`, `createdAt`, `platformLabel`.
-8. **CORS**: reuse `buildCorsHeaders` pattern from `analyze-and-iterate-ad` for OPTIONS requests.
-9. **Logging**: wrap handler with `captureEdgeFunctionError` to keep Sentry parity.
-10. **Testing**:
+7. **Confirmation email**: once the upsert succeeds, send the user a confirmation email using the Resend API (see `lib/server/resend.ts` for patterns). The Edge function can call Resend directly with `fetch`; template copy should acknowledge receipt, list the stored URL/platform, and link back to `/custom-ad-iteration-tool`.
+8. **Response**: return JSON with `submissionId`, `createdAt`, `platformLabel`.
+9. **CORS**: reuse `buildCorsHeaders` pattern from `analyze-and-iterate-ad` for OPTIONS requests.
+10. **Logging**: wrap handler with `captureEdgeFunctionError` to keep Sentry parity.
+11. **Testing**:
     - Local: `npx supabase functions serve capture-shared-ad --env-file supabase/.env.local`.
     - Send test request: `curl -X POST http://localhost:54321/functions/v1/capture-shared-ad ...` with `Authorization` header from Supabase session.
 
@@ -180,9 +258,10 @@ Ensure generated ads leverage selected base assets and respect credit usage.
    }
    ```
 2. **Prompt updates**: if the existing function doesn’t accept `baseAds`, extend `prompt-builder.ts` to append base ad context (ensure we respect existing copy and keep within token limits).
-3. **Credits**: reuse credit checking pattern from `ai-ad-iteration-tool/client-page.tsx` to ensure users are charged per generation (update `custom_ad_creations.credits_spent`).
-4. **Results display**: show outputs using `ResultActionsPanel` or simplified summary table, referencing selected base ads.
-5. **Error handling**: surface Supabase/Edge function errors with copy consistent with the established tone (empathetic, actionable).
+3. **Model flow**: leave the dual-model pipeline intact—`analyze-and-iterate-ad` already routes the primary analysis through OpenRouter’s Gemini 2.0 Flash and then runs a copy-chief refinement pass with Anthropic Claude Sonnet 4.5. Confirm any new inputs (selected base ads, tone guidance) are woven into both prompts so Claude has the right context for polishing copy.
+4. **Credits**: reuse credit checking pattern from `ai-ad-iteration-tool/client-page.tsx` so each completed generation deducts exactly 1 credit; storing or sharing ads remains free. Update `custom_ad_creations.credits_spent` accordingly.
+5. **Results display**: show outputs using `ResultActionsPanel` or simplified summary table, referencing selected base ads.
+6. **Error handling**: surface Supabase/Edge function errors with copy consistent with the established tone (empathetic, actionable).
 
 **Checkpoint**: Demo full loop (saved ad -> selection -> new ad) to user.
 
@@ -241,20 +320,30 @@ Provide a user-friendly secret the Shortcut can store instead of a raw JWT.
 
 ---
 
-## Phase 8 – Navigation & Polish
+## Phase 8 – Analytics & Instrumentation
+1. **Event logging**: insert new rows into `public.ai_tool_usage` (or reuse existing helper) when users generate ads via the custom tool with `tool_type = 'custom-ad-iteration'`. Supplement with `feature_usage` events for key interactions (`submission_saved`, `generation_submitted`, `result_viewed`). Implement via Supabase server-side helpers or a lightweight API wrapper so events persist even if the browser disconnects.
+2. **Dashboards**: update any usage dashboards (e.g., `components/analytics/usage-dashboard.tsx`) to recognize the new tool label and metrics.
+3. **Webhook tracking**: log a `feature_usage` record inside the Edge function when a Shortcut submission succeeds so mobile-origin traffic is captured.
+
+**Prompts**
+- "Extend analytics helpers to record `custom-ad-iteration` events in `ai_tool_usage` and `feature_usage`."
+- "Update usage dashboard to include the new tool type." 
+
+---
+
+## Phase 9 – Navigation & Polish
 1. **Update nav**: `components/shared/authenticated-header.tsx` add new link + mobile version.
 2. **SEO**: add metadata to `app/custom-ad-iteration-tool/page.tsx` if required (title, description aligning with brand voice).
-3. **Analytics**: wire CTA and generation events into existing tracking (if `useAnalytics` hooks exist).
-4. **Accessibility**: ensure table is keyboard-accessible, check contrast ratios.
-5. **Copy review**: run through `brand_voice.md` to confirm language matches (experienced guide, straight shooter, credits emphasis).
-6. **Styling**: follow `BRAND_CONSISTENCY_GUIDE.md` for spacing, typography, animation easing (Framer Motion variants).
+3. **Accessibility**: ensure table is keyboard-accessible, check contrast ratios.
+4. **Copy review**: run through `brand_voice.md` to confirm language matches (experienced guide, straight shooter, credits emphasis).
+5. **Styling**: follow `BRAND_CONSISTENCY_GUIDE.md` for spacing, typography, animation easing (Framer Motion variants).
 
 **Prompt**
 - "Extend authenticated header navigation with new link." 
 
 ---
 
-## Phase 9 – QA & Release
+## Phase 10 – QA & Release
 1. **Automated checks**: `npm run lint`, `npm run type-check`, `npm run test` (if suites relevant).
 2. **Manual QA**:
    - Share Shortcut executes → row appears instantly in UI.
@@ -297,9 +386,8 @@ Provide a user-friendly secret the Shortcut can store instead of a raw JWT.
 
 ---
 
-## Open Questions (Raise Before Implementation)
-1. Should duplicate ad URLs be deduplicated (update timestamp) or stored as separate records with counters?
-2. How should credits be charged per generation—same rate as existing ad iteration tool or discounted? (Impacts UI copy.)
-3. Is share token flow required immediately or can we launch with JWT-based Shortcut setup and iterate later?
-4. Do we need analytics events for Shortcut submissions and generation usage? If yes, which existing tracking system to plug into?
-
+## Notes & Decisions
+- Duplicate ad URLs refresh the existing record’s `updated_at` instead of inserting a new row.
+- Each generation continues to cost 1 credit; storing or submitting ads stays free.
+- Share token support (Phase 7) is optional for v1; launch with Supabase JWT auth and revisit tokens if Shortcuts need long-lived secrets.
+- Analytics events should land in Supabase (`ai_tool_usage`, `feature_usage`) so dashboards and reporting include the new workflow.

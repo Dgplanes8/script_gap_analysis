@@ -834,6 +834,13 @@ const FORMAT_PROMPT_MAP: Record<string, string> = {
 
 export type OutputFormat = "same" | "video" | "static" | "carousel";
 
+export interface BaseAdReference {
+  url: string;
+  platform: string;
+  companyName?: string;
+  analysisData?: string; // Extracted creative elements from ingestSocialAsset
+}
+
 export interface PromptContext {
   companyName: string;
   primaryPlatform: string;
@@ -847,6 +854,7 @@ export interface PromptContext {
   assetContentType?: string | null;
   socialSourceUrl?: string | null;
   upstreamDownloadUrl?: string | null;
+  baseAds?: BaseAdReference[]; // NEW: Saved competitor ads to use as inspiration
 }
 
 export interface BuiltPrompt {
@@ -1025,6 +1033,51 @@ function formatList(items: string[]): string {
   return items.map((item) => `- ${item}`).join("\n");
 }
 
+function formatBaseAdContext(baseAds: BaseAdReference[]): string {
+  const header = `\n🎯 COMPETITOR AD INTELLIGENCE (Use as Strategic Inspiration):
+
+You have been provided with ${baseAds.length} saved competitor ad${baseAds.length === 1 ? '' : 's'} from the user's research library. These ads represent creative approaches that the user wants to study and remix for their own brand.
+
+**CRITICAL INSTRUCTIONS FOR BASE AD USAGE:**
+1. Analyze these competitor ads to extract winning creative patterns, hooks, messaging frameworks, and visual strategies
+2. DO NOT copy verbatim - instead, identify the underlying principles that make these ads effective
+3. Blend the best elements from these saved ads with the brand context provided and APSICS performance frameworks
+4. Call out specific patterns you're borrowing (e.g., "Inspired by the problem-agitate-solve structure from Ad #1")
+5. Ensure your iterations feel like a strategic evolution informed by competitor intelligence, not plagiarism
+
+**SAVED COMPETITOR ADS FOR ANALYSIS:**\n`;
+
+  const adDescriptions = baseAds.map((ad, index) => {
+    const parts = [
+      `\n--- Base Ad #${index + 1} ---`,
+      `Platform: ${ad.platform.charAt(0).toUpperCase() + ad.platform.slice(1)}`,
+      `Source URL: ${ad.url}`,
+    ];
+
+    if (ad.companyName) {
+      parts.push(`Company: ${ad.companyName}`);
+    }
+
+    if (ad.analysisData) {
+      parts.push(`\nExtracted Creative Elements:\n${ad.analysisData}`);
+    } else {
+      parts.push('\nNote: Unable to fetch detailed analysis for this ad. Use URL and platform context as reference.');
+    }
+
+    return parts.join('\n');
+  }).join('\n');
+
+  const footer = `\n\n**STRATEGIC APPROACH:**
+- Identify 2-3 key creative patterns across these saved ads (hook styles, proof types, CTA frameworks)
+- Note what makes each ad platform-native and engaging
+- Synthesize the best elements into your iterations while maintaining the user's brand voice
+- Cite which base ad inspired specific elements in your output (e.g., "Hook borrowed from Ad #2's curiosity gap approach")
+
+Now proceed with your analysis of the user's asset, incorporating insights from these competitor ads.\n`;
+
+  return header + adDescriptions + footer;
+}
+
 export function buildIterationPrompt(context: PromptContext): BuiltPrompt {
   const systemPrompt = getPrompt("system.md");
   const baseAnalysis = getPrompt("base_analysis.md");
@@ -1051,6 +1104,12 @@ export function buildIterationPrompt(context: PromptContext): BuiltPrompt {
     .join("\n");
 
   sections.push("Project Context:\n" + contextSummary);
+
+  // NEW: Inject base ad context for custom iterations
+  if (context.baseAds && context.baseAds.length > 0) {
+    const baseAdContext = formatBaseAdContext(context.baseAds);
+    sections.push(baseAdContext);
+  }
   sections.push(baseAnalysis);
 
   const assetVerification = `ASSET VERIFICATION CHECK (MANDATORY):

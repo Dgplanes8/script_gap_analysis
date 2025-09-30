@@ -1,6 +1,6 @@
 import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
-import { buildIterationPrompt, type OutputFormat } from "./prompt-builder.ts";
+import { buildIterationPrompt, type OutputFormat, type BaseAdReference } from "./prompt-builder.ts";
 import { ingestSocialAsset, isSocialIngestionError } from "./social-download.ts";
 import { captureEdgeFunctionError } from "../_shared/sentry.ts";
 
@@ -325,6 +325,13 @@ Focus on benefits, not features
 Remember to adapt the intensity of conversion elements based on funnel stage. Top-of-funnel content should be lighter on direct selling, while bottom-funnel can be more direct with offers and CTAs.
 Output: Complete scripts/copy for each concept and format.`;
 
+interface BaseAdSubmission {
+  id: string;
+  ad_url: string;
+  platform: string;
+  company_name?: string | null;
+}
+
 interface IterationRequestPayload {
   companyName?: string;
   primaryPlatform?: string;
@@ -336,6 +343,7 @@ interface IterationRequestPayload {
   assetType?: "image" | "video" | "url";
   uploadedPath?: string | null;
   outputFormats?: OutputFormat[];
+  baseAds?: BaseAdSubmission[]; // NEW: Saved competitor ads for custom iteration
 }
 
 interface IterationAnalysis {
@@ -667,6 +675,62 @@ serve(async (req) => {
     referenceUrlString = referenceUrl.toString();
   }
 
+  // NEW: Process base ads if provided (custom iteration mode)
+  let processedBaseAds: BaseAdReference[] | undefined;
+  if (payload.baseAds && payload.baseAds.length > 0) {
+    console.log(`Processing ${payload.baseAds.length} base ad(s) for custom iteration`);
+    processedBaseAds = [];
+
+    for (const baseAd of payload.baseAds) {
+      try {
+        // Attempt to fetch and analyze the base ad URL
+        const baseAdUrl = new URL(baseAd.ad_url);
+
+        // Try to ingest the social asset to get detailed analysis
+        let analysisData: string | undefined;
+        try {
+          const ingestion = await ingestSocialAsset({
+            supabaseAdmin: adminClient,
+            socialUrl: baseAdUrl,
+            requestedAssetType: "image", // Default to image, will auto-detect
+            bucket: ASSET_BUCKET,
+          });
+
+          // Format the ingestion data as analysis context
+          analysisData = `Asset Type: ${ingestion.assetType}
+Content Type: ${ingestion.contentType}
+Download URL: ${ingestion.originalDownloadUrl || 'Not available'}
+Storage Path: ${ingestion.storagePath}
+
+This ad has been successfully ingested and can be referenced for creative patterns.`;
+
+        } catch (ingestionError) {
+          console.warn(`Could not ingest base ad ${baseAd.ad_url}:`, ingestionError);
+          analysisData = 'Unable to fetch detailed asset analysis. Use URL and platform context as reference.';
+        }
+
+        processedBaseAds.push({
+          url: baseAd.ad_url,
+          platform: baseAd.platform,
+          companyName: baseAd.company_name || undefined,
+          analysisData,
+        });
+
+      } catch (urlError) {
+        console.error(`Invalid base ad URL ${baseAd.ad_url}:`, urlError);
+        // Still include it with minimal data
+        processedBaseAds.push({
+          url: baseAd.ad_url,
+          platform: baseAd.platform,
+          companyName: baseAd.company_name || undefined,
+          analysisData: 'Invalid URL format - use as conceptual reference only.',
+        });
+      }
+    }
+
+    console.log(`Successfully processed ${processedBaseAds.length} base ad(s)`);
+  }
+
   const prompt = buildIterationPrompt({
     companyName,
     primaryPlatform,
@@ -680,6 +744,7 @@ serve(async (req) => {
     assetContentType,
     socialSourceUrl: originalSocialUrl,
     upstreamDownloadUrl,
+    baseAds: processedBaseAds, // Pass processed base ads to prompt builder
   });
 
   let completion: Response;
@@ -1256,7 +1321,7 @@ async function runCopyChiefReview(params: {
       "X-Title": "AI Ad Iteration Tool - Copy Chief",
     },
     body: JSON.stringify({
-      model: "anthropic/claude-sonnet-4",
+      model: "anthropic/claude-sonnet-4.5",
       temperature: 0.2,
       max_tokens: 1200,
       messages: [

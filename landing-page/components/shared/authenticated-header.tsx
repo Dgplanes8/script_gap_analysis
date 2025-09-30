@@ -115,7 +115,8 @@ export function AuthenticatedHeader({ className = '' }: AuthenticatedHeaderProps
   const navLinks = [
     { href: '/ai-ad-script-generator', label: 'Script Generator' },
     { href: '/creative-brief-generator', label: 'Brief Generator' },
-    { href: '/ai-ad-iteration-tool', label: 'Iteration Tool' }
+    { href: '/ai-ad-iteration-tool', label: 'Iteration Tool' },
+    // { href: '/custom-ad-iteration-tool', label: 'Custom Ad Iteration' } // Hidden for now
   ];
 
   return (

@@ -627,6 +627,147 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
       ctaLabel: 'Start Free Trial',
     },
   },
+
+  'custom-ad-iteration-tool': {
+    template: {
+      header: {
+        title: 'Save competitor ads and generate APSICS remixes',
+        subtitle:
+          'Share Meta/Instagram ads via iOS Shortcut, view them in your personalized library, then generate new variations using proven APSICS frameworks and your saved ads as strategic inspiration.',
+        badgeText: 'Custom Ad Intelligence',
+      },
+      sections: {
+        showFoundersClub: true,
+        showProcessSection: true,
+        showPricingSection: true,
+      },
+      exitIntent: {
+        title: 'Get Weekly Creative Intelligence Before You Go',
+        subtitle: 'Join 150+ growth teams getting Monday creative intelligence drops, bonus credits, and exclusive frameworks.',
+      },
+    },
+    form: {
+      title: 'Generate your first custom remix',
+      description:
+        'Select one or more saved ads from your library below, provide your brand context, and we will generate APSICS-crafted variations that combine your saved ad inspiration with performance-proven creative frameworks.',
+      submitButtonText: 'Generate Custom Remix',
+      highlights: [
+        {
+          title: 'Competitor-informed intelligence',
+          description: 'Analyze saved ads to extract winning patterns, then remix with your brand voice.',
+          variant: 'primary',
+        },
+        {
+          title: 'Multi-format remixes',
+          description: 'Generate video scripts, static layouts, and carousel packages from any saved ad.',
+          variant: 'success',
+        },
+      ],
+      freePlan: {
+        title: 'FREE FOREVER PLAN',
+        features: [
+          'Save unlimited ads via iOS Shortcut',
+          '10 credits every month for generation',
+          'Upgrade for higher volume and expert concepts',
+        ],
+        note: 'Saving ads is always free. Credits are only used for generation.',
+      },
+    },
+    fields: [
+      {
+        key: 'companyName',
+        label: 'Your brand or company name',
+        type: 'text',
+        placeholder: 'e.g. APSICS Media',
+        required: true,
+      },
+      {
+        key: 'primaryPlatform',
+        label: 'Primary platform focus',
+        type: 'select',
+        required: true,
+        options: [
+          { value: '', label: 'Select One' },
+          { value: 'facebook', label: 'Facebook / Meta' },
+          { value: 'instagram', label: 'Instagram (Reels/Stories)' },
+          { value: 'tiktok', label: 'TikTok' },
+          { value: 'youtube', label: 'YouTube / Shorts' },
+          { value: 'linkedin', label: 'LinkedIn' },
+        ],
+      },
+      {
+        key: 'adGoal',
+        label: 'Campaign goal',
+        type: 'select',
+        required: true,
+        options: [
+          { value: '', label: 'Select One' },
+          { value: 'performance', label: 'Reduce CAC / boost ROAS' },
+          { value: 'engagement', label: 'Increase engagement and watch time' },
+          { value: 'conversion', label: 'Drive direct response conversions' },
+          { value: 'awareness', label: 'Improve awareness and recall' },
+          { value: 'retention', label: 'Re-engage existing customers' },
+        ],
+      },
+      {
+        key: 'voiceGuidance',
+        label: 'Brand voice guidance (optional)',
+        type: 'textarea',
+        placeholder: 'Professional, casual, technical, storytelling, etc.',
+        rows: 2,
+        optional: true,
+      },
+      {
+        key: 'callToAction',
+        label: 'Preferred call-to-action (optional)',
+        type: 'text',
+        placeholder: 'e.g. Start Free Trial, Learn More, Get Started',
+        optional: true,
+      },
+    ],
+    foundersClub: {
+      badge: 'Founder Club Special',
+      title: 'Get the APSICS Media Founder Club for $20 this week',
+      description: 'Start a free week trial, keep your favourite frameworks, and lock in lifetime Founder Club pricing before it returns to $97.',
+      ctaText: 'Claim 10 Free Credits',
+      ctaHref: '/#service-tiers',
+      footerText: 'Founder Club offer: $20 one-time add-on after your trial.',
+    },
+    process: {
+      title: 'How custom ad remixing works',
+      description:
+        'We analyze your saved competitor ads, extract winning creative patterns, then blend them with your brand context and APSICS performance intelligence to generate ready-to-launch variations.',
+      highlights: [
+        {
+          title: 'Save ads effortlessly',
+          description: 'Share any Meta/Instagram ad via iOS Shortcut - appears instantly in your library.',
+        },
+        {
+          title: 'Extract winning patterns',
+          description: 'Analyze creative elements, hooks, and messaging frameworks from saved ads.',
+          variant: 'gradient',
+        },
+        {
+          title: 'Generate custom remixes',
+          description: 'Combine saved ad inspiration with your brand voice and APSICS proven frameworks.',
+        },
+        {
+          title: 'Launch with confidence',
+          description: 'Get platform-native scripts, static layouts, and carousel packages ready for production.',
+        },
+      ],
+      showAccordion: true,
+    },
+    secondaryHeader: {
+      links: [
+        { label: 'Overview', href: '#overview' },
+        { label: 'Workflow', href: '#process' },
+        { label: 'Pricing', href: '#pricing' },
+      ],
+      ctaHref: '#pricing',
+      ctaLabel: 'Start Free',
+    },
+  },
 };
 
 export function getToolConfig(toolId: string): ToolPageConfig | null {
