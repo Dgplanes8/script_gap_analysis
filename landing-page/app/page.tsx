@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { AlyticsLanding } from '@/components/alytics/alytics-landing';
 
 export const metadata: Metadata = {
-  title: 'Stop Launching Creative That Flops - APSICS Media Credit Platform',
-  description: 'Generate ad concepts with proven performance patterns in 60 seconds. Built from analyzing $250M+ in managed spend. Try free, then claim 10 credits.',
-  keywords: 'content intelligence, UGC scripts, paid ads, business marketing, creative intelligence, strategic ad intelligence, growing businesses, viral content, conversion optimization',
+  title: 'Stop Launching Ads That Flop - APSICS Media Credit Platform',
+  description: 'Get proven ad scripts that actually work in 60 seconds. Built from analyzing $250M+ in ad spend. Try free, then claim 10 credits.',
+  keywords: 'ad scripts, UGC scripts, paid ads, business marketing, ad intelligence, strategic advertising, growing businesses, viral content, conversion optimization',
   authors: [{ name: 'Apsics Media' }],
   creator: 'Apsics Media',
   publisher: 'Apsics Media',
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Stop Launching Creative That Flops - APSICS Media Credit Platform',
-    description: 'Generate ad concepts with proven performance patterns in 60 seconds. Built from analyzing $250M+ in managed spend.',
+    title: 'Stop Launching Ads That Flop - APSICS Media Credit Platform',
+    description: 'Get proven ad scripts that actually work in 60 seconds. Built from analyzing $250M+ in ad spend.',
     url: '/',
     siteName: 'Apsics Media',
     images: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: '/images/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Creative Intelligence that Converts - APSICS Media',
+        alt: 'Ad Scripts that Convert - APSICS Media',
       },
     ],
     locale: 'en_US',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Stop Launching Creative That Flops - APSICS Media Credit Platform',
-    description: 'Generate ad concepts with proven performance patterns in 60 seconds. Built from analyzing $250M+ in managed spend.',
+    title: 'Stop Launching Ads That Flop - APSICS Media Credit Platform',
+    description: 'Get proven ad scripts that actually work in 60 seconds. Built from analyzing $250M+ in ad spend.',
     images: ['/images/og-image.png'],
     creator: '@apsicsmedia',
   },

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowRight, Loader2, Mail } from 'lucide-react';
+import { ArrowRight, Loader2, Mail, CheckCircle } from 'lucide-react';
 import { trackWeeklyTrialSubmission, trackFormStart } from '@/components/analytics/gtm';
 
 interface SimpleAirtableFormProps {
@@ -13,7 +13,7 @@ interface SimpleAirtableFormProps {
   onError?: () => void;
 }
 
-export function SimpleAirtableForm({ 
+export function SimpleAirtableForm({
   buttonText = "Claim My Free Credits",
   buttonClassName = "btn btn-primary text-lg px-8 py-4",
   source = "service-tiers",
@@ -23,6 +23,7 @@ export function SimpleAirtableForm({
 }: SimpleAirtableFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showForm, setShowForm] = useState(true); // Start with form visible
+  const [showSuccess, setShowSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -93,12 +94,17 @@ export function SimpleAirtableForm({
       });
 
       if (response.ok) {
-        // Call success callback or redirect to success page
-        if (onSuccess) {
-          onSuccess();
-        } else {
-          window.location.href = '/success?source=' + source;
-        }
+        // Show success state first
+        setShowSuccess(true);
+
+        // Wait 3 seconds before redirect to let user see success message
+        setTimeout(() => {
+          if (onSuccess) {
+            onSuccess();
+          } else {
+            window.location.href = '/success?source=' + source;
+          }
+        }, 3000);
       } else {
         throw new Error('Lead submission failed');
       }
@@ -122,6 +128,40 @@ export function SimpleAirtableForm({
         {buttonText}
         <ArrowRight className="ml-2 h-4 w-4" />
       </button>
+    );
+  }
+
+  if (showSuccess) {
+    return (
+      <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-green-100">
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+            <CheckCircle className="h-8 w-8 text-green-600" />
+          </div>
+          <h3 className="text-xl font-bold text-gray-900 mb-2">Check Your Email!</h3>
+          <p className="text-gray-600 mb-4">
+            We sent your free credits to <span className="font-semibold text-[#126DFB]">{formData.email}</span>
+          </p>
+          <div className="bg-blue-50 rounded-lg p-4 text-left">
+            <h4 className="font-semibold text-gray-900 mb-2">What happens next:</h4>
+            <ol className="space-y-2 text-sm text-gray-700">
+              <li className="flex items-start gap-2">
+                <span className="font-semibold text-[#126DFB]">1.</span>
+                <span>Check your email for login instructions</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="font-semibold text-[#126DFB]">2.</span>
+                <span>Click the link to activate your account</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="font-semibold text-[#126DFB]">3.</span>
+                <span>Start using your 10 free credits on any tool</span>
+              </li>
+            </ol>
+          </div>
+          <p className="text-xs text-gray-500 mt-4">Redirecting you to your dashboard...</p>
+        </div>
+      </div>
     );
   }
 

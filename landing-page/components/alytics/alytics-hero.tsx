@@ -54,7 +54,7 @@ export function AlyticsHero() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight max-w-4xl mx-auto">
               Stop Launching{' '}
               <span className="text-transparent bg-gradient-to-r from-[#126DFB] to-[#126DFB] bg-clip-text">
-                Creative That Flops
+                Ads That Flop
               </span>
             </h1>
           </motion.div>
@@ -62,9 +62,9 @@ export function AlyticsHero() {
           {/* Subtitle */}
           <motion.div variants={itemVariants}>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              In 60 seconds, generate ad concepts with proven performance patterns. Built from analyzing what converts across $250M+ in managed spend.
+              In 60 seconds, get proven ad scripts that actually work. Built from analyzing what converts across $250M+ in ad spend.
               <br />
-              <span className="text-gray-700 font-medium">Try the generator below, then claim 10 free credits across every tool.</span>
+              <span className="text-gray-700 font-medium">Try the generator below, then claim 10 free credits to use on every tool.</span>
             </p>
           </motion.div>
 
@@ -90,7 +90,7 @@ export function AlyticsHero() {
               className="flex items-center justify-center gap-2 text-sm text-gray-500"
             >
               <CheckCircle className="w-4 h-4 text-[#126DFB]" />
-              First creative generation completely free • See what 12+ years of campaign intelligence makes
+              First ad script completely free • See what 12+ years of campaign data makes
             </motion.div>
 
             {/* Value Props */}

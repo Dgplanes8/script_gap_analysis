@@ -85,10 +85,10 @@ The brutal truth: 90% of ads fail not because of targeting or budget, but becaus
 ## Homepage Hero Section
 
 ### Primary Headline
-**"Stop Launching Creative That Flops"**
+**"Stop Launching Ads That Flop"**
 
-### Subheadline  
-**In 60 seconds, generate ad concepts with 2x higher success rates. Built from analyzing what converts across 1000+ campaigns monthly.**
+### Subheadline
+**In 60 seconds, get proven ad scripts that actually work. Built from analyzing what converts across $250M+ in ad spend.**
 
 ### Social Proof Line
 *"Used by performance marketers doubling their creative hit rates"*
@@ -100,13 +100,13 @@ The brutal truth: 90% of ads fail not because of targeting or budget, but becaus
 **"See How It Works"** *(2-minute demo)*
 
 ### Risk Reversal
-*First creative generation completely free. See the difference 12+ years of campaign data makes.*
+*First ad script completely free. See the difference 12+ years of campaign data makes.*
 
 ### Supporting Benefit Stack
-✓ **Double your winners** (not just more creative, better creative)  
-✓ **60-second generation** (speed advantage over agencies)  
-✓ **Performance-proven patterns** (not creative guesswork)  
-✓ **Unlimited iterations** (find your 2x winner faster)
+✓ **Double your winners** (not just more ads, better ads)
+✓ **60-second generation** (speed advantage over agencies)
+✓ **Proven formulas** (not guesswork)
+✓ **Unlimited iterations** (find your winner faster)
 
 ---
 
@@ -118,18 +118,18 @@ The brutal truth: 90% of ads fail not because of targeting or budget, but becaus
 Every performance marketer knows this pain intimately. We lead with the wound, then heal it.
 
 ### Problem Agitation Sequence
-1. **Universal Pain:** Creative is breaking your campaigns - you need 40+ diverse assets just to stay competitive
-2. **Current Solutions Suck:** 
+1. **Universal Pain:** Your ads are breaking your campaigns - you need 40+ diverse assets just to stay competitive
+2. **Current Solutions Suck:**
    - Analytics tools (Motion) show you what happened, not what to create next
-   - Inspiration platforms (Atria) give you ideas, not execution-ready concepts  
+   - Inspiration platforms (Atria) give you ideas, not ready-to-use scripts
    - Agencies are slow/expensive, freelancers are hit/miss, internal teams are overwhelmed
-3. **Hidden Cost:** Bad creative doesn't just waste ad spend—it kills your auction performance (56% impact) and limits Meta's ability to deliver your ads effectively
-4. **The Real Problem:** You're creating in a vacuum instead of building on proven performance patterns
+3. **Hidden Cost:** Bad ads don't just waste money—they kill your auction performance (56% impact) and limit Meta's ability to deliver your ads effectively
+4. **The Real Problem:** You're creating in a vacuum instead of building on proven formulas
 
 ### Solution Introduction
-**"What if you could skip straight to creative that works?"**
+**"What if you could skip straight to ads that work?"**
 
-Not AI magic. Not creative genius. Just pattern recognition from campaigns that already proved themselves with real money.
+Not AI magic. Not genius. Just pattern recognition from campaigns that already proved themselves with real money.
 
 ### Unique Mechanism
 **"Campaign Intelligence Engine"**
@@ -142,6 +142,19 @@ Not AI magic. Not creative genius. Just pattern recognition from campaigns that 
 
 ## Brand Voice Guidelines
 
+### Plain Language Clarity (The 8-Year-Old Test)
+**Core Principle:** If a smart 8-year-old wouldn't understand what you're selling, it's too complicated.
+
+**Language Rules:**
+- ❌ "Creative" → ✅ "Ads" or "Advertising"
+- ❌ "Ad concepts" → ✅ "Ad scripts" or "Ad copy"
+- ❌ "Performance patterns" → ✅ "Proven formulas" or "What works"
+- ❌ "Creative intelligence" → ✅ "Ad research" or "Campaign insights"
+- ❌ "Creative guesswork" → ✅ "Guessing what to write"
+- ❌ "Generate concepts" → ✅ "Get ad scripts" or "Write your ads"
+
+**Why:** Industry jargon creates confusion. Clear language creates conversions.
+
 ### Voice Personality Matrix
 
 **Experienced Guide (80%)**
@@ -151,7 +164,7 @@ Not AI magic. Not creative genius. Just pattern recognition from campaigns that 
 
 **Straight Shooter (15%)**
 - Call out industry BS directly
-- No sugarcoating harsh realities  
+- No sugarcoating harsh realities
 - Honest about what works and what doesn't
 
 **Optimistic Pragmatist (5%)**
@@ -249,18 +262,18 @@ Not AI magic. Not creative genius. Just pattern recognition from campaigns that 
 ## Objection Handling Matrix
 
 ### "Another AI tool that doesn't understand my brand"
-**Response:** "This isn't AI magic. It's pattern recognition from campaigns that already worked. Your brand voice + proven structures = breakthrough creative."
+**Response:** "This isn't AI magic. It's pattern recognition from campaigns that already worked. Your brand voice + proven formulas = better ads."
 
-### "Too expensive for my budget"  
-**Response:** "One winning creative can generate $10K+ in additional revenue. This costs less than your monthly coffee budget."
+### "Too expensive for my budget"
+**Response:** "One winning ad can generate $10K+ in additional revenue. This costs less than your monthly coffee budget."
 
 ### "I need custom solutions, not templates"
-**Response:** "Every output is customized to your brand inputs. The intelligence is templated—your creative is original."
+**Response:** "Every output is customized to your brand. The formulas are proven—your ads are original."
 
-### "My team can handle creative internally"
-**Response:** "Of course they can. This just makes them 10x faster and more strategic. Think of it as creative intelligence, not creative replacement."
+### "My team can handle this internally"
+**Response:** "Of course they can. This just makes them 10x faster. Think of it as research, not replacement."
 
-### "This is just concepts - I still need to actually create the ads"
+### "This is just scripts - I still need to actually create the ads"
 **Response:** "Exactly. We handle the hardest part - knowing WHAT to create that will actually work. You can hand our scripts to any video editor or designer and they'll nail it because the strategic foundation is bulletproof. It's like having the blueprint for a house that's guaranteed to sell - the construction becomes the easy part."
 
 ---
@@ -292,24 +305,24 @@ Not AI magic. Not creative genius. Just pattern recognition from campaigns that 
 ## Competitive Messaging
 
 ### Against Motion (Creative Analytics)
-**Their Pitch:** "Visual creative analytics to understand what's working"
-**Our Counter:** "Skip the analysis paralysis. Generate what works next."
-**Key Advantage:** Execution speed + forward-looking intelligence vs. backward-looking reporting
+**Their Pitch:** "Visual analytics to understand what's working"
+**Our Counter:** "Skip the analysis. Get what works next."
+**Key Advantage:** Execution speed + forward-looking vs. backward-looking reporting
 
-### Against Atria (Ad Intelligence)  
+### Against Atria (Ad Intelligence)
 **Their Pitch:** "Save ads from competitors and generate scripts with AI"
-**Our Counter:** "Beyond inspiration—get execution-ready concepts proven to convert"
-**Key Advantage:** Performance-based generation vs. inspiration-based creation
+**Our Counter:** "Beyond inspiration—get ready-to-use scripts proven to convert"
+**Key Advantage:** Performance-based vs. inspiration-based
 
 ### Against Traditional Agencies
-**Their Pitch:** "Full-service creative strategy and execution"
-**Our Counter:** "Agency-level strategy without agency-level timelines or politics"  
+**Their Pitch:** "Full-service strategy and execution"
+**Our Counter:** "Agency-level strategy without agency timelines or politics"
 **Key Advantage:** Speed + control + cost efficiency
 
 ### Against Freelancers
-**Their Pitch:** "Affordable custom creative"  
-**Our Counter:** "Consistent quality at freelancer prices with 12+ years of performance intelligence built-in"
-**Key Advantage:** Reliability + speed + strategic thinking + proven patterns
+**Their Pitch:** "Affordable custom work"
+**Our Counter:** "Consistent quality at freelancer prices with 12+ years of campaign data built-in"
+**Key Advantage:** Reliability + speed + proven formulas
 
 ---
 
@@ -339,21 +352,23 @@ Not AI magic. Not creative genius. Just pattern recognition from campaigns that 
 
 ### Every Piece of Copy Must:
 ✅ Lead with customer outcome, not product features
-✅ Include specific proof points or credibility markers  
+✅ Include specific proof points or credibility markers
 ✅ Address at least one major objection or concern
 ✅ Contain clear, frictionless next step
 ✅ Feel authentic to the founder's voice and experience
 ✅ Differentiate from generic AI/SaaS messaging
 ✅ Include risk reversal or social proof element
+✅ **Pass the 8-year-old test** - use plain language, not industry jargon
 
 ### Red Flags to Avoid:
 ❌ Generic SaaS buzzwords ("leverage," "optimize," "streamline")
+❌ Industry jargon ("creative," "concepts," "performance patterns")
 ❌ Unsubstantiated claims without proof points
-❌ Feature-focused headlines or value propositions  
+❌ Feature-focused headlines or value propositions
 ❌ Weak or generic calls-to-action
-❌ Copy that could apply to any AI tool or creative service
+❌ Copy that could apply to any AI tool or ad service
 ❌ Promises that sound too good to be true
-❌ Industry jargon without explanation
+❌ Words a normal person wouldn't use in conversation
 
 ---
 
