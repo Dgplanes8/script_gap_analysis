@@ -60,26 +60,26 @@ export function SocialProofSection() {
     {
       icon: <Award className="w-6 h-6" />,
       number: "12+",
-      label: "Years Experience",
-      description: "Helping companies scale from $10K to $1M+ monthly ad spend"
+      label: "Years Scaling Campaigns",
+      description: "Battle-tested across hundreds of industries and ad platforms"
     },
     {
       icon: <BarChart3 className="w-6 h-6" />,
       number: "$250MM+",
-      label: "Media Spend Managed",
-      description: "Proven frameworks tested across hundreds of campaigns"
+      label: "Ad Spend Managed",
+      description: "Your scripts are built from what actually worked at scale"
     },
     {
       icon: <TrendingUp className="w-6 h-6" />,
       number: "1000+",
-      label: "Assets Analyzed Monthly",
-      description: "High converting campaigns analyzed continuously to identify proven performance patterns"
+      label: "Winning Ads Analyzed",
+      description: "We track what converts so you don't waste money testing"
     },
     {
       icon: <Users className="w-6 h-6" />,
       number: "150+",
-      label: "Monthly Concepts",
-      description: "Fully-developed ad concepts with scripts, insights, and strategic direction delivered weekly"
+      label: "Scripts Per Month",
+      description: "Fresh concepts delivered weekly, ready to launch"
     }
   ];
 
@@ -102,12 +102,12 @@ export function SocialProofSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Proven frameworks from{' '}
+            The exact playbook I used to manage{' '}
             <span className="text-transparent bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text">
-              real experience
+              $250M+ in ad spend
             </span>
           </motion.h2>
-          
+
           <motion.p
             className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-4"
             initial={{ opacity: 0, y: 20 }}
@@ -115,7 +115,7 @@ export function SocialProofSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            These aren't theoretical frameworks—they're the exact methods I've used to help companies scale from $10K to $1M+ monthly ad spend while consistently driving revenue growth.
+            12+ years scaling campaigns from first dollar to 8-figures. Now available as instant ad scripts.
           </motion.p>
 
           <motion.p
@@ -125,7 +125,7 @@ export function SocialProofSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            Used by performance marketers scaling from $10K to $100K monthly ad spend
+            Trusted by marketers managing $10K to $100K+ monthly budgets
           </motion.p>
         </motion.div>
 
@@ -162,8 +162,8 @@ export function SocialProofSection() {
             </div>
             
             <blockquote className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 italic">
-              "I've burned enough ad spend for both of us. After 12+ years and $250M+ managed, I know the difference between creative that converts and creative that crashes.
-              This platform gives you the patterns that actually work—not the guesswork that wastes budgets."
+              "I've burned enough ad spend for both of us. After 12+ years managing campaigns, I know the difference between ads that convert and ads that crash.
+              This platform gives you what actually works—not the guesswork that wastes budgets."
             </blockquote>
             
             <div className="flex flex-col items-center">
@@ -185,7 +185,7 @@ export function SocialProofSection() {
           className="text-center mt-12"
         >
           <p className="text-lg text-gray-600 mb-6">
-            Ready to access these proven frameworks for your startup?
+            Start using these battle-tested scripts for free
           </p>
           <motion.a
             href="#service-tiers"
