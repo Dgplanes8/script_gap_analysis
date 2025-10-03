@@ -741,10 +741,10 @@ export default function CreativeBriefGeneratorClient() {
             }}
           >
             <header className="space-y-2">
-              <h1 className="page-title">AI Creative Brief Generator</h1>
+              <h1 className="page-title">Brief Generator</h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Transform raw inputs into premium creative briefs for UGC, static, video, or hybrid campaigns.
-                Choose simple mode for instant upgrades or unlock advanced mode for full APSICS research.
+                Turn campaign ideas into complete briefs for UGC, static, video, or hybrid formats.
+                Choose simple mode for instant results or unlock advanced mode for full research.
               </p>
               <div className="rounded-md border border-dashed border-gray-200 bg-gray-50 p-3 text-sm text-gray-600">
                 <strong className="font-semibold text-gray-900">Credits:</strong> Simple briefs cost 1 credit. Advanced
@@ -764,8 +764,8 @@ export default function CreativeBriefGeneratorClient() {
                   value={formState.briefMode}
                   onChange={(event) => handleFormChange('briefMode', event.target.value as BriefMode)}
                 >
-                  <option value="simple">Simple (I&apos;ll provide context, AI enhances)</option>
-                  <option value="advanced">Advanced (Full APSICS research)</option>
+                  <option value="simple">Simple (I&apos;ll provide context, we enhance)</option>
+                  <option value="advanced">Advanced (Full research included)</option>
                 </select>
                 {profile && !profile.research_mode_unlocked && formState.briefMode === 'advanced' && (
                   <p className="flex items-center gap-2 text-xs text-muted-foreground">

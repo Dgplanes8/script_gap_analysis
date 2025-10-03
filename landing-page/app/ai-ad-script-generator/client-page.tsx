@@ -775,28 +775,28 @@ export default function AdScriptGeneratorClient() {
               Script Generator
             </div>
             <h1 className="mt-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              Generate revenue-ready ads from our $250M+ creative intelligence engine
+              Turn your idea into a scroll-stopping ad in 60 seconds
             </h1>
             <p className="mt-4 text-lg text-gray-600">
-              Turn your brief into platform-native scripts and static copy trained on what actually moves CAC. TikTok, Meta, YouTube, LinkedIn, X — handled in a single pass.
+              Drop in your URL and campaign goal. Get platform-ready scripts backed by $250M in testing. TikTok, Meta, YouTube, LinkedIn, X — all covered.
             </p>
           </header>
 
           <section className="rounded-3xl border border-brand-100 bg-white p-8 shadow-xl shadow-brand-50/40">
             <div className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
               <div className="space-y-4">
-                <h2 className="text-xl font-semibold text-gray-900">Start with a complimentary script</h2>
+                <h2 className="text-xl font-semibold text-gray-900">Get your first ad script free</h2>
                 <p className="text-sm text-gray-600">
-                  Drop in your company name, URL, and the campaign goal. We’ll return a production-ready concept engineered from competitor intel, audience psychology, and APSICS testing frameworks.
+                  Drop in your company name, URL, and campaign goal. We'll return a production-ready script built from what actually converts.
                 </p>
                 <ul className="grid gap-3 text-sm text-gray-600 sm:grid-cols-2">
                   <li className="rounded-2xl border border-brand-100 bg-brand-50/60 p-4">
-                    <p className="font-semibold text-brand-800">Platform-native copy</p>
-                    <p className="mt-1 text-brand-700">Hooks, overlays, and CTAs tuned to each channel’s pacing and auction behavior.</p>
+                    <p className="font-semibold text-brand-800">Ready for TikTok, Meta, or YouTube</p>
+                    <p className="mt-1 text-brand-700">Hooks, overlays, and CTAs matched to each platform's style.</p>
                   </li>
                   <li className="rounded-2xl border border-success-200 bg-success-50/70 p-4">
-                    <p className="font-semibold text-success-700">Psychology-backed messaging</p>
-                    <p className="mt-1 text-success-600">Language sourced from real customer voice, competitor gaps, and emotional triggers.</p>
+                    <p className="font-semibold text-success-700">Written using what actually converts</p>
+                    <p className="mt-1 text-success-600">Every line tested across thousands of campaigns.</p>
                   </li>
                 </ul>
               </div>

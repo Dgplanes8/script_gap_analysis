@@ -11,19 +11,19 @@ import { getToolConfig } from '@/lib/template-configs';
 import { StudioFoundingOfferCard } from '@/components/alytics/studio-founding-offer-card';
 
 export const metadata: Metadata = {
-  title: 'Creative Brief Generator - AI Strategy Tool | APSICS Media',
-  description: 'Generate comprehensive creative briefs with target personas, positioning strategies, and asset recommendations. Built from $250M+ in managed spend. Free 10 monthly credits.',
-  keywords: 'creative brief generator, marketing brief template, creative strategy tool, ad campaign brief, target audience analysis, positioning strategy, ai marketing tool',
+  title: 'Brief Generator - Turn Ideas Into Creator-Ready Direction | APSICS Media',
+  description: 'Turn campaign ideas into complete briefs with target audience, positioning, and ready-to-shoot concepts. Built from $250M+ in ad testing. Free 10 monthly credits.',
+  keywords: 'brief generator, marketing brief template, campaign brief tool, ad campaign brief, target audience analysis, positioning strategy, creator brief',
   openGraph: {
-    title: 'Creative Brief Generator - AI Strategy Tool',
-    description: 'Generate comprehensive creative briefs with target personas and positioning strategies. Free trial with 10 monthly credits.',
+    title: 'Brief Generator - Creator-Ready Direction',
+    description: 'Turn campaign ideas into complete briefs creators can execute immediately. Free trial with 10 monthly credits.',
     type: 'website',
     url: 'https://apsicsmedia.com/creative-brief-generator',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Creative Brief Generator - Free Tool',
-    description: 'Generate comprehensive creative briefs with AI-powered strategic insights.',
+    title: 'Brief Generator - Free Tool',
+    description: 'Turn campaign ideas into briefs creators can shoot today.',
   },
 };
 

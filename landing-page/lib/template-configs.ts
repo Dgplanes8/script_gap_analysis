@@ -20,8 +20,8 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
   'ai-ad-script-generator': {
     template: {
       header: {
-        title: 'Generate revenue-ready ads from our $250M+ creative intelligence engine',
-        subtitle: 'Turn your brief into platform-native scripts and static copy trained on what actually moves CAC. TikTok, Meta, YouTube, LinkedIn, X - handled in a single pass.',
+        title: 'Turn your idea into a scroll-stopping ad in 60 seconds',
+        subtitle: 'Drop in your URL and campaign goal. Get platform-ready scripts backed by $250M in testing. TikTok, Meta, YouTube, LinkedIn, X - all covered.',
         badgeText: 'Script Generator',
       },
       sections: {
@@ -35,18 +35,18 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
       },
     },
     form: {
-      title: 'Start with a complimentary script',
-      description: 'Drop in your company name, URL, and the campaign goal. We\'ll return a production-ready concept engineered from competitor intel, audience psychology, and APSICS testing frameworks.',
+      title: 'Get your first ad script free',
+      description: 'Drop in your company name, URL, and campaign goal. We\'ll return a production-ready script built from what actually converts.',
       submitButtonText: 'Generate Script',
       highlights: [
         {
-          title: 'Platform-native copy',
-          description: 'Hooks, overlays, and CTAs tuned to each channel\'s pacing and auction behavior.',
+          title: 'Ready for TikTok, Meta, or YouTube',
+          description: 'Hooks, overlays, and CTAs matched to each platform\'s style.',
           variant: 'primary',
         },
         {
-          title: 'Psychology-backed messaging',
-          description: 'Language sourced from real customer voice, competitor gaps, and emotional triggers.',
+          title: 'Written using what actually converts',
+          description: 'Every line tested across thousands of campaigns.',
           variant: 'success',
         },
       ],
@@ -133,25 +133,25 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
       footerText: 'Founder Club offer: $20 one-time add-on after your trial.',
     },
     process: {
-      title: 'How we craft scripts',
-      description: 'We blend your product inputs with proven creative frameworks, audience psychology, and platform-specific pacing so every script hits performance benchmarks.',
+      title: 'How we write your scripts',
+      description: 'We combine your product details with proven formulas and platform-specific pacing so every script is ready to launch.',
       highlights: [
         {
-          title: 'Audience-first positioning',
-          description: 'Align the narrative with awareness level, pain points, and desired transformation.',
+          title: 'Match your audience',
+          description: 'Speaks to where they are and what they need to hear.',
         },
         {
-          title: 'Platform formatting',
-          description: 'Optimize pacing, structure, and CTA style for the placement you choose.',
+          title: 'Format for each platform',
+          description: 'Pacing, structure, and CTAs tailored to where you\'re running.',
           variant: 'gradient',
         },
         {
-          title: 'Performance heuristics',
-          description: 'Trained on $250M+ in ad spend, focusing on retention, resonance, and conversion.',
+          title: 'Built from what works',
+          description: 'Trained on $250M+ in ad spend to maximize conversions.',
         },
         {
-          title: 'Brand consistency',
-          description: 'Adapts to your voice guidelines without sacrificing clarity or urgency.',
+          title: 'Stays on brand',
+          description: 'Keeps your voice while staying clear and urgent.',
         },
       ],
       showAccordion: true,
@@ -170,9 +170,9 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
   'ai-ad-iteration-tool': {
     template: {
       header: {
-        title: 'Transform your existing ads into APSICS-grade top performers',
+        title: 'Turn your current ad into 3 better versions',
         subtitle:
-          'Upload your creative or drop a social link to get scene-by-scene diagnostics, format shifts, and ready-to-launch remixes tuned to Meta, TikTok, and beyond.',
+          'Upload your ad or paste a link. Get instant feedback and ready-to-test improvements for Meta, TikTok, and more.',
         badgeText: 'Ad Iterator',
       },
       sections: {
@@ -186,19 +186,19 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
       },
     },
     form: {
-      title: 'Run your first boosted iteration',
+      title: 'Analyze your first ad free',
       description:
-        'Drop in your brand context and the asset you want to improve. In under 60 seconds you will receive a full diagnostic, prioritized fixes, and APSICS-crafted remixes across the formats you pick.',
+        'Drop in your brand context and the ad you want to improve. In 60 seconds get instant feedback, priority fixes, and ready-to-test versions.',
       submitButtonText: 'Analyze and Generate Iterations',
       highlights: [
         {
-          title: 'Full scene intelligence',
-          description: 'Maps hooks, CTAs, pacing, and visual sequencing against APSICS benchmarks.',
+          title: 'See what\'s working and what\'s not',
+          description: 'Get scores on hooks, CTAs, pacing, and visuals.',
           variant: 'primary',
         },
         {
-          title: 'Platform-tuned remixes',
-          description: 'Delivers Meta, Instagram, and TikTok-ready outputs with channel-native pacing.',
+          title: 'Versions optimized for each platform',
+          description: 'Meta, Instagram, and TikTok-ready with platform-specific pacing.',
           variant: 'success',
         },
       ],
@@ -273,26 +273,26 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
       footerText: 'Founder Club offer: $20 one-time add-on after your trial.',
     },
     process: {
-      title: 'How APSICS remixes your creative in under 30 seconds',
+      title: 'How we make your ads better',
       description:
-        'Every analysis layers our $250M+ performance dataset with your brand voice to deliver usable landable creative - not generic AI fluff.',
+        'Every analysis uses our $250M+ performance data with your brand voice to deliver real improvements - not generic suggestions.',
       highlights: [
         {
-          title: 'Diagnose weak spots',
-          description: 'Scene-by-scene hook pacing, CTA placement, and offer clarity scoring.',
+          title: 'Find the weak spots',
+          description: 'Score your hooks, CTAs, pacing, and offer clarity.',
         },
         {
-          title: 'Distill brand signals',
-          description: 'Extract voice, proof points, and must-keep assets before iterating.',
+          title: 'Keep what works',
+          description: 'Extract your voice and proof points before improving.',
           variant: 'gradient',
         },
         {
-          title: 'Remix intelligently',
-          description: 'Generate multi-format, platform-native improvements prioritized by impact.',
+          title: 'Create better versions',
+          description: 'Generate platform-ready improvements ranked by impact.',
         },
         {
-          title: 'Package for launch',
-          description: 'Deliver scripts, overlays, asset lists, and testing angles ready for production.',
+          title: 'Ready to launch',
+          description: 'Scripts, overlays, and testing angles ready for production.',
         },
       ],
       showAccordion: true,
@@ -311,9 +311,9 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
   'creative-brief-generator': {
     template: {
       header: {
-        title: 'Generate production-ready creative briefs from your brand inputs',
-        subtitle: 'Transform campaign objectives into comprehensive creative direction using APSICS performance frameworks. UGC, static, video, or hybrid formats delivered in minutes.',
-        badgeText: 'APSICS Creative Intelligence',
+        title: 'Turn your campaign idea into creator-ready direction',
+        subtitle: 'Give us your goals. Get a complete brief creators can execute immediately. UGC, static, video, or hybrid formats delivered in minutes.',
+        badgeText: 'Brief Generator',
       },
       sections: {
         showFoundersClub: true,
@@ -326,18 +326,18 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
       },
     },
     form: {
-      title: 'Create your first creative brief',
-      description: 'Provide your company details and campaign objectives. We\'ll generate a strategic creative brief with clear direction for creators, backed by APSICS performance intelligence.',
+      title: 'Get your first brief free',
+      description: 'Provide your company details and campaign goals. We\'ll generate a complete brief with clear direction creators can execute immediately.',
       submitButtonText: 'Generate Brief',
       highlights: [
         {
-          title: 'Strategic foundation',
-          description: 'Clear positioning, audience insights, and campaign objectives aligned with performance goals.',
+          title: 'Clear direction, no guesswork',
+          description: 'Positioning, audience insights, and goals that actually guide creation.',
           variant: 'primary',
         },
         {
-          title: 'Creator-ready direction',
-          description: 'Specific hooks, angles, and deliverables that creators can execute immediately.',
+          title: 'Hooks and angles ready to shoot',
+          description: 'Specific concepts creators can start filming today.',
           variant: 'success',
         },
       ],

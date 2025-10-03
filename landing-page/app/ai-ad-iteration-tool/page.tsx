@@ -11,19 +11,19 @@ import { getToolConfig } from '@/lib/template-configs';
 import { StudioFoundingOfferCard } from '@/components/alytics/studio-founding-offer-card';
 
 export const metadata: Metadata = {
-  title: 'Ad Iterator - Optimize Live Campaigns | APSICS Media',
-  description: 'Analyze and optimize your running ads with creative intelligence. Get performance scores, improvement recommendations, and iteration strategies. Free 10 monthly credits.',
-  keywords: 'ad iteration tool, facebook ad analyzer, creative optimization, ad performance analysis, campaign optimization, creative testing, ad improvement tool',
+  title: 'Ad Iterator - Turn Your Ad Into 3 Better Versions | APSICS Media',
+  description: 'Upload your ad, get instant feedback and ready-to-test improvements. Performance scores, priority fixes, and platform-optimized versions. Free 10 monthly credits.',
+  keywords: 'ad iteration tool, facebook ad analyzer, ad optimization, ad performance analysis, campaign optimization, ad testing, ad improvement tool',
   openGraph: {
-    title: 'Ad Iterator - Optimize Live Campaigns',
-    description: 'Analyze and optimize your running ads with performance scoring and recommendations. Free trial with 10 monthly credits.',
+    title: 'Ad Iterator - Turn Your Ad Into 3 Better Versions',
+    description: 'Upload your ad and get instant improvements. Performance scoring and ready-to-test versions. Free trial with 10 monthly credits.',
     type: 'website',
     url: 'https://apsicsmedia.com/ai-ad-iteration-tool',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ad Iterator - Free Optimizer',
-    description: 'Analyze and optimize your ads with creative intelligence.',
+    title: 'Ad Iterator - Get 3 Better Versions',
+    description: 'Upload your ad, get instant improvements ready to test.',
   },
 };
 
