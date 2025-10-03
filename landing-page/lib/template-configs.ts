@@ -170,7 +170,7 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
   'ai-ad-iteration-tool': {
     template: {
       header: {
-        title: 'Turn your current ad into 3 better versions',
+        title: 'Turn your current ad into a better version',
         subtitle:
           'Upload your ad or paste a link. Get instant feedback and ready-to-test improvements for Meta, TikTok, and more.',
         badgeText: 'Ad Iterator',
@@ -311,8 +311,8 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
   'creative-brief-generator': {
     template: {
       header: {
-        title: 'Turn your campaign idea into creator-ready direction',
-        subtitle: 'Give us your goals. Get a complete brief creators can execute immediately. UGC, static, video, or hybrid formats delivered in minutes.',
+        title: 'Turn your campaign idea into execution-ready direction',
+        subtitle: 'Give us your goals. Get a complete brief your team can execute immediately. UGC, static, video, or hybrid formats delivered in minutes.',
         badgeText: 'Brief Generator',
       },
       sections: {
@@ -327,17 +327,17 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
     },
     form: {
       title: 'Get your first brief free',
-      description: 'Provide your company details and campaign goals. We\'ll generate a complete brief with clear direction creators can execute immediately.',
+      description: 'Provide your company details and campaign goals. We\'ll generate a complete brief with clear direction your team can execute immediately.',
       submitButtonText: 'Generate Brief',
       highlights: [
         {
           title: 'Clear direction, no guesswork',
-          description: 'Positioning, audience insights, and goals that actually guide creation.',
+          description: 'Positioning, audience insights, and goals that actually guide execution.',
           variant: 'primary',
         },
         {
-          title: 'Hooks and angles ready to shoot',
-          description: 'Specific concepts creators can start filming today.',
+          title: 'Hooks and angles ready to launch',
+          description: 'Specific concepts your team can start creating today.',
           variant: 'success',
         },
       ],

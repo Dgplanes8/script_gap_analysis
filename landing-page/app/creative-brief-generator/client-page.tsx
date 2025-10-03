@@ -743,7 +743,7 @@ export default function CreativeBriefGeneratorClient() {
             <header className="space-y-2">
               <h1 className="page-title">Brief Generator</h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Turn campaign ideas into complete briefs for UGC, static, video, or hybrid formats.
+                Turn campaign ideas into execution-ready briefs for UGC, static, video, or hybrid formats.
                 Choose simple mode for instant results or unlock advanced mode for full research.
               </p>
               <div className="rounded-md border border-dashed border-gray-200 bg-gray-50 p-3 text-sm text-gray-600">

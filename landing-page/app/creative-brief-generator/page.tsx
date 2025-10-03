@@ -11,19 +11,19 @@ import { getToolConfig } from '@/lib/template-configs';
 import { StudioFoundingOfferCard } from '@/components/alytics/studio-founding-offer-card';
 
 export const metadata: Metadata = {
-  title: 'Brief Generator - Turn Ideas Into Creator-Ready Direction | APSICS Media',
-  description: 'Turn campaign ideas into complete briefs with target audience, positioning, and ready-to-shoot concepts. Built from $250M+ in ad testing. Free 10 monthly credits.',
-  keywords: 'brief generator, marketing brief template, campaign brief tool, ad campaign brief, target audience analysis, positioning strategy, creator brief',
+  title: 'Brief Generator - Turn Ideas Into Execution-Ready Direction | APSICS Media',
+  description: 'Turn campaign ideas into complete briefs with target audience, positioning, and ready-to-launch concepts. Built from $250M+ in ad testing. Free 10 monthly credits.',
+  keywords: 'brief generator, marketing brief template, campaign brief tool, ad campaign brief, target audience analysis, positioning strategy, creative brief',
   openGraph: {
-    title: 'Brief Generator - Creator-Ready Direction',
-    description: 'Turn campaign ideas into complete briefs creators can execute immediately. Free trial with 10 monthly credits.',
+    title: 'Brief Generator - Execution-Ready Direction',
+    description: 'Turn campaign ideas into complete briefs your team can execute immediately. Free trial with 10 monthly credits.',
     type: 'website',
     url: 'https://apsicsmedia.com/creative-brief-generator',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Brief Generator - Free Tool',
-    description: 'Turn campaign ideas into briefs creators can shoot today.',
+    description: 'Turn campaign ideas into briefs your team can execute today.',
   },
 };
 
