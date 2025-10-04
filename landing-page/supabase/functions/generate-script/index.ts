@@ -488,7 +488,7 @@ serve(async (req) => {
   }
 
   try {
-    structuredData = JSON.parse(cleanedContent);
+    structuredData = parseJsonWithRecovery(cleanedContent);
 
     // Validate the structure matches our expected schema
     if (structuredData && typeof structuredData === 'object') {
@@ -543,7 +543,7 @@ serve(async (req) => {
         fixedContent += '}]'.repeat(Math.min(missingBraces, 3));
       }
 
-      structuredData = JSON.parse(fixedContent);
+      structuredData = parseJsonWithRecovery(fixedContent);
 
       // Validate and extract script as above
       if (structuredData && typeof structuredData === 'object') {
@@ -863,6 +863,51 @@ function normalizeCompletionContent(content: unknown): string {
   }
 
   return '';
+}
+
+function parseJsonWithRecovery(raw: string): any {
+  const attempts: string[] = [];
+
+  const trimmed = raw.trim();
+  if (trimmed.length > 0) {
+    attempts.push(trimmed);
+  }
+
+  const withoutSmartQuotes = replaceSmartQuotes(trimmed);
+  if (withoutSmartQuotes !== trimmed) {
+    attempts.push(withoutSmartQuotes);
+  }
+
+  const withoutTrailingCommas = stripTrailingCommas(trimmed);
+  if (withoutTrailingCommas !== trimmed) {
+    attempts.push(withoutTrailingCommas);
+  }
+
+  const combined = stripTrailingCommas(withoutSmartQuotes);
+  if (combined !== trimmed && combined !== withoutSmartQuotes && combined !== withoutTrailingCommas) {
+    attempts.push(combined);
+  }
+
+  for (const candidate of attempts) {
+    try {
+      return JSON.parse(candidate);
+    } catch (_error) {
+      // try next candidate
+    }
+  }
+
+  // Final attempt with original string to surface error context
+  return JSON.parse(trimmed);
+}
+
+function replaceSmartQuotes(value: string): string {
+  return value
+    .replace(/[\u201C\u201D]/g, '"')
+    .replace(/[\u2018\u2019]/g, "'");
+}
+
+function stripTrailingCommas(value: string): string {
+  return value.replace(/,\s*(?=[}\]])/g, '');
 }
 
 async function safeReadJson(response: Response) {

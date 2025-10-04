@@ -44,6 +44,50 @@ type ScriptGenerationData = {
   platformAdaptations: PlatformAdaptations;
 };
 
+function parseJsonWithRecovery(raw: string) {
+  const attempts: string[] = [];
+  const trimmed = raw.trim();
+
+  if (trimmed.length > 0) {
+    attempts.push(trimmed);
+  }
+
+  const withoutSmartQuotes = replaceSmartQuotes(trimmed);
+  if (withoutSmartQuotes !== trimmed) {
+    attempts.push(withoutSmartQuotes);
+  }
+
+  const withoutTrailingCommas = stripTrailingCommas(trimmed);
+  if (withoutTrailingCommas !== trimmed) {
+    attempts.push(withoutTrailingCommas);
+  }
+
+  const combined = stripTrailingCommas(withoutSmartQuotes);
+  if (combined !== trimmed && combined !== withoutSmartQuotes && combined !== withoutTrailingCommas) {
+    attempts.push(combined);
+  }
+
+  for (const candidate of attempts) {
+    try {
+      return JSON.parse(candidate);
+    } catch (_error) {
+      // continue
+    }
+  }
+
+  return JSON.parse(trimmed);
+}
+
+function replaceSmartQuotes(value: string) {
+  return value
+    .replace(/[\u201C\u201D]/g, '"')
+    .replace(/[\u2018\u2019]/g, "'");
+}
+
+function stripTrailingCommas(value: string) {
+  return value.replace(/,\s*(?=[}\]])/g, '');
+}
+
 function parseTextToScenes(text: string): ScriptScene[] {
   if (!text) return [];
 
@@ -346,7 +390,7 @@ export function ScriptOutputDisplay({
 
     if (trimmed.startsWith('{')) {
       try {
-        parsedData = JSON.parse(trimmed);
+        parsedData = parseJsonWithRecovery(trimmed);
       } catch (_error) {
         // fall through to substring approach
       }
@@ -359,7 +403,7 @@ export function ScriptOutputDisplay({
       if (startIndex !== -1 && endIndex > startIndex) {
         const candidate = trimmed.slice(startIndex, endIndex + 1);
         try {
-          parsedData = JSON.parse(candidate);
+          parsedData = parseJsonWithRecovery(candidate);
         } catch (_error) {
           // Parsing failed, fall back to raw script
         }
