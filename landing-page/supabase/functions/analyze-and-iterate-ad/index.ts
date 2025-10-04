@@ -809,6 +809,14 @@ This ad has been successfully ingested and can be referenced for creative patter
     });
   } catch (networkError) {
     console.error("Failed to call OpenRouter", networkError);
+    captureEdgeFunctionError(networkError, {
+      functionName: 'analyze-and-iterate-ad',
+      additionalTags: {
+        error_type: 'openrouter_network_error',
+        user_id: user?.id || 'anonymous',
+        ad_url: adUrl
+      }
+    });
     return new Response(JSON.stringify({ error: "OpenRouter request failed" }), {
       status: 502,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -818,6 +826,19 @@ This ad has been successfully ingested and can be referenced for creative patter
   if (!completion.ok) {
     const errorBody = await safeReadJson(completion);
     console.error("OpenRouter returned non-200", completion.status, errorBody);
+
+    const openRouterError = new Error(`OpenRouter returned ${completion.status}: ${JSON.stringify(errorBody)}`);
+    captureEdgeFunctionError(openRouterError, {
+      functionName: 'analyze-and-iterate-ad',
+      additionalTags: {
+        error_type: 'openrouter_api_error',
+        status_code: completion.status.toString(),
+        user_id: user?.id || 'anonymous',
+        ad_url: adUrl,
+        error_message: errorBody?.error?.message || 'unknown'
+      }
+    });
+
     return new Response(JSON.stringify({ error: "OpenRouter request failed", details: errorBody }), {
       status: 502,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -1312,34 +1333,59 @@ async function runCopyChiefReview(params: {
   console.log("User Prompt:", userPrompt);
   console.log("=== END COPY CHIEF PROMPT ===");
 
-  const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${openRouterApiKey}`,
-      "HTTP-Referer": "https://openrouter.ai",
-      "X-Title": "AI Ad Iteration Tool - Copy Chief",
-    },
-    body: JSON.stringify({
-      model: "anthropic/claude-sonnet-4.5",
-      temperature: 0.2,
-      max_tokens: 1200,
-      messages: [
-        {
-          role: "system",
-          content: [{ type: "text", text: prompt }],
-        },
-        {
-          role: "user",
-          content: [{ type: "text", text: userPrompt }],
-        },
-      ],
-    }),
-  });
+  let response: Response;
+  try {
+    response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${openRouterApiKey}`,
+        "HTTP-Referer": "https://openrouter.ai",
+        "X-Title": "AI Ad Iteration Tool - Copy Chief",
+      },
+      body: JSON.stringify({
+        model: "anthropic/claude-sonnet-4.5",
+        temperature: 0.2,
+        max_tokens: 1200,
+        messages: [
+          {
+            role: "system",
+            content: [{ type: "text", text: prompt }],
+          },
+          {
+            role: "user",
+            content: [{ type: "text", text: userPrompt }],
+          },
+        ],
+      }),
+    });
+  } catch (networkError) {
+    console.error("Failed to call OpenRouter for copy chief", networkError);
+    captureEdgeFunctionError(networkError, {
+      functionName: 'analyze-and-iterate-ad',
+      additionalTags: {
+        error_type: 'openrouter_copychief_network_error',
+        company_name: companyName
+      }
+    });
+    throw new Error(`Copy chief network error: ${String(networkError)}`);
+  }
 
   if (!response.ok) {
     const errorBody = await safeReadJson(response);
-    throw new Error(`Copy chief model error ${response.status}: ${JSON.stringify(errorBody)}`);
+
+    const openRouterError = new Error(`Copy chief model error ${response.status}: ${JSON.stringify(errorBody)}`);
+    captureEdgeFunctionError(openRouterError, {
+      functionName: 'analyze-and-iterate-ad',
+      additionalTags: {
+        error_type: 'openrouter_copychief_api_error',
+        status_code: response.status.toString(),
+        company_name: companyName,
+        error_message: errorBody?.error?.message || 'unknown'
+      }
+    });
+
+    throw openRouterError;
   }
 
   const payload = await response.json();
