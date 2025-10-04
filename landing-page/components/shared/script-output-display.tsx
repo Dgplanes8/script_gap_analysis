@@ -88,6 +88,128 @@ function stripTrailingCommas(value: string) {
   return value.replace(/,\s*(?=[}\]])/g, '');
 }
 
+function recoverStructuredDataFromJsonish(raw: string): ScriptGenerationData | null {
+  const contentTypeMatch = raw.match(/"contentType"\s*:\s*"(video|static)"/i);
+  if (!contentTypeMatch) {
+    return null;
+  }
+
+  const type = contentTypeMatch[1].toLowerCase() as 'video' | 'static';
+
+  if (type === 'video') {
+    const scenesBlock = extractJsonSection(raw, '"scenes"', '[', ']');
+    if (!scenesBlock) {
+      return null;
+    }
+
+    try {
+      const scenes = parseJsonWithRecovery(scenesBlock) as ScriptScene[];
+      return {
+        contentType: 'video',
+        script: { scenes: Array.isArray(scenes) ? scenes.filter(Boolean) : [] },
+        recommendations: [],
+        platformAdaptations: defaultPlatformAdaptations(),
+      };
+    } catch (_error) {
+      return null;
+    }
+  }
+
+  if (type === 'static') {
+    const staticBlock = extractJsonSection(raw, '"staticCopy"', '{', '}');
+    if (!staticBlock) {
+      return null;
+    }
+
+    try {
+      const staticCopy = parseJsonWithRecovery(staticBlock) as StaticCopy;
+      return {
+        contentType: 'static',
+        staticCopy,
+        recommendations: [],
+        platformAdaptations: defaultPlatformAdaptations(),
+      };
+    } catch (_error) {
+      return null;
+    }
+  }
+
+  return null;
+}
+
+function extractJsonSection(raw: string, key: string, openChar: '[' | '{', closeChar: ']' | '}'): string | null {
+  const keyIndex = raw.indexOf(key);
+  if (keyIndex === -1) {
+    return null;
+  }
+
+  const start = raw.indexOf(openChar, keyIndex);
+  if (start === -1) {
+    return null;
+  }
+
+  return sliceBalanced(raw, start, openChar, closeChar);
+}
+
+function sliceBalanced(text: string, startIndex: number, openChar: string, closeChar: string): string | null {
+  let depth = 0;
+  let inString = false;
+  let escape = false;
+  let start = -1;
+
+  for (let i = startIndex; i < text.length; i++) {
+    const char = text[i];
+
+    if (escape) {
+      escape = false;
+      continue;
+    }
+
+    if (char === '\\') {
+      escape = true;
+      continue;
+    }
+
+    if (char === '"') {
+      inString = !inString;
+      continue;
+    }
+
+    if (inString) {
+      continue;
+    }
+
+    if (char === openChar) {
+      depth += 1;
+      if (depth === 1) {
+        start = i;
+      }
+      continue;
+    }
+
+    if (char === closeChar) {
+      depth -= 1;
+      if (depth === 0) {
+        return text.slice(start, i + 1);
+      }
+      continue;
+    }
+  }
+
+  return null;
+}
+
+function defaultPlatformAdaptations(): PlatformAdaptations {
+  return {
+    tiktok: '',
+    instagram: '',
+    facebook: '',
+    x: '',
+    linkedin: '',
+    youtube: '',
+  };
+}
+
 function parseTextToScenes(text: string): ScriptScene[] {
   if (!text) return [];
 
@@ -408,6 +530,10 @@ export function ScriptOutputDisplay({
           // Parsing failed, fall back to raw script
         }
       }
+    }
+
+    if (!parsedData) {
+      parsedData = recoverStructuredDataFromJsonish(trimmed);
     }
   }
 

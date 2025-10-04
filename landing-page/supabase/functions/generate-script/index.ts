@@ -61,6 +61,48 @@ type RequestPayload = {
   adFormat?: 'video' | 'static';
 };
 
+type ScriptScene = {
+  timing?: string;
+  description?: string;
+  voiceover?: string;
+  onScreenText?: string;
+  cta?: string | null;
+};
+
+type StaticCopy = {
+  headline?: string;
+  subheadline?: string;
+  body?: string;
+  bullets?: string[];
+  cta?: string;
+  designNotes?: string;
+};
+
+type ScriptRecommendation = {
+  improvedElement?: string;
+  frameworkUsed?: string;
+  awarenessStage?: string;
+  rationale?: string;
+  testingStrategy?: string;
+};
+
+type PlatformAdaptations = {
+  tiktok?: string;
+  instagram?: string;
+  facebook?: string;
+  x?: string;
+  linkedin?: string;
+  youtube?: string;
+};
+
+type ScriptGenerationData = {
+  contentType: 'video' | 'static';
+  script?: { scenes: ScriptScene[] };
+  staticCopy?: StaticCopy;
+  recommendations?: ScriptRecommendation[];
+  platformAdaptations?: PlatformAdaptations;
+};
+
 async function trackToolUsage(
   supabase: any,
   data: {
@@ -500,31 +542,35 @@ serve(async (req) => {
                            structuredData.staticCopy &&
                            typeof structuredData.staticCopy === 'object';
 
-      if (!isValidVideo && !isValidStatic) {
-        // Invalid structure, fallback to raw content
-        structuredData = null;
-
-        // Track invalid JSON structure in Sentry
-        const invalidStructureError = new Error(`AI returned JSON with invalid structure for ${adFormat} format`);
-        captureEdgeFunctionError(invalidStructureError, {
-          functionName: 'generate-script',
-          additionalTags: {
-            error_type: 'json_invalid_structure',
-            user_id: user?.id || 'anonymous',
-            ad_format: adFormat,
-            has_content_type: 'contentType' in structuredData,
-            actual_content_type: structuredData.contentType || 'missing'
-          }
-        });
+      if (isValidVideo || isValidStatic) {
+        script = formatLegacyScript(structuredData as ScriptGenerationData);
       } else {
-        // Create a simplified script text for legacy compatibility
-        if (isValidVideo) {
-          script = structuredData.script.scenes.map((scene: any) =>
-            `[${scene.timing || 'Scene'}] ${scene.description || ''}\n${scene.voiceover || ''}${scene.onScreenText ? `\nText: ${scene.onScreenText}` : ''}${scene.cta ? `\nCTA: ${scene.cta}` : ''}`
-          ).join('\n\n');
-        } else if (isValidStatic) {
-          const copy = structuredData.staticCopy;
-          script = `${copy.headline || ''}\n\n${copy.subheadline || ''}\n\n${copy.body || ''}\n\n${(copy.bullets || []).map((b: string) => `• ${b}`).join('\n')}\n\n${copy.cta || ''}`;
+        const recovered = recoverStructuredDataFromJsonish(cleanedContent);
+        if (recovered) {
+          structuredData = recovered;
+          script = formatLegacyScript(recovered);
+        } else {
+          const invalidData = structuredData as Record<string, unknown> | null;
+          structuredData = null;
+
+          const invalidStructureError = new Error(`AI returned JSON with invalid structure for ${adFormat} format`);
+          const invalidContentType = (() => {
+            if (!invalidData) {
+              return 'missing';
+            }
+            const value = (invalidData as { contentType?: unknown }).contentType;
+            return typeof value === 'string' ? value : 'missing';
+          })();
+          captureEdgeFunctionError(invalidStructureError, {
+            functionName: 'generate-script',
+            additionalTags: {
+              error_type: 'json_invalid_structure',
+              user_id: user?.id || 'anonymous',
+              ad_format: adFormat,
+              has_content_type: invalidData ? Object.prototype.hasOwnProperty.call(invalidData, 'contentType') : false,
+              actual_content_type: invalidContentType
+            }
+          });
         }
       }
     }
@@ -552,9 +598,7 @@ serve(async (req) => {
                             structuredData.script.scenes.length > 0;
 
         if (isValidVideo) {
-          script = structuredData.script.scenes.map((scene: any) =>
-            `[${scene.timing || 'Scene'}] ${scene.description || ''}\n${scene.voiceover || ''}${scene.onScreenText ? `\nText: ${scene.onScreenText}` : ''}${scene.cta ? `\nCTA: ${scene.cta}` : ''}`
-          ).join('\n\n');
+          script = formatLegacyScript(structuredData as ScriptGenerationData);
         }
       }
     } catch (secondError) {
@@ -574,6 +618,14 @@ serve(async (req) => {
           content_preview: cleanedContent.substring(0, 200)
         }
       });
+    }
+  }
+
+  if (!structuredData) {
+    const recovered = recoverStructuredDataFromJsonish(cleanedContent);
+    if (recovered) {
+      structuredData = recovered;
+      script = formatLegacyScript(recovered);
     }
   }
 
@@ -863,6 +915,170 @@ function normalizeCompletionContent(content: unknown): string {
   }
 
   return '';
+}
+
+function formatLegacyScript(data: ScriptGenerationData): string {
+  if (data.contentType === 'video' && data.script?.scenes?.length) {
+    return data.script.scenes
+      .filter(Boolean)
+      .map((scene) => {
+        const safeScene = scene || {};
+        const timing = safeScene.timing || 'Scene';
+        const description = safeScene.description || '';
+        const voiceover = safeScene.voiceover || '';
+        const onScreenText = safeScene.onScreenText ? `\nText: ${safeScene.onScreenText}` : '';
+        const cta = safeScene.cta ? `\nCTA: ${safeScene.cta}` : '';
+        return `[${timing}] ${description}\n${voiceover}${onScreenText}${cta}`.trim();
+      })
+      .filter((block) => block.length > 0)
+      .join('\n\n');
+  }
+
+  if (data.contentType === 'static' && data.staticCopy) {
+    const copy = data.staticCopy;
+    const parts: string[] = [];
+    if (copy.headline) {
+      parts.push(copy.headline);
+    }
+    if (copy.subheadline) {
+      parts.push('', copy.subheadline);
+    }
+    if (copy.body) {
+      parts.push('', copy.body);
+    }
+    if (Array.isArray(copy.bullets) && copy.bullets.length > 0) {
+      parts.push('', copy.bullets.map((bullet) => `• ${bullet}`).join('\n'));
+    }
+    if (copy.cta) {
+      parts.push('', copy.cta);
+    }
+    return parts.join('\n');
+  }
+
+  return '';
+}
+
+function recoverStructuredDataFromJsonish(raw: string): ScriptGenerationData | null {
+  const contentTypeMatch = raw.match(/"contentType"\s*:\s*"(video|static)"/i);
+  if (!contentTypeMatch) {
+    return null;
+  }
+
+  const type = contentTypeMatch[1].toLowerCase() as 'video' | 'static';
+
+  if (type === 'video') {
+    const scenesBlock = extractJsonSection(raw, '"scenes"', '[', ']');
+    if (!scenesBlock) {
+      return null;
+    }
+
+    try {
+      const scenes = parseJsonWithRecovery(scenesBlock) as ScriptScene[];
+      return {
+        contentType: 'video',
+        script: { scenes: Array.isArray(scenes) ? scenes.filter(Boolean) : [] },
+        recommendations: [],
+        platformAdaptations: defaultPlatformAdaptations(),
+      };
+    } catch (_error) {
+      return null;
+    }
+  }
+
+  if (type === 'static') {
+    const staticBlock = extractJsonSection(raw, '"staticCopy"', '{', '}');
+    if (!staticBlock) {
+      return null;
+    }
+
+    try {
+      const staticCopy = parseJsonWithRecovery(staticBlock) as StaticCopy;
+      return {
+        contentType: 'static',
+        staticCopy,
+        recommendations: [],
+        platformAdaptations: defaultPlatformAdaptations(),
+      };
+    } catch (_error) {
+      return null;
+    }
+  }
+
+  return null;
+}
+
+function extractJsonSection(raw: string, key: string, openChar: '[' | '{', closeChar: ']' | '}'): string | null {
+  const keyIndex = raw.indexOf(key);
+  if (keyIndex === -1) {
+    return null;
+  }
+
+  const start = raw.indexOf(openChar, keyIndex);
+  if (start === -1) {
+    return null;
+  }
+
+  const section = sliceBalanced(raw, start, openChar, closeChar);
+  return section;
+}
+
+function sliceBalanced(text: string, startIndex: number, openChar: string, closeChar: string): string | null {
+  let depth = 0;
+  let inString = false;
+  let escape = false;
+  let start = -1;
+
+  for (let i = startIndex; i < text.length; i++) {
+    const char = text[i];
+
+    if (escape) {
+      escape = false;
+      continue;
+    }
+
+    if (char === '\\') {
+      escape = true;
+      continue;
+    }
+
+    if (char === '"') {
+      inString = !inString;
+      continue;
+    }
+
+    if (inString) {
+      continue;
+    }
+
+    if (char === openChar) {
+      depth += 1;
+      if (depth === 1) {
+        start = i;
+      }
+      continue;
+    }
+
+    if (char === closeChar) {
+      depth -= 1;
+      if (depth === 0) {
+        return text.slice(start, i + 1);
+      }
+      continue;
+    }
+  }
+
+  return null;
+}
+
+function defaultPlatformAdaptations(): PlatformAdaptations {
+  return {
+    tiktok: '',
+    instagram: '',
+    facebook: '',
+    x: '',
+    linkedin: '',
+    youtube: '',
+  };
 }
 
 function parseJsonWithRecovery(raw: string): any {
