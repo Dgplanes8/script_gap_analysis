@@ -827,15 +827,19 @@ This ad has been successfully ingested and can be referenced for creative patter
     const errorBody = await safeReadJson(completion);
     console.error("OpenRouter returned non-200", completion.status, errorBody);
 
+    // Determine specific error type
+    const errorType = completion.status === 429 ? 'openrouter_rate_limit' : 'openrouter_api_error';
+
     const openRouterError = new Error(`OpenRouter returned ${completion.status}: ${JSON.stringify(errorBody)}`);
     captureEdgeFunctionError(openRouterError, {
       functionName: 'analyze-and-iterate-ad',
       additionalTags: {
-        error_type: 'openrouter_api_error',
+        error_type: errorType,
         status_code: completion.status.toString(),
         user_id: user?.id || 'anonymous',
         ad_url: adUrl,
-        error_message: errorBody?.error?.message || 'unknown'
+        error_message: errorBody?.error?.message || 'unknown',
+        rate_limit_reset: completion.headers.get('x-ratelimit-reset') || 'unknown'
       }
     });
 
@@ -851,6 +855,20 @@ This ad has been successfully ingested and can be referenced for creative patter
 
   if (!parsedAnalysis.success) {
     console.error("Failed to parse analysis JSON", parsedAnalysis.error, messageContent);
+
+    // Track JSON parsing failure in Sentry
+    const jsonParseError = new Error(`Failed to parse iteration analysis JSON response`);
+    captureEdgeFunctionError(jsonParseError, {
+      functionName: 'analyze-and-iterate-ad',
+      additionalTags: {
+        error_type: 'json_parsing_failure',
+        user_id: user?.id || 'anonymous',
+        ad_url: adUrl,
+        parse_error: parsedAnalysis.error,
+        content_preview: String(messageContent).substring(0, 200)
+      }
+    });
+
     return new Response(JSON.stringify({ error: "Model response could not be parsed" }), {
       status: 502,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -923,6 +941,20 @@ This ad has been successfully ingested and can be referenced for creative patter
 
   if (creditError || !updatedProfile) {
     console.error("Failed to decrement credits", creditError);
+
+    // Track credit deduction failure in Sentry
+    const creditDeductionError = new Error(`Credit deduction failed after successful iteration analysis`);
+    captureEdgeFunctionError(creditDeductionError, {
+      functionName: 'analyze-and-iterate-ad',
+      additionalTags: {
+        error_type: 'credit_deduction_failure',
+        user_id: user?.id || 'unknown',
+        credits_before: creditsRemaining.toString(),
+        ad_url: adUrl,
+        error_message: creditError?.message || 'no_updated_profile'
+      }
+    });
+
     return new Response(JSON.stringify({ error: "Failed to decrement credits" }), {
       status: 409,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -1374,14 +1406,18 @@ async function runCopyChiefReview(params: {
   if (!response.ok) {
     const errorBody = await safeReadJson(response);
 
+    // Determine specific error type
+    const errorType = response.status === 429 ? 'openrouter_copychief_rate_limit' : 'openrouter_copychief_api_error';
+
     const openRouterError = new Error(`Copy chief model error ${response.status}: ${JSON.stringify(errorBody)}`);
     captureEdgeFunctionError(openRouterError, {
       functionName: 'analyze-and-iterate-ad',
       additionalTags: {
-        error_type: 'openrouter_copychief_api_error',
+        error_type: errorType,
         status_code: response.status.toString(),
         company_name: companyName,
-        error_message: errorBody?.error?.message || 'unknown'
+        error_message: errorBody?.error?.message || 'unknown',
+        rate_limit_reset: response.headers.get('x-ratelimit-reset') || 'unknown'
       }
     });
 

@@ -333,10 +333,27 @@ serve(async (req) => {
       })
       .eq("id", jobId);
 
-    await adminClient.rpc("consume_creative_brief_credit", {
+    const { error: creditError } = await adminClient.rpc("consume_creative_brief_credit", {
       p_user_id: userId,
       p_cost: creditCost,
     });
+
+    if (creditError) {
+      console.error("Failed to consume credits", creditError);
+
+      // Track credit deduction failure in Sentry
+      const creditDeductionError = new Error(`Credit deduction failed after successful brief generation`);
+      captureEdgeFunctionError(creditDeductionError, {
+        functionName: 'generate-brief',
+        additionalTags: {
+          error_type: 'credit_deduction_failure',
+          user_id: userId,
+          credit_cost: creditCost.toString(),
+          mode: processedMode,
+          error_message: creditError.message || 'unknown'
+        }
+      });
+    }
 
     const previewSnippet = buildPreviewSnippet(structuredBrief);
     await adminClient
@@ -553,6 +570,20 @@ async function runBriefSynthesisCall(
     return parsed;
   } catch (error) {
     console.error("Failed to parse brief JSON", rawResponse, error);
+
+    // Track JSON parsing failure in Sentry
+    const jsonParseError = new Error(`Failed to parse brief JSON response`);
+    captureEdgeFunctionError(jsonParseError, {
+      functionName: 'generate-brief',
+      additionalTags: {
+        error_type: 'json_parsing_failure',
+        mode: mode,
+        model: model,
+        parse_error: String(error),
+        content_preview: rawResponse.substring(0, 200)
+      }
+    });
+
     throw new Error("Model response was not valid JSON");
   }
 }
@@ -575,13 +606,17 @@ async function callOpenRouter(model: string, messages: Array<{ role: "system" | 
     const errorBody = await response.text();
     console.error("OpenRouter call failed", response.status, errorBody);
 
+    // Determine specific error type
+    const errorType = response.status === 429 ? 'openrouter_rate_limit' : 'openrouter_api_error';
+
     const openRouterError = new Error(`OpenRouter request failed with status ${response.status}: ${errorBody}`);
     captureEdgeFunctionError(openRouterError, {
       functionName: 'generate-brief',
       additionalTags: {
-        error_type: 'openrouter_api_error',
+        error_type: errorType,
         status_code: response.status.toString(),
-        model: model
+        model: model,
+        rate_limit_reset: response.headers.get('x-ratelimit-reset') || 'unknown'
       }
     });
 

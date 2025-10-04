@@ -421,14 +421,18 @@ serve(async (req) => {
     const errorBody = await safeReadJson(completion);
     console.error("OpenRouter request returned non-200", completion.status, errorBody);
 
+    // Determine specific error type
+    const errorType = completion.status === 429 ? 'openrouter_rate_limit' : 'openrouter_api_error';
+
     const openRouterError = new Error(`OpenRouter returned ${completion.status}: ${JSON.stringify(errorBody)}`);
     captureEdgeFunctionError(openRouterError, {
       functionName: 'generate-script',
       additionalTags: {
-        error_type: 'openrouter_api_error',
+        error_type: errorType,
         status_code: completion.status.toString(),
         user_id: user?.id || 'anonymous',
-        error_message: errorBody?.error?.message || 'unknown'
+        error_message: errorBody?.error?.message || 'unknown',
+        rate_limit_reset: completion.headers.get('x-ratelimit-reset') || 'unknown'
       }
     });
 
@@ -439,7 +443,7 @@ serve(async (req) => {
   }
 
   const completionData = await completion.json();
-  const rawContent = completionData?.choices?.[0]?.message?.content;
+  const rawContent = normalizeCompletionContent(completionData?.choices?.[0]?.message?.content);
 
   if (!rawContent) {
     const emptyResponseError = new Error('OpenRouter returned empty content');
@@ -463,11 +467,18 @@ serve(async (req) => {
   // Clean up the content and try to extract JSON
   let cleanedContent = rawContent.trim();
 
-  // Remove markdown code block markers if present
-  if (cleanedContent.startsWith('```json')) {
-    cleanedContent = cleanedContent.replace(/^```json\n/, '').replace(/\n```$/, '');
-  } else if (cleanedContent.startsWith('```')) {
-    cleanedContent = cleanedContent.replace(/^```\n/, '').replace(/\n```$/, '');
+  // Remove markdown code block markers if present (handle ```json, ``` json, ```)
+  if (cleanedContent.startsWith('```')) {
+    cleanedContent = cleanedContent
+      .replace(/^```(?:json)?\s*/i, '')
+      .replace(/```\s*$/, '');
+    cleanedContent = cleanedContent.trim();
+  }
+
+  // Drop any leading text before the first JSON object
+  const jsonStart = cleanedContent.indexOf('{');
+  if (jsonStart > 0) {
+    cleanedContent = cleanedContent.substring(jsonStart);
   }
 
   // Remove any trailing text after the JSON block
@@ -492,6 +503,19 @@ serve(async (req) => {
       if (!isValidVideo && !isValidStatic) {
         // Invalid structure, fallback to raw content
         structuredData = null;
+
+        // Track invalid JSON structure in Sentry
+        const invalidStructureError = new Error(`AI returned JSON with invalid structure for ${adFormat} format`);
+        captureEdgeFunctionError(invalidStructureError, {
+          functionName: 'generate-script',
+          additionalTags: {
+            error_type: 'json_invalid_structure',
+            user_id: user?.id || 'anonymous',
+            ad_format: adFormat,
+            has_content_type: 'contentType' in structuredData,
+            actual_content_type: structuredData.contentType || 'missing'
+          }
+        });
       } else {
         // Create a simplified script text for legacy compatibility
         if (isValidVideo) {
@@ -536,6 +560,20 @@ serve(async (req) => {
     } catch (secondError) {
       // Both attempts failed, use raw content as fallback
       structuredData = null;
+
+      // Track JSON parsing failure in Sentry
+      const jsonParseError = new Error(`Failed to parse AI JSON response after two attempts`);
+      captureEdgeFunctionError(jsonParseError, {
+        functionName: 'generate-script',
+        additionalTags: {
+          error_type: 'json_parsing_failure',
+          user_id: user?.id || 'anonymous',
+          ad_format: adFormat,
+          first_error: String(parseError),
+          second_error: String(secondError),
+          content_preview: cleanedContent.substring(0, 200)
+        }
+      });
     }
   }
 
@@ -613,6 +651,19 @@ serve(async (req) => {
 
   if (creditUpdateError || !updatedProfile) {
     console.error("Failed to decrement credits", creditUpdateError);
+
+    // Track credit deduction failure in Sentry
+    const creditError = new Error(`Credit deduction failed after successful script generation`);
+    captureEdgeFunctionError(creditError, {
+      functionName: 'generate-script',
+      additionalTags: {
+        error_type: 'credit_deduction_failure',
+        user_id: user?.id || 'unknown',
+        credits_before: creditsRemaining.toString(),
+        error_message: creditUpdateError?.message || 'no_updated_profile'
+      }
+    });
+
     return new Response(JSON.stringify({ error: "Failed to decrement credits" }), {
       status: 409,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -776,6 +827,42 @@ CRITICAL OUTPUT REQUIREMENTS:
 - If hitting token limits, include scenes/staticCopy and recommendations first, platformAdaptations second
 - Ensure all JSON strings are properly escaped (use \\" for quotes)
 `;
+}
+
+function normalizeCompletionContent(content: unknown): string {
+  if (!content) {
+    return '';
+  }
+
+  if (typeof content === 'string') {
+    return content;
+  }
+
+  if (Array.isArray(content)) {
+    return content
+      .map((item) => {
+        if (!item) {
+          return '';
+        }
+        if (typeof item === 'string') {
+          return item;
+        }
+        if (typeof item === 'object' && 'text' in item) {
+          const text = (item as { text?: unknown }).text;
+          return typeof text === 'string' ? text : '';
+        }
+        return '';
+      })
+      .filter((value) => value.length > 0)
+      .join('\n');
+  }
+
+  if (typeof content === 'object' && 'text' in (content as Record<string, unknown>)) {
+    const text = (content as { text?: unknown }).text;
+    return typeof text === 'string' ? text : '';
+  }
+
+  return '';
 }
 
 async function safeReadJson(response: Response) {

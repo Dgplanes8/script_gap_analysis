@@ -207,6 +207,24 @@ async function ingestMetaAssetDirect(supabaseAdmin: SupabaseClient, bucketName: 
 
   if (uploadResult.error) {
     console.error("Meta asset upload failed", uploadResult.error);
+
+    // Track storage upload failure in Sentry
+    try {
+      const { captureEdgeFunctionError } = await import("../_shared/sentry.ts");
+      const storageError = new Error(`Storage upload failed: ${uploadResult.error.message}`);
+      captureEdgeFunctionError(storageError, {
+        functionName: 'analyze-and-iterate-ad',
+        additionalTags: {
+          error_type: 'storage_upload_failure',
+          storage_path: storagePath,
+          content_type: contentType,
+          error_message: uploadResult.error.message || 'unknown'
+        }
+      });
+    } catch (_sentryError) {
+      // Silently fail if Sentry import fails
+    }
+
     throw new SocialIngestionError("Failed to persist Meta asset.", 500);
   }
 
@@ -505,6 +523,23 @@ async function callApifyActor(adId: string, apifyToken: string): Promise<ApifyFa
     const errorText = await response.text();
     console.error(`Apify actor failed with status ${response.status}`);
     console.error(`Error response:`, errorText);
+
+    // Track Apify API failure in Sentry
+    try {
+      const { captureEdgeFunctionError } = await import("../_shared/sentry.ts");
+      const apifyError = new Error(`Apify actor failed with status ${response.status}`);
+      captureEdgeFunctionError(apifyError, {
+        functionName: 'analyze-and-iterate-ad',
+        additionalTags: {
+          error_type: 'apify_api_failure',
+          status_code: response.status.toString(),
+          error_response: errorText.substring(0, 200)
+        }
+      });
+    } catch (_sentryError) {
+      // Silently fail if Sentry import fails
+    }
+
     return null;
   }
 
@@ -647,6 +682,24 @@ async function fetchMetaAssetViaApify(pageUrl: URL, supabaseAdmin: SupabaseClien
 
   if (uploadResult.error) {
     console.error("Meta asset upload failed", uploadResult.error);
+
+    // Track storage upload failure in Sentry
+    try {
+      const { captureEdgeFunctionError } = await import("../_shared/sentry.ts");
+      const storageError = new Error(`Storage upload failed: ${uploadResult.error.message}`);
+      captureEdgeFunctionError(storageError, {
+        functionName: 'analyze-and-iterate-ad',
+        additionalTags: {
+          error_type: 'storage_upload_failure',
+          storage_path: storagePath,
+          content_type: contentType,
+          error_message: uploadResult.error.message || 'unknown'
+        }
+      });
+    } catch (_sentryError) {
+      // Silently fail if Sentry import fails
+    }
+
     throw new SocialIngestionError("Failed to persist Meta asset.", 500);
   }
 

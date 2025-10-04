@@ -334,13 +334,36 @@ export function ScriptOutputDisplay({
   script: string;
   structuredData?: ScriptGenerationData | null;
 }) {
+  const normalizedScript = typeof script === 'string' ? script : '';
+  const fenceStrippedScript = normalizedScript.startsWith('```')
+    ? normalizedScript.replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '').trim()
+    : normalizedScript;
+
   // Try to parse JSON from script if structuredData is null but script looks like JSON
   let parsedData = structuredData;
-  if (!structuredData && script && script.trim().startsWith('{')) {
-    try {
-      parsedData = JSON.parse(script);
-    } catch (e) {
-      // Parsing failed, use raw script
+  if (!parsedData && fenceStrippedScript) {
+    const trimmed = fenceStrippedScript.trim();
+
+    if (trimmed.startsWith('{')) {
+      try {
+        parsedData = JSON.parse(trimmed);
+      } catch (_error) {
+        // fall through to substring approach
+      }
+    }
+
+    if (!parsedData) {
+      const startIndex = trimmed.indexOf('{');
+      const endIndex = trimmed.lastIndexOf('}');
+
+      if (startIndex !== -1 && endIndex > startIndex) {
+        const candidate = trimmed.slice(startIndex, endIndex + 1);
+        try {
+          parsedData = JSON.parse(candidate);
+        } catch (_error) {
+          // Parsing failed, fall back to raw script
+        }
+      }
     }
   }
 
@@ -365,7 +388,7 @@ export function ScriptOutputDisplay({
   }
 
   // Parse text script into scenes if it follows the timing pattern
-  const textScenes = parseTextToScenes(script);
+  const textScenes = parseTextToScenes(fenceStrippedScript);
 
   if (textScenes.length > 0) {
     // Render as structured script even if from text format
@@ -393,7 +416,7 @@ export function ScriptOutputDisplay({
         </div>
         <div className="rounded-xl border border-[#D0E3FF] bg-white/80 p-6">
           <div className="whitespace-pre-wrap text-sm leading-relaxed text-[#111827]">
-            {script}
+            {fenceStrippedScript}
           </div>
         </div>
       </section>
