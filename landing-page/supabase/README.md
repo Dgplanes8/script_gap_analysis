@@ -14,8 +14,8 @@ Set the following values via `supabase secrets set` (or environment variables wh
 | `SUPABASE_ANON_KEY` | Public anon key used for auth token verification |
 | `SUPABASE_SERVICE_ROLE_KEY` | Service role key used by edge functions to bypass RLS when updating credits |
 | `OPENROUTER_API_KEY` | Secret for OpenRouter completions API |
-| `OPENROUTER_PRIMARY_MODEL` | Primary model ID for brief synthesis (defaults to `x-ai/grok-4-fast:free`) |
-| `OPENROUTER_RESEARCH_MODEL` | Secondary model for research augmentation (defaults to `x-ai/grok-4-fast:free`) |
+| `OPENROUTER_PRIMARY_MODEL` | Primary model ID for brief synthesis (defaults to `anthropic/claude-sonnet-4.5`) |
+| `OPENROUTER_RESEARCH_MODEL` | Secondary model for research augmentation (defaults to `anthropic/claude-sonnet-4.5`) |
 | `OPENROUTER_BASE_URL` | Optional override if routing through a proxy |
 | `STRIPE_SECRET_KEY` | Stripe server key used by checkout + webhook functions |
 | `STRIPE_PRICE_ID` | Default price ID for credit purchase products |

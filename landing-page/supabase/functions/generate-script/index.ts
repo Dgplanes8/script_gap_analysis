@@ -385,7 +385,7 @@ serve(async (req) => {
         "X-Title": "AI Ad Script Generator",
       },
       body: JSON.stringify({
-        model: "x-ai/grok-4-fast:free",
+        model: "anthropic/claude-sonnet-4.5",
         messages: [
           {
             role: "system",

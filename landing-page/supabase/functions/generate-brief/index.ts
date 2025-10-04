@@ -6,8 +6,8 @@ const supabaseUrl = Deno.env.get("EDGE_SUPABASE_URL") ?? Deno.env.get("SUPABASE_
 const serviceRoleKey = Deno.env.get("EDGE_SUPABASE_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 const anonKey = Deno.env.get("EDGE_SUPABASE_ANON_KEY") ?? Deno.env.get("SUPABASE_ANON_KEY");
 const openRouterApiKey = Deno.env.get("OPENROUTER_API_KEY");
-const primaryModel = Deno.env.get("OPENROUTER_PRIMARY_MODEL") ?? "x-ai/grok-4-fast:free";
-const researchModel = Deno.env.get("OPENROUTER_RESEARCH_MODEL") ?? "x-ai/grok-4-fast:free";
+const primaryModel = Deno.env.get("OPENROUTER_PRIMARY_MODEL") ?? "anthropic/claude-sonnet-4.5";
+const researchModel = Deno.env.get("OPENROUTER_RESEARCH_MODEL") ?? "anthropic/claude-sonnet-4.5";
 const openRouterBaseUrl = Deno.env.get("OPENROUTER_BASE_URL") ?? "https://openrouter.ai/api/v1";
 const briefRenderWebhook = Deno.env.get("BRIEF_RENDER_WEBHOOK");
 
