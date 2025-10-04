@@ -574,6 +574,17 @@ async function callOpenRouter(model: string, messages: Array<{ role: "system" | 
   if (!response.ok) {
     const errorBody = await response.text();
     console.error("OpenRouter call failed", response.status, errorBody);
+
+    const openRouterError = new Error(`OpenRouter request failed with status ${response.status}: ${errorBody}`);
+    captureEdgeFunctionError(openRouterError, {
+      functionName: 'generate-brief',
+      additionalTags: {
+        error_type: 'openrouter_api_error',
+        status_code: response.status.toString(),
+        model: model
+      }
+    });
+
     throw new Error(`OpenRouter request failed with status ${response.status}`);
   }
 
@@ -581,7 +592,15 @@ async function callOpenRouter(model: string, messages: Array<{ role: "system" | 
   const choices = data?.choices;
   const message = choices?.[0]?.message?.content;
   if (!message || typeof message !== "string") {
-    throw new Error("OpenRouter response missing message content");
+    const emptyResponseError = new Error("OpenRouter response missing message content");
+    captureEdgeFunctionError(emptyResponseError, {
+      functionName: 'generate-brief',
+      additionalTags: {
+        error_type: 'openrouter_empty_response',
+        model: model
+      }
+    });
+    throw emptyResponseError;
   }
 
   return message.trim();

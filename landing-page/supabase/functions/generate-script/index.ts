@@ -404,6 +404,13 @@ serve(async (req) => {
     });
   } catch (networkError) {
     console.error("Failed to call OpenRouter", networkError);
+    captureEdgeFunctionError(networkError, {
+      functionName: 'generate-script',
+      additionalTags: {
+        error_type: 'openrouter_network_error',
+        user_id: user?.id || 'anonymous'
+      }
+    });
     return new Response(JSON.stringify({ error: "OpenRouter request failed", details: String(networkError) }), {
       status: 502,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -413,6 +420,18 @@ serve(async (req) => {
   if (!completion.ok) {
     const errorBody = await safeReadJson(completion);
     console.error("OpenRouter request returned non-200", completion.status, errorBody);
+
+    const openRouterError = new Error(`OpenRouter returned ${completion.status}: ${JSON.stringify(errorBody)}`);
+    captureEdgeFunctionError(openRouterError, {
+      functionName: 'generate-script',
+      additionalTags: {
+        error_type: 'openrouter_api_error',
+        status_code: completion.status.toString(),
+        user_id: user?.id || 'anonymous',
+        error_message: errorBody?.error?.message || 'unknown'
+      }
+    });
+
     return new Response(JSON.stringify({ error: "OpenRouter request failed", details: errorBody }), {
       status: 502,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -423,6 +442,14 @@ serve(async (req) => {
   const rawContent = completionData?.choices?.[0]?.message?.content;
 
   if (!rawContent) {
+    const emptyResponseError = new Error('OpenRouter returned empty content');
+    captureEdgeFunctionError(emptyResponseError, {
+      functionName: 'generate-script',
+      additionalTags: {
+        error_type: 'openrouter_empty_response',
+        user_id: user?.id || 'anonymous'
+      }
+    });
     return new Response(JSON.stringify({ error: "Our AI is having trouble right now. Please try again in a moment." }), {
       status: 502,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
