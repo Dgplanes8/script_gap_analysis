@@ -17,6 +17,7 @@ interface PackageCheckoutFormProps {
 interface FormState {
   name: string;
   email: string;
+  password: string;
   company: string;
   website: string;
 }
@@ -33,6 +34,7 @@ export function PackageCheckoutForm({
   const [formState, setFormState] = useState<FormState>({
     name: '',
     email: '',
+    password: '',
     company: '',
     website: '',
   });
@@ -59,6 +61,7 @@ export function PackageCheckoutForm({
         body: JSON.stringify({
           name: formState.name,
           email: formState.email,
+          password: formState.password,
           company: formState.company,
           website: formState.website,
           packageInterest: packageName,
@@ -124,6 +127,18 @@ export function PackageCheckoutForm({
             onChange={handleChange('email')}
             required
           />
+        </div>
+        <div>
+          <input
+            type="password"
+            placeholder="Password (at least 8 characters)"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
+            value={formState.password}
+            onChange={handleChange('password')}
+            minLength={8}
+            required
+          />
+          <p className="text-xs text-gray-500 mt-1">You'll use this to log in after checkout</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <input

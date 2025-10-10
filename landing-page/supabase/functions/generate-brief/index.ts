@@ -1,6 +1,11 @@
 import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
 import { captureEdgeFunctionError } from "../_shared/sentry.ts";
+import {
+  normalizeOpenRouterContent,
+  stripMarkdownFence,
+  parseJsonWithRecovery,
+} from "../_shared/openrouter.ts";
 
 const supabaseUrl = Deno.env.get("EDGE_SUPABASE_URL") ?? Deno.env.get("SUPABASE_URL");
 const serviceRoleKey = Deno.env.get("EDGE_SUPABASE_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
@@ -566,12 +571,10 @@ async function runBriefSynthesisCall(
   const rawResponse = await callOpenRouter(model, messages, mode === "advanced" ? 0.3 : 0.4);
 
   try {
-    const parsed = JSON.parse(rawResponse) as StructuredBrief;
-    return parsed;
+    return parseJsonWithRecovery<StructuredBrief>(rawResponse);
   } catch (error) {
     console.error("Failed to parse brief JSON", rawResponse, error);
 
-    // Track JSON parsing failure in Sentry
     const jsonParseError = new Error(`Failed to parse brief JSON response`);
     captureEdgeFunctionError(jsonParseError, {
       functionName: 'generate-brief',
@@ -625,8 +628,11 @@ async function callOpenRouter(model: string, messages: Array<{ role: "system" | 
 
   const data = await response.json();
   const choices = data?.choices;
-  const message = choices?.[0]?.message?.content;
-  if (!message || typeof message !== "string") {
+  const messageContent = normalizeOpenRouterContent(choices?.[0]?.message?.content);
+  const stripped = stripMarkdownFence(messageContent);
+  const normalized = (stripped || messageContent).trim();
+
+  if (!normalized) {
     const emptyResponseError = new Error("OpenRouter response missing message content");
     captureEdgeFunctionError(emptyResponseError, {
       functionName: 'generate-brief',
@@ -638,7 +644,7 @@ async function callOpenRouter(model: string, messages: Array<{ role: "system" | 
     throw emptyResponseError;
   }
 
-  return message.trim();
+  return normalized;
 }
 
 

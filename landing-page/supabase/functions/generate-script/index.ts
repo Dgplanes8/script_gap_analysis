@@ -2,6 +2,12 @@ import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
 import { basePrompt } from "./prompt.ts";
 import { captureEdgeFunctionError } from "../_shared/sentry.ts";
+import {
+  normalizeOpenRouterContent,
+  parseJsonWithRecovery,
+  stripMarkdownFence,
+  sliceBalanced,
+} from "../_shared/openrouter.ts";
 
 function buildCorsHeaders(req: Request): Record<string, string> {
   const origin = req.headers.get("origin") ?? "*";
@@ -485,7 +491,7 @@ serve(async (req) => {
   }
 
   const completionData = await completion.json();
-  const rawContent = normalizeCompletionContent(completionData?.choices?.[0]?.message?.content);
+  const rawContent = normalizeOpenRouterContent(completionData?.choices?.[0]?.message?.content);
 
   if (!rawContent) {
     const emptyResponseError = new Error('OpenRouter returned empty content');
@@ -507,14 +513,10 @@ serve(async (req) => {
   let script = rawContent;
 
   // Clean up the content and try to extract JSON
-  let cleanedContent = rawContent.trim();
+  let cleanedContent = stripMarkdownFence(rawContent);
 
-  // Remove markdown code block markers if present (handle ```json, ``` json, ```)
-  if (cleanedContent.startsWith('```')) {
-    cleanedContent = cleanedContent
-      .replace(/^```(?:json)?\s*/i, '')
-      .replace(/```\s*$/, '');
-    cleanedContent = cleanedContent.trim();
+  if (!cleanedContent) {
+    cleanedContent = rawContent.trim();
   }
 
   // Drop any leading text before the first JSON object
@@ -881,42 +883,6 @@ CRITICAL OUTPUT REQUIREMENTS:
 `;
 }
 
-function normalizeCompletionContent(content: unknown): string {
-  if (!content) {
-    return '';
-  }
-
-  if (typeof content === 'string') {
-    return content;
-  }
-
-  if (Array.isArray(content)) {
-    return content
-      .map((item) => {
-        if (!item) {
-          return '';
-        }
-        if (typeof item === 'string') {
-          return item;
-        }
-        if (typeof item === 'object' && 'text' in item) {
-          const text = (item as { text?: unknown }).text;
-          return typeof text === 'string' ? text : '';
-        }
-        return '';
-      })
-      .filter((value) => value.length > 0)
-      .join('\n');
-  }
-
-  if (typeof content === 'object' && 'text' in (content as Record<string, unknown>)) {
-    const text = (content as { text?: unknown }).text;
-    return typeof text === 'string' ? text : '';
-  }
-
-  return '';
-}
-
 function formatLegacyScript(data: ScriptGenerationData): string {
   if (data.contentType === 'video' && data.script?.scenes?.length) {
     return data.script.scenes
@@ -1018,56 +984,7 @@ function extractJsonSection(raw: string, key: string, openChar: '[' | '{', close
     return null;
   }
 
-  const section = sliceBalanced(raw, start, openChar, closeChar);
-  return section;
-}
-
-function sliceBalanced(text: string, startIndex: number, openChar: string, closeChar: string): string | null {
-  let depth = 0;
-  let inString = false;
-  let escape = false;
-  let start = -1;
-
-  for (let i = startIndex; i < text.length; i++) {
-    const char = text[i];
-
-    if (escape) {
-      escape = false;
-      continue;
-    }
-
-    if (char === '\\') {
-      escape = true;
-      continue;
-    }
-
-    if (char === '"') {
-      inString = !inString;
-      continue;
-    }
-
-    if (inString) {
-      continue;
-    }
-
-    if (char === openChar) {
-      depth += 1;
-      if (depth === 1) {
-        start = i;
-      }
-      continue;
-    }
-
-    if (char === closeChar) {
-      depth -= 1;
-      if (depth === 0) {
-        return text.slice(start, i + 1);
-      }
-      continue;
-    }
-  }
-
-  return null;
+  return sliceBalanced(raw, start, openChar, closeChar);
 }
 
 function defaultPlatformAdaptations(): PlatformAdaptations {
@@ -1079,51 +996,6 @@ function defaultPlatformAdaptations(): PlatformAdaptations {
     linkedin: '',
     youtube: '',
   };
-}
-
-function parseJsonWithRecovery(raw: string): any {
-  const attempts: string[] = [];
-
-  const trimmed = raw.trim();
-  if (trimmed.length > 0) {
-    attempts.push(trimmed);
-  }
-
-  const withoutSmartQuotes = replaceSmartQuotes(trimmed);
-  if (withoutSmartQuotes !== trimmed) {
-    attempts.push(withoutSmartQuotes);
-  }
-
-  const withoutTrailingCommas = stripTrailingCommas(trimmed);
-  if (withoutTrailingCommas !== trimmed) {
-    attempts.push(withoutTrailingCommas);
-  }
-
-  const combined = stripTrailingCommas(withoutSmartQuotes);
-  if (combined !== trimmed && combined !== withoutSmartQuotes && combined !== withoutTrailingCommas) {
-    attempts.push(combined);
-  }
-
-  for (const candidate of attempts) {
-    try {
-      return JSON.parse(candidate);
-    } catch (_error) {
-      // try next candidate
-    }
-  }
-
-  // Final attempt with original string to surface error context
-  return JSON.parse(trimmed);
-}
-
-function replaceSmartQuotes(value: string): string {
-  return value
-    .replace(/[\u201C\u201D]/g, '"')
-    .replace(/[\u2018\u2019]/g, "'");
-}
-
-function stripTrailingCommas(value: string): string {
-  return value.replace(/,\s*(?=[}\]])/g, '');
 }
 
 async function safeReadJson(response: Response) {

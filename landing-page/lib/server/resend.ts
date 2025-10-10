@@ -22,6 +22,58 @@ function parseRecipients(raw: string | undefined): string[] {
     .filter(Boolean);
 }
 
+interface SendCustomerEmailParams {
+  to: string;
+  subject: string;
+  text: string;
+  html?: string;
+}
+
+export async function sendCustomerEmail({ to, subject, text, html }: SendCustomerEmailParams): Promise<SendEmailResult> {
+  const apiKey = process.env.RESEND_API_KEY;
+  const fromAddress = process.env.RESEND_FROM_EMAIL || 'Brian at APSICS Media <brian@apsicsmedia.com>';
+
+  if (!apiKey) {
+    return { success: false, error: 'RESEND_API_KEY is not configured.' };
+  }
+
+  const payload: Record<string, unknown> = {
+    from: fromAddress,
+    to: [to],
+    subject,
+    text,
+  };
+
+  if (html) {
+    payload.html = html;
+  }
+
+  try {
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      return {
+        success: false,
+        error: errorText || 'Resend API returned an error.',
+        status: response.status,
+      };
+    }
+
+    return { success: true };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Unknown error sending email via Resend.';
+    return { success: false, error: message };
+  }
+}
+
 export async function sendInternalEmail({ subject, text, html, replyTo }: SendEmailParams): Promise<SendEmailResult> {
   const apiKey = process.env.RESEND_API_KEY;
   const fromAddress = process.env.RESEND_FROM_EMAIL || 'Brian at APSICS Media <brian@apsicsmedia.com>';

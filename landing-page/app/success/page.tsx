@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { ArrowRight, CheckCircle, Mail, Rocket, Sparkles } from 'lucide-react';
+import { SuccessPageClient } from './success-client';
 
 export const metadata: Metadata = {
   title: 'Thank You - Apsics Media',
@@ -52,6 +53,7 @@ export default function SuccessPage({
   const leadId = searchParams?.lead;
 
   return (
+    <SuccessPageClient leadId={leadId}>
     <main className="min-h-screen">
       <section className="bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900 text-white py-20 lg:py-24">
         <div className="max-w-5xl mx-auto px-6 text-center">
@@ -145,5 +147,6 @@ export default function SuccessPage({
         </div>
       </section>
     </main>
+    </SuccessPageClient>
   );
 }

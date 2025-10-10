@@ -15,6 +15,7 @@ import { sendInternalEmail } from '@/lib/server/resend';
 
 const checkoutSchema = z.object({
   email: z.string().email(),
+  password: z.string().min(8).optional(),
   name: z.string().optional(),
   company: z.string().optional(),
   website: z.string().optional(),
@@ -107,6 +108,7 @@ export async function POST(request: NextRequest) {
 
   const payload = parseResult.data;
   const email = payload.email.trim().toLowerCase();
+  const password = payload.password?.trim();
   const name = payload.name?.trim() || null;
   const company = payload.company?.trim() || null;
   const website = payload.website?.trim() || null;
@@ -124,6 +126,39 @@ export async function POST(request: NextRequest) {
   const supabase = getSupabaseServerClient();
   const metadata = buildLeadMetadata(payload, request, source);
   const leadType = normaliseLeadType('paid_package');
+
+  // Create user account if password is provided
+  let userId: string | null = null;
+  if (password) {
+    try {
+      const { data: authData, error: authError } = await supabase.auth.admin.createUser({
+        email,
+        password,
+        email_confirm: true, // Auto-confirm email since they're paying
+        user_metadata: {
+          name,
+          company,
+          package_interest: packageInterest,
+        },
+      });
+
+      if (authError) {
+        console.error('Failed to create user account', authError);
+        return withCors(
+          NextResponse.json({ error: 'Failed to create account. Please try again.' }, { status: 500 }),
+          allowedOrigin
+        );
+      }
+
+      userId = authData.user?.id || null;
+    } catch (error) {
+      console.error('User creation exception', error);
+      return withCors(
+        NextResponse.json({ error: 'Failed to create account. Please try again.' }, { status: 500 }),
+        allowedOrigin
+      );
+    }
+  }
 
   let insertedLead: { id: string; created_at: string } | null = null;
   let insertError: any = null;
@@ -197,6 +232,7 @@ export async function POST(request: NextRequest) {
       cancel_url: cancelUrl,
       metadata: {
         lead_id: insertedLead.id,
+        user_id: userId || '',
         package_interest: packageInterest,
         source: source || 'unknown',
         ...(payload.metadata ? Object.fromEntries(Object.entries(payload.metadata).map(([key, value]) => [key, String(value)])) : {}),
