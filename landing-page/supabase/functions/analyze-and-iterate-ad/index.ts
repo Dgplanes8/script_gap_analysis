@@ -1378,7 +1378,7 @@ async function runCopyChiefReview(params: {
       body: JSON.stringify({
         model: "anthropic/claude-sonnet-4.5",
         temperature: 0.2,
-        max_tokens: 1200,
+        max_tokens: 3000,
         messages: [
           {
             role: "system",

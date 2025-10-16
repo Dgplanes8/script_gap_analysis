@@ -9,6 +9,7 @@ import clsx from 'clsx';
 import type { BrowserClient } from '@/lib/supabase/browser-client';
 import { handleAuthSuccess } from '@/lib/utils/supabase-helpers';
 import { ContactInfo } from './contact-info';
+import { PasswordResetForm } from '@/components/auth/password-reset-form';
 import {
   Dialog,
   DialogContent,
@@ -46,6 +47,7 @@ export function AuthModal({
   const [password, setPassword] = useState('');
   const [busy, setBusy] = useState(false);
   const [authError, setAuthError] = useState<string | null>(null);
+  const [showPasswordReset, setShowPasswordReset] = useState(false);
 
   const getToolNames = () => ({
     script: 'scripts',
@@ -96,6 +98,7 @@ export function AuthModal({
     setAuthError(null);
     setBusy(false);
     setMode('sign-in');
+    setShowPasswordReset(false);
   }, []);
 
   const handleClose = useCallback(() => {
@@ -115,9 +118,15 @@ export function AuthModal({
           </DialogDescription>
         </DialogHeader>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Auth Mode Toggle */}
-          <div className="flex gap-2">
+        {showPasswordReset ? (
+          <PasswordResetForm
+            supabase={supabase}
+            onBack={() => setShowPasswordReset(false)}
+          />
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Auth Mode Toggle */}
+            <div className="flex gap-2">
             <button
               type="button"
               onClick={() => setMode('sign-in')}
@@ -191,11 +200,25 @@ export function AuthModal({
             </button>
           </DialogFooter>
 
-          {/* Help Text */}
-          <div className="text-center">
-            <ContactInfo variant="help" />
-          </div>
-        </form>
+            {/* Forgot Password Link */}
+            {mode === 'sign-in' && (
+              <div className="text-center">
+                <button
+                  type="button"
+                  onClick={() => setShowPasswordReset(true)}
+                  className="text-sm text-brand-600 hover:text-brand-700 font-medium"
+                >
+                  Forgot password?
+                </button>
+              </div>
+            )}
+
+            {/* Help Text */}
+            <div className="text-center">
+              <ContactInfo variant="help" />
+            </div>
+          </form>
+        )}
       </DialogContent>
     </Dialog>
   );

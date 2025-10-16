@@ -3,6 +3,7 @@
 import { useEffect, useState, ReactNode } from 'react';
 import { createBrowserClient } from '@supabase/ssr';
 import { Loader2, LogIn } from 'lucide-react';
+import { PasswordResetForm } from '@/components/auth/password-reset-form';
 
 interface SuccessPageClientProps {
   leadId?: string;
@@ -16,6 +17,7 @@ export function SuccessPageClient({ leadId, children }: SuccessPageClientProps) 
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isSigningIn, setIsSigningIn] = useState(false);
+  const [showPasswordReset, setShowPasswordReset] = useState(false);
 
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -66,24 +68,31 @@ export function SuccessPageClient({ leadId, children }: SuccessPageClientProps) 
     return (
       <div className="min-h-screen bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900 flex items-center justify-center p-4">
         <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8">
-          <div className="text-center mb-6">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
-              <LogIn className="h-8 w-8 text-green-600" />
-            </div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              Payment Confirmed!
-            </h1>
-            <p className="text-gray-600">
-              Sign in to access your credits and start creating
-            </p>
-            {leadId && (
-              <div className="mt-4 inline-flex items-center gap-2 text-xs text-gray-500 bg-gray-50 rounded-full px-3 py-1">
-                Order ID: {leadId.slice(0, 8)}
+          {showPasswordReset ? (
+            <PasswordResetForm
+              supabase={supabase}
+              onBack={() => setShowPasswordReset(false)}
+            />
+          ) : (
+            <>
+              <div className="text-center mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+                  <LogIn className="h-8 w-8 text-green-600" />
+                </div>
+                <h1 className="text-2xl font-bold text-gray-900 mb-2">
+                  Payment Confirmed!
+                </h1>
+                <p className="text-gray-600">
+                  Sign in to access your credits and start creating
+                </p>
+                {leadId && (
+                  <div className="mt-4 inline-flex items-center gap-2 text-xs text-gray-500 bg-gray-50 rounded-full px-3 py-1">
+                    Order ID: {leadId.slice(0, 8)}
+                  </div>
+                )}
               </div>
-            )}
-          </div>
 
-          <form onSubmit={handleSignIn} className="space-y-4">
+              <form onSubmit={handleSignIn} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Email
@@ -135,13 +144,22 @@ export function SuccessPageClient({ leadId, children }: SuccessPageClientProps) 
                 </>
               )}
             </button>
-          </form>
+              </form>
 
-          <div className="mt-6 text-center text-sm text-gray-600">
-            <p>
-              Check your email for your welcome message with login details.
-            </p>
-          </div>
+              <div className="mt-6 text-center space-y-3">
+                <button
+                  type="button"
+                  onClick={() => setShowPasswordReset(true)}
+                  className="text-sm text-brand-600 hover:text-brand-700 font-medium"
+                >
+                  Forgot your password?
+                </button>
+                <p className="text-sm text-gray-600">
+                  Check your email for your welcome message with login details.
+                </p>
+              </div>
+            </>
+          )}
         </div>
       </div>
     );

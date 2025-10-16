@@ -602,6 +602,7 @@ async function callOpenRouter(model: string, messages: Array<{ role: "system" | 
       model,
       temperature,
       messages,
+      max_tokens: 8000,
     }),
   });
 

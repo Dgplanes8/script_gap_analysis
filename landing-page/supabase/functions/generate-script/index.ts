@@ -1,48 +1,12 @@
 import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
 import { basePrompt } from "./prompt.ts";
-import { captureEdgeFunctionError } from "../_shared/sentry.ts";
-import {
-  normalizeOpenRouterContent,
-  parseJsonWithRecovery,
-  stripMarkdownFence,
-  sliceBalanced,
-} from "../_shared/openrouter.ts";
 
-function buildCorsHeaders(req: Request): Record<string, string> {
-  const origin = req.headers.get("origin") ?? "*";
-  const requestedHeaders = req.headers.get("access-control-request-headers") ?? "";
-  const defaultHeaders = ["authorization", "x-client-info", "apikey", "content-type", "x-anonymous-key"];
-  const headerSet = new Set<string>();
-
-  for (const header of defaultHeaders) {
-    headerSet.add(header.toLowerCase());
-  }
-
-  if (requestedHeaders) {
-    for (const header of requestedHeaders.split(",")) {
-      const trimmed = header.trim();
-      if (trimmed) {
-        headerSet.add(trimmed.toLowerCase());
-      }
-    }
-  }
-
-  const allowHeaders = Array.from(headerSet).join(", ");
-  const headers: Record<string, string> = {
-    "Access-Control-Allow-Origin": origin,
-    "Access-Control-Allow-Headers": allowHeaders,
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Access-Control-Max-Age": "86400",
-    "Vary": "Origin, Access-Control-Request-Headers",
-  };
-
-  if (origin !== "*") {
-    headers["Access-Control-Allow-Credentials"] = "true";
-  }
-
-  return headers;
-}
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+};
 
 const supabaseUrl = Deno.env.get("EDGE_SUPABASE_URL") ?? Deno.env.get("SUPABASE_URL");
 const serviceRoleKey = Deno.env.get("EDGE_SUPABASE_SERVICE_ROLE_KEY") ?? Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
@@ -67,48 +31,6 @@ type RequestPayload = {
   adFormat?: 'video' | 'static';
 };
 
-type ScriptScene = {
-  timing?: string;
-  description?: string;
-  voiceover?: string;
-  onScreenText?: string;
-  cta?: string | null;
-};
-
-type StaticCopy = {
-  headline?: string;
-  subheadline?: string;
-  body?: string;
-  bullets?: string[];
-  cta?: string;
-  designNotes?: string;
-};
-
-type ScriptRecommendation = {
-  improvedElement?: string;
-  frameworkUsed?: string;
-  awarenessStage?: string;
-  rationale?: string;
-  testingStrategy?: string;
-};
-
-type PlatformAdaptations = {
-  tiktok?: string;
-  instagram?: string;
-  facebook?: string;
-  x?: string;
-  linkedin?: string;
-  youtube?: string;
-};
-
-type ScriptGenerationData = {
-  contentType: 'video' | 'static';
-  script?: { scenes: ScriptScene[] };
-  staticCopy?: StaticCopy;
-  recommendations?: ScriptRecommendation[];
-  platformAdaptations?: PlatformAdaptations;
-};
-
 async function trackToolUsage(
   supabase: any,
   data: {
@@ -121,13 +43,11 @@ async function trackToolUsage(
     errorMessage?: string;
     source?: 'web' | 'api' | 'mobile';
   },
-  userId?: string | null,
-  anonymousKey?: string | null
+  userId?: string | null
 ): Promise<{ usageId: string | null; error: string | null }> {
   try {
     const { data: result, error } = await supabase.rpc('log_ai_tool_usage', {
       p_user_id: userId || null,
-      p_anonymous_key: anonymousKey || null,
       p_tool_type: data.toolType,
       p_input_payload: data.inputPayload,
       p_output_payload: data.outputPayload || null,
@@ -164,8 +84,7 @@ async function trackScriptGeneration(
     creditsUsed?: number;
     qualityScore?: number;
   },
-  userId?: string | null,
-  anonymousKey?: string | null
+  userId?: string | null
 ): Promise<{ scriptId: string | null; error: string | null }> {
   try {
     const wordCount = data.generatedScript.trim().split(/\s+/).length;
@@ -175,7 +94,6 @@ async function trackScriptGeneration(
       .insert({
         usage_id: data.usageId || null,
         user_id: userId || null,
-        anonymous_key: anonymousKey || null,
         company_name: data.companyName,
         website_url: data.websiteUrl,
         product_description: data.productDescription || null,
@@ -197,7 +115,7 @@ async function trackScriptGeneration(
       return { scriptId: null, error: error.message };
     }
 
-    return { scriptId: (result as { id: string } | null)?.id ?? null, error: null };
+    return { scriptId: result.id, error: null };
   } catch (err) {
     console.error('Script tracking error:', err);
     return { scriptId: null, error: err instanceof Error ? err.message : 'Unknown error' };
@@ -240,8 +158,6 @@ const PLATFORM_BEHAVIOR_NOTES: Record<string, string> = {
 serve(async (req) => {
   console.log("generate-script invoked", { method: req.method, url: req.url });
 
-  const corsHeaders = buildCorsHeaders(req);
-
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
@@ -252,8 +168,6 @@ serve(async (req) => {
       headers: corsHeaders,
     });
   }
-
-  try {
 
   const adminClient = createClient(supabaseUrl, serviceRoleKey, {
     auth: { persistSession: false, autoRefreshToken: false },
@@ -266,13 +180,12 @@ serve(async (req) => {
   });
 
   let user = null;
-  let resolvedAnonymousKey: string | null = null;
   try {
     const authResult = await supabaseClient.auth.getUser();
     user = authResult.data.user;
   } catch (authError) {
     console.error("Failed to read auth context", authError);
-    return new Response(JSON.stringify({ error: "Please sign in to continue" }), {
+    return new Response(JSON.stringify({ error: "Unable to verify session" }), {
       status: 401,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
@@ -293,7 +206,7 @@ serve(async (req) => {
   const { companyName, websiteUrl, productDescription, platform, objective, adFormat } = payload;
 
   if (!companyName || !companyName.trim() || !websiteUrl || !websiteUrl.trim()) {
-    return new Response(JSON.stringify({ error: "Please enter your company name and website URL" }), {
+    return new Response(JSON.stringify({ error: "Company name and website URL are required" }), {
       status: 400,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
@@ -314,8 +227,15 @@ serve(async (req) => {
     normalizedWebsiteUrl = parsedUrl.toString();
   } catch (urlError) {
     console.error('Invalid website URL provided', websiteUrl, urlError);
-    return new Response(JSON.stringify({ error: "Please enter a valid website URL (like example.com)" }), {
+    return new Response(JSON.stringify({ error: "Website URL is invalid" }), {
       status: 400,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
+  if (!user) {
+    return new Response(JSON.stringify({ error: "Sign in to generate ad scripts." }), {
+      status: 401,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
@@ -323,94 +243,68 @@ serve(async (req) => {
   const startTime = Date.now();
   let creditsRemaining = 0;
 
-  if (!user) {
-    const headerKey = req.headers.get("x-anonymous-key")?.trim() ?? "";
-    resolvedAnonymousKey = headerKey.length > 0 && headerKey.length <= 128 ? headerKey : crypto.randomUUID();
+  const { data: profile, error } = await adminClient
+    .from("profiles")
+    .select("id, credits_remaining")
+    .eq("id", user.id)
+    .maybeSingle();
 
-    const { count: anonUsageCount, error: anonUsageError } = await adminClient
-      .from("ai_tool_usage")
-      .select("id", { count: "exact", head: true })
-      .eq("tool_type", "script-generator")
-      .eq("anonymous_key", resolvedAnonymousKey);
+  if (error) {
+    console.error("Failed to load profile", error);
+    return new Response(JSON.stringify({ error: "Unable to load profile" }), {
+      status: 500,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
 
-    if (anonUsageError) {
-      console.error("Failed to read anonymous usage", anonUsageError);
-      return new Response(JSON.stringify({ error: "Unable to verify usage" }), {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
+  let effectiveProfile = profile;
 
-    if ((anonUsageCount ?? 0) >= 1) {
-      return new Response(JSON.stringify({ error: "You've used your free script! Create an account to get 10 more credits each month." }), {
-        status: 401,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-  } else {
-    const { data: profile, error } = await adminClient
+  if (!effectiveProfile) {
+    const { data: createdProfile, error: createError } = await adminClient
       .from("profiles")
+      .insert({ id: user.id })
       .select("id, credits_remaining")
-      .eq("id", user.id)
       .maybeSingle();
 
-    if (error) {
-      console.error("Failed to load profile", error);
-      return new Response(JSON.stringify({ error: "Unable to load profile" }), {
+    if (createError && createError.code !== "23505") {
+      console.error("Failed to create profile", createError);
+      return new Response(JSON.stringify({ error: "Unable to initialize profile" }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
-    let effectiveProfile = profile;
-
-    if (!effectiveProfile) {
-      const { data: createdProfile, error: createError } = await adminClient
+    if (createError?.code === "23505" || !createdProfile) {
+      const { data: reloadedProfile, error: reloadError } = await adminClient
         .from("profiles")
-        .insert({ id: user.id })
         .select("id, credits_remaining")
+        .eq("id", user.id)
         .maybeSingle();
 
-      if (createError && createError.code !== "23505") {
-        console.error("Failed to create profile", createError);
-        return new Response(JSON.stringify({ error: "Unable to initialize profile" }), {
+      if (reloadError) {
+        console.error("Failed to reload profile after initialization", reloadError);
+        return new Response(JSON.stringify({ error: "Unable to load profile" }), {
           status: 500,
           headers: { ...corsHeaders, "Content-Type": "application/json" },
         });
       }
 
-      if (createError?.code === "23505" || !createdProfile) {
-        const { data: reloadedProfile, error: reloadError } = await adminClient
-          .from("profiles")
-          .select("id, credits_remaining")
-          .eq("id", user.id)
-          .maybeSingle();
-
-        if (reloadError) {
-          console.error("Failed to reload profile after initialization", reloadError);
-          return new Response(JSON.stringify({ error: "Unable to load profile" }), {
-            status: 500,
-            headers: { ...corsHeaders, "Content-Type": "application/json" },
-          });
-        }
-
-        effectiveProfile = reloadedProfile ?? null;
-      } else {
-        effectiveProfile = createdProfile;
-      }
+      effectiveProfile = reloadedProfile ?? null;
+    } else {
+      effectiveProfile = createdProfile;
     }
+  }
 
-    creditsRemaining = effectiveProfile?.credits_remaining ?? 0;
+  creditsRemaining = effectiveProfile?.credits_remaining ?? 0;
 
-    if (creditsRemaining <= 0) {
-      return new Response(
-        JSON.stringify({ error: "You've used all your credits! Upgrade to Essentials ($19/month) to get 150 more credits." }),
-        {
-          status: 402,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        },
-      );
-    }
+  if (creditsRemaining <= 0) {
+    return new Response(
+      JSON.stringify({ error: "You are out of credits. Upgrade your plan to keep generating scripts." }),
+      {
+        status: 402,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      },
+    );
   }
 
   const prompt = buildPrompt({
@@ -433,13 +327,13 @@ serve(async (req) => {
         "X-Title": "AI Ad Script Generator",
       },
       body: JSON.stringify({
-        model: "anthropic/claude-sonnet-4.5",
+        model: "x-ai/grok-4-fast:free",
         messages: [
           {
             role: "system",
             content:
-              "You are a direct-response marketing strategist. You MUST return valid JSON only. Never return plain text. Always follow the exact JSON structure provided in the prompt. If you cannot generate the full response within token limits, prioritize the core content sections first.",
-          },
+              "You are a direct-response marketing strategist. Produce concise, high-performing video ad scripts with hooks, narrative structure, and platform-native pacing.",
+        },
         {
           role: "user",
           content: prompt,
@@ -447,18 +341,11 @@ serve(async (req) => {
       ],
       temperature: 0.7,
       top_p: 0.9,
-      max_tokens: 1500,
+      max_tokens: 4000,
     }),
     });
   } catch (networkError) {
     console.error("Failed to call OpenRouter", networkError);
-    captureEdgeFunctionError(networkError, {
-      functionName: 'generate-script',
-      additionalTags: {
-        error_type: 'openrouter_network_error',
-        user_id: user?.id || 'anonymous'
-      }
-    });
     return new Response(JSON.stringify({ error: "OpenRouter request failed", details: String(networkError) }), {
       status: 502,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -468,22 +355,6 @@ serve(async (req) => {
   if (!completion.ok) {
     const errorBody = await safeReadJson(completion);
     console.error("OpenRouter request returned non-200", completion.status, errorBody);
-
-    // Determine specific error type
-    const errorType = completion.status === 429 ? 'openrouter_rate_limit' : 'openrouter_api_error';
-
-    const openRouterError = new Error(`OpenRouter returned ${completion.status}: ${JSON.stringify(errorBody)}`);
-    captureEdgeFunctionError(openRouterError, {
-      functionName: 'generate-script',
-      additionalTags: {
-        error_type: errorType,
-        status_code: completion.status.toString(),
-        user_id: user?.id || 'anonymous',
-        error_message: errorBody?.error?.message || 'unknown',
-        rate_limit_reset: completion.headers.get('x-ratelimit-reset') || 'unknown'
-      }
-    });
-
     return new Response(JSON.stringify({ error: "OpenRouter request failed", details: errorBody }), {
       status: 502,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -491,144 +362,13 @@ serve(async (req) => {
   }
 
   const completionData = await completion.json();
-  const rawContent = normalizeOpenRouterContent(completionData?.choices?.[0]?.message?.content);
+  const script = completionData?.choices?.[0]?.message?.content;
 
-  if (!rawContent) {
-    const emptyResponseError = new Error('OpenRouter returned empty content');
-    captureEdgeFunctionError(emptyResponseError, {
-      functionName: 'generate-script',
-      additionalTags: {
-        error_type: 'openrouter_empty_response',
-        user_id: user?.id || 'anonymous'
-      }
-    });
-    return new Response(JSON.stringify({ error: "Our AI is having trouble right now. Please try again in a moment." }), {
+  if (!script) {
+    return new Response(JSON.stringify({ error: "OpenRouter returned an empty response" }), {
       status: 502,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
-  }
-
-  // Parse JSON response and create structured data
-  let structuredData = null;
-  let script = rawContent;
-
-  // Clean up the content and try to extract JSON
-  let cleanedContent = stripMarkdownFence(rawContent);
-
-  if (!cleanedContent) {
-    cleanedContent = rawContent.trim();
-  }
-
-  // Drop any leading text before the first JSON object
-  const jsonStart = cleanedContent.indexOf('{');
-  if (jsonStart > 0) {
-    cleanedContent = cleanedContent.substring(jsonStart);
-  }
-
-  // Remove any trailing text after the JSON block
-  const jsonEnd = cleanedContent.lastIndexOf('}');
-  if (jsonEnd !== -1) {
-    cleanedContent = cleanedContent.substring(0, jsonEnd + 1);
-  }
-
-  try {
-    structuredData = parseJsonWithRecovery(cleanedContent);
-
-    // Validate the structure matches our expected schema
-    if (structuredData && typeof structuredData === 'object') {
-      const isValidVideo = structuredData.contentType === 'video' &&
-                          Array.isArray(structuredData.script?.scenes) &&
-                          structuredData.script.scenes.length > 0;
-
-      const isValidStatic = structuredData.contentType === 'static' &&
-                           structuredData.staticCopy &&
-                           typeof structuredData.staticCopy === 'object';
-
-      if (isValidVideo || isValidStatic) {
-        script = formatLegacyScript(structuredData as ScriptGenerationData);
-      } else {
-        const recovered = recoverStructuredDataFromJsonish(cleanedContent);
-        if (recovered) {
-          structuredData = recovered;
-          script = formatLegacyScript(recovered);
-        } else {
-          const invalidData = structuredData as Record<string, unknown> | null;
-          structuredData = null;
-
-          const invalidStructureError = new Error(`AI returned JSON with invalid structure for ${adFormat} format`);
-          const invalidContentType = (() => {
-            if (!invalidData) {
-              return 'missing';
-            }
-            const value = (invalidData as { contentType?: unknown }).contentType;
-            return typeof value === 'string' ? value : 'missing';
-          })();
-          captureEdgeFunctionError(invalidStructureError, {
-            functionName: 'generate-script',
-            additionalTags: {
-              error_type: 'json_invalid_structure',
-              user_id: user?.id || 'anonymous',
-              ad_format: adFormat,
-              has_content_type: invalidData ? Object.prototype.hasOwnProperty.call(invalidData, 'contentType') : false,
-              actual_content_type: invalidContentType
-            }
-          });
-        }
-      }
-    }
-  } catch (parseError) {
-    // Try to fix truncated JSON by adding missing closing braces
-    try {
-      let fixedContent = cleanedContent;
-
-      // Count opening vs closing braces to detect truncation
-      const openBraces = (fixedContent.match(/\{/g) || []).length;
-      const closeBraces = (fixedContent.match(/\}/g) || []).length;
-      const missingBraces = openBraces - closeBraces;
-
-      if (missingBraces > 0) {
-        // Add missing closing braces
-        fixedContent += '}]'.repeat(Math.min(missingBraces, 3));
-      }
-
-      structuredData = parseJsonWithRecovery(fixedContent);
-
-      // Validate and extract script as above
-      if (structuredData && typeof structuredData === 'object') {
-        const isValidVideo = structuredData.contentType === 'video' &&
-                            Array.isArray(structuredData.script?.scenes) &&
-                            structuredData.script.scenes.length > 0;
-
-        if (isValidVideo) {
-          script = formatLegacyScript(structuredData as ScriptGenerationData);
-        }
-      }
-    } catch (secondError) {
-      // Both attempts failed, use raw content as fallback
-      structuredData = null;
-
-      // Track JSON parsing failure in Sentry
-      const jsonParseError = new Error(`Failed to parse AI JSON response after two attempts`);
-      captureEdgeFunctionError(jsonParseError, {
-        functionName: 'generate-script',
-        additionalTags: {
-          error_type: 'json_parsing_failure',
-          user_id: user?.id || 'anonymous',
-          ad_format: adFormat,
-          first_error: String(parseError),
-          second_error: String(secondError),
-          content_preview: cleanedContent.substring(0, 200)
-        }
-      });
-    }
-  }
-
-  if (!structuredData) {
-    const recovered = recoverStructuredDataFromJsonish(cleanedContent);
-    if (recovered) {
-      structuredData = recovered;
-      script = formatLegacyScript(recovered);
-    }
   }
 
   const processingTime = Date.now() - startTime;
@@ -662,8 +402,7 @@ serve(async (req) => {
       status: 'completed',
       source: 'web'
     },
-    user?.id ?? null,
-    resolvedAnonymousKey
+    user.id
   );
 
   // Track specific script generation details
@@ -680,20 +419,8 @@ serve(async (req) => {
       generatedScript: script,
       creditsUsed: 1
     },
-    user?.id ?? null,
-    resolvedAnonymousKey
+    user.id
   );
-
-  if (!user) {
-    return new Response(JSON.stringify({
-      script,
-      data: structuredData,
-      anonymousKey: resolvedAnonymousKey
-    }), {
-      status: 200,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
-  }
 
   const { data: updatedProfile, error: creditUpdateError } = await adminClient
     .from("profiles")
@@ -705,48 +432,16 @@ serve(async (req) => {
 
   if (creditUpdateError || !updatedProfile) {
     console.error("Failed to decrement credits", creditUpdateError);
-
-    // Track credit deduction failure in Sentry
-    const creditError = new Error(`Credit deduction failed after successful script generation`);
-    captureEdgeFunctionError(creditError, {
-      functionName: 'generate-script',
-      additionalTags: {
-        error_type: 'credit_deduction_failure',
-        user_id: user?.id || 'unknown',
-        credits_before: creditsRemaining.toString(),
-        error_message: creditUpdateError?.message || 'no_updated_profile'
-      }
-    });
-
     return new Response(JSON.stringify({ error: "Failed to decrement credits" }), {
       status: 409,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
 
-  return new Response(JSON.stringify({
-    script,
-    data: structuredData,
-    creditsRemaining: updatedProfile.credits_remaining ?? 0
-  }), {
+  return new Response(JSON.stringify({ script, creditsRemaining: updatedProfile.credits_remaining ?? 0 }), {
     status: 200,
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });
-
-  } catch (error) {
-    console.error("Generate script function failed", error);
-    captureEdgeFunctionError(error, {
-      functionName: 'generate-script',
-      additionalTags: {
-        error_type: 'script_generation_failed'
-      }
-    });
-
-    return new Response(JSON.stringify({ error: "Script generation failed" }), {
-      status: 500,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
-  }
 });
 
 type PromptParams = {
@@ -777,7 +472,11 @@ function buildPrompt({
     : 'No specific platform provided — include cross-platform adaptation notes for Facebook, Instagram, and TikTok with platform-native pacing, hook style, and CTA guidance.';
   const completenessInstruction = 'If any research data points are missing or unspecified, proceed using best-practice insights and the provided campaign info. Never respond with "This information is not available in the provided training data"—always generate the best possible creative output. Avoid refusal language entirely.';
 
-  const campaignBriefSection = `Campaign Brief:
+  return `${basePrompt.trim()}
+
+---
+Use the below strategic workflow to craft a finished advertising script. Reference the following campaign brief:
+
 Company Name: ${companyName}
 Website URL: ${websiteUrl}
 Product Description: ${descriptionLine}
@@ -792,210 +491,20 @@ Platform-Specific Guidance:
 ${platformInstruction}
 
 Completeness Requirement:
-${completenessInstruction}`;
+${completenessInstruction}
 
-  return `${campaignBriefSection.trim()}
+Output Requirements:
+1. Select the optimal framework based on the campaign brief and platform.
+2. Provide a concise, platform-native script that follows the chosen framework.
+3. Include format-appropriate production guidance (e.g., stage directions for video, layout notes for static) only when relevant.
+4. Close with an explicit CTA aligned to the brand’s buyer journey.
+5. Return only the finished creative output aligned to the requested format. Do not include research notes, numbered steps, or multiple concepts—deliver exactly one execution.
 
----
-${basePrompt.trim()}
-
-Use the above strategic workflow to craft a finished advertising script that aligns with the campaign brief provided above.
-
-CRITICAL OUTPUT FORMAT REQUIREMENT:
-You MUST return your response as valid JSON. Follow these rules strictly:
-
-JSON FORMATTING RULES:
-- All string values must be properly escaped (use \\" for quotes, \\n for line breaks)
-- No trailing commas
-- No comments or additional text outside the JSON
-- Ensure all quotes and special characters are escaped
-
-REQUIRED JSON STRUCTURE:
-
-FOR VIDEO FORMAT:
-{
-  "contentType": "video",
-  "script": {
-    "scenes": [
-      {
-        "timing": "0-3s",
-        "description": "Visual scene description",
-        "voiceover": "Spoken content",
-        "onScreenText": "Text overlays",
-        "cta": "Call to action if applicable"
-      }
-    ]
-  },
-  "recommendations": [
-    {
-      "improvedElement": "Expert-optimized hook variation",
-      "frameworkUsed": "Which script framework was applied",
-      "awarenessStage": "Unaware|Problem-Aware|Solution-Aware|Product-Aware|Most-Aware",
-      "rationale": "Why this approach works for this brief",
-      "testingStrategy": "How to test and optimize performance"
-    }
-  ],
-  "platformAdaptations": {
-    "tiktok": "TikTok-specific adaptation notes",
-    "instagram": "Instagram-specific adaptation notes",
-    "facebook": "Facebook-specific adaptation notes",
-    "x": "X/Twitter-specific adaptation notes",
-    "linkedin": "LinkedIn-specific adaptation notes",
-    "youtube": "YouTube-specific adaptation notes"
-  }
-}
-
-FOR STATIC FORMAT:
-{
-  "contentType": "static",
-  "staticCopy": {
-    "headline": "Primary headline",
-    "subheadline": "Supporting subhead",
-    "body": "Main body copy",
-    "bullets": ["Benefit 1", "Benefit 2", "Benefit 3"],
-    "cta": "Call to action",
-    "designNotes": "Layout and visual guidance"
-  },
-  "recommendations": [
-    {
-      "improvedElement": "Expert-optimized headline variation",
-      "frameworkUsed": "Which copy framework was applied",
-      "awarenessStage": "Unaware|Problem-Aware|Solution-Aware|Product-Aware|Most-Aware",
-      "rationale": "Why this approach works for this brief",
-      "testingStrategy": "How to test and optimize performance"
-    }
-  ],
-  "platformAdaptations": {
-    "tiktok": "TikTok-specific adaptation notes",
-    "instagram": "Instagram-specific adaptation notes",
-    "facebook": "Facebook-specific adaptation notes",
-    "x": "X/Twitter-specific adaptation notes",
-    "linkedin": "LinkedIn-specific adaptation notes",
-    "youtube": "YouTube-specific adaptation notes"
-  }
-}
-
-CRITICAL OUTPUT REQUIREMENTS:
-- Return ONLY valid JSON - no markdown, no explanations, no extra text
-- Start response with { and end with }
-- If hitting token limits, include scenes/staticCopy and recommendations first, platformAdaptations second
-- Ensure all JSON strings are properly escaped (use \\" for quotes)
+Formatting Instructions:
+- Begin the response with the line 'Script:'.
+- After that line, output the complete script (including scene/stage directions if relevant) as continuous text or Markdown.
+- Do not add any introductions, summaries, or sections outside the script itself.
 `;
-}
-
-function formatLegacyScript(data: ScriptGenerationData): string {
-  if (data.contentType === 'video' && data.script?.scenes?.length) {
-    return data.script.scenes
-      .filter(Boolean)
-      .map((scene) => {
-        const safeScene = scene || {};
-        const timing = safeScene.timing || 'Scene';
-        const description = safeScene.description || '';
-        const voiceover = safeScene.voiceover || '';
-        const onScreenText = safeScene.onScreenText ? `\nText: ${safeScene.onScreenText}` : '';
-        const cta = safeScene.cta ? `\nCTA: ${safeScene.cta}` : '';
-        return `[${timing}] ${description}\n${voiceover}${onScreenText}${cta}`.trim();
-      })
-      .filter((block) => block.length > 0)
-      .join('\n\n');
-  }
-
-  if (data.contentType === 'static' && data.staticCopy) {
-    const copy = data.staticCopy;
-    const parts: string[] = [];
-    if (copy.headline) {
-      parts.push(copy.headline);
-    }
-    if (copy.subheadline) {
-      parts.push('', copy.subheadline);
-    }
-    if (copy.body) {
-      parts.push('', copy.body);
-    }
-    if (Array.isArray(copy.bullets) && copy.bullets.length > 0) {
-      parts.push('', copy.bullets.map((bullet) => `• ${bullet}`).join('\n'));
-    }
-    if (copy.cta) {
-      parts.push('', copy.cta);
-    }
-    return parts.join('\n');
-  }
-
-  return '';
-}
-
-function recoverStructuredDataFromJsonish(raw: string): ScriptGenerationData | null {
-  const contentTypeMatch = raw.match(/"contentType"\s*:\s*"(video|static)"/i);
-  if (!contentTypeMatch) {
-    return null;
-  }
-
-  const type = contentTypeMatch[1].toLowerCase() as 'video' | 'static';
-
-  if (type === 'video') {
-    const scenesBlock = extractJsonSection(raw, '"scenes"', '[', ']');
-    if (!scenesBlock) {
-      return null;
-    }
-
-    try {
-      const scenes = parseJsonWithRecovery(scenesBlock) as ScriptScene[];
-      return {
-        contentType: 'video',
-        script: { scenes: Array.isArray(scenes) ? scenes.filter(Boolean) : [] },
-        recommendations: [],
-        platformAdaptations: defaultPlatformAdaptations(),
-      };
-    } catch (_error) {
-      return null;
-    }
-  }
-
-  if (type === 'static') {
-    const staticBlock = extractJsonSection(raw, '"staticCopy"', '{', '}');
-    if (!staticBlock) {
-      return null;
-    }
-
-    try {
-      const staticCopy = parseJsonWithRecovery(staticBlock) as StaticCopy;
-      return {
-        contentType: 'static',
-        staticCopy,
-        recommendations: [],
-        platformAdaptations: defaultPlatformAdaptations(),
-      };
-    } catch (_error) {
-      return null;
-    }
-  }
-
-  return null;
-}
-
-function extractJsonSection(raw: string, key: string, openChar: '[' | '{', closeChar: ']' | '}'): string | null {
-  const keyIndex = raw.indexOf(key);
-  if (keyIndex === -1) {
-    return null;
-  }
-
-  const start = raw.indexOf(openChar, keyIndex);
-  if (start === -1) {
-    return null;
-  }
-
-  return sliceBalanced(raw, start, openChar, closeChar);
-}
-
-function defaultPlatformAdaptations(): PlatformAdaptations {
-  return {
-    tiktok: '',
-    instagram: '',
-    facebook: '',
-    x: '',
-    linkedin: '',
-    youtube: '',
-  };
 }
 
 async function safeReadJson(response: Response) {
