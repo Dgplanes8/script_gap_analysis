@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useId } from 'react';
 import Script from 'next/script';
 import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 import { generateFAQSchema, formatSchemaAsJsonLD } from '@/lib/schema/utils';
@@ -11,13 +11,15 @@ import { FAQSchemaProps, DEFAULT_FAQS } from '@/lib/schema/types';
  * Used on key landing pages and service pages
  */
 export function FAQSchema({ faqs = [...DEFAULT_FAQS], className }: FAQSchemaProps) {
+  const id = useId();
+
   if (!faqs || faqs.length === 0) {
     return null;
   }
 
   const schema = generateFAQSchema(faqs);
   const jsonLD = formatSchemaAsJsonLD(schema);
-  const scriptId = `faq-schema-${Date.now()}`;
+  const scriptId = `faq-schema${id}`;
 
   return (
     <Script
