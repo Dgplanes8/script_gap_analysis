@@ -5,21 +5,36 @@ import type { Metadata } from 'next';
 import nextDynamic from 'next/dynamic';
 import { AlyticsNavbar } from '@/components/alytics/alytics-navbar';
 import { ToolHeader } from '@/components/shared/tool-header';
+import { FAQSection, SPECIALIZED_FAQS } from '@/components/schema/faq-schema';
 
 export const metadata: Metadata = {
-  title: 'Script Generator - Free Creative Intelligence Tool | APSICS Media',
-  description: 'Generate revenue-ready ad scripts from $250M+ creative intelligence. Platform-native copy for TikTok, Meta, YouTube, LinkedIn. Try free with 10 monthly credits.',
-  keywords: 'ad script generator, video ad scripts, tiktok script generator, facebook ad copy, ugc script writer, copywriting tool, ad creative intelligence',
+  title: 'Free AI Ad Script Generator - TikTok, Reels, YouTube Shorts | APSICS Media',
+  description: 'Generate platform-native ad scripts for TikTok, Instagram Reels, YouTube Shorts, Meta ads in 30 seconds. UGC-ready copy from $250M intelligence. Free 10 credits/month, no signup.',
+  keywords: 'ad script generator, ai ad script generator free, tiktok ad script generator, instagram reels script generator, youtube shorts ad script generator, ugc script generator free, video ad script generator, meta ads script generator, facebook ad script, linkedin video ad script, saas ad script generator, d2c video ad script, mobile app ad script generator, tiktok script generator free, reels ad script, shorts script generator, ugc creator script, platform native ad copy',
   openGraph: {
-    title: 'Script Generator - Free Creative Intelligence Tool',
-    description: 'Generate revenue-ready ad scripts from $250M+ creative intelligence. Free trial with 10 monthly credits.',
+    title: 'Free AI Ad Script Generator - TikTok, Reels, YouTube Shorts',
+    description: 'Generate platform-native ad scripts for TikTok, Instagram Reels, YouTube Shorts in 30 seconds. UGC-ready copy from $250M intelligence.',
     type: 'website',
     url: 'https://apsicsmedia.com/ai-ad-script-generator',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Script Generator - Free Tool',
-    description: 'Generate revenue-ready ad scripts from $250M+ creative intelligence.',
+    title: 'Free AI Ad Script Generator',
+    description: 'Generate TikTok, Reels, and YouTube Shorts scripts in 30 seconds from $250M ad intelligence.',
+  },
+  alternates: {
+    canonical: '/ai-ad-script-generator',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
@@ -40,6 +55,14 @@ export default function AdScriptGeneratorPage() {
       <div className="pt-4 md:pt-8">
         <AdScriptGeneratorClient />
       </div>
+
+      {/* FAQ Section for Featured Snippets */}
+      <FAQSection
+        faqs={SPECIALIZED_FAQS.ad_script_generator}
+        title="Ad Script Generator: Frequently Asked Questions"
+        subtitle="Everything you need to know about generating high-converting video ad scripts with AI"
+        variant="default"
+      />
     </div>
   );
 }

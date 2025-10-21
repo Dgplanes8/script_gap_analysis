@@ -163,14 +163,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
 
     // High-Value Tools & Calculators - SEO Priority Pages
+    // Primary tool pages - highest priority for organic search
     {
-      url: `${baseUrl}/ai-ad-script-generator`,
+      url: `${baseUrl}/creative-brief-generator`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.99,
     },
     {
-      url: `${baseUrl}/creative-brief-generator`,
+      url: `${baseUrl}/ai-ad-script-generator`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.99,
@@ -183,6 +184,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/hook-generator`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.97,
+    },
+
+    // Platform-Specific Script Generator Pages - Low Competition Keywords
+    {
+      url: `${baseUrl}/tiktok-ad-script-generator`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.97,
+    },
+    {
+      url: `${baseUrl}/ugc-script-generator`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.97,
+    },
+
+    // Vertical-Specific Brief Generator Pages - Ultra-Low Competition
+    {
+      url: `${baseUrl}/saas-marketing-brief-generator`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.97,

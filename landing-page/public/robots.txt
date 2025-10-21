@@ -4,10 +4,20 @@
 User-agent: *
 Allow: /
 
+# High-priority tools for search engines - SEO OPTIMIZED
+Allow: /creative-brief-generator
+Allow: /ai-ad-script-generator
+Allow: /ai-ad-iteration-tool
+Allow: /tiktok-ad-script-generator
+Allow: /ugc-script-generator
+Allow: /saas-marketing-brief-generator
+Allow: /instagram-reels-ad-script-generator
+Allow: /youtube-shorts-ad-script-generator
+
 # High-priority content for search engines
 Allow: /blog/
 Allow: /blog/startup-marketing-budget-calculator-2025
-Allow: /blog/startup-marketing-roi-calculator  
+Allow: /blog/startup-marketing-roi-calculator
 Allow: /blog/cac-optimization-calculator
 Allow: /blog/52-high-converting-ad-templates-startup
 Allow: /blog/creative-fatigue-prevention-framework

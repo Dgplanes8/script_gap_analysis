@@ -9,21 +9,37 @@ import { ProcessSection } from '@/components/templates/process-section';
 import { SimplePricingSection } from '@/components/alytics/simple-pricing-section';
 import { getToolConfig } from '@/lib/template-configs';
 import { StudioFoundingOfferCard } from '@/components/alytics/studio-founding-offer-card';
+import { SoftwareApplicationSchema } from '@/components/schema/software-application-schema';
+import { FAQSection, SPECIALIZED_FAQS } from '@/components/schema/faq-schema';
 
 export const metadata: Metadata = {
-  title: 'Ad Iterator - Turn Your Ad Into a Better Version | APSICS Media',
-  description: 'Upload your ad, get instant feedback and ready-to-test improvements. Performance scores, priority fixes, and platform-optimized version. Free 10 monthly credits.',
-  keywords: 'ad iteration tool, facebook ad analyzer, ad optimization, ad performance analysis, campaign optimization, ad testing, ad improvement tool',
+  title: 'Free Ad Analyzer & Iteration Tool - 25-Point Performance Score | APSICS Media',
+  description: 'Upload any ad, get instant 25-point performance score + optimized version in 60 seconds. TikTok, Meta, LinkedIn ads analyzed. Free 10 credits/month, no signup required.',
+  keywords: 'ad analyzer free tool, ad iteration tool, facebook ad analyzer free, ad performance score tool, creative iteration tool, ad optimization tool free, tiktok ad analyzer, meta ad performance checker, ad creative scoring tool, 25 point ad scoring system, ad improvement tool, campaign optimizer, facebook ad analysis, ad testing tool, creative analyzer, ad performance analysis, linkedin ad analyzer',
   openGraph: {
-    title: 'Ad Iterator - Turn Your Ad Into a Better Version',
-    description: 'Upload your ad and get instant improvements. Performance scoring and ready-to-test version. Free trial with 10 monthly credits.',
+    title: 'Free Ad Analyzer & Iteration Tool - 25-Point Performance Score',
+    description: 'Upload any ad, get instant 25-point performance score + optimized version in 60 seconds. TikTok, Meta, LinkedIn ads analyzed.',
     type: 'website',
     url: 'https://apsicsmedia.com/ai-ad-iteration-tool',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ad Iterator - Get a Better Version',
-    description: 'Upload your ad, get instant improvements ready to test.',
+    title: 'Free Ad Analyzer - 25-Point Score',
+    description: 'Upload any ad, get instant performance score + optimized version in 60 seconds.',
+  },
+  alternates: {
+    canonical: '/ai-ad-iteration-tool',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
@@ -45,15 +61,44 @@ export default function AIAdIterationToolPage() {
   }
 
   return (
-    <AIToolTemplate
-      config={config.template}
-      secondaryHeaderProps={config.secondaryHeader}
-      headerComponent={<AlyticsNavbar />}
-      foundersClubContent={<StudioFoundingOfferCard />}
-      processContent={<ProcessSection config={config.process} />}
-      pricingContent={<SimplePricingSection />}
-    >
-      <IterationToolClient config={config} />
-    </AIToolTemplate>
+    <>
+      <SoftwareApplicationSchema
+        name="AI Ad Analyzer & Iteration Tool"
+        description="Upload any ad, get instant 25-point performance score and optimized version in 60 seconds. Analyzes TikTok, Meta, and LinkedIn ads with actionable improvement recommendations."
+        url="/ai-ad-iteration-tool"
+        category="BusinessApplication"
+        aggregateRating={{
+          ratingValue: '4.9',
+          ratingCount: '156'
+        }}
+        featureList={[
+          '25-point ad performance scoring',
+          'Instant ad optimization suggestions',
+          'Multi-platform analysis (TikTok, Meta, LinkedIn)',
+          'Visual and copy improvement recommendations',
+          'Before/after comparison',
+          'Free 10 monthly credits'
+        ]}
+      />
+
+      <AIToolTemplate
+        config={config.template}
+        secondaryHeaderProps={config.secondaryHeader}
+        headerComponent={<AlyticsNavbar />}
+        foundersClubContent={<StudioFoundingOfferCard />}
+        processContent={<ProcessSection config={config.process} />}
+        pricingContent={<SimplePricingSection />}
+      >
+        <IterationToolClient config={config} />
+      </AIToolTemplate>
+
+      {/* FAQ Section for Featured Snippets */}
+      <FAQSection
+        faqs={SPECIALIZED_FAQS.ad_iteration_tool}
+        title="Ad Analyzer & Iteration Tool: Frequently Asked Questions"
+        subtitle="Learn how to optimize your ads with AI-powered performance scoring and recommendations"
+        variant="default"
+      />
+    </>
   );
 }
