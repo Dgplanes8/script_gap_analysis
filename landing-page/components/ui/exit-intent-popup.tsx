@@ -10,16 +10,25 @@ interface ExitIntentPopupProps {
   subtitle?: string;
 }
 
-export function ExitIntentPopup({ 
+export function ExitIntentPopup({
   title = "Wait! Get Your Free Templates Before You Go",
   subtitle = "Join 100+ growing businesses getting revenue-driving templates every Monday + instant access to our 10 Free Templates PDF."
 }: ExitIntentPopupProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
-  const [shouldRender, setShouldRender] = useState<boolean | null>(null);
+  const [shouldRender, setShouldRender] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const supabase = createBrowserClient();
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) {
+      return;
+    }
+
     let mounted = true;
 
     const determineSession = async () => {
@@ -44,14 +53,16 @@ export function ExitIntentPopup({
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setShouldRender(!session);
+      if (mounted) {
+        setShouldRender(!session);
+      }
     });
 
     return () => {
       mounted = false;
       subscription.unsubscribe();
     };
-  }, [supabase]);
+  }, [supabase, isMounted]);
 
   useEffect(() => {
     if (shouldRender === false) {
@@ -98,8 +109,8 @@ export function ExitIntentPopup({
     }
   };
 
-  if (shouldRender === false || !isVisible || isDismissed) return null;
-  if (shouldRender === null) return null;
+  // Don't render anything during SSR or before mounting to prevent hydration mismatch
+  if (!isMounted || !shouldRender || !isVisible || isDismissed) return null;
 
   return (
     <div 

@@ -14,10 +14,19 @@ type ToolHeaderProps = {
  * Keeps the fallback visible while the auth state is loading to avoid layout shift.
  */
 export function ToolHeader({ fallback, className }: ToolHeaderProps) {
-  const [hasSession, setHasSession] = useState<boolean | null>(null);
+  const [hasSession, setHasSession] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const supabase = createBrowserClient();
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) {
+      return;
+    }
+
     let mounted = true;
 
     const loadSession = async () => {
@@ -42,14 +51,24 @@ export function ToolHeader({ fallback, className }: ToolHeaderProps) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setHasSession(Boolean(session));
+      if (mounted) {
+        setHasSession(Boolean(session));
+      }
     });
 
     return () => {
       mounted = false;
       subscription.unsubscribe();
     };
-  }, [supabase]);
+  }, [supabase, isMounted]);
+
+  // During SSR and initial hydration, always show fallback to prevent mismatch
+  if (!isMounted) {
+    if (fallback) {
+      return <div className={className}>{fallback}</div>;
+    }
+    return null;
+  }
 
   if (hasSession) {
     return <AuthenticatedHeader className={className} />;

@@ -1,10 +1,11 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import type { User } from '@supabase/supabase-js';
 import { CreditCard, Loader2, Sparkles, X } from 'lucide-react';
 import Link from 'next/link';
+import * as Sentry from '@sentry/nextjs';
 import { getSupabaseBrowserClient, type BrowserClient } from '@/lib/supabase/browser-client';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { ProcessAccordion } from '@/components/alytics/process-accordion';
@@ -190,8 +191,47 @@ async function extractEdgeFunctionError(error: unknown): Promise<{
   return { statusCode, message };
 }
 
+function cleanScriptOutput(rawScript: string): string {
+  if (!rawScript) return '';
+
+  // Remove any remaining workflow artifacts
+  const unwantedSections = [
+    /## STEP \d[A-Z]?:[\s\S]*?(?=Script:|$)/gi,
+    /# [A-Z\s]+ (VIDEO AD )?CREATIVE BRIEF[\s\S]*?(?=Script:|$)/gi,
+    /\*\*Research step[\s\S]*?(?=Script:|$)/gi,
+    /Research step \d[A-B]:[\s\S]*?(?=Script:|$)/gi,
+    /Step \d[A-B]:[\s\S]*?(?=Script:|$)/gi,
+    /OUTPUT:[\s\S]*?(?=Script:|$)/gi
+  ];
+
+  let cleaned = rawScript;
+  for (const pattern of unwantedSections) {
+    cleaned = cleaned.replace(pattern, '');
+  }
+
+  // Remove leading "Script:" if present
+  cleaned = cleaned.replace(/^Script:\s*/i, '');
+
+  // Remove metadata header lines (title, platform, duration, framework)
+  const metadataPatterns = [
+    /^\*\*[A-Z\s]+VIDEO AD[^\n]*\*\*\n?/i,
+    /^\*\*[A-Z\s]+STATIC AD[^\n]*\*\*\n?/i,
+    /^\*\*Platform:[^\n]*\*\*\n?/i,
+    /^\*\*Duration:[^\n]*\*\*\n?/i,
+    /^\*\*Framework:[^\n]*\*\*\n?/i,
+    /^–[^\n]*\n?/m,
+  ];
+
+  for (const pattern of metadataPatterns) {
+    cleaned = cleaned.replace(pattern, '');
+  }
+
+  return cleaned.trim();
+}
+
 export default function AdScriptGeneratorClient() {
-  const supabase = useMemo(() => getSupabaseBrowserClient(), []);
+  // Initialize Supabase client safely for client-side only
+  const [supabase] = useState(() => getSupabaseBrowserClient());
   const router = useRouter();
   const searchParams = useSearchParams();
   const { openModal } = useFreeWeek();
@@ -220,10 +260,44 @@ export default function AdScriptGeneratorClient() {
   const [anonUsageCount, setAnonUsageCount] = useState(0);
   const [authLoaded, setAuthLoaded] = useState(false);
   const [accessToken, setAccessToken] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   const triggerProfileReload = useCallback(() => {
     setProfileReloadKey((value) => value + 1);
   }, []);
+
+  // Set mounted state for hydration safety
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Catch and report hydration errors to Sentry
+  useEffect(() => {
+    const handleError = (event: ErrorEvent) => {
+      const error = event.error;
+      if (error && error.message &&
+          (error.message.includes('Hydration') ||
+           error.message.includes('Server Components') ||
+           error.message.includes('Text content does not match'))) {
+        Sentry.captureException(error, {
+          tags: {
+            component: 'AdScriptGeneratorClient',
+            errorType: 'hydration',
+          },
+          contexts: {
+            hydration: {
+              isMounted,
+              authLoaded,
+              hasUser: !!user,
+            },
+          },
+        });
+      }
+    };
+
+    window.addEventListener('error', handleError);
+    return () => window.removeEventListener('error', handleError);
+  }, [isMounted, authLoaded, user]);
 
   useEffect(() => {
     let mounted = true;
@@ -344,7 +418,7 @@ export default function AdScriptGeneratorClient() {
   }, [checkoutStatus, triggerProfileReload, user]);
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
+    if (!isMounted) {
       return;
     }
 
@@ -360,7 +434,7 @@ export default function AdScriptGeneratorClient() {
         setAnonUsageCount(parsed);
       }
     }
-  }, []);
+  }, [isMounted]);
 
   const handleFieldChange = useCallback((key: keyof FormState, value: string) => {
     setFormState((prev) => ({ ...prev, [key]: value }));
@@ -500,17 +574,12 @@ export default function AdScriptGeneratorClient() {
         : `https://${formState.websiteUrl}`;
 
       try {
-        const invokeOptions: {
-          body: {
-            companyName: string;
-            websiteUrl: string;
-            productDescription: string;
-            platform: string;
-            objective: string;
-            adFormat: 'video' | 'static';
-          };
-          headers?: Record<string, string>;
-        } = {
+        const headers = buildSupabaseInvokeHeaders({
+          accessToken,
+          anonymousKey: isAnonymousUser ? currentAnonymousKey : undefined,
+        });
+
+        const { data, error: invokeError } = await supabase.functions.invoke<GenerationResponse>('generate-script', {
           body: {
             companyName: formState.companyName,
             websiteUrl: normalizedWebsiteUrl,
@@ -519,18 +588,8 @@ export default function AdScriptGeneratorClient() {
             objective: formState.objective,
             adFormat: formState.adFormat,
           },
-        };
-
-        const headers = buildSupabaseInvokeHeaders({
-          accessToken,
-          anonymousKey: isAnonymousUser ? currentAnonymousKey : undefined,
+          ...(headers ? { headers } : {}),
         });
-
-        if (headers) {
-          invokeOptions.headers = headers;
-        }
-
-        const { data, error: invokeError } = await supabase.functions.invoke<GenerationResponse>('generate-script', invokeOptions);
 
         if (invokeError) {
           console.error('generate-script error', invokeError);
@@ -582,7 +641,8 @@ export default function AdScriptGeneratorClient() {
         }
 
         if (data?.script) {
-          setResult(data.script);
+          const cleanedScript = cleanScriptOutput(data.script);
+          setResult(cleanedScript);
           console.log('Received structured data:', data.data);
           setStructuredData(data.data || null);
           setEmailStatus(null);
@@ -770,12 +830,15 @@ export default function AdScriptGeneratorClient() {
           )}
 
           <header className="text-center">
-            <div className="mx-auto flex w-fit items-center gap-2 rounded-full bg-brand-100 px-4 py-2 text-sm font-semibold text-brand-800">
+            <div className="mx-auto flex w-fit items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-800">
               <Sparkles className="h-4 w-4" />
-              Script Generator
+              AI Ad Script Generator
             </div>
             <h1 className="mt-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              Turn your idea into a scroll-stopping ad in 60 seconds
+              Generate Winning Ad Scripts in{' '}
+              <span className="text-transparent bg-gradient-to-r from-[#126DFB] to-[#0F5AD6] bg-clip-text">
+                60 Seconds
+              </span>
             </h1>
             <p className="mt-4 text-lg text-gray-600">
               Drop in your URL and campaign goal. Get platform-ready scripts backed by $250M in testing. TikTok, Meta, YouTube, LinkedIn, X — all covered.
@@ -892,8 +955,8 @@ export default function AdScriptGeneratorClient() {
                     name="companyName"
                     value={formState.companyName}
                     onChange={(event) => handleFieldChange('companyName', event.target.value)}
-                    className={`rounded-lg border px-4 py-3 text-base text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-200 ${
-                      formErrors.companyName ? 'border-red-400 focus:border-red-500 focus:ring-red-200' : 'border-gray-200 focus:border-brand-500'
+                    className={`rounded-xl border px-4 py-3 text-base text-gray-900 shadow-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-200 ${
+                      formErrors.companyName ? 'border-red-400 focus:border-red-500 focus:ring-red-200' : 'border-gray-200 focus:border-[#126DFB] focus:shadow-lg focus:shadow-blue-500/10'
                     }`}
                     placeholder="e.g. BrightWave Labs"
                     aria-invalid={Boolean(formErrors.companyName)}
@@ -912,8 +975,8 @@ export default function AdScriptGeneratorClient() {
                     name="websiteUrl"
                     value={formState.websiteUrl}
                     onChange={(event) => handleFieldChange('websiteUrl', event.target.value)}
-                    className={`rounded-lg border px-4 py-3 text-base text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-200 ${
-                      formErrors.websiteUrl ? 'border-red-400 focus:border-red-500 focus:ring-red-200' : 'border-gray-200 focus:border-brand-500'
+                    className={`rounded-xl border px-4 py-3 text-base text-gray-900 shadow-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-200 ${
+                      formErrors.websiteUrl ? 'border-red-400 focus:border-red-500 focus:ring-red-200' : 'border-gray-200 focus:border-[#126DFB] focus:shadow-lg focus:shadow-blue-500/10'
                     }`}
                     placeholder="https://yourbrand.com"
                     aria-invalid={Boolean(formErrors.websiteUrl)}
@@ -932,7 +995,7 @@ export default function AdScriptGeneratorClient() {
                   name="adFormat"
                   value={formState.adFormat}
                   onChange={(event) => handleFieldChange('adFormat', event.target.value as 'video' | 'static')}
-                  className="rounded-lg border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                  className="rounded-xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 shadow-sm transition-all duration-300 focus:border-[#126DFB] focus:outline-none focus:ring-2 focus:ring-blue-200 focus:shadow-lg focus:shadow-blue-500/10"
                   aria-invalid={Boolean(formErrors.adFormat)}
                 >
                   <option value="video">Video ad (scripted output)</option>
@@ -949,7 +1012,7 @@ export default function AdScriptGeneratorClient() {
                   name="productDescription"
                   value={formState.productDescription}
                   onChange={(event) => handleFieldChange('productDescription', event.target.value)}
-                  className="rounded-lg border border-gray-200 px-4 py-3 text-base text-gray-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                  className="rounded-xl border border-gray-200 px-4 py-3 text-base text-gray-900 shadow-sm transition-all duration-300 focus:border-[#126DFB] focus:outline-none focus:ring-2 focus:ring-blue-200 focus:shadow-lg focus:shadow-blue-500/10"
                   placeholder="Share positioning, differentiators, or customer pain points for richer scripts"
                 />
               </label>
@@ -961,7 +1024,7 @@ export default function AdScriptGeneratorClient() {
                     name="platform"
                     value={formState.platform}
                     onChange={(event) => handleFieldChange('platform', event.target.value)}
-                    className="rounded-lg border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                    className="rounded-xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 shadow-sm transition-all duration-300 focus:border-[#126DFB] focus:outline-none focus:ring-2 focus:ring-blue-200 focus:shadow-lg focus:shadow-blue-500/10"
                   >
                     <option value="">Let the AI choose the best fit</option>
                     <option value="facebook">Facebook</option>
@@ -979,7 +1042,7 @@ export default function AdScriptGeneratorClient() {
                     name="objective"
                     value={formState.objective}
                     onChange={(event) => handleFieldChange('objective', event.target.value)}
-                    className="rounded-lg border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                    className="rounded-xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 shadow-sm transition-all duration-300 focus:border-[#126DFB] focus:outline-none focus:ring-2 focus:ring-blue-200 focus:shadow-lg focus:shadow-blue-500/10"
                   >
                     <option value="">Select campaign goal</option>
                     <option value="awareness">Awareness</option>
@@ -1111,8 +1174,8 @@ export default function AdScriptGeneratorClient() {
           <SimplePricingSection />
         </div>
       </div>
-      {authLoaded && !user ? (
-        <ExitIntentPopup 
+      {isMounted && authLoaded && !user ? (
+        <ExitIntentPopup
           title="Grab 10 More Free Ad Templates"
           subtitle="Join 100+ teams getting Monday creative intelligence drops plus instant access to our 10-template swipe file."
         />
@@ -1249,7 +1312,7 @@ function AuthPanel({ supabase, onAuthSuccess }: AuthPanelProps) {
             required
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            className="w-full rounded-lg border border-gray-200 px-4 py-2 text-sm text-gray-900 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+            className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm text-gray-900 transition-all duration-300 focus:border-[#126DFB] focus:outline-none focus:ring-2 focus:ring-blue-200 focus:shadow-lg focus:shadow-blue-500/10"
           />
         </div>
 
@@ -1264,7 +1327,7 @@ function AuthPanel({ supabase, onAuthSuccess }: AuthPanelProps) {
             required
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            className="w-full rounded-lg border border-gray-200 px-4 py-2 text-sm text-gray-900 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+            className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm text-gray-900 transition-all duration-300 focus:border-[#126DFB] focus:outline-none focus:ring-2 focus:ring-blue-200 focus:shadow-lg focus:shadow-blue-500/10"
           />
         </div>
 
