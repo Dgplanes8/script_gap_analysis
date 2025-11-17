@@ -39,7 +39,10 @@ export const metadata: Metadata = {
 };
 
 // Dynamic import of the heavy client component for better performance
-const AdScriptGeneratorClient = nextDynamic(() => import('./client-page'), {
+const AdScriptGeneratorClient = nextDynamic(() => import('./client-page').catch(err => {
+  console.error('Failed to load AdScriptGeneratorClient:', err);
+  throw err;
+}), {
   loading: () => (
     <div className="min-h-screen flex items-center justify-center">
       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
