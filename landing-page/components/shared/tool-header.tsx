@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, type ReactNode } from 'react';
+import type { AuthChangeEvent } from '@supabase/supabase-js';
 import { createBrowserClient } from '@/lib/supabase/browser-client';
 import { AuthenticatedHeader } from './authenticated-header';
 
@@ -50,7 +51,7 @@ export function ToolHeader({ fallback, className }: ToolHeaderProps) {
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, session) => {
       if (mounted) {
         setHasSession(Boolean(session));
       }

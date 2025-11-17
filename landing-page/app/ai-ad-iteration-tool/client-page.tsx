@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import type { User } from '@supabase/supabase-js';
+import type { User, AuthChangeEvent } from '@supabase/supabase-js';
 import {
   CheckCircle2,
   CreditCard,
@@ -281,7 +281,7 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
       }
     };
 
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: listener } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, session) => {
       if (!mounted) {
         return;
       }

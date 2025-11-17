@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import type { User } from '@supabase/supabase-js';
+import type { User, AuthChangeEvent } from '@supabase/supabase-js';
 import { CreditCard, Loader2 } from 'lucide-react';
 import { getSupabaseBrowserClient } from '@/lib/supabase/browser-client';
 import { AIFormTemplate } from '@/components/templates/ai-form-template';
@@ -130,7 +130,7 @@ export default function TemplatedAdScriptGeneratorClient() {
       }
     };
 
-    const { data: listener } = supabase.auth.onAuthStateChange(async (_event, session) => {
+    const { data: listener } = supabase.auth.onAuthStateChange(async (_event: AuthChangeEvent, session) => {
       if (!mounted) {
         return;
       }
