@@ -15,6 +15,11 @@ export type ProfileRow = {
 let client: BrowserClient | null = null;
 
 export function getSupabaseBrowserClient(): BrowserClient {
+  // Ensure this only runs in browser context
+  if (typeof window === 'undefined') {
+    throw new Error('getSupabaseBrowserClient can only be called in browser context');
+  }
+
   if (client) {
     return client;
   }

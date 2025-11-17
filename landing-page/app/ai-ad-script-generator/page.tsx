@@ -3,8 +3,6 @@ export const revalidate = 0;
 
 import type { Metadata } from 'next';
 import nextDynamic from 'next/dynamic';
-import { AlyticsNavbar } from '@/components/alytics/alytics-navbar';
-import { ToolHeader } from '@/components/shared/tool-header';
 import { FAQSection, SPECIALIZED_FAQS } from '@/components/schema/faq-schema';
 
 export const metadata: Metadata = {
@@ -54,7 +52,6 @@ const AdScriptGeneratorClient = nextDynamic(() => import('./client-page').catch(
 export default function AdScriptGeneratorPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-brand-50">
-      <ToolHeader fallback={<AlyticsNavbar />} />
       <div className="pt-4 md:pt-8">
         <AdScriptGeneratorClient />
       </div>

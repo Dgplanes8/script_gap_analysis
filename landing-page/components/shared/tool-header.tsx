@@ -66,7 +66,7 @@ export function ToolHeader({ fallback, className }: ToolHeaderProps) {
   // During SSR and initial hydration, always show fallback to prevent mismatch
   if (!isMounted) {
     if (fallback) {
-      return <div className={className}>{fallback}</div>;
+      return <div className={className} suppressHydrationWarning>{fallback}</div>;
     }
     return null;
   }
@@ -76,7 +76,7 @@ export function ToolHeader({ fallback, className }: ToolHeaderProps) {
   }
 
   if (fallback) {
-    return <div className={className}>{fallback}</div>;
+    return <div className={className} suppressHydrationWarning>{fallback}</div>;
   }
 
   return null;

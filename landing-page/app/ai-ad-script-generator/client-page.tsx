@@ -15,6 +15,8 @@ import ResultActionsPanel from '@/components/shared/result-actions-panel';
 import ScriptOutputDisplay from '@/components/shared/script-output-display';
 import { useFreeWeek } from '@/components/contexts/free-week-context';
 import { buildSupabaseInvokeHeaders } from '@/utils/build-supabase-invoke-headers';
+import { ToolHeader } from '@/components/shared/tool-header';
+import { AlyticsNavbar } from '@/components/alytics/alytics-navbar';
 
 type FormState = {
   companyName: string;
@@ -834,6 +836,7 @@ export default function AdScriptGeneratorClient() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-brand-50">
+      <ToolHeader fallback={<AlyticsNavbar />} />
       <div className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl space-y-10">
           {checkoutStatus && !checkoutMessageDismissed && (
