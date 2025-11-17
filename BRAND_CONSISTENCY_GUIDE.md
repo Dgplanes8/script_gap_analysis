@@ -41,44 +41,98 @@ Transforming $250MM+ in ad spend experience into accessible, weekly strategic in
 
 ## Visual Design System
 
-### Color Palette
+### Color Palette - Conversion Optimized
 
-**Primary Colors**:
+**Strategic Color Psychology for B2B Marketing Platform:**
+
+Our color system is designed to maximize trust and conversions for our B2B target audience (founders, marketers, growth teams making purchasing decisions for their companies).
+
+**Primary Color - Trust & Professionalism**:
 ```css
-/* Primary Orange - Main CTA and highlights */
---primary-orange: #ea580c;      /* orange-600 */
---primary-orange-hover: #c2410c; /* orange-700 */
---primary-orange-light: #fb923c;  /* orange-400 */
+/* Primary Blue - Main brand, headers, navigation, trust-building elements */
+--primary-blue: #126DFB;          /* Brand blue - core identity */
+--primary-blue-dark: #0F5AD6;     /* Hover states, depth */
+--primary-blue-darker: #0D4AB8;   /* Active states */
+--primary-blue-light: #3B82F6;    /* Subtle accents */
+--primary-blue-lighter: #60A5FA;  /* Very subtle backgrounds */
 
-/* Secondary Red - Urgency and important actions */
---secondary-red: #dc2626;        /* red-600 */
---secondary-red-hover: #b91c1c;  /* red-700 */
-
-/* Success Green - Free trials and positive actions */
---success-green: #16a34a;        /* green-600 */
---success-green-hover: #15803d;  /* green-700 */
+/* Psychology: Trust, professionalism, stability, reduces risk perception */
+/* Use: Headers, primary brand elements, professional CTAs, navigation */
+/* Conversion role: Build credibility & reduce purchase anxiety */
 ```
 
-**Neutral Colors**:
+**Success Color - Growth & Free Actions**:
 ```css
-/* Text and backgrounds */
---text-primary: #111827;     /* gray-900 */
---text-secondary: #6b7280;   /* gray-500 */
---text-light: #9ca3af;       /* gray-400 */
---background: #f9fafb;       /* gray-50 */
---background-white: #ffffff; /* white */
---border: #e5e7eb;          /* gray-200 */
+/* Success Green - Free trials, guarantees, positive metrics, ROI signals */
+--success-green: #10B981;         /* Primary success color */
+--success-green-dark: #059669;    /* Hover states */
+--success-green-light: #34D399;   /* Subtle success indicators */
+--success-green-bg: #D1FAE5;      /* Success backgrounds */
+
+/* Psychology: Growth, money, positive ROI, "go ahead" signal */
+/* Use: "Claim Free Credits" CTAs, guarantee badges, success metrics */
+/* Conversion role: Reduce friction on free trials and sign-ups */
 ```
 
-**Tier-Specific Colors**:
+**Urgency Color - Action & Limited Offers**:
 ```css
-/* Service tier color coding */
---tier-starter: #16a34a;     /* green-600 - Creative Starter */
---tier-tracker: #ea580c;     /* orange-600 - Trend Tracker */
---tier-edge: #0d9488;        /* teal-600 - Competitive Edge */
---tier-intelligence: #1e40af; /* navy-600 - Market Intelligence */
---tier-enterprise: #7c3aed;   /* purple-600 - Enterprise */
+/* Urgency Orange - Time-sensitive offers, "Most Popular" badges, FOMO triggers */
+--urgency-orange: #F59E0B;        /* Primary urgency color */
+--urgency-orange-dark: #D97706;   /* Hover states */
+--urgency-orange-light: #FCD34D;  /* Subtle urgency */
+--urgency-orange-bg: #FEF3C7;     /* Urgency backgrounds */
+
+/* Psychology: Energy, action, creates FOMO, affordable innovation */
+/* Use: "Limited spots" badges, countdown timers, "Most Popular" tags */
+/* Conversion role: Drive immediate action on time-sensitive offers */
 ```
+
+**Neutral Colors - Professional Foundation**:
+```css
+/* Grays - Text, backgrounds, borders (don't distract from CTAs) */
+--text-primary: #111827;     /* gray-900 - Primary text */
+--text-secondary: #6B7280;   /* gray-500 - Secondary text */
+--text-muted: #9CA3AF;       /* gray-400 - Muted text */
+--background-gray: #F8F8F8;  /* Primary background */
+--background-white: #FFFFFF; /* White backgrounds */
+--border: #E5E7EB;          /* gray-200 - Borders */
+--border-light: #F3F4F6;    /* gray-100 - Subtle borders */
+```
+
+**Tier-Specific Colors** (Updated for current offerings):
+```css
+/* Service tier color coding for pricing cards */
+--tier-explore: #10B981;     /* green-600 - Explore (Free tier) */
+--tier-essentials: #126DFB;  /* blue-600 - Essentials */
+--tier-studio: #126DFB;      /* blue-600 - Studio (hero tier, gets gradient) */
+--tier-concierge: #7C3AED;   /* purple-600 - Concierge (premium) */
+```
+
+### Color Usage Guidelines - Conversion Hierarchy
+
+**Primary CTAs (Highest conversion priority):**
+- **Background**: Blue gradient (`#126DFB` → `#0F5AD6`)
+- **Text**: White
+- **Use for**: Main signup buttons, pricing CTAs, primary conversion paths
+- **Shadow**: Blue glow for emphasis (`rgba(18, 109, 251, 0.3)`)
+
+**Free/Trial CTAs (Reduce friction):**
+- **Background**: Solid green (`#10B981`)
+- **Text**: White
+- **Use for**: "Claim 10 Free Credits", trial starts, guarantee badges
+- **Shadow**: Green glow (`rgba(16, 185, 129, 0.2)`)
+
+**Secondary CTAs (Alternative paths):**
+- **Background**: White
+- **Border**: Blue (`#126DFB`)
+- **Text**: Blue
+- **Use for**: "Learn more", "See examples", secondary navigation
+
+**Urgency Indicators:**
+- **Background**: Orange (`#F59E0B`) or orange gradient
+- **Text**: White or dark gray depending on contrast
+- **Use for**: "Only 25 spots left", "Most Popular", countdown timers
+- **Animation**: Optional subtle pulse for high-urgency elements
 
 ### Logo and Brand Marks
 
@@ -193,73 +247,170 @@ Extra Small: text-xs (0.75rem) - Disclaimers, metadata
 
 ### Messaging Hierarchy
 
-**Primary Value Proposition**:
-"Turn Your Ad Budget Into 3x More Customers in 30 Days"
+**Conversion Framework: Problem-Agitate-Solution (PAS)**
+
+All homepage messaging should follow the PAS framework for maximum conversion impact:
+
+**1. Problem** (Identify the pain):
+- "Creative bottlenecks killing your growth?"
+- "Wasting ad budget on guesswork?"
+- "Campaigns launching weeks late while competitors outpace you?"
+
+**2. Agitate** (Make the pain real and urgent):
+- "Every week you delay is revenue left on the table"
+- "Your team can't keep up with performance demands"
+- "Ad fatigue is destroying your ROI while you struggle to create fresh content"
+
+**3. Solution** (Present the easy fix with outcome):
+- "Generate winning ad scripts in 60 seconds"
+- "Turn creative bottlenecks into revenue multipliers"
+- "Get $250MM+ in proven frameworks - starting free"
+
+**Primary Value Proposition Options** (Problem + Ease + Outcome):
+1. "Stop Wasting Ad Budget on Guesswork. Get Winning Scripts in 60 Seconds."
+2. "Creative Bottleneck Killing Your Growth? Generate Proven Ad Scripts Instantly."
+3. "Turn Hours of Creative Struggle Into 60 Seconds of Winning Ad Scripts"
 
 **Supporting Messages**:
-- Weekly ad templates designed for startup teams
-- No marketing experience needed
-- Professional strategy at startup pricing
-- Revolutionary weekly billing with no contracts
+- Research-backed creative intelligence (not just templates)
+- 60-second generation time (emphasize speed)
+- $250MM+ proven frameworks (authority)
+- 10 free credits, no card required (remove friction)
 
-**Proof Points**:
+**Proof Points** (Build credibility early):
 - $250MM+ in managed ad spend
-- 1,200+ startup founders already using templates
-- First week FREE trial
-- Cancel or restart anytime
+- 12+ years helping companies scale from $10K to $1M+ monthly spend
+- 25% average CAC reduction across verticals
+- 150+ monthly concept generations available
 
 ---
 
 ## Component Standards
 
-### Button Styling Standards
+### Button Styling Standards - Conversion Optimized
 
-**Primary CTA (High-conversion actions)**:
+**Button Hierarchy by Conversion Priority:**
+
+**1. Primary CTA (Main signup/purchase actions)**:
 ```css
+/* Use: Pricing CTAs, main signup buttons, primary conversion paths */
 .btn-primary {
-  background: linear-gradient(135deg, #ea580c, #dc2626);
+  background: linear-gradient(135deg, #126DFB, #0F5AD6);
   color: white;
   font-weight: 600; /* font-semibold */
   padding: 12px 24px; /* py-3 px-6 */
-  border-radius: 8px; /* rounded-lg */
-  transition: all 0.2s;
+  border-radius: 12px; /* rounded-xl for modern feel */
+  box-shadow: 0 8px 16px rgba(18, 109, 251, 0.3); /* Blue glow */
+  transition: all 0.3s cubic-bezier(0.25, 0.25, 0, 1);
+  font-size: 16px; /* text-base or larger */
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #c2410c, #b91c1c);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.25);
+  background: linear-gradient(135deg, #0F5AD6, #0D4AB8);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(18, 109, 251, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(18, 109, 251, 0.3);
 }
 ```
 
-**Secondary CTA (Alternative actions)**:
+**2. Success/Free CTA (Free trials, zero-friction actions)**:
 ```css
+/* Use: "Claim 10 Free Credits", trial starts, guarantee acceptance */
+.btn-success {
+  background: #10B981; /* Solid green, no gradient for clarity */
+  color: white;
+  font-weight: 600; /* font-semibold */
+  padding: 12px 24px; /* py-3 px-6 */
+  border-radius: 12px; /* rounded-xl */
+  box-shadow: 0 8px 16px rgba(16, 185, 129, 0.25); /* Green glow */
+  transition: all 0.3s cubic-bezier(0.25, 0.25, 0, 1);
+}
+
+.btn-success:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(16, 185, 129, 0.35);
+}
+```
+
+**3. Secondary CTA (Alternative paths, lower friction)**:
+```css
+/* Use: "Learn More", "See Examples", secondary navigation */
 .btn-secondary {
-  border: 2px solid #ea580c;
-  color: #ea580c;
   background: white;
+  border: 2px solid #126DFB;
+  color: #126DFB;
   font-weight: 600;
-  padding: 12px 24px;
-  border-radius: 8px;
-  transition: all 0.2s;
+  padding: 10px 22px; /* Slightly less to account for border */
+  border-radius: 12px;
+  transition: all 0.3s;
 }
 
 .btn-secondary:hover {
-  background: #ea580c;
+  background: #126DFB;
   color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(18, 109, 251, 0.2);
 }
 ```
 
-**Success/Free Actions**:
+**4. Urgency CTA (Limited offers, scarcity-driven)**:
 ```css
-.btn-success {
-  background: #16a34a;
+/* Use: "Only 25 Spots Left", countdown CTAs, limited-time offers */
+.btn-urgent {
+  background: #F59E0B; /* Orange for urgency */
   color: white;
-  font-weight: 700; /* font-bold */
+  font-weight: 700; /* font-bold for emphasis */
   padding: 12px 24px;
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(245, 158, 11, 0.3);
+  transition: all 0.3s;
+  /* Optional: subtle pulse animation */
+}
+
+.btn-urgent:hover {
+  background: #D97706;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(245, 158, 11, 0.4);
 }
 ```
+
+**5. Link-style CTA (Minimal emphasis)**:
+```css
+/* Use: Tertiary actions, inline links within content */
+.btn-link {
+  background: transparent;
+  color: #126DFB;
+  font-weight: 600;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+}
+
+.btn-link:hover {
+  color: #0F5AD6;
+}
+```
+
+**CTA Text Guidelines:**
+- **Action verbs**: "Claim", "Get", "Start", "Unlock", "Join"
+- **Urgency modifiers**: "Now", "Today", "Limited"
+- **Value indicators**: "Free", "10 Credits", "Founding Offer"
+- **Social proof**: "Join 150+ Teams"
+
+**Example CTA Copy:**
+- ✅ "Claim 10 Free Credits Now"
+- ✅ "Unlock Studio Founding Offer"
+- ✅ "Get Winning Scripts in 60 Seconds"
+- ✅ "Join 150+ Growing Teams"
+- ❌ "Click Here"
+- ❌ "Submit"
+- ❌ "Sign Up"
 
 ### Form Styling Standards
 
@@ -269,15 +420,21 @@ Extra Small: text-xs (0.75rem) - Disclaimers, metadata
   width: 100%;
   padding: 12px 16px; /* py-3 px-4 */
   border: 1px solid #d1d5db; /* border-gray-300 */
-  border-radius: 8px; /* rounded-lg */
+  border-radius: 12px; /* rounded-xl for consistency */
   font-size: 14px; /* text-sm */
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.25, 0.25, 0, 1);
+  background: white;
 }
 
 .form-input:focus {
   outline: none;
-  ring: 2px solid #ea580c; /* focus:ring-2 focus:ring-orange-500 */
-  border-color: #ea580c; /* focus:border-orange-500 */
+  ring: 2px solid #126DFB; /* focus:ring-2 focus:ring-blue-600 */
+  border-color: #126DFB; /* focus:border-blue-600 */
+  box-shadow: 0 0 0 3px rgba(18, 109, 251, 0.1); /* Subtle blue glow */
+}
+
+.form-input:hover:not(:focus) {
+  border-color: #9CA3AF; /* Subtle hover state */
 }
 ```
 
@@ -357,11 +514,11 @@ Extra Small: text-xs (0.75rem) - Disclaimers, metadata
 4. **Growth-Oriented**: Visual emphasis on scaling and improvement
 5. **Founder-Friendly**: Approachable and understanding of startup constraints
 
-**Color Psychology for Startups**:
-- **Orange**: Energy, enthusiasm, affordable innovation
-- **Green**: Growth, success, go-ahead signal for budget-conscious decisions
-- **Red**: Urgency appropriate for fast-moving startup environment
-- **Gray**: Professional stability without corporate stiffness
+**Color Psychology for B2B Decision-Makers**:
+- **Blue (#126DFB)**: Trust, professionalism, reduces risk perception - critical for B2B purchases where buyers justify ROI to stakeholders
+- **Green (#10B981)**: Growth, ROI signals, "safe to proceed" - removes friction from free trials and money-back guarantees
+- **Orange (#F59E0B)**: Urgency, FOMO, action triggers - creates scarcity and drives immediate decisions on limited offers
+- **Gray (Neutrals)**: Professional foundation - doesn't compete with conversion-critical CTAs
 
 ### Content Alignment
 

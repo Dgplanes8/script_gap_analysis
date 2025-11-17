@@ -702,38 +702,6 @@ Be conversational and direct
 Focus on benefits, not features
 Remember to adapt the intensity of conversion elements based on funnel stage. Top-of-funnel content should be lighter on direct selling, while bottom-funnel can be more direct with offers and CTAs.
 Output: Complete scripts/copy for each concept and format.
-Step 6: Final Creative Brief
-The final step is to compile all your work into a comprehensive creative brief that can be handed off to a production team. This serves as the definitive document that ensures all teams understand the strategic direction.
-Creative Brief Structure:
-1. CAMPAIGN OVERVIEW
-Campaign Name: [Name]
-Primary Objective: [Conversion, Awareness, etc.]
-Target Audience: [Consolidated description]
-Key Message: [One-sentence core message]
-Unique Value Proposition: [What makes this product/offer special]
-2. CONCEPT SUMMARY For each concept (1-3), provide:
-Concept Name: [Name]
-Strategic Approach: [Brief explanation]
-Target Persona: [Specific demographic + psychographic details]
-Core Emotion: [Primary emotional driver]
-Life Force 8: [Which motivational drivers]
-Awareness Level: [Level of audience awareness]
-Formats: [List of formats being used]
-Performance Prediction Score: [Score from evaluation framework]
-3. FORMAT EXECUTIONS For each format within each concept, provide:
-Format Type: [UGC, Static, etc.]
-Primary Hook/Headline: [Final version]
-Complete Copy: [All supporting copy]
-Key Visuals: [Description of imagery/scenes]
-Talent Notes: [Age, style, personality if applicable]
-Golden Pain Addressed: [Specific pain point from research]
-Dream Outcome Promised: [Specific outcome from research]
-4. BRAND GUIDELINES
-Voice Positioning: [Where brand falls on voice spectrum]
-Power Words: [Key words to use]
-Forbidden Language: [Words/phrases to avoid]
-Required Disclaimers: [Legal requirements if any]
-Output: Complete creative brief document.
 `;
 
 // Simplified embedded prompts structure
@@ -745,7 +713,6 @@ const EMBEDDED_PROMPTS = {
 const OUTPUT_STRUCTURE_SCHEMA = {
   "type": "object",
   "properties": {
-    "summary": { "type": "string" },
     "iterations": {
       "type": "array",
       "items": {
@@ -755,66 +722,53 @@ const OUTPUT_STRUCTURE_SCHEMA = {
             "type": "string",
             "enum": ["same", "video", "static", "carousel"]
           },
-
-          // CORE MESSAGING
-          "hook": { "type": "string" },
-          "headline": { "type": "string" },
-          "angleSummary": { "type": "string" },
-
-          // EXECUTION DETAILS
-          "visual": { "type": "string" },
-          "callToAction": { "type": "string" },
-
-          // SCRIPT (for video only)
+          "headline": { "type": "string", "maxLength": 150 },
+          "angleSummary": { "type": "string", "maxLength": 400 },
           "script": {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
-                "scene": { "type": "string" },
-                "visual": { "type": "string" },
-                "voiceover": { "type": "string" },
-                "overlay": { "type": "string" }
+                "scene": { "type": "string", "maxLength": 100 },
+                "description": { "type": "string", "maxLength": 300 },
+                "voiceover": { "type": "string", "maxLength": 300 },
+                "overlay": { "type": "string", "maxLength": 200 },
+                "cta": { "type": "string", "maxLength": 100 }
               },
-              "required": ["scene", "visual"],
+              "required": ["scene", "description"],
               "additionalProperties": false
             },
-            "maxItems": 6
+            "maxItems": 8
           },
-
-          // STATIC COPY (for static only)
           "staticCopy": {
             "type": "object",
             "properties": {
-              "headline": { "type": "string" },
-              "body": { "type": "string" },
-              "bulletPoints": {
+              "headline": { "type": "string", "maxLength": 150 },
+              "body": { "type": "string", "maxLength": 500 },
+              "cta": { "type": "string", "maxLength": 100 },
+              "designNotes": {
                 "type": "array",
-                "items": { "type": "string" },
-                "maxItems": 3
-              },
-              "cta": { "type": "string" }
+                "items": { "type": "string", "maxLength": 200 },
+                "maxItems": 5
+              }
             },
             "additionalProperties": false
           },
-
-          // TESTING
           "testingNotes": {
             "type": "array",
-            "items": { "type": "string" },
-            "maxItems": 2
+            "items": { "type": "string", "maxLength": 300 },
+            "maxItems": 5
           }
         },
-        "required": ["id", "hook", "headline", "angleSummary", "visual", "callToAction"],
+        "required": ["id", "headline", "angleSummary"],
         "additionalProperties": false
       },
-      "minItems": 1,
       "maxItems": 4
     },
-    "error": { "type": "string" },
-    "message": { "type": "string" }
+    "error": { "type": "string", "maxLength": 200 },
+    "message": { "type": "string", "maxLength": 300 }
   },
-  "required": ["summary", "iterations"],
+  "required": ["iterations"],
   "additionalProperties": false
 } as const;
 
@@ -834,13 +788,6 @@ const FORMAT_PROMPT_MAP: Record<string, string> = {
 
 export type OutputFormat = "same" | "video" | "static" | "carousel";
 
-export interface BaseAdReference {
-  url: string;
-  platform: string;
-  companyName?: string;
-  analysisData?: string; // Extracted creative elements from ingestSocialAsset
-}
-
 export interface PromptContext {
   companyName: string;
   primaryPlatform: string;
@@ -854,7 +801,6 @@ export interface PromptContext {
   assetContentType?: string | null;
   socialSourceUrl?: string | null;
   upstreamDownloadUrl?: string | null;
-  baseAds?: BaseAdReference[]; // NEW: Saved competitor ads to use as inspiration
 }
 
 export interface BuiltPrompt {
@@ -1033,51 +979,6 @@ function formatList(items: string[]): string {
   return items.map((item) => `- ${item}`).join("\n");
 }
 
-function formatBaseAdContext(baseAds: BaseAdReference[]): string {
-  const header = `\n🎯 COMPETITOR AD INTELLIGENCE (Use as Strategic Inspiration):
-
-You have been provided with ${baseAds.length} saved competitor ad${baseAds.length === 1 ? '' : 's'} from the user's research library. These ads represent creative approaches that the user wants to study and remix for their own brand.
-
-**CRITICAL INSTRUCTIONS FOR BASE AD USAGE:**
-1. Analyze these competitor ads to extract winning creative patterns, hooks, messaging frameworks, and visual strategies
-2. DO NOT copy verbatim - instead, identify the underlying principles that make these ads effective
-3. Blend the best elements from these saved ads with the brand context provided and APSICS performance frameworks
-4. Call out specific patterns you're borrowing (e.g., "Inspired by the problem-agitate-solve structure from Ad #1")
-5. Ensure your iterations feel like a strategic evolution informed by competitor intelligence, not plagiarism
-
-**SAVED COMPETITOR ADS FOR ANALYSIS:**\n`;
-
-  const adDescriptions = baseAds.map((ad, index) => {
-    const parts = [
-      `\n--- Base Ad #${index + 1} ---`,
-      `Platform: ${ad.platform.charAt(0).toUpperCase() + ad.platform.slice(1)}`,
-      `Source URL: ${ad.url}`,
-    ];
-
-    if (ad.companyName) {
-      parts.push(`Company: ${ad.companyName}`);
-    }
-
-    if (ad.analysisData) {
-      parts.push(`\nExtracted Creative Elements:\n${ad.analysisData}`);
-    } else {
-      parts.push('\nNote: Unable to fetch detailed analysis for this ad. Use URL and platform context as reference.');
-    }
-
-    return parts.join('\n');
-  }).join('\n');
-
-  const footer = `\n\n**STRATEGIC APPROACH:**
-- Identify 2-3 key creative patterns across these saved ads (hook styles, proof types, CTA frameworks)
-- Note what makes each ad platform-native and engaging
-- Synthesize the best elements into your iterations while maintaining the user's brand voice
-- Cite which base ad inspired specific elements in your output (e.g., "Hook borrowed from Ad #2's curiosity gap approach")
-
-Now proceed with your analysis of the user's asset, incorporating insights from these competitor ads.\n`;
-
-  return header + adDescriptions + footer;
-}
-
 export function buildIterationPrompt(context: PromptContext): BuiltPrompt {
   const systemPrompt = getPrompt("system.md");
   const baseAnalysis = getPrompt("base_analysis.md");
@@ -1104,12 +1005,6 @@ export function buildIterationPrompt(context: PromptContext): BuiltPrompt {
     .join("\n");
 
   sections.push("Project Context:\n" + contextSummary);
-
-  // NEW: Inject base ad context for custom iterations
-  if (context.baseAds && context.baseAds.length > 0) {
-    const baseAdContext = formatBaseAdContext(context.baseAds);
-    sections.push(baseAdContext);
-  }
   sections.push(baseAnalysis);
 
   const assetVerification = `ASSET VERIFICATION CHECK (MANDATORY):
@@ -1151,27 +1046,24 @@ OUTPUT COMPLIANCE:
 
   const outputStructure = `OUTPUT STRUCTURE (STRICT JSON ONLY):
 {
-  "summary": string,
   "iterations": [{
     "id": "same" | "video" | "static" | "carousel",
-    "hook": string,
     "headline": string,
     "angleSummary": string,
-    "visual": string,
-    "callToAction": string,
     "script": [{
       "scene": string,
-      "visual": string,
-      "voiceover": string,
-      "overlay"?: string
-    }] (optional, for video only),
+      "description": string,
+      "voiceover"?: string,
+      "overlay"?: string,
+      "cta"?: string
+    }] (optional),
     "staticCopy"?: {
-      "headline": string,
-      "body": string,
-      "bulletPoints": string array (max 3 items),
-      "cta": string
-    } (for static only),
-    "testingNotes"?: string array (max 2 items)
+      "headline"?: string,
+      "body"?: string,
+      "cta"?: string,
+      "designNotes"?: string array
+    },
+    "testingNotes"?: string array
   }] (1-4 items required),
   "error"?: string,
   "message"?: string

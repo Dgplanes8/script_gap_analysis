@@ -5,6 +5,7 @@ import {
   normalizeOpenRouterContent,
   stripMarkdownFence,
   parseJsonWithRecovery,
+  sliceBalanced,
 } from "../_shared/openrouter.ts";
 
 const supabaseUrl = Deno.env.get("EDGE_SUPABASE_URL") ?? Deno.env.get("SUPABASE_URL");
@@ -571,7 +572,15 @@ async function runBriefSynthesisCall(
   const rawResponse = await callOpenRouter(model, messages, mode === "advanced" ? 0.3 : 0.4);
 
   try {
-    return parseJsonWithRecovery<StructuredBrief>(rawResponse);
+    // Extract JSON object from response that may contain additional commentary
+    const jsonString = sliceBalanced(rawResponse, 0, '{', '}');
+
+    if (!jsonString) {
+      console.error("No balanced JSON found in response", rawResponse.substring(0, 500));
+      throw new Error("No JSON object found in model response");
+    }
+
+    return parseJsonWithRecovery<StructuredBrief>(jsonString);
   } catch (error) {
     console.error("Failed to parse brief JSON", rawResponse, error);
 
@@ -1405,7 +1414,7 @@ function buildPreviewSnippet(structuredBrief: StructuredBrief) {
 function buildCorsHeaders(req: Request): Record<string, string> {
   const origin = req.headers.get("origin") ?? "*";
   const requestedHeaders = req.headers.get("access-control-request-headers") ?? "";
-  const defaultHeaders = ["authorization", "x-client-info", "apikey", "content-type", "x-anonymous-key"];
+  const defaultHeaders = ["authorization", "x-client-info", "apikey", "content-type", "x-anonymous-key", "baggage", "sentry-trace"];
 
   const headerSet = new Set<string>();
   for (const header of defaultHeaders) {

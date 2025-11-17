@@ -60,30 +60,40 @@ function PricingTier({
     <motion.div
       variants={cardVariants}
       whileHover={{
-        y: highlight ? 0 : -8,
-        boxShadow: highlight ? "0 25px 50px rgba(18, 109, 251, 0.2)" : "0 20px 40px rgba(0, 0, 0, 0.08)"
+        y: highlight ? -6 : -4,
+        boxShadow: highlight ? "0 30px 60px rgba(18, 109, 251, 0.3)" : "0 20px 40px rgba(0, 0, 0, 0.12)"
       }}
-      className={`rounded-2xl p-8 border relative flex flex-col h-full ${
+      className={`rounded-2xl p-8 border relative flex flex-col h-full transition-all duration-300 ${
         highlight
-          ? 'bg-gradient-to-b from-blue-50 via-white to-white border-[#126DFB] shadow-xl'
-          : 'bg-white border-gray-200 shadow-lg'
+          ? 'bg-gradient-to-br from-blue-50/90 via-blue-50/40 to-white border-[#126DFB] border-2 shadow-2xl shadow-blue-500/30 ring-4 ring-blue-100 scale-105'
+          : 'bg-white border-gray-200 shadow-lg hover:border-gray-300'
       }`}
     >
       {badge && (
-        <div className="absolute -top-4 left-6">
-          <div className="bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded-full">
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
+          className="absolute -top-4 left-6"
+        >
+          <div className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg shadow-orange-500/40">
             {badge}
           </div>
-        </div>
+        </motion.div>
       )}
 
       {highlight && (
-        <div className="absolute -top-4 right-6">
-          <div className="bg-gradient-to-r from-[#126DFB] to-[#126DFB] text-white text-sm font-semibold px-3 py-1 rounded-full flex items-center gap-1">
-            <Star className="w-3 h-3" />
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.4, type: 'spring', stiffness: 200 }}
+          className="absolute -top-4 right-6"
+        >
+          <div className="bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 shadow-lg shadow-orange-500/40">
+            <Star className="w-3 h-3 fill-current" />
             Most Popular
           </div>
-        </div>
+        </motion.div>
       )}
 
       <div className="text-center mb-8">
@@ -119,15 +129,25 @@ function PricingTier({
       <div className="mt-auto">
         <motion.button
           onClick={onButtonClick}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-200 ${
+          whileHover={{
+            scale: 1.03,
+            boxShadow: highlight
+              ? "0 16px 30px rgba(18, 109, 251, 0.4)"
+              : name === "Explore"
+                ? "0 12px 24px rgba(16, 185, 129, 0.35)"
+                : "0 12px 20px rgba(18, 109, 251, 0.3)"
+          }}
+          whileTap={{ scale: 0.97 }}
+          className={`w-full py-4 px-6 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 relative overflow-hidden group ${
             highlight
-              ? 'bg-[#126DFB] hover:bg-[#0F5AD6] text-white shadow-lg'
-              : 'bg-gray-900 hover:bg-gray-800 text-white shadow-lg'
+              ? 'bg-gradient-to-r from-[#126DFB] to-[#0F5AD6] hover:from-[#0F5AD6] hover:to-[#0D4AB8] text-white shadow-lg shadow-blue-500/40'
+              : name === "Explore"
+                ? 'bg-[#10B981] hover:bg-[#059669] text-white shadow-lg shadow-green-500/40'
+                : 'bg-gradient-to-r from-[#126DFB] to-[#0F5AD6] hover:from-[#0F5AD6] hover:to-[#0D4AB8] text-white shadow-lg shadow-blue-500/30'
           }`}
         >
-          {buttonText}
+          <span className="relative z-10">{buttonText}</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
         </motion.button>
       </div>
     </motion.div>
@@ -234,7 +254,7 @@ export function SimplePricingSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-Turn Ad Spend Into Revenue Growth Starting at $19/Month
+            $250MM+ Agency Expertise for a Fraction of the Cost
           </motion.h2>
 
           <motion.p
@@ -244,7 +264,8 @@ Turn Ad Spend Into Revenue Growth Starting at $19/Month
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-Get 150+ fully-developed creative concepts every month - complete with scripts, strategic insights, and positioning frameworks. Access comprehensive creative intelligence that includes market research, competitor analysis, and trend-based recommendations.
+            Get fully-developed creative concepts complete with scripts, strategic insights, and competitive analysis.{' '}
+            <span className="font-semibold text-gray-900">Starting at $19/month</span> vs. $5,000+ monthly agency retainers.
           </motion.p>
 
           {/* Value Anchoring */}
@@ -272,7 +293,7 @@ Get 150+ fully-developed creative concepts every month - complete with scripts, 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid gap-8 max-w-5xl mx-auto mb-16 sm:grid-cols-2 xl:grid-cols-4"
+          className="grid gap-6 md:gap-8 max-w-6xl mx-auto mb-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
         >
           {pricingTiers.map((tier) => (
             <PricingTier
@@ -341,29 +362,48 @@ Get 150+ fully-developed creative concepts every month - complete with scripts, 
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-2xl p-8 mb-16 max-w-3xl mx-auto text-center"
+          className="bg-gradient-to-br from-green-50 via-emerald-50/50 to-green-50 border-2 border-green-300 rounded-3xl p-8 md:p-10 mb-16 max-w-3xl mx-auto text-center shadow-xl shadow-green-500/10 relative overflow-hidden"
         >
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckCircle className="w-8 h-8 text-green-600" />
-          </div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            30-Day Revenue Improvement Guarantee
-          </h3>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            If our credit-based creative intelligence doesn't improve your ad performance within 30 days, we'll refund your entire investment. No questions asked.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">
-            <div className="flex items-center justify-center gap-2">
-              <CheckCircle className="w-4 h-4 text-green-600" />
-              <span>Cancel anytime</span>
-            </div>
-            <div className="flex items-center justify-center gap-2">
-              <CheckCircle className="w-4 h-4 text-green-600" />
-              <span>Full refund guarantee</span>
-            </div>
-            <div className="flex items-center justify-center gap-2">
-              <CheckCircle className="w-4 h-4 text-green-600" />
-              <span>No long-term contracts</span>
+          {/* Decorative background */}
+          <div className="absolute top-0 right-0 w-48 h-48 bg-green-400/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-400/10 rounded-full blur-3xl" />
+
+          <div className="relative z-10">
+            <motion.div
+              className="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-green-500/20"
+              whileHover={{ scale: 1.1, rotate: 10 }}
+              transition={{ duration: 0.2 }}
+            >
+              <CheckCircle className="w-8 h-8 text-green-600" />
+            </motion.div>
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              30-Day Revenue Improvement Guarantee
+            </h3>
+            <p className="text-lg text-gray-700 leading-relaxed mb-8 font-medium">
+              If our credit-based creative intelligence doesn't improve your ad performance within 30 days, we'll refund your entire investment. No questions asked.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-700">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center justify-center gap-2 bg-white/60 backdrop-blur-sm rounded-lg px-4 py-3"
+              >
+                <CheckCircle className="w-5 h-5 text-[#10B981]" />
+                <span className="font-semibold">Cancel anytime</span>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center justify-center gap-2 bg-white/60 backdrop-blur-sm rounded-lg px-4 py-3"
+              >
+                <CheckCircle className="w-5 h-5 text-[#10B981]" />
+                <span className="font-semibold">Full refund guarantee</span>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center justify-center gap-2 bg-white/60 backdrop-blur-sm rounded-lg px-4 py-3"
+              >
+                <CheckCircle className="w-5 h-5 text-[#10B981]" />
+                <span className="font-semibold">No long-term contracts</span>
+              </motion.div>
             </div>
           </div>
         </motion.div>

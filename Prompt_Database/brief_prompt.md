@@ -1,4 +1,4 @@
-Step 6: Final Creative Brief
+nowStep 6: Final Creative Brief
 The final step is to compile all your work into a comprehensive creative brief that can be handed off to a production team. This serves as the definitive document that ensures all teams understand the strategic direction.
 Creative Brief Structure:
 1. CAMPAIGN OVERVIEW

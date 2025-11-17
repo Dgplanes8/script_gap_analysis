@@ -4,7 +4,7 @@ import { basePrompt } from "./prompt.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-anonymous-key, baggage, sentry-trace",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
@@ -327,7 +327,7 @@ serve(async (req) => {
         "X-Title": "AI Ad Script Generator",
       },
       body: JSON.stringify({
-        model: "x-ai/grok-4-fast:free",
+        model: "anthropic/claude-haiku-4.5",
         messages: [
           {
             role: "system",
@@ -362,14 +362,17 @@ serve(async (req) => {
   }
 
   const completionData = await completion.json();
-  const script = completionData?.choices?.[0]?.message?.content;
+  const rawScript = completionData?.choices?.[0]?.message?.content;
 
-  if (!script) {
+  if (!rawScript) {
     return new Response(JSON.stringify({ error: "OpenRouter returned an empty response" }), {
       status: 502,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
+
+  // Extract only the script portion from the response
+  const script = extractScriptFromResponse(rawScript);
 
   const processingTime = Date.now() - startTime;
 
@@ -500,11 +503,92 @@ Output Requirements:
 4. Close with an explicit CTA aligned to the brand’s buyer journey.
 5. Return only the finished creative output aligned to the requested format. Do not include research notes, numbered steps, or multiple concepts—deliver exactly one execution.
 
-Formatting Instructions:
-- Begin the response with the line 'Script:'.
-- After that line, output the complete script (including scene/stage directions if relevant) as continuous text or Markdown.
-- Do not add any introductions, summaries, or sections outside the script itself.
+FINAL OUTPUT FORMAT:
+Begin with "Script:" on its own line, then immediately provide:
+- For video: Scene-by-scene breakdown with voiceover, on-screen text, visuals
+- For static: Headline, subheadline, bullet benefits, CTA
+
+Do NOT include:
+- Titles (e.g., "WARBY PARKER VIDEO AD")
+- Metadata (Platform, Duration, Framework)
+- Commentary or explanations
+
+Just the executable creative content that a production team can use immediately.
 `;
+}
+
+function extractScriptFromResponse(rawResponse: string): string {
+  if (!rawResponse) return '';
+
+  // Look for "Script:" marker
+  const scriptMarkerIndex = rawResponse.indexOf('Script:');
+
+  if (scriptMarkerIndex === -1) {
+    // No marker found - check if response starts with unwanted content
+    let cleaned = rawResponse.trim();
+    const unwantedPrefixes = [
+      '## STEP 1A:',
+      '## Step 1A:',
+      'STEP 1A:',
+      'Step 1A:',
+      '# WARBY PARKER',
+      '**WARBY PARKER',
+      '# ',
+      'Research step',
+      'RESEARCH',
+      'Here is the complete',
+      'Based on the',
+      'I will now execute'
+    ];
+
+    for (const prefix of unwantedPrefixes) {
+      if (cleaned.startsWith(prefix)) {
+        // Response contains unwanted workflow output
+        console.warn('Response does not start with Script: marker and contains workflow output');
+        return cleaned; // Return as-is to show the issue
+      }
+    }
+
+    return cleaned;
+  }
+
+  // Extract everything after "Script:"
+  let scriptContent = rawResponse.substring(scriptMarkerIndex + 'Script:'.length).trim();
+
+  // Remove metadata header lines (title, platform, duration, framework)
+  const metadataPatterns = [
+    /^\*\*[A-Z\s]+VIDEO AD[^\n]*\*\*\n/i,
+    /^\*\*Platform:[^\n]*\*\*\n/i,
+    /^\*\*Duration:[^\n]*\*\*\n/i,
+    /^\*\*Framework:[^\n]*\*\*\n/i,
+    /^–[^\n]*\n/,
+    /^\n+/
+  ];
+
+  for (const pattern of metadataPatterns) {
+    scriptContent = scriptContent.replace(pattern, '');
+  }
+
+  // Remove any trailing commentary or metadata
+  const endMarkers = [
+    '\n---\n',
+    '\n[END',
+    '\nNote:',
+    '\nDisclaimer:',
+    '\n*This script',
+    '\n\n##',
+    '\n\nStep 6:',
+    '\n\n❌'
+  ];
+
+  for (const marker of endMarkers) {
+    const endIndex = scriptContent.indexOf(marker);
+    if (endIndex !== -1) {
+      scriptContent = scriptContent.substring(0, endIndex).trim();
+    }
+  }
+
+  return scriptContent.trim();
 }
 
 async function safeReadJson(response: Response) {

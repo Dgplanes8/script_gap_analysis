@@ -61,9 +61,9 @@ export function ConvertKitForm({
 
   if (success) {
     return (
-      <div className={`rounded-xl border border-brand-100 bg-brand-50 p-6 text-center ${className}`}>
-        <h3 className="text-lg font-semibold text-brand-700">Thanks! You’re subscribed.</h3>
-        <p className="mt-2 text-sm text-brand-600">
+      <div className={`rounded-xl border border-green-100 bg-green-50 p-6 text-center ${className}`}>
+        <h3 className="text-lg font-semibold text-green-700">Thanks! You're subscribed.</h3>
+        <p className="mt-2 text-sm text-green-600">
           Check your inbox for your free hooks and weekly creative intelligence updates.
         </p>
       </div>
@@ -78,13 +78,13 @@ export function ConvertKitForm({
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder={placeholder}
-          className="h-12 flex-1 rounded-xl border border-gray-200 px-4 text-base text-gray-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+          className="h-12 flex-1 rounded-xl border border-gray-200 px-4 text-base text-gray-900 shadow-sm transition-all duration-300 focus:border-[#126DFB] focus:outline-none focus:ring-2 focus:ring-blue-200 focus:shadow-lg focus:shadow-blue-500/10"
           required
         />
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex h-12 items-center justify-center rounded-xl bg-brand-600 px-6 text-base font-semibold text-white shadow-lg transition-colors hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex h-12 items-center justify-center rounded-xl bg-[#10B981] px-6 text-base font-semibold text-white shadow-lg shadow-green-500/40 transition-all duration-300 hover:bg-[#059669] hover:shadow-xl hover:shadow-green-500/50 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
         >
           {isSubmitting ? 'Subscribing...' : buttonText}
         </button>

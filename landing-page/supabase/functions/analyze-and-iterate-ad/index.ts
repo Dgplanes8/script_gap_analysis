@@ -3,6 +3,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.3";
 import { buildIterationPrompt, type OutputFormat, type BaseAdReference } from "./prompt-builder.ts";
 import { ingestSocialAsset, isSocialIngestionError } from "./social-download.ts";
 import { captureEdgeFunctionError } from "../_shared/sentry.ts";
+import { sliceBalanced } from "../_shared/openrouter.ts";
 
 function buildCorsHeaders(req: Request): Record<string, string> {
   const origin = req.headers.get("origin") ?? "*";
@@ -1273,8 +1274,16 @@ function parseAnalysis(content: unknown):
     return { success: false, error: "Response too long - likely repetitive content from model" };
   }
 
+  // Extract JSON object in case AI added commentary after the JSON
+  const jsonString = sliceBalanced(cleaned, 0, '{', '}');
+
+  if (!jsonString) {
+    console.error("No balanced JSON found in response", cleaned.substring(0, 500));
+    return { success: false, error: "No JSON object found in response" };
+  }
+
   try {
-    const parsed = JSON.parse(cleaned) as IterationAnalysis;
+    const parsed = JSON.parse(jsonString) as IterationAnalysis;
 
     // Validate and truncate if necessary
     const sanitized = sanitizeAnalysis(parsed);
@@ -1465,8 +1474,16 @@ function parseCopyChiefResponse(content: unknown):
 
   const cleaned = stripJsonFence(text.trim());
 
+  // Extract JSON object in case AI added commentary after the JSON
+  const jsonString = sliceBalanced(cleaned, 0, '{', '}');
+
+  if (!jsonString) {
+    console.error("No balanced JSON found in copy chief response", cleaned.substring(0, 500));
+    return { success: false, error: "No JSON object found in copy chief response" };
+  }
+
   try {
-    const parsed = JSON.parse(cleaned) as {
+    const parsed = JSON.parse(jsonString) as {
       recommendations?: Array<{
         reference_iteration_id?: string;
         improved_headline?: string;

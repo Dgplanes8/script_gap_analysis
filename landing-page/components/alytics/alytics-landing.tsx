@@ -17,6 +17,7 @@ import { FourBoxProcessSection } from './four-box-process-section';
 import { CreativeGuessworkProblemSection } from './creative-guesswork-problem-section';
 import { ToolsOverviewSection } from './tools-overview-section';
 import { ComingSoonPipelineSection } from './coming-soon-pipeline-section';
+import { ProblemSection } from './problem-section';
 
 const KeyBenefitsSection = dynamic(() => import('./key-benefits-section').then(mod => ({ default: mod.KeyBenefitsSection })), {
   loading: () => <div className="py-20 bg-white animate-pulse"></div>
@@ -48,38 +49,38 @@ export function AlyticsLanding() {
       {/* Navigation */}
       <AlyticsNavbar />
       
-      {/* 1. Hero Section with Floating Logos */}
+      {/* 1. Hero Section with Floating Logos - PAS Headline */}
       <div className="relative">
         <AlyticsHero />
         <FloatingLogos />
       </div>
 
-      {/* 2. Live Demo - Immediate value demonstration */}
-      <AIGeneratorPreviewSection />
-
-      {/* 3. Social Proof - Builds on demo success */}
+      {/* 2. Social Proof - Build credibility EARLY (moved up from position 3) */}
       <SocialProofSection />
 
-      {/* 4. Problem/Pain - Establish the creative guesswork problem */}
-      <CreativeGuessworkProblemSection />
+      {/* 3. Problem/Agitation - Make the pain real and urgent */}
+      <ProblemSection />
+
+      {/* 4. Solution Demo - Show how easy the solution is */}
+      <AIGeneratorPreviewSection />
 
       {/* 5. Before/After Examples - Proof of transformation */}
       <BeforeAfterExamplesSection />
 
-      {/* 6. Tools Overview - Clarify product suite */}
+      {/* 6. Tools Overview - Complete product suite */}
       <ToolsOverviewSection />
 
-      {/* 7. Coming Soon Pipeline - Platform evolution preview */}
-      <ComingSoonPipelineSection />
-
-      {/* 8. Simple Pricing - After demonstrating value */}
+      {/* 7. Pricing - Studio as hero tier (conversion optimized) */}
       <SimplePricingSection />
 
-      {/* 9. Problem-Solution Bridge - Core value prop */}
+      {/* 8. Problem-Solution Bridge - Reinforce value */}
       <ProblemSolutionWorkflow />
 
-      {/* 10. Key Benefits - Value reinforcement */}
+      {/* 9. Key Benefits - Additional value reinforcement */}
       <KeyBenefitsSection />
+
+      {/* 10. Coming Soon Pipeline - Future value preview */}
+      <ComingSoonPipelineSection />
 
       {/* 11. Final Conversion Push */}
       <FinalConversionSection />

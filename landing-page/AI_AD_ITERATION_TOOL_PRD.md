@@ -1,7 +1,6 @@
 # AI Ad Iteration Tool - Product Requirements Document
 _Last updated: September 20, 2025_
 
-> **Status Note (September 2025)**: Proof-of-concept is live with Apify-powered Meta Ads Library ingestion (returns Facebook/Instagram video & image URLs), Supabase storage uploads, and Gemini JSON outputs. Remaining work includes expanding beyond Meta (TikTok API or equivalent), adding video transcript + scene extraction (ffmpeg), implementing async job polling, hardening OpenRouter rate-limit handling, and automating storage cleanup/history UX. Future contributors should pick up from these outstanding tasks.
 
 ## 1. Mission & Success Criteria
 - **Objective**: Launch a high-converting AI Ad Iteration Tool that lets marketers upload existing creative or submit owned social URLs and receive APSICS-quality iterations in under three minutes.
@@ -42,7 +41,7 @@ _Last updated: September 20, 2025_
 | Hero proof strip | part of header slot | #overview | Add trust badges/testing proof (three quick bullets). | `Backed by $250M+ ad spend data / Scene-by-scene feedback / Multi-format remixes in under 3 minutes` |
 | Intake form | `AIFormTemplate` | #form | Collect brand context via reusable template. | Highlights:<br>1. **Full scene intelligence** - Maps hooks, CTAs, pacing, and visual sequencing.<br>2. **Platform-tuned remixes** - Generates Meta, Instagram, and TikTok-ready outputs.<br>Free Plan:<br>- 1 instant iteration without login<br>- +3 iterations after free signup<br>- Upgrade for unlimited credits & automated delivery |
 | Upload toggle | Custom `UploadOrLinkSelector` inside `client-page` | #form | Mirror ai-ad-script-generator custom inputs while keeping template layout. | Primary pill buttons: `Upload creative` (default), `Use social link`. Dropzone helper text: "Drag & drop .mp4, .mov, .webm, .png, .jpg, .webp or browse files." URL helper: "Only analyze assets your team owns." |
-| Process overview | `ProcessSection` | #process | Explain APSICS methodology; show 4 highlight cards + accordion fallback. | Title: "How APSICS remixes your creative in under 30 seconds."<br>Highlights:<br>1. Diagnose: "Detect hooks, pacing breaks, and conversion gaps scene by scene."<br>2. Distill (gradient): "Extract voice, offers, and tension points that must stay on-brand."<br>3. Remix: "Spin 3 variations across chosen formats with boost-ready CTAs."<br>4. Deploy: "Package export-ready scripts, overlays, and asset checklists."<br>Accordion copy: reuse ai-ad-script-generator structure with iteration-specific bullet points. |
+| Process overview | `ProcessSection` | #process | Explain APSICS methodology; show 4 highlight cards + accordion fallback. | Title: "How APSICS remixes your creative inside 180 seconds."<br>Highlights:<br>1. Diagnose: "Detect hooks, pacing breaks, and conversion gaps scene by scene."<br>2. Distill (gradient): "Extract voice, offers, and tension points that must stay on-brand."<br>3. Remix: "Spin 3 variations across chosen formats with boost-ready CTAs."<br>4. Deploy: "Package export-ready scripts, overlays, and asset checklists."<br>Accordion copy: reuse ai-ad-script-generator structure with iteration-specific bullet points. |
 | Founders Club promo | `FoundersClubSection` | #founders | Convert warm leads using existing promo slot. | Badge: "Founder Club Insider"<br>Title: "Lock lifetime access to weekly creative intelligence drops."<br>Description: "Secure the $20/mo Founder Club seat before it reverts to $97/mo and get priority iteration reviews each Friday."<br>CTA: "Claim Founder Club Seat" -> `/#service-tiers`.<br>Footer: "Includes 50 bonus credits + private Slack audits." |
 | Results module | Custom `IterationResults` wrapped in `resultComponent` | #results | Present output with templates for diagnosis + iterations + downloads. | Layout:<br>1. Diagnostic overview with traffic-light scoring.<br>2. Scene-by-scene table (timecode, issue, fix).<br>3. Iteration packages: `Same Format Upgrade`, `Video Remix`, `Static High-Converting`, each with bullet structure.<br>4. Action footer: Copy, Email, Download `.json` and `.md`. |
 | Pricing | `SimplePricingSection` | #pricing | Reuse existing pricing component; ensure CTA references iteration tool. | Update plan labels to mention "Includes AI Ad Iteration" in plan bullet copy. |
@@ -178,7 +177,7 @@ export const toolConfigs: Record<string, ToolPageConfig> = {
       footerText: 'Includes private Slack office hours and quarterly creative audits.',
     },
     process: {
-      title: 'How APSICS remixes your creative in under 30 seconds',
+      title: 'How APSICS remixes your creative in 180 seconds',
       description:
         'Every analysis layers our $250M+ performance dataset with your brand voice to deliver usable landable creative - not generic AI fluff.',
       highlights: [
@@ -362,13 +361,14 @@ type IterationAnalysis = {
 1. **Asset preparation**
    - For uploads, `client-page` uploads to Supabase Storage bucket `ai-ad-iteration-assets` using `supabase.storage.from(...).upload` with UUID file names.
    - Generate signed URL valid for 15 minutes and pass to edge function payload.
-   - For social URLs (initially Facebook/Instagram only), route through a `fetch-social-asset` workflow that downloads the media into storage before analysis. The OpenRouter call must include an `image_url` (static) or hosted MP4 (video); the external social URL alone is insufficient.
-   - **APIs & tools (PoC)**: For the proof-of-concept we will lean on an Apify Ads Library actor to resolve Meta ad URLs into direct asset links, then persist them to Supabase storage before Gemini analysis. Long term, migrate to the official Meta Marketing API once production credentials are secured and layer TikTok ingestion afterward.
+   - For social URLs (Facebook/Instagram/TikTok), route through a `fetch-social-asset` workflow that downloads the media into storage before analysis. The OpenRouter call must include an `image_url` (static) or pre-processed frame URLs (video); the external social URL alone is insufficient.
+   - **APIs & tools (PoC)**: For the proof-of-concept we will employ scraping-based downloaders—Meta AdDownloader for Facebook/Instagram and `yt-dlp` with Pyktok for TikTok—orchestrated through a Playwright MCP helper. These workflows save raw MP4/PNG assets into Supabase storage before Gemini analysis. Long term, migrate to official Meta/TikTok APIs once production credentials are secured.
 
 ### Social Asset Retrieval Service (PoC)
 1. **Dispatch**: Queue a `fetch-social-asset` helper when `inputMethod === 'url'`.
 2. **Acquisition**:
-   - Facebook / Instagram: Trigger the Apify Ads Library actor with the ad ID + session cookie; download returned MP4/PNG into Supabase.
+   - Facebook / Instagram: Invoke the AdDownloader (Playwright/Chromium) script to resolve Ad Library entries into MP4/PNG files stored in Supabase.
+   - TikTok: Invoke `yt-dlp` or Pyktok to download the public video into storage.
 3. **Storage**: Place downloaded assets under `ai-ad-iteration-assets/{jobId}/raw.*` and pass signed URLs + metadata (duration, format) to the analyzer.
 4. **Cleanup**: Delete assets within 24 hours unless the user explicitly saves history.
 

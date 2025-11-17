@@ -113,7 +113,7 @@ export function PackageCheckoutForm({
           <input
             type="text"
             placeholder="Full name"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#126DFB] focus:shadow-lg focus:shadow-blue-500/10 text-sm"
             value={formState.name}
             onChange={handleChange('name')}
             onFocus={() => trackFormStart('weekly_trial', packageName)}
@@ -122,7 +122,7 @@ export function PackageCheckoutForm({
           <input
             type="email"
             placeholder="Work email"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#126DFB] focus:shadow-lg focus:shadow-blue-500/10 text-sm"
             value={formState.email}
             onChange={handleChange('email')}
             required
@@ -132,7 +132,7 @@ export function PackageCheckoutForm({
           <input
             type="password"
             placeholder="Password (at least 8 characters)"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#126DFB] focus:shadow-lg focus:shadow-blue-500/10 text-sm"
             value={formState.password}
             onChange={handleChange('password')}
             minLength={8}
@@ -144,7 +144,7 @@ export function PackageCheckoutForm({
           <input
             type="text"
             placeholder="Company name"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#126DFB] focus:shadow-lg focus:shadow-blue-500/10 text-sm"
             value={formState.company}
             onChange={handleChange('company')}
             required
@@ -152,7 +152,7 @@ export function PackageCheckoutForm({
           <input
             type="text"
             placeholder="Website (optional)"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#126DFB] focus:shadow-lg focus:shadow-blue-500/10 text-sm"
             value={formState.website}
             onChange={handleChange('website')}
           />
@@ -161,7 +161,7 @@ export function PackageCheckoutForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-500 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center transition-colors"
+          className="w-full bg-gradient-to-r from-[#126DFB] to-[#0F5AD6] hover:from-[#0F5AD6] hover:to-[#0D4AB8] text-white py-3 px-4 rounded-xl font-semibold flex items-center justify-center shadow-lg shadow-blue-500/40 hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300"
         >
           {isSubmitting ? (
             <>

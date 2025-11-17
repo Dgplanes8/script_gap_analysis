@@ -118,7 +118,7 @@ export function BlogPostLeadCaptureForm({
           <input
             type="text"
             placeholder="Full name"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#126DFB] focus:shadow-lg focus:shadow-blue-500/10 text-sm"
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
             required
@@ -126,7 +126,7 @@ export function BlogPostLeadCaptureForm({
           <input
             type="email"
             placeholder="Work email"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#126DFB] focus:shadow-lg focus:shadow-blue-500/10 text-sm"
             value={formData.email}
             onChange={(e) => setFormData({...formData, email: e.target.value})}
             required
@@ -136,13 +136,13 @@ export function BlogPostLeadCaptureForm({
           <input
             type="text"
             placeholder="Company name"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#126DFB] focus:shadow-lg focus:shadow-blue-500/10 text-sm"
             value={formData.company}
             onChange={(e) => setFormData({...formData, company: e.target.value})}
             required
           />
           <select
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#126DFB] focus:shadow-lg focus:shadow-blue-500/10 text-sm"
             value={formData.monthlyBudget}
             onChange={(e) => setFormData({...formData, monthlyBudget: e.target.value})}
             required
@@ -377,7 +377,7 @@ export function PlaybookDownloadForm({
           <input
             type="text"
             placeholder="Full name"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#126DFB] focus:shadow-lg focus:shadow-blue-500/10 text-sm"
             value={formData.name}
             onChange={(e) => setFormData({...formData, name: e.target.value})}
             required
@@ -385,7 +385,7 @@ export function PlaybookDownloadForm({
           <input
             type="email"
             placeholder="Work email"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#126DFB] focus:shadow-lg focus:shadow-blue-500/10 text-sm"
             value={formData.email}
             onChange={(e) => setFormData({...formData, email: e.target.value})}
             required
@@ -395,13 +395,13 @@ export function PlaybookDownloadForm({
           <input
             type="text"
             placeholder="Company name"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#126DFB] focus:shadow-lg focus:shadow-blue-500/10 text-sm"
             value={formData.company}
             onChange={(e) => setFormData({...formData, company: e.target.value})}
             required
           />
           <select
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm"
+            className="w-full px-3 py-2 border border-gray-300 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-[#126DFB] focus:shadow-lg focus:shadow-blue-500/10 text-sm"
             value={formData.monthlyBudget}
             onChange={(e) => setFormData({...formData, monthlyBudget: e.target.value})}
             required
