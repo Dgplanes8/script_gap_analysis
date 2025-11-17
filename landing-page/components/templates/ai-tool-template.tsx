@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode, useEffect, useState } from 'react';
-import type { AuthChangeEvent } from '@supabase/supabase-js';
+import type { AuthChangeEvent, Session } from '@supabase/supabase-js';
 import { SecondaryHeader, type SecondaryHeaderProps } from '@/components/layout/secondary-header';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { ToolHeader } from '@/components/shared/tool-header';
@@ -71,7 +71,7 @@ export function AIToolTemplate({
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, session) => {
+    } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, session: Session | null) => {
       setHasSession(Boolean(session));
     });
 

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import type { User, AuthChangeEvent } from '@supabase/supabase-js';
+import type { User, AuthChangeEvent, Session } from '@supabase/supabase-js';
 import { CreditCard, Loader2, Sparkles, X } from 'lucide-react';
 import Link from 'next/link';
 import * as Sentry from '@sentry/nextjs';
@@ -339,7 +339,7 @@ export default function AdScriptGeneratorClient() {
       setAuthLoaded(true);
     };
 
-    const { data: listener } = supabase.auth.onAuthStateChange(async (_event: AuthChangeEvent, session) => {
+    const { data: listener } = supabase.auth.onAuthStateChange(async (_event: AuthChangeEvent, session: Session | null) => {
       if (!mounted) {
         return;
       }

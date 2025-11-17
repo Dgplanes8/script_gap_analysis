@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import type { User, AuthChangeEvent } from '@supabase/supabase-js';
+import type { User, AuthChangeEvent, Session } from '@supabase/supabase-js';
 import { Loader2, Lock, Sparkles, Download, FileText, X } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -586,7 +586,7 @@ export default function CreativeBriefGeneratorClient() {
 
     bootstrap();
 
-    const { data: listener } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, session) => {
+    const { data: listener } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, session: Session | null) => {
       if (!mounted) {
         return;
       }

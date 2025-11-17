@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import type { AuthChangeEvent } from '@supabase/supabase-js';
+import type { AuthChangeEvent, Session } from '@supabase/supabase-js';
 import { X, Mail } from 'lucide-react';
 import { ConvertKitForm } from '@/components/forms/convertkit-form';
 import { createBrowserClient } from '@/lib/supabase/browser-client';
@@ -53,7 +53,7 @@ export function ExitIntentPopup({
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, session) => {
+    } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, session: Session | null) => {
       if (mounted) {
         setShouldRender(!session);
       }

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import type { User, AuthChangeEvent } from '@supabase/supabase-js';
+import type { User, AuthChangeEvent, Session } from '@supabase/supabase-js';
 import { CreditCard, Loader2, X, FileText } from 'lucide-react';
 import { getSupabaseBrowserClient, type BrowserClient } from '@/lib/supabase/browser-client';
 import { AIFormTemplate } from '@/components/templates/ai-form-template';
@@ -502,7 +502,7 @@ export default function TemplatedCreativeBriefGeneratorClient() {
       }
     };
 
-    const { data: listener } = supabase.auth.onAuthStateChange(async (_event: AuthChangeEvent, session) => {
+    const { data: listener } = supabase.auth.onAuthStateChange(async (_event: AuthChangeEvent, session: Session | null) => {
       if (!mounted) {
         return;
       }
