@@ -312,7 +312,8 @@ export default function TemplatedAdScriptGeneratorClient() {
           invokeOptions.headers = headers;
         }
 
-        const { data, error: invokeError } = await supabase.functions.invoke<GenerationResponse>('generate-script', invokeOptions);
+        const { data, error: invokeError } = await supabase.functions.invoke('generate-script', invokeOptions);
+        const typedData = data as GenerationResponse | null;
 
         if (invokeError) {
           console.error('generate-script error', invokeError);
@@ -363,26 +364,26 @@ export default function TemplatedAdScriptGeneratorClient() {
           return;
         }
 
-        if (data?.script) {
-          setResult(data.script);
-          setStructuredData(data.data || null);
+        if (typedData?.script) {
+          setResult(typedData.script);
+          setStructuredData(typedData.data || null);
           setEmailStatus(null);
           setEmailStatusMessage('');
           if (user?.email) {
             setEmailAddress(user.email);
           }
-          if (typeof data.creditsRemaining === 'number') {
-            setProfileCredits(data.creditsRemaining);
+          if (typeof typedData.creditsRemaining === 'number') {
+            setProfileCredits(typedData.creditsRemaining);
           } else if (user) {
             triggerProfileReload();
           }
           if (!user) {
-            if (data.anonymousKey && data.anonymousKey.length > 0 && data.anonymousKey !== currentAnonymousKey) {
-              setAnonymousKey(data.anonymousKey);
+            if (typedData.anonymousKey && typedData.anonymousKey.length > 0 && typedData.anonymousKey !== currentAnonymousKey) {
+              setAnonymousKey(typedData.anonymousKey);
               if (typeof window !== 'undefined') {
-                window.localStorage.setItem('scriptGeneratorAnonymousKey', data.anonymousKey);
+                window.localStorage.setItem('scriptGeneratorAnonymousKey', typedData.anonymousKey);
               }
-              currentAnonymousKey = data.anonymousKey;
+              currentAnonymousKey = typedData.anonymousKey;
             }
             setAnonUsageCount((prev) => {
               const next = prev + 1;
@@ -410,18 +411,19 @@ export default function TemplatedAdScriptGeneratorClient() {
     setError(null);
 
     try {
-      const { data, error: invokeError } = await supabase.functions.invoke<{ checkout_url?: string }>(
+      const { data, error: invokeError } = await supabase.functions.invoke(
         'create-checkout-session',
         { body: {} },
       );
+      const typedData = data as { checkout_url?: string } | null;
 
       if (invokeError) {
         setError(invokeError.message || 'Unable to create checkout session.');
         return;
       }
 
-      if (data?.checkout_url) {
-        window.location.href = data.checkout_url;
+      if (typedData?.checkout_url) {
+        window.location.href = typedData.checkout_url;
       } else {
         setError('Checkout session did not return a redirect URL.');
       }

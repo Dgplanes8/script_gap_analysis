@@ -595,7 +595,7 @@ export default function AdScriptGeneratorClient() {
           anonymousKey: isAnonymousUser ? currentAnonymousKey : undefined,
         });
 
-        const { data, error: invokeError } = await supabase.functions.invoke<GenerationResponse>('generate-script', {
+        const { data, error: invokeError } = await supabase.functions.invoke('generate-script', {
           body: {
             companyName: formState.companyName,
             websiteUrl: normalizedWebsiteUrl,
@@ -656,28 +656,30 @@ export default function AdScriptGeneratorClient() {
           return;
         }
 
-        if (data?.script) {
-          const cleanedScript = cleanScriptOutput(data.script);
+        const typedData = data as GenerationResponse | null;
+
+        if (typedData?.script) {
+          const cleanedScript = cleanScriptOutput(typedData.script);
           setResult(cleanedScript);
-          console.log('Received structured data:', data.data);
-          setStructuredData(data.data || null);
+          console.log('Received structured data:', typedData.data);
+          setStructuredData(typedData.data || null);
           setEmailStatus(null);
           setEmailStatusMessage('');
           if (user?.email) {
             setEmailAddress(user.email);
           }
-          if (typeof data.creditsRemaining === 'number') {
-            setProfileCredits(data.creditsRemaining);
+          if (typeof typedData.creditsRemaining === 'number') {
+            setProfileCredits(typedData.creditsRemaining);
           } else if (user) {
             triggerProfileReload();
           }
           if (!user) {
-            if (data.anonymousKey && data.anonymousKey.length > 0 && data.anonymousKey !== currentAnonymousKey) {
-              setAnonymousKey(data.anonymousKey);
+            if (typedData.anonymousKey && typedData.anonymousKey.length > 0 && typedData.anonymousKey !== currentAnonymousKey) {
+              setAnonymousKey(typedData.anonymousKey);
               if (typeof window !== 'undefined') {
-                window.localStorage.setItem('scriptGeneratorAnonymousKey', data.anonymousKey);
+                window.localStorage.setItem('scriptGeneratorAnonymousKey', typedData.anonymousKey);
               }
-              currentAnonymousKey = data.anonymousKey;
+              currentAnonymousKey = typedData.anonymousKey;
             }
             setAnonUsageCount((prev) => {
               const next = prev + 1;

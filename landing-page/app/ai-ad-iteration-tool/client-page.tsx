@@ -603,7 +603,7 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
 
         const headers = buildSupabaseInvokeHeaders({ accessToken });
 
-        const { data, error: invokeError } = await supabase.functions.invoke<IterationFunctionResponse>(
+        const { data, error: invokeError } = await supabase.functions.invoke(
           'analyze-and-iterate-ad',
           {
             body: payload,
@@ -643,34 +643,36 @@ export default function IterationToolClient({ config }: { config: ToolPageConfig
           return;
         }
 
+        const typedData = data as IterationFunctionResponse | null;
+
         // Check if we have any iteration data in any format
-        if (data && (data.iterations || data.copyChiefRecommendations || data.analysis || data.exportArtifacts)) {
+        if (typedData && (typedData.iterations || typedData.copyChiefRecommendations || typedData.analysis || typedData.exportArtifacts)) {
           // Transform the OpenRouter result to match our analysis structure
           const transformedAnalysis: IterationAnalysis = {
-            iterations: data.iterations || data.analysis?.iterations || [],
-            copyChiefRecommendations: data.copyChiefRecommendations || [],
-            summary: data.message || data.analysis?.summary || undefined,
-            exportArtifacts: data.exportArtifacts || data.analysis?.exportArtifacts || undefined,
-            performanceScore: data.analysis?.performanceScore,
-            topWins: data.analysis?.topWins,
-            topRisks: data.analysis?.topRisks,
-            scenes: data.analysis?.scenes
+            iterations: typedData.iterations || typedData.analysis?.iterations || [],
+            copyChiefRecommendations: typedData.copyChiefRecommendations || [],
+            summary: typedData.message || typedData.analysis?.summary || undefined,
+            exportArtifacts: typedData.exportArtifacts || typedData.analysis?.exportArtifacts || undefined,
+            performanceScore: typedData.analysis?.performanceScore,
+            topWins: typedData.analysis?.topWins,
+            topRisks: typedData.analysis?.topRisks,
+            scenes: typedData.analysis?.scenes
           };
           setResult(transformedAnalysis);
-          setRawResult(data);
+          setRawResult(typedData);
           setLastSubmissionMeta({
             companyName: formData.companyName,
             primaryPlatform: formData.primaryPlatform,
           });
-        } else if (data?.status === 'processing') {
+        } else if (typedData?.status === 'processing') {
           setError('We queued your iteration job. Polling UI is not implemented yet.');
         } else {
-          console.log('Unexpected response structure:', data);
+          console.log('Unexpected response structure:', typedData);
           setError('The analysis completed but returned an unexpected format. Please try again.');
         }
 
-        if (typeof data?.creditsRemaining === 'number') {
-          setProfileCredits(data.creditsRemaining);
+        if (typeof typedData?.creditsRemaining === 'number') {
+          setProfileCredits(typedData.creditsRemaining);
         } else if (user) {
           triggerProfileReload();
         }

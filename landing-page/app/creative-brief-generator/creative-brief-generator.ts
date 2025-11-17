@@ -94,7 +94,10 @@ export async function generateBrief(
     invokeOptions.headers = options.headers;
   }
 
-  return supabase.functions.invoke<BriefResponse>('generate-brief', invokeOptions);
+  return supabase.functions.invoke('generate-brief', invokeOptions) as Promise<{
+    data: BriefResponse | null;
+    error: any;
+  }>;
 }
 
 export async function fetchBriefStatus(
@@ -113,7 +116,10 @@ export async function fetchBriefStatus(
     invokeOptions.headers = options.headers;
   }
 
-  return supabase.functions.invoke<BriefStatusResponse>('brief-status', invokeOptions);
+  return supabase.functions.invoke('brief-status', invokeOptions) as Promise<{
+    data: BriefStatusResponse | null;
+    error: any;
+  }>;
 }
 
 export async function startCreativeBriefCheckout(
@@ -157,5 +163,8 @@ export async function startCreativeBriefCheckout(
     request.headers = invokeOptions.headers;
   }
 
-  return supabase.functions.invoke<{ checkout_url?: string }>('create-checkout-session', request);
+  return supabase.functions.invoke('create-checkout-session', request) as Promise<{
+    data: { checkout_url?: string } | null;
+    error: any;
+  }>;
 }
