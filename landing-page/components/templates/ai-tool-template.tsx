@@ -45,9 +45,18 @@ export function AIToolTemplate({
 }: AIToolTemplateProps) {
   const fallbackHeader = headerComponent ?? (secondaryHeaderProps ? <SecondaryHeader {...secondaryHeaderProps} /> : null);
   const [hasSession, setHasSession] = useState<boolean | null>(null);
-  const supabase = createBrowserClient();
+  const [supabase] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return createBrowserClient();
+    }
+    return null;
+  });
 
   useEffect(() => {
+    if (!supabase) {
+      return;
+    }
+
     let mounted = true;
 
     const resolveSession = async () => {

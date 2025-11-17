@@ -19,14 +19,19 @@ export function ExitIntentPopup({
   const [isDismissed, setIsDismissed] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const supabase = createBrowserClient();
+  const [supabase] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return createBrowserClient();
+    }
+    return null;
+  });
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
   useEffect(() => {
-    if (!isMounted) {
+    if (!isMounted || !supabase) {
       return;
     }
 
