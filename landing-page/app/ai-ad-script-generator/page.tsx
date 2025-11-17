@@ -3,7 +3,6 @@ export const revalidate = 0;
 
 import type { Metadata } from 'next';
 import nextDynamic from 'next/dynamic';
-import { FAQSection, SPECIALIZED_FAQS } from '@/components/schema/faq-schema';
 
 export const metadata: Metadata = {
   title: 'Free AI Ad Script Generator - TikTok, Reels, YouTube Shorts | APSICS Media',
@@ -55,14 +54,6 @@ export default function AdScriptGeneratorPage() {
       <div className="pt-4 md:pt-8">
         <AdScriptGeneratorClient />
       </div>
-
-      {/* FAQ Section for Featured Snippets */}
-      <FAQSection
-        faqs={SPECIALIZED_FAQS.ad_script_generator}
-        title="Ad Script Generator: Frequently Asked Questions"
-        subtitle="Everything you need to know about generating high-converting video ad scripts with AI"
-        variant="default"
-      />
     </div>
   );
 }

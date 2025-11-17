@@ -17,6 +17,7 @@ import { useFreeWeek } from '@/components/contexts/free-week-context';
 import { buildSupabaseInvokeHeaders } from '@/utils/build-supabase-invoke-headers';
 import { ToolHeader } from '@/components/shared/tool-header';
 import { AlyticsNavbar } from '@/components/alytics/alytics-navbar';
+import { FAQSection, SPECIALIZED_FAQS } from '@/components/schema/faq-schema';
 
 type FormState = {
   companyName: string;
@@ -1218,6 +1219,15 @@ export default function AdScriptGeneratorClient() {
           <SimplePricingSection />
         </div>
       </div>
+
+      {/* FAQ Section for Featured Snippets */}
+      <FAQSection
+        faqs={SPECIALIZED_FAQS.ad_script_generator}
+        title="Ad Script Generator: Frequently Asked Questions"
+        subtitle="Everything you need to know about generating high-converting video ad scripts with AI"
+        variant="default"
+      />
+
       {isMounted && authLoaded && !user ? (
         <ExitIntentPopup
           title="Grab 10 More Free Ad Templates"
