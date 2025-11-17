@@ -13,6 +13,11 @@ const TOOLS_LINKS = [
 
 export function AlyticsNavbar() {
   const [isToolsOpen, setIsToolsOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -26,23 +31,26 @@ export function AlyticsNavbar() {
     return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
+  // Suppress Framer Motion during SSR to prevent hydration mismatch
+  const NavComponent = isMounted ? motion.nav : 'nav';
+  const navProps = isMounted
+    ? {
+        initial: { opacity: 0, y: -20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.6, ease: "easeOut" as const }
+      }
+    : {};
+
   return (
-    <motion.nav 
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+    <NavComponent
+      {...navProps}
       className="w-full bg-white/80 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50"
     >
       <div className="max-w-[1200px] mx-auto px-12 py-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
           
           {/* Logo + Brand */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex items-center gap-2"
-          >
+          <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
               <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="19.5" height="19.5" rx="5" fill="#126DFB"/>
@@ -53,15 +61,10 @@ export function AlyticsNavbar() {
               </svg>
             </div>
             <span className="text-2xl font-semibold text-gray-900">APSICS Media</span>
-          </motion.div>
+          </div>
 
           {/* Navigation Links */}
-          <motion.div 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden md:flex items-center gap-8"
-          >
+          <div className="hidden md:flex items-center gap-8">
             <motion.a
               href="/#how-it-works"
               className="text-gray-600 hover:text-gray-900 transition-colors text-base font-medium relative group"
@@ -125,14 +128,10 @@ export function AlyticsNavbar() {
               />
             </motion.a>
             
-          </motion.div>
+          </div>
 
           {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
+          <div>
             <motion.a
               href="/#service-tiers"
               whileHover={{ scale: 1.02, boxShadow: "0 8px 25px rgba(18, 109, 251, 0.3)" }}
@@ -141,10 +140,10 @@ export function AlyticsNavbar() {
             >
               Claim Free Credits
             </motion.a>
-          </motion.div>
+          </div>
 
         </div>
       </div>
-    </motion.nav>
+    </NavComponent>
   );
 }
