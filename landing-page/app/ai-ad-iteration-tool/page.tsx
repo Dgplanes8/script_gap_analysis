@@ -44,7 +44,10 @@ export const metadata: Metadata = {
 };
 
 // Dynamic import for better performance
-const IterationToolClient = nextDynamic(() => import('./client-page'), {
+const IterationToolClient = nextDynamic(() => import('./client-page').catch(err => {
+  console.error('Failed to load IterationToolClient:', err);
+  throw err;
+}), {
   loading: () => (
     <div className="min-h-[400px] flex items-center justify-center">
       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>

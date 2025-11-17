@@ -1,10 +1,11 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { User } from '@supabase/supabase-js';
-import { Loader2, Lock, Sparkles, Download, FileText } from 'lucide-react';
+import { Loader2, Lock, Sparkles, Download, FileText, X } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import * as Sentry from '@sentry/nextjs';
 import { getSupabaseBrowserClient } from '@/lib/supabase/browser-client';
 import { SimplePricingSection } from '@/components/alytics/simple-pricing-section';
 import {
@@ -338,10 +339,59 @@ async function extractEdgeFunctionError(error: unknown): Promise<{
 }
 
 export default function CreativeBriefGeneratorClient() {
-  const supabase = useMemo(() => getSupabaseBrowserClient(), []);
+  const [initError, setInitError] = useState<string | null>(null);
+
+  // Initialize Supabase client safely for client-side only
+  const [supabase] = useState(() => {
+    try {
+      return getSupabaseBrowserClient();
+    } catch (error) {
+      console.error('Failed to initialize Supabase client:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      setInitError(`Supabase initialization failed: ${errorMessage}`);
+      Sentry.captureException(error, {
+        tags: { component: 'CreativeBriefGeneratorClient', phase: 'initialization' },
+      });
+      return {} as any;
+    }
+  });
+
   const [formState, setFormState] = useState<FormState>(() => restoreFormState());
   const [formErrors, setFormErrors] = useState<FormErrors>({});
   const [user, setUser] = useState<User | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Set mounted state for hydration safety
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Catch and report hydration errors to Sentry
+  useEffect(() => {
+    const handleError = (event: ErrorEvent) => {
+      const error = event.error;
+      if (error && error.message &&
+          (error.message.includes('Hydration') ||
+           error.message.includes('Server Components') ||
+           error.message.includes('Text content does not match'))) {
+        Sentry.captureException(error, {
+          tags: {
+            component: 'CreativeBriefGeneratorClient',
+            errorType: 'hydration',
+          },
+          contexts: {
+            hydration: {
+              isMounted,
+              hasUser: !!user,
+            },
+          },
+        });
+      }
+    };
+
+    window.addEventListener('error', handleError);
+    return () => window.removeEventListener('error', handleError);
+  }, [isMounted, user]);
   const [profile, setProfile] = useState<ProfileSnapshot | null>(null);
   const [profileLoading, setProfileLoading] = useState(false);
   const [profileError, setProfileError] = useState<string | null>(null);
@@ -708,6 +758,29 @@ export default function CreativeBriefGeneratorClient() {
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
   }, [formState.companyName, structuredBrief]);
+
+  // Show error UI if initialization failed
+  if (initError) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-brand-50 flex items-center justify-center p-4">
+        <div className="max-w-md w-full bg-white rounded-xl border-2 border-red-200 p-8 shadow-xl">
+          <div className="text-center">
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <X className="h-8 w-8 text-red-600" />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Initialization Error</h2>
+            <p className="text-gray-600 mb-4">{initError}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-xl transition-all"
+            >
+              Reload Page
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
