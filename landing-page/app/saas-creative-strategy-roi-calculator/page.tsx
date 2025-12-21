@@ -6,7 +6,7 @@ import { ContentNavigation } from '@/components/layout/content-navigation';
 
 export const metadata: Metadata = {
   title: 'SaaS Creative Strategy ROI Calculator - Measure Creative Performance Impact',
-  description: 'Calculate the ROI of your SaaS creative strategy. Free calculator with scenario modeling and strategic recommendations for optimizing creative performance.'
+  description: 'Calculate the ROI of your SaaS creative strategy. Free calculator with scenario modeling and strategic recommendations for optimizing creative performance.',
   keywords: 'SaaS creative strategy, creative strategy ROI calculator, SaaS ad creative performance, creative strategy consultant, SaaS marketing creative optimization',
   openGraph: {
     title: 'SaaS Creative Strategy ROI Calculator - Optimize Your Creative Performance',

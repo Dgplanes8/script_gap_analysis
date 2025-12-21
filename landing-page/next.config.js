@@ -3,10 +3,7 @@ const nextConfig = {
   images: {
     domains: ['images.unsplash.com', 'avatars.githubusercontent.com'],
   },
-  // Force clean build to clear stale RSC module references
-  experimental: {
-    isrMemoryCacheSize: 0,
-  },
+  // Updated 2024-12-21: Clean build to resolve RSC module cache issues
 };
 
 module.exports = nextConfig;
