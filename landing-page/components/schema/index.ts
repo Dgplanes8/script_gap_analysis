@@ -3,7 +3,7 @@ export { OrganizationSchema } from './organization-schema';
 export { ArticleSchema } from './article-schema';
 export { BreadcrumbSchema } from './breadcrumb-schema';
 export { WebApplicationSchema } from './web-application-schema';
-export { FAQSchema } from './faq-schema';
+export { FAQSchema, FAQSection, SPECIALIZED_FAQS } from './faq-schema';
 export { StructuredData } from './structured-data';
 
 // Schema utilities exports
